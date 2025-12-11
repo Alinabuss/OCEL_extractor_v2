@@ -1,0 +1,104 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseRequisition",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Material",
+            "attributes": [
+                {
+                    "name": "net_price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Role",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "PurchaseRequisitionApproved",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_requisition:816:pr_trigger_816",
+            "type": "PurchaseRequisition",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "value": "003"
+                },
+                {
+                    "name": "status",
+                    "value": "complete",
+                    "time": "2024-06-10T16:19:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "material:2029",
+                    "qualifier": "linked-to"
+                }
+            ]
+        },
+        {
+            "id": "material:2029",
+            "type": "Material",
+            "attributes": [
+                {
+                    "name": "net_price",
+                    "value": "750.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "role:procurement_requisition_manager",
+            "type": "Role",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "procurement requisition manager"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "evt:1",
+            "type": "PurchaseRequisitionApproved",
+            "time": "2024-06-10T16:19:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchase_requisition:816:pr_trigger_816",
+                    "qualifier": "target"
+                },
+                {
+                    "objectId": "role:procurement_requisition_manager",
+                    "qualifier": "performed-by"
+                }
+            ]
+        }
+    ]
+}

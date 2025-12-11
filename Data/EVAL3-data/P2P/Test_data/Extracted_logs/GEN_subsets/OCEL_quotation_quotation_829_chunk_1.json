@@ -1,0 +1,100 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseRequisition",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Quotation",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Complete Request for Quotation Created",
+            "attributes": [
+                {
+                    "name": "createdBy",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_requisition:831:pr_trigger_831",
+            "type": "PurchaseRequisition",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "value": "002"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchasing_group:002",
+                    "qualifier": "partOf"
+                }
+            ]
+        },
+        {
+            "id": "quotation:829",
+            "type": "Quotation",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "value": "002"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchasing_group:002",
+                    "qualifier": "partOf"
+                }
+            ]
+        },
+        {
+            "id": "purchasing_group:002",
+            "type": "PurchasingGroup",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "evt-1",
+            "type": "Complete Request for Quotation Created",
+            "time": "2024-07-02T18:00:00Z",
+            "attributes": [
+                {
+                    "name": "createdBy",
+                    "value": "Procurement Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_requisition:831:pr_trigger_831",
+                    "qualifier": "linkedTo"
+                },
+                {
+                    "objectId": "quotation:829",
+                    "qualifier": "pertainsTo"
+                }
+            ]
+        }
+    ]
+}

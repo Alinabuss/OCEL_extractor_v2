@@ -1,0 +1,100 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseRequisition",
+            "attributes": []
+        },
+        {
+            "name": "Material",
+            "attributes": [
+                {
+                    "name": "net_price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": []
+        },
+        {
+            "name": "Person",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Purchase Requisition Approval",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Purchase Requisition[184:pr_trigger_184]",
+            "type": "PurchaseRequisition",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Material[443]",
+                    "qualifier": "associated_with"
+                },
+                {
+                    "objectId": "PurchasingGroup[004]",
+                    "qualifier": "belongs_to"
+                }
+            ]
+        },
+        {
+            "id": "Material[443]",
+            "type": "Material",
+            "attributes": [
+                {
+                    "name": "net_price",
+                    "time": "",
+                    "value": "950.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "PurchasingGroup[004]",
+            "type": "PurchasingGroup",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "procurement requisition manager",
+            "type": "Person",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "evt1",
+            "type": "Purchase Requisition Approval",
+            "time": "2022-09-10T16:49:00Z",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Purchase Requisition[184:pr_trigger_184]",
+                    "qualifier": "approved"
+                },
+                {
+                    "objectId": "procurement requisition manager",
+                    "qualifier": "completed_by"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,103 @@
+{
+    "objectTypes": [
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "departure_date",
+                    "type": "dateTime"
+                }
+            ]
+        },
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Booking",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "vh84",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "departure_date",
+                    "time": "2024-03-11T15:17:16Z",
+                    "value": "2024-03-15T11:00:00Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "vh89",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "departure_date",
+                    "time": "2024-03-11T15:17:16Z",
+                    "value": "2024-04-02T11:00:00Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "td383",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "time": "2024-03-11T15:17:16Z",
+                    "value": "5.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "vh84",
+                    "qualifier": "high-priority-vehicle"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Booking",
+            "time": "2024-03-11T15:17:16Z",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "booking"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "vh84",
+                    "qualifier": "booked-vehicle"
+                },
+                {
+                    "objectId": "vh89",
+                    "qualifier": "booked-vehicle"
+                },
+                {
+                    "objectId": "td383",
+                    "qualifier": "transport-document"
+                }
+            ]
+        }
+    ]
+}

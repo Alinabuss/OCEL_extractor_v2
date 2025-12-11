@@ -1,0 +1,183 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "fullName",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Guardianship",
+            "attributes": [
+                {
+                    "name": "scope",
+                    "type": "string"
+                },
+                {
+                    "name": "consentRequirement",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "LegalProvision",
+            "attributes": [
+                {
+                    "name": "code",
+                    "type": "string"
+                },
+                {
+                    "name": "articles",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Position",
+            "attributes": [
+                {
+                    "name": "title",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "DeclarePartialIncapacity",
+            "attributes": [
+                {
+                    "name": "degree",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PlaceUnderGuardianship",
+            "attributes": [
+                {
+                    "name": "scopeReference",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "p1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "fullName",
+                    "value": "Mr F.S.M."
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "g1",
+            "type": "Guardianship",
+            "attributes": [
+                {
+                    "name": "scope",
+                    "value": "scope and limits indicated in Articles 259 to 275 of the Civil Code"
+                },
+                {
+                    "name": "consentRequirement",
+                    "value": "consent of the person exercising the position of guardian is required to validly make decisions and enter into contracts, and to perform actions or make decisions or enter into contracts in the administrative sphere"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "p1",
+                    "qualifier": "appliesTo"
+                },
+                {
+                    "objectId": "law1",
+                    "qualifier": "basedOn"
+                },
+                {
+                    "objectId": "role1",
+                    "qualifier": "requiresConsentFrom"
+                }
+            ]
+        },
+        {
+            "id": "law1",
+            "type": "LegalProvision",
+            "attributes": [
+                {
+                    "name": "code",
+                    "value": "Civil Code"
+                },
+                {
+                    "name": "articles",
+                    "value": "259-275"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "role1",
+            "type": "Position",
+            "attributes": [
+                {
+                    "name": "title",
+                    "value": "guardian"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "DeclarePartialIncapacity",
+            "time": "2025-09-11T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "degree",
+                    "value": "partial"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "p1",
+                    "qualifier": "incapacitatedPerson"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "PlaceUnderGuardianship",
+            "time": "2025-09-11T00:00:01Z",
+            "attributes": [
+                {
+                    "name": "scopeReference",
+                    "value": "Articles 259 to 275 of the Civil Code"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "p1",
+                    "qualifier": "ward"
+                },
+                {
+                    "objectId": "g1",
+                    "qualifier": "establishes"
+                },
+                {
+                    "objectId": "law1",
+                    "qualifier": "refersTo"
+                },
+                {
+                    "objectId": "role1",
+                    "qualifier": "consentRequiredFrom"
+                }
+            ]
+        }
+    ]
+}

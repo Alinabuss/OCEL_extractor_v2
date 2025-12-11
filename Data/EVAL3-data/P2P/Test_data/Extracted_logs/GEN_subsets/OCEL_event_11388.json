@@ -1,0 +1,103 @@
+{
+    "objectTypes": [
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "float"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "Resource",
+            "attributes": [
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Complete Invoice Receipt Created",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt:735",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "value": "3750.0"
+                },
+                {
+                    "name": "status",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:730",
+                    "qualifier": "linkedTo"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt:730",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "resource:Finance/Account Department",
+            "type": "Resource",
+            "attributes": [
+                {
+                    "name": "department",
+                    "value": "Finance/Account Department"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "event:1",
+            "type": "Complete Invoice Receipt Created",
+            "time": "2023-04-14T01:13:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:735",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "resource:Finance/Account Department",
+                    "qualifier": "creator"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,112 @@
+{
+    "objectTypes": [
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Two-way Match Completed",
+            "attributes": [
+                {
+                    "name": "match_type",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "goods receipt:1708",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "value": "101",
+                    "time": "2024-07-08T10:17:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:1710",
+                    "qualifier": "matched_with"
+                }
+            ]
+        },
+        {
+            "id": "invoice receipt:1710",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "value": "1400.0",
+                    "time": "2024-07-08T10:17:00Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "department:Finance/Account",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Finance/Account Department",
+                    "time": "2024-07-08T10:17:00Z"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Two-way Match Completed",
+            "time": "2024-07-08T10:17:00Z",
+            "attributes": [
+                {
+                    "name": "match_type",
+                    "value": "two-way"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:1708",
+                    "qualifier": "goods_receipt"
+                },
+                {
+                    "objectId": "invoice receipt:1710",
+                    "qualifier": "invoice_receipt"
+                },
+                {
+                    "objectId": "department:Finance/Account",
+                    "qualifier": "completed_by"
+                }
+            ]
+        }
+    ]
+}

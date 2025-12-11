@@ -1,0 +1,103 @@
+{
+    "objectTypes": [
+        {
+            "name": "purchase_order",
+            "attributes": [
+                {
+                    "name": "lifecycle:status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "quotation",
+            "attributes": []
+        },
+        {
+            "name": "purchasing_group",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Purchase Order Created",
+            "attributes": [
+                {
+                    "name": "createdBy",
+                    "type": "string"
+                },
+                {
+                    "name": "success",
+                    "type": "boolean"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:437",
+            "type": "purchase_order",
+            "attributes": [
+                {
+                    "name": "lifecycle:status",
+                    "time": "2022-12-23T15:32:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:260",
+                    "qualifier": "associated"
+                },
+                {
+                    "objectId": "purchasing_group:004",
+                    "qualifier": "belongs-to"
+                }
+            ]
+        },
+        {
+            "id": "quotation:260",
+            "type": "quotation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchasing_group:004",
+                    "qualifier": "belongs-to"
+                }
+            ]
+        },
+        {
+            "id": "purchasing_group:004",
+            "type": "purchasing_group",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Purchase Order Created",
+            "time": "2022-12-23T15:32:00Z",
+            "attributes": [
+                {
+                    "name": "createdBy",
+                    "value": "Procurement Department"
+                },
+                {
+                    "name": "success",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:437",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "quotation:260",
+                    "qualifier": "associated"
+                }
+            ]
+        }
+    ]
+}

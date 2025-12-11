@@ -1,0 +1,225 @@
+{
+    "objectTypes": [
+        {
+            "name": "Incident",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "lastUpdate",
+                    "type": "timestamp"
+                }
+            ]
+        },
+        {
+            "name": "Agency",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PartnerGroup",
+            "attributes": [
+                {
+                    "name": "categories",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Response",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "fireType",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "HughesFire",
+            "type": "Incident",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Hughes Fire"
+                },
+                {
+                    "name": "lastUpdate",
+                    "time": "2025-01-22T14:17:00Z",
+                    "value": "01/22/2025 2:17 PM"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "USForestService",
+                    "qualifier": "unified-with"
+                },
+                {
+                    "objectId": "LosAngelesCountyFireDepartment",
+                    "qualifier": "unified-with"
+                },
+                {
+                    "objectId": "LACountySheriff",
+                    "qualifier": "assisted-by"
+                },
+                {
+                    "objectId": "CaliforniaHighwayPatrol_SouthernDivision",
+                    "qualifier": "assisted-by"
+                },
+                {
+                    "objectId": "Location_LakeHughesRd_North_of_CastaicReservoirRd_Castaic",
+                    "qualifier": "located-at"
+                }
+            ]
+        },
+        {
+            "id": "AngelesNationalForest",
+            "type": "Agency",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Angeles National Forest"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "CALFIRE",
+            "type": "Agency",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "CAL FIRE"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "USForestService",
+            "type": "Agency",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "U.S. Forest Service"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "LosAngelesCountyFireDepartment",
+            "type": "Agency",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Los Angeles County Fire Department"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "LACountySheriff",
+            "type": "Agency",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "LA County Sheriff"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "CaliforniaHighwayPatrol_SouthernDivision",
+            "type": "Agency",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "California Highway Patrol, Southern Division"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Location_LakeHughesRd_North_of_CastaicReservoirRd_Castaic",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "off Lake Hughes Rd North of Castaic Reservoir Rd, Castaic"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Partners_LocalStateFederalTribal",
+            "type": "PartnerGroup",
+            "attributes": [
+                {
+                    "name": "categories",
+                    "value": "local, state, federal, and tribal partners"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Response",
+            "time": "2025-01-22T14:17:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Firefighters from Angeles National Forest, as well as surged CAL FIRE and local, state, federal, and tribal partners, are responding to a brush fire located off Lake Hughes Rd North of Castaic Reservoir Rd, Castaic."
+                },
+                {
+                    "name": "fireType",
+                    "value": "brush fire"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "HughesFire",
+                    "qualifier": "incident"
+                },
+                {
+                    "objectId": "AngelesNationalForest",
+                    "qualifier": "responder"
+                },
+                {
+                    "objectId": "CALFIRE",
+                    "qualifier": "surged-responder"
+                },
+                {
+                    "objectId": "Partners_LocalStateFederalTribal",
+                    "qualifier": "responder"
+                },
+                {
+                    "objectId": "Location_LakeHughesRd_North_of_CastaicReservoirRd_Castaic",
+                    "qualifier": "location"
+                }
+            ]
+        }
+    ]
+}

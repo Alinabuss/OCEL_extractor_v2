@@ -1,0 +1,88 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "vehicleKind",
+                    "type": "string"
+                },
+                {
+                    "name": "scheduledDeparture",
+                    "type": "dateTime"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "VehicleBooked",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "td158",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "value": "4.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "vh39",
+                    "qualifier": "associatedWith"
+                }
+            ]
+        },
+        {
+            "id": "vh39",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "vehicleKind",
+                    "value": "regular"
+                },
+                {
+                    "name": "scheduledDeparture",
+                    "value": "2023-10-10T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td158",
+                    "qualifier": "associatedWith"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "VehicleBooked",
+            "time": "2023-09-20T10:09:29Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "vh39",
+                    "qualifier": "vehicle"
+                },
+                {
+                    "objectId": "td158",
+                    "qualifier": "transportDocument"
+                }
+            ]
+        }
+    ]
+}

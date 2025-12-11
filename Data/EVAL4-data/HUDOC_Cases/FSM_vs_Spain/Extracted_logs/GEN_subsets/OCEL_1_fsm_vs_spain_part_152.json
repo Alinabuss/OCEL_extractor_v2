@@ -1,0 +1,384 @@
+{
+    "objectTypes": [
+        {
+            "name": "Defendant",
+            "attributes": [
+                {
+                    "name": "healthStatus",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Offence",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "competent",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "SummaryProceeding",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Condition",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "noPossibilityOfRecovery",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "CriminalCodeProvision",
+            "attributes": [
+                {
+                    "name": "source",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "MentalDisturbanceOccurs",
+            "attributes": [
+                {
+                    "name": "note",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "SummaryProceedingsConcluded",
+            "attributes": []
+        },
+        {
+            "name": "CaseOrderedDiscontinued",
+            "attributes": [
+                {
+                    "name": "untilRestored",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "CriminalCodeProvisionsApplied",
+            "attributes": [
+                {
+                    "name": "appliesAsForMentalDisturbance",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "RecoveryConsidered",
+            "attributes": [
+                {
+                    "name": "resumptionMayBePossible",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "NoGuidanceForIrrecoverableConditions",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "def1",
+            "type": "Defendant",
+            "attributes": [
+                {
+                    "name": "healthStatus",
+                    "time": "2020-01-01T10:00:00Z",
+                    "value": "suffering from mental disturbance"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "off1",
+                    "qualifier": "committed"
+                }
+            ]
+        },
+        {
+            "id": "off1",
+            "type": "Offence",
+            "attributes": [
+                {
+                    "name": "status",
+                    "time": "2020-01-01T09:00:00Z",
+                    "value": "committed"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "court1",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "competent",
+                    "time": "2020-01-02T12:00:00Z",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "proc1",
+                    "qualifier": "competentFor"
+                }
+            ]
+        },
+        {
+            "id": "proc1",
+            "type": "SummaryProceeding",
+            "attributes": [
+                {
+                    "name": "status",
+                    "time": "2020-01-02T12:00:00Z",
+                    "value": "concluded"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "off1",
+                    "qualifier": "caseOf"
+                }
+            ]
+        },
+        {
+            "id": "cond1",
+            "type": "Condition",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2020-01-01T10:00:00Z",
+                    "value": "mental disturbance"
+                },
+                {
+                    "name": "noPossibilityOfRecovery",
+                    "time": "2020-01-01T10:00:00Z",
+                    "value": "false"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "cond2",
+            "type": "Condition",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2020-01-02T12:00:00Z",
+                    "value": "Alzheimer's disease"
+                },
+                {
+                    "name": "noPossibilityOfRecovery",
+                    "time": "2020-01-02T12:00:00Z",
+                    "value": "true"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "cond3",
+            "type": "Condition",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2020-01-02T12:00:00Z",
+                    "value": "dementia"
+                },
+                {
+                    "name": "noPossibilityOfRecovery",
+                    "time": "2020-01-02T12:00:00Z",
+                    "value": "true"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "ccp1",
+            "type": "CriminalCodeProvision",
+            "attributes": [
+                {
+                    "name": "source",
+                    "time": "2020-01-02T12:05:00Z",
+                    "value": "Criminal Code"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "cond1",
+                    "qualifier": "appliesToCondition"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "MentalDisturbanceOccurs",
+            "time": "2020-01-01T10:00:00Z",
+            "attributes": [
+                {
+                    "name": "note",
+                    "value": "occurs after the offence has been committed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "def1",
+                    "qualifier": "sufferer"
+                },
+                {
+                    "objectId": "cond1",
+                    "qualifier": "condition"
+                },
+                {
+                    "objectId": "off1",
+                    "qualifier": "afterOffence"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "SummaryProceedingsConcluded",
+            "time": "2020-01-02T12:00:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "proc1",
+                    "qualifier": "concluded"
+                },
+                {
+                    "objectId": "court1",
+                    "qualifier": "competentCourt"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "CaseOrderedDiscontinued",
+            "time": "2020-01-02T12:05:00Z",
+            "attributes": [
+                {
+                    "name": "untilRestored",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court1",
+                    "qualifier": "orderer"
+                },
+                {
+                    "objectId": "def1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "proc1",
+                    "qualifier": "case"
+                },
+                {
+                    "objectId": "cond1",
+                    "qualifier": "reason"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "CriminalCodeProvisionsApplied",
+            "time": "2020-01-02T12:05:00Z",
+            "attributes": [
+                {
+                    "name": "appliesAsForMentalDisturbance",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "ccp1",
+                    "qualifier": "provision"
+                },
+                {
+                    "objectId": "def1",
+                    "qualifier": "appliesTo"
+                },
+                {
+                    "objectId": "cond1",
+                    "qualifier": "context"
+                }
+            ]
+        },
+        {
+            "id": "e5",
+            "type": "RecoveryConsidered",
+            "time": "2020-01-02T12:05:00Z",
+            "attributes": [
+                {
+                    "name": "resumptionMayBePossible",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "def1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "cond1",
+                    "qualifier": "condition"
+                },
+                {
+                    "objectId": "court1",
+                    "qualifier": "considerer"
+                }
+            ]
+        },
+        {
+            "id": "e6",
+            "type": "NoGuidanceForIrrecoverableConditions",
+            "time": "2020-01-02T12:05:00Z",
+            "attributes": [
+                {
+                    "name": "note",
+                    "value": "nothing is said about situations where there is no possibility of recovery"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "cond2",
+                    "qualifier": "exampleNoRecovery"
+                },
+                {
+                    "objectId": "cond3",
+                    "qualifier": "exampleNoRecovery"
+                }
+            ]
+        }
+    ]
+}

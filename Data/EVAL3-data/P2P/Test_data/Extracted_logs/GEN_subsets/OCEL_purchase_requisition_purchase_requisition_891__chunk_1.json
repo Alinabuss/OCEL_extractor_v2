@@ -1,0 +1,80 @@
+{
+    "objectTypes": [
+        {
+            "name": "purchase_requisition",
+            "attributes": []
+        },
+        {
+            "name": "quotation",
+            "attributes": []
+        },
+        {
+            "name": "purchasing_group",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "CompleteRequestForQuotationCreated",
+            "attributes": [
+                {
+                    "name": "created_by",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_requisition:891:pr_trigger_891",
+            "type": "purchase_requisition",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "002",
+                    "qualifier": "linked_to"
+                },
+                {
+                    "objectId": "quotation:892",
+                    "qualifier": "corresponds_with"
+                }
+            ]
+        },
+        {
+            "id": "quotation:892",
+            "type": "quotation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "002",
+                    "qualifier": "associated_with"
+                }
+            ]
+        },
+        {
+            "id": "002",
+            "type": "purchasing_group",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "CompleteRequestForQuotationCreated",
+            "time": "2024-09-10T09:42:00Z",
+            "attributes": [
+                {
+                    "name": "created_by",
+                    "value": "Procurement Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_requisition:891:pr_trigger_891",
+                    "qualifier": "for"
+                }
+            ]
+        }
+    ]
+}

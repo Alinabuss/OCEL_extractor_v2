@@ -1,0 +1,95 @@
+{
+    "objectTypes": [
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "InvoiceReceiptCreation",
+            "attributes": [
+                {
+                    "name": "lifecycleStatus",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt[778]",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "value": "95000.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt[784]",
+                    "qualifier": "associated_with"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt[784]",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Finance/Account Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "InvoiceReceiptCreation",
+            "time": "2023-05-11T22:16:00Z",
+            "attributes": [
+                {
+                    "name": "lifecycleStatus",
+                    "value": "completed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt[778]",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "Finance/Account Department",
+                    "qualifier": "performed_by"
+                }
+            ]
+        }
+    ]
+}

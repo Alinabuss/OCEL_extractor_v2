@@ -1,0 +1,147 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Crew",
+            "attributes": [
+                {
+                    "name": "designation",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "StatusUpdate",
+            "attributes": [
+                {
+                    "name": "message",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "RepopulationCompleted",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire-1",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-21T20:31:00Z",
+                    "value": "Lilac Fire"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "loc-1",
+                    "qualifier": "located_near"
+                }
+            ]
+        },
+        {
+            "id": "loc-1",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-21T20:31:00Z",
+                    "value": "Old Highway 395 and Lilac Road"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "crew-1",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "designation",
+                    "time": "2025-01-21T20:31:00Z",
+                    "value": "fire crew"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "assigned_to"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "StatusUpdate",
+            "time": "2025-01-21T20:31:00Z",
+            "attributes": [
+                {
+                    "name": "message",
+                    "value": "The fire is located near Old Highway 395 and Lilac Road. The forward rate of spread has been stopped. Fire crew will continue to build containment lines and extinguish hotspots within the fire's perimeter."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "loc-1",
+                    "qualifier": "location"
+                },
+                {
+                    "objectId": "crew-1",
+                    "qualifier": "actor"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "RepopulationCompleted",
+            "time": "2025-01-21T20:00:00Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "completed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "loc-1",
+                    "qualifier": "location"
+                }
+            ]
+        }
+    ]
+}

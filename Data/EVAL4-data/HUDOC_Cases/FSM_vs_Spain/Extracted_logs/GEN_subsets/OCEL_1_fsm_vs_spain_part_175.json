@@ -1,0 +1,238 @@
+{
+    "objectTypes": [
+        {
+            "name": "Country",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "legalSystem",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Process",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PersonGroup",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "diagnosis",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Role",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "AskForProceduralAdjustment",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "JudgeMakesAdjustmentOfOwnMotion",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "org_CouncilOfEurope",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Council of Europe",
+                    "time": ""
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "country_Ireland",
+            "type": "Country",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Ireland",
+                    "time": ""
+                },
+                {
+                    "name": "legalSystem",
+                    "value": "adversarial",
+                    "time": ""
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "org_CouncilOfEurope",
+                    "qualifier": "memberOf"
+                },
+                {
+                    "objectId": "proc_CriminalProceedings",
+                    "qualifier": "allowsAskForProceduralAdjustmentsDuring"
+                },
+                {
+                    "objectId": "group_PersonsWithMentalIllness",
+                    "qualifier": "forPersonsDiagnosedWithMentalIllness"
+                },
+                {
+                    "objectId": "role_Lawyer",
+                    "qualifier": "requesterRole"
+                },
+                {
+                    "objectId": "role_Judge",
+                    "qualifier": "judgeDoesNotMakeAdjustmentsOfOwnMotion"
+                }
+            ]
+        },
+        {
+            "id": "country_France",
+            "type": "Country",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "France",
+                    "time": ""
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "org_CouncilOfEurope",
+                    "qualifier": "memberOf"
+                },
+                {
+                    "objectId": "proc_CriminalProceedings",
+                    "qualifier": "allowsAskForProceduralAdjustmentsDuring"
+                },
+                {
+                    "objectId": "group_PersonsWithMentalIllness",
+                    "qualifier": "forPersonsDiagnosedWithMentalIllness"
+                }
+            ]
+        },
+        {
+            "id": "country_Luxembourg",
+            "type": "Country",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Luxembourg",
+                    "time": ""
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "org_CouncilOfEurope",
+                    "qualifier": "memberOf"
+                },
+                {
+                    "objectId": "proc_CriminalProceedings",
+                    "qualifier": "allowsAskForProceduralAdjustmentsDuring"
+                },
+                {
+                    "objectId": "group_PersonsWithMentalIllness",
+                    "qualifier": "forPersonsDiagnosedWithMentalIllness"
+                }
+            ]
+        },
+        {
+            "id": "proc_CriminalProceedings",
+            "type": "Process",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "criminal proceedings",
+                    "time": ""
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "group_PersonsWithMentalIllness",
+                    "qualifier": "inRespectOf"
+                }
+            ]
+        },
+        {
+            "id": "group_PersonsWithMentalIllness",
+            "type": "PersonGroup",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "persons diagnosed with a mental illness",
+                    "time": ""
+                },
+                {
+                    "name": "diagnosis",
+                    "value": "mental illness",
+                    "time": ""
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "role_Lawyer",
+            "type": "Role",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "lawyers",
+                    "time": ""
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "role_Judge",
+            "type": "Role",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "judge",
+                    "time": ""
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": []
+}

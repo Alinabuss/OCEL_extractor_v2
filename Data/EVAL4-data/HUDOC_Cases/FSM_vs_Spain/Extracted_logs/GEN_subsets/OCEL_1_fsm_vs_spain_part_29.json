@@ -1,0 +1,140 @@
+{
+    "objectTypes": [
+        {
+            "name": "Report",
+            "attributes": [
+                {
+                    "name": "ordinal",
+                    "type": "string"
+                },
+                {
+                    "name": "dateIssued",
+                    "type": "string"
+                },
+                {
+                    "name": "stated_history_of_mental_illnesses",
+                    "type": "string"
+                },
+                {
+                    "name": "no_medical_reports_confirming_origins",
+                    "type": "string"
+                },
+                {
+                    "name": "stated_ability_to_identify_right_and_wrong",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Applicant",
+            "attributes": []
+        },
+        {
+            "name": "ForensicExpert",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Report Issued",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "report_2",
+            "type": "Report",
+            "attributes": [
+                {
+                    "name": "ordinal",
+                    "time": "2018-05-22T00:00:00Z",
+                    "value": "second"
+                },
+                {
+                    "name": "dateIssued",
+                    "time": "2018-05-22T00:00:00Z",
+                    "value": "2018-05-22T00:00:00Z"
+                },
+                {
+                    "name": "stated_history_of_mental_illnesses",
+                    "time": "2018-05-22T00:00:00Z",
+                    "value": "attention deficit hyperactivity disorder; personality disorder; cognitive impairment"
+                },
+                {
+                    "name": "no_medical_reports_confirming_origins",
+                    "time": "2018-05-22T00:00:00Z",
+                    "value": "true"
+                },
+                {
+                    "name": "stated_ability_to_identify_right_and_wrong",
+                    "time": "2018-05-22T00:00:00Z",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "expert_1",
+                    "qualifier": "issued_by"
+                }
+            ]
+        },
+        {
+            "id": "applicant_1",
+            "type": "Applicant",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "report_2",
+                    "qualifier": "subject_of"
+                }
+            ]
+        },
+        {
+            "id": "expert_1",
+            "type": "ForensicExpert",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "report_2",
+                    "qualifier": "issued"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Report Issued",
+            "time": "2018-05-22T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Forensic expert issued a second report on the applicant's condition noting history of mental illnesses (attention deficit hyperactivity disorder, personality disorder, cognitive impairment), absence of medical reports confirming origins and development, and that the applicant could identify the difference between right and wrong and act accordingly."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "report_2",
+                    "qualifier": "document"
+                },
+                {
+                    "objectId": "expert_1",
+                    "qualifier": "issuer"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "subject"
+                }
+            ]
+        }
+    ]
+}

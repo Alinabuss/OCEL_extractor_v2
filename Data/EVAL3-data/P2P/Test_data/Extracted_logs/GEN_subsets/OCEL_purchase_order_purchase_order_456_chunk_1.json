@@ -1,0 +1,109 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "lifecycle_status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Quotation",
+            "attributes": []
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": []
+        },
+        {
+            "name": "OrganizationalUnit",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Purchase Order Creation Completed",
+            "attributes": [
+                {
+                    "name": "outcome",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:456",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "lifecycle_status",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:265",
+                    "qualifier": "corresponds_to"
+                },
+                {
+                    "objectId": "purchasing_group:004",
+                    "qualifier": "associated_with"
+                }
+            ]
+        },
+        {
+            "id": "quotation:265",
+            "type": "Quotation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchasing_group:004",
+                    "qualifier": "associated_with"
+                }
+            ]
+        },
+        {
+            "id": "purchasing_group:004",
+            "type": "PurchasingGroup",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "department:procurement",
+            "type": "OrganizationalUnit",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "procurement department"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "evt:1",
+            "type": "Purchase Order Creation Completed",
+            "time": "2023-01-04T17:52:00Z",
+            "attributes": [
+                {
+                    "name": "outcome",
+                    "value": "successful"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:456",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "department:procurement",
+                    "qualifier": "performer"
+                }
+            ]
+        }
+    ]
+}

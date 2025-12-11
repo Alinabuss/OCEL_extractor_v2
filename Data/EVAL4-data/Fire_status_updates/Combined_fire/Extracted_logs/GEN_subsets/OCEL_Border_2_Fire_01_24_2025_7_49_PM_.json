@@ -1,0 +1,245 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "behavior",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Weather",
+            "attributes": [
+                {
+                    "name": "winds",
+                    "type": "string"
+                },
+                {
+                    "name": "humidity",
+                    "type": "string"
+                },
+                {
+                    "name": "precipitation_forecast",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Resource",
+            "attributes": [
+                {
+                    "name": "category",
+                    "type": "string"
+                },
+                {
+                    "name": "capability",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "SituationReport",
+            "attributes": [
+                {
+                    "name": "uphill_runs",
+                    "type": "string"
+                },
+                {
+                    "name": "winds",
+                    "type": "string"
+                },
+                {
+                    "name": "short_range_spotting",
+                    "type": "string"
+                },
+                {
+                    "name": "fuel_receptivity",
+                    "type": "string"
+                },
+                {
+                    "name": "humidity",
+                    "type": "string"
+                },
+                {
+                    "name": "precipitation_forecast",
+                    "type": "string"
+                },
+                {
+                    "name": "suppression_actions",
+                    "type": "string"
+                },
+                {
+                    "name": "air_support",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire-border-2",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-24T19:49:00Z",
+                    "value": "Border 2 Fire"
+                },
+                {
+                    "name": "behavior",
+                    "time": "2025-01-24T19:49:00Z",
+                    "value": "making uphill runs; short-range spotting; fuels very receptive to ignition"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "weather-2025-01-24T19:49",
+                    "qualifier": "influenced-by"
+                }
+            ]
+        },
+        {
+            "id": "weather-2025-01-24T19:49",
+            "type": "Weather",
+            "attributes": [
+                {
+                    "name": "winds",
+                    "time": "2025-01-24T19:49:00Z",
+                    "value": "shifting"
+                },
+                {
+                    "name": "humidity",
+                    "time": "2025-01-24T19:49:00Z",
+                    "value": "very low; will continue overnight"
+                },
+                {
+                    "name": "precipitation_forecast",
+                    "time": "2025-01-24T19:49:00Z",
+                    "value": "possibility of rain over the fire area from Saturday night into Monday"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "res-bull-dozers",
+            "type": "Resource",
+            "attributes": [
+                {
+                    "name": "category",
+                    "time": "2025-01-24T19:49:00Z",
+                    "value": "Bull dozers"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "res-hand-crews",
+            "type": "Resource",
+            "attributes": [
+                {
+                    "name": "category",
+                    "time": "2025-01-24T19:49:00Z",
+                    "value": "hand crews"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "res-helicopters",
+            "type": "Resource",
+            "attributes": [
+                {
+                    "name": "category",
+                    "time": "2025-01-24T19:49:00Z",
+                    "value": "helicopters"
+                },
+                {
+                    "name": "capability",
+                    "time": "2025-01-24T19:49:00Z",
+                    "value": "water dropping"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "res-bull-dozers",
+                    "qualifier": "supports"
+                },
+                {
+                    "objectId": "res-hand-crews",
+                    "qualifier": "supports"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "SituationReport",
+            "time": "2025-01-24T19:49:00Z",
+            "attributes": [
+                {
+                    "name": "uphill_runs",
+                    "value": "making uphill runs"
+                },
+                {
+                    "name": "winds",
+                    "value": "influenced by shifting winds"
+                },
+                {
+                    "name": "short_range_spotting",
+                    "value": "continues"
+                },
+                {
+                    "name": "fuel_receptivity",
+                    "value": "fuels are very receptive to ignition"
+                },
+                {
+                    "name": "humidity",
+                    "value": "very low; will continue overnight"
+                },
+                {
+                    "name": "precipitation_forecast",
+                    "value": "possibility of rain over the fire area from Saturday night into Monday"
+                },
+                {
+                    "name": "suppression_actions",
+                    "value": "Bull dozers and hand crews will continue to work overnight establishing containment lines"
+                },
+                {
+                    "name": "air_support",
+                    "value": "supported from the air by water dropping helicopters"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-border-2",
+                    "qualifier": "reports-on"
+                },
+                {
+                    "objectId": "weather-2025-01-24T19:49",
+                    "qualifier": "reports-on"
+                },
+                {
+                    "objectId": "res-bull-dozers",
+                    "qualifier": "involves"
+                },
+                {
+                    "objectId": "res-hand-crews",
+                    "qualifier": "involves"
+                },
+                {
+                    "objectId": "res-helicopters",
+                    "qualifier": "involves"
+                }
+            ]
+        }
+    ]
+}

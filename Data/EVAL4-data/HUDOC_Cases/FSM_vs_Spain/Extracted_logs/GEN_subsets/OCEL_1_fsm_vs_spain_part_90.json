@@ -1,0 +1,178 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Judgment",
+            "attributes": [
+                {
+                    "name": "date",
+                    "type": "date"
+                },
+                {
+                    "name": "judgmentType",
+                    "type": "string"
+                },
+                {
+                    "name": "court",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "JudgmentIssued",
+            "attributes": [
+                {
+                    "name": "court",
+                    "type": "string"
+                },
+                {
+                    "name": "judgmentType",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "lawyer",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "lawyer"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "decision_2018-07-26",
+                    "qualifier": "didNotAppealAgainst"
+                }
+            ]
+        },
+        {
+            "id": "applicant",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "applicant"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "incapacitation_2016-10-11",
+                    "qualifier": "didNotAppealAgainst"
+                },
+                {
+                    "objectId": "incapacitation_2016-10-11",
+                    "qualifier": "didNotRequestReview"
+                }
+            ]
+        },
+        {
+            "id": "decision_2018-07-26",
+            "type": "Judgment",
+            "attributes": [
+                {
+                    "name": "date",
+                    "value": "2018-07-26"
+                },
+                {
+                    "name": "court",
+                    "value": "Audiencia Provincial"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "audiencia_provincial",
+                    "qualifier": "issuedBy"
+                }
+            ]
+        },
+        {
+            "id": "incapacitation_2016-10-11",
+            "type": "Judgment",
+            "attributes": [
+                {
+                    "name": "date",
+                    "value": "2016-10-11"
+                },
+                {
+                    "name": "judgmentType",
+                    "value": "incapacitation"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "audiencia_provincial",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Audiencia Provincial"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "JudgmentIssued",
+            "time": "2018-07-26T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "court",
+                    "value": "Audiencia Provincial"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "decision_2018-07-26",
+                    "qualifier": "result"
+                },
+                {
+                    "objectId": "audiencia_provincial",
+                    "qualifier": "issuer"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "JudgmentIssued",
+            "time": "2016-10-11T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "judgmentType",
+                    "value": "incapacitation"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "incapacitation_2016-10-11",
+                    "qualifier": "result"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,106 @@
+{
+    "objectTypes": [
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "GoodsReceipt Creation",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "goods receipt:71",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "time": "2022-05-17T07:33:00Z",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:64",
+                    "qualifier": "associated_with"
+                }
+            ]
+        },
+        {
+            "id": "purchase_order:64",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "value": "001"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Warehouse Department",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Warehouse Department"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "event:1",
+            "type": "GoodsReceipt Creation",
+            "time": "2022-05-17T07:33:00Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "completed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:71",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "Warehouse Department",
+                    "qualifier": "completed_by"
+                }
+            ]
+        }
+    ]
+}

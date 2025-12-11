@@ -1,0 +1,138 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Position",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "number"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Reorder",
+            "attributes": [
+                {
+                    "name": "reorderPrice",
+                    "type": "number"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o-Person-MahsaBafrani",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Mahsa Bafrani",
+                    "time": "2023-12-20T12:51:26Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-Position-warehousing",
+                    "qualifier": "holds"
+                }
+            ]
+        },
+        {
+            "id": "o-Position-warehousing",
+            "type": "Position",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "warehousing",
+                    "time": "2023-12-20T12:51:26Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o-Product-MacBookAir",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "MacBook Air",
+                    "time": "2023-12-20T12:51:26Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-885449",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "2472.8",
+                    "time": "2023-12-20T12:51:26Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-Product-MacBookAir",
+                    "qualifier": "associatedWith"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e-1",
+            "type": "Reorder",
+            "time": "2023-12-20T12:51:26Z",
+            "attributes": [
+                {
+                    "name": "reorderPrice",
+                    "value": "2200.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-Person-MahsaBafrani",
+                    "qualifier": "performedBy"
+                },
+                {
+                    "objectId": "i-885449",
+                    "qualifier": "reorderedItem"
+                },
+                {
+                    "objectId": "o-Product-MacBookAir",
+                    "qualifier": "relatedProduct"
+                }
+            ]
+        }
+    ]
+}

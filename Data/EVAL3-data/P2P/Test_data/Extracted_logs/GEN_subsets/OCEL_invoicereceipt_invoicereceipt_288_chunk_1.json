@@ -1,0 +1,107 @@
+{
+    "objectTypes": [
+        {
+            "name": "GoodsReceipt",
+            "attributes": []
+        },
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Goods Receipt Processed",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "integer"
+                },
+                {
+                    "name": "matchType",
+                    "type": "string"
+                },
+                {
+                    "name": "matchStatus",
+                    "type": "string"
+                },
+                {
+                    "name": "performedBy",
+                    "type": "string"
+                },
+                {
+                    "name": "transactionLifecycleStatus",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "goods receipt:288",
+            "type": "GoodsReceipt",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:288",
+                    "qualifier": "matched_with"
+                }
+            ]
+        },
+        {
+            "id": "invoice receipt:288",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "value": "47700.0"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Goods Receipt Processed",
+            "time": "2022-08-29T15:00:00Z",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "value": "101"
+                },
+                {
+                    "name": "matchType",
+                    "value": "two-way"
+                },
+                {
+                    "name": "matchStatus",
+                    "value": "completed"
+                },
+                {
+                    "name": "performedBy",
+                    "value": "finance and account department"
+                },
+                {
+                    "name": "transactionLifecycleStatus",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:288",
+                    "qualifier": "goodsReceipt"
+                },
+                {
+                    "objectId": "invoice receipt:288",
+                    "qualifier": "relatedInvoice"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,138 @@
+{
+    "objectTypes": [
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Role",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "number"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Pick",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Benedikt Knopp",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Benedikt Knopp"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Warehousing",
+                    "qualifier": "in-role"
+                }
+            ]
+        },
+        {
+            "id": "Warehousing",
+            "type": "Role",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-887162",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "MacBook Pro"
+                },
+                {
+                    "name": "price",
+                    "value": "2946.5"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "macbookpro-2500",
+                    "qualifier": "related-to"
+                }
+            ]
+        },
+        {
+            "id": "macbookpro-2500",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "MacBook Pro"
+                },
+                {
+                    "name": "price",
+                    "value": "2500.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "i-887162",
+                    "qualifier": "related-to"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Pick",
+            "time": "2024-02-29T10:55:19Z",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "picked"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Benedikt Knopp",
+                    "qualifier": "performed-by"
+                },
+                {
+                    "objectId": "i-887162",
+                    "qualifier": "picked-item"
+                }
+            ]
+        }
+    ]
+}

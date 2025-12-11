@@ -1,0 +1,91 @@
+{
+    "objectTypes": [
+        {
+            "name": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "number"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "integer"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "InvoiceReceiptCreated",
+            "attributes": [
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt:1768",
+            "type": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "status",
+                    "time": "2024-07-24T10:34:00Z",
+                    "value": "complete"
+                },
+                {
+                    "name": "creditAmount",
+                    "time": "2024-07-24T10:34:00Z",
+                    "value": "32500.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "goods receipt:1768",
+            "type": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "time": "2024-07-24T10:34:00Z",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "InvoiceReceiptCreated",
+            "time": "2024-07-24T10:34:00Z",
+            "attributes": [
+                {
+                    "name": "department",
+                    "value": "Finance/Account Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:1768",
+                    "qualifier": "creates"
+                },
+                {
+                    "objectId": "goods receipt:1768",
+                    "qualifier": "associated"
+                }
+            ]
+        }
+    ]
+}

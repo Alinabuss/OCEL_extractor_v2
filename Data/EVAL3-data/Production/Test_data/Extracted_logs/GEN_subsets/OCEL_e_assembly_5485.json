@@ -1,0 +1,145 @@
+{
+    "objectTypes": [
+        {
+            "name": "MalePart",
+            "attributes": [
+                {
+                    "name": "mass",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "FemalePart",
+            "attributes": [
+                {
+                    "name": "mass",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "SteelPin",
+            "attributes": [
+                {
+                    "name": "mass",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Hinge",
+            "attributes": [
+                {
+                    "name": "mass",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Workstation",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Assembly",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "type": "integer"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o_malepart_5465",
+            "type": "MalePart",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "o_femalepart_5485",
+            "type": "FemalePart",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "o_steelpin_1598",
+            "type": "SteelPin",
+            "attributes": [
+                {
+                    "name": "mass",
+                    "value": "0.001"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_hinge_5485",
+            "type": "Hinge",
+            "attributes": [
+                {
+                    "name": "mass",
+                    "value": "0.18577"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_malepart_5465",
+                    "qualifier": "assembled_from"
+                },
+                {
+                    "objectId": "o_femalepart_5485",
+                    "qualifier": "assembled_from"
+                },
+                {
+                    "objectId": "o_steelpin_1598",
+                    "qualifier": "assembled_from"
+                }
+            ]
+        },
+        {
+            "id": "o_workstation_3",
+            "type": "Workstation",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e_assembly_1",
+            "type": "Assembly",
+            "time": "2023-04-06T15:41:34Z",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "value": "5"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_malepart_5465",
+                    "qualifier": "input"
+                },
+                {
+                    "objectId": "o_femalepart_5485",
+                    "qualifier": "input"
+                },
+                {
+                    "objectId": "o_steelpin_1598",
+                    "qualifier": "used"
+                },
+                {
+                    "objectId": "o_hinge_5485",
+                    "qualifier": "output"
+                },
+                {
+                    "objectId": "o_workstation_3",
+                    "qualifier": "performed_at"
+                }
+            ]
+        }
+    ]
+}

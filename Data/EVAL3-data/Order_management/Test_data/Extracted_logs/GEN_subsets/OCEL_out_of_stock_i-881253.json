@@ -1,0 +1,127 @@
+{
+    "objectTypes": [
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Report Out of Stock",
+            "attributes": [
+                {
+                    "name": "issue",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "emp_Detlef_Wetzeler",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Detlef Wetzeler"
+                },
+                {
+                    "name": "role",
+                    "value": "involved in warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "product_Fire_Stick_4K",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Fire Stick 4K"
+                },
+                {
+                    "name": "price",
+                    "value": "89.99",
+                    "time": "2023-06-14T07:35:22Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "item_corresponding_1",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "95.13",
+                    "time": "2023-06-14T07:35:22Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product_Fire_Stick_4K",
+                    "qualifier": "corresponds-to"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Report Out of Stock",
+            "time": "2023-06-14T07:35:22Z",
+            "attributes": [
+                {
+                    "name": "issue",
+                    "value": "out of stock"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "emp_Detlef_Wetzeler",
+                    "qualifier": "reporter"
+                },
+                {
+                    "objectId": "product_Fire_Stick_4K",
+                    "qualifier": "product"
+                },
+                {
+                    "objectId": "item_corresponding_1",
+                    "qualifier": "item"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,206 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": [
+                {
+                    "name": "applicationId",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Vacancy",
+            "attributes": [
+                {
+                    "name": "vacancyId",
+                    "type": "string"
+                },
+                {
+                    "name": "title",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Interview",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Rejection Sent",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Vaishnavi Sashikanth",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Vaishnavi Sashikanth"
+                },
+                {
+                    "name": "role",
+                    "value": "manager"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Dave Jansen",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Dave Jansen"
+                },
+                {
+                    "name": "role",
+                    "value": "applicant"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Application[770195]",
+                    "qualifier": "applied-for"
+                }
+            ]
+        },
+        {
+            "id": "Ed Geisler",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Ed Geisler"
+                },
+                {
+                    "name": "role",
+                    "value": "recruiter"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Application[770195]",
+            "type": "Application",
+            "attributes": [
+                {
+                    "name": "applicationId",
+                    "value": "770195"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Vacancy[550001]",
+                    "qualifier": "for-vacancy"
+                },
+                {
+                    "objectId": "Dave Jansen",
+                    "qualifier": "applicant"
+                }
+            ]
+        },
+        {
+            "id": "Vacancy[550001]",
+            "type": "Vacancy",
+            "attributes": [
+                {
+                    "name": "vacancyId",
+                    "value": "550001"
+                },
+                {
+                    "name": "title",
+                    "value": "Manager"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Interview",
+            "time": "2019-07-03T18:10:01Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Vaishnavi Sashikanth, a manager, conducted an interview with applicant Dave Jansen concerning Application[770195] for Vacancy[550001] - Manager. Ed Geisler, the recruiter, was also involved."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Vaishnavi Sashikanth",
+                    "qualifier": "interviewer"
+                },
+                {
+                    "objectId": "Dave Jansen",
+                    "qualifier": "interviewee"
+                },
+                {
+                    "objectId": "Ed Geisler",
+                    "qualifier": "recruiter"
+                },
+                {
+                    "objectId": "Application[770195]",
+                    "qualifier": "application"
+                },
+                {
+                    "objectId": "Vacancy[550001]",
+                    "qualifier": "vacancy"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "Rejection Sent",
+            "time": "2019-07-04T09:44:51Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Ed Geisler sent a rejection notification to Dave Jansen regarding Application[770195]."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Ed Geisler",
+                    "qualifier": "sender"
+                },
+                {
+                    "objectId": "Dave Jansen",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "Application[770195]",
+                    "qualifier": "application"
+                }
+            ]
+        }
+    ]
+}

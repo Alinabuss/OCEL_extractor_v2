@@ -1,0 +1,188 @@
+{
+    "objectTypes": [
+        {
+            "name": "Incident",
+            "attributes": [
+                {
+                    "name": "classification",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Infrastructure",
+            "attributes": [
+                {
+                    "name": "category",
+                    "type": "string"
+                },
+                {
+                    "name": "criticality",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ResponderUnit",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "OnScene",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ThreatToInfrastructure",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Border 2 Fire",
+            "type": "Incident",
+            "attributes": [
+                {
+                    "name": "classification",
+                    "time": "2025-01-24T01:58:00Z",
+                    "value": "vegetation fire"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Otay Mountain Truck Trail",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-24T01:58:00Z",
+                    "value": "Otay Mountain Truck Trail"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Otay Mountain Wilderness",
+                    "qualifier": "within"
+                }
+            ]
+        },
+        {
+            "id": "Otay Mountain Wilderness",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-24T01:58:00Z",
+                    "value": "Otay Mountain Wilderness"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Otay Mountain Repeater Site",
+            "type": "Infrastructure",
+            "attributes": [
+                {
+                    "name": "category",
+                    "time": "2025-01-24T01:58:00Z",
+                    "value": "communication"
+                },
+                {
+                    "name": "criticality",
+                    "time": "2025-01-24T01:58:00Z",
+                    "value": "critical"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Firefighters",
+            "type": "ResponderUnit",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-24T01:58:00Z",
+                    "value": "Firefighters"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "OnScene",
+            "time": "2025-01-24T01:58:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Firefighters are on scene of a vegetation fire located near Otay Mountain Truck Trail within the Otay Mountain Wilderness."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Firefighters",
+                    "qualifier": "on-scene"
+                },
+                {
+                    "objectId": "Border 2 Fire",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "Otay Mountain Truck Trail",
+                    "qualifier": "near"
+                },
+                {
+                    "objectId": "Otay Mountain Wilderness",
+                    "qualifier": "within"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "ThreatToInfrastructure",
+            "time": "2025-01-24T01:58:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "There is a threat to critical communication infrastructure on Otay Mountain Repeater Site."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Otay Mountain Repeater Site",
+                    "qualifier": "threatened"
+                },
+                {
+                    "objectId": "Border 2 Fire",
+                    "qualifier": "about"
+                }
+            ]
+        }
+    ]
+}

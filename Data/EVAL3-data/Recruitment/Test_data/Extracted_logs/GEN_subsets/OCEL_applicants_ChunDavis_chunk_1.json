@@ -1,0 +1,143 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": []
+        },
+        {
+            "name": "Vacancy",
+            "attributes": [
+                {
+                    "name": "title",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Rejection Sent",
+            "attributes": []
+        },
+        {
+            "name": "Application Submitted",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "Person[Ed Meister]",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Ed Meister"
+                },
+                {
+                    "name": "role",
+                    "value": "recruiter"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Person[Chun Davis]",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Chun Davis"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Application[770146]",
+            "type": "Application",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Person[Chun Davis]",
+                    "qualifier": "applicant"
+                }
+            ]
+        },
+        {
+            "id": "Application[770383]",
+            "type": "Application",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Person[Chun Davis]",
+                    "qualifier": "applicant"
+                },
+                {
+                    "objectId": "Vacancy[550022]",
+                    "qualifier": "for"
+                }
+            ]
+        },
+        {
+            "id": "Vacancy[550022]",
+            "type": "Vacancy",
+            "attributes": [
+                {
+                    "name": "title",
+                    "value": "Programmer"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Rejection Sent",
+            "time": "2019-07-01T14:57:18Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Person[Ed Meister]",
+                    "qualifier": "sender"
+                },
+                {
+                    "objectId": "Application[770146]",
+                    "qualifier": "for"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Application Submitted",
+            "time": "2019-07-02T17:24:18Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Person[Chun Davis]",
+                    "qualifier": "submitter"
+                },
+                {
+                    "objectId": "Application[770383]",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "Vacancy[550022]",
+                    "qualifier": "for"
+                }
+            ]
+        }
+    ]
+}

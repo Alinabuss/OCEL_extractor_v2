@@ -1,0 +1,146 @@
+{
+    "objectTypes": [
+        {
+            "name": "Defendant",
+            "attributes": [
+                {
+                    "name": "incapacity",
+                    "type": "string"
+                },
+                {
+                    "name": "causeOfIncapacity",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Lawyer",
+            "attributes": []
+        },
+        {
+            "name": "CriminalProceeding",
+            "attributes": []
+        },
+        {
+            "name": "Situation",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "NoProvisionForSituation",
+            "attributes": [
+                {
+                    "name": "statement",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "defendant_1",
+            "type": "Defendant",
+            "attributes": [
+                {
+                    "name": "incapacity",
+                    "time": "",
+                    "value": "partial"
+                },
+                {
+                    "name": "causeOfIncapacity",
+                    "time": "",
+                    "value": "mental illness"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "lawyer_1",
+                    "qualifier": "represented_by"
+                },
+                {
+                    "objectId": "proceeding_1",
+                    "qualifier": "present_in"
+                },
+                {
+                    "objectId": "situation_1",
+                    "qualifier": "in_situation"
+                }
+            ]
+        },
+        {
+            "id": "lawyer_1",
+            "type": "Lawyer",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "defendant_1",
+                    "qualifier": "represents"
+                }
+            ]
+        },
+        {
+            "id": "proceeding_1",
+            "type": "CriminalProceeding",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "situation_1",
+            "type": "Situation",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "",
+                    "value": "a defendant with partial incapacity as a result of a mental illness is able to be present during the criminal proceedings but might need some assistance despite representation by a lawyer in order to understand the process and defend properly"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "defendant_1",
+                    "qualifier": "concerns"
+                },
+                {
+                    "objectId": "proceeding_1",
+                    "qualifier": "during"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "NoProvisionForSituation",
+            "time": "2020-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "statement",
+                    "value": "there is no provision for a situation where a defendant with partial incapacity as a result of a mental illness is able to be present during the criminal proceedings but, notwithstanding his or her representation by a lawyer, might need some assistance in order to be able to understand the process and defend himself or herself properly"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "situation_1",
+                    "qualifier": "situation"
+                },
+                {
+                    "objectId": "defendant_1",
+                    "qualifier": "defendant"
+                },
+                {
+                    "objectId": "lawyer_1",
+                    "qualifier": "lawyer"
+                },
+                {
+                    "objectId": "proceeding_1",
+                    "qualifier": "proceeding"
+                }
+            ]
+        }
+    ]
+}

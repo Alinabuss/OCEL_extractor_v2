@@ -1,0 +1,106 @@
+{
+    "objectTypes": [
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "float"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "GoodsReceipt",
+            "attributes": []
+        },
+        {
+            "name": "MovementType",
+            "attributes": [
+                {
+                    "name": "transactionType",
+                    "type": "integer"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Create Invoice Receipt",
+            "attributes": [
+                {
+                    "name": "createdBy",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt:418",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "status",
+                    "time": "2022-10-13T13:52:00Z",
+                    "value": "complete"
+                },
+                {
+                    "name": "creditAmount",
+                    "time": "2022-10-13T13:52:00Z",
+                    "value": "48500.00"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:418",
+                    "qualifier": "linked_to"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt:418",
+            "type": "GoodsReceipt",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "movement type:101",
+                    "qualifier": "associated_with"
+                }
+            ]
+        },
+        {
+            "id": "movement type:101",
+            "type": "MovementType",
+            "attributes": [
+                {
+                    "name": "transactionType",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Create Invoice Receipt",
+            "time": "2022-10-13T13:52:00Z",
+            "attributes": [
+                {
+                    "name": "createdBy",
+                    "value": "Finance/Account Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:418",
+                    "qualifier": "created"
+                }
+            ]
+        }
+    ]
+}

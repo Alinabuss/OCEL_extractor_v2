@@ -1,0 +1,210 @@
+{
+    "objectTypes": [
+        {
+            "name": "VegetationFire",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Firefighters",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "CommunicationInfrastructure",
+            "attributes": [
+                {
+                    "name": "importance",
+                    "type": "string"
+                },
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "OnScene",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ThreatReported",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire_1",
+            "type": "VegetationFire",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-24T06:18:00Z",
+                    "value": "vegetation fire"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "loc_otay_mountain_truck_trail",
+                    "qualifier": "near"
+                }
+            ]
+        },
+        {
+            "id": "firefighters_1",
+            "type": "Firefighters",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-24T06:18:00Z",
+                    "value": "Firefighters"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "loc_otay_mountain_truck_trail",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-24T06:18:00Z",
+                    "value": "Otay Mountain Truck Trail"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "loc_otay_mountain_wilderness",
+                    "qualifier": "within"
+                }
+            ]
+        },
+        {
+            "id": "loc_otay_mountain_wilderness",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-24T06:18:00Z",
+                    "value": "Otay Mountain Wilderness"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "loc_otay_mountain_repeater_site",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-24T06:18:00Z",
+                    "value": "Otay Mountain Repeater Site"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "infra_comm_1",
+            "type": "CommunicationInfrastructure",
+            "attributes": [
+                {
+                    "name": "importance",
+                    "time": "2025-01-24T06:18:00Z",
+                    "value": "critical"
+                },
+                {
+                    "name": "description",
+                    "time": "2025-01-24T06:18:00Z",
+                    "value": "communication infrastructure"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "loc_otay_mountain_repeater_site",
+                    "qualifier": "on"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "evt_1",
+            "type": "OnScene",
+            "time": "2025-01-24T06:18:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Firefighters are on scene of a vegetation fire located near Otay Mountain Truck Trail within the Otay Mountain Wilderness."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "incident"
+                },
+                {
+                    "objectId": "firefighters_1",
+                    "qualifier": "responder"
+                },
+                {
+                    "objectId": "loc_otay_mountain_truck_trail",
+                    "qualifier": "near"
+                },
+                {
+                    "objectId": "loc_otay_mountain_wilderness",
+                    "qualifier": "within"
+                }
+            ]
+        },
+        {
+            "id": "evt_2",
+            "type": "ThreatReported",
+            "time": "2025-01-24T06:18:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "There is a threat to critical communication infrastructure on Otay Mountain Repeater Site."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "infra_comm_1",
+                    "qualifier": "threatened"
+                },
+                {
+                    "objectId": "loc_otay_mountain_repeater_site",
+                    "qualifier": "on"
+                }
+            ]
+        }
+    ]
+}

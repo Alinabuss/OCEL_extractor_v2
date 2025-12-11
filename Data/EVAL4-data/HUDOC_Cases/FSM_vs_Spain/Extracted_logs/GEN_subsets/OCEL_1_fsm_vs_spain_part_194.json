@@ -1,0 +1,167 @@
+{
+    "objectTypes": [
+        {
+            "name": "Defendant",
+            "attributes": [
+                {
+                    "name": "mental_disability_non_recoverable",
+                    "type": "boolean"
+                },
+                {
+                    "name": "physically_present_during_proceedings",
+                    "type": "boolean"
+                },
+                {
+                    "name": "understands_proceedings",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "Trial",
+            "attributes": [
+                {
+                    "name": "oral",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "Case",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Temporary Suspension of Trial",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "label_es",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Permanent Suspension (Case Archived)",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "label_es",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "defendant_1",
+            "type": "Defendant",
+            "attributes": [
+                {
+                    "name": "mental_disability_non_recoverable",
+                    "time": "2021-01-01T00:00:00Z",
+                    "value": "true"
+                },
+                {
+                    "name": "physically_present_during_proceedings",
+                    "time": "2021-01-01T00:00:00Z",
+                    "value": "true"
+                },
+                {
+                    "name": "understands_proceedings",
+                    "time": "2021-01-01T00:00:00Z",
+                    "value": "false"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "trial_1",
+            "type": "Trial",
+            "attributes": [
+                {
+                    "name": "oral",
+                    "time": "2021-01-01T00:00:00Z",
+                    "value": "true"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "case_1",
+            "type": "Case",
+            "attributes": [
+                {
+                    "name": "status",
+                    "time": "2021-01-01T00:00:00Z",
+                    "value": "unresolved"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Temporary Suspension of Trial",
+            "time": "2021-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "temporary suspension of a trial"
+                },
+                {
+                    "name": "label_es",
+                    "value": "suspensi\u00f3n del juicio oral"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "defendant_1",
+                    "qualifier": "affected"
+                },
+                {
+                    "objectId": "trial_1",
+                    "qualifier": "suspended"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Permanent Suspension (Case Archived)",
+            "time": "2021-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "permanent suspension with the case left unresolved"
+                },
+                {
+                    "name": "label_es",
+                    "value": "archivo de la causa"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "defendant_1",
+                    "qualifier": "affected"
+                },
+                {
+                    "objectId": "case_1",
+                    "qualifier": "left_unresolved"
+                }
+            ]
+        }
+    ]
+}

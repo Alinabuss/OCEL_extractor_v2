@@ -1,0 +1,426 @@
+{
+    "objectTypes": [
+        {
+            "name": "Judgment",
+            "attributes": [
+                {
+                    "name": "topic",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Guardian",
+            "attributes": []
+        },
+        {
+            "name": "Applicant",
+            "attributes": []
+        },
+        {
+            "name": "Lawyer",
+            "attributes": []
+        },
+        {
+            "name": "Proceedings",
+            "attributes": []
+        },
+        {
+            "name": "Evidence",
+            "attributes": [
+                {
+                    "name": "isNew",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "ProceduralAdjustment",
+            "attributes": [
+                {
+                    "name": "method",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "CriminalProcedure",
+            "attributes": [
+                {
+                    "name": "clarity",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ActSet",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "LegalCode",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "SubmitNewEvidence",
+            "attributes": [
+                {
+                    "name": "note",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "RequestProceedingsDiscontinued",
+            "attributes": [
+                {
+                    "name": "note",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "LawyerLimitedActionsObservation",
+            "attributes": [
+                {
+                    "name": "submittedNewEvidence",
+                    "type": "boolean"
+                },
+                {
+                    "name": "requestedProceedingsDiscontinued",
+                    "type": "boolean"
+                },
+                {
+                    "name": "arguedDifficultiesPreparingDefence",
+                    "type": "boolean"
+                },
+                {
+                    "name": "requestedProceduralAdjustments",
+                    "type": "boolean"
+                },
+                {
+                    "name": "reference",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "LegalAssessment_CriminalProcedureProvision",
+            "attributes": [
+                {
+                    "name": "assessment",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "LegalRule_GuardianInterventionDeemedExtended",
+            "attributes": [
+                {
+                    "name": "condition",
+                    "type": "string"
+                },
+                {
+                    "name": "consequence",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "judgment1",
+            "type": "Judgment",
+            "attributes": [
+                {
+                    "name": "topic",
+                    "value": "incapacitation",
+                    "time": ""
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "code1",
+                    "qualifier": "in_accordance_with"
+                }
+            ]
+        },
+        {
+            "id": "guardian1",
+            "type": "Guardian",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "actsAuth1",
+                    "qualifier": "intervention_deemed_to_extend_to"
+                }
+            ]
+        },
+        {
+            "id": "applicant1",
+            "type": "Applicant",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "lawyer1",
+            "type": "Lawyer",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "applicant1",
+                    "qualifier": "represents"
+                }
+            ]
+        },
+        {
+            "id": "proceedings1",
+            "type": "Proceedings",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "applicant1",
+                    "qualifier": "concerns"
+                }
+            ]
+        },
+        {
+            "id": "evidence1",
+            "type": "Evidence",
+            "attributes": [
+                {
+                    "name": "isNew",
+                    "value": "true",
+                    "time": ""
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "proc_adj_video",
+            "type": "ProceduralAdjustment",
+            "attributes": [
+                {
+                    "name": "method",
+                    "value": "participation via video link",
+                    "time": ""
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "proc_adj_guardian_presence",
+            "type": "ProceduralAdjustment",
+            "attributes": [
+                {
+                    "name": "method",
+                    "value": "presence of a guardian at the hearing",
+                    "time": ""
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "criminalProcedure1",
+            "type": "CriminalProcedure",
+            "attributes": [
+                {
+                    "name": "clarity",
+                    "value": "not clear",
+                    "time": ""
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "actsAuth1",
+            "type": "ActSet",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "acts for which guardians require judicial authorisation",
+                    "time": ""
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "code1",
+            "type": "LegalCode",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "value": "this Code",
+                    "time": ""
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "SubmitNewEvidence",
+            "time": "2020-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "note",
+                    "value": "applicant's lawyer submitted new evidence"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "lawyer1",
+                    "qualifier": "agent"
+                },
+                {
+                    "objectId": "evidence1",
+                    "qualifier": "submitted"
+                },
+                {
+                    "objectId": "proceedings1",
+                    "qualifier": "affects"
+                },
+                {
+                    "objectId": "applicant1",
+                    "qualifier": "concerns"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "RequestProceedingsDiscontinued",
+            "time": "2020-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "note",
+                    "value": "applicant's lawyer requested that the proceedings be discontinued"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "lawyer1",
+                    "qualifier": "agent"
+                },
+                {
+                    "objectId": "proceedings1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "applicant1",
+                    "qualifier": "concerned"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "LawyerLimitedActionsObservation",
+            "time": "2020-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "submittedNewEvidence",
+                    "value": "true"
+                },
+                {
+                    "name": "requestedProceedingsDiscontinued",
+                    "value": "true"
+                },
+                {
+                    "name": "arguedDifficultiesPreparingDefence",
+                    "value": "false"
+                },
+                {
+                    "name": "requestedProceduralAdjustments",
+                    "value": "false"
+                },
+                {
+                    "name": "reference",
+                    "value": "see paragraphs 43 and 66 of the present judgment"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "lawyer1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "applicant1",
+                    "qualifier": "concerned"
+                },
+                {
+                    "objectId": "proceedings1",
+                    "qualifier": "concerned"
+                },
+                {
+                    "objectId": "proc_adj_video",
+                    "qualifier": "example_of_procedural_adjustment"
+                },
+                {
+                    "objectId": "proc_adj_guardian_presence",
+                    "qualifier": "example_of_procedural_adjustment"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "LegalAssessment_CriminalProcedureProvision",
+            "time": "2020-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "assessment",
+                    "value": "criminal procedure does not clearly provide for the possibility for lawyers to request procedural adjustments"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "criminalProcedure1",
+                    "qualifier": "subject"
+                }
+            ]
+        },
+        {
+            "id": "e5",
+            "type": "LegalRule_GuardianInterventionDeemedExtended",
+            "time": "2020-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "condition",
+                    "value": "judgment on incapacitation has not specified the acts for which the intervention of the guardian should be necessary"
+                },
+                {
+                    "name": "consequence",
+                    "value": "such intervention shall be deemed to extend to the same acts for which guardians require judicial authorisation"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "judgment1",
+                    "qualifier": "condition_subject"
+                },
+                {
+                    "objectId": "guardian1",
+                    "qualifier": "affected"
+                },
+                {
+                    "objectId": "actsAuth1",
+                    "qualifier": "extends_to"
+                },
+                {
+                    "objectId": "code1",
+                    "qualifier": "in_accordance_with"
+                }
+            ]
+        }
+    ]
+}

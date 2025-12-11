@@ -1,0 +1,288 @@
+{
+    "objectTypes": [
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                },
+                {
+                    "name": "lifecycle_status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Quotation",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Actor",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Two-Way Match Completed",
+            "attributes": []
+        },
+        {
+            "name": "Purchase Order Approved",
+            "attributes": []
+        },
+        {
+            "name": "Purchase Order Created",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "goods_receipt:1248",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "time": "2023-12-11T08:10:00Z",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice_receipt:1236",
+                    "qualifier": "matched_with"
+                }
+            ]
+        },
+        {
+            "id": "invoice_receipt:1236",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "time": "2023-12-11T08:10:00Z",
+                    "value": "122100.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods_receipt:1248",
+                    "qualifier": "matched_with"
+                }
+            ]
+        },
+        {
+            "id": "purchase_order:1051",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "time": "2023-12-11T11:40:00Z",
+                    "value": "005"
+                },
+                {
+                    "name": "lifecycle_status",
+                    "time": "2023-12-11T11:40:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:608",
+                    "qualifier": "linked_to"
+                }
+            ]
+        },
+        {
+            "id": "quotation:608",
+            "type": "Quotation",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "time": "2023-12-11T11:40:00Z",
+                    "value": "005"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:1051",
+                    "qualifier": "linked_to"
+                }
+            ]
+        },
+        {
+            "id": "purchase_order:1060",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "time": "2023-12-11T14:47:00Z",
+                    "value": "004"
+                },
+                {
+                    "name": "lifecycle_status",
+                    "time": "2023-12-11T14:47:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:613",
+                    "qualifier": "linked_to"
+                }
+            ]
+        },
+        {
+            "id": "quotation:613",
+            "type": "Quotation",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "time": "2023-12-11T14:47:00Z",
+                    "value": "004"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:1060",
+                    "qualifier": "linked_to"
+                }
+            ]
+        },
+        {
+            "id": "department:finance_account",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-12-11T08:10:00Z",
+                    "value": "Finance/Account Department"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "actor:procurement_order_manager",
+            "type": "Actor",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-12-11T11:40:00Z",
+                    "value": "Procurement Order Manager"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "department:procurement",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-12-11T14:47:00Z",
+                    "value": "Procurement Department"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Two-Way Match Completed",
+            "time": "2023-12-11T08:10:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "goods_receipt:1248",
+                    "qualifier": "matched"
+                },
+                {
+                    "objectId": "invoice_receipt:1236",
+                    "qualifier": "matched"
+                },
+                {
+                    "objectId": "department:finance_account",
+                    "qualifier": "performed_by"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "Purchase Order Approved",
+            "time": "2023-12-11T11:40:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:1051",
+                    "qualifier": "approved"
+                },
+                {
+                    "objectId": "quotation:608",
+                    "qualifier": "related"
+                },
+                {
+                    "objectId": "actor:procurement_order_manager",
+                    "qualifier": "performed_by"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "type": "Purchase Order Created",
+            "time": "2023-12-11T14:47:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:1060",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "quotation:613",
+                    "qualifier": "related"
+                },
+                {
+                    "objectId": "department:procurement",
+                    "qualifier": "performed_by"
+                }
+            ]
+        }
+    ]
+}

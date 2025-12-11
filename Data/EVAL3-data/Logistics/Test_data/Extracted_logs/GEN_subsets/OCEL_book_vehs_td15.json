@@ -1,0 +1,120 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "type": "double"
+                },
+                {
+                    "name": "unit",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "departure",
+                    "type": "time"
+                },
+                {
+                    "name": "priority",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Booking",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "TD[td15]",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "value": "5.0"
+                },
+                {
+                    "name": "unit",
+                    "value": "containers"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "VH[vh5]",
+                    "qualifier": "associatedVehicle"
+                },
+                {
+                    "objectId": "VH[vh8]",
+                    "qualifier": "associatedVehicle"
+                }
+            ]
+        },
+        {
+            "id": "VH[vh5]",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "priority",
+                    "value": "high"
+                },
+                {
+                    "name": "departure",
+                    "value": "2023-06-13T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "TD[td15]",
+                    "qualifier": "associatedTransportDocument"
+                }
+            ]
+        },
+        {
+            "id": "VH[vh8]",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "departure",
+                    "value": "2023-06-23T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "TD[td15]",
+                    "qualifier": "associatedTransportDocument"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Booking",
+            "time": "2023-06-05T11:38:19Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "TD[td15]",
+                    "qualifier": "transportDocument"
+                },
+                {
+                    "objectId": "VH[vh5]",
+                    "qualifier": "bookedVehicle"
+                },
+                {
+                    "objectId": "VH[vh8]",
+                    "qualifier": "bookedVehicle"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,106 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "Purchasing Group",
+                    "type": "string"
+                },
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Quotation",
+            "attributes": [
+                {
+                    "name": "Purchasing Group",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Role",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Purchase Order Approved",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:1591",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "Purchasing Group",
+                    "time": "2024-10-03T16:54:00Z",
+                    "value": "003"
+                },
+                {
+                    "name": "lifecycle",
+                    "time": "2024-10-03T16:54:00Z",
+                    "value": "completed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:918",
+                    "qualifier": "associated"
+                }
+            ]
+        },
+        {
+            "id": "quotation:918",
+            "type": "Quotation",
+            "attributes": [
+                {
+                    "name": "Purchasing Group",
+                    "time": "2024-10-03T16:54:00Z",
+                    "value": "003"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "role:Procurement Order Manager",
+            "type": "Role",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "event:1",
+            "type": "Purchase Order Approved",
+            "time": "2024-10-03T16:54:00Z",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "approved"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:1591",
+                    "qualifier": "target"
+                },
+                {
+                    "objectId": "role:Procurement Order Manager",
+                    "qualifier": "performed_by"
+                }
+            ]
+        }
+    ]
+}

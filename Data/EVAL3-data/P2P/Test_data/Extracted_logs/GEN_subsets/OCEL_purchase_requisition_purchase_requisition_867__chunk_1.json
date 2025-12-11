@@ -1,0 +1,120 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseRequisition",
+            "attributes": []
+        },
+        {
+            "name": "Material",
+            "attributes": [
+                {
+                    "name": "net_price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": [
+                {
+                    "name": "group_id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Role",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Purchase Requisition Approval Completed",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_requisition:867:pr_trigger_867",
+            "type": "PurchaseRequisition",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "material:2153",
+                    "qualifier": "associated-with"
+                },
+                {
+                    "objectId": "purchasing_group:004",
+                    "qualifier": "linked-to"
+                }
+            ]
+        },
+        {
+            "id": "material:2153",
+            "type": "Material",
+            "attributes": [
+                {
+                    "name": "net_price",
+                    "time": "2024-08-21T12:15:00Z",
+                    "value": 950.0
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "purchasing_group:004",
+            "type": "PurchasingGroup",
+            "attributes": [
+                {
+                    "name": "group_id",
+                    "time": "2024-08-21T12:15:00Z",
+                    "value": "004"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "role:procurement_requisition_manager",
+            "type": "Role",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2024-08-21T12:15:00Z",
+                    "value": "Procurement Requisition Manager"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Purchase Requisition Approval Completed",
+            "time": "2024-08-21T12:15:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchase_requisition:867:pr_trigger_867",
+                    "qualifier": "approved"
+                },
+                {
+                    "objectId": "role:procurement_requisition_manager",
+                    "qualifier": "performedBy"
+                },
+                {
+                    "objectId": "material:2153",
+                    "qualifier": "related"
+                },
+                {
+                    "objectId": "purchasing_group:004",
+                    "qualifier": "related"
+                }
+            ]
+        }
+    ]
+}

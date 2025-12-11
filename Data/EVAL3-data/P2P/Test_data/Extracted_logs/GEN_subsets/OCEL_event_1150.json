@@ -1,0 +1,113 @@
+{
+    "objectTypes": [
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "GoodsReceiptCreated",
+            "attributes": [
+                {
+                    "name": "significance",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "goods receipt:67",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "time": "2022-05-17T19:26:00Z",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:58",
+                    "qualifier": "linked_to"
+                }
+            ]
+        },
+        {
+            "id": "purchase_order:58",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "time": "",
+                    "value": "004"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "department:Warehouse Department",
+                    "qualifier": "managed_by"
+                }
+            ]
+        },
+        {
+            "id": "department:Warehouse Department",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Warehouse Department"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "GoodsReceiptCreated",
+            "time": "2022-05-17T19:26:00Z",
+            "attributes": [
+                {
+                    "name": "significance",
+                    "value": "completion of the transaction"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:67",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "purchase_order:58",
+                    "qualifier": "linked"
+                }
+            ]
+        }
+    ]
+}

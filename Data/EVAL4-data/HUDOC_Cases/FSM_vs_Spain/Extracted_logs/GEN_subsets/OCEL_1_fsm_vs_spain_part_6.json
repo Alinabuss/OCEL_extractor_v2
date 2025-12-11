@@ -1,0 +1,232 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PsychologicalReport",
+            "attributes": [
+                {
+                    "name": "prepared_date",
+                    "type": "datetime"
+                },
+                {
+                    "name": "conclusion",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ReportPrepared",
+            "attributes": [
+                {
+                    "name": "conclusion",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "CivilProceedingsRequested",
+            "attributes": [
+                {
+                    "name": "purpose",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "government",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "The Government"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Mr L.E. Vacas Chalfoun",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Mr L.E. Vacas Chalfoun"
+                },
+                {
+                    "name": "role",
+                    "time": "",
+                    "value": "co-Agent"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "government",
+                    "qualifier": "co-Agent"
+                }
+            ]
+        },
+        {
+            "id": "third_party",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "",
+                    "value": "third party"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "public_prosecutor",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "",
+                    "value": "public prosecutor"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "applicant",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "",
+                    "value": "applicant"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "psychologist_1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "",
+                    "value": "psychologist"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "psychologist_2",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "",
+                    "value": "psychologist"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "report_2015-05-18",
+            "type": "PsychologicalReport",
+            "attributes": [
+                {
+                    "name": "prepared_date",
+                    "time": "2015-05-18T00:00:00Z",
+                    "value": "2015-05-18"
+                },
+                {
+                    "name": "conclusion",
+                    "time": "2015-05-18T00:00:00Z",
+                    "value": "The applicant suffered from the effects of an attention deficit hyperactivity disorder (ADHD) present since childhood, and a personality disorder with schizoid and compulsive features."
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "ReportPrepared",
+            "time": "2015-05-18T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "conclusion",
+                    "value": "The applicant suffered from the effects of an attention deficit hyperactivity disorder (ADHD) present since childhood, and a personality disorder with schizoid and compulsive features."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "report_2015-05-18",
+                    "qualifier": "produced"
+                },
+                {
+                    "objectId": "psychologist_1",
+                    "qualifier": "creator"
+                },
+                {
+                    "objectId": "psychologist_2",
+                    "qualifier": "creator"
+                },
+                {
+                    "objectId": "applicant",
+                    "qualifier": "subject"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "CivilProceedingsRequested",
+            "time": "2015-11-12T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "purpose",
+                    "value": "initiate civil proceedings for the applicant's incapacitation"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "third_party",
+                    "qualifier": "requester"
+                },
+                {
+                    "objectId": "public_prosecutor",
+                    "qualifier": "addressee"
+                },
+                {
+                    "objectId": "applicant",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "report_2015-05-18",
+                    "qualifier": "included_report"
+                }
+            ]
+        }
+    ]
+}

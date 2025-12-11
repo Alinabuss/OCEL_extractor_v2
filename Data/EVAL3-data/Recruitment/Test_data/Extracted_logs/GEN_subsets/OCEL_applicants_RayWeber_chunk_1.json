@@ -1,0 +1,185 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": [
+                {
+                    "name": "applicationId",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "Vacancy",
+            "attributes": [
+                {
+                    "name": "vacancyId",
+                    "type": "integer"
+                },
+                {
+                    "name": "title",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Interview",
+            "attributes": []
+        },
+        {
+            "name": "Offer",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "Person_Ray_Weber",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Ray Weber"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Person_Ed_Keane",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Ed Keane"
+                },
+                {
+                    "name": "role",
+                    "value": "recruiter"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Person_Miguel_Milano",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Miguel Milano"
+                },
+                {
+                    "name": "role",
+                    "value": "manager"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Application_770170",
+            "type": "Application",
+            "attributes": [
+                {
+                    "name": "applicationId",
+                    "value": "770170"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Vacancy_550012",
+                    "qualifier": "forVacancy"
+                },
+                {
+                    "objectId": "Person_Ray_Weber",
+                    "qualifier": "applicant"
+                }
+            ]
+        },
+        {
+            "id": "Vacancy_550012",
+            "type": "Vacancy",
+            "attributes": [
+                {
+                    "name": "vacancyId",
+                    "value": "550012"
+                },
+                {
+                    "name": "title",
+                    "value": "Programmer"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Interview",
+            "time": "2019-07-02T09:29:31Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Person_Ray_Weber",
+                    "qualifier": "participant"
+                },
+                {
+                    "objectId": "Person_Ed_Keane",
+                    "qualifier": "interviewer"
+                },
+                {
+                    "objectId": "Person_Miguel_Milano",
+                    "qualifier": "interviewer"
+                },
+                {
+                    "objectId": "Application_770170",
+                    "qualifier": "application"
+                },
+                {
+                    "objectId": "Vacancy_550012",
+                    "qualifier": "vacancy"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Offer",
+            "time": "2019-07-02T13:07:57Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Person_Miguel_Milano",
+                    "qualifier": "offerer"
+                },
+                {
+                    "objectId": "Person_Ed_Keane",
+                    "qualifier": "offerer"
+                },
+                {
+                    "objectId": "Person_Ray_Weber",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "Application_770170",
+                    "qualifier": "basedOn"
+                },
+                {
+                    "objectId": "Vacancy_550012",
+                    "qualifier": "vacancy"
+                }
+            ]
+        }
+    ]
+}

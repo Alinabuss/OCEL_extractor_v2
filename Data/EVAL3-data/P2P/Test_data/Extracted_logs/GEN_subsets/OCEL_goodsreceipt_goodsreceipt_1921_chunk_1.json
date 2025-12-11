@@ -1,0 +1,99 @@
+{
+    "objectTypes": [
+        {
+            "name": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "credit amount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movement type",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "invoice receipt created",
+            "attributes": [
+                {
+                    "name": "completeness",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt:1916",
+            "type": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "credit amount",
+                    "value": "27550.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:1921",
+                    "qualifier": "for"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt:1921",
+            "type": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movement type",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Finance/Account Department",
+            "type": "department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "invoice receipt created",
+            "time": "2024-10-08T21:20:00Z",
+            "attributes": [
+                {
+                    "name": "completeness",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:1916",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "goods receipt:1921",
+                    "qualifier": "for"
+                },
+                {
+                    "objectId": "Finance/Account Department",
+                    "qualifier": "creator"
+                }
+            ]
+        }
+    ]
+}

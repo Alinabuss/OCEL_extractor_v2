@@ -1,0 +1,241 @@
+{
+    "objectTypes": [
+        {
+            "name": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "mass",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Machine",
+            "attributes": []
+        },
+        {
+            "name": "Workstation",
+            "attributes": []
+        },
+        {
+            "name": "EnergyInput",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "type": "float"
+                },
+                {
+                    "name": "unit",
+                    "type": "string"
+                },
+                {
+                    "name": "energy_type",
+                    "type": "string"
+                },
+                {
+                    "name": "source",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Emission",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "type": "float"
+                },
+                {
+                    "name": "unit",
+                    "type": "string"
+                },
+                {
+                    "name": "substance",
+                    "type": "string"
+                },
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Heating",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "type": "integer"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o_steelsheet_5829",
+            "type": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "mass",
+                    "time": "",
+                    "value": "0.02128"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_machine_oven01",
+            "type": "Machine",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "o_workstation_1",
+            "type": "Workstation",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "o_energy_electricity_grid_1",
+            "type": "EnergyInput",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "time": "",
+                    "value": "0.02"
+                },
+                {
+                    "name": "unit",
+                    "time": "",
+                    "value": "kWh"
+                },
+                {
+                    "name": "energy_type",
+                    "time": "",
+                    "value": "electricity"
+                },
+                {
+                    "name": "source",
+                    "time": "",
+                    "value": "grid"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_energy_gas_1",
+            "type": "EnergyInput",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "time": "",
+                    "value": "0.49392"
+                },
+                {
+                    "name": "unit",
+                    "time": "",
+                    "value": "Wh"
+                },
+                {
+                    "name": "energy_type",
+                    "time": "",
+                    "value": "gas"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_emission_burning_1",
+                    "qualifier": "resulted_in"
+                }
+            ]
+        },
+        {
+            "id": "o_emission_co2eq_1",
+            "type": "Emission",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "time": "",
+                    "value": "0.0138019093344"
+                },
+                {
+                    "name": "unit",
+                    "time": "",
+                    "value": "kg"
+                },
+                {
+                    "name": "substance",
+                    "time": "",
+                    "value": "CO2 equivalent"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_emission_burning_1",
+            "type": "Emission",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "time": "",
+                    "value": "0.49392"
+                },
+                {
+                    "name": "unit",
+                    "time": "",
+                    "value": "Wh"
+                },
+                {
+                    "name": "description",
+                    "time": "",
+                    "value": "equivalent emission from burning"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Heating",
+            "time": "2023-04-06T12:45:48Z",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "value": "900"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_steelsheet_5829",
+                    "qualifier": "processed"
+                },
+                {
+                    "objectId": "o_machine_oven01",
+                    "qualifier": "resource"
+                },
+                {
+                    "objectId": "o_workstation_1",
+                    "qualifier": "workstation"
+                },
+                {
+                    "objectId": "o_energy_electricity_grid_1",
+                    "qualifier": "energy_input"
+                },
+                {
+                    "objectId": "o_energy_gas_1",
+                    "qualifier": "energy_input"
+                },
+                {
+                    "objectId": "o_emission_co2eq_1",
+                    "qualifier": "emission"
+                },
+                {
+                    "objectId": "o_emission_burning_1",
+                    "qualifier": "emission"
+                }
+            ]
+        }
+    ]
+}

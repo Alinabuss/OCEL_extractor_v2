@@ -1,0 +1,102 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                },
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Quotation",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "PurchaseOrderApproved",
+            "attributes": [
+                {
+                    "name": "performed_by_role",
+                    "type": "string"
+                },
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:841",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "value": "005"
+                },
+                {
+                    "name": "lifecycle",
+                    "value": "complete",
+                    "time": "2023-08-29T09:01:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:492",
+                    "qualifier": "associated_with"
+                }
+            ]
+        },
+        {
+            "id": "quotation:492",
+            "type": "Quotation",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "value": "005"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "evt_1",
+            "type": "PurchaseOrderApproved",
+            "time": "2023-08-29T09:01:00Z",
+            "attributes": [
+                {
+                    "name": "performed_by_role",
+                    "value": "Procurement Order Manager"
+                },
+                {
+                    "name": "lifecycle",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:841",
+                    "qualifier": "approved"
+                },
+                {
+                    "objectId": "quotation:492",
+                    "qualifier": "associated"
+                }
+            ]
+        }
+    ]
+}

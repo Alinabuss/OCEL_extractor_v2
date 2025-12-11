@@ -1,0 +1,117 @@
+{
+    "objectTypes": [
+        {
+            "name": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "double"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                },
+                {
+                    "name": "processedBy",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "integer"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Invoice Receipt Created",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "double"
+                },
+                {
+                    "name": "classification",
+                    "type": "string"
+                },
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt:1042",
+            "type": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "time": "2023-09-11T13:43:00Z",
+                    "value": "50000.0"
+                },
+                {
+                    "name": "status",
+                    "time": "2023-09-11T13:43:00Z",
+                    "value": "complete"
+                },
+                {
+                    "name": "processedBy",
+                    "time": "2023-09-11T13:43:00Z",
+                    "value": "Finance/Account Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:1044",
+                    "qualifier": "linked-to"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt:1044",
+            "type": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "time": "",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Invoice Receipt Created",
+            "time": "2023-09-11T13:43:00Z",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "value": "50000.0"
+                },
+                {
+                    "name": "classification",
+                    "value": "complete"
+                },
+                {
+                    "name": "department",
+                    "value": "Finance/Account Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:1042",
+                    "qualifier": "created"
+                }
+            ]
+        }
+    ]
+}

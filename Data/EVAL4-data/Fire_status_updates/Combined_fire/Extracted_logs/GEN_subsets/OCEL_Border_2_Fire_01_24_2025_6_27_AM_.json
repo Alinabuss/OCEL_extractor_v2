@@ -1,0 +1,168 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ResponderGroup",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Infrastructure",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "SituationReport",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire_1",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Border 2 Fire"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "responders_1",
+            "type": "ResponderGroup",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Firefighters"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "loc_otay_truck_trail",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Otay Mountain Truck Trail"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "loc_otay_wilderness",
+                    "qualifier": "within"
+                }
+            ]
+        },
+        {
+            "id": "loc_otay_wilderness",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Otay Mountain Wilderness"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "site_otay_repeater",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Otay Mountain Repeater Site"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "infra_1",
+            "type": "Infrastructure",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "critical communication infrastructure"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "site_otay_repeater",
+                    "qualifier": "located_on"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "SituationReport",
+            "time": "2025-01-24T06:27:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Firefighters are on scene of a vegetation fire located near Otay Mountain Truck Trail within the Otay Mountain Wilderness. There is a threat to critical communication infrastructure on Otay Mountain Repeater Site."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "incident"
+                },
+                {
+                    "objectId": "responders_1",
+                    "qualifier": "on_scene"
+                },
+                {
+                    "objectId": "loc_otay_truck_trail",
+                    "qualifier": "near"
+                },
+                {
+                    "objectId": "loc_otay_wilderness",
+                    "qualifier": "within"
+                },
+                {
+                    "objectId": "infra_1",
+                    "qualifier": "threatened"
+                },
+                {
+                    "objectId": "site_otay_repeater",
+                    "qualifier": "on_site"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,227 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Firefighters",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "HotSpots",
+            "attributes": [
+                {
+                    "name": "label",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ContainmentLines",
+            "attributes": [
+                {
+                    "name": "label",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Perimeter",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "MopUpHotSpots",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ImproveContainmentLines",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "MonitorAndPatrol",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire_kenneth",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Kenneth Fire"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "firefighters_1",
+            "type": "Firefighters",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Firefighters"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "hotspots_1",
+            "type": "HotSpots",
+            "attributes": [
+                {
+                    "name": "label",
+                    "value": "hot spots"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_kenneth",
+                    "qualifier": "part-of"
+                }
+            ]
+        },
+        {
+            "id": "containmentlines_1",
+            "type": "ContainmentLines",
+            "attributes": [
+                {
+                    "name": "label",
+                    "value": "containment lines"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_kenneth",
+                    "qualifier": "part-of"
+                }
+            ]
+        },
+        {
+            "id": "perimeter_1",
+            "type": "Perimeter",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "established"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_kenneth",
+                    "qualifier": "part-of"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "MopUpHotSpots",
+            "time": "2025-01-11T06:25:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Firefighters worked throughout the day to mop up hot spots"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "firefighters_1",
+                    "qualifier": "performer"
+                },
+                {
+                    "objectId": "hotspots_1",
+                    "qualifier": "target"
+                },
+                {
+                    "objectId": "fire_kenneth",
+                    "qualifier": "affected"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "ImproveContainmentLines",
+            "time": "2025-01-11T06:25:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Firefighters worked throughout the day to improve containment lines"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "firefighters_1",
+                    "qualifier": "performer"
+                },
+                {
+                    "objectId": "containmentlines_1",
+                    "qualifier": "target"
+                },
+                {
+                    "objectId": "fire_kenneth",
+                    "qualifier": "affected"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "MonitorAndPatrol",
+            "time": "2025-01-11T06:25:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Firefighters will continue monitoring and patrolling this evening to ensure the fire remains within its established perimeter"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "firefighters_1",
+                    "qualifier": "performer"
+                },
+                {
+                    "objectId": "fire_kenneth",
+                    "qualifier": "target"
+                },
+                {
+                    "objectId": "perimeter_1",
+                    "qualifier": "reference"
+                }
+            ]
+        }
+    ]
+}

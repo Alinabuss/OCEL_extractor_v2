@@ -1,0 +1,86 @@
+{
+    "objectTypes": [
+        {
+            "name": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "integer"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Invoice Receipt Creation Completed",
+            "attributes": [
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt[986]",
+            "type": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "time": "2023-08-17T22:19:00Z",
+                    "value": "52200.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt[985]",
+                    "qualifier": "associatedWith"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt[985]",
+            "type": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Invoice Receipt Creation Completed",
+            "time": "2023-08-17T22:19:00Z",
+            "attributes": [
+                {
+                    "name": "department",
+                    "value": "Finance/Account Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt[986]",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "goods receipt[985]",
+                    "qualifier": "associated"
+                }
+            ]
+        }
+    ]
+}

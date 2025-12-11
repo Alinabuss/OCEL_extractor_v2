@@ -1,0 +1,109 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseRequisition",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                },
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Material",
+            "attributes": [
+                {
+                    "name": "net_price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "PurchaseRequisition Created",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_requisition:33:pr_trigger_33",
+            "type": "PurchaseRequisition",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "time": "2022-04-29T09:31:00Z",
+                    "value": "003"
+                },
+                {
+                    "name": "lifecycle",
+                    "time": "2022-04-29T09:31:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "material:79",
+                    "qualifier": "linked"
+                }
+            ]
+        },
+        {
+            "id": "material:79",
+            "type": "Material",
+            "attributes": [
+                {
+                    "name": "net_price",
+                    "value": "650.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "department:Manufacturing Department",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Manufacturing Department"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "PurchaseRequisition Created",
+            "time": "2022-04-29T09:31:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchase_requisition:33:pr_trigger_33",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "department:Manufacturing Department",
+                    "qualifier": "creator"
+                },
+                {
+                    "objectId": "material:79",
+                    "qualifier": "related"
+                }
+            ]
+        }
+    ]
+}

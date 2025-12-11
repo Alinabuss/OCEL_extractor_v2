@@ -1,0 +1,169 @@
+{
+    "objectTypes": [
+        {
+            "name": "Applicant",
+            "attributes": []
+        },
+        {
+            "name": "Document",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Request",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Proceeding",
+            "attributes": []
+        },
+        {
+            "name": "MentalHealthHistory",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Allegation",
+            "attributes": [
+                {
+                    "name": "content",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "DocumentSubmission",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "applicant_1",
+            "type": "Applicant",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "proceeding_1",
+            "type": "Proceeding",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "request_1",
+            "type": "Request",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "discontinue proceedings"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "proceeding_1",
+                    "qualifier": "concerns"
+                }
+            ]
+        },
+        {
+            "id": "doc_1",
+            "type": "Document",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "various documents submitted in support of the request"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "mh_1",
+                    "qualifier": "refers-to"
+                }
+            ]
+        },
+        {
+            "id": "mh_1",
+            "type": "MentalHealthHistory",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "history of several mental health disorders; deterioration of his cognitive faculties"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "about"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Allegation",
+            "time": "2025-01-01T09:00:00Z",
+            "attributes": [
+                {
+                    "name": "content",
+                    "value": "Applicant alleged he could not stand trial and that the proceedings should be discontinued"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "made-by"
+                },
+                {
+                    "objectId": "proceeding_1",
+                    "qualifier": "concerns"
+                },
+                {
+                    "objectId": "request_1",
+                    "qualifier": "relates-to"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "DocumentSubmission",
+            "time": "2025-01-02T10:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Various documents were submitted in support of the request and referred to a history of mental health disorders and deterioration of cognitive faculties"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "doc_1",
+                    "qualifier": "submitted"
+                },
+                {
+                    "objectId": "request_1",
+                    "qualifier": "in-support-of"
+                }
+            ]
+        }
+    ]
+}

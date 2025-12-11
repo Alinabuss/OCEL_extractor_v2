@@ -1,0 +1,111 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "priority",
+                    "type": "string"
+                },
+                {
+                    "name": "scheduled_departure",
+                    "type": "time"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "VehiclesBooked",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "td321",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "value": "3.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "vh70",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "priority",
+                    "value": "high"
+                },
+                {
+                    "name": "scheduled_departure",
+                    "value": "2024-01-26T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td321",
+                    "qualifier": "booked_for"
+                },
+                {
+                    "objectId": "vh73",
+                    "qualifier": "booked_alongside"
+                }
+            ]
+        },
+        {
+            "id": "vh73",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduled_departure",
+                    "value": "2024-02-06T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td321",
+                    "qualifier": "booked_for"
+                },
+                {
+                    "objectId": "vh70",
+                    "qualifier": "booked_alongside"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "VehiclesBooked",
+            "time": "2024-01-23T07:13:14Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "td321",
+                    "qualifier": "for"
+                },
+                {
+                    "objectId": "vh70",
+                    "qualifier": "booked"
+                },
+                {
+                    "objectId": "vh73",
+                    "qualifier": "booked"
+                }
+            ]
+        }
+    ]
+}

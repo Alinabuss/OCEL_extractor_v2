@@ -1,0 +1,315 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ResponseTeam",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Community",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Infrastructure",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "StructureGroup",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "EnvironmentalCondition",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Authority",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "SituationReport",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire_hurst",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-08T10:32:00Z",
+                    "value": "Hurst Fire"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "homes_structures",
+                    "qualifier": "threatens"
+                },
+                {
+                    "objectId": "nearby_communities",
+                    "qualifier": "affects"
+                },
+                {
+                    "objectId": "strong_winds",
+                    "qualifier": "influenced_by"
+                },
+                {
+                    "objectId": "dry_fuels",
+                    "qualifier": "influenced_by"
+                },
+                {
+                    "objectId": "low_humidity",
+                    "qualifier": "influenced_by"
+                }
+            ]
+        },
+        {
+            "id": "fire_crews",
+            "type": "ResponseTeam",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-08T10:32:00Z",
+                    "value": "fire crews"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_hurst",
+                    "qualifier": "responding_to"
+                },
+                {
+                    "objectId": "critical_infrastructure",
+                    "qualifier": "protects"
+                }
+            ]
+        },
+        {
+            "id": "nearby_communities",
+            "type": "Community",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-08T10:32:00Z",
+                    "value": "nearby communities"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "critical_infrastructure",
+            "type": "Infrastructure",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-08T10:32:00Z",
+                    "value": "critical infrastructure"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "homes_structures",
+            "type": "StructureGroup",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-08T10:32:00Z",
+                    "value": "homes and other structures"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_hurst",
+                    "qualifier": "threatened_by"
+                }
+            ]
+        },
+        {
+            "id": "dry_fuels",
+            "type": "EnvironmentalCondition",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-08T10:32:00Z",
+                    "value": "dry fuels"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_hurst",
+                    "qualifier": "contributes_to"
+                }
+            ]
+        },
+        {
+            "id": "strong_winds",
+            "type": "EnvironmentalCondition",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-08T10:32:00Z",
+                    "value": "strong winds"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_hurst",
+                    "qualifier": "contributes_to"
+                }
+            ]
+        },
+        {
+            "id": "low_humidity",
+            "type": "EnvironmentalCondition",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-08T10:32:00Z",
+                    "value": "low humidity"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_hurst",
+                    "qualifier": "contributes_to"
+                }
+            ]
+        },
+        {
+            "id": "local_authorities",
+            "type": "Authority",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-08T10:32:00Z",
+                    "value": "local authorities"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "residents",
+                    "qualifier": "issues_directives_to"
+                }
+            ]
+        },
+        {
+            "id": "residents",
+            "type": "Community",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-08T10:32:00Z",
+                    "value": "residents"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "local_authorities",
+                    "qualifier": "receives_directives_from"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "SituationReport",
+            "time": "2025-01-08T10:32:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "The Hurst Fire is spreading rapidly under high winds, creating dangerous conditions for nearby communities. Fire crews are working tirelessly to contain the fire and protect critical infrastructure as it threatens homes and other structures. The combination of dry fuels, strong winds, and low humidity is contributing to aggressive fire behavior, making containment efforts extremely challenging. Residents are urged to remain vigilant and follow directives from local authorities as the situation evolves."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_hurst",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "fire_crews",
+                    "qualifier": "involves"
+                },
+                {
+                    "objectId": "critical_infrastructure",
+                    "qualifier": "being_protected"
+                },
+                {
+                    "objectId": "homes_structures",
+                    "qualifier": "threatened"
+                },
+                {
+                    "objectId": "nearby_communities",
+                    "qualifier": "affected"
+                },
+                {
+                    "objectId": "dry_fuels",
+                    "qualifier": "contributing_condition"
+                },
+                {
+                    "objectId": "strong_winds",
+                    "qualifier": "contributing_condition"
+                },
+                {
+                    "objectId": "low_humidity",
+                    "qualifier": "contributing_condition"
+                },
+                {
+                    "objectId": "residents",
+                    "qualifier": "advised"
+                },
+                {
+                    "objectId": "local_authorities",
+                    "qualifier": "directive_source"
+                }
+            ]
+        }
+    ]
+}

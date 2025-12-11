@@ -1,0 +1,176 @@
+{
+    "objectTypes": [
+        {
+            "name": "LegalCode",
+            "attributes": [
+                {
+                    "name": "title",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "LegalArticle",
+            "attributes": [
+                {
+                    "name": "numbers",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "label",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Procedure",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "finalities",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ProvideIntervention",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "AdaptRoleToFinalities",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "code_de_procedure_penale",
+            "type": "LegalCode",
+            "attributes": [
+                {
+                    "name": "title",
+                    "time": "2020-01-01T00:00:00Z",
+                    "value": "Code de proc\u00e9dure p\u00e9nale"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "article_706-112_et_suivants",
+            "type": "LegalArticle",
+            "attributes": [
+                {
+                    "name": "numbers",
+                    "time": "2020-01-01T00:00:00Z",
+                    "value": "706-112 et suivants"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "code_de_procedure_penale",
+                    "qualifier": "part_of"
+                }
+            ]
+        },
+        {
+            "id": "ces_memes_personnes",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "label",
+                    "time": "2020-01-01T00:00:00Z",
+                    "value": "ces m\u00eames personnes"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "proces_penal",
+            "type": "Procedure",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2020-01-01T00:00:00Z",
+                    "value": "proc\u00e8s p\u00e9nal"
+                },
+                {
+                    "name": "finalities",
+                    "time": "2020-01-01T00:00:00Z",
+                    "value": "permettre de conna\u00eetre des faits; conna\u00eetre la culpabilit\u00e9 d'une personne; prononcer la peine la plus adapt\u00e9e pour assurer la r\u00e9insertion et la resocialisation"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "ProvideIntervention",
+            "time": "2020-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Les articles 706-112 et suivants du Code de proc\u00e9dure p\u00e9nale viennent ainsi pr\u00e9voir l'intervention de ces m\u00eames personnes."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "article_706-112_et_suivants",
+                    "qualifier": "source"
+                },
+                {
+                    "objectId": "ces_memes_personnes",
+                    "qualifier": "involves"
+                },
+                {
+                    "objectId": "proces_penal",
+                    "qualifier": "context"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "AdaptRoleToFinalities",
+            "time": "2020-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "en adaptant cependant leur r\u00f4le aux finalit\u00e9s du proc\u00e8s p\u00e9nal"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "ces_memes_personnes",
+                    "qualifier": "role_adapted"
+                },
+                {
+                    "objectId": "proces_penal",
+                    "qualifier": "adapts_to"
+                },
+                {
+                    "objectId": "article_706-112_et_suivants",
+                    "qualifier": "mandated_by"
+                }
+            ]
+        }
+    ]
+}

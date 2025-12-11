@@ -1,0 +1,105 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseOrder",
+            "attributes": []
+        },
+        {
+            "name": "Quotation",
+            "attributes": []
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": []
+        },
+        {
+            "name": "User",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Purchase Order Approval Completed",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:533",
+            "type": "PurchaseOrder",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "quotation:321",
+                    "qualifier": "related-to"
+                },
+                {
+                    "objectId": "purchasing_group:001",
+                    "qualifier": "belongs-to"
+                }
+            ]
+        },
+        {
+            "id": "quotation:321",
+            "type": "Quotation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchasing_group:001",
+                    "qualifier": "associated-with"
+                }
+            ]
+        },
+        {
+            "id": "purchasing_group:001",
+            "type": "PurchasingGroup",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "user:procurement_order_manager",
+            "type": "User",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "",
+                    "value": "Procurement Order Manager"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Purchase Order Approval Completed",
+            "time": "2023-03-08T11:01:00Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "completed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:533",
+                    "qualifier": "approved"
+                },
+                {
+                    "objectId": "user:procurement_order_manager",
+                    "qualifier": "performed-by"
+                }
+            ]
+        }
+    ]
+}

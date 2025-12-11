@@ -1,0 +1,93 @@
+{
+    "objectTypes": [
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": []
+        },
+        {
+            "name": "Vacancy",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Application Submitted",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "Applicant[Lisa Wang]",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Lisa Wang"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Application[770377]",
+            "type": "Application",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Applicant[Lisa Wang]",
+                    "qualifier": "submitted_by"
+                },
+                {
+                    "objectId": "Vacancy[550060]",
+                    "qualifier": "applies_to"
+                }
+            ]
+        },
+        {
+            "id": "Vacancy[550060]",
+            "type": "Vacancy",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "Consultant"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Application Submitted",
+            "time": "2019-07-02T08:56:18Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Applicant[Lisa Wang]",
+                    "qualifier": "submitted_by"
+                },
+                {
+                    "objectId": "Application[770377]",
+                    "qualifier": "application"
+                },
+                {
+                    "objectId": "Vacancy[550060]",
+                    "qualifier": "vacancy"
+                }
+            ]
+        }
+    ]
+}

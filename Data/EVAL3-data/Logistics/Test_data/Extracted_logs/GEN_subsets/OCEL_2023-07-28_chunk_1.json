@@ -1,0 +1,107 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "departure_time",
+                    "type": "dateTime"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "TransportDocumentCreated",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "td84",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "time": "2023-07-28T14:18:27Z",
+                    "value": "4.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "vh21",
+                    "qualifier": "includes"
+                },
+                {
+                    "objectId": "vh23",
+                    "qualifier": "includes"
+                }
+            ]
+        },
+        {
+            "id": "vh21",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "departure_time",
+                    "time": "2023-07-28T14:18:27Z",
+                    "value": "2023-08-08T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td84",
+                    "qualifier": "part_of"
+                }
+            ]
+        },
+        {
+            "id": "vh23",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "departure_time",
+                    "time": "2023-07-28T14:18:27Z",
+                    "value": "2023-08-15T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td84",
+                    "qualifier": "part_of"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "TransportDocumentCreated",
+            "time": "2023-07-28T14:18:27Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "td84",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "vh21",
+                    "qualifier": "scheduled_for_booking"
+                },
+                {
+                    "objectId": "vh23",
+                    "qualifier": "scheduled_for_booking"
+                }
+            ]
+        }
+    ]
+}

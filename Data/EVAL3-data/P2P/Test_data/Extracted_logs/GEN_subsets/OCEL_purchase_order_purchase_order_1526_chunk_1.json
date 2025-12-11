@@ -1,0 +1,95 @@
+{
+    "objectTypes": [
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Goods Receipt Created",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "goods receipt:1872",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:1526",
+                    "qualifier": "associated_with"
+                }
+            ]
+        },
+        {
+            "id": "purchase_order:1526",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "value": "002"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Warehouse Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "event:1",
+            "type": "Goods Receipt Created",
+            "time": "2024-09-19T09:59:00Z",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:1872",
+                    "qualifier": "goods_receipt"
+                },
+                {
+                    "objectId": "Warehouse Department",
+                    "qualifier": "created_in"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,92 @@
+{
+    "objectTypes": [
+        {
+            "name": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "credit amount",
+                    "type": "decimal"
+                },
+                {
+                    "name": "lifecycle status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movement type",
+                    "type": "integer"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "invoice receipt creation finalized",
+            "attributes": [
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt[639]",
+            "type": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "credit amount",
+                    "time": "2023-03-03T22:28:00Z",
+                    "value": "23700.00"
+                },
+                {
+                    "name": "lifecycle status",
+                    "time": "2023-03-03T22:28:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt[642]",
+                    "qualifier": "directly-related-to"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt[642]",
+            "type": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movement type",
+                    "time": "",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "invoice receipt creation finalized",
+            "time": "2023-03-03T22:28:00Z",
+            "attributes": [
+                {
+                    "name": "department",
+                    "value": "Finance/Account Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt[639]",
+                    "qualifier": "finalized-creation-of"
+                }
+            ]
+        }
+    ]
+}

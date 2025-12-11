@@ -1,0 +1,381 @@
+{
+    "objectTypes": [
+        {
+            "name": "Match",
+            "attributes": [
+                {
+                    "name": "created_at",
+                    "type": "time"
+                }
+            ]
+        },
+        {
+            "name": "Session",
+            "attributes": []
+        },
+        {
+            "name": "Player",
+            "attributes": []
+        },
+        {
+            "name": "Villager",
+            "attributes": [
+                {
+                    "name": "queue_started_at",
+                    "type": "time"
+                }
+            ]
+        },
+        {
+            "name": "TownCenter",
+            "attributes": []
+        },
+        {
+            "name": "House",
+            "attributes": [
+                {
+                    "name": "construction_started_at",
+                    "type": "time"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Match Created",
+            "attributes": [
+                {
+                    "name": "matchId",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Start Queue",
+            "attributes": [
+                {
+                    "name": "location",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Create Initial Stone Wall",
+            "attributes": [
+                {
+                    "name": "structure",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "House Construction Started",
+            "attributes": [
+                {
+                    "name": "houseId",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "M250230427",
+            "type": "Match",
+            "attributes": [
+                {
+                    "name": "created_at",
+                    "time": "2023-07-31T00:10:50Z",
+                    "value": "2023-07-31T00:10:50Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "S250230427_688587",
+                    "qualifier": "associated_session"
+                },
+                {
+                    "objectId": "P688587",
+                    "qualifier": "involves_player"
+                }
+            ]
+        },
+        {
+            "id": "S250230427_688587",
+            "type": "Session",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "M250230427",
+                    "qualifier": "associated_match"
+                },
+                {
+                    "objectId": "P688587",
+                    "qualifier": "has_player"
+                }
+            ]
+        },
+        {
+            "id": "P688587",
+            "type": "Player",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "S250230427_688587",
+                    "qualifier": "participates_in_session"
+                },
+                {
+                    "objectId": "M250230427",
+                    "qualifier": "participates_in_match"
+                }
+            ]
+        },
+        {
+            "id": "Villager_M250230427_1",
+            "type": "Villager",
+            "attributes": [
+                {
+                    "name": "queue_started_at",
+                    "time": "2023-07-31T00:10:50Z",
+                    "value": "2023-07-31T00:10:50Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Town_Center_M250230427_2",
+                    "qualifier": "started_queue_at"
+                },
+                {
+                    "objectId": "M250230427",
+                    "qualifier": "related_to_match"
+                }
+            ]
+        },
+        {
+            "id": "Town_Center_M250230427_2",
+            "type": "TownCenter",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "M250230427",
+                    "qualifier": "related_to_match"
+                }
+            ]
+        },
+        {
+            "id": "Villager_M250230427_4",
+            "type": "Villager",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "M250230427",
+                    "qualifier": "related_to_match"
+                },
+                {
+                    "objectId": "S250230427_688587",
+                    "qualifier": "related_to_session"
+                }
+            ]
+        },
+        {
+            "id": "House_M250230427_2",
+            "type": "House",
+            "attributes": [
+                {
+                    "name": "construction_started_at",
+                    "time": "2023-07-31T00:10:52Z",
+                    "value": "2023-07-31T00:10:52Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "M250230427",
+                    "qualifier": "part_of_match"
+                },
+                {
+                    "objectId": "S250230427_688587",
+                    "qualifier": "part_of_session"
+                }
+            ]
+        },
+        {
+            "id": "Villager_M250230427_6",
+            "type": "Villager",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "M250230427",
+                    "qualifier": "related_to_match"
+                },
+                {
+                    "objectId": "S250230427_688587",
+                    "qualifier": "related_to_session"
+                }
+            ]
+        },
+        {
+            "id": "House_M250230427_4",
+            "type": "House",
+            "attributes": [
+                {
+                    "name": "construction_started_at",
+                    "time": "2023-07-31T00:10:53Z",
+                    "value": "2023-07-31T00:10:53Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "M250230427",
+                    "qualifier": "part_of_match"
+                },
+                {
+                    "objectId": "S250230427_688587",
+                    "qualifier": "part_of_session"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Match Created",
+            "time": "2023-07-31T00:10:50Z",
+            "attributes": [
+                {
+                    "name": "matchId",
+                    "value": "M250230427"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "M250230427",
+                    "qualifier": "match"
+                },
+                {
+                    "objectId": "P688587",
+                    "qualifier": "player"
+                },
+                {
+                    "objectId": "S250230427_688587",
+                    "qualifier": "session"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "Start Queue",
+            "time": "2023-07-31T00:10:50Z",
+            "attributes": [
+                {
+                    "name": "location",
+                    "value": "Town_Center_M250230427_2"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Villager_M250230427_1",
+                    "qualifier": "villager"
+                },
+                {
+                    "objectId": "Town_Center_M250230427_2",
+                    "qualifier": "town_center"
+                },
+                {
+                    "objectId": "M250230427",
+                    "qualifier": "match"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "type": "Create Initial Stone Wall",
+            "time": "2023-07-31T00:10:50Z",
+            "attributes": [
+                {
+                    "name": "structure",
+                    "value": "Initial Stone Wall"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "P688587",
+                    "qualifier": "player"
+                },
+                {
+                    "objectId": "M250230427",
+                    "qualifier": "match"
+                },
+                {
+                    "objectId": "S250230427_688587",
+                    "qualifier": "session"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "type": "House Construction Started",
+            "time": "2023-07-31T00:10:52Z",
+            "attributes": [
+                {
+                    "name": "houseId",
+                    "value": "House_M250230427_2"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "P688587",
+                    "qualifier": "player"
+                },
+                {
+                    "objectId": "Villager_M250230427_4",
+                    "qualifier": "villager"
+                },
+                {
+                    "objectId": "House_M250230427_2",
+                    "qualifier": "house"
+                },
+                {
+                    "objectId": "M250230427",
+                    "qualifier": "match"
+                },
+                {
+                    "objectId": "S250230427_688587",
+                    "qualifier": "session"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "type": "House Construction Started",
+            "time": "2023-07-31T00:10:53Z",
+            "attributes": [
+                {
+                    "name": "houseId",
+                    "value": "House_M250230427_4"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "P688587",
+                    "qualifier": "player"
+                },
+                {
+                    "objectId": "Villager_M250230427_6",
+                    "qualifier": "villager"
+                },
+                {
+                    "objectId": "House_M250230427_4",
+                    "qualifier": "house"
+                },
+                {
+                    "objectId": "M250230427",
+                    "qualifier": "match"
+                },
+                {
+                    "objectId": "S250230427_688587",
+                    "qualifier": "session"
+                }
+            ]
+        }
+    ]
+}

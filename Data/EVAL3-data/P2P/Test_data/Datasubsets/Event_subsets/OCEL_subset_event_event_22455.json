@@ -1,0 +1,160 @@
+{
+  "objectTypes": [
+    {
+      "name": "goods receipt",
+      "attributes": [
+        {
+          "name": "Movement Type (MSEG-BWART)",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "payment",
+      "attributes": [
+        {
+          "name": "Payment Method (ZLSCH)",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "purchase_order",
+      "attributes": [
+        {
+          "name": "Purchasing Group (EKKO-EKGRP)",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "eventTypes": [
+    {
+      "name": "Execute Payment",
+      "attributes": [
+        {
+          "name": "lifecycle",
+          "type": "string"
+        },
+        {
+          "name": "resource",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "id": "goods receipt:1444",
+      "type": "goods receipt",
+      "attributes": [
+        {
+          "name": "Movement Type (MSEG-BWART)",
+          "time": "1970-01-01T00:00:00Z",
+          "value": "101"
+        }
+      ],
+      "relationships": [
+        {
+          "objectId": "purchase_order:1187",
+          "qualifier": "Good Receipts of Purchase Order"
+        }
+      ]
+    },
+    {
+      "id": "payment:697",
+      "type": "payment",
+      "attributes": [
+        {
+          "name": "Payment Method (ZLSCH)",
+          "time": "1970-01-01T00:00:00Z",
+          "value": "D:Direct Debit"
+        }
+      ]
+    },
+    {
+      "id": "purchase_order:1186",
+      "type": "purchase_order",
+      "attributes": [
+        {
+          "name": "Purchasing Group (EKKO-EKGRP)",
+          "time": "1970-01-01T00:00:00Z",
+          "value": "001"
+        }
+      ],
+      "relationships": [
+        {
+          "objectId": "payment:697",
+          "qualifier": "order_pm"
+        }
+      ]
+    },
+    {
+      "id": "purchase_order:1185",
+      "type": "purchase_order",
+      "attributes": [
+        {
+          "name": "Purchasing Group (EKKO-EKGRP)",
+          "time": "1970-01-01T00:00:00Z",
+          "value": "001"
+        }
+      ],
+      "relationships": [
+        {
+          "objectId": "payment:697",
+          "qualifier": "order_pm"
+        }
+      ]
+    },
+    {
+      "id": "purchase_order:1187",
+      "type": "purchase_order",
+      "attributes": [
+        {
+          "name": "Purchasing Group (EKKO-EKGRP)",
+          "time": "1970-01-01T00:00:00Z",
+          "value": "001"
+        }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "event_22455",
+      "type": "Execute Payment",
+      "time": "2024-03-14T04:39:00Z",
+      "attributes": [
+        {
+          "name": "lifecycle",
+          "value": "complete"
+        },
+        {
+          "name": "resource",
+          "value": "Finance/Account Department"
+        }
+      ],
+      "relationships": [
+        {
+          "objectId": "payment:697",
+          "qualifier": "payment"
+        },
+        {
+          "objectId": "goods receipt:1444",
+          "qualifier": "goods receipt"
+        },
+        {
+          "objectId": "purchase_order:1186",
+          "qualifier": "purchase_order"
+        },
+        {
+          "objectId": "purchase_order:1187",
+          "qualifier": "purchase_order"
+        },
+        {
+          "objectId": "purchase_order:1185",
+          "qualifier": "purchase_order"
+        }
+      ]
+    }
+  ]
+}

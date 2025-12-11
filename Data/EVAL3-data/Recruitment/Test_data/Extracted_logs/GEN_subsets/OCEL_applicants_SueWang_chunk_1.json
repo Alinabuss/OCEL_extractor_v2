@@ -1,0 +1,205 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Vacancy",
+            "attributes": [
+                {
+                    "name": "title",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Interview",
+            "attributes": []
+        },
+        {
+            "name": "Rejection",
+            "attributes": []
+        },
+        {
+            "name": "ApplicationSubmitted",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "Person:Sue Wang",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Sue Wang"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Person:Martin Klenk",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Martin Klenk"
+                },
+                {
+                    "name": "role",
+                    "value": "manager"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Person:Jana Meister",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Jana Meister"
+                },
+                {
+                    "name": "role",
+                    "value": "recruiter"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Vacancy[550009]",
+            "type": "Vacancy",
+            "attributes": [
+                {
+                    "name": "title",
+                    "value": "Programmer"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Vacancy[550031]",
+            "type": "Vacancy",
+            "attributes": [
+                {
+                    "name": "title",
+                    "value": "Programmer"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Application[770182]",
+            "type": "Application",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Person:Sue Wang",
+                    "qualifier": "applicant"
+                }
+            ]
+        },
+        {
+            "id": "Application[770409]",
+            "type": "Application",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Person:Sue Wang",
+                    "qualifier": "applicant"
+                },
+                {
+                    "objectId": "Vacancy[550031]",
+                    "qualifier": "relatedToVacancy"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Interview",
+            "time": "2019-07-02T12:36:31Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Person:Sue Wang",
+                    "qualifier": "candidate"
+                },
+                {
+                    "objectId": "Person:Martin Klenk",
+                    "qualifier": "interviewer"
+                },
+                {
+                    "objectId": "Person:Jana Meister",
+                    "qualifier": "interviewer"
+                },
+                {
+                    "objectId": "Application[770182]",
+                    "qualifier": "application"
+                },
+                {
+                    "objectId": "Vacancy[550009]",
+                    "qualifier": "vacancy"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Rejection",
+            "time": "2019-07-04T07:33:38Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Person:Jana Meister",
+                    "qualifier": "sender"
+                },
+                {
+                    "objectId": "Person:Sue Wang",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "Application[770182]",
+                    "qualifier": "application"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "ApplicationSubmitted",
+            "time": "2019-07-05T04:41:43Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Person:Sue Wang",
+                    "qualifier": "applicant"
+                },
+                {
+                    "objectId": "Application[770409]",
+                    "qualifier": "application"
+                },
+                {
+                    "objectId": "Vacancy[550031]",
+                    "qualifier": "vacancy"
+                }
+            ]
+        }
+    ]
+}

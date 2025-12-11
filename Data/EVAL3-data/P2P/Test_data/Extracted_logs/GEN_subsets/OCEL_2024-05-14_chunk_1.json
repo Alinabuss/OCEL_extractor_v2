@@ -1,0 +1,99 @@
+{
+    "objectTypes": [
+        {
+            "name": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "GoodsReceiptRegistered",
+            "attributes": []
+        },
+        {
+            "name": "InvoiceReceiptCreationCompleted",
+            "attributes": [
+                {
+                    "name": "performedBy",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "goods receipt:1594",
+            "type": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "time": "2024-05-14T00:00:00Z",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "invoice receipt:1586",
+            "type": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "time": "2024-05-14T19:53:00Z",
+                    "value": "6000.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:1594",
+                    "qualifier": "related_to"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "evt1",
+            "type": "GoodsReceiptRegistered",
+            "time": "2024-05-14T00:00:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:1594",
+                    "qualifier": "registered"
+                }
+            ]
+        },
+        {
+            "id": "evt2",
+            "type": "InvoiceReceiptCreationCompleted",
+            "time": "2024-05-14T19:53:00Z",
+            "attributes": [
+                {
+                    "name": "performedBy",
+                    "value": "finance department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:1586",
+                    "qualifier": "created"
+                }
+            ]
+        }
+    ]
+}

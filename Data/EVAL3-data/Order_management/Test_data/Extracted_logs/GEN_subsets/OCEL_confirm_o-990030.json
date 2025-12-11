@@ -1,0 +1,174 @@
+{
+    "objectTypes": [
+        {
+            "name": "Order",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Order Confirmed",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "order-1",
+            "type": "Order",
+            "attributes": [
+                {
+                    "name": "status",
+                    "time": "2023-04-17T07:09:39Z",
+                    "value": "confirmed"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-880126",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "time": "2023-04-17T07:09:39Z",
+                    "value": "99.99"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "order-1",
+                    "qualifier": "included-in"
+                }
+            ]
+        },
+        {
+            "id": "i-880127",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "time": "2023-04-17T07:09:39Z",
+                    "value": "2200.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "order-1",
+                    "qualifier": "included-in"
+                }
+            ]
+        },
+        {
+            "id": "i-880131",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "time": "2023-04-17T07:09:39Z",
+                    "value": "29.99"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "order-1",
+                    "qualifier": "included-in"
+                }
+            ]
+        },
+        {
+            "id": "Echo",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "price",
+                    "time": "2023-04-17T07:09:39Z",
+                    "value": "99.99"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "order-1",
+                    "qualifier": "included-in"
+                }
+            ]
+        },
+        {
+            "id": "Mara Nitschke",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "2023-04-17T07:09:39Z",
+                    "value": "sales person"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Order Confirmed",
+            "time": "2023-04-17T07:09:39Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "order-1",
+                    "qualifier": "order"
+                },
+                {
+                    "objectId": "Mara Nitschke",
+                    "qualifier": "performed-by"
+                },
+                {
+                    "objectId": "i-880126",
+                    "qualifier": "included"
+                },
+                {
+                    "objectId": "i-880127",
+                    "qualifier": "included"
+                },
+                {
+                    "objectId": "i-880131",
+                    "qualifier": "included"
+                },
+                {
+                    "objectId": "Echo",
+                    "qualifier": "included"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,143 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Community",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "StatusUpdate",
+            "attributes": [
+                {
+                    "name": "summary",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire-hurst",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Hurst Fire"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "org-angeles-national-forest",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Angeles National Forest"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "org-la-county-fire-department",
+                    "qualifier": "unified-command-with"
+                },
+                {
+                    "objectId": "org-la-city-fire-department",
+                    "qualifier": "unified-command-with"
+                }
+            ]
+        },
+        {
+            "id": "org-la-county-fire-department",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Los Angeles County Fire Department"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "org-la-city-fire-department",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Los Angeles City Fire Department"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "residents-returning-home",
+            "type": "Community",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Residents returning home"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "StatusUpdate",
+            "time": "2025-01-11T09:21:00Z",
+            "attributes": [
+                {
+                    "name": "summary",
+                    "value": "Firefighting efforts continue to concentrate on building and improving containment lines with a focus on public safety and structure protection. Residents returning home are advised to use extreme caution. The Angeles National Forest is in unified command with Los Angeles County Fire Department and Los Angeles City Fire Department."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-hurst",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "org-angeles-national-forest",
+                    "qualifier": "mentions"
+                },
+                {
+                    "objectId": "org-la-county-fire-department",
+                    "qualifier": "mentions"
+                },
+                {
+                    "objectId": "org-la-city-fire-department",
+                    "qualifier": "mentions"
+                },
+                {
+                    "objectId": "residents-returning-home",
+                    "qualifier": "advises"
+                }
+            ]
+        }
+    ]
+}

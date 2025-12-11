@@ -1,0 +1,112 @@
+{
+    "objectTypes": [
+        {
+            "name": "SpecialMeasure",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Case",
+            "attributes": [
+                {
+                    "name": "category",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "VictimWitness",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "UseSpecialMeasures",
+            "attributes": [
+                {
+                    "name": "frequency",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "special_measures_1",
+            "type": "SpecialMeasure",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-01T00:00:00Z",
+                    "value": "special measures"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "case_1",
+            "type": "Case",
+            "attributes": [
+                {
+                    "name": "category",
+                    "time": "2025-01-01T00:00:00Z",
+                    "value": "sex/violence"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "victim_witness_1",
+                    "qualifier": "in_respect_of"
+                }
+            ]
+        },
+        {
+            "id": "victim_witness_1",
+            "type": "VictimWitness",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "2025-01-01T00:00:00Z",
+                    "value": "victim-witness"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "UseSpecialMeasures",
+            "time": "2025-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "frequency",
+                    "value": "regularly"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "special_measures_1",
+                    "qualifier": "used"
+                },
+                {
+                    "objectId": "case_1",
+                    "qualifier": "in_case"
+                },
+                {
+                    "objectId": "victim_witness_1",
+                    "qualifier": "in_respect_of"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,86 @@
+{
+    "objectTypes": [
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Two-way match completed",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "goods receipt:554",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "time": "2023-01-24T08:10:00Z",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "invoice receipt:556",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "time": "2023-01-24T08:10:00Z",
+                    "value": "13000.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Finance/Account Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Two-way match completed",
+            "time": "2023-01-24T08:10:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:554",
+                    "qualifier": "involved"
+                },
+                {
+                    "objectId": "invoice receipt:556",
+                    "qualifier": "involved"
+                },
+                {
+                    "objectId": "Finance/Account Department",
+                    "qualifier": "completedBy"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,242 @@
+{
+    "objectTypes": [
+        {
+            "name": "Court",
+            "attributes": []
+        },
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "domesticRemediesExhausted",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "Government",
+            "attributes": []
+        },
+        {
+            "name": "Application",
+            "attributes": [
+                {
+                    "name": "admissibility",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PreliminaryObjection",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "LegalProvision",
+            "attributes": [
+                {
+                    "name": "citation",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ProceedOnAssumption",
+            "attributes": [
+                {
+                    "name": "assumption",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "DismissPreliminaryObjection",
+            "attributes": [
+                {
+                    "name": "decision",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "DeclareApplicationAdmissible",
+            "attributes": [
+                {
+                    "name": "assessment",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "court-1",
+            "type": "Court",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "applicant-1",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "domesticRemediesExhausted",
+                    "time": "2020-01-01T10:00:00Z",
+                    "value": "true"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "government-1",
+            "type": "Government",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "application-1",
+            "type": "Application",
+            "attributes": [
+                {
+                    "name": "admissibility",
+                    "time": "2020-01-01T10:02:00Z",
+                    "value": "admissible"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant-1",
+                    "qualifier": "hasApplicant"
+                }
+            ]
+        },
+        {
+            "id": "prelimobj-1",
+            "type": "PreliminaryObjection",
+            "attributes": [
+                {
+                    "name": "status",
+                    "time": "2020-01-01T10:01:00Z",
+                    "value": "dismissed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "government-1",
+                    "qualifier": "raised-by"
+                },
+                {
+                    "objectId": "application-1",
+                    "qualifier": "concerns"
+                }
+            ]
+        },
+        {
+            "id": "article35sec1-1",
+            "type": "LegalProvision",
+            "attributes": [
+                {
+                    "name": "citation",
+                    "time": "",
+                    "value": "Article 35 \u00a7 1 of the Convention"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "article35-1",
+            "type": "LegalProvision",
+            "attributes": [
+                {
+                    "name": "citation",
+                    "time": "",
+                    "value": "Article 35 of the Convention"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "ProceedOnAssumption",
+            "time": "2020-01-01T10:00:00Z",
+            "attributes": [
+                {
+                    "name": "assumption",
+                    "value": "the applicant exhausted domestic remedies"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court-1",
+                    "qualifier": "made-by"
+                },
+                {
+                    "objectId": "applicant-1",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "article35sec1-1",
+                    "qualifier": "in-accordance-with"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "DismissPreliminaryObjection",
+            "time": "2020-01-01T10:01:00Z",
+            "attributes": [
+                {
+                    "name": "decision",
+                    "value": "the Government's preliminary objection should be dismissed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court-1",
+                    "qualifier": "made-by"
+                },
+                {
+                    "objectId": "prelimobj-1",
+                    "qualifier": "target"
+                },
+                {
+                    "objectId": "government-1",
+                    "qualifier": "raised-by"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "type": "DeclareApplicationAdmissible",
+            "time": "2020-01-01T10:02:00Z",
+            "attributes": [
+                {
+                    "name": "assessment",
+                    "value": "The application is neither manifestly ill-founded nor inadmissible on any other grounds listed in Article 35 of the Convention; it was therefore declared admissible."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court-1",
+                    "qualifier": "made-by"
+                },
+                {
+                    "objectId": "application-1",
+                    "qualifier": "target"
+                },
+                {
+                    "objectId": "article35-1",
+                    "qualifier": "refers-to"
+                }
+            ]
+        }
+    ]
+}

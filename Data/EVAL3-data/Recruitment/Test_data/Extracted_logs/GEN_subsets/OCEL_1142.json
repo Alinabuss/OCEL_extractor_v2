@@ -1,0 +1,105 @@
+{
+    "objectTypes": [
+        {
+            "name": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": [
+                {
+                    "name": "application_id",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Rejection Sent",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Ed Meister",
+            "type": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Ed Meister"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Mary Schmidt",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Mary Schmidt"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Application[770040]",
+            "type": "Application",
+            "attributes": [
+                {
+                    "name": "application_id",
+                    "value": "770040"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Mary Schmidt",
+                    "qualifier": "submitted_by"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Rejection Sent",
+            "time": "2019-06-21T08:28:08Z",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "sent rejection"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Ed Meister",
+                    "qualifier": "sender"
+                },
+                {
+                    "objectId": "Application[770040]",
+                    "qualifier": "for"
+                }
+            ]
+        }
+    ]
+}

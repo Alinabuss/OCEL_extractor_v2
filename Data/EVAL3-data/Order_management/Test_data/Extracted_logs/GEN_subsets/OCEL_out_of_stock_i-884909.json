@@ -1,0 +1,130 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "OutOfStockReported",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "person-ChristopherSchwanen",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Christopher Schwanen",
+                    "time": "2023-11-15T12:18:57Z"
+                },
+                {
+                    "name": "department",
+                    "value": "warehousing",
+                    "time": "2023-11-15T12:18:57Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "item-i-884909",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "109.76",
+                    "time": "2023-11-15T12:18:57Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-Echo",
+                    "qualifier": "categorizedUnder"
+                }
+            ]
+        },
+        {
+            "id": "product-Echo",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Echo",
+                    "time": "2023-11-15T12:18:57Z"
+                },
+                {
+                    "name": "price",
+                    "value": "99.99",
+                    "time": "2023-11-15T12:18:57Z"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "OutOfStockReported",
+            "time": "2023-11-15T12:18:57Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "out_of_stock"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "item-i-884909",
+                    "qualifier": "affectedItem"
+                },
+                {
+                    "objectId": "person-ChristopherSchwanen",
+                    "qualifier": "reportedBy"
+                },
+                {
+                    "objectId": "product-Echo",
+                    "qualifier": "product"
+                }
+            ]
+        }
+    ]
+}

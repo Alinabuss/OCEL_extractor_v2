@@ -1,0 +1,91 @@
+{
+    "objectTypes": [
+        {
+            "name": "purchase_order",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "quotation",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Approval",
+            "attributes": [
+                {
+                    "name": "performedBy",
+                    "type": "string"
+                },
+                {
+                    "name": "lifecycle:transition",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:64",
+            "type": "purchase_order",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "time": "",
+                    "value": "001"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:42",
+                    "qualifier": "linked"
+                }
+            ]
+        },
+        {
+            "id": "quotation:42",
+            "type": "quotation",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "time": "",
+                    "value": "001"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "evt1",
+            "type": "Approval",
+            "time": "2022-05-16T00:27:00Z",
+            "attributes": [
+                {
+                    "name": "performedBy",
+                    "value": "Procurement Order Manager"
+                },
+                {
+                    "name": "lifecycle:transition",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:64",
+                    "qualifier": "approved"
+                }
+            ]
+        }
+    ]
+}

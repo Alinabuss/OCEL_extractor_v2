@@ -1,0 +1,85 @@
+{
+    "objectTypes": [
+        {
+            "name": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movement type",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "purchase order",
+            "attributes": [
+                {
+                    "name": "purchasing group",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Goods Receipt Creation Completed",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "goods receipt:722",
+            "type": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movement type",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:596",
+                    "qualifier": "related"
+                }
+            ]
+        },
+        {
+            "id": "purchase_order:596",
+            "type": "purchase order",
+            "attributes": [
+                {
+                    "name": "purchasing group",
+                    "value": "001"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Warehouse Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Goods Receipt Creation Completed",
+            "time": "2023-04-05T05:56:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:722",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "Warehouse Department",
+                    "qualifier": "performed_by"
+                }
+            ]
+        }
+    ]
+}

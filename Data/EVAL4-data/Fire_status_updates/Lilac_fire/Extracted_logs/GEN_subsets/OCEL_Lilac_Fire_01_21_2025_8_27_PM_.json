@@ -1,0 +1,160 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "location",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Status Update",
+            "attributes": [
+                {
+                    "name": "forward_rate_of_spread",
+                    "type": "string"
+                },
+                {
+                    "name": "containment_plan",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Repopulation Completed",
+            "attributes": [
+                {
+                    "name": "note",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Lilac Fire",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-21T20:27:00Z",
+                    "value": "Lilac Fire"
+                },
+                {
+                    "name": "location",
+                    "time": "2025-01-21T20:27:00Z",
+                    "value": "near Old Highway 395 and Lilac Road"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Old Highway 395 and Lilac Road",
+                    "qualifier": "located_near"
+                }
+            ]
+        },
+        {
+            "id": "Old Highway 395 and Lilac Road",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-21T20:27:00Z",
+                    "value": "Old Highway 395 and Lilac Road"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Fire crew",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-21T20:27:00Z",
+                    "value": "Fire crew"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Lilac Fire",
+                    "qualifier": "responding"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Status Update",
+            "time": "2025-01-21T20:27:00Z",
+            "attributes": [
+                {
+                    "name": "forward_rate_of_spread",
+                    "value": "stopped"
+                },
+                {
+                    "name": "containment_plan",
+                    "value": "Fire crew will continue to build containment lines and extinguish hotspots within the fire's perimeter."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Lilac Fire",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "Fire crew",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "Old Highway 395 and Lilac Road",
+                    "qualifier": "location"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "Repopulation Completed",
+            "time": "2025-01-21T20:00:00Z",
+            "attributes": [
+                {
+                    "name": "note",
+                    "value": "Repopulation has been completed as of January 21 at 8 pm"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Lilac Fire",
+                    "qualifier": "subject"
+                }
+            ]
+        }
+    ]
+}

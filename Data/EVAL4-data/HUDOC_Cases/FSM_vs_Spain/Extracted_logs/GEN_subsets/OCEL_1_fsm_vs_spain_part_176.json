@@ -1,0 +1,148 @@
+{
+    "objectTypes": [
+        {
+            "name": "Jurisdiction",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Procedure",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Request for termination of criminal proceedings",
+            "attributes": []
+        },
+        {
+            "name": "Request for special measures",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "jurisdiction:ireland",
+            "type": "Jurisdiction",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Ireland",
+                    "time": ""
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "person:victim",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "victim",
+                    "time": ""
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "jurisdiction:ireland",
+                    "qualifier": "in-jurisdiction"
+                },
+                {
+                    "objectId": "procedure:special_measures",
+                    "qualifier": "distinct-role-in-special-measures"
+                },
+                {
+                    "objectId": "person:defendant",
+                    "qualifier": "distinct-from-regarding-special-measures"
+                }
+            ]
+        },
+        {
+            "id": "person:defendant",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "defendant",
+                    "time": ""
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "jurisdiction:ireland",
+                    "qualifier": "in-jurisdiction"
+                },
+                {
+                    "objectId": "procedure:special_measures",
+                    "qualifier": "distinct-role-in-special-measures"
+                },
+                {
+                    "objectId": "person:victim",
+                    "qualifier": "distinct-from-regarding-special-measures"
+                }
+            ]
+        },
+        {
+            "id": "procedure:termination",
+            "type": "Procedure",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "request for the termination of criminal proceedings",
+                    "time": ""
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "jurisdiction:ireland",
+                    "qualifier": "occurs-in"
+                },
+                {
+                    "objectId": "procedure:special_measures",
+                    "qualifier": "distinct-from"
+                }
+            ]
+        },
+        {
+            "id": "procedure:special_measures",
+            "type": "Procedure",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "asking for special measures to be put in place during the trial to assist someone who has mental or communication difficulties",
+                    "time": ""
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "jurisdiction:ireland",
+                    "qualifier": "occurs-in"
+                },
+                {
+                    "objectId": "procedure:termination",
+                    "qualifier": "distinct-from"
+                }
+            ]
+        }
+    ],
+    "events": []
+}

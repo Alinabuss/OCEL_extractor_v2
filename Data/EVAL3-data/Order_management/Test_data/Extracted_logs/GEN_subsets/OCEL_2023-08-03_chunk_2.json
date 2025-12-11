@@ -1,0 +1,147 @@
+{
+    "objectTypes": [
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Pick",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "emp-MahsaBafrani",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Mahsa Bafrani"
+                },
+                {
+                    "name": "role",
+                    "value": "employee"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "dept-warehousing",
+                    "qualifier": "works-in"
+                }
+            ]
+        },
+        {
+            "id": "dept-warehousing",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "prod-EchoPlus",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Echo Plus"
+                },
+                {
+                    "name": "price",
+                    "value": "149.99"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-882525",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "162.28",
+                    "time": "2023-08-03T17:18:44Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "prod-EchoPlus",
+                    "qualifier": "corresponds-to"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Pick",
+            "time": "2023-08-03T17:18:44Z",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "picked"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "emp-MahsaBafrani",
+                    "qualifier": "performedBy"
+                },
+                {
+                    "objectId": "i-882525",
+                    "qualifier": "item"
+                }
+            ]
+        }
+    ]
+}

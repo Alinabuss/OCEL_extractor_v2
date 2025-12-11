@@ -1,0 +1,151 @@
+{
+    "objectTypes": [
+        {
+            "name": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "massKg",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "SteelCoil",
+            "attributes": [
+                {
+                    "name": "massKg",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Machine",
+            "attributes": []
+        },
+        {
+            "name": "Workstation",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Split",
+            "attributes": [
+                {
+                    "name": "durationSeconds",
+                    "type": "float"
+                },
+                {
+                    "name": "co2EmissionKg",
+                    "type": "float"
+                },
+                {
+                    "name": "electricityKwh",
+                    "type": "float"
+                },
+                {
+                    "name": "wasteGeneratedKg",
+                    "type": "float"
+                },
+                {
+                    "name": "wasteDestination",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "SteelSheet[2375]",
+            "type": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "massKg",
+                    "time": "2023-04-04T10:46:16Z",
+                    "value": "0.02102"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "SteelCoil[3]",
+                    "qualifier": "derivedFrom"
+                }
+            ]
+        },
+        {
+            "id": "SteelCoil[3]",
+            "type": "SteelCoil",
+            "attributes": [
+                {
+                    "name": "massKg",
+                    "value": "31.91076"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Machine[splitter01]",
+            "type": "Machine",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Workstation[1]",
+                    "qualifier": "locatedAt"
+                }
+            ]
+        },
+        {
+            "id": "Workstation[1]",
+            "type": "Workstation",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e_split_20230404_104616",
+            "type": "Split",
+            "time": "2023-04-04T10:46:16Z",
+            "attributes": [
+                {
+                    "name": "durationSeconds",
+                    "value": "15.085"
+                },
+                {
+                    "name": "co2EmissionKg",
+                    "value": "0.01577"
+                },
+                {
+                    "name": "electricityKwh",
+                    "value": "0.023"
+                },
+                {
+                    "name": "wasteGeneratedKg",
+                    "value": "0.00042"
+                },
+                {
+                    "name": "wasteDestination",
+                    "value": "recycling"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "SteelCoil[3]",
+                    "qualifier": "input"
+                },
+                {
+                    "objectId": "SteelSheet[2375]",
+                    "qualifier": "output"
+                },
+                {
+                    "objectId": "Machine[splitter01]",
+                    "qualifier": "machine"
+                },
+                {
+                    "objectId": "Workstation[1]",
+                    "qualifier": "workstation"
+                }
+            ]
+        }
+    ]
+}

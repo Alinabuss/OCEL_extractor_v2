@@ -1,0 +1,200 @@
+{
+    "objectTypes": [
+        {
+            "name": "Object_type_not_identified",
+            "attributes": [
+                {
+                    "name": "Workstation",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "machine",
+            "attributes": [
+                {
+                    "name": "Workstation",
+                    "type": "string"
+                },
+                {
+                    "name": "grid energy",
+                    "type": "string"
+                },
+                {
+                    "name": "emissions",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "emissions",
+            "attributes": [
+                {
+                    "name": "grid energy",
+                    "type": "string"
+                },
+                {
+                    "name": "emissions",
+                    "type": "string"
+                },
+                {
+                    "name": "waste amount of steel",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "sheet steel",
+            "attributes": [
+                {
+                    "name": "output steel sheet production",
+                    "type": "string"
+                },
+                {
+                    "name": "output steel sheet production",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "steel coil",
+            "attributes": [
+                {
+                    "name": "output steel sheet production",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "execute task",
+            "attributes": []
+        },
+        {
+            "name": "split steel sheet task",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "CO2",
+            "type": "emissions",
+            "attributes": [
+                {
+                    "name": "grid energy",
+                    "time": "1970-01-01T00:00:00Z",
+                    "value": "about 0.0099 kWh"
+                },
+                {
+                    "name": "emissions",
+                    "time": "1970-01-01T00:00:00Z",
+                    "value": "approximately 0.0068"
+                },
+                {
+                    "name": "waste amount of steel",
+                    "time": "1970-01-01T00:00:00Z",
+                    "value": "0.00042"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Splitter01",
+            "type": "machine",
+            "attributes": [
+                {
+                    "name": "Workstation",
+                    "time": "2023-04-05T07:44:33Z",
+                    "value": "Workstation 1"
+                },
+                {
+                    "name": "grid energy",
+                    "time": "1970-01-01T00:00:00Z",
+                    "value": "about 0.0099 kWh"
+                },
+                {
+                    "name": "emissions",
+                    "time": "1970-01-01T00:00:00Z",
+                    "value": "approximately 0.0068"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "SteelCoil[2",
+            "type": "steel coil",
+            "attributes": [
+                {
+                    "name": "output steel sheet production",
+                    "time": "1970-01-01T00:00:00Z",
+                    "value": "0.02122"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "SteelSheet[3013",
+            "type": "sheet steel",
+            "attributes": [
+                {
+                    "name": "output steel sheet production",
+                    "time": "1970-01-01T00:00:00Z",
+                    "value": "31.91 kg"
+                },
+                {
+                    "name": "output steel sheet production",
+                    "time": "1970-01-01T00:00:00Z",
+                    "value": "0.02122"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_steelsheet_3013",
+            "type": "Object_type_not_identified",
+            "attributes": [
+                {
+                    "name": "Workstation",
+                    "time": "2023-04-05T07:44:33Z",
+                    "value": "Workstation 1"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 867,
+            "type": "execute task",
+            "time": "2023-04-05T07:44:33Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Splitter01",
+                    "qualifier": null
+                }
+            ]
+        },
+        {
+            "id": 868,
+            "type": "split steel sheet task",
+            "time": "2023-04-05T07:44:33Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "SteelCoil[2",
+                    "qualifier": null
+                },
+                {
+                    "objectId": "SteelSheet[3013",
+                    "qualifier": null
+                },
+                {
+                    "objectId": "CO2",
+                    "qualifier": null
+                }
+            ]
+        }
+    ]
+}

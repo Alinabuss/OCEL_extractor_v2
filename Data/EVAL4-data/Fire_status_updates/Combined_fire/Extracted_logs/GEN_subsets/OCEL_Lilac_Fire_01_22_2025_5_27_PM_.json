@@ -1,0 +1,156 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "location",
+                    "type": "string"
+                },
+                {
+                    "name": "forward_rate_of_spread",
+                    "type": "string"
+                },
+                {
+                    "name": "repopulation_status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "FireCrew",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "SituationReport",
+            "attributes": [
+                {
+                    "name": "location",
+                    "type": "string"
+                },
+                {
+                    "name": "forward_rate_of_spread",
+                    "type": "string"
+                },
+                {
+                    "name": "planned_actions",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "RepopulationCompleted",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "lilac_fire_1",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-22T17:27:00Z",
+                    "value": "Lilac Fire"
+                },
+                {
+                    "name": "location",
+                    "time": "2025-01-22T17:27:00Z",
+                    "value": "near Old Highway 395 and Lilac Road"
+                },
+                {
+                    "name": "forward_rate_of_spread",
+                    "time": "2025-01-22T17:27:00Z",
+                    "value": "stopped"
+                },
+                {
+                    "name": "repopulation_status",
+                    "time": "2025-01-21T20:00:00Z",
+                    "value": "completed"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "fire_crews_1",
+            "type": "FireCrew",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-22T17:27:00Z",
+                    "value": "fire crews"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "lilac_fire_1",
+                    "qualifier": "workingWithinPerimeter"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "SituationReport",
+            "time": "2025-01-22T17:27:00Z",
+            "attributes": [
+                {
+                    "name": "location",
+                    "value": "near Old Highway 395 and Lilac Road"
+                },
+                {
+                    "name": "forward_rate_of_spread",
+                    "value": "stopped"
+                },
+                {
+                    "name": "planned_actions",
+                    "value": "build containment lines; extinguish hotspots within the fire's perimeter"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "lilac_fire_1",
+                    "qualifier": "affected"
+                },
+                {
+                    "objectId": "fire_crews_1",
+                    "qualifier": "involved"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "RepopulationCompleted",
+            "time": "2025-01-21T20:00:00Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "completed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "lilac_fire_1",
+                    "qualifier": "affected"
+                }
+            ]
+        }
+    ]
+}

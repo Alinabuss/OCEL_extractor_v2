@@ -1,0 +1,261 @@
+{
+    "objectTypes": [
+        {
+            "name": "Case",
+            "attributes": [
+                {
+                    "name": "citation",
+                    "type": "string"
+                },
+                {
+                    "name": "case_name",
+                    "type": "string"
+                },
+                {
+                    "name": "year",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "jurisdiction",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Defendant",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                },
+                {
+                    "name": "trial_type",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "LegalRight",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "LegalBasis",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Judgment",
+            "attributes": [
+                {
+                    "name": "citation",
+                    "type": "string"
+                },
+                {
+                    "name": "case_name",
+                    "type": "string"
+                },
+                {
+                    "name": "conclusion",
+                    "type": "string"
+                },
+                {
+                    "name": "legal_basis",
+                    "type": "string"
+                },
+                {
+                    "name": "mentions_rights",
+                    "type": "string"
+                },
+                {
+                    "name": "legislative_framework_absent",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "case_DPP_v_Harrison_2016",
+            "type": "Case",
+            "attributes": [
+                {
+                    "name": "citation",
+                    "time": "2016-01-01T00:00:00Z",
+                    "value": "Harrison [2016] IECA 212"
+                },
+                {
+                    "name": "case_name",
+                    "time": "2016-01-01T00:00:00Z",
+                    "value": "DPP v. Harrison"
+                },
+                {
+                    "name": "year",
+                    "time": "2016-01-01T00:00:00Z",
+                    "value": "2016"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "irish_court",
+                    "qualifier": "decidedBy"
+                },
+                {
+                    "objectId": "defendant_1",
+                    "qualifier": "includesDefendant"
+                },
+                {
+                    "objectId": "right_fair_trial",
+                    "qualifier": "concernsRight"
+                },
+                {
+                    "objectId": "inherent_jurisdiction",
+                    "qualifier": "basedOn"
+                }
+            ]
+        },
+        {
+            "id": "irish_court",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "jurisdiction",
+                    "time": "2016-01-01T00:00:00Z",
+                    "value": "Ireland"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "case_DPP_v_Harrison_2016",
+                    "qualifier": "decidedCase"
+                }
+            ]
+        },
+        {
+            "id": "defendant_1",
+            "type": "Defendant",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "2016-01-01T00:00:00Z",
+                    "value": "defendant"
+                },
+                {
+                    "name": "trial_type",
+                    "time": "2016-01-01T00:00:00Z",
+                    "value": "criminal"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "case_DPP_v_Harrison_2016",
+                    "qualifier": "participantIn"
+                }
+            ]
+        },
+        {
+            "id": "right_fair_trial",
+            "type": "LegalRight",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2016-01-01T00:00:00Z",
+                    "value": "constitutional and ECHR guarantees of a right to a fair trial"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "case_DPP_v_Harrison_2016",
+                    "qualifier": "mentionedIn"
+                }
+            ]
+        },
+        {
+            "id": "inherent_jurisdiction",
+            "type": "LegalBasis",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2016-01-01T00:00:00Z",
+                    "value": "inherent jurisdiction"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "case_DPP_v_Harrison_2016",
+                    "qualifier": "citedIn"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Judgment",
+            "time": "2016-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "citation",
+                    "value": "Harrison [2016] IECA 212"
+                },
+                {
+                    "name": "case_name",
+                    "value": "DPP v. Harrison"
+                },
+                {
+                    "name": "conclusion",
+                    "value": "Court considered that special measures could be ordered for a defendant in a criminal trial"
+                },
+                {
+                    "name": "legal_basis",
+                    "value": "inherent jurisdiction"
+                },
+                {
+                    "name": "mentions_rights",
+                    "value": "constitutional and ECHR guarantees of a right to a fair trial"
+                },
+                {
+                    "name": "legislative_framework_absent",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "case_DPP_v_Harrison_2016",
+                    "qualifier": "concerns"
+                },
+                {
+                    "objectId": "irish_court",
+                    "qualifier": "decidedBy"
+                },
+                {
+                    "objectId": "defendant_1",
+                    "qualifier": "involves"
+                },
+                {
+                    "objectId": "right_fair_trial",
+                    "qualifier": "mentions"
+                },
+                {
+                    "objectId": "inherent_jurisdiction",
+                    "qualifier": "basesOn"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,133 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "location",
+                    "type": "string"
+                },
+                {
+                    "name": "containment_percent",
+                    "type": "integer"
+                },
+                {
+                    "name": "forward_rate_of_spread_status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Situation Report",
+            "attributes": [
+                {
+                    "name": "summary",
+                    "type": "string"
+                },
+                {
+                    "name": "containment_percent",
+                    "type": "integer"
+                },
+                {
+                    "name": "forward_rate_of_spread_stopped",
+                    "type": "boolean"
+                },
+                {
+                    "name": "planned_activities",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "LilacFire",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-21T15:57:00Z",
+                    "value": "Lilac Fire"
+                },
+                {
+                    "name": "location",
+                    "time": "2025-01-21T15:57:00Z",
+                    "value": "near Old Highway 395 and Lilac Road"
+                },
+                {
+                    "name": "containment_percent",
+                    "time": "2025-01-21T15:57:00Z",
+                    "value": "35"
+                },
+                {
+                    "name": "forward_rate_of_spread_status",
+                    "time": "2025-01-21T15:57:00Z",
+                    "value": "stopped"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "fire_crew_1",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-21T15:57:00Z",
+                    "value": "fire crew"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "evt_1",
+            "type": "Situation Report",
+            "time": "2025-01-21T15:57:00Z",
+            "attributes": [
+                {
+                    "name": "summary",
+                    "value": "Forward rate of spread stopped; 35% contained; fire crew will continue to build containment lines and extinguish hotspots within the fire's perimeter."
+                },
+                {
+                    "name": "containment_percent",
+                    "value": "35"
+                },
+                {
+                    "name": "forward_rate_of_spread_stopped",
+                    "value": "true"
+                },
+                {
+                    "name": "planned_activities",
+                    "value": "build containment lines; extinguish hotspots"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "LilacFire",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "fire_crew_1",
+                    "qualifier": "responder"
+                }
+            ]
+        }
+    ]
+}

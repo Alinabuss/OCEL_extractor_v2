@@ -1,0 +1,414 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "contained",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Responder",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Residents",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Agency",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Warning",
+            "attributes": [
+                {
+                    "name": "type",
+                    "type": "string"
+                },
+                {
+                    "name": "inEffectUntil",
+                    "type": "datetime"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ContainmentDeclared",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ControlLinesEstablished",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "FlareUpsManaged",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "EvacuationOrdersDowngraded",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "EvacuationOrdersLifted",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "AdvisoryIssued",
+            "attributes": [
+                {
+                    "name": "message",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "RedFlagWarningStatus",
+            "attributes": [
+                {
+                    "name": "inEffectUntil",
+                    "type": "datetime"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o_fire_hurst",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-09T19:08:00Z",
+                    "value": "Hurst Fire"
+                },
+                {
+                    "name": "contained",
+                    "time": "2025-01-09T19:08:00Z",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_freeway_i210",
+                    "qualifier": "north-of"
+                },
+                {
+                    "objectId": "o_santa_clara",
+                    "qualifier": "control-lines-extend-to"
+                }
+            ]
+        },
+        {
+            "id": "o_freeway_i210",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-09T19:08:00Z",
+                    "value": "I-210 Foothill Freeway"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_santa_clara",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-09T19:08:00Z",
+                    "value": "Santa Clara Divide Road"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_firefighters",
+            "type": "Responder",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-09T19:08:00Z",
+                    "value": "Firefighters"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_crews",
+            "type": "Responder",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-09T19:08:00Z",
+                    "value": "Crews"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_residents",
+            "type": "Residents",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-09T19:08:00Z",
+                    "value": "Residents returning home"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_ladwp",
+            "type": "Agency",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-09T19:08:00Z",
+                    "value": "Los Angeles Department of Water and Power"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_redflag",
+            "type": "Warning",
+            "attributes": [
+                {
+                    "name": "type",
+                    "time": "2025-01-09T19:08:00Z",
+                    "value": "red flag warning"
+                },
+                {
+                    "name": "inEffectUntil",
+                    "time": "2025-01-09T19:08:00Z",
+                    "value": "2025-01-09T18:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_fire_hurst",
+                    "qualifier": "applies-to"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "ContainmentDeclared",
+            "time": "2025-01-09T19:08:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Firefighters have successfully contained the fire north of the I-210 Foothill Freeway."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_fire_hurst",
+                    "qualifier": "affected"
+                },
+                {
+                    "objectId": "o_firefighters",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "o_freeway_i210",
+                    "qualifier": "location"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "ControlLinesEstablished",
+            "time": "2025-01-09T19:08:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Control lines established extending to Santa Clara Divide Road."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_fire_hurst",
+                    "qualifier": "affected"
+                },
+                {
+                    "objectId": "o_crews",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "o_santa_clara",
+                    "qualifier": "target-location"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "FlareUpsManaged",
+            "time": "2025-01-09T19:08:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Crews managed several flare-ups within the fire's perimeter."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_fire_hurst",
+                    "qualifier": "affected"
+                },
+                {
+                    "objectId": "o_crews",
+                    "qualifier": "actor"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "EvacuationOrdersDowngraded",
+            "time": "2025-01-09T15:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Evacuation orders have been downgraded to warnings."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_fire_hurst",
+                    "qualifier": "context"
+                },
+                {
+                    "objectId": "o_residents",
+                    "qualifier": "affected"
+                }
+            ]
+        },
+        {
+            "id": "e5",
+            "type": "EvacuationOrdersLifted",
+            "time": "2025-01-09T15:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Evacuation orders have been lifted."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_fire_hurst",
+                    "qualifier": "context"
+                },
+                {
+                    "objectId": "o_residents",
+                    "qualifier": "affected"
+                }
+            ]
+        },
+        {
+            "id": "e6",
+            "type": "AdvisoryIssued",
+            "time": "2025-01-09T19:08:00Z",
+            "attributes": [
+                {
+                    "name": "message",
+                    "value": "Residents returning home are advised to observe extreme caution and to NOT drink the water until advised by the Los Angeles Department of Water and Power."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_residents",
+                    "qualifier": "target"
+                },
+                {
+                    "objectId": "o_ladwp",
+                    "qualifier": "referenced-agency"
+                },
+                {
+                    "objectId": "o_fire_hurst",
+                    "qualifier": "context"
+                }
+            ]
+        },
+        {
+            "id": "e7",
+            "type": "RedFlagWarningStatus",
+            "time": "2025-01-09T19:08:00Z",
+            "attributes": [
+                {
+                    "name": "inEffectUntil",
+                    "value": "2025-01-09T18:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_redflag",
+                    "qualifier": "warning"
+                },
+                {
+                    "objectId": "o_fire_hurst",
+                    "qualifier": "area"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,514 @@
+{
+    "objectTypes": [
+        {
+            "name": "FireIncident",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Area",
+            "attributes": [
+                {
+                    "name": "direction",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "EvacuationOrder",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Warning",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Helicopter",
+            "attributes": [
+                {
+                    "name": "operator",
+                    "type": "string"
+                },
+                {
+                    "name": "model",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Aircraft",
+            "attributes": [
+                {
+                    "name": "aircraftType",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Resources",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ExtremeFireBehaviorObserved",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ImpactedLocation",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "EvacuationOrdersIssued",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "WarningsIssued",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "AerialSupportProvided",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "operator",
+                    "type": "string"
+                },
+                {
+                    "name": "aircraft_model",
+                    "type": "string"
+                },
+                {
+                    "name": "flight_time",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "FixedWingAircraftOrdered",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "scheduled_time",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ResourceAugmentationOrdered",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "will_report_time",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire-border-2",
+            "type": "FireIncident",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Border 2 Fire"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "otay-lakes-road",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Otay Lakes Road"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "otay-mountain-wilderness",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Otay Mountain Wilderness"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "area-north-omw",
+            "type": "Area",
+            "attributes": [
+                {
+                    "name": "direction",
+                    "value": "North"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "otay-mountain-wilderness",
+                    "qualifier": "north_of"
+                }
+            ]
+        },
+        {
+            "id": "area-west-omw",
+            "type": "Area",
+            "attributes": [
+                {
+                    "name": "direction",
+                    "value": "West"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "otay-mountain-wilderness",
+                    "qualifier": "west_of"
+                }
+            ]
+        },
+        {
+            "id": "evacuation-orders",
+            "type": "EvacuationOrder",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Evacuation Orders"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "area-north-omw",
+                    "qualifier": "applies_to"
+                },
+                {
+                    "objectId": "area-west-omw",
+                    "qualifier": "applies_to"
+                }
+            ]
+        },
+        {
+            "id": "warnings",
+            "type": "Warning",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Warnings"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "area-north-omw",
+                    "qualifier": "applies_to"
+                },
+                {
+                    "objectId": "area-west-omw",
+                    "qualifier": "applies_to"
+                }
+            ]
+        },
+        {
+            "id": "fire-crews",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Fire crews"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "calfire-firehawk-helicopters",
+            "type": "Helicopter",
+            "attributes": [
+                {
+                    "name": "operator",
+                    "value": "CAL FIRE"
+                },
+                {
+                    "name": "model",
+                    "value": "Fire-Hawk"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "fixed-wing-aircraft",
+            "type": "Aircraft",
+            "attributes": [
+                {
+                    "name": "aircraftType",
+                    "value": "fixed-wing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "resource-augmentation",
+            "type": "Resources",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "substantial augmentation of resources ordered"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "ExtremeFireBehaviorObserved",
+            "time": "2025-01-24T13:48:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Fire crews experienced extreme fire behavior last night with long range spotting."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-border-2",
+                    "qualifier": "affected"
+                },
+                {
+                    "objectId": "fire-crews",
+                    "qualifier": "experienced_by"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "ImpactedLocation",
+            "time": "2025-01-24T13:48:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "The fire has impacted Otay Lakes Road."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-border-2",
+                    "qualifier": "source"
+                },
+                {
+                    "objectId": "otay-lakes-road",
+                    "qualifier": "impacted"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "EvacuationOrdersIssued",
+            "time": "2025-01-24T13:48:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Evacuation ORDERS issued to the North and West of the Otay Mountain Wilderness."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-border-2",
+                    "qualifier": "trigger"
+                },
+                {
+                    "objectId": "evacuation-orders",
+                    "qualifier": "issued"
+                },
+                {
+                    "objectId": "area-north-omw",
+                    "qualifier": "target"
+                },
+                {
+                    "objectId": "area-west-omw",
+                    "qualifier": "target"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "WarningsIssued",
+            "time": "2025-01-24T13:48:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Warnings issued to the North and West of the Otay Mountain Wilderness."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-border-2",
+                    "qualifier": "trigger"
+                },
+                {
+                    "objectId": "warnings",
+                    "qualifier": "issued"
+                },
+                {
+                    "objectId": "area-north-omw",
+                    "qualifier": "target"
+                },
+                {
+                    "objectId": "area-west-omw",
+                    "qualifier": "target"
+                }
+            ]
+        },
+        {
+            "id": "e5",
+            "type": "AerialSupportProvided",
+            "time": "2025-01-24T13:48:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Night flying CAL FIRE Fire-Hawk helicopters provided aerial support over the fire."
+                },
+                {
+                    "name": "operator",
+                    "value": "CAL FIRE"
+                },
+                {
+                    "name": "aircraft_model",
+                    "value": "Fire-Hawk"
+                },
+                {
+                    "name": "flight_time",
+                    "value": "night"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "calfire-firehawk-helicopters",
+                    "qualifier": "provider"
+                },
+                {
+                    "objectId": "fire-border-2",
+                    "qualifier": "supported"
+                }
+            ]
+        },
+        {
+            "id": "e6",
+            "type": "FixedWingAircraftOrdered",
+            "time": "2025-01-24T13:48:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Fixed wing aircraft have been ordered to be over the fire in the morning hours."
+                },
+                {
+                    "name": "scheduled_time",
+                    "value": "morning hours"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fixed-wing-aircraft",
+                    "qualifier": "ordered"
+                },
+                {
+                    "objectId": "fire-border-2",
+                    "qualifier": "to_support"
+                }
+            ]
+        },
+        {
+            "id": "e7",
+            "type": "ResourceAugmentationOrdered",
+            "time": "2025-01-24T13:48:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "A substantial augmentation of resources has been ordered and will report for assignment this morning."
+                },
+                {
+                    "name": "will_report_time",
+                    "value": "this morning"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "resource-augmentation",
+                    "qualifier": "ordered"
+                },
+                {
+                    "objectId": "fire-border-2",
+                    "qualifier": "for_incident"
+                }
+            ]
+        }
+    ]
+}

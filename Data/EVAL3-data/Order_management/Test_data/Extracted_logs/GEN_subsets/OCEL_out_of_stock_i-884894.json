@@ -1,0 +1,121 @@
+{
+    "objectTypes": [
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "role",
+                    "type": "string"
+                },
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ItemOutOfStockReported",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "employee-1",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Leah Tacke genannt Unterberg"
+                },
+                {
+                    "name": "role",
+                    "value": "employee"
+                },
+                {
+                    "name": "department",
+                    "value": "warehousing"
+                }
+            ]
+        },
+        {
+            "id": "product-1",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Kindle Paperwhite"
+                },
+                {
+                    "name": "price",
+                    "value": "129.00"
+                }
+            ]
+        },
+        {
+            "id": "item-1",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "141.61"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-1",
+                    "qualifier": "instance-of"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "ItemOutOfStockReported",
+            "time": "2023-11-16T15:36:11Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "employee-1",
+                    "qualifier": "reporter"
+                },
+                {
+                    "objectId": "item-1",
+                    "qualifier": "item"
+                },
+                {
+                    "objectId": "product-1",
+                    "qualifier": "product"
+                }
+            ]
+        }
+    ]
+}

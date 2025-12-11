@@ -1,0 +1,273 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "burnedAcres",
+                    "type": "string"
+                },
+                {
+                    "name": "containment",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "EvacuationOrder",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                },
+                {
+                    "name": "liftedTime",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "EvacuationWarning",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                },
+                {
+                    "name": "liftedTime",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "County",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "LawEnforcement",
+            "attributes": [
+                {
+                    "name": "unit",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "FireStatusReported",
+            "attributes": [
+                {
+                    "name": "burnedAcres",
+                    "type": "string"
+                },
+                {
+                    "name": "containment",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "EvacuationsLifted",
+            "attributes": [
+                {
+                    "name": "scope",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "IDCheckAnnouncement",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "kenneth-fire",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "burnedAcres",
+                    "time": "2025-01-10T08:31:00Z",
+                    "value": "approximately 1,000 acres"
+                },
+                {
+                    "name": "containment",
+                    "time": "2025-01-10T08:31:00Z",
+                    "value": "35% contained"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "evacuation-order-1",
+            "type": "EvacuationOrder",
+            "attributes": [
+                {
+                    "name": "status",
+                    "time": "2025-01-09T20:00:00Z",
+                    "value": "lifted"
+                },
+                {
+                    "name": "liftedTime",
+                    "time": "2025-01-09T20:00:00Z",
+                    "value": "2025-01-09T20:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "kenneth-fire",
+                    "qualifier": "issued_due_to"
+                },
+                {
+                    "objectId": "losangeles-county",
+                    "qualifier": "issued_by"
+                }
+            ]
+        },
+        {
+            "id": "evacuation-warning-1",
+            "type": "EvacuationWarning",
+            "attributes": [
+                {
+                    "name": "status",
+                    "time": "2025-01-09T20:00:00Z",
+                    "value": "lifted"
+                },
+                {
+                    "name": "liftedTime",
+                    "time": "2025-01-09T20:00:00Z",
+                    "value": "2025-01-09T20:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "kenneth-fire",
+                    "qualifier": "issued_due_to"
+                },
+                {
+                    "objectId": "losangeles-county",
+                    "qualifier": "issued_by"
+                }
+            ]
+        },
+        {
+            "id": "losangeles-county",
+            "type": "County",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "la-deputies",
+            "type": "LawEnforcement",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "people-traveling",
+            "type": "Person",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "FireStatusReported",
+            "time": "2025-01-10T08:31:00Z",
+            "attributes": [
+                {
+                    "name": "burnedAcres",
+                    "value": "approximately 1,000 acres"
+                },
+                {
+                    "name": "containment",
+                    "value": "35% contained"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "kenneth-fire",
+                    "qualifier": "about"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "EvacuationsLifted",
+            "time": "2025-01-09T20:00:00Z",
+            "attributes": [
+                {
+                    "name": "scope",
+                    "value": "All Los Angeles County evacuation orders and warnings issued due to the Kenneth Fire have been lifted"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "evacuation-order-1",
+                    "qualifier": "affected"
+                },
+                {
+                    "objectId": "evacuation-warning-1",
+                    "qualifier": "affected"
+                },
+                {
+                    "objectId": "kenneth-fire",
+                    "qualifier": "for"
+                },
+                {
+                    "objectId": "losangeles-county",
+                    "qualifier": "by"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "IDCheckAnnouncement",
+            "time": "2025-01-10T08:31:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Deputies will be checking identification to see if people traveling through the area reside in the above listed areas."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "la-deputies",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "people-traveling",
+                    "qualifier": "target"
+                },
+                {
+                    "objectId": "evacuation-order-1",
+                    "qualifier": "related"
+                },
+                {
+                    "objectId": "evacuation-warning-1",
+                    "qualifier": "related"
+                }
+            ]
+        }
+    ]
+}

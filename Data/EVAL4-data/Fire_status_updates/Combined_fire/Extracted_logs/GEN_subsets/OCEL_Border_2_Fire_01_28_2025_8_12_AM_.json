@@ -1,0 +1,198 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Agency",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "EvacuationMap",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "IncidentUpdate",
+            "attributes": [
+                {
+                    "name": "observations",
+                    "type": "string"
+                },
+                {
+                    "name": "humidity",
+                    "type": "string"
+                },
+                {
+                    "name": "fire_potential",
+                    "type": "string"
+                },
+                {
+                    "name": "spread_anticipated",
+                    "type": "string"
+                },
+                {
+                    "name": "ground_crew_activity",
+                    "type": "string"
+                },
+                {
+                    "name": "ground_crew_terrain",
+                    "type": "string"
+                },
+                {
+                    "name": "suppression_repair_priority",
+                    "type": "string"
+                },
+                {
+                    "name": "evacuation_map_mentioned",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire:Border 2",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-28T08:12:00Z",
+                    "value": "Border 2 Fire"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "crew:GroundCrews",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-28T08:12:00Z",
+                    "value": "Ground crews"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire:Border 2",
+                    "qualifier": "working_on"
+                }
+            ]
+        },
+        {
+            "id": "agency:SanDiegoCountySheriffsOffice",
+            "type": "Agency",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-28T08:12:00Z",
+                    "value": "San Diego County Sheriff's Office"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "map:GenasysProtect",
+                    "qualifier": "encourages_check"
+                }
+            ]
+        },
+        {
+            "id": "map:GenasysProtect",
+            "type": "EvacuationMap",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-28T08:12:00Z",
+                    "value": "Genasys Protect evacuation map"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "evt1",
+            "type": "IncidentUpdate",
+            "time": "2025-01-28T08:12:00Z",
+            "attributes": [
+                {
+                    "name": "observations",
+                    "value": "Minimal smoldering and fire behavior were observed overnight"
+                },
+                {
+                    "name": "humidity",
+                    "value": "high"
+                },
+                {
+                    "name": "fire_potential",
+                    "value": "low"
+                },
+                {
+                    "name": "spread_anticipated",
+                    "value": "no"
+                },
+                {
+                    "name": "ground_crew_activity",
+                    "value": "mopping up and patrolling existing fire lines"
+                },
+                {
+                    "name": "ground_crew_terrain",
+                    "value": "steep"
+                },
+                {
+                    "name": "suppression_repair_priority",
+                    "value": "high"
+                },
+                {
+                    "name": "evacuation_map_mentioned",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire:Border 2",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "crew:GroundCrews",
+                    "qualifier": "involves"
+                },
+                {
+                    "objectId": "agency:SanDiegoCountySheriffsOffice",
+                    "qualifier": "mentions"
+                },
+                {
+                    "objectId": "map:GenasysProtect",
+                    "qualifier": "references"
+                }
+            ]
+        }
+    ]
+}

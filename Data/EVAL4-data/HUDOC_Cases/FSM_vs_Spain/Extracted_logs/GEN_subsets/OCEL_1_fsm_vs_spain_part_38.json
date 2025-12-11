@@ -1,0 +1,214 @@
+{
+    "objectTypes": [
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Request",
+            "attributes": [
+                {
+                    "name": "purpose",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Report",
+            "attributes": [
+                {
+                    "name": "type",
+                    "type": "string"
+                },
+                {
+                    "name": "conclusion",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Defence",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Proceeding",
+            "attributes": [
+                {
+                    "name": "type",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "RequestsRejected",
+            "attributes": [
+                {
+                    "name": "statement",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "court-1",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Audiencia Provincial"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "request-discontinue-1",
+            "type": "Request",
+            "attributes": [
+                {
+                    "name": "purpose",
+                    "value": "discontinue the criminal proceedings"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "criminal-proceedings-1",
+                    "qualifier": "concerns"
+                }
+            ]
+        },
+        {
+            "id": "request-accept-evidence-1",
+            "type": "Request",
+            "attributes": [
+                {
+                    "name": "purpose",
+                    "value": "accept new evidence"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "criminal-proceedings-1",
+                    "qualifier": "concerns"
+                }
+            ]
+        },
+        {
+            "id": "criminal-proceedings-1",
+            "type": "Proceeding",
+            "attributes": [
+                {
+                    "name": "type",
+                    "value": "criminal"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "report-psychological-1",
+            "type": "Report",
+            "attributes": [
+                {
+                    "name": "type",
+                    "value": "psychological"
+                },
+                {
+                    "name": "conclusion",
+                    "value": "The above-mentioned report concludes ... that the accused shows a moderate deterioration [in his mental capacity]"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "defence-1",
+                    "qualifier": "submitted_by"
+                },
+                {
+                    "objectId": "accused-1",
+                    "qualifier": "about"
+                }
+            ]
+        },
+        {
+            "id": "defence-1",
+            "type": "Defence",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "defence"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "accused-1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "accused"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "RequestsRejected",
+            "time": "2018-07-26T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "statement",
+                    "value": "The above-mentioned report concludes ... that the accused shows a moderate deterioration [in his mental capacity]"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court-1",
+                    "qualifier": "decider"
+                },
+                {
+                    "objectId": "request-discontinue-1",
+                    "qualifier": "rejected"
+                },
+                {
+                    "objectId": "request-accept-evidence-1",
+                    "qualifier": "rejected"
+                },
+                {
+                    "objectId": "report-psychological-1",
+                    "qualifier": "referred"
+                },
+                {
+                    "objectId": "accused-1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "criminal-proceedings-1",
+                    "qualifier": "related"
+                }
+            ]
+        }
+    ]
+}

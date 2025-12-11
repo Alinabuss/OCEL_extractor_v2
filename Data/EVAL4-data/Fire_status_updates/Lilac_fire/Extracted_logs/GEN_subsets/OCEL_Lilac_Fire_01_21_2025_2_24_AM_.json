@@ -1,0 +1,168 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "rate_of_spread",
+                    "type": "string"
+                },
+                {
+                    "name": "growth",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Road",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "StructureGroup",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "threatened",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "StatusUpdate",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Lilac Fire",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-21T02:24:00Z",
+                    "value": "Lilac Fire"
+                },
+                {
+                    "name": "rate_of_spread",
+                    "time": "2025-01-21T02:24:00Z",
+                    "value": "moderate"
+                },
+                {
+                    "name": "growth",
+                    "time": "2025-01-21T02:24:00Z",
+                    "value": "growing"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Old Highway 395",
+                    "qualifier": "located_near"
+                },
+                {
+                    "objectId": "Lilac road",
+                    "qualifier": "located_near"
+                },
+                {
+                    "objectId": "Structures",
+                    "qualifier": "threatens"
+                }
+            ]
+        },
+        {
+            "id": "Old Highway 395",
+            "type": "Road",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-21T02:24:00Z",
+                    "value": "Old Highway 395"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Lilac road",
+            "type": "Road",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-21T02:24:00Z",
+                    "value": "Lilac road"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Structures",
+            "type": "StructureGroup",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-21T02:24:00Z",
+                    "value": "Structures"
+                },
+                {
+                    "name": "threatened",
+                    "time": "2025-01-21T02:24:00Z",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Lilac Fire",
+                    "qualifier": "threatened_by"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "evt-1",
+            "type": "StatusUpdate",
+            "time": "2025-01-21T02:24:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "The fire is located near Old Highway 395 and Lilac road. The fire is growing with a moderate rate of spread and structures are threatened."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Lilac Fire",
+                    "qualifier": "involves"
+                },
+                {
+                    "objectId": "Old Highway 395",
+                    "qualifier": "location_near"
+                },
+                {
+                    "objectId": "Lilac road",
+                    "qualifier": "location_near"
+                },
+                {
+                    "objectId": "Structures",
+                    "qualifier": "threatened"
+                }
+            ]
+        }
+    ]
+}

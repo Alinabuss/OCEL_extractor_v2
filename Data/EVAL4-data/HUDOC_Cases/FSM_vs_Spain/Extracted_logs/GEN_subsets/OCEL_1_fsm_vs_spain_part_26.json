@@ -1,0 +1,184 @@
+{
+    "objectTypes": [
+        {
+            "name": "Lawyer",
+            "attributes": []
+        },
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "capacity",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Guardian",
+            "attributes": []
+        },
+        {
+            "name": "Court",
+            "attributes": []
+        },
+        {
+            "name": "Hearing",
+            "attributes": []
+        },
+        {
+            "name": "Proceedings",
+            "attributes": []
+        },
+        {
+            "name": "ExpertEvidence",
+            "attributes": []
+        },
+        {
+            "name": "Videolink",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "LawyerUtterance",
+            "attributes": [
+                {
+                    "name": "conclusion",
+                    "type": "string"
+                },
+                {
+                    "name": "requested_actions",
+                    "type": "string"
+                },
+                {
+                    "name": "purpose",
+                    "type": "string"
+                },
+                {
+                    "name": "alternative",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "lawyer_1",
+            "type": "Lawyer",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "applicant_1",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "capacity",
+                    "time": "2025-09-11T00:00:00Z",
+                    "value": "did not have the necessary capacity to participate in the proceedings"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "guardian_1",
+            "type": "Guardian",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "guardian_of"
+                }
+            ]
+        },
+        {
+            "id": "court_1",
+            "type": "Court",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "hearing_1",
+            "type": "Hearing",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "proceedings_1",
+            "type": "Proceedings",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "expert_evidence_1",
+            "type": "ExpertEvidence",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "videolink_1",
+            "type": "Videolink",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "LawyerUtterance",
+            "time": "2025-09-11T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "conclusion",
+                    "value": "The lawyer concluded that the applicant did not have the necessary capacity to participate in the proceedings."
+                },
+                {
+                    "name": "requested_actions",
+                    "value": "Asked for the hearing to be adjourned; stated that the proceedings should be discontinued; alternatively asked the court to obtain expert evidence aimed at clarifying the applicant's condition; asked the court to allow the applicant to participate via videolink; asked the court to allow the applicant to be assisted by his guardian."
+                },
+                {
+                    "name": "purpose",
+                    "value": "clarifying the applicant's condition"
+                },
+                {
+                    "name": "alternative",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "lawyer_1",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "hearing_1",
+                    "qualifier": "requested_adjourn"
+                },
+                {
+                    "objectId": "proceedings_1",
+                    "qualifier": "stated_discontinue"
+                },
+                {
+                    "objectId": "court_1",
+                    "qualifier": "addressee_for_alternative_requests"
+                },
+                {
+                    "objectId": "expert_evidence_1",
+                    "qualifier": "requested"
+                },
+                {
+                    "objectId": "videolink_1",
+                    "qualifier": "requested_mode"
+                },
+                {
+                    "objectId": "guardian_1",
+                    "qualifier": "requested_assistant"
+                }
+            ]
+        }
+    ]
+}

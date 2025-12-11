@@ -1,0 +1,175 @@
+{
+    "objectTypes": [
+        {
+            "name": "Customer",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Order",
+            "attributes": [
+                {
+                    "name": "itemCount",
+                    "type": "integer"
+                },
+                {
+                    "name": "includedItemPrices",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "OrderConfirmed",
+            "attributes": [
+                {
+                    "name": "capturedAllItems",
+                    "type": "string"
+                },
+                {
+                    "name": "transactionCompleted",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Vesta Fashion House GmbH",
+            "type": "Customer",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Vesta Fashion House GmbH"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "order-1",
+                    "qualifier": "confirmed"
+                }
+            ]
+        },
+        {
+            "id": "order-1",
+            "type": "Order",
+            "attributes": [
+                {
+                    "name": "itemCount",
+                    "value": "5",
+                    "time": "2023-05-29T10:13:47Z"
+                },
+                {
+                    "name": "includedItemPrices",
+                    "value": "129.99,699.00,529.00"
+                },
+                {
+                    "name": "status",
+                    "value": "completed",
+                    "time": "2023-05-29T10:13:47Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-880925",
+            "type": "Item",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "order-1",
+                    "qualifier": "included-in"
+                }
+            ]
+        },
+        {
+            "id": "i-880926",
+            "type": "Item",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "order-1",
+                    "qualifier": "included-in"
+                }
+            ]
+        },
+        {
+            "id": "i-880928",
+            "type": "Item",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "order-1",
+                    "qualifier": "included-in"
+                }
+            ]
+        },
+        {
+            "id": "i-880929",
+            "type": "Item",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "order-1",
+                    "qualifier": "included-in"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e-1",
+            "type": "OrderConfirmed",
+            "time": "2023-05-29T10:13:47Z",
+            "attributes": [
+                {
+                    "name": "capturedAllItems",
+                    "value": "true"
+                },
+                {
+                    "name": "transactionCompleted",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Vesta Fashion House GmbH",
+                    "qualifier": "confirmed-by"
+                },
+                {
+                    "objectId": "order-1",
+                    "qualifier": "order"
+                },
+                {
+                    "objectId": "i-880925",
+                    "qualifier": "included-item"
+                },
+                {
+                    "objectId": "i-880926",
+                    "qualifier": "included-item"
+                },
+                {
+                    "objectId": "i-880928",
+                    "qualifier": "included-item"
+                },
+                {
+                    "objectId": "i-880929",
+                    "qualifier": "included-item"
+                }
+            ]
+        }
+    ]
+}

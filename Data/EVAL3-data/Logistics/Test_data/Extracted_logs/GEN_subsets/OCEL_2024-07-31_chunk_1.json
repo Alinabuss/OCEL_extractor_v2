@@ -1,0 +1,83 @@
+{
+    "objectTypes": [
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "category",
+                    "type": "string"
+                },
+                {
+                    "name": "scheduledDeparture",
+                    "type": "time"
+                }
+            ]
+        },
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "totalContainers",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "VehicleBooked",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "vh129",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "category",
+                    "value": "regular vehicle"
+                },
+                {
+                    "name": "scheduledDeparture",
+                    "value": "2024-08-20T11:00:00Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "td568",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "totalContainers",
+                    "value": "2.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "vh129",
+                    "qualifier": "linkedToVehicle"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "VehicleBooked",
+            "time": "2024-07-31T12:45:08Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "vh129",
+                    "qualifier": "vehicle"
+                },
+                {
+                    "objectId": "td568",
+                    "qualifier": "transportDocument"
+                }
+            ]
+        }
+    ]
+}

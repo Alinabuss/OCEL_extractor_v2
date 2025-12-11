@@ -1,0 +1,170 @@
+{
+    "objectTypes": [
+        {
+            "name": "Defendant",
+            "attributes": [
+                {
+                    "name": "lacksMentalFacultiesToBeAwareOfLegalScope",
+                    "type": "boolean"
+                },
+                {
+                    "name": "lacksMentalFacultiesToBeAwareOfConstitutionalValue",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "Prosecution",
+            "attributes": []
+        },
+        {
+            "name": "State",
+            "attributes": []
+        },
+        {
+            "name": "PunitivePower",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ConstitutionalRight",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ProsecutionExamination",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "defendant_1",
+            "type": "Defendant",
+            "attributes": [
+                {
+                    "name": "lacksMentalFacultiesToBeAwareOfLegalScope",
+                    "time": "2025-09-11T00:00:00Z",
+                    "value": "true"
+                },
+                {
+                    "name": "lacksMentalFacultiesToBeAwareOfConstitutionalValue",
+                    "time": "2025-09-11T00:00:00Z",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "punitive_power_1",
+                    "qualifier": "defencelessAgainst"
+                },
+                {
+                    "objectId": "right_not_to_confess",
+                    "qualifier": "notAwareOf"
+                },
+                {
+                    "objectId": "presumption_of_innocence",
+                    "qualifier": "notAwareOf"
+                }
+            ]
+        },
+        {
+            "id": "prosecution_1",
+            "type": "Prosecution",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "state_1",
+            "type": "State",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "punitive_power_1",
+                    "qualifier": "possesses"
+                }
+            ]
+        },
+        {
+            "id": "punitive_power_1",
+            "type": "PunitivePower",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-09-11T00:00:00Z",
+                    "value": "State punitive power"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "right_not_to_confess",
+            "type": "ConstitutionalRight",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-09-11T00:00:00Z",
+                    "value": "right not to confess guilt"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "presumption_of_innocence",
+            "type": "ConstitutionalRight",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-09-11T00:00:00Z",
+                    "value": "presumption of innocence"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "ProsecutionExamination",
+            "time": "2025-09-11T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Prosecution's examination; defendant answered"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "defendant_1",
+                    "qualifier": "answerer"
+                },
+                {
+                    "objectId": "prosecution_1",
+                    "qualifier": "examiner"
+                },
+                {
+                    "objectId": "right_not_to_confess",
+                    "qualifier": "implicates"
+                },
+                {
+                    "objectId": "presumption_of_innocence",
+                    "qualifier": "implicates"
+                }
+            ]
+        }
+    ]
+}

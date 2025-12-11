@@ -1,0 +1,153 @@
+{
+    "objectTypes": [
+        {
+            "name": "Player",
+            "attributes": [
+                {
+                    "name": "playerId",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Match",
+            "attributes": [
+                {
+                    "name": "matchId",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Session",
+            "attributes": [
+                {
+                    "name": "sessionId",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "SiegeWorkshop",
+            "attributes": [
+                {
+                    "name": "workshopId",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "EngageMatch",
+            "attributes": []
+        },
+        {
+            "name": "ActivateCommandQueue",
+            "attributes": [
+                {
+                    "name": "unit",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Player[P1472826]",
+            "type": "Player",
+            "attributes": [
+                {
+                    "name": "playerId",
+                    "value": "P1472826"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Match[M227028371]",
+            "type": "Match",
+            "attributes": [
+                {
+                    "name": "matchId",
+                    "value": "M227028371"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Session[S227028371_1472826]",
+            "type": "Session",
+            "attributes": [
+                {
+                    "name": "sessionId",
+                    "value": "S227028371_1472826"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Player[P1472826]",
+                    "qualifier": "involves"
+                },
+                {
+                    "objectId": "Match[M227028371]",
+                    "qualifier": "involves"
+                }
+            ]
+        },
+        {
+            "id": "Siege Workshop[Siege_Workshop_M227028371_2]",
+            "type": "SiegeWorkshop",
+            "attributes": [
+                {
+                    "name": "workshopId",
+                    "value": "Siege_Workshop_M227028371_2"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "E1",
+            "type": "EngageMatch",
+            "time": "2023-04-17T01:00:35Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Player[P1472826]",
+                    "qualifier": "player"
+                },
+                {
+                    "objectId": "Match[M227028371]",
+                    "qualifier": "match"
+                },
+                {
+                    "objectId": "Session[S227028371_1472826]",
+                    "qualifier": "session"
+                }
+            ]
+        },
+        {
+            "id": "E2",
+            "type": "ActivateCommandQueue",
+            "time": "2023-04-17T01:00:35Z",
+            "attributes": [
+                {
+                    "name": "unit",
+                    "value": "mangonel"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Siege Workshop[Siege_Workshop_M227028371_2]",
+                    "qualifier": "workshop"
+                },
+                {
+                    "objectId": "Session[S227028371_1472826]",
+                    "qualifier": "session"
+                }
+            ]
+        }
+    ]
+}

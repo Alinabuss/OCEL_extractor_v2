@@ -1,0 +1,105 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "Purchasing Group",
+                    "type": "string"
+                },
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Quotation",
+            "attributes": [
+                {
+                    "name": "Purchasing Group",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Resource",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Purchase Order Approved",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:1591",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "Purchasing Group",
+                    "value": "003",
+                    "time": ""
+                },
+                {
+                    "name": "lifecycle",
+                    "value": "completed",
+                    "time": "2024-10-03T16:54:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:918",
+                    "qualifier": "associated"
+                }
+            ]
+        },
+        {
+            "id": "quotation:918",
+            "type": "Quotation",
+            "attributes": [
+                {
+                    "name": "Purchasing Group",
+                    "value": "003",
+                    "time": ""
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:1591",
+                    "qualifier": "associated"
+                }
+            ]
+        },
+        {
+            "id": "resource:Procurement Order Manager",
+            "type": "Resource",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "event:1",
+            "type": "Purchase Order Approved",
+            "time": "2024-10-03T16:54:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "resource:Procurement Order Manager",
+                    "qualifier": "approver"
+                },
+                {
+                    "objectId": "purchase_order:1591",
+                    "qualifier": "approved"
+                },
+                {
+                    "objectId": "quotation:918",
+                    "qualifier": "associated"
+                }
+            ]
+        }
+    ]
+}

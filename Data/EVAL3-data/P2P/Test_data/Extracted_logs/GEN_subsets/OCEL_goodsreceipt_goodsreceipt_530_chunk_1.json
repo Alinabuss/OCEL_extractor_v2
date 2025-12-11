@@ -1,0 +1,89 @@
+{
+    "objectTypes": [
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "type": "float"
+                },
+                {
+                    "name": "movement_type",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "GoodsReceipt",
+            "attributes": []
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Invoice Receipt Creation Completed",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt:527",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "time": "2023-01-10T03:58:00Z",
+                    "value": "25200.0"
+                },
+                {
+                    "name": "movement_type",
+                    "time": "2023-01-10T03:58:00Z",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:530",
+                    "qualifier": "for"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt:530",
+            "type": "GoodsReceipt",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "finance/account department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Invoice Receipt Creation Completed",
+            "time": "2023-01-10T03:58:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:527",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "goods receipt:530",
+                    "qualifier": "for"
+                },
+                {
+                    "objectId": "finance/account department",
+                    "qualifier": "performed_by"
+                }
+            ]
+        }
+    ]
+}

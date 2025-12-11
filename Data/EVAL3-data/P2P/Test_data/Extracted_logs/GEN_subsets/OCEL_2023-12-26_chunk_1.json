@@ -1,0 +1,169 @@
+{
+    "objectTypes": [
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group_code",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Create Invoice Receipt",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Create Goods Receipt",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt:1275",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "time": "2023-12-26T12:15:00Z",
+                    "value": "22500.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:1281",
+                    "qualifier": "associated_with"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt:1281",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "goods receipt:1292",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "time": "2023-12-26T17:39:00Z",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:1060",
+                    "qualifier": "linked_to"
+                }
+            ]
+        },
+        {
+            "id": "purchase_order:1060",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group_code",
+                    "value": "004"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Finance/Account Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Warehouse Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Create Invoice Receipt",
+            "time": "2023-12-26T12:15:00Z",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:1275",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "Finance/Account Department",
+                    "qualifier": "performed_by"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "Create Goods Receipt",
+            "time": "2023-12-26T17:39:00Z",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:1292",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "Warehouse Department",
+                    "qualifier": "performed_by"
+                }
+            ]
+        }
+    ]
+}

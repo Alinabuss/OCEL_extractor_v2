@@ -1,0 +1,113 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "type": "number"
+                },
+                {
+                    "name": "amount_unit",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "VehiclesBooked",
+            "attributes": []
+        },
+        {
+            "name": "DepartureScheduled",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "td255",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "time": "",
+                    "value": "5.0"
+                },
+                {
+                    "name": "amount_unit",
+                    "time": "",
+                    "value": "containers"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "vh56",
+            "type": "Vehicle",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "td255",
+                    "qualifier": "high-priority-for"
+                }
+            ]
+        },
+        {
+            "id": "vh60",
+            "type": "Vehicle",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "VehiclesBooked",
+            "time": "2023-12-04T09:58:57Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "td255",
+                    "qualifier": "for"
+                },
+                {
+                    "objectId": "vh56",
+                    "qualifier": "booked"
+                },
+                {
+                    "objectId": "vh60",
+                    "qualifier": "booked"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "DepartureScheduled",
+            "time": "2023-12-08T11:00:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "vh56",
+                    "qualifier": "scheduled-departure"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "type": "DepartureScheduled",
+            "time": "2023-12-22T11:00:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "vh60",
+                    "qualifier": "scheduled-departure"
+                }
+            ]
+        }
+    ]
+}

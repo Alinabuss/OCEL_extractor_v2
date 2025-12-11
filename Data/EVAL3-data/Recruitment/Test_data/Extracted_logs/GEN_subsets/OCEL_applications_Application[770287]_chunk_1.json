@@ -1,0 +1,112 @@
+{
+    "objectTypes": [
+        {
+            "name": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": [
+                {
+                    "name": "applicationNumber",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Communicate Rejection",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "recruiter-EdGeisler",
+            "type": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2019-07-03T13:55:25Z",
+                    "value": "Ed Geisler"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "applicant-ChunWang",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2019-07-03T13:55:25Z",
+                    "value": "Chun Wang"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "application-770287",
+            "type": "Application",
+            "attributes": [
+                {
+                    "name": "applicationNumber",
+                    "time": "2019-07-03T13:55:25Z",
+                    "value": "770287"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant-ChunWang",
+                    "qualifier": "applied-by"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Communicate Rejection",
+            "time": "2019-07-03T13:55:25Z",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "communicated the rejection"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "recruiter-EdGeisler",
+                    "qualifier": "communicator"
+                },
+                {
+                    "objectId": "application-770287",
+                    "qualifier": "rejected"
+                },
+                {
+                    "objectId": "applicant-ChunWang",
+                    "qualifier": "recipient"
+                }
+            ]
+        }
+    ]
+}

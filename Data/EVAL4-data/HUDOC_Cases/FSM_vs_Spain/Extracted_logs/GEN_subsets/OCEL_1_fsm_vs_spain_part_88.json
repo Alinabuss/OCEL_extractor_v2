@@ -1,0 +1,220 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Appeal",
+            "attributes": [
+                {
+                    "name": "appealType",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Hearing",
+            "attributes": []
+        },
+        {
+            "name": "Defence",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "NoClaimInAppeal",
+            "attributes": [
+                {
+                    "name": "claimContent",
+                    "type": "string"
+                },
+                {
+                    "name": "appealType",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "applicant_1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "",
+                    "value": "applicant"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "appeal_amparo_1",
+                    "qualifier": "has_appeal"
+                },
+                {
+                    "objectId": "appeal_points_1",
+                    "qualifier": "has_appeal"
+                },
+                {
+                    "objectId": "defence_1",
+                    "qualifier": "has_defence"
+                },
+                {
+                    "objectId": "hearing_1",
+                    "qualifier": "did-not-participate-via-videolink"
+                }
+            ]
+        },
+        {
+            "id": "guardian_1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "",
+                    "value": "guardian"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "hearing_1",
+                    "qualifier": "not-present-at"
+                }
+            ]
+        },
+        {
+            "id": "appeal_amparo_1",
+            "type": "Appeal",
+            "attributes": [
+                {
+                    "name": "appealType",
+                    "time": "",
+                    "value": "amparo appeal"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "by"
+                }
+            ]
+        },
+        {
+            "id": "appeal_points_1",
+            "type": "Appeal",
+            "attributes": [
+                {
+                    "name": "appealType",
+                    "time": "",
+                    "value": "appeal on points of law"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "by"
+                }
+            ]
+        },
+        {
+            "id": "hearing_1",
+            "type": "Hearing",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "defence_1",
+            "type": "Defence",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "of"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "NoClaimInAppeal",
+            "time": "1970-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "claimContent",
+                    "value": "did not claim that non-participation in the hearing via videolink or the guardian's absence had negatively affected his defence"
+                },
+                {
+                    "name": "appealType",
+                    "value": "amparo appeal"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "appeal_amparo_1",
+                    "qualifier": "in_appeal"
+                },
+                {
+                    "objectId": "hearing_1",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "guardian_1",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "defence_1",
+                    "qualifier": "concerned"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "NoClaimInAppeal",
+            "time": "1970-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "claimContent",
+                    "value": "did not claim that non-participation in the hearing via videolink or the guardian's absence had negatively affected his defence"
+                },
+                {
+                    "name": "appealType",
+                    "value": "appeal on points of law"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "appeal_points_1",
+                    "qualifier": "in_appeal"
+                },
+                {
+                    "objectId": "hearing_1",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "guardian_1",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "defence_1",
+                    "qualifier": "concerned"
+                }
+            ]
+        }
+    ]
+}

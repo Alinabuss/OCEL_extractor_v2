@@ -1,0 +1,301 @@
+{
+    "objectTypes": [
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "descriptor",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Report",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ForensicEvidence",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "LegalProvision",
+            "attributes": [
+                {
+                    "name": "articleNumber",
+                    "type": "string"
+                },
+                {
+                    "name": "act",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "AssessReports",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ProvideReasonedDecision",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "RefuseForensicEvidence",
+            "attributes": [
+                {
+                    "name": "decision",
+                    "type": "string"
+                },
+                {
+                    "name": "target",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "DeclareCompliance",
+            "attributes": [
+                {
+                    "name": "conclusion",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "court_1",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "descriptor",
+                    "value": "the courts"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "report_1",
+            "type": "Report",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "conclusions of a report"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "report_2",
+            "type": "Report",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "conclusions of a report"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "evidence_1",
+            "type": "ForensicEvidence",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "additional forensic evidence"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "submitted_by"
+                }
+            ]
+        },
+        {
+            "id": "applicant_1",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "applicant"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "article_381",
+            "type": "LegalProvision",
+            "attributes": [
+                {
+                    "name": "articleNumber",
+                    "value": "381"
+                },
+                {
+                    "name": "act",
+                    "value": "Criminal Procedure Act"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "article_383",
+            "type": "LegalProvision",
+            "attributes": [
+                {
+                    "name": "articleNumber",
+                    "value": "383"
+                },
+                {
+                    "name": "act",
+                    "value": "Criminal Procedure Act"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "evt1",
+            "type": "AssessReports",
+            "time": "2025-09-11T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "assessed the conclusions of those reports"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court_1",
+                    "qualifier": "performer"
+                },
+                {
+                    "objectId": "report_1",
+                    "qualifier": "assessed"
+                },
+                {
+                    "objectId": "report_2",
+                    "qualifier": "assessed"
+                }
+            ]
+        },
+        {
+            "id": "evt2",
+            "type": "ProvideReasonedDecision",
+            "time": "2025-09-11T00:00:01Z",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "provided reasoned decisions"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court_1",
+                    "qualifier": "performer"
+                },
+                {
+                    "objectId": "report_1",
+                    "qualifier": "regarding"
+                },
+                {
+                    "objectId": "report_2",
+                    "qualifier": "regarding"
+                }
+            ]
+        },
+        {
+            "id": "evt3",
+            "type": "RefuseForensicEvidence",
+            "time": "2025-09-11T00:00:02Z",
+            "attributes": [
+                {
+                    "name": "decision",
+                    "value": "gave appropriate reasons to refuse the additional forensic evidence"
+                },
+                {
+                    "name": "target",
+                    "value": "additional forensic evidence"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court_1",
+                    "qualifier": "performer"
+                },
+                {
+                    "objectId": "evidence_1",
+                    "qualifier": "refused"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "submitted"
+                }
+            ]
+        },
+        {
+            "id": "evt4",
+            "type": "DeclareCompliance",
+            "time": "2025-09-11T00:00:03Z",
+            "attributes": [
+                {
+                    "name": "conclusion",
+                    "value": "those steps were sufficient to comply with Articles 381 and 383 of the Criminal Procedure Act"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court_1",
+                    "qualifier": "declaring_court"
+                },
+                {
+                    "objectId": "report_1",
+                    "qualifier": "related_steps"
+                },
+                {
+                    "objectId": "report_2",
+                    "qualifier": "related_steps"
+                },
+                {
+                    "objectId": "article_381",
+                    "qualifier": "relevant_provision"
+                },
+                {
+                    "objectId": "article_383",
+                    "qualifier": "relevant_provision"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,94 @@
+{
+    "objectTypes": [
+        {
+            "name": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "lifecycleStatus",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "integer"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Invoice Receipt Created",
+            "attributes": [
+                {
+                    "name": "origin",
+                    "type": "string"
+                },
+                {
+                    "name": "creditAmount",
+                    "type": "double"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt:174",
+            "type": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "lifecycleStatus",
+                    "time": "2022-07-08T10:53:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:180",
+                    "qualifier": "linked-to"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt:180",
+            "type": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Invoice Receipt Created",
+            "time": "2022-07-08T10:53:00Z",
+            "attributes": [
+                {
+                    "name": "origin",
+                    "value": "Finance/Account Department"
+                },
+                {
+                    "name": "creditAmount",
+                    "value": "232650.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:174",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "goods receipt:180",
+                    "qualifier": "linked-to"
+                }
+            ]
+        }
+    ]
+}

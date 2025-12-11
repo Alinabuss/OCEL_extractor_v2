@@ -1,0 +1,128 @@
+{
+    "objectTypes": [
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "OrganizationalUnit",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Item Picked",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "emp-Detlef-Wetzeler",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Detlef Wetzeler"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "dept-Warehousing",
+                    "qualifier": "works-in"
+                }
+            ]
+        },
+        {
+            "id": "dept-Warehousing",
+            "type": "OrganizationalUnit",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-884161",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": 219.53
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-Echo-Studio",
+                    "qualifier": "associated-with"
+                }
+            ]
+        },
+        {
+            "id": "product-Echo-Studio",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Echo Studio"
+                },
+                {
+                    "name": "price",
+                    "value": 199.99
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Item Picked",
+            "time": "2023-10-16T06:15:42Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "emp-Detlef-Wetzeler",
+                    "qualifier": "picker"
+                },
+                {
+                    "objectId": "i-884161",
+                    "qualifier": "item"
+                }
+            ]
+        }
+    ]
+}

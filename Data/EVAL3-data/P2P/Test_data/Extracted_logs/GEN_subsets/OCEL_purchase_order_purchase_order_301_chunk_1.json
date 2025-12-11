@@ -1,0 +1,88 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseOrder",
+            "attributes": []
+        },
+        {
+            "name": "Quotation",
+            "attributes": []
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Approve Purchase Order",
+            "attributes": [
+                {
+                    "name": "actorRole",
+                    "type": "string"
+                },
+                {
+                    "name": "lifecycleStatus",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:301",
+            "type": "PurchaseOrder",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "001",
+                    "qualifier": "associated_with"
+                },
+                {
+                    "objectId": "quotation:179",
+                    "qualifier": "related_to"
+                }
+            ]
+        },
+        {
+            "id": "quotation:179",
+            "type": "Quotation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "001",
+                    "qualifier": "corresponds_to"
+                }
+            ]
+        },
+        {
+            "id": "001",
+            "type": "PurchasingGroup",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "event:1",
+            "type": "Approve Purchase Order",
+            "time": "2022-09-12T09:06:00Z",
+            "attributes": [
+                {
+                    "name": "actorRole",
+                    "value": "procurement order manager"
+                },
+                {
+                    "name": "lifecycleStatus",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:301",
+                    "qualifier": "approved"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,106 @@
+{
+    "objectTypes": [
+        {
+            "name": "Match",
+            "attributes": []
+        },
+        {
+            "name": "ArcheryRange",
+            "attributes": []
+        },
+        {
+            "name": "Session",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "MatchOccurred",
+            "attributes": []
+        },
+        {
+            "name": "SessionCompleted",
+            "attributes": [
+                {
+                    "name": "completion_method",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "M227028371",
+            "type": "Match",
+            "attributes": [
+                {
+                    "name": "occurrence_time",
+                    "time": "2023-04-17T01:01:37Z",
+                    "value": "2023-04-17T01:01:37Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Archery_Range_M227028371_1",
+                    "qualifier": "at"
+                }
+            ]
+        },
+        {
+            "id": "Archery_Range_M227028371_1",
+            "type": "ArcheryRange",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "S227028371_1472826",
+            "type": "Session",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "M227028371",
+                    "qualifier": "during"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "MatchOccurred",
+            "time": "2023-04-17T01:01:37Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "M227028371",
+                    "qualifier": "match"
+                },
+                {
+                    "objectId": "Archery_Range_M227028371_1",
+                    "qualifier": "location"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "SessionCompleted",
+            "time": "2023-04-17T01:01:37Z",
+            "attributes": [
+                {
+                    "name": "completion_method",
+                    "value": "processing the queue for the archer"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "S227028371_1472826",
+                    "qualifier": "session"
+                },
+                {
+                    "objectId": "M227028371",
+                    "qualifier": "during"
+                }
+            ]
+        }
+    ]
+}

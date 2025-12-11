@@ -1,0 +1,224 @@
+{
+    "objectTypes": [
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Quotation",
+            "attributes": []
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": [
+                {
+                    "name": "group_id",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "InvoiceReceiptCreation",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PurchaseOrderCreation",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt:1341",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "value": "169500.0",
+                    "time": "2024-01-15T12:07:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:1337",
+                    "qualifier": "linked_to"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt:1337",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "purchase_order:1125",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "complete",
+                    "time": "2024-01-15T14:36:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchasing_group:001",
+                    "qualifier": "belongs_to"
+                },
+                {
+                    "objectId": "quotation:653",
+                    "qualifier": "associated_with"
+                }
+            ]
+        },
+        {
+            "id": "quotation:653",
+            "type": "Quotation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchasing_group:001",
+                    "qualifier": "belongs_to"
+                },
+                {
+                    "objectId": "purchase_order:1125",
+                    "qualifier": "associated_with"
+                }
+            ]
+        },
+        {
+            "id": "department:Finance/Account",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Finance/Account Department"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "department:Procurement",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Procurement Department"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "purchasing_group:001",
+            "type": "PurchasingGroup",
+            "attributes": [
+                {
+                    "name": "group_id",
+                    "value": "001"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "InvoiceReceiptCreation",
+            "time": "2024-01-15T12:07:00Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "completed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:1341",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "goods receipt:1337",
+                    "qualifier": "linked_to"
+                },
+                {
+                    "objectId": "department:Finance/Account",
+                    "qualifier": "performed_by"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "PurchaseOrderCreation",
+            "time": "2024-01-15T14:36:00Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:1125",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "quotation:653",
+                    "qualifier": "associated_with"
+                },
+                {
+                    "objectId": "department:Procurement",
+                    "qualifier": "processed_by"
+                }
+            ]
+        }
+    ]
+}

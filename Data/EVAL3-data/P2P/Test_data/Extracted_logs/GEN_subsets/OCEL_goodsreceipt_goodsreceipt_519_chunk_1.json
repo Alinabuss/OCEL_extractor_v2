@@ -1,0 +1,110 @@
+{
+    "objectTypes": [
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "type": "string"
+                },
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PurchaseOrder",
+            "attributes": []
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": []
+        },
+        {
+            "name": "Resource",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "GoodsReceipt Created",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "goods receipt:519",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "time": "2023-01-02T18:31:00Z",
+                    "value": "101"
+                },
+                {
+                    "name": "lifecycle",
+                    "time": "2023-01-02T18:31:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "purchase_order:438",
+            "type": "PurchaseOrder",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchasing_group:003",
+                    "qualifier": "belongs-to"
+                }
+            ]
+        },
+        {
+            "id": "purchasing_group:003",
+            "type": "PurchasingGroup",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "resource:warehouse_department",
+            "type": "Resource",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-01-02T18:31:00Z",
+                    "value": "Warehouse Department"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "event:1",
+            "type": "GoodsReceipt Created",
+            "time": "2023-01-02T18:31:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:519",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "purchase_order:438",
+                    "qualifier": "associated"
+                },
+                {
+                    "objectId": "resource:warehouse_department",
+                    "qualifier": "resource"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,171 @@
+{
+    "objectTypes": [
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "decimal"
+                },
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Create Invoice Receipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "decimal"
+                }
+            ]
+        },
+        {
+            "name": "Record Invoice Receipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "decimal"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt:245",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "time": "2022-08-08T12:57:00Z",
+                    "value": "91200.00"
+                },
+                {
+                    "name": "lifecycle",
+                    "time": "2022-08-08T12:57:00Z",
+                    "value": "complete"
+                },
+                {
+                    "name": "creditAmount",
+                    "time": "2022-08-08T13:54:00Z",
+                    "value": "91200.00"
+                },
+                {
+                    "name": "lifecycle",
+                    "time": "2022-08-08T13:54:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Finance/Account Department",
+                    "qualifier": "responsible"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt:245",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "time": "2022-08-08T12:57:00Z",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "goods receipt:247",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "time": "2022-08-08T13:54:00Z",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Finance/Account Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Create Invoice Receipt",
+            "time": "2022-08-08T12:57:00Z",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "value": "91200.00"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:245",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "goods receipt:245",
+                    "qualifier": "linked"
+                },
+                {
+                    "objectId": "Finance/Account Department",
+                    "qualifier": "creator"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Record Invoice Receipt",
+            "time": "2022-08-08T13:54:00Z",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "value": "91200.00"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:245",
+                    "qualifier": "confirmed"
+                },
+                {
+                    "objectId": "goods receipt:247",
+                    "qualifier": "linked"
+                },
+                {
+                    "objectId": "Finance/Account Department",
+                    "qualifier": "responsible"
+                }
+            ]
+        }
+    ]
+}

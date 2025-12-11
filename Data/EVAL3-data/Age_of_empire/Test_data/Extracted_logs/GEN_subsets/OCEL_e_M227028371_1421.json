@@ -1,0 +1,147 @@
+{
+    "objectTypes": [
+        {
+            "name": "Player",
+            "attributes": []
+        },
+        {
+            "name": "Match",
+            "attributes": []
+        },
+        {
+            "name": "Session",
+            "attributes": []
+        },
+        {
+            "name": "ArcheryRange",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Participate",
+            "attributes": []
+        },
+        {
+            "name": "SetGatherPoint",
+            "attributes": [
+                {
+                    "name": "gather_point",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Engage",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "P1472826",
+            "type": "Player",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "M227028371",
+            "type": "Match",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "S227028371_1472826",
+            "type": "Session",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "P1472826",
+                    "qualifier": "hasParticipant"
+                },
+                {
+                    "objectId": "M227028371",
+                    "qualifier": "involvesMatch"
+                }
+            ]
+        },
+        {
+            "id": "Archery_Range_M227028371_1",
+            "type": "ArcheryRange",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Archery_Range_M227028371_2",
+            "type": "ArcheryRange",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "E1",
+            "type": "Participate",
+            "time": "2023-04-17T01:01:39Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "P1472826",
+                    "qualifier": "participant"
+                },
+                {
+                    "objectId": "M227028371",
+                    "qualifier": "match"
+                },
+                {
+                    "objectId": "S227028371_1472826",
+                    "qualifier": "session"
+                }
+            ]
+        },
+        {
+            "id": "E2",
+            "type": "SetGatherPoint",
+            "time": "2023-04-17T01:01:39Z",
+            "attributes": [
+                {
+                    "name": "gather_point",
+                    "value": "none"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "S227028371_1472826",
+                    "qualifier": "session"
+                },
+                {
+                    "objectId": "P1472826",
+                    "qualifier": "player"
+                },
+                {
+                    "objectId": "Archery_Range_M227028371_1",
+                    "qualifier": "archery_range"
+                }
+            ]
+        },
+        {
+            "id": "E3",
+            "type": "Engage",
+            "time": "2023-04-17T01:01:39Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "S227028371_1472826",
+                    "qualifier": "session"
+                },
+                {
+                    "objectId": "P1472826",
+                    "qualifier": "player"
+                },
+                {
+                    "objectId": "Archery_Range_M227028371_2",
+                    "qualifier": "archery_range"
+                }
+            ]
+        }
+    ]
+}

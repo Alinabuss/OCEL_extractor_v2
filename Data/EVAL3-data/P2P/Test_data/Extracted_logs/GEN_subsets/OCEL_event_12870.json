@@ -1,0 +1,108 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasingGroup",
+                    "type": "string"
+                },
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Quotation",
+            "attributes": [
+                {
+                    "name": "purchasingGroup",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Purchase Order Approved",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:707",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasingGroup",
+                    "value": "001"
+                },
+                {
+                    "name": "lifecycle",
+                    "value": "complete",
+                    "time": "2023-06-06T17:17:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:414",
+                    "qualifier": "associated"
+                }
+            ]
+        },
+        {
+            "id": "quotation:414",
+            "type": "Quotation",
+            "attributes": [
+                {
+                    "name": "purchasingGroup",
+                    "value": "001"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "procurement_order_manager",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Procurement Order Manager"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Purchase Order Approved",
+            "time": "2023-06-06T17:17:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:707",
+                    "qualifier": "approved"
+                },
+                {
+                    "objectId": "quotation:414",
+                    "qualifier": "associated"
+                },
+                {
+                    "objectId": "procurement_order_manager",
+                    "qualifier": "performedBy"
+                }
+            ]
+        }
+    ]
+}

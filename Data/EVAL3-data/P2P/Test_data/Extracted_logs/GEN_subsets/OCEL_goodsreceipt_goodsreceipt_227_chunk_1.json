@@ -1,0 +1,172 @@
+{
+    "objectTypes": [
+        {
+            "name": "GoodsReceipt",
+            "attributes": []
+        },
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "MovementType",
+            "attributes": [
+                {
+                    "name": "code",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Goods Receipt Created",
+            "attributes": []
+        },
+        {
+            "name": "Invoice Receipt Created",
+            "attributes": [
+                {
+                    "name": "actor_role",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "goods receipt:227",
+            "type": "GoodsReceipt",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:207",
+                    "qualifier": "associated_purchase_order"
+                },
+                {
+                    "objectId": "101",
+                    "qualifier": "movement_type"
+                }
+            ]
+        },
+        {
+            "id": "purchase_order:207",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "value": "003"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "101",
+            "type": "MovementType",
+            "attributes": [
+                {
+                    "name": "code",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Invoice Receipt[236]",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "value": "98100.00"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:227",
+                    "qualifier": "related_goods_receipt"
+                }
+            ]
+        },
+        {
+            "id": "Warehouse Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Finance/Account Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Goods Receipt Created",
+            "time": "2022-07-28T09:11:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:227",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "101",
+                    "qualifier": "movement_type"
+                },
+                {
+                    "objectId": "purchase_order:207",
+                    "qualifier": "associated_purchase_order"
+                },
+                {
+                    "objectId": "Warehouse Department",
+                    "qualifier": "performed_by"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "Invoice Receipt Created",
+            "time": "2022-08-04T16:05:00Z",
+            "attributes": [
+                {
+                    "name": "actor_role",
+                    "value": "manager"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Invoice Receipt[236]",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "goods receipt:227",
+                    "qualifier": "related_goods_receipt"
+                },
+                {
+                    "objectId": "Finance/Account Department",
+                    "qualifier": "performed_by"
+                }
+            ]
+        }
+    ]
+}

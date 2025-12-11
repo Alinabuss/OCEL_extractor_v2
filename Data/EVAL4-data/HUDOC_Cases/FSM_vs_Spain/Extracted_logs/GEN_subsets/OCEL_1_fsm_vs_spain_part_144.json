@@ -1,0 +1,176 @@
+{
+    "objectTypes": [
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "jurisdiction",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Applicant",
+            "attributes": []
+        },
+        {
+            "name": "Statement",
+            "attributes": []
+        },
+        {
+            "name": "Charge",
+            "attributes": []
+        },
+        {
+            "name": "Act",
+            "attributes": []
+        },
+        {
+            "name": "Proceedings",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "DidNotRelyOnStatement",
+            "attributes": [
+                {
+                    "name": "intended_assessments",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ReferredToStatement",
+            "attributes": [
+                {
+                    "name": "purpose",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "court_domestic",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "jurisdiction",
+                    "time": "",
+                    "value": "domestic"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "applicant_1",
+            "type": "Applicant",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "statement_1",
+            "type": "Statement",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "authoredBy"
+                }
+            ]
+        },
+        {
+            "id": "charges_1",
+            "type": "Charge",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "concerns"
+                }
+            ]
+        },
+        {
+            "id": "acts_1",
+            "type": "Act",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "proceedings_1",
+            "type": "Proceedings",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "against"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "DidNotRelyOnStatement",
+            "time": "",
+            "attributes": [
+                {
+                    "name": "intended_assessments",
+                    "value": "assess whether he was guilty of the charges; examine his participation in the acts"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court_domestic",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "statement_1",
+                    "qualifier": "notReliedOn"
+                },
+                {
+                    "objectId": "charges_1",
+                    "qualifier": "assessmentTarget"
+                },
+                {
+                    "objectId": "acts_1",
+                    "qualifier": "assessmentTarget"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "subject"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "ReferredToStatement",
+            "time": "",
+            "attributes": [
+                {
+                    "name": "purpose",
+                    "value": "confirm his capacity to understand the object and consequences of the proceedings against him"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court_domestic",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "statement_1",
+                    "qualifier": "referenced"
+                },
+                {
+                    "objectId": "proceedings_1",
+                    "qualifier": "context"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "subject"
+                }
+            ]
+        }
+    ]
+}

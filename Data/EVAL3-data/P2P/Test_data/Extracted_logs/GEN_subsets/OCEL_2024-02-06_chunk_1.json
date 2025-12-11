@@ -1,0 +1,353 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "lifecycleStatus",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Quotation",
+            "attributes": []
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": []
+        },
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Resource",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                },
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Purchase Order Approved",
+            "attributes": []
+        },
+        {
+            "name": "Reconciliation Completed",
+            "attributes": [
+                {
+                    "name": "matchType",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Purchase Order Created",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "1150",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "lifecycleStatus",
+                    "time": "2024-02-06T09:42:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "667",
+                    "qualifier": "relatedQuotation"
+                },
+                {
+                    "objectId": "Purchasing Group 004",
+                    "qualifier": "belongsTo"
+                }
+            ]
+        },
+        {
+            "id": "667",
+            "type": "Quotation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Purchasing Group 004",
+                    "qualifier": "belongsTo"
+                }
+            ]
+        },
+        {
+            "id": "Purchasing Group 004",
+            "type": "PurchasingGroup",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "goods receipt:1381",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "time": "2024-02-06T10:26:00Z",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:1386",
+                    "qualifier": "reconciledWith"
+                }
+            ]
+        },
+        {
+            "id": "invoice receipt:1386",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "time": "2024-02-06T10:26:00Z",
+                    "value": "201000.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:1381",
+                    "qualifier": "reconciledWith"
+                }
+            ]
+        },
+        {
+            "id": "Finance/Account Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Resource from Finance/Account Department",
+            "type": "Resource",
+            "attributes": [
+                {
+                    "name": "department",
+                    "value": "Finance/Account Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Finance/Account Department",
+                    "qualifier": "memberOf"
+                }
+            ]
+        },
+        {
+            "id": "purchase_order:1157",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "lifecycleStatus",
+                    "time": "2024-02-06T14:18:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:672",
+                    "qualifier": "relatedQuotation"
+                },
+                {
+                    "objectId": "Purchasing Group 005",
+                    "qualifier": "belongsTo"
+                }
+            ]
+        },
+        {
+            "id": "quotation:672",
+            "type": "Quotation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Purchasing Group 005",
+                    "qualifier": "belongsTo"
+                }
+            ]
+        },
+        {
+            "id": "Purchasing Group 005",
+            "type": "PurchasingGroup",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "purchase_order:1148",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "lifecycleStatus",
+                    "time": "2024-02-06T23:01:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:668",
+                    "qualifier": "relatedQuotation"
+                },
+                {
+                    "objectId": "Purchasing Group 005",
+                    "qualifier": "belongsTo"
+                }
+            ]
+        },
+        {
+            "id": "quotation:668",
+            "type": "Quotation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Purchasing Group 005",
+                    "qualifier": "belongsTo"
+                }
+            ]
+        },
+        {
+            "id": "Procurement Order Manager",
+            "type": "Resource",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "Procurement Order Manager"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Procurement Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "1",
+            "type": "Purchase Order Approved",
+            "time": "2024-02-06T09:42:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "1150",
+                    "qualifier": "purchaseOrder"
+                },
+                {
+                    "objectId": "Procurement Order Manager",
+                    "qualifier": "performedBy"
+                },
+                {
+                    "objectId": "667",
+                    "qualifier": "relatedQuotation"
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "type": "Reconciliation Completed",
+            "time": "2024-02-06T10:26:00Z",
+            "attributes": [
+                {
+                    "name": "matchType",
+                    "value": "two-way match"
+                },
+                {
+                    "name": "status",
+                    "value": "completed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:1381",
+                    "qualifier": "reconciledGoodsReceipt"
+                },
+                {
+                    "objectId": "invoice receipt:1386",
+                    "qualifier": "reconciledInvoiceReceipt"
+                },
+                {
+                    "objectId": "Resource from Finance/Account Department",
+                    "qualifier": "performedBy"
+                }
+            ]
+        },
+        {
+            "id": "3",
+            "type": "Purchase Order Created",
+            "time": "2024-02-06T14:18:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:1157",
+                    "qualifier": "purchaseOrder"
+                },
+                {
+                    "objectId": "quotation:672",
+                    "qualifier": "relatedQuotation"
+                },
+                {
+                    "objectId": "Procurement Department",
+                    "qualifier": "createdIn"
+                }
+            ]
+        },
+        {
+            "id": "4",
+            "type": "Purchase Order Approved",
+            "time": "2024-02-06T23:01:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:1148",
+                    "qualifier": "purchaseOrder"
+                },
+                {
+                    "objectId": "Procurement Order Manager",
+                    "qualifier": "performedBy"
+                },
+                {
+                    "objectId": "quotation:668",
+                    "qualifier": "relatedQuotation"
+                }
+            ]
+        }
+    ]
+}

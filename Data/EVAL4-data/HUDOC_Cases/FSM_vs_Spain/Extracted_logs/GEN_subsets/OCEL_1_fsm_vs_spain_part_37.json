@@ -1,0 +1,120 @@
+{
+    "objectTypes": [
+        {
+            "name": "Lawyer",
+            "attributes": [
+                {
+                    "name": "designation",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "LawyerRequest",
+            "attributes": [
+                {
+                    "name": "requested_actions",
+                    "type": "string"
+                },
+                {
+                    "name": "condition",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o1",
+            "type": "Lawyer",
+            "attributes": [
+                {
+                    "name": "designation",
+                    "value": "applicant's lawyer",
+                    "time": "2018-07-18T00:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o3",
+                    "qualifier": "represents"
+                }
+            ]
+        },
+        {
+            "id": "o2",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Audiencia Provincial",
+                    "time": "2018-07-18T00:00:00Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o3",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "applicant",
+                    "time": "2018-07-18T00:00:00Z"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "LawyerRequest",
+            "time": "2018-07-18T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "requested_actions",
+                    "value": "admit new evidence related to the applicant's capacity; call a number of experts to the hearing; order a psychiatric expert report; request the applicant's release"
+                },
+                {
+                    "name": "condition",
+                    "value": "in the event that the court did not order the discontinuation of the proceedings as previously requested"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o1",
+                    "qualifier": "requester"
+                },
+                {
+                    "objectId": "o2",
+                    "qualifier": "addressee"
+                },
+                {
+                    "objectId": "o3",
+                    "qualifier": "concerned"
+                }
+            ]
+        }
+    ]
+}

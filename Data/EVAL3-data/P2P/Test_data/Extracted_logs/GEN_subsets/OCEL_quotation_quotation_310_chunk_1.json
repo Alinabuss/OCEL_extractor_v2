@@ -1,0 +1,101 @@
+{
+    "objectTypes": [
+        {
+            "name": "purchase_order",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "quotation",
+            "attributes": []
+        },
+        {
+            "name": "purchasing_group",
+            "attributes": [
+                {
+                    "name": "label",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "purchase_order_created",
+            "attributes": [
+                {
+                    "name": "actor",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:532",
+            "type": "purchase_order",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "time": "2023-02-27T15:06:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:310",
+                    "qualifier": "associated-with"
+                },
+                {
+                    "objectId": "purchasing_group:003",
+                    "qualifier": "belongs-to"
+                }
+            ]
+        },
+        {
+            "id": "quotation:310",
+            "type": "quotation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchasing_group:003",
+                    "qualifier": "belongs-to"
+                }
+            ]
+        },
+        {
+            "id": "purchasing_group:003",
+            "type": "purchasing_group",
+            "attributes": [
+                {
+                    "name": "label",
+                    "value": "003"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "purchase_order_created",
+            "time": "2023-02-27T15:06:00Z",
+            "attributes": [
+                {
+                    "name": "actor",
+                    "value": "Procurement Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:532",
+                    "qualifier": "created"
+                }
+            ]
+        }
+    ]
+}

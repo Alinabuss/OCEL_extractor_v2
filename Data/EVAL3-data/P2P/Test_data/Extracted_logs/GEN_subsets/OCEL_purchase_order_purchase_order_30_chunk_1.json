@@ -1,0 +1,100 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "GoodsReceipt Created",
+            "attributes": [
+                {
+                    "name": "transaction_status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:30",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "value": "002"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Warehouse Department",
+                    "qualifier": "supervised_by"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt:31",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:30",
+                    "qualifier": "completes"
+                }
+            ]
+        },
+        {
+            "id": "Warehouse Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "GoodsReceipt Created",
+            "time": "2022-04-30T04:48:00Z",
+            "attributes": [
+                {
+                    "name": "transaction_status",
+                    "value": "completed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:31",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "purchase_order:30",
+                    "qualifier": "completion_of"
+                }
+            ]
+        }
+    ]
+}

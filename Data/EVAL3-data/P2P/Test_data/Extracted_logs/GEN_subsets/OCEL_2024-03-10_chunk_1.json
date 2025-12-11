@@ -1,0 +1,106 @@
+{
+    "objectTypes": [
+        {
+            "name": "GoodsReceipt",
+            "attributes": []
+        },
+        {
+            "name": "PurchaseOrder",
+            "attributes": []
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": [
+                {
+                    "name": "group_id",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Goods Receipt Created",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "type": "string"
+                },
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                },
+                {
+                    "name": "resource_department",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "goods receipt:1461",
+            "type": "GoodsReceipt",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:1212",
+                    "qualifier": "linked-to"
+                }
+            ]
+        },
+        {
+            "id": "purchase_order:1212",
+            "type": "PurchaseOrder",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchasing_group:002",
+                    "qualifier": "part-of"
+                }
+            ]
+        },
+        {
+            "id": "purchasing_group:002",
+            "type": "PurchasingGroup",
+            "attributes": [
+                {
+                    "name": "group_id",
+                    "value": "002"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "event:1",
+            "type": "Goods Receipt Created",
+            "time": "2024-03-10T22:38:00Z",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "value": "101"
+                },
+                {
+                    "name": "lifecycle",
+                    "value": "complete"
+                },
+                {
+                    "name": "resource_department",
+                    "value": "Warehouse Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:1461",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "purchase_order:1212",
+                    "qualifier": "linked-to"
+                }
+            ]
+        }
+    ]
+}

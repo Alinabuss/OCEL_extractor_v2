@@ -1,0 +1,93 @@
+{
+    "objectTypes": [
+        {
+            "name": "goods receipt",
+            "attributes": [
+                {
+                    "name": "department",
+                    "type": "string"
+                },
+                {
+                    "name": "movementType",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "purchase order",
+            "attributes": [
+                {
+                    "name": "purchasingGroup",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "goods receipt created",
+            "attributes": [
+                {
+                    "name": "taskStatus",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "goods receipt[753]",
+            "type": "goods receipt",
+            "attributes": [
+                {
+                    "name": "department",
+                    "value": "Warehouse Department"
+                },
+                {
+                    "name": "movementType",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order[620]",
+                    "qualifier": "associatedWith"
+                }
+            ]
+        },
+        {
+            "id": "purchase_order[620]",
+            "type": "purchase order",
+            "attributes": [
+                {
+                    "name": "purchasingGroup",
+                    "value": "004"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "evt1",
+            "type": "goods receipt created",
+            "time": "2023-04-15T00:35:00Z",
+            "attributes": [
+                {
+                    "name": "taskStatus",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt[753]",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "purchase_order[620]",
+                    "qualifier": "associated"
+                }
+            ]
+        }
+    ]
+}

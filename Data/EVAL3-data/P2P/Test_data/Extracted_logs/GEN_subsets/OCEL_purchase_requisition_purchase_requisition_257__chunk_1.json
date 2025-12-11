@@ -1,0 +1,104 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseRequisition",
+            "attributes": []
+        },
+        {
+            "name": "Quotation",
+            "attributes": []
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": [
+                {
+                    "name": "label",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Request for Quotation Created",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_requisition:257:pr_trigger_257",
+            "type": "PurchaseRequisition",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "quotation:254",
+            "type": "Quotation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "001",
+                    "qualifier": "belongsTo"
+                }
+            ]
+        },
+        {
+            "id": "001",
+            "type": "PurchasingGroup",
+            "attributes": [
+                {
+                    "name": "label",
+                    "time": "2022-12-14T15:32:00Z",
+                    "value": "001"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Procurement Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "event_1",
+            "type": "Request for Quotation Created",
+            "time": "2022-12-14T15:32:00Z",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_requisition:257:pr_trigger_257",
+                    "qualifier": "for"
+                },
+                {
+                    "objectId": "quotation:254",
+                    "qualifier": "involves"
+                },
+                {
+                    "objectId": "001",
+                    "qualifier": "associatedWith"
+                },
+                {
+                    "objectId": "Procurement Department",
+                    "qualifier": "createdBy"
+                }
+            ]
+        }
+    ]
+}

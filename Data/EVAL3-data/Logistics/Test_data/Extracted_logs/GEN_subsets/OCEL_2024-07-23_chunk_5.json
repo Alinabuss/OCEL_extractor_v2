@@ -1,0 +1,203 @@
+{
+    "objectTypes": [
+        {
+            "name": "HandlingUnit",
+            "attributes": []
+        },
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "type": "datetime"
+                }
+            ]
+        },
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "type": "real"
+                }
+            ]
+        },
+        {
+            "name": "HandlingUnitCategory",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "HandlingUnitCollected",
+            "attributes": []
+        },
+        {
+            "name": "VehicleBooking",
+            "attributes": [
+                {
+                    "name": "bookedVehiclesCount",
+                    "type": "integer"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "hu10071",
+            "type": "HandlingUnit",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "hu10073",
+            "type": "HandlingUnit",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "hu10066",
+            "type": "HandlingUnit",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "hu10068",
+            "type": "HandlingUnit",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "cat_HU_collected",
+                    "qualifier": "member-of"
+                }
+            ]
+        },
+        {
+            "id": "cat_HU_collected",
+            "type": "HandlingUnitCategory",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "vh123",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "time": "2024-07-23T11:21:39Z",
+                    "value": "2024-07-30T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td561",
+                    "qualifier": "high-priority-for"
+                }
+            ]
+        },
+        {
+            "id": "vh126",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "time": "2024-07-23T11:21:39Z",
+                    "value": "2024-08-09T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td561",
+                    "qualifier": "high-priority-for"
+                }
+            ]
+        },
+        {
+            "id": "td561",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "time": "2024-07-23T11:21:39Z",
+                    "value": "5.0"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "HandlingUnitCollected",
+            "time": "2024-07-23T09:55:06Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "hu10071",
+                    "qualifier": "collected"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "HandlingUnitCollected",
+            "time": "2024-07-23T09:58:19Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "hu10073",
+                    "qualifier": "collected"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "VehicleBooking",
+            "time": "2024-07-23T11:21:39Z",
+            "attributes": [
+                {
+                    "name": "bookedVehiclesCount",
+                    "value": "2"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td561",
+                    "qualifier": "forTransportDocument"
+                },
+                {
+                    "objectId": "vh123",
+                    "qualifier": "bookedVehicle"
+                },
+                {
+                    "objectId": "vh126",
+                    "qualifier": "bookedVehicle"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "HandlingUnitCollected",
+            "time": "2024-07-23T11:59:22Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "hu10066",
+                    "qualifier": "collected"
+                }
+            ]
+        },
+        {
+            "id": "e5",
+            "type": "HandlingUnitCollected",
+            "time": "2024-07-23T13:03:08Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "hu10068",
+                    "qualifier": "collected"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,143 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                },
+                {
+                    "name": "mentalHealthCondition",
+                    "type": "string"
+                },
+                {
+                    "name": "partialGuardianship",
+                    "type": "string"
+                },
+                {
+                    "name": "suffersFromIllnesses",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Pre-trial Detention Ordered",
+            "attributes": [
+                {
+                    "name": "reason",
+                    "type": "string"
+                },
+                {
+                    "name": "failureCount",
+                    "type": "integer"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "applicant-1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "2018-05-29T00:00:00Z",
+                    "value": "applicant"
+                },
+                {
+                    "name": "mentalHealthCondition",
+                    "time": "2018-05-29T00:00:00Z",
+                    "value": "present"
+                },
+                {
+                    "name": "partialGuardianship",
+                    "time": "2018-05-29T00:00:00Z",
+                    "value": "partial"
+                },
+                {
+                    "name": "suffersFromIllnesses",
+                    "time": "",
+                    "value": "present"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "lawyer-1",
+                    "qualifier": "represented-by"
+                }
+            ]
+        },
+        {
+            "id": "lawyer-1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "2018-05-29T00:00:00Z",
+                    "value": "lawyer"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant-1",
+                    "qualifier": "represents"
+                }
+            ]
+        },
+        {
+            "id": "court-1",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2018-05-29T00:00:00Z",
+                    "value": "Audiencia Provincial"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Pre-trial Detention Ordered",
+            "time": "2018-05-29T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "reason",
+                    "value": "following the applicant's failure to appear for trial for the second time; finding that he was trying to evade justice"
+                },
+                {
+                    "name": "failureCount",
+                    "value": "2"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant-1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "court-1",
+                    "qualifier": "ordered-by"
+                },
+                {
+                    "objectId": "lawyer-1",
+                    "qualifier": "opposed-by"
+                }
+            ]
+        }
+    ]
+}

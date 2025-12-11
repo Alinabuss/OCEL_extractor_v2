@@ -1,0 +1,120 @@
+{
+    "objectTypes": [
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "type": "string"
+                },
+                {
+                    "name": "department",
+                    "type": "string"
+                },
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "GoodsReceiptCreated",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                },
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                },
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "goods receipt:675",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "time": "2023-03-13T21:48:00Z",
+                    "value": "101"
+                },
+                {
+                    "name": "department",
+                    "time": "2023-03-13T21:48:00Z",
+                    "value": "Warehouse Department"
+                },
+                {
+                    "name": "lifecycle",
+                    "time": "2023-03-13T21:48:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:549",
+                    "qualifier": "associated_with"
+                }
+            ]
+        },
+        {
+            "id": "purchase_order:549",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "value": "001"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "event:1",
+            "type": "GoodsReceiptCreated",
+            "time": "2023-03-13T21:48:00Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "successful"
+                },
+                {
+                    "name": "lifecycle",
+                    "value": "complete"
+                },
+                {
+                    "name": "department",
+                    "value": "Warehouse Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:675",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "purchase_order:549",
+                    "qualifier": "associated_with"
+                }
+            ]
+        }
+    ]
+}

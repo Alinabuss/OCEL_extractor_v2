@@ -1,0 +1,219 @@
+{
+    "objectTypes": [
+        {
+            "name": "Guardian",
+            "attributes": []
+        },
+        {
+            "name": "Resignation",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ForensicReports",
+            "attributes": []
+        },
+        {
+            "name": "Judgment",
+            "attributes": [
+                {
+                    "name": "judgmentType",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Trial",
+            "attributes": [
+                {
+                    "name": "guardianPresence",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ContinuedToActAsGuardian",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ResignationFormallyAccepted",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "GuardianPresenceUnnecessary",
+            "attributes": [
+                {
+                    "name": "basis",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "guardian_1",
+            "type": "Guardian",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "resignation_1",
+                    "qualifier": "ownerOf"
+                },
+                {
+                    "objectId": "trial_1",
+                    "qualifier": "participant"
+                }
+            ]
+        },
+        {
+            "id": "resignation_1",
+            "type": "Resignation",
+            "attributes": [
+                {
+                    "name": "status",
+                    "time": "2020-01-01T00:00:00Z",
+                    "value": "formally accepted"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "guardian_1",
+                    "qualifier": "belongsTo"
+                }
+            ]
+        },
+        {
+            "id": "forensic_reports_1",
+            "type": "ForensicReports",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "trial_1",
+                    "qualifier": "evidenceFor"
+                }
+            ]
+        },
+        {
+            "id": "judgment_1",
+            "type": "Judgment",
+            "attributes": [
+                {
+                    "name": "judgmentType",
+                    "value": "incapacity"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "trial_1",
+                    "qualifier": "evidenceFor"
+                }
+            ]
+        },
+        {
+            "id": "trial_1",
+            "type": "Trial",
+            "attributes": [
+                {
+                    "name": "guardianPresence",
+                    "time": "2020-01-01T00:00:00Z",
+                    "value": "unnecessary"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "guardian_1",
+                    "qualifier": "subject"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "ContinuedToActAsGuardian",
+            "time": "2020-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "had continued to act as guardian until his resignation had been formally accepted"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "guardian_1",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "resignation_1",
+                    "qualifier": "until"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "ResignationFormallyAccepted",
+            "time": "2020-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "formally accepted"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "resignation_1",
+                    "qualifier": "accepted"
+                },
+                {
+                    "objectId": "guardian_1",
+                    "qualifier": "subject"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "GuardianPresenceUnnecessary",
+            "time": "2020-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "basis",
+                    "value": "forensic reports and the incapacity judgment"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "guardian_1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "trial_1",
+                    "qualifier": "context"
+                },
+                {
+                    "objectId": "forensic_reports_1",
+                    "qualifier": "reason"
+                },
+                {
+                    "objectId": "judgment_1",
+                    "qualifier": "reason"
+                }
+            ]
+        }
+    ]
+}

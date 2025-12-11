@@ -1,0 +1,109 @@
+{
+    "objectTypes": [
+        {
+            "name": "Individual",
+            "attributes": []
+        },
+        {
+            "name": "Sentence",
+            "attributes": [
+                {
+                    "name": "sentence_type",
+                    "type": "string"
+                },
+                {
+                    "name": "maximum_limit",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Confinement",
+            "attributes": []
+        },
+        {
+            "name": "JudgeOrCourt",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Set Maximum Limit",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Declare Responsible",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "individual_1",
+            "type": "Individual",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "sentence_1",
+            "type": "Sentence",
+            "attributes": [
+                {
+                    "name": "sentence_type",
+                    "time": "",
+                    "value": "imprisonment"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "individual_1",
+                    "qualifier": "applies_to"
+                }
+            ]
+        },
+        {
+            "id": "judge_or_court_1",
+            "type": "JudgeOrCourt",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "confinement_1",
+            "type": "Confinement",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "sentence_1",
+                    "qualifier": "limited_by"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Set Maximum Limit",
+            "time": "2020-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "the judge or court shall set that maximum limit in the sentence"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "judge_or_court_1",
+                    "qualifier": "performer"
+                },
+                {
+                    "objectId": "sentence_1",
+                    "qualifier": "target"
+                }
+            ]
+        }
+    ]
+}

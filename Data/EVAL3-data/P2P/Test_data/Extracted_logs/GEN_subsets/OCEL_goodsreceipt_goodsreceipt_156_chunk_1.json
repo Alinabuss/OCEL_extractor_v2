@@ -1,0 +1,102 @@
+{
+    "objectTypes": [
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "InvoiceReceiptCreated",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt:165",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "time": "2022-07-04T15:24:00Z",
+                    "value": "173200.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:156",
+                    "qualifier": "directly-related"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt:156",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "time": "",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "department:Finance/Account Department",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Finance/Account Department"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "InvoiceReceiptCreated",
+            "time": "2022-07-04T15:24:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:165",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "department:Finance/Account Department",
+                    "qualifier": "processed-by"
+                },
+                {
+                    "objectId": "goods receipt:156",
+                    "qualifier": "directly-related"
+                }
+            ]
+        }
+    ]
+}

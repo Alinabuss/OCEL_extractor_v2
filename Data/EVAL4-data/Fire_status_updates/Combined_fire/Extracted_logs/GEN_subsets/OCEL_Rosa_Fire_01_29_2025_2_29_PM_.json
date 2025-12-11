@@ -1,0 +1,130 @@
+{
+    "objectTypes": [
+        {
+            "name": "FireIncident",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "fuel",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "FirefightingUnit",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "WorkingOnContainment",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Burning",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "fuel",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o_fire_Rosa",
+            "type": "FireIncident",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-29T14:29:00Z",
+                    "value": "Rosa Fire"
+                },
+                {
+                    "name": "fuel",
+                    "time": "2025-01-29T14:29:00Z",
+                    "value": "grass"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_firefighters",
+            "type": "FirefightingUnit",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-29T14:29:00Z",
+                    "value": "Firefighters"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_fire_Rosa",
+                    "qualifier": "at_scene"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "WorkingOnContainment",
+            "time": "2025-01-29T14:29:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Firefighters at scene working on containment"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_firefighters",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "o_fire_Rosa",
+                    "qualifier": "affected"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Burning",
+            "time": "2025-01-29T14:29:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Fire is burning in grass"
+                },
+                {
+                    "name": "fuel",
+                    "value": "grass"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_fire_Rosa",
+                    "qualifier": "subject"
+                }
+            ]
+        }
+    ]
+}

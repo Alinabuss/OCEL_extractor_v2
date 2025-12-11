@@ -1,0 +1,156 @@
+{
+    "objectTypes": [
+        {
+            "name": "Workstation",
+            "attributes": [
+                {
+                    "name": "electricity",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Machine",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "SteelCoil",
+            "attributes": [
+                {
+                    "name": "weight_kg",
+                    "type": "double"
+                }
+            ]
+        },
+        {
+            "name": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "weight_kg",
+                    "type": "double"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Splitting",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "type": "double"
+                },
+                {
+                    "name": "co2_kg",
+                    "type": "double"
+                },
+                {
+                    "name": "steel_waste_kg",
+                    "type": "double"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o_workstation_1",
+            "type": "Workstation",
+            "attributes": [
+                {
+                    "name": "electricity",
+                    "value": "grid"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "splitter",
+            "type": "Machine",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "splitter"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_workstation_1",
+                    "qualifier": "locatedAt"
+                }
+            ]
+        },
+        {
+            "id": "o_steelcoil_3",
+            "type": "SteelCoil",
+            "attributes": [
+                {
+                    "name": "weight_kg",
+                    "value": "31.91076",
+                    "time": "2023-04-04T07:45:46Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_steelsheet_1545",
+            "type": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "weight_kg",
+                    "value": "0.02123",
+                    "time": "2023-04-04T07:45:46Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_steelcoil_3",
+                    "qualifier": "generatedFrom"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Splitting",
+            "time": "2023-04-04T07:45:46Z",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "value": "6.8375"
+                },
+                {
+                    "name": "co2_kg",
+                    "value": "0.0071541426"
+                },
+                {
+                    "name": "steel_waste_kg",
+                    "value": "0.00042"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "splitter",
+                    "qualifier": "performedBy"
+                },
+                {
+                    "objectId": "o_workstation_1",
+                    "qualifier": "at"
+                },
+                {
+                    "objectId": "o_steelcoil_3",
+                    "qualifier": "input"
+                },
+                {
+                    "objectId": "o_steelsheet_1545",
+                    "qualifier": "output"
+                }
+            ]
+        }
+    ]
+}

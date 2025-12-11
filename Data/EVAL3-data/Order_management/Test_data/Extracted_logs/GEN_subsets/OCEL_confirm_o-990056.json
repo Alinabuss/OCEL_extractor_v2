@@ -1,0 +1,158 @@
+{
+    "objectTypes": [
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Order",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Order Confirmed",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "employee-christine-von-dobbert",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-04-28T14:04:09Z",
+                    "value": "Christine von Dobbert"
+                },
+                {
+                    "name": "department",
+                    "time": "2023-04-28T14:04:09Z",
+                    "value": "sales"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o-990056",
+            "type": "Order",
+            "attributes": [
+                {
+                    "name": "price",
+                    "time": "2023-04-28T14:04:09Z",
+                    "value": "1233.99"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "i-880241",
+                    "qualifier": "contains"
+                },
+                {
+                    "objectId": "i-880242",
+                    "qualifier": "contains"
+                }
+            ]
+        },
+        {
+            "id": "i-880241",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "time": "2023-04-28T14:04:09Z",
+                    "value": "1099.00"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-880242",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "time": "2023-04-28T14:04:09Z",
+                    "value": "129.99"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-echo-show-8",
+                    "qualifier": "correspondsTo"
+                }
+            ]
+        },
+        {
+            "id": "product-echo-show-8",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-04-28T14:04:09Z",
+                    "value": "Echo Show 8"
+                },
+                {
+                    "name": "price",
+                    "time": "2023-04-28T14:04:09Z",
+                    "value": "129.99"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e-1",
+            "type": "Order Confirmed",
+            "time": "2023-04-28T14:04:09Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "employee-christine-von-dobbert",
+                    "qualifier": "confirmedBy"
+                },
+                {
+                    "objectId": "o-990056",
+                    "qualifier": "order"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,100 @@
+{
+    "objectTypes": [
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "lifecycleStatus",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasingGroup",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "GoodsReceiptCreated",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "goods receipt:35",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "lifecycleStatus",
+                    "time": "2022-05-08T11:23:00Z",
+                    "value": "completed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:37",
+                    "qualifier": "associated-with"
+                }
+            ]
+        },
+        {
+            "id": "purchase_order:37",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasingGroup",
+                    "value": "003"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Warehouse Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "GoodsReceiptCreated",
+            "time": "2022-05-08T11:23:00Z",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:35",
+                    "qualifier": "creates"
+                },
+                {
+                    "objectId": "purchase_order:37",
+                    "qualifier": "related-to"
+                },
+                {
+                    "objectId": "Warehouse Department",
+                    "qualifier": "created-by"
+                }
+            ]
+        }
+    ]
+}

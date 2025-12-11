@@ -1,0 +1,175 @@
+{
+    "objectTypes": [
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "integer"
+                },
+                {
+                    "name": "lifecycleStatus",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PurchaseOrder",
+            "attributes": []
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": [
+                {
+                    "name": "groupId",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Goods Receipt Created",
+            "attributes": []
+        },
+        {
+            "name": "Invoice Receipt Recorded",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "float"
+                },
+                {
+                    "name": "lifecycleStatus",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "goods receipt:40",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "time": "2022-05-06T14:09:00Z",
+                    "value": "101"
+                },
+                {
+                    "name": "lifecycleStatus",
+                    "time": "2022-05-06T14:09:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:31",
+                    "qualifier": "for"
+                },
+                {
+                    "objectId": "department:Warehouse",
+                    "qualifier": "managed-by"
+                },
+                {
+                    "objectId": "purchasing_group:001",
+                    "qualifier": "associated-purchasing-group"
+                }
+            ]
+        },
+        {
+            "id": "purchase_order:31",
+            "type": "PurchaseOrder",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "department:Warehouse",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2022-05-06T14:09:00Z",
+                    "value": "Warehouse"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "department:Finance/Account",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2022-05-09T23:01:00Z",
+                    "value": "Finance/Account"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "purchasing_group:001",
+            "type": "PurchasingGroup",
+            "attributes": [
+                {
+                    "name": "groupId",
+                    "time": "2022-05-06T14:09:00Z",
+                    "value": "001"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Goods Receipt Created",
+            "time": "2022-05-06T14:09:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:40",
+                    "qualifier": "creates"
+                },
+                {
+                    "objectId": "purchase_order:31",
+                    "qualifier": "for"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "Invoice Receipt Recorded",
+            "time": "2022-05-09T23:01:00Z",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "value": "8400.0"
+                },
+                {
+                    "name": "lifecycleStatus",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:40",
+                    "qualifier": "corresponds-to"
+                },
+                {
+                    "objectId": "department:Finance/Account",
+                    "qualifier": "associated-with"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,86 @@
+{
+    "objectTypes": [
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "InvoiceReceiptCreationCompleted",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt[794]",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "value": "100800.0",
+                    "time": "2023-05-19T08:42:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt[798]",
+                    "qualifier": "associated"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt[798]",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Finance/Account Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "InvoiceReceiptCreationCompleted",
+            "time": "2023-05-19T08:42:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt[794]",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "Finance/Account Department",
+                    "qualifier": "performedBy"
+                }
+            ]
+        }
+    ]
+}

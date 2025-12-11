@@ -1,0 +1,356 @@
+{
+    "objectTypes": [
+        {
+            "name": "FireIncident",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Aircraft",
+            "attributes": [
+                {
+                    "name": "operator",
+                    "type": "string"
+                },
+                {
+                    "name": "model",
+                    "type": "string"
+                },
+                {
+                    "name": "configuration",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ResourceAugmentation",
+            "attributes": [
+                {
+                    "name": "magnitude",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ExtremeFireBehaviorObserved",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "longRangeSpotting",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "EvacuationOrdersWarningsIssued",
+            "attributes": [
+                {
+                    "name": "issuedTypes",
+                    "type": "string"
+                },
+                {
+                    "name": "directions",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "AerialSupportProvided",
+            "attributes": [
+                {
+                    "name": "aircraft",
+                    "type": "string"
+                },
+                {
+                    "name": "timeOfDay",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "FixedWingAircraftOrdered",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                },
+                {
+                    "name": "scheduled",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ResourcesAugmentationOrdered",
+            "attributes": [
+                {
+                    "name": "scale",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                },
+                {
+                    "name": "willReport",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire_border_2",
+            "type": "FireIncident",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-24T07:05:00Z",
+                    "value": "Border 2 Fire"
+                }
+            ]
+        },
+        {
+            "id": "otay_lakes_road",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-24T07:05:00Z",
+                    "value": "Otay Lakes Road"
+                }
+            ]
+        },
+        {
+            "id": "otay_mountain_wilderness",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-24T07:05:00Z",
+                    "value": "Otay Mountain Wilderness"
+                }
+            ]
+        },
+        {
+            "id": "fire_crews",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-24T07:05:00Z",
+                    "value": "Fire crews"
+                }
+            ]
+        },
+        {
+            "id": "calfire_firehawk_helicopters",
+            "type": "Aircraft",
+            "attributes": [
+                {
+                    "name": "operator",
+                    "time": "2025-01-24T07:05:00Z",
+                    "value": "CAL FIRE"
+                },
+                {
+                    "name": "model",
+                    "time": "2025-01-24T07:05:00Z",
+                    "value": "Fire-Hawk"
+                },
+                {
+                    "name": "configuration",
+                    "time": "2025-01-24T07:05:00Z",
+                    "value": "helicopter"
+                }
+            ]
+        },
+        {
+            "id": "fixed_wing_aircraft",
+            "type": "Aircraft",
+            "attributes": [
+                {
+                    "name": "configuration",
+                    "time": "2025-01-24T07:05:00Z",
+                    "value": "fixed wing"
+                }
+            ]
+        },
+        {
+            "id": "resources_augmentation_1",
+            "type": "ResourceAugmentation",
+            "attributes": [
+                {
+                    "name": "magnitude",
+                    "time": "2025-01-24T07:05:00Z",
+                    "value": "substantial"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "ExtremeFireBehaviorObserved",
+            "time": "2025-01-24T07:05:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Fire crews experienced extreme fire behavior last night"
+                },
+                {
+                    "name": "longRangeSpotting",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_border_2",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "fire_crews",
+                    "qualifier": "experiencedBy"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "EvacuationOrdersWarningsIssued",
+            "time": "2025-01-24T07:05:00Z",
+            "attributes": [
+                {
+                    "name": "issuedTypes",
+                    "value": "EVACUATION ORDERS and WARNINGS"
+                },
+                {
+                    "name": "directions",
+                    "value": "North and West"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_border_2",
+                    "qualifier": "promptedBy"
+                },
+                {
+                    "objectId": "otay_lakes_road",
+                    "qualifier": "impacted"
+                },
+                {
+                    "objectId": "otay_mountain_wilderness",
+                    "qualifier": "north-of"
+                },
+                {
+                    "objectId": "otay_mountain_wilderness",
+                    "qualifier": "west-of"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "AerialSupportProvided",
+            "time": "2025-01-24T07:05:00Z",
+            "attributes": [
+                {
+                    "name": "aircraft",
+                    "value": "CAL FIRE Fire-Hawk helicopters"
+                },
+                {
+                    "name": "timeOfDay",
+                    "value": "night"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_border_2",
+                    "qualifier": "over"
+                },
+                {
+                    "objectId": "calfire_firehawk_helicopters",
+                    "qualifier": "provider"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "FixedWingAircraftOrdered",
+            "time": "2025-01-24T07:05:00Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "ordered"
+                },
+                {
+                    "name": "scheduled",
+                    "value": "morning hours"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_border_2",
+                    "qualifier": "toSupport"
+                },
+                {
+                    "objectId": "fixed_wing_aircraft",
+                    "qualifier": "ordered"
+                }
+            ]
+        },
+        {
+            "id": "e5",
+            "type": "ResourcesAugmentationOrdered",
+            "time": "2025-01-24T07:05:00Z",
+            "attributes": [
+                {
+                    "name": "scale",
+                    "value": "substantial"
+                },
+                {
+                    "name": "status",
+                    "value": "ordered"
+                },
+                {
+                    "name": "willReport",
+                    "value": "this morning"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_border_2",
+                    "qualifier": "for"
+                },
+                {
+                    "objectId": "resources_augmentation_1",
+                    "qualifier": "ordered"
+                }
+            ]
+        }
+    ]
+}

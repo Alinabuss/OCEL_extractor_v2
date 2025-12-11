@@ -1,0 +1,94 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseRequisition",
+            "attributes": []
+        },
+        {
+            "name": "Quotation",
+            "attributes": []
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": []
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Request for Quotation Created",
+            "attributes": [
+                {
+                    "name": "lifecycleStatus",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_requisition:404:pr_trigger_404",
+            "type": "PurchaseRequisition",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchasing_group:002",
+                    "qualifier": "belongs-to"
+                }
+            ]
+        },
+        {
+            "id": "quotation:403",
+            "type": "Quotation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchasing_group:002",
+                    "qualifier": "belongs-to"
+                }
+            ]
+        },
+        {
+            "id": "purchasing_group:002",
+            "type": "PurchasingGroup",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "procurement_department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Request for Quotation Created",
+            "time": "2023-05-27T23:15:00Z",
+            "attributes": [
+                {
+                    "name": "lifecycleStatus",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_requisition:404:pr_trigger_404",
+                    "qualifier": "associated"
+                },
+                {
+                    "objectId": "quotation:403",
+                    "qualifier": "associated"
+                },
+                {
+                    "objectId": "procurement_department",
+                    "qualifier": "creator"
+                }
+            ]
+        }
+    ]
+}

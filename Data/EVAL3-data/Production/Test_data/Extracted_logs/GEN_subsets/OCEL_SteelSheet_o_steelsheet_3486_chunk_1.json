@@ -1,0 +1,153 @@
+{
+    "objectTypes": [
+        {
+            "name": "Machine",
+            "attributes": []
+        },
+        {
+            "name": "Workstation",
+            "attributes": []
+        },
+        {
+            "name": "SteelCoil",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Split",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "type": "float"
+                },
+                {
+                    "name": "electricity_kwh",
+                    "type": "float"
+                },
+                {
+                    "name": "electricity_source",
+                    "type": "string"
+                },
+                {
+                    "name": "co2e_kg",
+                    "type": "float"
+                },
+                {
+                    "name": "steel_waste_kg",
+                    "type": "float"
+                },
+                {
+                    "name": "waste_destination",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o_machine_splitter01",
+            "type": "Machine",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "o_workstation_1",
+            "type": "Workstation",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "o_steelcoil_2",
+            "type": "SteelCoil",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "value": "31.91076"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_steelsheet_3486",
+            "type": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "value": "0.0209"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_steelcoil_2",
+                    "qualifier": "derivedFrom"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e_1",
+            "type": "Split",
+            "time": "2023-04-05T09:19:06Z",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "value": "14.94"
+                },
+                {
+                    "name": "electricity_kwh",
+                    "value": "0.0228237"
+                },
+                {
+                    "name": "electricity_source",
+                    "value": "grid"
+                },
+                {
+                    "name": "co2e_kg",
+                    "value": "0.0156203526"
+                },
+                {
+                    "name": "steel_waste_kg",
+                    "value": "0.00042"
+                },
+                {
+                    "name": "waste_destination",
+                    "value": "recycling"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_machine_splitter01",
+                    "qualifier": "machine"
+                },
+                {
+                    "objectId": "o_workstation_1",
+                    "qualifier": "workstation"
+                },
+                {
+                    "objectId": "o_steelcoil_2",
+                    "qualifier": "input"
+                },
+                {
+                    "objectId": "o_steelsheet_3486",
+                    "qualifier": "output"
+                }
+            ]
+        }
+    ]
+}

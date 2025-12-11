@@ -1,0 +1,88 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Quotation",
+            "attributes": [
+                {
+                    "name": "Purchasing Group",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "PurchaseOrderCreated",
+            "attributes": [
+                {
+                    "name": "createdBy",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:1567",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "value": "completed",
+                    "time": "2024-09-29T07:44:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:902",
+                    "qualifier": "associated"
+                }
+            ]
+        },
+        {
+            "id": "quotation:902",
+            "type": "Quotation",
+            "attributes": [
+                {
+                    "name": "Purchasing Group",
+                    "value": "003",
+                    "time": ""
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:1567",
+                    "qualifier": "corresponding"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "PurchaseOrderCreated",
+            "time": "2024-09-29T07:44:00Z",
+            "attributes": [
+                {
+                    "name": "createdBy",
+                    "value": "Procurement Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:1567",
+                    "qualifier": "created"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,84 @@
+{
+    "objectTypes": [
+        {
+            "name": "Department",
+            "attributes": []
+        },
+        {
+            "name": "PurchaseRequisition",
+            "attributes": []
+        },
+        {
+            "name": "Quotation",
+            "attributes": []
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Request for Quotation Creation Completed",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "Procurement Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "purchase_requisition:874:pr_trigger_874",
+            "type": "PurchaseRequisition",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchasing_group:005",
+                    "qualifier": "belongs-to"
+                },
+                {
+                    "objectId": "quotation:881",
+                    "qualifier": "linked-to"
+                }
+            ]
+        },
+        {
+            "id": "quotation:881",
+            "type": "Quotation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchasing_group:005",
+                    "qualifier": "belongs-to"
+                }
+            ]
+        },
+        {
+            "id": "purchasing_group:005",
+            "type": "PurchasingGroup",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Request for Quotation Creation Completed",
+            "time": "2024-08-31T22:10:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchase_requisition:874:pr_trigger_874",
+                    "qualifier": "associated-with"
+                },
+                {
+                    "objectId": "Procurement Department",
+                    "qualifier": "performed-by"
+                }
+            ]
+        }
+    ]
+}

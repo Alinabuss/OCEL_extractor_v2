@@ -1,0 +1,110 @@
+{
+    "objectTypes": [
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "GoodsReceipt",
+            "attributes": []
+        },
+        {
+            "name": "MovementType",
+            "attributes": [
+                {
+                    "name": "code",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Resource",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "InvoiceReceiptCreated",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt:662",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "time": "2023-03-13T10:35:00Z",
+                    "value": "38100.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "goods receipt:670",
+            "type": "GoodsReceipt",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "movement type:101",
+                    "qualifier": "movement_type"
+                }
+            ]
+        },
+        {
+            "id": "movement type:101",
+            "type": "MovementType",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "resource:Finance/Account Department",
+            "type": "Resource",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "event:1",
+            "type": "InvoiceReceiptCreated",
+            "time": "2023-03-13T10:35:00Z",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "value": "completion"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:662",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "goods receipt:670",
+                    "qualifier": "completes_lifecycle_of"
+                },
+                {
+                    "objectId": "resource:Finance/Account Department",
+                    "qualifier": "responsible"
+                }
+            ]
+        }
+    ]
+}

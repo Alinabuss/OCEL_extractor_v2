@@ -1,0 +1,138 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Reorder",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "person-benedikt-knopp",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Benedikt Knopp"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "department-warehousing",
+                    "qualifier": "memberOf"
+                }
+            ]
+        },
+        {
+            "id": "department-warehousing",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "product-Echo",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Echo"
+                },
+                {
+                    "name": "price",
+                    "value": "99.99"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-882411",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "105.7"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-Echo",
+                    "qualifier": "associatedWith"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Reorder",
+            "time": "2023-08-10T13:46:20Z",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "reorder"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person-benedikt-knopp",
+                    "qualifier": "initiator"
+                },
+                {
+                    "objectId": "i-882411",
+                    "qualifier": "reorderedItem"
+                }
+            ]
+        }
+    ]
+}

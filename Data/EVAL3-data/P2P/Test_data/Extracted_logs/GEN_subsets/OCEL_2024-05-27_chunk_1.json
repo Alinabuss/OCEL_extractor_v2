@@ -1,0 +1,167 @@
+{
+    "objectTypes": [
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PurchaseOrder",
+            "attributes": []
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": []
+        },
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "GoodsReceiptCreated",
+            "attributes": []
+        },
+        {
+            "name": "TwoWayMatchCompleted",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "goods receipt:1584",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "time": "2024-05-27T00:56:00Z",
+                    "value": "101"
+                },
+                {
+                    "name": "status",
+                    "time": "2024-05-27T00:56:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:1301",
+                    "qualifier": "associatedWith"
+                }
+            ]
+        },
+        {
+            "id": "purchase_order:1301",
+            "type": "PurchaseOrder",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchasing_group:003",
+                    "qualifier": "belongsTo"
+                }
+            ]
+        },
+        {
+            "id": "purchasing_group:003",
+            "type": "PurchasingGroup",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "goods receipt:1610",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "time": "2024-05-27T07:10:00Z",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "invoice receipt:1613",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "time": "2024-05-27T07:10:00Z",
+                    "value": "115000.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "department:Warehouse Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "department:Finance/Account Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "GoodsReceiptCreated",
+            "time": "2024-05-27T00:56:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:1584",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "department:Warehouse Department",
+                    "qualifier": "performedBy"
+                },
+                {
+                    "objectId": "purchase_order:1301",
+                    "qualifier": "associatedWith"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "TwoWayMatchCompleted",
+            "time": "2024-05-27T07:10:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:1610",
+                    "qualifier": "involved"
+                },
+                {
+                    "objectId": "invoice receipt:1613",
+                    "qualifier": "matchedWith"
+                },
+                {
+                    "objectId": "department:Finance/Account Department",
+                    "qualifier": "performedBy"
+                }
+            ]
+        }
+    ]
+}

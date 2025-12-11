@@ -1,0 +1,119 @@
+{
+    "objectTypes": [
+        {
+            "name": "Defendant",
+            "attributes": [
+                {
+                    "name": "disabilityType",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Lawyer",
+            "attributes": []
+        },
+        {
+            "name": "Court",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "LegislationUnclear",
+            "attributes": []
+        },
+        {
+            "name": "CriminalProcessVaries",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "defendant_physical",
+            "type": "Defendant",
+            "attributes": [
+                {
+                    "name": "disabilityType",
+                    "value": "physical"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "defendant_mental",
+            "type": "Defendant",
+            "attributes": [
+                {
+                    "name": "disabilityType",
+                    "value": "mental"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "lawyer_1",
+            "type": "Lawyer",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "court_1",
+            "type": "Court",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "LegislationUnclear",
+            "time": "2025-09-11T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "text",
+                    "value": "It is not clear whether accommodations and adjustments must be requested by the defendant and/or his or her lawyers or whether they may or should be made by the court of its own motion."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "defendant_physical",
+                    "qualifier": "concerned"
+                },
+                {
+                    "objectId": "defendant_mental",
+                    "qualifier": "concerned"
+                },
+                {
+                    "objectId": "lawyer_1",
+                    "qualifier": "involved"
+                },
+                {
+                    "objectId": "court_1",
+                    "qualifier": "involved"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "CriminalProcessVaries",
+            "time": "2025-09-11T00:00:01Z",
+            "attributes": [
+                {
+                    "name": "text",
+                    "value": "The criminal process is very different for defendants who have a physical disability and those with a mental one."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "defendant_physical",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "defendant_mental",
+                    "qualifier": "subject"
+                }
+            ]
+        }
+    ]
+}

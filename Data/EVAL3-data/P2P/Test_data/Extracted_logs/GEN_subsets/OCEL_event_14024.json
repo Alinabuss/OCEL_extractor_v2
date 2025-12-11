@@ -1,0 +1,94 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseOrder",
+            "attributes": []
+        },
+        {
+            "name": "Quotation",
+            "attributes": []
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": [
+                {
+                    "name": "groupId",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "PurchaseOrderCreationCompleted",
+            "attributes": [
+                {
+                    "name": "performedBy",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order[772]",
+            "type": "PurchaseOrder",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchasing_group[004]",
+                    "qualifier": "belongs-to"
+                },
+                {
+                    "objectId": "quotation[455]",
+                    "qualifier": "associated"
+                }
+            ]
+        },
+        {
+            "id": "quotation[455]",
+            "type": "Quotation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchasing_group[004]",
+                    "qualifier": "belongs-to"
+                },
+                {
+                    "objectId": "purchase_order[772]",
+                    "qualifier": "associated"
+                }
+            ]
+        },
+        {
+            "id": "purchasing_group[004]",
+            "type": "PurchasingGroup",
+            "attributes": [
+                {
+                    "name": "groupId",
+                    "value": "004"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "evt-1",
+            "type": "PurchaseOrderCreationCompleted",
+            "time": "2023-07-17T15:59:00Z",
+            "attributes": [
+                {
+                    "name": "performedBy",
+                    "value": "Procurement Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order[772]",
+                    "qualifier": "created"
+                }
+            ]
+        }
+    ]
+}

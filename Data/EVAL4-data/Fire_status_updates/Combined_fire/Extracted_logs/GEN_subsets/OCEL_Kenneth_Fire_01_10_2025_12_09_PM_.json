@@ -1,0 +1,240 @@
+{
+    "objectTypes": [
+        {
+            "name": "FireIncident",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "burnedAcres",
+                    "type": "string"
+                },
+                {
+                    "name": "containedPercent",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "EvacuationNotice",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                },
+                {
+                    "name": "liftedTime",
+                    "type": "datetime"
+                }
+            ]
+        },
+        {
+            "name": "AdministrativeArea",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Actor",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "FireStatusReport",
+            "attributes": [
+                {
+                    "name": "burnedAcres",
+                    "type": "string"
+                },
+                {
+                    "name": "containedPercent",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "EvacuationOrdersLifted",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "IdentificationCheckPlanned",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                },
+                {
+                    "name": "purpose",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o_fire_kenneth",
+            "type": "FireIncident",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-10T12:09:00Z",
+                    "value": "Kenneth Fire"
+                },
+                {
+                    "name": "burnedAcres",
+                    "time": "2025-01-10T12:09:00Z",
+                    "value": "approximately 1,000 acres"
+                },
+                {
+                    "name": "containedPercent",
+                    "time": "2025-01-10T12:09:00Z",
+                    "value": "35%"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_evac_Kenneth_LA",
+            "type": "EvacuationNotice",
+            "attributes": [
+                {
+                    "name": "status",
+                    "time": "2025-01-09T20:00:00Z",
+                    "value": "lifted"
+                },
+                {
+                    "name": "description",
+                    "time": "2025-01-09T20:00:00Z",
+                    "value": "All Los Angeles County evacuation orders and warnings issued due to the Kenneth Fire have been lifted."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_fire_kenneth",
+                    "qualifier": "issuedDueTo"
+                },
+                {
+                    "objectId": "o_area_lacounty",
+                    "qualifier": "issuedBy"
+                }
+            ]
+        },
+        {
+            "id": "o_area_lacounty",
+            "type": "AdministrativeArea",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-09T20:00:00Z",
+                    "value": "Los Angeles County"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_deputies",
+            "type": "Actor",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "2025-01-10T12:09:00Z",
+                    "value": "Deputies"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "FireStatusReport",
+            "time": "2025-01-10T12:09:00Z",
+            "attributes": [
+                {
+                    "name": "burnedAcres",
+                    "value": "approximately 1,000 acres"
+                },
+                {
+                    "name": "containedPercent",
+                    "value": "35%"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_fire_kenneth",
+                    "qualifier": "about"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "EvacuationOrdersLifted",
+            "time": "2025-01-09T20:00:00Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "lifted"
+                },
+                {
+                    "name": "note",
+                    "value": "All Los Angeles County evacuation orders and warnings issued due to the Kenneth Fire have been lifted as of 8:00PM on January 9, 2025"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_evac_Kenneth_LA",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "o_area_lacounty",
+                    "qualifier": "jurisdiction"
+                },
+                {
+                    "objectId": "o_fire_kenneth",
+                    "qualifier": "relatedTo"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "IdentificationCheckPlanned",
+            "time": "2025-01-10T12:09:00Z",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "checking identification"
+                },
+                {
+                    "name": "purpose",
+                    "value": "to see if people traveling through the area reside in the above listed areas"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_deputies",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "o_evac_Kenneth_LA",
+                    "qualifier": "targetArea"
+                }
+            ]
+        }
+    ]
+}

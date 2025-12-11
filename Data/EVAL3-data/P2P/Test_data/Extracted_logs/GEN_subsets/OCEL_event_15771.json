@@ -1,0 +1,123 @@
+{
+    "objectTypes": [
+        {
+            "name": "Purchase Order",
+            "attributes": [
+                {
+                    "name": "lifecycleState",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Quotation",
+            "attributes": []
+        },
+        {
+            "name": "Purchasing Group",
+            "attributes": [
+                {
+                    "name": "designation",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Purchase Order Created",
+            "attributes": [
+                {
+                    "name": "result",
+                    "type": "string"
+                },
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Purchase Order[874]",
+            "type": "Purchase Order",
+            "attributes": [
+                {
+                    "name": "lifecycleState",
+                    "time": "2023-09-07T15:26:00Z",
+                    "value": "completed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Quotation[516]",
+                    "qualifier": "associated"
+                },
+                {
+                    "objectId": "Purchasing Group[002]",
+                    "qualifier": "belongs-to"
+                }
+            ]
+        },
+        {
+            "id": "Quotation[516]",
+            "type": "Quotation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Purchasing Group[002]",
+                    "qualifier": "belongs-to"
+                }
+            ]
+        },
+        {
+            "id": "Purchasing Group[002]",
+            "type": "Purchasing Group",
+            "attributes": [
+                {
+                    "name": "designation",
+                    "value": "002"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Procurement Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Purchase Order Created",
+            "time": "2023-09-07T15:26:00Z",
+            "attributes": [
+                {
+                    "name": "result",
+                    "value": "successful"
+                },
+                {
+                    "name": "lifecycle",
+                    "value": "completed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Purchase Order[874]",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "Procurement Department",
+                    "qualifier": "creator"
+                }
+            ]
+        }
+    ]
+}

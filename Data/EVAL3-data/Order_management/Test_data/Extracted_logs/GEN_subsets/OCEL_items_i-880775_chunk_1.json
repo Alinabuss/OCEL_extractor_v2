@@ -1,0 +1,120 @@
+{
+    "objectTypes": [
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Reorder",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "emp-nina-graves",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-05-23T13:01:20Z",
+                    "value": "Nina Graves"
+                },
+                {
+                    "name": "department",
+                    "time": "2023-05-23T13:01:20Z",
+                    "value": "warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "prod-echo-studio",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-05-23T13:01:20Z",
+                    "value": "Echo Studio"
+                },
+                {
+                    "name": "price",
+                    "time": "2023-05-23T13:01:20Z",
+                    "value": "199.99"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-880775",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "time": "2023-05-23T13:01:20Z",
+                    "value": "199.99"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "prod-echo-studio",
+                    "qualifier": "associated-with"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Reorder",
+            "time": "2023-05-23T13:01:20Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "emp-nina-graves",
+                    "qualifier": "performed-by"
+                },
+                {
+                    "objectId": "i-880775",
+                    "qualifier": "reordered"
+                },
+                {
+                    "objectId": "prod-echo-studio",
+                    "qualifier": "related-product"
+                }
+            ]
+        }
+    ]
+}

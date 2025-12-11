@@ -1,0 +1,285 @@
+{
+    "objectTypes": [
+        {
+            "name": "PersonWithDisability",
+            "attributes": [
+                {
+                    "name": "disabilityType",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "SignLanguage",
+            "attributes": [
+                {
+                    "name": "legalStatus",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "AssistanceSupport",
+            "attributes": [
+                {
+                    "name": "necessary",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Expert",
+            "attributes": [
+                {
+                    "name": "roleDescription",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ProvideAssistanceOrSupport",
+            "attributes": [
+                {
+                    "name": "purpose",
+                    "type": "string"
+                },
+                {
+                    "name": "includes",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ProvideInterpretationInSignLanguage",
+            "attributes": [
+                {
+                    "name": "languageLegalStatus",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ProvideSupportForVerbalCommunication",
+            "attributes": [
+                {
+                    "name": "targetGroups",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PermitExpertParticipation",
+            "attributes": [
+                {
+                    "name": "purpose",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "person:deaf",
+            "type": "PersonWithDisability",
+            "attributes": [
+                {
+                    "name": "disabilityType",
+                    "value": "deaf"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "person:hearing",
+            "type": "PersonWithDisability",
+            "attributes": [
+                {
+                    "name": "disabilityType",
+                    "value": "hearing disability"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "person:deafblind",
+            "type": "PersonWithDisability",
+            "attributes": [
+                {
+                    "name": "disabilityType",
+                    "value": "deafblind"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "assist:necessary",
+            "type": "AssistanceSupport",
+            "attributes": [
+                {
+                    "name": "necessary",
+                    "value": "true"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "signlang:recognized",
+            "type": "SignLanguage",
+            "attributes": [
+                {
+                    "name": "legalStatus",
+                    "value": "legally recognised"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "expert:1",
+            "type": "Expert",
+            "attributes": [
+                {
+                    "name": "roleDescription",
+                    "value": "performing necessary accommodation and adjustments"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person:deaf",
+                    "qualifier": "performsAccommodationFor"
+                },
+                {
+                    "objectId": "person:hearing",
+                    "qualifier": "performsAccommodationFor"
+                },
+                {
+                    "objectId": "person:deafblind",
+                    "qualifier": "performsAccommodationFor"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "ProvideAssistanceOrSupport",
+            "time": "2020-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "purpose",
+                    "value": "to be understood"
+                },
+                {
+                    "name": "includes",
+                    "value": "interpretation in sign languages legally recognised; support for the verbal communication of deaf people, people with a hearing disability and deafblind people"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person:deaf",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "person:hearing",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "person:deafblind",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "assist:necessary",
+                    "qualifier": "provided"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "ProvideInterpretationInSignLanguage",
+            "time": "2020-01-01T00:01:00Z",
+            "attributes": [
+                {
+                    "name": "languageLegalStatus",
+                    "value": "legally recognised"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "signlang:recognized",
+                    "qualifier": "usedLanguage"
+                },
+                {
+                    "objectId": "person:deaf",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "person:hearing",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "person:deafblind",
+                    "qualifier": "recipient"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "ProvideSupportForVerbalCommunication",
+            "time": "2020-01-01T00:02:00Z",
+            "attributes": [
+                {
+                    "name": "targetGroups",
+                    "value": "deaf people; people with a hearing disability; deafblind people"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person:deaf",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "person:hearing",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "person:deafblind",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "assist:necessary",
+                    "qualifier": "supportProvided"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "PermitExpertParticipation",
+            "time": "2020-01-01T00:03:00Z",
+            "attributes": [
+                {
+                    "name": "purpose",
+                    "value": "allow a person with a disability to understand and be understood"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "expert:1",
+                    "qualifier": "permittedParticipant"
+                },
+                {
+                    "objectId": "person:deaf",
+                    "qualifier": "beneficiary"
+                },
+                {
+                    "objectId": "person:hearing",
+                    "qualifier": "beneficiary"
+                },
+                {
+                    "objectId": "person:deafblind",
+                    "qualifier": "beneficiary"
+                }
+            ]
+        }
+    ]
+}

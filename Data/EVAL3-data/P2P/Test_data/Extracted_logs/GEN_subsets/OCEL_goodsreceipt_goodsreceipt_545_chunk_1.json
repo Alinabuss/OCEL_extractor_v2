@@ -1,0 +1,116 @@
+{
+    "objectTypes": [
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "number"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "TwoWayMatch",
+            "attributes": [
+                {
+                    "name": "performedBy",
+                    "type": "string"
+                },
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                },
+                {
+                    "name": "matchType",
+                    "type": "string"
+                },
+                {
+                    "name": "confirmedMovementType",
+                    "type": "integer"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "545",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "time": "2023-01-13T08:10:00Z",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "540",
+                    "qualifier": "associated-with"
+                }
+            ]
+        },
+        {
+            "id": "540",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "time": "2023-01-13T08:10:00Z",
+                    "value": "31500.00"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "545",
+                    "qualifier": "associated-with"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "TwoWayMatch",
+            "time": "2023-01-13T08:10:00Z",
+            "attributes": [
+                {
+                    "name": "performedBy",
+                    "value": "Finance/Account Department"
+                },
+                {
+                    "name": "lifecycle",
+                    "value": "complete"
+                },
+                {
+                    "name": "matchType",
+                    "value": "two-way"
+                },
+                {
+                    "name": "confirmedMovementType",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "545",
+                    "qualifier": "for"
+                },
+                {
+                    "objectId": "540",
+                    "qualifier": "involves"
+                }
+            ]
+        }
+    ]
+}

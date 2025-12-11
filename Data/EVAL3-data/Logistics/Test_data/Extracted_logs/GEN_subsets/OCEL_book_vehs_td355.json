@@ -1,0 +1,100 @@
+{
+    "objectTypes": [
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "plannedDeparture",
+                    "type": "datetime"
+                }
+            ]
+        },
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Booking",
+            "attributes": [
+                {
+                    "name": "note",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "td355",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "value": "4.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "vh77",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "plannedDeparture",
+                    "value": "2024-02-20T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td355",
+                    "qualifier": "assigned-high-priority-for"
+                }
+            ]
+        },
+        {
+            "id": "vh80",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "plannedDeparture",
+                    "value": "2024-03-01T11:00:00Z"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Booking",
+            "time": "2024-02-16T07:11:55Z",
+            "attributes": [
+                {
+                    "name": "note",
+                    "value": "Vehicles vh77 and vh80 were booked for transport document td355"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "vh77",
+                    "qualifier": "bookedVehicle"
+                },
+                {
+                    "objectId": "vh80",
+                    "qualifier": "bookedVehicle"
+                },
+                {
+                    "objectId": "td355",
+                    "qualifier": "transportDocument"
+                }
+            ]
+        }
+    ]
+}

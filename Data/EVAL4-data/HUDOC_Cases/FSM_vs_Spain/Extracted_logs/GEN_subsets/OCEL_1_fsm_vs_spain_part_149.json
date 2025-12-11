@@ -1,0 +1,220 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Judgment",
+            "attributes": [
+                {
+                    "name": "language",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Opinion",
+            "attributes": [
+                {
+                    "name": "type",
+                    "type": "string"
+                },
+                {
+                    "name": "title",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "NotifiedInWriting",
+            "attributes": [
+                {
+                    "name": "pursuant_to",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Annexed",
+            "attributes": [
+                {
+                    "name": "pursuant_to",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "judgment:1",
+            "type": "Judgment",
+            "attributes": [
+                {
+                    "name": "language",
+                    "time": "2025-03-13T00:00:00Z",
+                    "value": "English"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person:victor_soloveytchik",
+                    "qualifier": "Registrar"
+                },
+                {
+                    "objectId": "person:mattias_guyomar",
+                    "qualifier": "President"
+                }
+            ]
+        },
+        {
+            "id": "opinion:el\ufffdsegui:1",
+            "type": "Opinion",
+            "attributes": [
+                {
+                    "name": "type",
+                    "time": "2025-03-13T00:00:00Z",
+                    "value": "concurring"
+                },
+                {
+                    "name": "title",
+                    "time": "2025-03-13T00:00:00Z",
+                    "value": "CONCURRING OPINION OF JUDGE EL\ufffdSEGUI JOINED BY JUDGE MOUROU-VIKSTR\ufffdM"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person:el\ufffdsegui",
+                    "qualifier": "author"
+                },
+                {
+                    "objectId": "person:mourou-vikstr\ufffdm",
+                    "qualifier": "joined_by"
+                },
+                {
+                    "objectId": "judgment:1",
+                    "qualifier": "annexed_to"
+                }
+            ]
+        },
+        {
+            "id": "person:victor_soloveytchik",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Victor Soloveytchik"
+                },
+                {
+                    "name": "role",
+                    "time": "",
+                    "value": "Registrar"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "person:mattias_guyomar",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Mattias Guyomar"
+                },
+                {
+                    "name": "role",
+                    "time": "",
+                    "value": "President"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "person:el\ufffdsegui",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "El\ufffdsegui"
+                },
+                {
+                    "name": "role",
+                    "time": "",
+                    "value": "Judge"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "person:mourou-vikstr\ufffdm",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Mourou-Vikstr\ufffdm"
+                },
+                {
+                    "name": "role",
+                    "time": "",
+                    "value": "Judge"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "NotifiedInWriting",
+            "time": "2025-03-13T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "pursuant_to",
+                    "value": "Rule 77 2 and 3 of the Rules of Court"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "judgment:1",
+                    "qualifier": "notified"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Annexed",
+            "time": "2025-03-13T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "pursuant_to",
+                    "value": "Article 45 2 of the Convention and Rule 74 2 of the Rules of Court"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "opinion:el\ufffdsegui:1",
+                    "qualifier": "annexed_opinion"
+                },
+                {
+                    "objectId": "judgment:1",
+                    "qualifier": "target"
+                }
+            ]
+        }
+    ]
+}

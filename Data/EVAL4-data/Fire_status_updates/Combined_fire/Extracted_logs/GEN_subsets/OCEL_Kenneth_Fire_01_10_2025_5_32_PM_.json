@@ -1,0 +1,125 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "establishedPerimeter",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "FirefightingCrew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "StatusReport",
+            "attributes": [
+                {
+                    "name": "actionsTaken",
+                    "type": "string"
+                },
+                {
+                    "name": "plannedActions",
+                    "type": "string"
+                },
+                {
+                    "name": "activityPeriod",
+                    "type": "string"
+                },
+                {
+                    "name": "containmentEffect",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Kenneth Fire",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-10T17:32:00Z",
+                    "value": "Kenneth Fire"
+                },
+                {
+                    "name": "establishedPerimeter",
+                    "time": "2025-01-10T17:32:00Z",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Firefighters",
+                    "qualifier": "respondedBy"
+                }
+            ]
+        },
+        {
+            "id": "Firefighters",
+            "type": "FirefightingCrew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-10T17:32:00Z",
+                    "value": "Firefighters"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Kenneth Fire",
+                    "qualifier": "respondingTo"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "StatusReport",
+            "time": "2025-01-10T17:32:00Z",
+            "attributes": [
+                {
+                    "name": "actionsTaken",
+                    "value": "mop up hot spots and improve containment lines"
+                },
+                {
+                    "name": "plannedActions",
+                    "value": "monitoring and patrolling this evening"
+                },
+                {
+                    "name": "activityPeriod",
+                    "value": "throughout the day"
+                },
+                {
+                    "name": "containmentEffect",
+                    "value": "added to the overall containment of the fire"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Kenneth Fire",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "Firefighters",
+                    "qualifier": "performedBy"
+                }
+            ]
+        }
+    ]
+}

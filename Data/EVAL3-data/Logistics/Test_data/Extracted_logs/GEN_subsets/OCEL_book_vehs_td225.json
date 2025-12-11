@@ -1,0 +1,77 @@
+{
+    "objectTypes": [
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDepartureDate",
+                    "type": "timestamp"
+                }
+            ]
+        },
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "type": "decimal"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "VehicleBooked",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "vh56",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDepartureDate",
+                    "time": "2023-11-13T07:20:29Z",
+                    "value": "2023-12-08T11:00:00Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "td225",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "time": "2023-11-13T07:20:29Z",
+                    "value": "5.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "vh56",
+                    "qualifier": "associated-with"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "VehicleBooked",
+            "time": "2023-11-13T07:20:29Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "vh56",
+                    "qualifier": "vehicle"
+                },
+                {
+                    "objectId": "td225",
+                    "qualifier": "transportDocument"
+                }
+            ]
+        }
+    ]
+}

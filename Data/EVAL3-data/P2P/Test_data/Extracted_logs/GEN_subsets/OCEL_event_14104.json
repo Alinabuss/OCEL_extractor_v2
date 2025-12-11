@@ -1,0 +1,80 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseOrder",
+            "attributes": []
+        },
+        {
+            "name": "Quotation",
+            "attributes": []
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Purchase Order Creation Completed",
+            "attributes": [
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:784",
+            "type": "PurchaseOrder",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "001",
+                    "qualifier": "belongs-to"
+                },
+                {
+                    "objectId": "quotation:454",
+                    "qualifier": "associated-with"
+                }
+            ]
+        },
+        {
+            "id": "quotation:454",
+            "type": "Quotation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "001",
+                    "qualifier": "linked-to"
+                }
+            ]
+        },
+        {
+            "id": "001",
+            "type": "PurchasingGroup",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Purchase Order Creation Completed",
+            "time": "2023-07-19T11:00:00Z",
+            "attributes": [
+                {
+                    "name": "department",
+                    "value": "procurement department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:784",
+                    "qualifier": "created"
+                }
+            ]
+        }
+    ]
+}

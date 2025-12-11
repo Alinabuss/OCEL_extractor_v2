@@ -1,0 +1,117 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containerCount",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "departureDate",
+                    "type": "time"
+                },
+                {
+                    "name": "priority",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "VehiclesBooked",
+            "attributes": [
+                {
+                    "name": "numVehicles",
+                    "type": "integer"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "td378",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containerCount",
+                    "value": "3"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "vh82",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "departureDate",
+                    "value": "2024-03-08T11:00:00Z"
+                },
+                {
+                    "name": "priority",
+                    "value": "high"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td378",
+                    "qualifier": "bookedFor"
+                },
+                {
+                    "objectId": "td378",
+                    "qualifier": "highPriorityFor"
+                }
+            ]
+        },
+        {
+            "id": "vh89",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "departureDate",
+                    "value": "2024-04-02T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td378",
+                    "qualifier": "bookedFor"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "VehiclesBooked",
+            "time": "2024-03-05T12:42:43Z",
+            "attributes": [
+                {
+                    "name": "numVehicles",
+                    "value": "2"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td378",
+                    "qualifier": "forTransportDocument"
+                },
+                {
+                    "objectId": "vh82",
+                    "qualifier": "bookedVehicle"
+                },
+                {
+                    "objectId": "vh89",
+                    "qualifier": "bookedVehicle"
+                }
+            ]
+        }
+    ]
+}

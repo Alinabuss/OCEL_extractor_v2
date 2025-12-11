@@ -1,0 +1,113 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseRequisition",
+            "attributes": []
+        },
+        {
+            "name": "Quotation",
+            "attributes": []
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": [
+                {
+                    "name": "label",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "RequestForQuotationCreated",
+            "attributes": [
+                {
+                    "name": "lifecycle_status",
+                    "type": "string"
+                },
+                {
+                    "name": "result",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_requisition:368:pr_trigger_368",
+            "type": "PurchaseRequisition",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "quotation:366",
+                    "qualifier": "linked-to"
+                },
+                {
+                    "objectId": "purchasing_group:005",
+                    "qualifier": "associated-with"
+                }
+            ]
+        },
+        {
+            "id": "quotation:366",
+            "type": "Quotation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchasing_group:005",
+                    "qualifier": "associated-with"
+                }
+            ]
+        },
+        {
+            "id": "purchasing_group:005",
+            "type": "PurchasingGroup",
+            "attributes": [
+                {
+                    "name": "label",
+                    "time": "",
+                    "value": "005"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "department:Procurement Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "rfq_created:2023-04-08T04:48:00Z",
+            "type": "RequestForQuotationCreated",
+            "time": "2023-04-08T04:48:00Z",
+            "attributes": [
+                {
+                    "name": "lifecycle_status",
+                    "value": "complete"
+                },
+                {
+                    "name": "result",
+                    "value": "success"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:366",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "department:Procurement Department",
+                    "qualifier": "created-by"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,171 @@
+{
+    "objectTypes": [
+        {
+            "name": "Court",
+            "attributes": []
+        },
+        {
+            "name": "Judgment",
+            "attributes": [
+                {
+                    "name": "paragraphsReferenced",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Case",
+            "attributes": [
+                {
+                    "name": "charge_severity",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "mental_faculties",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "NationalAuthority",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "CourtHolding",
+            "attributes": [
+                {
+                    "name": "text",
+                    "type": "string"
+                },
+                {
+                    "name": "referenced_paragraphs",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "court_1",
+            "type": "Court",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "judgment_1",
+            "type": "Judgment",
+            "attributes": [
+                {
+                    "name": "paragraphsReferenced",
+                    "time": "",
+                    "value": "58,65"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court_1",
+                    "qualifier": "issuedBy"
+                },
+                {
+                    "objectId": "case_1",
+                    "qualifier": "refersToCase"
+                }
+            ]
+        },
+        {
+            "id": "case_1",
+            "type": "Case",
+            "attributes": [
+                {
+                    "name": "charge_severity",
+                    "time": "",
+                    "value": "serious"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person_1",
+                    "qualifier": "defendant"
+                },
+                {
+                    "objectId": "national_authorities",
+                    "qualifier": "relevantAuthority"
+                }
+            ]
+        },
+        {
+            "id": "person_1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "mental_faculties",
+                    "time": "",
+                    "value": "impaired"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "case_1",
+                    "qualifier": "isDefendantIn"
+                }
+            ]
+        },
+        {
+            "id": "national_authorities",
+            "type": "NationalAuthority",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "case_1",
+                    "qualifier": "haveDutyIn"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "CourtHolding",
+            "time": "2020-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "text",
+                    "value": "Additionally, the Court has held that in cases concerning serious charges against persons whose mental faculties are impaired, the national authorities have to take additional steps in the interests of the proper administration of justice."
+                },
+                {
+                    "name": "referenced_paragraphs",
+                    "value": "paragraph 58; \u00a7 65"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court_1",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "judgment_1",
+                    "qualifier": "document"
+                },
+                {
+                    "objectId": "case_1",
+                    "qualifier": "concernsCase"
+                },
+                {
+                    "objectId": "person_1",
+                    "qualifier": "concernedPerson"
+                },
+                {
+                    "objectId": "national_authorities",
+                    "qualifier": "addressee"
+                }
+            ]
+        }
+    ]
+}

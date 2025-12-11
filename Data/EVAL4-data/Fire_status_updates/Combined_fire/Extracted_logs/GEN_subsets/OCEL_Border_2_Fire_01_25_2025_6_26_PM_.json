@@ -1,0 +1,307 @@
+{
+    "objectTypes": [
+        {
+            "name": "FireIncident",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Asset",
+            "attributes": [
+                {
+                    "name": "category",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Resource",
+            "attributes": [
+                {
+                    "name": "mode",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Responder",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Weather",
+            "attributes": [
+                {
+                    "name": "phenomenon",
+                    "type": "string"
+                },
+                {
+                    "name": "forecast_period",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "FireStatusUpdate",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "terrain",
+                    "type": "string"
+                },
+                {
+                    "name": "humidity",
+                    "type": "string"
+                },
+                {
+                    "name": "winds",
+                    "type": "string"
+                },
+                {
+                    "name": "activity",
+                    "type": "string"
+                },
+                {
+                    "name": "resources_working",
+                    "type": "string"
+                },
+                {
+                    "name": "rain_expected",
+                    "type": "string"
+                },
+                {
+                    "name": "expected_effect",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Border 2 Fire",
+            "type": "FireIncident",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-25T18:26:00Z",
+                    "value": "Border 2 Fire"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "homes",
+                    "qualifier": "threatens"
+                },
+                {
+                    "objectId": "communities",
+                    "qualifier": "threatens"
+                },
+                {
+                    "objectId": "infrastructure",
+                    "qualifier": "threatens"
+                },
+                {
+                    "objectId": "expected_rain",
+                    "qualifier": "expected_over"
+                }
+            ]
+        },
+        {
+            "id": "homes",
+            "type": "Asset",
+            "attributes": [
+                {
+                    "name": "category",
+                    "time": "",
+                    "value": "homes"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "communities",
+            "type": "Asset",
+            "attributes": [
+                {
+                    "name": "category",
+                    "time": "",
+                    "value": "communities"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "infrastructure",
+            "type": "Asset",
+            "attributes": [
+                {
+                    "name": "category",
+                    "time": "",
+                    "value": "infrastructure"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "air_resources",
+            "type": "Resource",
+            "attributes": [
+                {
+                    "name": "mode",
+                    "time": "",
+                    "value": "air"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Border 2 Fire",
+                    "qualifier": "working_to_protect"
+                }
+            ]
+        },
+        {
+            "id": "ground_resources",
+            "type": "Resource",
+            "attributes": [
+                {
+                    "name": "mode",
+                    "time": "",
+                    "value": "ground"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Border 2 Fire",
+                    "qualifier": "working_to_protect"
+                }
+            ]
+        },
+        {
+            "id": "firefighters",
+            "type": "Responder",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "",
+                    "value": "firefighters"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Border 2 Fire",
+                    "qualifier": "responding_to"
+                }
+            ]
+        },
+        {
+            "id": "expected_rain",
+            "type": "Weather",
+            "attributes": [
+                {
+                    "name": "phenomenon",
+                    "time": "",
+                    "value": "rain"
+                },
+                {
+                    "name": "forecast_period",
+                    "time": "",
+                    "value": "late tonight through Monday"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Border 2 Fire",
+                    "qualifier": "expected_over"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "FireStatusUpdate",
+            "time": "2025-01-25T18:26:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Fire activity continued overnight, burning in steep terrain with very low humidity and shifting winds. The fire continues to threaten homes, communities, and infrastructure, but air and ground resources are working day and night to ensure the safety of residents and property. Rain is expected over the fire area late tonight through Monday, lessening fire activity and helping firefighters increase containment."
+                },
+                {
+                    "name": "terrain",
+                    "value": "steep"
+                },
+                {
+                    "name": "humidity",
+                    "value": "very low"
+                },
+                {
+                    "name": "winds",
+                    "value": "shifting"
+                },
+                {
+                    "name": "activity",
+                    "value": "continued overnight"
+                },
+                {
+                    "name": "resources_working",
+                    "value": "air and ground resources working day and night to ensure the safety of residents and property"
+                },
+                {
+                    "name": "rain_expected",
+                    "value": "late tonight through Monday"
+                },
+                {
+                    "name": "expected_effect",
+                    "value": "lessening fire activity and helping firefighters increase containment"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Border 2 Fire",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "homes",
+                    "qualifier": "threatened"
+                },
+                {
+                    "objectId": "communities",
+                    "qualifier": "threatened"
+                },
+                {
+                    "objectId": "infrastructure",
+                    "qualifier": "threatened"
+                },
+                {
+                    "objectId": "air_resources",
+                    "qualifier": "responding"
+                },
+                {
+                    "objectId": "ground_resources",
+                    "qualifier": "responding"
+                },
+                {
+                    "objectId": "firefighters",
+                    "qualifier": "responding"
+                },
+                {
+                    "objectId": "expected_rain",
+                    "qualifier": "expected"
+                }
+            ]
+        }
+    ]
+}

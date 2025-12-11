@@ -1,0 +1,253 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "reportedAsOf",
+                    "type": "datetime"
+                }
+            ]
+        },
+        {
+            "name": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ResidentGroup",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "EvacuationMap",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Anticipate no fire spread",
+            "attributes": []
+        },
+        {
+            "name": "Suppression repair",
+            "attributes": []
+        },
+        {
+            "name": "Mop up",
+            "attributes": []
+        },
+        {
+            "name": "Patrol existing fire lines",
+            "attributes": []
+        },
+        {
+            "name": "Encourage check Genasys Protect evacuation map",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire_1",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-29T08:42:00Z",
+                    "value": "Border 2 Fire"
+                },
+                {
+                    "name": "reportedAsOf",
+                    "time": "2025-01-29T08:42:00Z",
+                    "value": "2025-01-29T08:42:00Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "crew_ground_1",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-29T08:42:00Z",
+                    "value": "Ground crews"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "sd_sheriff",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-29T08:42:00Z",
+                    "value": "San Diego County Sheriff's Office"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "residents_group",
+            "type": "ResidentGroup",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-29T08:42:00Z",
+                    "value": "Residents"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "genasys_map",
+            "type": "EvacuationMap",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-29T08:42:00Z",
+                    "value": "Genasys Protect evacuation map"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Anticipate no fire spread",
+            "time": "2025-01-29T08:42:00Z",
+            "attributes": [
+                {
+                    "name": "text",
+                    "value": "With high humidity overnight and rain showers this morning, crews continue to anticipate no fire spread."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "crew_ground_1",
+                    "qualifier": "agent"
+                },
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "subject"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Suppression repair",
+            "time": "2025-01-29T08:42:00Z",
+            "attributes": [
+                {
+                    "name": "text",
+                    "value": "Ground crews will focus on suppression repair."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "crew_ground_1",
+                    "qualifier": "agent"
+                },
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "affected"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "Mop up",
+            "time": "2025-01-29T08:42:00Z",
+            "attributes": [
+                {
+                    "name": "text",
+                    "value": "Ground crews will focus on mop up."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "crew_ground_1",
+                    "qualifier": "agent"
+                },
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "affected"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "Patrol existing fire lines",
+            "time": "2025-01-29T08:42:00Z",
+            "attributes": [
+                {
+                    "name": "text",
+                    "value": "Ground crews will focus on patrolling existing fire lines."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "crew_ground_1",
+                    "qualifier": "agent"
+                },
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "affected"
+                }
+            ]
+        },
+        {
+            "id": "e5",
+            "type": "Encourage check Genasys Protect evacuation map",
+            "time": "2025-01-29T08:42:00Z",
+            "attributes": [
+                {
+                    "name": "text",
+                    "value": "For the most current information on evacuation orders, the San Diego County Sheriff's Office encourages all residents to check the Genasys Protect evacuation map."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "sd_sheriff",
+                    "qualifier": "agent"
+                },
+                {
+                    "objectId": "residents_group",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "genasys_map",
+                    "qualifier": "resource"
+                }
+            ]
+        }
+    ]
+}

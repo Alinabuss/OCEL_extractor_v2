@@ -1,0 +1,153 @@
+{
+    "objectTypes": [
+        {
+            "name": "purchase_order",
+            "attributes": [
+                {
+                    "name": "lifecycleStatus",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "quotation",
+            "attributes": []
+        },
+        {
+            "name": "purchasing_group",
+            "attributes": []
+        },
+        {
+            "name": "department",
+            "attributes": []
+        },
+        {
+            "name": "role",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Purchase Order Created",
+            "attributes": [
+                {
+                    "name": "processStatus",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Purchase Order Approved",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:1389",
+            "type": "purchase_order",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "quotation:813",
+                    "qualifier": "linked_to"
+                }
+            ]
+        },
+        {
+            "id": "purchase_order:1391",
+            "type": "purchase_order",
+            "attributes": [
+                {
+                    "name": "lifecycleStatus",
+                    "time": "2024-06-19T02:41:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:813",
+                    "qualifier": "linked_to"
+                }
+            ]
+        },
+        {
+            "id": "quotation:813",
+            "type": "quotation",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "purchasing_group:002",
+            "type": "purchasing_group",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "department:Procurement Department",
+            "type": "department",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "role:Procurement Order Manager",
+            "type": "role",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Purchase Order Created",
+            "time": "2024-06-12T19:10:00Z",
+            "attributes": [
+                {
+                    "name": "processStatus",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:1389",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "quotation:813",
+                    "qualifier": "related"
+                },
+                {
+                    "objectId": "purchasing_group:002",
+                    "qualifier": "associated"
+                },
+                {
+                    "objectId": "department:Procurement Department",
+                    "qualifier": "performedBy"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Purchase Order Approved",
+            "time": "2024-06-19T02:41:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:1391",
+                    "qualifier": "approved"
+                },
+                {
+                    "objectId": "quotation:813",
+                    "qualifier": "related"
+                },
+                {
+                    "objectId": "purchasing_group:002",
+                    "qualifier": "associated"
+                },
+                {
+                    "objectId": "role:Procurement Order Manager",
+                    "qualifier": "facilitatedBy"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,83 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "type": "float"
+                },
+                {
+                    "name": "amountUnit",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "type": "time"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "TransportDocumentBooked",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "td348",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "value": "3.0"
+                },
+                {
+                    "name": "amountUnit",
+                    "value": "containers"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "vh80",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "value": "2024-03-01T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td348",
+                    "qualifier": "regularFor"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "TransportDocumentBooked",
+            "time": "2024-02-13T13:03:26Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "td348",
+                    "qualifier": "bookedTransportDocument"
+                },
+                {
+                    "objectId": "vh80",
+                    "qualifier": "relatedVehicle"
+                }
+            ]
+        }
+    ]
+}

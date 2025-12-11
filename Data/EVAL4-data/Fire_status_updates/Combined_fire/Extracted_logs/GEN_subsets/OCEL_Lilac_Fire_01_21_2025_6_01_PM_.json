@@ -1,0 +1,172 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "forward_rate_of_spread",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Crew",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Perimeter",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "SituationReport",
+            "attributes": [
+                {
+                    "name": "message",
+                    "type": "string"
+                },
+                {
+                    "name": "forward_rate_of_spread",
+                    "type": "string"
+                },
+                {
+                    "name": "planned_actions",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire_1",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Lilac Fire"
+                },
+                {
+                    "name": "forward_rate_of_spread",
+                    "value": "stopped",
+                    "time": "2025-01-21T18:01:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "loc_1",
+                    "qualifier": "located-near"
+                },
+                {
+                    "objectId": "perimeter_1",
+                    "qualifier": "has-perimeter"
+                }
+            ]
+        },
+        {
+            "id": "loc_1",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "near Old Highway 395 and Lilac Road"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "crew_1",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Fire crew"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "assigned-to"
+                }
+            ]
+        },
+        {
+            "id": "perimeter_1",
+            "type": "Perimeter",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "fire's perimeter"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "perimeter-of"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "SituationReport",
+            "time": "2025-01-21T18:01:00Z",
+            "attributes": [
+                {
+                    "name": "message",
+                    "value": "The fire is located near Old Highway 395 and Lilac Road. The forward rate of spread has been stopped. Fire crew will continue to build containment lines and extinguish hotspots within the fire's perimeter."
+                },
+                {
+                    "name": "forward_rate_of_spread",
+                    "value": "stopped"
+                },
+                {
+                    "name": "planned_actions",
+                    "value": "build containment lines; extinguish hotspots within the fire's perimeter"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "reported-about"
+                },
+                {
+                    "objectId": "loc_1",
+                    "qualifier": "located-at"
+                },
+                {
+                    "objectId": "crew_1",
+                    "qualifier": "involves"
+                },
+                {
+                    "objectId": "perimeter_1",
+                    "qualifier": "refers-to"
+                }
+            ]
+        }
+    ]
+}

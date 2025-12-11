@@ -1,0 +1,121 @@
+{
+    "objectTypes": [
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "OutOfStock",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "product-MacBookAir",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "MacBook Air"
+                },
+                {
+                    "name": "price",
+                    "value": "2200.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-885690",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "2472.8"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-MacBookAir",
+                    "qualifier": "instance-of"
+                }
+            ]
+        },
+        {
+            "id": "emp-NinaGraves",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Nina Graves"
+                },
+                {
+                    "name": "department",
+                    "value": "Warehousing"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "evt-1",
+            "type": "OutOfStock",
+            "time": "2023-12-22T11:29:27Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "out_of_stock"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "i-885690",
+                    "qualifier": "affected"
+                },
+                {
+                    "objectId": "emp-NinaGraves",
+                    "qualifier": "reported-by"
+                }
+            ]
+        }
+    ]
+}

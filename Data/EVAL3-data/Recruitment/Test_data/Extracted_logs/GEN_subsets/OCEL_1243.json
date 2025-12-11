@@ -1,0 +1,180 @@
+{
+    "objectTypes": [
+        {
+            "name": "Recruiter",
+            "attributes": [
+                {
+                    "name": "fullName",
+                    "type": "string"
+                },
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "fullName",
+                    "type": "string"
+                },
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": [
+                {
+                    "name": "position",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Vacancy",
+            "attributes": [
+                {
+                    "name": "title",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Interview Invitation",
+            "attributes": [
+                {
+                    "name": "purpose",
+                    "type": "string"
+                },
+                {
+                    "name": "position",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Simon Hense",
+            "type": "Recruiter",
+            "attributes": [
+                {
+                    "name": "fullName",
+                    "value": "Simon Hense"
+                },
+                {
+                    "name": "role",
+                    "value": "recruiter"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Dionne Kershaw",
+            "type": "Recruiter",
+            "attributes": [
+                {
+                    "name": "fullName",
+                    "value": "Dionne Kershaw"
+                },
+                {
+                    "name": "role",
+                    "value": "recruiter"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Angela Weber",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "fullName",
+                    "value": "Angela Weber"
+                },
+                {
+                    "name": "role",
+                    "value": "applicant"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Application[770068]",
+            "type": "Application",
+            "attributes": [
+                {
+                    "name": "position",
+                    "value": "Programmer"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Angela Weber",
+                    "qualifier": "applicant"
+                },
+                {
+                    "objectId": "Vacancy[550005]",
+                    "qualifier": "for-vacancy"
+                }
+            ]
+        },
+        {
+            "id": "Vacancy[550005]",
+            "type": "Vacancy",
+            "attributes": [
+                {
+                    "name": "title",
+                    "value": "Programmer"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Interview Invitation",
+            "time": "2019-06-24T07:21:20Z",
+            "attributes": [
+                {
+                    "name": "purpose",
+                    "value": "interview"
+                },
+                {
+                    "name": "position",
+                    "value": "Programmer"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Simon Hense",
+                    "qualifier": "inviter"
+                },
+                {
+                    "objectId": "Dionne Kershaw",
+                    "qualifier": "involved"
+                },
+                {
+                    "objectId": "Angela Weber",
+                    "qualifier": "invitee"
+                },
+                {
+                    "objectId": "Application[770068]",
+                    "qualifier": "regarding-application"
+                },
+                {
+                    "objectId": "Vacancy[550005]",
+                    "qualifier": "vacancy"
+                }
+            ]
+        }
+    ]
+}

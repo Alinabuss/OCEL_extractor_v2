@@ -1,0 +1,113 @@
+{
+    "objectTypes": [
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "name": "Resource",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "GoodsReceiptRecorded",
+            "attributes": [
+                {
+                    "name": "matchType",
+                    "type": "string"
+                },
+                {
+                    "name": "processStatus",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "goods receipt:161",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "time": "2022-07-04T07:10:00Z",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "invoice receipt:157",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "value": "164700.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Finance/Account Department",
+            "type": "Resource",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Finance/Account Department"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "GoodsReceiptRecorded",
+            "time": "2022-07-04T07:10:00Z",
+            "attributes": [
+                {
+                    "name": "matchType",
+                    "value": "two-way"
+                },
+                {
+                    "name": "processStatus",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:161",
+                    "qualifier": "recorded"
+                },
+                {
+                    "objectId": "invoice receipt:157",
+                    "qualifier": "associated"
+                },
+                {
+                    "objectId": "Finance/Account Department",
+                    "qualifier": "resource"
+                }
+            ]
+        }
+    ]
+}

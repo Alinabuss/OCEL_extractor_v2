@@ -1,0 +1,166 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Quotation",
+            "attributes": []
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": []
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        },
+        {
+            "name": "Resource",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Purchase Order Created",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Purchase Order Approved",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:511",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "time": "2023-02-08T11:43:00Z",
+                    "value": "complete"
+                },
+                {
+                    "name": "lifecycle",
+                    "time": "2023-02-09T11:27:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:304",
+                    "qualifier": "linked"
+                },
+                {
+                    "objectId": "purchasing_group:005",
+                    "qualifier": "belongs_to"
+                }
+            ]
+        },
+        {
+            "id": "quotation:304",
+            "type": "Quotation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchasing_group:005",
+                    "qualifier": "belongs_to"
+                }
+            ]
+        },
+        {
+            "id": "purchasing_group:005",
+            "type": "PurchasingGroup",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "department:Procurement Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "resource:Procurement Order Manager",
+            "type": "Resource",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Purchase Order Created",
+            "time": "2023-02-08T11:43:00Z",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:511",
+                    "qualifier": "order"
+                },
+                {
+                    "objectId": "quotation:304",
+                    "qualifier": "quotation"
+                },
+                {
+                    "objectId": "purchasing_group:005",
+                    "qualifier": "purchasing_group"
+                },
+                {
+                    "objectId": "department:Procurement Department",
+                    "qualifier": "created_by"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Purchase Order Approved",
+            "time": "2023-02-09T11:27:00Z",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:511",
+                    "qualifier": "order"
+                },
+                {
+                    "objectId": "quotation:304",
+                    "qualifier": "quotation"
+                },
+                {
+                    "objectId": "purchasing_group:005",
+                    "qualifier": "purchasing_group"
+                },
+                {
+                    "objectId": "resource:Procurement Order Manager",
+                    "qualifier": "approved_by"
+                }
+            ]
+        }
+    ]
+}

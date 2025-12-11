@@ -1,0 +1,137 @@
+{
+    "objectTypes": [
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "mentalHealthCondition",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Court",
+            "attributes": []
+        },
+        {
+            "name": "DomesticAuthorities",
+            "attributes": []
+        },
+        {
+            "name": "CriminalProceedings",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "AssessmentOfProceduralAdjustments",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "AssessmentOfFairness",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "applicant-1",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "mentalHealthCondition",
+                    "value": "without reaching a level of impairment warranting the discontinuation of the proceedings"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "court-1",
+            "type": "Court",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "domestic-authorities-1",
+            "type": "DomesticAuthorities",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "criminal-proceedings-1",
+            "type": "CriminalProceedings",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "applicant-1",
+                    "qualifier": "against"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "AssessmentOfProceduralAdjustments",
+            "time": "2025-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "assess whether the applicant's mental health condition, without reaching a level of impairment warranting the discontinuation of the proceedings, called for other procedural adjustments on the part of the domestic authorities in order to ensure his effective participation"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court-1",
+                    "qualifier": "assessor"
+                },
+                {
+                    "objectId": "applicant-1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "domestic-authorities-1",
+                    "qualifier": "addressee"
+                },
+                {
+                    "objectId": "criminal-proceedings-1",
+                    "qualifier": "context"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "AssessmentOfFairness",
+            "time": "2025-01-01T00:00:01Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "assess whether, in the absence of such adjustments, the criminal proceedings against the applicant, taken as a whole, could be considered as unfair"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court-1",
+                    "qualifier": "assessor"
+                },
+                {
+                    "objectId": "applicant-1",
+                    "qualifier": "affected"
+                },
+                {
+                    "objectId": "criminal-proceedings-1",
+                    "qualifier": "subject"
+                }
+            ]
+        }
+    ]
+}

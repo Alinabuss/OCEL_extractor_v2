@@ -1,0 +1,164 @@
+{
+    "objectTypes": [
+        {
+            "name": "Department",
+            "attributes": []
+        },
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Two-way Match",
+            "attributes": [
+                {
+                    "name": "outcome",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Goods Receipt Created",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "Finance/Account Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Warehouse Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "goods receipt:1118",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "invoice receipt:1124",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "value": "75500.00"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "goods receipt:1132",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "complete"
+                },
+                {
+                    "name": "movement_type",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:932",
+                    "qualifier": "connected-to"
+                }
+            ]
+        },
+        {
+            "id": "purchase_order:932",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "value": "001"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Two-way Match",
+            "time": "2023-10-13T07:10:00Z",
+            "attributes": [
+                {
+                    "name": "outcome",
+                    "value": "successful"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Finance/Account Department",
+                    "qualifier": "performed-by"
+                },
+                {
+                    "objectId": "goods receipt:1118",
+                    "qualifier": "involved"
+                },
+                {
+                    "objectId": "invoice receipt:1124",
+                    "qualifier": "involved"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Goods Receipt Created",
+            "time": "2023-10-13T23:15:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Warehouse Department",
+                    "qualifier": "performed-by"
+                },
+                {
+                    "objectId": "goods receipt:1132",
+                    "qualifier": "created"
+                }
+            ]
+        }
+    ]
+}

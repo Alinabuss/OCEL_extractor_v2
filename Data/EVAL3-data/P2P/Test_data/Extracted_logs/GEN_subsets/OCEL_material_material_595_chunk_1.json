@@ -1,0 +1,116 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseRequisition",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Material",
+            "attributes": [
+                {
+                    "name": "net_price",
+                    "type": "float"
+                },
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Create Purchase Requisition",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_requisition:245:pr_trigger_245",
+            "type": "PurchaseRequisition",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "time": "2022-11-29T13:47:00Z",
+                    "value": "001"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "material:595",
+                    "qualifier": "marked-lifecycle-complete"
+                }
+            ]
+        },
+        {
+            "id": "material:595",
+            "type": "Material",
+            "attributes": [
+                {
+                    "name": "net_price",
+                    "time": "2022-11-29T13:47:00Z",
+                    "value": "250.0"
+                },
+                {
+                    "name": "lifecycle",
+                    "time": "2022-11-29T13:47:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Manufacturing Department",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2022-11-29T13:47:00Z",
+                    "value": "Manufacturing Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_requisition:245:pr_trigger_245",
+                    "qualifier": "created"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Create Purchase Requisition",
+            "time": "2022-11-29T13:47:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchase_requisition:245:pr_trigger_245",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "Manufacturing Department",
+                    "qualifier": "creator"
+                },
+                {
+                    "objectId": "material:595",
+                    "qualifier": "marked-lifecycle-complete"
+                }
+            ]
+        }
+    ]
+}

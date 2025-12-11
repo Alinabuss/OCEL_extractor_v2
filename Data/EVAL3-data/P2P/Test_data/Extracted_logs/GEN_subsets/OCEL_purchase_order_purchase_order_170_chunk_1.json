@@ -1,0 +1,99 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "lifecycleStatus",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Quotation",
+            "attributes": []
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": []
+        },
+        {
+            "name": "Resource",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Create Purchase Order",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "Purchase Order[170]",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "lifecycleStatus",
+                    "time": "2022-07-12T07:40:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Quotation[103]",
+                    "qualifier": "originating-from"
+                },
+                {
+                    "objectId": "Purchasing Group[002]",
+                    "qualifier": "managed-by"
+                }
+            ]
+        },
+        {
+            "id": "Quotation[103]",
+            "type": "Quotation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Purchasing Group[002]",
+                    "qualifier": "managed-by"
+                }
+            ]
+        },
+        {
+            "id": "Purchasing Group[002]",
+            "type": "PurchasingGroup",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Procurement Department",
+            "type": "Resource",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Create Purchase Order",
+            "time": "2022-07-12T07:40:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Purchase Order[170]",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "Quotation[103]",
+                    "qualifier": "originating-from"
+                },
+                {
+                    "objectId": "Procurement Department",
+                    "qualifier": "responsible"
+                }
+            ]
+        }
+    ]
+}

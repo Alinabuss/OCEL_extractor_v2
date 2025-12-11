@@ -1,0 +1,94 @@
+{
+    "objectTypes": [
+        {
+            "name": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Two-way Match Completed",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt:802",
+            "type": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "value": "30400.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:801",
+                    "qualifier": "two-way-match"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt:801",
+            "type": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:802",
+                    "qualifier": "two-way-match"
+                }
+            ]
+        },
+        {
+            "id": "Finance/Account Department",
+            "type": "department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "event:1",
+            "type": "Two-way Match Completed",
+            "time": "2023-05-23T07:10:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:802",
+                    "qualifier": "matched"
+                },
+                {
+                    "objectId": "goods receipt:801",
+                    "qualifier": "matched"
+                },
+                {
+                    "objectId": "Finance/Account Department",
+                    "qualifier": "completed-by"
+                }
+            ]
+        }
+    ]
+}

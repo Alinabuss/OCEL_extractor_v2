@@ -1,0 +1,151 @@
+{
+    "objectTypes": [
+        {
+            "name": "Match",
+            "attributes": [
+                {
+                    "name": "createdAt",
+                    "type": "time"
+                }
+            ]
+        },
+        {
+            "name": "Session",
+            "attributes": []
+        },
+        {
+            "name": "Player",
+            "attributes": []
+        },
+        {
+            "name": "Wall",
+            "attributes": [
+                {
+                    "name": "material",
+                    "type": "string"
+                },
+                {
+                    "name": "initial",
+                    "type": "boolean"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "MatchCreated",
+            "attributes": []
+        },
+        {
+            "name": "WallCreated",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "M250230427",
+            "type": "Match",
+            "attributes": [
+                {
+                    "name": "createdAt",
+                    "time": "2023-07-31T00:10:50Z",
+                    "value": "2023-07-31T00:10:50Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Session[S250230427_2199669]",
+                    "qualifier": "during"
+                }
+            ]
+        },
+        {
+            "id": "Session[S250230427_2199669]",
+            "type": "Session",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "P2199669",
+            "type": "Player",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Wall[M250230427_initial]",
+            "type": "Wall",
+            "attributes": [
+                {
+                    "name": "material",
+                    "value": "stone"
+                },
+                {
+                    "name": "initial",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "M250230427",
+                    "qualifier": "tied-to"
+                },
+                {
+                    "objectId": "Session[S250230427_2199669]",
+                    "qualifier": "during"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "MatchCreated",
+            "time": "2023-07-31T00:10:50Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Match M250230427 created"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "M250230427",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "Session[S250230427_2199669]",
+                    "qualifier": "during"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "WallCreated",
+            "time": "2023-07-31T00:10:50Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Create initial stone wall"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Wall[M250230427_initial]",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "P2199669",
+                    "qualifier": "participant"
+                },
+                {
+                    "objectId": "M250230427",
+                    "qualifier": "associated"
+                },
+                {
+                    "objectId": "Session[S250230427_2199669]",
+                    "qualifier": "during"
+                }
+            ]
+        }
+    ]
+}

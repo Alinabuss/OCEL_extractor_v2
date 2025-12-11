@@ -1,0 +1,96 @@
+{
+    "objectTypes": [
+        {
+            "name": "Purchase Requisition",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Material",
+            "attributes": [
+                {
+                    "name": "net_price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Purchase Requisition Created",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "Purchase Requisition[524:pr_trigger_524]",
+            "type": "Purchase Requisition",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "time": "2023-09-07T20:53:00Z",
+                    "value": "002"
+                },
+                {
+                    "name": "status",
+                    "time": "2023-09-07T20:53:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Material[1298]",
+                    "qualifier": "associatedWith"
+                }
+            ]
+        },
+        {
+            "id": "Material[1298]",
+            "type": "Material",
+            "attributes": [
+                {
+                    "name": "net_price",
+                    "time": "2023-09-07T20:53:00Z",
+                    "value": "500.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Manufacturing Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Purchase Requisition Created",
+            "time": "2023-09-07T20:53:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Purchase Requisition[524:pr_trigger_524]",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "Manufacturing Department",
+                    "qualifier": "createdBy"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,117 @@
+{
+    "objectTypes": [
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "productName",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Report Out of Stock",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o-detlef-wetzeler",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Detlef Wetzeler",
+                    "time": "2023-05-23T08:40:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-warehousing",
+                    "qualifier": "works_in"
+                }
+            ]
+        },
+        {
+            "id": "o-warehousing",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "warehousing",
+                    "time": "2023-05-23T08:40:00Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-880687",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "productName",
+                    "value": "MacBook Air",
+                    "time": "2023-05-23T08:40:00Z"
+                },
+                {
+                    "name": "price",
+                    "value": "2200.0",
+                    "time": "2023-05-23T08:40:00Z"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e-1",
+            "type": "Report Out of Stock",
+            "time": "2023-05-23T08:40:00Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "out of stock"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-detlef-wetzeler",
+                    "qualifier": "reportedBy"
+                },
+                {
+                    "objectId": "i-880687",
+                    "qualifier": "reportedItem"
+                }
+            ]
+        }
+    ]
+}

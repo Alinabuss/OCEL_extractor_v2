@@ -1,0 +1,163 @@
+{
+    "objectTypes": [
+        {
+            "name": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Manager",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": [
+                {
+                    "name": "applicationId",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Consult",
+            "attributes": [
+                {
+                    "name": "topic",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Send Rejection",
+            "attributes": [
+                {
+                    "name": "outcome",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Ed Keane",
+            "type": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Ed Keane"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Alexander Rinke",
+            "type": "Manager",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Alexander Rinke"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Angela Smith",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Angela Smith"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Application[770304]",
+            "type": "Application",
+            "attributes": [
+                {
+                    "name": "applicationId",
+                    "value": "Application[770304]"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Angela Smith",
+                    "qualifier": "applicant"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Consult",
+            "time": "2019-06-29T03:32:51Z",
+            "attributes": [
+                {
+                    "name": "topic",
+                    "value": "Application[770304]"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Ed Keane",
+                    "qualifier": "consultant"
+                },
+                {
+                    "objectId": "Alexander Rinke",
+                    "qualifier": "consulted"
+                },
+                {
+                    "objectId": "Application[770304]",
+                    "qualifier": "application"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "Send Rejection",
+            "time": "2019-07-02T08:21:34Z",
+            "attributes": [
+                {
+                    "name": "outcome",
+                    "value": "rejection"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Ed Keane",
+                    "qualifier": "sender"
+                },
+                {
+                    "objectId": "Angela Smith",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "Application[770304]",
+                    "qualifier": "application"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,124 @@
+{
+  "objectTypes": [
+    {
+      "name": "material",
+      "attributes": [
+        {
+          "name": "Net Price (EKPO-NETPR)",
+          "type": "float"
+        }
+      ]
+    },
+    {
+      "name": "purchase_requisition",
+      "attributes": [
+        {
+          "name": "Purchasing Group (EBAN-EKGRP)",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "eventTypes": [
+    {
+      "name": "Approve Purchase Requisition",
+      "attributes": [
+        {
+          "name": "lifecycle",
+          "type": "string"
+        },
+        {
+          "name": "resource",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "id": "material:725",
+      "type": "material",
+      "attributes": [
+        {
+          "name": "Net Price (EKPO-NETPR)",
+          "time": "1970-01-01T00:00:00Z",
+          "value": 900.0
+        }
+      ]
+    },
+    {
+      "id": "material:723",
+      "type": "material",
+      "attributes": [
+        {
+          "name": "Net Price (EKPO-NETPR)",
+          "time": "1970-01-01T00:00:00Z",
+          "value": 750.0
+        }
+      ]
+    },
+    {
+      "id": "material:724",
+      "type": "material",
+      "attributes": [
+        {
+          "name": "Net Price (EKPO-NETPR)",
+          "time": "1970-01-01T00:00:00Z",
+          "value": 800.0
+        }
+      ]
+    },
+    {
+      "id": "purchase_requisition:295:pr_trigger_295",
+      "type": "purchase_requisition",
+      "attributes": [
+        {
+          "name": "Purchasing Group (EBAN-EKGRP)",
+          "time": "1970-01-01T00:00:00Z",
+          "value": "003"
+        }
+      ],
+      "relationships": [
+        {
+          "objectId": "material:723",
+          "qualifier": "assigned_materials of PR"
+        }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "event_8883",
+      "type": "Approve Purchase Requisition",
+      "time": "2023-02-03T01:47:00Z",
+      "attributes": [
+        {
+          "name": "lifecycle",
+          "value": "complete"
+        },
+        {
+          "name": "resource",
+          "value": "Procurement Requisition Manager"
+        }
+      ],
+      "relationships": [
+        {
+          "objectId": "purchase_requisition:295:pr_trigger_295",
+          "qualifier": "purchase_requisition"
+        },
+        {
+          "objectId": "material:723",
+          "qualifier": "material"
+        },
+        {
+          "objectId": "material:725",
+          "qualifier": "material"
+        },
+        {
+          "objectId": "material:724",
+          "qualifier": "material"
+        }
+      ]
+    }
+  ]
+}

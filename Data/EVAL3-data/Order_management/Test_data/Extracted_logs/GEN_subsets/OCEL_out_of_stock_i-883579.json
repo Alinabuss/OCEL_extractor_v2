@@ -1,0 +1,114 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                },
+                {
+                    "name": "stock_status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "OutOfStockReport",
+            "attributes": [
+                {
+                    "name": "reported_status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Marco Pegoraro",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "department",
+                    "value": "warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-883579",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "108.19"
+                },
+                {
+                    "name": "stock_status",
+                    "time": "2023-09-19T14:29:48Z",
+                    "value": "out of stock"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Echo",
+                    "qualifier": "relates-to"
+                }
+            ]
+        },
+        {
+            "id": "Echo",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "99.99"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "OutOfStockReport",
+            "time": "2023-09-19T14:29:48Z",
+            "attributes": [
+                {
+                    "name": "reported_status",
+                    "value": "out of stock"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Marco Pegoraro",
+                    "qualifier": "reporter"
+                },
+                {
+                    "objectId": "i-883579",
+                    "qualifier": "item"
+                }
+            ]
+        }
+    ]
+}

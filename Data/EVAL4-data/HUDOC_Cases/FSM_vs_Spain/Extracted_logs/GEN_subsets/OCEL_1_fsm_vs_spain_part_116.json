@@ -1,0 +1,174 @@
+{
+    "objectTypes": [
+        {
+            "name": "PersonCharged",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "InvestigationResults",
+            "attributes": [
+                {
+                    "name": "scope",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Proceedings",
+            "attributes": []
+        },
+        {
+            "name": "Case",
+            "attributes": [
+                {
+                    "name": "caseName",
+                    "type": "string"
+                },
+                {
+                    "name": "caseNumber",
+                    "type": "string"
+                },
+                {
+                    "name": "paragraph",
+                    "type": "string"
+                },
+                {
+                    "name": "date",
+                    "type": "date"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "CourtFinding",
+            "attributes": [
+                {
+                    "name": "text",
+                    "type": "string"
+                },
+                {
+                    "name": "caseNumber",
+                    "type": "string"
+                },
+                {
+                    "name": "paragraph",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "person_everyone_charged",
+            "type": "PersonCharged",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "",
+                    "value": "everyone charged with a criminal offence"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "proceedings_1",
+                    "qualifier": "participant"
+                }
+            ]
+        },
+        {
+            "id": "investigation_results_1",
+            "type": "InvestigationResults",
+            "attributes": [
+                {
+                    "name": "scope",
+                    "time": "",
+                    "value": "throughout the proceedings"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "proceedings_1",
+                    "qualifier": "carried-out-in"
+                }
+            ]
+        },
+        {
+            "id": "proceedings_1",
+            "type": "Proceedings",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "case_15669_20_2023_09_26",
+            "type": "Case",
+            "attributes": [
+                {
+                    "name": "caseName",
+                    "time": "2023-09-26T00:00:00Z",
+                    "value": "Y\ufffdksel Yal\ufffd?nkaya v.\ufffdT\ufffdrkiye [GC]"
+                },
+                {
+                    "name": "caseNumber",
+                    "time": "2023-09-26T00:00:00Z",
+                    "value": "15669/20"
+                },
+                {
+                    "name": "paragraph",
+                    "time": "2023-09-26T00:00:00Z",
+                    "value": "306"
+                },
+                {
+                    "name": "date",
+                    "time": "2023-09-26T00:00:00Z",
+                    "value": "2023-09-26"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "CourtFinding",
+            "time": "2023-09-26T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "text",
+                    "value": "The facilities which everyone charged with a criminal offence should enjoy include the opportunity to acquaint him or herself, for the purposes of preparing his or her defence, with the results of investigations carried out throughout the proceedings (see Y\ufffdksel Yal\ufffd?nkaya v.\ufffdT\ufffdrkiye [GC], no.\ufffd15669/20, \ufffd\ufffd306, 26 September 2023)."
+                },
+                {
+                    "name": "caseNumber",
+                    "value": "15669/20"
+                },
+                {
+                    "name": "paragraph",
+                    "value": "306"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person_everyone_charged",
+                    "qualifier": "appliesTo"
+                },
+                {
+                    "objectId": "investigation_results_1",
+                    "qualifier": "refersTo"
+                },
+                {
+                    "objectId": "proceedings_1",
+                    "qualifier": "context"
+                },
+                {
+                    "objectId": "case_15669_20_2023_09_26",
+                    "qualifier": "source"
+                }
+            ]
+        }
+    ]
+}

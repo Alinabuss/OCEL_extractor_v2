@@ -1,0 +1,94 @@
+{
+    "objectTypes": [
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasingGroup",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Goods Receipt Created",
+            "attributes": [
+                {
+                    "name": "createdBy",
+                    "type": "string"
+                },
+                {
+                    "name": "processCompleted",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "goods receipt[666]",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "value": "101",
+                    "time": "2023-03-08T10:27:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order[553]",
+                    "qualifier": "associatedWith"
+                }
+            ]
+        },
+        {
+            "id": "purchase_order[553]",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasingGroup",
+                    "value": "004"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "evt1",
+            "type": "Goods Receipt Created",
+            "time": "2023-03-08T10:27:00Z",
+            "attributes": [
+                {
+                    "name": "createdBy",
+                    "value": "Warehouse Department"
+                },
+                {
+                    "name": "processCompleted",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt[666]",
+                    "qualifier": "createdGoodsReceipt"
+                },
+                {
+                    "objectId": "purchase_order[553]",
+                    "qualifier": "associatedPurchaseOrder"
+                }
+            ]
+        }
+    ]
+}

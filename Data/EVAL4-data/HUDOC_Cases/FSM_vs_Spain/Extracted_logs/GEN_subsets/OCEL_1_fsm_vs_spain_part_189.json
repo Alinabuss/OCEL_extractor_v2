@@ -1,0 +1,94 @@
+{
+    "objectTypes": [
+        {
+            "name": "LawDraft",
+            "attributes": [
+                {
+                    "name": "title",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Country",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Prepared",
+            "attributes": [
+                {
+                    "name": "year",
+                    "type": "integer"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "draft:civil-procedure-law:2020",
+            "type": "LawDraft",
+            "attributes": [
+                {
+                    "name": "title",
+                    "time": "2020-01-01T00:00:00Z",
+                    "value": "Draft Civil Procedure Law"
+                },
+                {
+                    "name": "status",
+                    "value": "never came into force"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "country:spain",
+                    "qualifier": "located_in"
+                }
+            ]
+        },
+        {
+            "id": "country:spain",
+            "type": "Country",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Spain"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Prepared",
+            "time": "2020-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "year",
+                    "value": 2020
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "draft:civil-procedure-law:2020",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "country:spain",
+                    "qualifier": "location"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,176 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "reportedAt",
+                    "type": "time"
+                }
+            ]
+        },
+        {
+            "name": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Fire Reported",
+            "attributes": [
+                {
+                    "name": "approximate",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "Situation Update",
+            "attributes": [
+                {
+                    "name": "summary",
+                    "type": "string"
+                },
+                {
+                    "name": "unifiedCommandEstablished",
+                    "type": "boolean"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire-1",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-08T13:08:00Z",
+                    "value": "Lidia Fire"
+                },
+                {
+                    "name": "reportedAt",
+                    "time": "2025-01-08T13:08:00Z",
+                    "value": "2025-01-08T13:08:00Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "loc-1",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-08T13:08:00Z",
+                    "value": "Soledad Canyon Road in Acton, California"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "org-ANF",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-10T19:54:00Z",
+                    "value": "Angeles National Forest"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "org-LACFD",
+                    "qualifier": "unified-command"
+                }
+            ]
+        },
+        {
+            "id": "org-LACFD",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-10T19:54:00Z",
+                    "value": "Los Angeles County Fire Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "org-ANF",
+                    "qualifier": "unified-command"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Fire Reported",
+            "time": "2025-01-08T13:08:00Z",
+            "attributes": [
+                {
+                    "name": "approximate",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "reported"
+                },
+                {
+                    "objectId": "loc-1",
+                    "qualifier": "location"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Situation Update",
+            "time": "2025-01-10T19:54:00Z",
+            "attributes": [
+                {
+                    "name": "summary",
+                    "value": "Unified command has been established between the Angeles National Forest and the Los Angeles County Fire Department. Firefighters continue to make significant progress."
+                },
+                {
+                    "name": "unifiedCommandEstablished",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "update"
+                },
+                {
+                    "objectId": "org-ANF",
+                    "qualifier": "unified-command-participant"
+                },
+                {
+                    "objectId": "org-LACFD",
+                    "qualifier": "unified-command-participant"
+                }
+            ]
+        }
+    ]
+}

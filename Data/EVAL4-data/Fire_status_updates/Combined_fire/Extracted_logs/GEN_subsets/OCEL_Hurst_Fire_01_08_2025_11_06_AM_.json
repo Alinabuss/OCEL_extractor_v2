@@ -1,0 +1,297 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "EnvironmentalCondition",
+            "attributes": [
+                {
+                    "name": "dry_fuels",
+                    "type": "string"
+                },
+                {
+                    "name": "strong_winds",
+                    "type": "string"
+                },
+                {
+                    "name": "low_humidity",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ResponseUnit",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "activity",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Community",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "advice",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Structure",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Authority",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "StatusUpdate",
+            "attributes": [
+                {
+                    "name": "behavior",
+                    "type": "string"
+                },
+                {
+                    "name": "danger",
+                    "type": "string"
+                },
+                {
+                    "name": "containment_effort",
+                    "type": "string"
+                },
+                {
+                    "name": "containment_challenge",
+                    "type": "string"
+                },
+                {
+                    "name": "contributing_factors",
+                    "type": "string"
+                },
+                {
+                    "name": "advisory",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire-1",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Hurst Fire"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "structures-1",
+                    "qualifier": "threatens"
+                },
+                {
+                    "objectId": "infra-1",
+                    "qualifier": "threatens"
+                },
+                {
+                    "objectId": "residents-1",
+                    "qualifier": "affects"
+                }
+            ]
+        },
+        {
+            "id": "env-1",
+            "type": "EnvironmentalCondition",
+            "attributes": [
+                {
+                    "name": "dry_fuels",
+                    "time": "",
+                    "value": "present"
+                },
+                {
+                    "name": "strong_winds",
+                    "time": "",
+                    "value": "high winds"
+                },
+                {
+                    "name": "low_humidity",
+                    "time": "",
+                    "value": "low humidity"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "contributesTo"
+                }
+            ]
+        },
+        {
+            "id": "crews-1",
+            "type": "ResponseUnit",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "fire crews"
+                },
+                {
+                    "name": "activity",
+                    "time": "",
+                    "value": "working tirelessly to contain the fire"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "respondsTo"
+                }
+            ]
+        },
+        {
+            "id": "residents-1",
+            "type": "Community",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "nearby communities"
+                },
+                {
+                    "name": "advice",
+                    "time": "",
+                    "value": "remain vigilant and follow directives from local authorities"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "structures-1",
+            "type": "Structure",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "",
+                    "value": "homes and other structures"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "infra-1",
+            "type": "Structure",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "",
+                    "value": "critical infrastructure"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "authorities-1",
+            "type": "Authority",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "local authorities"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "StatusUpdate",
+            "time": "2025-01-08T11:06:00Z",
+            "attributes": [
+                {
+                    "name": "behavior",
+                    "value": "spreading rapidly; aggressive fire behavior"
+                },
+                {
+                    "name": "danger",
+                    "value": "creating dangerous conditions for nearby communities"
+                },
+                {
+                    "name": "containment_effort",
+                    "value": "fire crews are working tirelessly to contain the fire"
+                },
+                {
+                    "name": "containment_challenge",
+                    "value": "containment efforts are extremely challenging"
+                },
+                {
+                    "name": "contributing_factors",
+                    "value": "dry fuels, strong winds, low humidity"
+                },
+                {
+                    "name": "advisory",
+                    "value": "Residents are urged to remain vigilant and follow directives from local authorities"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "env-1",
+                    "qualifier": "contributing_factor"
+                },
+                {
+                    "objectId": "crews-1",
+                    "qualifier": "responding"
+                },
+                {
+                    "objectId": "structures-1",
+                    "qualifier": "threatened"
+                },
+                {
+                    "objectId": "infra-1",
+                    "qualifier": "threatened"
+                },
+                {
+                    "objectId": "residents-1",
+                    "qualifier": "advised"
+                },
+                {
+                    "objectId": "authorities-1",
+                    "qualifier": "source"
+                }
+            ]
+        }
+    ]
+}

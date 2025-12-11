@@ -1,0 +1,202 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "type": "double"
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "type": "timestamp"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Booking",
+            "attributes": [
+                {
+                    "name": "numVehiclesBooked",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "TransportDocumentRecorded",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "td430",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "time": "2024-04-16T12:19:51Z",
+                    "value": "5.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "td431",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "time": "2024-04-16T13:47:12Z",
+                    "value": "5.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "td432",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "time": "2024-04-16T16:43:22Z",
+                    "value": "3.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "vh94",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "time": "2024-04-16T12:19:51Z",
+                    "value": "2024-04-19T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td430",
+                    "qualifier": "highPriorityFor"
+                }
+            ]
+        },
+        {
+            "id": "vh97",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "time": "2024-04-16T12:19:51Z",
+                    "value": "2024-04-30T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td430",
+                    "qualifier": "bookedFor"
+                }
+            ]
+        },
+        {
+            "id": "vh95",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "time": "2024-04-16T13:47:12Z",
+                    "value": "2024-04-23T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td431",
+                    "qualifier": "bookedFor"
+                }
+            ]
+        },
+        {
+            "id": "vh98",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "time": "2024-04-16T16:43:22Z",
+                    "value": "2024-05-03T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td432",
+                    "qualifier": "regularFor"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Booking",
+            "time": "2024-04-16T12:19:51Z",
+            "attributes": [
+                {
+                    "name": "numVehiclesBooked",
+                    "value": "3"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td430",
+                    "qualifier": "transportDocument"
+                },
+                {
+                    "objectId": "vh94",
+                    "qualifier": "highPriorityVehicle"
+                },
+                {
+                    "objectId": "vh97",
+                    "qualifier": "bookedVehicle"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Booking",
+            "time": "2024-04-16T13:47:12Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "td431",
+                    "qualifier": "transportDocument"
+                },
+                {
+                    "objectId": "vh95",
+                    "qualifier": "bookedVehicle"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "TransportDocumentRecorded",
+            "time": "2024-04-16T16:43:22Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "td432",
+                    "qualifier": "transportDocument"
+                },
+                {
+                    "objectId": "vh98",
+                    "qualifier": "regularVehicle"
+                }
+            ]
+        }
+    ]
+}

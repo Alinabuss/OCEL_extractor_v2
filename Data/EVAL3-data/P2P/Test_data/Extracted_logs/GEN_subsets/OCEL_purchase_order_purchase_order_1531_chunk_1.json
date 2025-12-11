@@ -1,0 +1,153 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasingGroup",
+                    "type": "string"
+                },
+                {
+                    "name": "lifecycleStatus",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Quotation",
+            "attributes": [
+                {
+                    "name": "purchasingGroup",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "OrganizationalUnit",
+            "attributes": []
+        },
+        {
+            "name": "Person",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Purchase Order Created",
+            "attributes": [
+                {
+                    "name": "result",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Purchase Order Approval Completed",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:1531",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasingGroup",
+                    "time": "2024-09-10T16:44:00Z",
+                    "value": "004"
+                },
+                {
+                    "name": "lifecycleStatus",
+                    "time": "2024-09-10T16:44:00Z",
+                    "value": "completed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:889",
+                    "qualifier": "associated"
+                }
+            ]
+        },
+        {
+            "id": "quotation:889",
+            "type": "Quotation",
+            "attributes": [
+                {
+                    "name": "purchasingGroup",
+                    "value": "004"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Procurement Department",
+            "type": "OrganizationalUnit",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Procurement Order Manager",
+            "type": "Person",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Purchase Order Created",
+            "time": "2024-09-10T16:44:00Z",
+            "attributes": [
+                {
+                    "name": "result",
+                    "value": "successfully created"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:1531",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "quotation:889",
+                    "qualifier": "associated"
+                },
+                {
+                    "objectId": "Procurement Department",
+                    "qualifier": "created_by"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Purchase Order Approval Completed",
+            "time": "2024-09-11T14:43:00Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "completed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:1531",
+                    "qualifier": "approved"
+                },
+                {
+                    "objectId": "quotation:889",
+                    "qualifier": "pertains_to"
+                },
+                {
+                    "objectId": "Procurement Order Manager",
+                    "qualifier": "performed_by"
+                }
+            ]
+        }
+    ]
+}

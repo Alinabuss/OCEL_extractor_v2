@@ -1,0 +1,106 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "lifecycle_status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Quotation",
+            "attributes": []
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": []
+        },
+        {
+            "name": "Actor",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Purchase Order Approved",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:1514",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "lifecycle_status",
+                    "time": "2024-09-07T15:38:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchasing_group:001",
+                    "qualifier": "belongs_to"
+                },
+                {
+                    "objectId": "quotation:878",
+                    "qualifier": "related_to"
+                }
+            ]
+        },
+        {
+            "id": "quotation:878",
+            "type": "Quotation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchasing_group:001",
+                    "qualifier": "belongs_to"
+                }
+            ]
+        },
+        {
+            "id": "purchasing_group:001",
+            "type": "PurchasingGroup",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "actor:Procurement Order Manager",
+            "type": "Actor",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2024-09-07T15:38:00Z",
+                    "value": "Procurement Order Manager"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "event:1",
+            "type": "Purchase Order Approved",
+            "time": "2024-09-07T15:38:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:1514",
+                    "qualifier": "approved"
+                },
+                {
+                    "objectId": "actor:Procurement Order Manager",
+                    "qualifier": "performed_by"
+                }
+            ]
+        }
+    ]
+}

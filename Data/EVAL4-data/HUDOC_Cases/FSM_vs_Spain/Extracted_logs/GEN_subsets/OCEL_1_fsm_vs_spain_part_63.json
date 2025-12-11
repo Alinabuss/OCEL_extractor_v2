@@ -1,0 +1,150 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Evidence",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Decision",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                },
+                {
+                    "name": "basis",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "MitigatingCircumstance",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "CriminalProceedings",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Allegation",
+            "attributes": [
+                {
+                    "name": "statement",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "value": "He"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o2",
+            "type": "Evidence",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "those items of evidence"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o3",
+            "type": "Decision",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "discontinue the criminal proceedings"
+                },
+                {
+                    "name": "basis",
+                    "value": "diminished mental capacity"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o4",
+            "type": "MitigatingCircumstance",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "mental disturbance"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o5",
+            "type": "CriminalProceedings",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Allegation",
+            "time": "2020-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "statement",
+                    "value": "He alleged that those items of evidence were relevant to the decision to discontinue the criminal proceedings on the basis of his diminished mental capacity or, alternatively, that they could have led to the application of a mitigating circumstance of mental disturbance in his case."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o1",
+                    "qualifier": "allegedBy"
+                },
+                {
+                    "objectId": "o2",
+                    "qualifier": "mentionsEvidence"
+                },
+                {
+                    "objectId": "o3",
+                    "qualifier": "referencesDecision"
+                },
+                {
+                    "objectId": "o4",
+                    "qualifier": "referencesMitigatingCircumstance"
+                },
+                {
+                    "objectId": "o5",
+                    "qualifier": "aboutCase"
+                }
+            ]
+        }
+    ]
+}

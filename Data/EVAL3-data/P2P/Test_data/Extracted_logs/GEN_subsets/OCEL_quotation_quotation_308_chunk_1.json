@@ -1,0 +1,88 @@
+{
+    "objectTypes": [
+        {
+            "name": "Quotation",
+            "attributes": []
+        },
+        {
+            "name": "PurchaseRequisition",
+            "attributes": []
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "RequestForQuotationCreated",
+            "attributes": [
+                {
+                    "name": "department",
+                    "type": "string"
+                },
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "quotation:308",
+            "type": "Quotation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchasing_group:003",
+                    "qualifier": "linked_to"
+                }
+            ]
+        },
+        {
+            "id": "purchase_requisition:310:pr_trigger_310",
+            "type": "PurchaseRequisition",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchasing_group:003",
+                    "qualifier": "associated_with"
+                }
+            ]
+        },
+        {
+            "id": "purchasing_group:003",
+            "type": "PurchasingGroup",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "event:1",
+            "type": "RequestForQuotationCreated",
+            "time": "2023-02-17T14:22:00Z",
+            "attributes": [
+                {
+                    "name": "department",
+                    "value": "Procurement Department"
+                },
+                {
+                    "name": "lifecycle",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:308",
+                    "qualifier": "quotation"
+                },
+                {
+                    "objectId": "purchase_requisition:310:pr_trigger_310",
+                    "qualifier": "purchase_requisition"
+                }
+            ]
+        }
+    ]
+}

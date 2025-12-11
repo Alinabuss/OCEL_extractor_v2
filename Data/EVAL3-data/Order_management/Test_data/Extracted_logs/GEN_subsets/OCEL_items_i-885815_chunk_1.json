@@ -1,0 +1,138 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Pick",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "person-marco-pegoraro",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Marco Pegoraro"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "dept-warehousing",
+                    "qualifier": "member-of"
+                }
+            ]
+        },
+        {
+            "id": "dept-warehousing",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "product-macbook-pro",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "MacBook Pro"
+                },
+                {
+                    "name": "price",
+                    "value": "2500.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-885815",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "2810.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-macbook-pro",
+                    "qualifier": "corresponds-to"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e-1",
+            "type": "Pick",
+            "time": "2023-12-27T09:37:58Z",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "picked"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person-marco-pegoraro",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "i-885815",
+                    "qualifier": "item"
+                }
+            ]
+        }
+    ]
+}

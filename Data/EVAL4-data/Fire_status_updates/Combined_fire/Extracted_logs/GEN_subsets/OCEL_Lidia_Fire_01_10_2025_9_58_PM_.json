@@ -1,0 +1,134 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "acreage",
+                    "type": "integer"
+                },
+                {
+                    "name": "containmentPercent",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "Crew",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Status Update",
+            "attributes": [
+                {
+                    "name": "acreage",
+                    "type": "integer"
+                },
+                {
+                    "name": "containmentPercent",
+                    "type": "integer"
+                },
+                {
+                    "name": "mopUpRequired",
+                    "type": "boolean"
+                },
+                {
+                    "name": "text",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire_Lidia",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-10T21:58:00Z",
+                    "value": "Lidia Fire"
+                },
+                {
+                    "name": "acreage",
+                    "time": "2025-01-10T21:58:00Z",
+                    "value": "395"
+                },
+                {
+                    "name": "containmentPercent",
+                    "time": "2025-01-10T21:58:00Z",
+                    "value": "98"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "crew_1",
+                    "qualifier": "handled-by"
+                }
+            ]
+        },
+        {
+            "id": "crew_1",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-10T21:58:00Z",
+                    "value": "Crews"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_Lidia",
+                    "qualifier": "responding-to"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Status Update",
+            "time": "2025-01-10T21:58:00Z",
+            "attributes": [
+                {
+                    "name": "acreage",
+                    "value": "395"
+                },
+                {
+                    "name": "containmentPercent",
+                    "value": "98"
+                },
+                {
+                    "name": "mopUpRequired",
+                    "value": "true"
+                },
+                {
+                    "name": "text",
+                    "value": "Crews will continue to strengthen containment lines and extensive mop-up is required."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_Lidia",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "crew_1",
+                    "qualifier": "involved"
+                }
+            ]
+        }
+    ]
+}

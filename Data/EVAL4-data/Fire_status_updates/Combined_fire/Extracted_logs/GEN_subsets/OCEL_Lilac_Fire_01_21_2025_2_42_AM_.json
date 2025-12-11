@@ -1,0 +1,131 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Structure",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Status Update",
+            "attributes": [
+                {
+                    "name": "text",
+                    "type": "string"
+                },
+                {
+                    "name": "rate_of_spread",
+                    "type": "string"
+                },
+                {
+                    "name": "structures_threatened",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Lilac Fire",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-21T02:42:00Z",
+                    "value": "Lilac Fire"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Old Highway 395 and Lilac road",
+                    "qualifier": "located_near"
+                },
+                {
+                    "objectId": "structures",
+                    "qualifier": "threatens"
+                }
+            ]
+        },
+        {
+            "id": "Old Highway 395 and Lilac road",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Old Highway 395 and Lilac road"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "structures",
+            "type": "Structure",
+            "attributes": [
+                {
+                    "name": "status",
+                    "time": "2025-01-21T02:42:00Z",
+                    "value": "threatened"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "evt-1",
+            "type": "Status Update",
+            "time": "2025-01-21T02:42:00Z",
+            "attributes": [
+                {
+                    "name": "text",
+                    "value": "The fire is located near Old Highway 395 and Lilac road. The fire is growing with a moderate rate of spread and structures are threatened."
+                },
+                {
+                    "name": "rate_of_spread",
+                    "value": "moderate"
+                },
+                {
+                    "name": "structures_threatened",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Lilac Fire",
+                    "qualifier": "involves"
+                },
+                {
+                    "objectId": "Old Highway 395 and Lilac road",
+                    "qualifier": "references_location"
+                },
+                {
+                    "objectId": "structures",
+                    "qualifier": "references"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,196 @@
+{
+    "objectTypes": [
+        {
+            "name": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Two-way match",
+            "attributes": [
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "goods receipt:121",
+            "type": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:117",
+                    "qualifier": "matched-with"
+                }
+            ]
+        },
+        {
+            "id": "invoice receipt:117",
+            "type": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "value": "18750.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:121",
+                    "qualifier": "matched-with"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt:101",
+            "type": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:108",
+                    "qualifier": "matched-with"
+                }
+            ]
+        },
+        {
+            "id": "invoice receipt:108",
+            "type": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "value": "41800.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:101",
+                    "qualifier": "matched-with"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt[113]",
+            "type": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt[120]",
+                    "qualifier": "matched-with"
+                }
+            ]
+        },
+        {
+            "id": "invoice receipt[120]",
+            "type": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "value": "65100.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt[113]",
+                    "qualifier": "matched-with"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Two-way match",
+            "time": "2022-06-09T07:10:00Z",
+            "attributes": [
+                {
+                    "name": "department",
+                    "value": "Finance/Account Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:121",
+                    "qualifier": "goodsReceipt"
+                },
+                {
+                    "objectId": "invoice receipt:117",
+                    "qualifier": "invoiceReceipt"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "Two-way match",
+            "time": "2022-06-09T08:22:00Z",
+            "attributes": [
+                {
+                    "name": "department",
+                    "value": "Finance/Account Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:101",
+                    "qualifier": "goodsReceipt"
+                },
+                {
+                    "objectId": "invoice receipt:108",
+                    "qualifier": "invoiceReceipt"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "type": "Two-way match",
+            "time": "2022-06-09T08:29:00Z",
+            "attributes": [
+                {
+                    "name": "department",
+                    "value": "Finance/Account Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt[113]",
+                    "qualifier": "goodsReceipt"
+                },
+                {
+                    "objectId": "invoice receipt[120]",
+                    "qualifier": "invoiceReceipt"
+                }
+            ]
+        }
+    ]
+}

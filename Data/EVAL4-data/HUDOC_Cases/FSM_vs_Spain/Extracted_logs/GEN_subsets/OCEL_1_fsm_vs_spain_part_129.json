@@ -1,0 +1,375 @@
+{
+    "objectTypes": [
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "State",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PersonGroup",
+            "attributes": [
+                {
+                    "name": "label",
+                    "type": "string"
+                },
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Legislation",
+            "attributes": [
+                {
+                    "name": "title",
+                    "type": "string"
+                },
+                {
+                    "name": "year",
+                    "type": "integer"
+                },
+                {
+                    "name": "relevance",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Case",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "CourtReiteration",
+            "attributes": [
+                {
+                    "name": "text",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "LegislativeAmendmentAdopted",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "year",
+                    "type": "integer"
+                },
+                {
+                    "name": "relevance",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "court_1",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "The Court"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "contracting_states",
+            "type": "State",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Contracting States"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "persons_involved",
+            "type": "PersonGroup",
+            "attributes": [
+                {
+                    "name": "label",
+                    "time": "",
+                    "value": "persons involved"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "persons_with_disabilities",
+            "type": "PersonGroup",
+            "attributes": [
+                {
+                    "name": "label",
+                    "time": "",
+                    "value": "persons with disabilities"
+                },
+                {
+                    "name": "description",
+                    "time": "",
+                    "value": "persons who, due to an impairment of their mental faculties, are not fully capable of acting for themselves"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "elderly_persons",
+            "type": "PersonGroup",
+            "attributes": [
+                {
+                    "name": "label",
+                    "time": "",
+                    "value": "elderly persons"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "spain",
+            "type": "State",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Spain"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "present_case",
+            "type": "Case",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "the present case"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "amendment_2021",
+            "type": "Legislation",
+            "attributes": [
+                {
+                    "name": "title",
+                    "time": "",
+                    "value": "legislative amendments reinforcing procedural rights (2021)"
+                },
+                {
+                    "name": "year",
+                    "time": "",
+                    "value": "2021"
+                },
+                {
+                    "name": "relevance",
+                    "time": "",
+                    "value": "not at issue"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "spain",
+                    "qualifier": "adopted-in"
+                },
+                {
+                    "objectId": "elderly_persons",
+                    "qualifier": "affects"
+                },
+                {
+                    "objectId": "persons_with_disabilities",
+                    "qualifier": "affects"
+                },
+                {
+                    "objectId": "present_case",
+                    "qualifier": "occurred-after"
+                }
+            ]
+        },
+        {
+            "id": "amendment_2023",
+            "type": "Legislation",
+            "attributes": [
+                {
+                    "name": "title",
+                    "time": "",
+                    "value": "legislative amendments reinforcing procedural rights (2023)"
+                },
+                {
+                    "name": "year",
+                    "time": "",
+                    "value": "2023"
+                },
+                {
+                    "name": "relevance",
+                    "time": "",
+                    "value": "not at issue"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "spain",
+                    "qualifier": "adopted-in"
+                },
+                {
+                    "objectId": "elderly_persons",
+                    "qualifier": "affects"
+                },
+                {
+                    "objectId": "persons_with_disabilities",
+                    "qualifier": "affects"
+                },
+                {
+                    "objectId": "present_case",
+                    "qualifier": "occurred-after"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "CourtReiteration",
+            "time": "",
+            "attributes": [
+                {
+                    "name": "text",
+                    "value": "The Court reiterates that, depending on the circumstances of the case, the Contracting States may be required to take positive measures in order to enable the persons involved to participate effectively in the proceedings; this positive obligation includes, where needed, the provision of procedural adjustments for persons who, due to an impairment of their mental faculties, are not fully capable of acting for themselves."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court_1",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "contracting_states",
+                    "qualifier": "addressee"
+                },
+                {
+                    "objectId": "persons_involved",
+                    "qualifier": "concerns"
+                },
+                {
+                    "objectId": "persons_with_disabilities",
+                    "qualifier": "concerns"
+                },
+                {
+                    "objectId": "present_case",
+                    "qualifier": "part-of"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "LegislativeAmendmentAdopted",
+            "time": "2021-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "In 2021 legislative amendments reinforcing the procedural rights of elderly persons and persons with disabilities were adopted in Spain."
+                },
+                {
+                    "name": "year",
+                    "value": "2021"
+                },
+                {
+                    "name": "relevance",
+                    "value": "not at issue"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "amendment_2021",
+                    "qualifier": "instance"
+                },
+                {
+                    "objectId": "spain",
+                    "qualifier": "adopter"
+                },
+                {
+                    "objectId": "elderly_persons",
+                    "qualifier": "beneficiary"
+                },
+                {
+                    "objectId": "persons_with_disabilities",
+                    "qualifier": "beneficiary"
+                },
+                {
+                    "objectId": "present_case",
+                    "qualifier": "occurred-after"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "LegislativeAmendmentAdopted",
+            "time": "2023-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "In 2023 legislative amendments reinforcing the procedural rights of elderly persons and persons with disabilities were adopted in Spain."
+                },
+                {
+                    "name": "year",
+                    "value": "2023"
+                },
+                {
+                    "name": "relevance",
+                    "value": "not at issue"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "amendment_2023",
+                    "qualifier": "instance"
+                },
+                {
+                    "objectId": "spain",
+                    "qualifier": "adopter"
+                },
+                {
+                    "objectId": "elderly_persons",
+                    "qualifier": "beneficiary"
+                },
+                {
+                    "objectId": "persons_with_disabilities",
+                    "qualifier": "beneficiary"
+                },
+                {
+                    "objectId": "present_case",
+                    "qualifier": "occurred-after"
+                }
+            ]
+        }
+    ]
+}

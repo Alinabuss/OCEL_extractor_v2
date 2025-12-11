@@ -1,0 +1,106 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseOrder",
+            "attributes": []
+        },
+        {
+            "name": "Quotation",
+            "attributes": []
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": [
+                {
+                    "name": "code",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Role",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ApprovalCompleted",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:743",
+            "type": "PurchaseOrder",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchasing_group:002",
+                    "qualifier": "belongs-to"
+                }
+            ]
+        },
+        {
+            "id": "quotation:422",
+            "type": "Quotation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchasing_group:002",
+                    "qualifier": "associated-with"
+                }
+            ]
+        },
+        {
+            "id": "purchasing_group:002",
+            "type": "PurchasingGroup",
+            "attributes": [
+                {
+                    "name": "code",
+                    "time": "2023-06-29T07:07:00Z",
+                    "value": "002"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "role:procurement_order_manager",
+            "type": "Role",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-06-29T07:07:00Z",
+                    "value": "Procurement Order Manager"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "evt:1",
+            "type": "ApprovalCompleted",
+            "time": "2023-06-29T07:07:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:743",
+                    "qualifier": "approved"
+                },
+                {
+                    "objectId": "quotation:422",
+                    "qualifier": "related-to"
+                },
+                {
+                    "objectId": "role:procurement_order_manager",
+                    "qualifier": "performed-by"
+                }
+            ]
+        }
+    ]
+}

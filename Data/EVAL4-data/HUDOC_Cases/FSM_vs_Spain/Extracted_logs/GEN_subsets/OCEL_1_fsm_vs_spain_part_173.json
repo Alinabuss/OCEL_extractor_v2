@@ -1,0 +1,262 @@
+{
+    "objectTypes": [
+        {
+            "name": "Court",
+            "attributes": []
+        },
+        {
+            "name": "DomesticCourt",
+            "attributes": []
+        },
+        {
+            "name": "Applicant",
+            "attributes": []
+        },
+        {
+            "name": "ForensicReport",
+            "attributes": []
+        },
+        {
+            "name": "AdjustmentMeasures",
+            "attributes": []
+        },
+        {
+            "name": "Judgment",
+            "attributes": []
+        },
+        {
+            "name": "Paragraph",
+            "attributes": [
+                {
+                    "name": "number",
+                    "type": "string"
+                },
+                {
+                    "name": "text",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Trial",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "State",
+            "attributes": [
+                {
+                    "name": "quote",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Conclusion",
+            "attributes": [
+                {
+                    "name": "quote",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "court_1",
+            "type": "Court",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "domestic_courts_1",
+            "type": "DomesticCourt",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "applicant_1",
+            "type": "Applicant",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "forensic_report_1",
+            "type": "ForensicReport",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "adjustment_measures_1",
+                    "qualifier": "indicates"
+                }
+            ]
+        },
+        {
+            "id": "adjustment_measures_1",
+            "type": "AdjustmentMeasures",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "judgment_1",
+            "type": "Judgment",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "paragraph_68",
+            "type": "Paragraph",
+            "attributes": [
+                {
+                    "name": "number",
+                    "time": "",
+                    "value": "68"
+                },
+                {
+                    "name": "text",
+                    "time": "",
+                    "value": "the domestic courts were not called on to offer them or provide them of their own motion"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "judgment_1",
+                    "qualifier": "partOf"
+                },
+                {
+                    "objectId": "domestic_courts_1",
+                    "qualifier": "mentions"
+                },
+                {
+                    "objectId": "adjustment_measures_1",
+                    "qualifier": "refersTo"
+                }
+            ]
+        },
+        {
+            "id": "paragraph_69",
+            "type": "Paragraph",
+            "attributes": [
+                {
+                    "name": "number",
+                    "time": "",
+                    "value": "69"
+                },
+                {
+                    "name": "text",
+                    "time": "",
+                    "value": "...the Court observes that the applicant did not substantiate, either before the domestic courts or before the Court, any specific impact of the lack of adjustment measures on the overall fairness of the trial .."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "judgment_1",
+                    "qualifier": "partOf"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "mentions"
+                },
+                {
+                    "objectId": "domestic_courts_1",
+                    "qualifier": "mentions"
+                },
+                {
+                    "objectId": "adjustment_measures_1",
+                    "qualifier": "mentions"
+                },
+                {
+                    "objectId": "trial_1",
+                    "qualifier": "concerns"
+                }
+            ]
+        },
+        {
+            "id": "trial_1",
+            "type": "Trial",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "State",
+            "time": "1970-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "quote",
+                    "value": "the domestic courts were not called on to offer them or provide them of their own motion"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court_1",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "paragraph_68",
+                    "qualifier": "inParagraph"
+                },
+                {
+                    "objectId": "forensic_report_1",
+                    "qualifier": "refersTo"
+                },
+                {
+                    "objectId": "domestic_courts_1",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "adjustment_measures_1",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "judgment_1",
+                    "qualifier": "inJudgment"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Conclusion",
+            "time": "1970-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "quote",
+                    "value": "...the Court observes that the applicant did not substantiate, either before the domestic courts or before the Court, any specific impact of the lack of adjustment measures on the overall fairness of the trial .."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court_1",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "paragraph_69",
+                    "qualifier": "inParagraph"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "domestic_courts_1",
+                    "qualifier": "mentionedAsForum"
+                },
+                {
+                    "objectId": "trial_1",
+                    "qualifier": "concerns"
+                },
+                {
+                    "objectId": "adjustment_measures_1",
+                    "qualifier": "concerns"
+                },
+                {
+                    "objectId": "judgment_1",
+                    "qualifier": "inJudgment"
+                }
+            ]
+        }
+    ]
+}

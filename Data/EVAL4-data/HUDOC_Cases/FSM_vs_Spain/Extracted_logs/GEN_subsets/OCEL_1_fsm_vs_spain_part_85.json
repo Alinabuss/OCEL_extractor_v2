@@ -1,0 +1,190 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Tribunal",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "CriminalOffence",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "LegalRight",
+            "attributes": [
+                {
+                    "name": "clause",
+                    "type": "string"
+                },
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "EntitledToFairHearing",
+            "attributes": [
+                {
+                    "name": "text",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "HasAdequateTimeForPreparationOfDefence",
+            "attributes": [
+                {
+                    "name": "clause",
+                    "type": "string"
+                },
+                {
+                    "name": "text",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "person:everyone",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "everyone"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "tribunal:tribunal",
+            "type": "Tribunal",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "tribunal"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "offence:criminal",
+            "type": "CriminalOffence",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "criminal charge / criminal offence"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "person:everyone_charged",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "everyone charged with a criminal offence"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "offence:criminal",
+                    "qualifier": "charged_with"
+                }
+            ]
+        },
+        {
+            "id": "right:adequate_time_and_facilities",
+            "type": "LegalRight",
+            "attributes": [
+                {
+                    "name": "clause",
+                    "value": "(b)"
+                },
+                {
+                    "name": "description",
+                    "value": "to have adequate time and facilities for the preparation of his defence"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "EntitledToFairHearing",
+            "time": "1970-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "text",
+                    "value": "In the determination of any criminal charge against him, everyone is entitled to a fair hearing by [a] tribunal."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person:everyone",
+                    "qualifier": "entitled"
+                },
+                {
+                    "objectId": "tribunal:tribunal",
+                    "qualifier": "by"
+                },
+                {
+                    "objectId": "offence:criminal",
+                    "qualifier": "concerning_charge"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "HasAdequateTimeForPreparationOfDefence",
+            "time": "1970-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "clause",
+                    "value": "(b)"
+                },
+                {
+                    "name": "text",
+                    "value": "to have adequate time and facilities for the preparation of his defence"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person:everyone_charged",
+                    "qualifier": "holder"
+                },
+                {
+                    "objectId": "right:adequate_time_and_facilities",
+                    "qualifier": "right"
+                },
+                {
+                    "objectId": "offence:criminal",
+                    "qualifier": "in_context_of"
+                }
+            ]
+        }
+    ]
+}

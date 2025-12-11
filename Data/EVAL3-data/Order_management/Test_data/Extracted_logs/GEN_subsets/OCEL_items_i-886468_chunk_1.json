@@ -1,0 +1,128 @@
+{
+    "objectTypes": [
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Role",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Reorder",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "Detlef Wetzeler",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Detlef Wetzeler"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Warehousing",
+                    "qualifier": "hasRole"
+                }
+            ]
+        },
+        {
+            "id": "Warehousing",
+            "type": "Role",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-886468",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "898.07"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "iPhone 11",
+                    "qualifier": "associatedProduct"
+                }
+            ]
+        },
+        {
+            "id": "iPhone 11",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "iPhone 11"
+                },
+                {
+                    "name": "price",
+                    "value": "799.0"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Reorder",
+            "time": "2024-02-01T17:48:34Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Detlef Wetzeler",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "i-886468",
+                    "qualifier": "reorderedItem"
+                }
+            ]
+        }
+    ]
+}

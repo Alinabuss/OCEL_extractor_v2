@@ -1,0 +1,400 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ResidentGroup",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "EvacuationOrder",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Containment",
+            "attributes": [
+                {
+                    "name": "area",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ControlLinesEstablished",
+            "attributes": [
+                {
+                    "name": "extent",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "FlareUpsManaged",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "EvacuationDowngraded",
+            "attributes": [
+                {
+                    "name": "to",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "EvacuationLifted",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PublicAdvisory",
+            "attributes": [
+                {
+                    "name": "advice",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "RedFlagWarningInEffect",
+            "attributes": [
+                {
+                    "name": "until",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire-1",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-10T12:25:00Z",
+                    "value": "Hurst Fire"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "loc-1",
+                    "qualifier": "north_of"
+                },
+                {
+                    "objectId": "loc-2",
+                    "qualifier": "control_lines_extend_to"
+                }
+            ]
+        },
+        {
+            "id": "loc-1",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-10T12:25:00Z",
+                    "value": "I-210 Foothill Freeway"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "loc-2",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-10T12:25:00Z",
+                    "value": "Santa Clara Divide Road"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "org-firefighters",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-10T12:25:00Z",
+                    "value": "Firefighters"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "org-dwp",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-10T12:25:00Z",
+                    "value": "Los Angeles Department of Water and Power"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "residents-1",
+            "type": "ResidentGroup",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-10T12:25:00Z",
+                    "value": "Residents returning home"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "evac-1-warning",
+            "type": "EvacuationOrder",
+            "attributes": [
+                {
+                    "name": "status",
+                    "time": "2025-01-09T15:00:00Z",
+                    "value": "downgraded to warnings"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "for_fire"
+                },
+                {
+                    "objectId": "residents-1",
+                    "qualifier": "applies_to"
+                }
+            ]
+        },
+        {
+            "id": "evac-2-lifted",
+            "type": "EvacuationOrder",
+            "attributes": [
+                {
+                    "name": "status",
+                    "time": "2025-01-09T15:00:00Z",
+                    "value": "lifted"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "for_fire"
+                },
+                {
+                    "objectId": "residents-1",
+                    "qualifier": "applies_to"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Containment",
+            "time": "2025-01-10T12:25:00Z",
+            "attributes": [
+                {
+                    "name": "area",
+                    "value": "north of the I-210 Foothill Freeway"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "org-firefighters",
+                    "qualifier": "performed_by"
+                },
+                {
+                    "objectId": "loc-1",
+                    "qualifier": "location"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "ControlLinesEstablished",
+            "time": "2025-01-10T12:25:00Z",
+            "attributes": [
+                {
+                    "name": "extent",
+                    "value": "extending to Santa Clara Divide Road"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "loc-2",
+                    "qualifier": "extends_to"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "FlareUpsManaged",
+            "time": "2025-01-10T12:25:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Crews managed several flare-ups within the fire's perimeter"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "org-firefighters",
+                    "qualifier": "performed_by"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "EvacuationDowngraded",
+            "time": "2025-01-09T15:00:00Z",
+            "attributes": [
+                {
+                    "name": "to",
+                    "value": "warnings"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "evac-1-warning",
+                    "qualifier": "order"
+                },
+                {
+                    "objectId": "residents-1",
+                    "qualifier": "affected_group"
+                },
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "for_fire"
+                }
+            ]
+        },
+        {
+            "id": "e5",
+            "type": "EvacuationLifted",
+            "time": "2025-01-09T15:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "evacuation orders have been lifted"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "evac-2-lifted",
+                    "qualifier": "order"
+                },
+                {
+                    "objectId": "residents-1",
+                    "qualifier": "affected_group"
+                },
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "for_fire"
+                }
+            ]
+        },
+        {
+            "id": "e6",
+            "type": "PublicAdvisory",
+            "time": "2025-01-10T12:25:00Z",
+            "attributes": [
+                {
+                    "name": "advice",
+                    "value": "Residents returning home are advised to observe extreme caution and are advised to NOT drink the water until advised by the Los Angeles Department of Water and Power."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "residents-1",
+                    "qualifier": "target"
+                },
+                {
+                    "objectId": "org-dwp",
+                    "qualifier": "advising_authority"
+                },
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "regarding"
+                }
+            ]
+        },
+        {
+            "id": "e7",
+            "type": "RedFlagWarningInEffect",
+            "time": "2025-01-10T12:25:00Z",
+            "attributes": [
+                {
+                    "name": "until",
+                    "value": "6:00 p.m. on Thursday"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "affects_area"
+                }
+            ]
+        }
+    ]
+}

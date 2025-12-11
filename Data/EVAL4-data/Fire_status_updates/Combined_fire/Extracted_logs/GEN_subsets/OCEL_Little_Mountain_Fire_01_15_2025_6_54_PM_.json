@@ -1,0 +1,412 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ResponderGroup",
+            "attributes": [
+                {
+                    "name": "type",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Road",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "age_group",
+                    "type": "string"
+                },
+                {
+                    "name": "sex",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Responded",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Report",
+            "attributes": [
+                {
+                    "name": "channel",
+                    "type": "string"
+                },
+                {
+                    "name": "message",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PlannedActivity",
+            "attributes": [
+                {
+                    "name": "activities",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ResourceRelease",
+            "attributes": [
+                {
+                    "name": "resource",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "RoadStatus",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Arrest",
+            "attributes": [
+                {
+                    "name": "subject_description",
+                    "type": "string"
+                },
+                {
+                    "name": "source",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire_1",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-15T18:54:00Z",
+                    "value": "Little Mountain Fire"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "loc_1",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-15T14:00:00Z",
+                    "value": "brush near Little Moutain Drive near Edge Hill Drive"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "location_of"
+                }
+            ]
+        },
+        {
+            "id": "org_sbfire",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-15T18:54:00Z",
+                    "value": "San Bernardino Fire Department"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "org_sbpolice",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-15T18:54:00Z",
+                    "value": "San Bernardino Police Department"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "org_calfire",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-15T18:54:00Z",
+                    "value": "CAL FIRE"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "group_firefighters",
+            "type": "ResponderGroup",
+            "attributes": [
+                {
+                    "name": "type",
+                    "time": "2025-01-15T14:00:00Z",
+                    "value": "Firefighters"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "group_law_enforcement",
+            "type": "ResponderGroup",
+            "attributes": [
+                {
+                    "name": "type",
+                    "time": "2025-01-15T14:00:00Z",
+                    "value": "Law enforcement"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "road_little_moutain",
+            "type": "Road",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-15T18:54:00Z",
+                    "value": "Little Moutain Road"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "affected_by"
+                }
+            ]
+        },
+        {
+            "id": "person_1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "age_group",
+                    "time": "2025-01-15T18:54:00Z",
+                    "value": "adult"
+                },
+                {
+                    "name": "sex",
+                    "time": "2025-01-15T18:54:00Z",
+                    "value": "male"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "in_connection_with"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "evt_1",
+            "type": "Responded",
+            "time": "2025-01-15T14:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Firefighters and law enforcement responded to a fire burning in the brush near Little Moutain Drive near Edge Hill Drive."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "group_firefighters",
+                    "qualifier": "responder"
+                },
+                {
+                    "objectId": "group_law_enforcement",
+                    "qualifier": "responder"
+                },
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "incident"
+                },
+                {
+                    "objectId": "loc_1",
+                    "qualifier": "location"
+                }
+            ]
+        },
+        {
+            "id": "evt_2",
+            "type": "Report",
+            "time": "2025-01-15T18:54:00Z",
+            "attributes": [
+                {
+                    "name": "channel",
+                    "value": "social media"
+                },
+                {
+                    "name": "message",
+                    "value": "San Bernardino Fire Department reported that the forward progress of the fire has been stopped."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "org_sbfire",
+                    "qualifier": "reporter"
+                },
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "about"
+                }
+            ]
+        },
+        {
+            "id": "evt_3",
+            "type": "PlannedActivity",
+            "time": "2025-01-15T18:54:00Z",
+            "attributes": [
+                {
+                    "name": "activities",
+                    "value": "Firefighters will continue gaining containment of the fire and then transition into mop-up activities."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "group_firefighters",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "about"
+                }
+            ]
+        },
+        {
+            "id": "evt_4",
+            "type": "ResourceRelease",
+            "time": "2025-01-15T18:54:00Z",
+            "attributes": [
+                {
+                    "name": "resource",
+                    "value": "CAL FIRE"
+                },
+                {
+                    "name": "status",
+                    "value": "released"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "org_calfire",
+                    "qualifier": "resource_owner"
+                },
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "about"
+                }
+            ]
+        },
+        {
+            "id": "evt_5",
+            "type": "RoadStatus",
+            "time": "2025-01-15T18:54:00Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "closed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "road_little_moutain",
+                    "qualifier": "road"
+                },
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "about"
+                }
+            ]
+        },
+        {
+            "id": "evt_6",
+            "type": "Arrest",
+            "time": "2025-01-15T18:54:00Z",
+            "attributes": [
+                {
+                    "name": "subject_description",
+                    "value": "an adult male"
+                },
+                {
+                    "name": "source",
+                    "value": "social media"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "org_sbpolice",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "person_1",
+                    "qualifier": "arrested"
+                },
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "in_connection_with"
+                }
+            ]
+        }
+    ]
+}

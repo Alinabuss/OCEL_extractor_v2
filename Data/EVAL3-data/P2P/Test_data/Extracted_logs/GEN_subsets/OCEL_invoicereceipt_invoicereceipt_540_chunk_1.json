@@ -1,0 +1,95 @@
+{
+    "objectTypes": [
+        {
+            "name": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "credit amount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movement type",
+                    "type": "integer"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Two-Way Match",
+            "attributes": [
+                {
+                    "name": "department",
+                    "type": "string"
+                },
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt:540",
+            "type": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "credit amount",
+                    "time": "2023-01-13T08:10:00Z",
+                    "value": "31500.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:545",
+                    "qualifier": "corresponding"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt:545",
+            "type": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movement type",
+                    "time": "2023-01-13T08:10:00Z",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Two-Way Match",
+            "time": "2023-01-13T08:10:00Z",
+            "attributes": [
+                {
+                    "name": "department",
+                    "value": "Finance/Account Department"
+                },
+                {
+                    "name": "lifecycle",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:540",
+                    "qualifier": "for"
+                },
+                {
+                    "objectId": "goods receipt:545",
+                    "qualifier": "corresponding"
+                }
+            ]
+        }
+    ]
+}

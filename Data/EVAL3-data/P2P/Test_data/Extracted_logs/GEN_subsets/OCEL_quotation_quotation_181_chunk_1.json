@@ -1,0 +1,109 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Quotation",
+            "attributes": []
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": [
+                {
+                    "name": "groupId",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "PurchaseOrderApproved",
+            "attributes": [
+                {
+                    "name": "actor",
+                    "type": "string"
+                },
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:308",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "time": "2022-09-15T00:18:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:181",
+                    "qualifier": "related-to"
+                },
+                {
+                    "objectId": "Purchasing Group 002",
+                    "qualifier": "associated-with"
+                }
+            ]
+        },
+        {
+            "id": "quotation:181",
+            "type": "Quotation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Purchasing Group 002",
+                    "qualifier": "linked-to"
+                }
+            ]
+        },
+        {
+            "id": "Purchasing Group 002",
+            "type": "PurchasingGroup",
+            "attributes": [
+                {
+                    "name": "groupId",
+                    "value": "002"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "PurchaseOrderApproved",
+            "time": "2022-09-15T00:18:00Z",
+            "attributes": [
+                {
+                    "name": "actor",
+                    "value": "Procurement Order Manager"
+                },
+                {
+                    "name": "lifecycle",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:308",
+                    "qualifier": "affected"
+                }
+            ]
+        }
+    ]
+}

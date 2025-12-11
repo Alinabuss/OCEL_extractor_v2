@@ -1,0 +1,98 @@
+{
+    "objectTypes": [
+        {
+            "name": "purchase_order",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "quotation",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Purchase Order Approved",
+            "attributes": [
+                {
+                    "name": "resource",
+                    "type": "string"
+                },
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:477",
+            "type": "purchase_order",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "value": "003"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:282",
+                    "qualifier": "connectedTo"
+                }
+            ]
+        },
+        {
+            "id": "quotation:282",
+            "type": "quotation",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "value": "003"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:477",
+                    "qualifier": "connectedTo"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Purchase Order Approved",
+            "time": "2023-01-20T10:31:00Z",
+            "attributes": [
+                {
+                    "name": "resource",
+                    "value": "Procurement Order Manager"
+                },
+                {
+                    "name": "lifecycle",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:477",
+                    "qualifier": "approved"
+                },
+                {
+                    "objectId": "quotation:282",
+                    "qualifier": "related"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,275 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Fuel",
+            "attributes": [
+                {
+                    "name": "types",
+                    "type": "string"
+                },
+                {
+                    "name": "condition",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Crew",
+            "attributes": [
+                {
+                    "name": "team_type",
+                    "type": "string"
+                },
+                {
+                    "name": "terrain",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Equipment",
+            "attributes": [
+                {
+                    "name": "type",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Map",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Residents",
+            "attributes": [
+                {
+                    "name": "group",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Status Update",
+            "attributes": [
+                {
+                    "name": "summary",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire-1",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-26T16:12:00Z",
+                    "value": "Border 2 Fire"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "fuel-1",
+            "type": "Fuel",
+            "attributes": [
+                {
+                    "name": "types",
+                    "time": "2025-01-26T16:12:00Z",
+                    "value": "grass and other light, flashy fuels"
+                },
+                {
+                    "name": "condition",
+                    "time": "2025-01-26T16:12:00Z",
+                    "value": "saturated"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "affects"
+                }
+            ]
+        },
+        {
+            "id": "crew-1",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "team_type",
+                    "time": "2025-01-26T16:12:00Z",
+                    "value": "fire crews"
+                },
+                {
+                    "name": "terrain",
+                    "time": "2025-01-26T16:12:00Z",
+                    "value": "very steep"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "working-on"
+                }
+            ]
+        },
+        {
+            "id": "dozer-1",
+            "type": "Equipment",
+            "attributes": [
+                {
+                    "name": "type",
+                    "time": "2025-01-26T16:12:00Z",
+                    "value": "dozer"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "working-on"
+                }
+            ]
+        },
+        {
+            "id": "engine-1",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "team_type",
+                    "time": "2025-01-26T16:12:00Z",
+                    "value": "engine crews"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "working-on"
+                }
+            ]
+        },
+        {
+            "id": "org-1",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-26T16:12:00Z",
+                    "value": "San Diego County Sheriff's Office"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "residents-1",
+                    "qualifier": "encourages"
+                },
+                {
+                    "objectId": "map-1",
+                    "qualifier": "references"
+                }
+            ]
+        },
+        {
+            "id": "map-1",
+            "type": "Map",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-26T16:12:00Z",
+                    "value": "Genasys Protect evacuation map"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "residents-1",
+            "type": "Residents",
+            "attributes": [
+                {
+                    "name": "group",
+                    "time": "2025-01-26T16:12:00Z",
+                    "value": "all residents"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "org-1",
+                    "qualifier": "encouraged_by"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Status Update",
+            "time": "2025-01-26T16:12:00Z",
+            "attributes": [
+                {
+                    "name": "summary",
+                    "value": "Rainfall overnight and into the morning hours has led to a substantial decrease in fire activity. Fire crews continue working in very steep terrain to cut containment line directly on the fire's edge; dozers and engine crews, where able to make access, are cutting line and putting out any hot spots. The San Diego County Sheriff's Office encourages all residents to check the Genasys Protect evacuation map for the latest updates to evacuation orders and warnings."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "fuel-1",
+                    "qualifier": "condition"
+                },
+                {
+                    "objectId": "crew-1",
+                    "qualifier": "involved"
+                },
+                {
+                    "objectId": "dozer-1",
+                    "qualifier": "involved"
+                },
+                {
+                    "objectId": "engine-1",
+                    "qualifier": "involved"
+                },
+                {
+                    "objectId": "org-1",
+                    "qualifier": "mentions"
+                },
+                {
+                    "objectId": "map-1",
+                    "qualifier": "refers_to"
+                },
+                {
+                    "objectId": "residents-1",
+                    "qualifier": "audience"
+                }
+            ]
+        }
+    ]
+}

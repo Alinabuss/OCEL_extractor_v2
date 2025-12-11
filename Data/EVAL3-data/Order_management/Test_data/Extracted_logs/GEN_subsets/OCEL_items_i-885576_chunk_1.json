@@ -1,0 +1,132 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "total_price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Reorder",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "o-christopher-schwanen",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Christopher Schwanen"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "dept-warehousing",
+                    "qualifier": "member-of"
+                }
+            ]
+        },
+        {
+            "id": "dept-warehousing",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-885576",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "total_price",
+                    "value": "101.15"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-Echo Show 5",
+                    "qualifier": "corresponds-to"
+                }
+            ]
+        },
+        {
+            "id": "product-Echo Show 5",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Echo Show 5"
+                },
+                {
+                    "name": "price",
+                    "value": "89.99"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e-1",
+            "type": "Reorder",
+            "time": "2023-12-21T09:57:21Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "o-christopher-schwanen",
+                    "qualifier": "initiator"
+                },
+                {
+                    "objectId": "i-885576",
+                    "qualifier": "reordered-item"
+                },
+                {
+                    "objectId": "product-Echo Show 5",
+                    "qualifier": "product"
+                }
+            ]
+        }
+    ]
+}

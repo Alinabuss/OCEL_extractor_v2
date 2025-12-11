@@ -1,0 +1,117 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "productName",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "number"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "OutOfStockReport",
+            "attributes": [
+                {
+                    "name": "detail",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "person-marco-pegoraro",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Marco Pegoraro",
+                    "time": "2023-05-24T09:00:10Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "dept-warehousing",
+                    "qualifier": "works-in"
+                }
+            ]
+        },
+        {
+            "id": "dept-warehousing",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Warehousing",
+                    "time": "2023-05-24T09:00:10Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-880814",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "productName",
+                    "value": "MacBook Air",
+                    "time": "2023-05-24T09:00:10Z"
+                },
+                {
+                    "name": "price",
+                    "value": "2200.0",
+                    "time": "2023-05-24T09:00:10Z"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e-1",
+            "type": "OutOfStockReport",
+            "time": "2023-05-24T09:00:10Z",
+            "attributes": [
+                {
+                    "name": "detail",
+                    "value": "Reported that item i-880814 went out of stock"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person-marco-pegoraro",
+                    "qualifier": "reporter"
+                },
+                {
+                    "objectId": "i-880814",
+                    "qualifier": "reportedItem"
+                }
+            ]
+        }
+    ]
+}

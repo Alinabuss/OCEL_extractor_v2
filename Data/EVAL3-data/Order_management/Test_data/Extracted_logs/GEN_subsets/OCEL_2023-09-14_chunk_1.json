@@ -1,0 +1,225 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "double"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "listing_price",
+                    "type": "double"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ItemPicked",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "person-mahsa-bafrani",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Mahsa Bafrani"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "person-leah-tacke-genannt-unterberg",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Leah Tacke genannt Unterberg"
+                },
+                {
+                    "name": "role",
+                    "value": "warehousing"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "dept-warehousing",
+                    "qualifier": "works_in"
+                }
+            ]
+        },
+        {
+            "id": "dept-warehousing",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "item-i-882518",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "2380.4"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-macbook-air",
+                    "qualifier": "instance_of"
+                }
+            ]
+        },
+        {
+            "id": "item-i-883452",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "162.28"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-echo-plus",
+                    "qualifier": "instance_of"
+                }
+            ]
+        },
+        {
+            "id": "product-macbook-air",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "MacBook Air"
+                },
+                {
+                    "name": "listing_price",
+                    "value": "2200.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "product-echo-plus",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Echo Plus"
+                },
+                {
+                    "name": "listing_price",
+                    "value": "149.99"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "ItemPicked",
+            "time": "2023-09-14T10:59:40Z",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "picked"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person-mahsa-bafrani",
+                    "qualifier": "performed_by"
+                },
+                {
+                    "objectId": "item-i-882518",
+                    "qualifier": "item"
+                },
+                {
+                    "objectId": "product-macbook-air",
+                    "qualifier": "product"
+                },
+                {
+                    "objectId": "dept-warehousing",
+                    "qualifier": "performed_in"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "ItemPicked",
+            "time": "2023-09-14T13:47:23Z",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "picked"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person-leah-tacke-genannt-unterberg",
+                    "qualifier": "performed_by"
+                },
+                {
+                    "objectId": "item-i-883452",
+                    "qualifier": "item"
+                },
+                {
+                    "objectId": "product-echo-plus",
+                    "qualifier": "product"
+                },
+                {
+                    "objectId": "dept-warehousing",
+                    "qualifier": "performed_in"
+                }
+            ]
+        }
+    ]
+}

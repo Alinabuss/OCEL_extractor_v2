@@ -1,0 +1,124 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "number",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Quotation",
+            "attributes": [
+                {
+                    "name": "number",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": [
+                {
+                    "name": "label",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Agent",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "PurchaseOrderApprovalCompleted",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "PurchaseOrder-1453",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "number",
+                    "value": "1453"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "PurchasingGroup-005",
+                    "qualifier": "belongs-to"
+                },
+                {
+                    "objectId": "Quotation-847",
+                    "qualifier": "correlated-with"
+                }
+            ]
+        },
+        {
+            "id": "Quotation-847",
+            "type": "Quotation",
+            "attributes": [
+                {
+                    "name": "number",
+                    "value": "847"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "PurchasingGroup-005",
+                    "qualifier": "belongs-to"
+                }
+            ]
+        },
+        {
+            "id": "PurchasingGroup-005",
+            "type": "PurchasingGroup",
+            "attributes": [
+                {
+                    "name": "label",
+                    "value": "005"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Procurement Order Manager",
+            "type": "Agent",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "PurchaseOrderApprovalCompleted",
+            "time": "2024-07-17T14:41:00Z",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "approval completed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "PurchaseOrder-1453",
+                    "qualifier": "target"
+                },
+                {
+                    "objectId": "Procurement Order Manager",
+                    "qualifier": "performer"
+                }
+            ]
+        }
+    ]
+}

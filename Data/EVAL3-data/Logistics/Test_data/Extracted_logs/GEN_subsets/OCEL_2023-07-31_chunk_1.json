@@ -1,0 +1,80 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportDocument",
+            "attributes": []
+        },
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "type": "timestamp"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "TransportDocumentProcessed",
+            "attributes": [
+                {
+                    "name": "bookedContainers",
+                    "type": "double"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "td85",
+            "type": "TransportDocument",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "vh26",
+                    "qualifier": "assignedVehicle"
+                }
+            ]
+        },
+        {
+            "id": "vh26",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "value": "2023-08-25T11:00:00"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td85",
+                    "qualifier": "assignedToTransportDocument"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "TransportDocumentProcessed",
+            "time": "2023-07-31T09:20:37Z",
+            "attributes": [
+                {
+                    "name": "bookedContainers",
+                    "value": "5.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td85",
+                    "qualifier": "processed"
+                },
+                {
+                    "objectId": "vh26",
+                    "qualifier": "assigned"
+                }
+            ]
+        }
+    ]
+}

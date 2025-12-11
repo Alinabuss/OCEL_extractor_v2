@@ -1,0 +1,95 @@
+{
+    "objectTypes": [
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PurchaseOrder",
+            "attributes": []
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "GoodsReceipt Created",
+            "attributes": [
+                {
+                    "name": "process_status",
+                    "type": "string"
+                },
+                {
+                    "name": "resource",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "goods receipt:731",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "time": "2023-04-13T18:59:00Z",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:603",
+                    "qualifier": "associated"
+                }
+            ]
+        },
+        {
+            "id": "purchase_order:603",
+            "type": "PurchaseOrder",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "001",
+                    "qualifier": "belongs-to"
+                }
+            ]
+        },
+        {
+            "id": "001",
+            "type": "PurchasingGroup",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "GoodsReceipt Created",
+            "time": "2023-04-13T18:59:00Z",
+            "attributes": [
+                {
+                    "name": "process_status",
+                    "value": "complete"
+                },
+                {
+                    "name": "resource",
+                    "value": "Warehouse Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:731",
+                    "qualifier": "created"
+                }
+            ]
+        }
+    ]
+}

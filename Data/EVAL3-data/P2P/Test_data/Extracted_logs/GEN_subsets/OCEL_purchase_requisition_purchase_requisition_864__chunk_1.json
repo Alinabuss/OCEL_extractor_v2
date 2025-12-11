@@ -1,0 +1,109 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseRequisition",
+            "attributes": []
+        },
+        {
+            "name": "Material",
+            "attributes": [
+                {
+                    "name": "net_price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": [
+                {
+                    "name": "group_id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "DelegationCompleted",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_requisition:864:pr_trigger_864",
+            "type": "PurchaseRequisition",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "material:2150",
+                    "qualifier": "assigned_resource"
+                },
+                {
+                    "objectId": "purchasing_group:001",
+                    "qualifier": "belongs_to"
+                }
+            ]
+        },
+        {
+            "id": "material:2150",
+            "type": "Material",
+            "attributes": [
+                {
+                    "name": "net_price",
+                    "value": "250.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "purchasing_group:001",
+            "type": "PurchasingGroup",
+            "attributes": [
+                {
+                    "name": "group_id",
+                    "value": "001"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "department:Manufacturing Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "DelegationCompleted",
+            "time": "2024-08-12T09:02:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "completed the delegation for the approval of the purchase requisition"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_requisition:864:pr_trigger_864",
+                    "qualifier": "approvalOf"
+                },
+                {
+                    "objectId": "department:Manufacturing Department",
+                    "qualifier": "completedBy"
+                }
+            ]
+        }
+    ]
+}

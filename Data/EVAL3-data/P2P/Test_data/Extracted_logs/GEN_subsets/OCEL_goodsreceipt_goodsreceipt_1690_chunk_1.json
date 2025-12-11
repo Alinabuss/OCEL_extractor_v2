@@ -1,0 +1,90 @@
+{
+    "objectTypes": [
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "InvoiceReceipt",
+            "attributes": []
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "TwoWayMatchProcessCompleted",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "goods receipt:1690",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "time": "",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:1695",
+                    "qualifier": "linkedTo"
+                }
+            ]
+        },
+        {
+            "id": "invoice receipt:1695",
+            "type": "InvoiceReceipt",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Finance/Account Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "TwoWayMatchProcessCompleted",
+            "time": "2024-06-26T15:02:00Z",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "value": "119200.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:1690",
+                    "qualifier": "linked"
+                },
+                {
+                    "objectId": "invoice receipt:1695",
+                    "qualifier": "linked"
+                },
+                {
+                    "objectId": "Finance/Account Department",
+                    "qualifier": "completedBy"
+                }
+            ]
+        }
+    ]
+}

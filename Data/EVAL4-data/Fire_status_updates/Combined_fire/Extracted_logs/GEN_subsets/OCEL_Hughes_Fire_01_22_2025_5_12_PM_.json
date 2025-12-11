@@ -1,0 +1,302 @@
+{
+    "objectTypes": [
+        {
+            "name": "Incident",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "fireType",
+                    "type": "string"
+                },
+                {
+                    "name": "location",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PartnerGroup",
+            "attributes": [
+                {
+                    "name": "category",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Response",
+            "attributes": [
+                {
+                    "name": "location",
+                    "type": "string"
+                },
+                {
+                    "name": "fireType",
+                    "type": "string"
+                },
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "UnifiedCommand",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "inc:HughesFire",
+            "type": "Incident",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Hughes Fire",
+                    "time": "2025-01-22T17:12:00Z"
+                },
+                {
+                    "name": "fireType",
+                    "value": "brush fire",
+                    "time": "2025-01-22T17:12:00Z"
+                },
+                {
+                    "name": "location",
+                    "value": "off Lake Hughes Rd North of Castaic Reservoir Rd, Castaic",
+                    "time": "2025-01-22T17:12:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "org:USForestService",
+                    "qualifier": "unified-command-with"
+                },
+                {
+                    "objectId": "org:LosAngelesCountyFireDepartment",
+                    "qualifier": "unified-command-with"
+                },
+                {
+                    "objectId": "org:LACountySheriff",
+                    "qualifier": "assisted-by"
+                },
+                {
+                    "objectId": "org:CaliforniaHighwayPatrol_SouthernDivision",
+                    "qualifier": "assisted-by"
+                }
+            ]
+        },
+        {
+            "id": "org:AngelesNationalForest",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Angeles National Forest"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "org:CAL_FIRE",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "CAL FIRE"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "group:LocalPartners",
+            "type": "PartnerGroup",
+            "attributes": [
+                {
+                    "name": "category",
+                    "value": "local partners"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "group:StatePartners",
+            "type": "PartnerGroup",
+            "attributes": [
+                {
+                    "name": "category",
+                    "value": "state partners"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "group:FederalPartners",
+            "type": "PartnerGroup",
+            "attributes": [
+                {
+                    "name": "category",
+                    "value": "federal partners"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "group:TribalPartners",
+            "type": "PartnerGroup",
+            "attributes": [
+                {
+                    "name": "category",
+                    "value": "tribal partners"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "org:USForestService",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "U.S. Forest Service"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "org:LosAngelesCountyFireDepartment",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Los Angeles County Fire Department"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "org:LACountySheriff",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "LA County Sheriff"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "org:CaliforniaHighwayPatrol_SouthernDivision",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "California Highway Patrol, Southern Division"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Response",
+            "time": "2025-01-22T17:12:00Z",
+            "attributes": [
+                {
+                    "name": "location",
+                    "value": "off Lake Hughes Rd North of Castaic Reservoir Rd, Castaic"
+                },
+                {
+                    "name": "fireType",
+                    "value": "brush fire"
+                },
+                {
+                    "name": "description",
+                    "value": "Firefighters from Angeles National Forest, CAL FIRE and local, state, federal, and tribal partners are responding"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "inc:HughesFire",
+                    "qualifier": "incident"
+                },
+                {
+                    "objectId": "org:AngelesNationalForest",
+                    "qualifier": "responding"
+                },
+                {
+                    "objectId": "org:CAL_FIRE",
+                    "qualifier": "responding"
+                },
+                {
+                    "objectId": "group:LocalPartners",
+                    "qualifier": "responding"
+                },
+                {
+                    "objectId": "group:StatePartners",
+                    "qualifier": "responding"
+                },
+                {
+                    "objectId": "group:FederalPartners",
+                    "qualifier": "responding"
+                },
+                {
+                    "objectId": "group:TribalPartners",
+                    "qualifier": "responding"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "UnifiedCommand",
+            "time": "2025-01-22T17:12:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Hughes Fire is in unified command with U.S. Forest Service and Los Angeles County Fire Department, with assistance from LA County Sheriff and California Highway Patrol, Southern Division"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "inc:HughesFire",
+                    "qualifier": "incident"
+                },
+                {
+                    "objectId": "org:USForestService",
+                    "qualifier": "unified-command"
+                },
+                {
+                    "objectId": "org:LosAngelesCountyFireDepartment",
+                    "qualifier": "unified-command"
+                },
+                {
+                    "objectId": "org:LACountySheriff",
+                    "qualifier": "assisting"
+                },
+                {
+                    "objectId": "org:CaliforniaHighwayPatrol_SouthernDivision",
+                    "qualifier": "assisting"
+                }
+            ]
+        }
+    ]
+}

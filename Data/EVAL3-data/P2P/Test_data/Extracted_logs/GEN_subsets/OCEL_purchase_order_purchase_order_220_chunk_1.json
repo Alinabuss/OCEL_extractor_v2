@@ -1,0 +1,159 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "GoodsReceiptFinalized",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "GoodsReceiptCreated",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "type": "int"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:220",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "value": "002"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "goods_receipt:267",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:220",
+                    "qualifier": "associated_with"
+                }
+            ]
+        },
+        {
+            "id": "goods_receipt:269",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:220",
+                    "qualifier": "associated_with"
+                }
+            ]
+        },
+        {
+            "id": "department:Warehouse Department",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Warehouse Department"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "GoodsReceiptFinalized",
+            "time": "2022-08-16T08:12:00Z",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods_receipt:267",
+                    "qualifier": "goods_receipt"
+                },
+                {
+                    "objectId": "purchase_order:220",
+                    "qualifier": "purchase_order"
+                },
+                {
+                    "objectId": "department:Warehouse Department",
+                    "qualifier": "performed_by"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "GoodsReceiptCreated",
+            "time": "2022-08-17T04:43:00Z",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods_receipt:269",
+                    "qualifier": "goods_receipt"
+                },
+                {
+                    "objectId": "purchase_order:220",
+                    "qualifier": "purchase_order"
+                },
+                {
+                    "objectId": "department:Warehouse Department",
+                    "qualifier": "performed_by"
+                }
+            ]
+        }
+    ]
+}

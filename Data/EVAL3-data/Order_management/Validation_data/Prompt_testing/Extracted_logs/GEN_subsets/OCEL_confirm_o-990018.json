@@ -1,0 +1,187 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Order",
+            "attributes": []
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                },
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "category",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "OrderConfirmation",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Wil van der Aalst",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Wil van der Aalst",
+                    "time": ""
+                },
+                {
+                    "name": "role",
+                    "value": "sales person",
+                    "time": ""
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "order-1",
+            "type": "Order",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Kindle Paperwhite",
+                    "qualifier": "includes"
+                },
+                {
+                    "objectId": "i-880086",
+                    "qualifier": "includes"
+                },
+                {
+                    "objectId": "i-880087",
+                    "qualifier": "includes"
+                },
+                {
+                    "objectId": "i-880088",
+                    "qualifier": "includes"
+                }
+            ]
+        },
+        {
+            "id": "Kindle Paperwhite",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Kindle Paperwhite",
+                    "time": ""
+                },
+                {
+                    "name": "price",
+                    "value": "129.0",
+                    "time": ""
+                },
+                {
+                    "name": "category",
+                    "value": "products",
+                    "time": ""
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-880086",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "1149.0",
+                    "time": ""
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-880087",
+            "type": "Item",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Kindle Paperwhite",
+                    "qualifier": "related_to"
+                }
+            ]
+        },
+        {
+            "id": "i-880088",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "1149.0",
+                    "time": ""
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "OrderConfirmation",
+            "time": "2023-04-11T07:03:16Z",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "confirmed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "order-1",
+                    "qualifier": "order"
+                },
+                {
+                    "objectId": "Wil van der Aalst",
+                    "qualifier": "performed_by"
+                },
+                {
+                    "objectId": "Kindle Paperwhite",
+                    "qualifier": "included"
+                },
+                {
+                    "objectId": "i-880086",
+                    "qualifier": "included"
+                },
+                {
+                    "objectId": "i-880087",
+                    "qualifier": "included"
+                },
+                {
+                    "objectId": "i-880088",
+                    "qualifier": "included"
+                }
+            ]
+        }
+    ]
+}

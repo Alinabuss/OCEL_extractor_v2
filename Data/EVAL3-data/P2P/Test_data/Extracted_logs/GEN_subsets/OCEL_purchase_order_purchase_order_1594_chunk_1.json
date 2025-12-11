@@ -1,0 +1,171 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Quotation",
+            "attributes": []
+        },
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": [
+                {
+                    "name": "label",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "PurchaseOrderCreated",
+            "attributes": []
+        },
+        {
+            "name": "GoodsReceiptCreated",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:1594",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "status",
+                    "time": "2024-10-16T08:37:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:926",
+                    "qualifier": "associated-with"
+                },
+                {
+                    "objectId": "purchasing_group:003",
+                    "qualifier": "part-of"
+                }
+            ]
+        },
+        {
+            "id": "quotation:926",
+            "type": "Quotation",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "purchasing_group:003",
+            "type": "PurchasingGroup",
+            "attributes": [
+                {
+                    "name": "label",
+                    "value": "003"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "goods receipt:1934",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "time": "2024-10-20T16:05:00Z",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:1594",
+                    "qualifier": "completes-lifecycle-of"
+                }
+            ]
+        },
+        {
+            "id": "department:Procurement Department",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Procurement Department"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "department:Warehouse Department",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Warehouse Department"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "PurchaseOrderCreated",
+            "time": "2024-10-16T08:37:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:1594",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "department:Procurement Department",
+                    "qualifier": "performed-in"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "GoodsReceiptCreated",
+            "time": "2024-10-20T16:05:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:1934",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "purchase_order:1594",
+                    "qualifier": "completes-lifecycle-of"
+                },
+                {
+                    "objectId": "department:Warehouse Department",
+                    "qualifier": "performed-in"
+                }
+            ]
+        }
+    ]
+}

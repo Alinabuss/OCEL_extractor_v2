@@ -1,0 +1,125 @@
+{
+    "objectTypes": [
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "type": "timestamp"
+                }
+            ]
+        },
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "type": "float"
+                },
+                {
+                    "name": "priorityRequirement",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "VehicleBooked",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "vh99",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "value": "2024-05-07T11:00:00Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "vh101",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "value": "2024-05-14T11:00:00Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "td452",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "value": "2.0"
+                },
+                {
+                    "name": "priorityRequirement",
+                    "value": "high"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "vh99",
+                    "qualifier": "requiresHighPriorityVehicle"
+                }
+            ]
+        },
+        {
+            "id": "td453",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "value": "2.0"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "VehicleBooked",
+            "time": "2024-05-02T08:16:04Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "vh99",
+                    "qualifier": "bookedVehicle"
+                },
+                {
+                    "objectId": "td452",
+                    "qualifier": "forTransportDocument"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "VehicleBooked",
+            "time": "2024-05-02T13:17:54Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "vh99",
+                    "qualifier": "bookedVehicle"
+                },
+                {
+                    "objectId": "vh101",
+                    "qualifier": "bookedVehicle"
+                },
+                {
+                    "objectId": "td453",
+                    "qualifier": "forTransportDocument"
+                }
+            ]
+        }
+    ]
+}

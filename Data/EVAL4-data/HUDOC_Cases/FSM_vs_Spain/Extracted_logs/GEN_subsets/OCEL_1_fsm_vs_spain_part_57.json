@@ -1,0 +1,301 @@
+{
+    "objectTypes": [
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Judgment",
+            "attributes": [
+                {
+                    "name": "addresses_applicant_capacity",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Lawyer",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Document",
+            "attributes": [
+                {
+                    "name": "document_type",
+                    "type": "string"
+                },
+                {
+                    "name": "submission_date",
+                    "type": "date"
+                },
+                {
+                    "name": "issued",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "Request",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                },
+                {
+                    "name": "raised_repeatedly",
+                    "type": "boolean"
+                },
+                {
+                    "name": "ground",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "LegalProvision",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "CaseFile",
+            "attributes": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "EvidenceSubmitted",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "court_audiencia_provincial",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Audiencia Provincial"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "judgment_1",
+            "type": "Judgment",
+            "attributes": [
+                {
+                    "name": "addresses_applicant_capacity",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court_audiencia_provincial",
+                    "qualifier": "issuedBy"
+                },
+                {
+                    "objectId": "lawyer_1",
+                    "qualifier": "mentions"
+                },
+                {
+                    "objectId": "doc_evidence_20190108",
+                    "qualifier": "mentions"
+                },
+                {
+                    "objectId": "request_discontinue",
+                    "qualifier": "mentions"
+                },
+                {
+                    "objectId": "law_article_383",
+                    "qualifier": "refersTo"
+                },
+                {
+                    "objectId": "medical_report_1",
+                    "qualifier": "mentions"
+                },
+                {
+                    "objectId": "forensic_report_1",
+                    "qualifier": "mentions"
+                }
+            ]
+        },
+        {
+            "id": "person_mr_fsm",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Mr F.S.M."
+                },
+                {
+                    "name": "role",
+                    "value": "applicant"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "lawyer_1",
+            "type": "Lawyer",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "person_mr_fsm",
+                    "qualifier": "represents"
+                },
+                {
+                    "objectId": "doc_evidence_20190108",
+                    "qualifier": "proposedAdmissionOf"
+                }
+            ]
+        },
+        {
+            "id": "doc_evidence_20190108",
+            "type": "Document",
+            "attributes": [
+                {
+                    "name": "document_type",
+                    "value": "documentary evidence"
+                },
+                {
+                    "name": "submission_date",
+                    "value": "2019-01-08"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "request_discontinue",
+                    "qualifier": "intendedToSupport"
+                }
+            ]
+        },
+        {
+            "id": "request_discontinue",
+            "type": "Request",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "discontinue proceedings"
+                },
+                {
+                    "name": "raised_repeatedly",
+                    "value": "true"
+                },
+                {
+                    "name": "ground",
+                    "value": "defendant's mental disturbance"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "law_article_383",
+                    "qualifier": "under"
+                }
+            ]
+        },
+        {
+            "id": "law_article_383",
+            "type": "LegalProvision",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "value": "Article 383 of the Criminal Procedure Act"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "casefile_1",
+            "type": "CaseFile",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "medical_report_1",
+            "type": "Document",
+            "attributes": [
+                {
+                    "name": "document_type",
+                    "value": "medical report"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "casefile_1",
+                    "qualifier": "inCaseFile"
+                }
+            ]
+        },
+        {
+            "id": "forensic_report_1",
+            "type": "Document",
+            "attributes": [
+                {
+                    "name": "document_type",
+                    "value": "forensic report"
+                },
+                {
+                    "name": "issued",
+                    "value": "true"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "EvidenceSubmitted",
+            "time": "2019-01-08T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Documentary evidence submitted on 8 January 2019"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "doc_evidence_20190108",
+                    "qualifier": "submitted"
+                }
+            ]
+        }
+    ]
+}

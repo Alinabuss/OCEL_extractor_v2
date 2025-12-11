@@ -1,0 +1,233 @@
+{
+    "objectTypes": [
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "country",
+                    "type": "string"
+                },
+                {
+                    "name": "scope",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "LegalArticle",
+            "attributes": [
+                {
+                    "name": "articleNumber",
+                    "type": "integer"
+                },
+                {
+                    "name": "act",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Examination",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Conclusion",
+            "attributes": [
+                {
+                    "name": "conclusion",
+                    "type": "string"
+                },
+                {
+                    "name": "referenceParagraph",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Judgment",
+            "attributes": [
+                {
+                    "name": "acceptance",
+                    "type": "string"
+                },
+                {
+                    "name": "article383_applicable",
+                    "type": "string"
+                },
+                {
+                    "name": "referenceParagraph_acceptance",
+                    "type": "string"
+                },
+                {
+                    "name": "referenceParagraph_article",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "court_1",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "the Court"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "spanish_domestic_courts",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "country",
+                    "time": "",
+                    "value": "Spain"
+                },
+                {
+                    "name": "scope",
+                    "time": "",
+                    "value": "domestic"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "applicant_1",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "",
+                    "value": "applicant"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "article_383",
+            "type": "LegalArticle",
+            "attributes": [
+                {
+                    "name": "articleNumber",
+                    "time": "",
+                    "value": "383"
+                },
+                {
+                    "name": "act",
+                    "time": "",
+                    "value": "Criminal Procedure Act"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Examination",
+            "time": "",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Spanish domestic courts examined this matter"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "spanish_domestic_courts",
+                    "qualifier": "performer"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Conclusion",
+            "time": "",
+            "attributes": [
+                {
+                    "name": "conclusion",
+                    "value": "The domestic courts concluded that the applicant was aware of the process and understood the accusation against him"
+                },
+                {
+                    "name": "referenceParagraph",
+                    "value": "62"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "spanish_domestic_courts",
+                    "qualifier": "performer"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "subject"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "Judgment",
+            "time": "",
+            "attributes": [
+                {
+                    "name": "acceptance",
+                    "value": "The Court accepts the domestic courts' examination and conclusion"
+                },
+                {
+                    "name": "article383_applicable",
+                    "value": "false"
+                },
+                {
+                    "name": "referenceParagraph_acceptance",
+                    "value": "62"
+                },
+                {
+                    "name": "referenceParagraph_article",
+                    "value": "61"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court_1",
+                    "qualifier": "issuer"
+                },
+                {
+                    "objectId": "spanish_domestic_courts",
+                    "qualifier": "accepted"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "article_383",
+                    "qualifier": "not_applicable"
+                }
+            ]
+        }
+    ]
+}

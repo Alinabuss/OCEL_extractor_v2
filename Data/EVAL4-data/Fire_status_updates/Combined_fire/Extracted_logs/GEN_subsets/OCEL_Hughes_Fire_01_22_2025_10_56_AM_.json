@@ -1,0 +1,112 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "classification",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "FireReported",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "rate_of_spread",
+                    "type": "string"
+                },
+                {
+                    "name": "spotting",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire-1",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-22T10:56:00Z",
+                    "value": "Hughes Fire"
+                },
+                {
+                    "name": "classification",
+                    "time": "2025-01-22T10:56:00Z",
+                    "value": "Vegetation fire"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "loc-1",
+                    "qualifier": "near"
+                }
+            ]
+        },
+        {
+            "id": "loc-1",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-22T10:56:00Z",
+                    "value": "Castaic Lake"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "FireReported",
+            "time": "2025-01-22T10:56:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Vegetation fire reported near Castaic Lake with a rapid rate of spread and spotting."
+                },
+                {
+                    "name": "rate_of_spread",
+                    "value": "rapid"
+                },
+                {
+                    "name": "spotting",
+                    "value": "present"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "reported"
+                },
+                {
+                    "objectId": "loc-1",
+                    "qualifier": "near"
+                }
+            ]
+        }
+    ]
+}

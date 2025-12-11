@@ -1,0 +1,94 @@
+{
+    "objectTypes": [
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "credit amount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement type",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "InvoiceReceiptCreation",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt[653]",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "credit amount",
+                    "value": "18900.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "goods receipt[655]",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement type",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "finance/account department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "InvoiceReceiptCreation",
+            "time": "2023-03-09T17:47:00Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "completed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt[653]",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "goods receipt[655]",
+                    "qualifier": "associated"
+                },
+                {
+                    "objectId": "finance/account department",
+                    "qualifier": "performed_by"
+                }
+            ]
+        }
+    ]
+}

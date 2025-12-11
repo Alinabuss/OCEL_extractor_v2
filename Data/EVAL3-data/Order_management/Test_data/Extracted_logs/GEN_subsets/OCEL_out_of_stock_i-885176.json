@@ -1,0 +1,90 @@
+{
+    "objectTypes": [
+        {
+            "name": "File",
+            "attributes": [
+                {
+                    "name": "uploaded",
+                    "type": "boolean"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "LocateContent",
+            "attributes": [
+                {
+                    "name": "found",
+                    "type": "boolean"
+                },
+                {
+                    "name": "note",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "RequestClarification",
+            "attributes": [
+                {
+                    "name": "message",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "file-1",
+            "type": "File",
+            "attributes": [
+                {
+                    "name": "uploaded",
+                    "value": "true"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "LocateContent",
+            "time": "2025-09-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "found",
+                    "value": "false"
+                },
+                {
+                    "name": "note",
+                    "value": "could not locate any specific content in the uploaded files"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "file-1",
+                    "qualifier": "target"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "RequestClarification",
+            "time": "2025-09-01T00:00:01Z",
+            "attributes": [
+                {
+                    "name": "message",
+                    "value": "Please provide further details or clarify your request, and I will be happy to assist you!"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "file-1",
+                    "qualifier": "related"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,84 @@
+{
+    "objectTypes": [
+        {
+            "name": "FireIncident",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "FirefighterTeam",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ContainmentStatusReported",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "target_containment",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Rosa Fire",
+            "type": "FireIncident",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-29T16:58:00Z",
+                    "value": "Rosa Fire"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Firefighters",
+            "type": "FirefighterTeam",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Rosa Fire",
+                    "qualifier": "on_scene_of"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "ContainmentStatusReported",
+            "time": "2025-01-29T16:58:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Firefighters at scene working towards 100% containment."
+                },
+                {
+                    "name": "target_containment",
+                    "value": "100%"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Rosa Fire",
+                    "qualifier": "incident"
+                },
+                {
+                    "objectId": "Firefighters",
+                    "qualifier": "actor"
+                }
+            ]
+        }
+    ]
+}

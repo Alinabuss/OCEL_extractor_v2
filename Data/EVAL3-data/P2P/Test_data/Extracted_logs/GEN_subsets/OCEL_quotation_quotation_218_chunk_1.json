@@ -1,0 +1,104 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                },
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Quotation",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "PurchaseOrderApproved",
+            "attributes": [
+                {
+                    "name": "performedBy",
+                    "type": "string"
+                },
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:369",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "value": "005",
+                    "time": "2022-10-14T19:09:00Z"
+                },
+                {
+                    "name": "lifecycle",
+                    "value": "complete",
+                    "time": "2022-10-14T19:09:00Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "quotation:218",
+            "type": "Quotation",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "value": "005",
+                    "time": "2022-10-14T19:09:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:369",
+                    "qualifier": "purchasing_order"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "event:1",
+            "type": "PurchaseOrderApproved",
+            "time": "2022-10-14T19:09:00Z",
+            "attributes": [
+                {
+                    "name": "performedBy",
+                    "value": "Procurement Order Manager"
+                },
+                {
+                    "name": "lifecycle",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:369",
+                    "qualifier": "approved"
+                },
+                {
+                    "objectId": "quotation:218",
+                    "qualifier": "associated"
+                }
+            ]
+        }
+    ]
+}

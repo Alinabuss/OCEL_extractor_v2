@@ -1,0 +1,103 @@
+{
+    "objectTypes": [
+        {
+            "name": "Foundation",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Judgment",
+            "attributes": [
+                {
+                    "name": "date",
+                    "type": "date"
+                }
+            ]
+        },
+        {
+            "name": "Functions",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ReplacementStatement",
+            "attributes": [
+                {
+                    "name": "text",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "foundation-aldaba",
+            "type": "Foundation",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Aldaba Foundation"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "judgment-2016-10-11",
+            "type": "Judgment",
+            "attributes": [
+                {
+                    "name": "date",
+                    "value": "2016-10-11"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "functions-aldaba",
+            "type": "Functions",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "foundation-aldaba",
+                    "qualifier": "belongsTo"
+                },
+                {
+                    "objectId": "judgment-2016-10-11",
+                    "qualifier": "sameScopeAndLimitsAs"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "ReplacementStatement",
+            "time": "2016-10-11T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "text",
+                    "value": "should be replaced by the Aldaba Foundation, stating that its functions would have the same scope and limits as those set in the judgment of 11 October 2016."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "foundation-aldaba",
+                    "qualifier": "replacer"
+                },
+                {
+                    "objectId": "functions-aldaba",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "judgment-2016-10-11",
+                    "qualifier": "refersTo"
+                }
+            ]
+        }
+    ]
+}

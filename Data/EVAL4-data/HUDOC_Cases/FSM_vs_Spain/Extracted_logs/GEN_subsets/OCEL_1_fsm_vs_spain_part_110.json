@@ -1,0 +1,370 @@
+{
+    "objectTypes": [
+        {
+            "name": "Government",
+            "attributes": []
+        },
+        {
+            "name": "Applicant",
+            "attributes": []
+        },
+        {
+            "name": "Court",
+            "attributes": []
+        },
+        {
+            "name": "Proceedings",
+            "attributes": [
+                {
+                    "name": "startYear",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "File",
+            "attributes": []
+        },
+        {
+            "name": "Hearing",
+            "attributes": [
+                {
+                    "name": "noNegativeInferences",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "Conviction",
+            "attributes": [
+                {
+                    "name": "basis",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Evidence",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ProceedingsStarted",
+            "attributes": [
+                {
+                    "name": "year",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "GovernmentStatement",
+            "attributes": [
+                {
+                    "name": "content",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "OpportunityToAccessFile",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "RemainedSilent",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "NoNegativeInferences",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ConvictionEstablished",
+            "attributes": [
+                {
+                    "name": "basis",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "CourtAssessment",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "government_1",
+            "type": "Government",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "applicant_1",
+            "type": "Applicant",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "file_1",
+                    "qualifier": "hadOpportunityToAccess"
+                },
+                {
+                    "objectId": "hearing_1",
+                    "qualifier": "remainedSilentIn"
+                },
+                {
+                    "objectId": "proceedings_1",
+                    "qualifier": "participant"
+                }
+            ]
+        },
+        {
+            "id": "court_1",
+            "type": "Court",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "proceedings_1",
+            "type": "Proceedings",
+            "attributes": [
+                {
+                    "name": "startYear",
+                    "time": "2013-01-01T00:00:00Z",
+                    "value": "2013"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "file_1",
+            "type": "File",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "proceedings_1",
+                    "qualifier": "partOf"
+                }
+            ]
+        },
+        {
+            "id": "hearing_1",
+            "type": "Hearing",
+            "attributes": [
+                {
+                    "name": "noNegativeInferences",
+                    "time": "2013-01-01T00:00:00Z",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "proceedings_1",
+                    "qualifier": "partOf"
+                }
+            ]
+        },
+        {
+            "id": "conviction_1",
+            "type": "Conviction",
+            "attributes": [
+                {
+                    "name": "basis",
+                    "time": "2013-01-01T00:00:00Z",
+                    "value": "extensive evidence"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "evidence_1",
+                    "qualifier": "basedOn"
+                },
+                {
+                    "objectId": "proceedings_1",
+                    "qualifier": "resultOf"
+                }
+            ]
+        },
+        {
+            "id": "evidence_1",
+            "type": "Evidence",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2013-01-01T00:00:00Z",
+                    "value": "extensive"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "ProceedingsStarted",
+            "time": "2013-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "year",
+                    "value": "2013"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "proceedings_1",
+                    "qualifier": "subject"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "GovernmentStatement",
+            "time": "2013-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "content",
+                    "value": "the applicant had not argued in which way his defence had been negatively affected"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "government_1",
+                    "qualifier": "agent"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "about"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "OpportunityToAccessFile",
+            "time": "2013-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "the applicant had had ample opportunity to access the file and prepare his defence"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "hadOpportunity"
+                },
+                {
+                    "objectId": "file_1",
+                    "qualifier": "file"
+                },
+                {
+                    "objectId": "proceedings_1",
+                    "qualifier": "context"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "RemainedSilent",
+            "time": "2013-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "the applicant had remained silent during the hearings"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "hearing_1",
+                    "qualifier": "hearing"
+                }
+            ]
+        },
+        {
+            "id": "e5",
+            "type": "NoNegativeInferences",
+            "time": "2013-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "without that resulting in any negative inferences against him"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "hearing_1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "affected"
+                }
+            ]
+        },
+        {
+            "id": "e6",
+            "type": "ConvictionEstablished",
+            "time": "2013-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "basis",
+                    "value": "extensive evidence"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "conviction_1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "evidence_1",
+                    "qualifier": "basis"
+                },
+                {
+                    "objectId": "proceedings_1",
+                    "qualifier": "context"
+                }
+            ]
+        },
+        {
+            "id": "e7",
+            "type": "CourtAssessment",
+            "time": "2013-01-01T00:00:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "court_1",
+                    "qualifier": "agent"
+                },
+                {
+                    "objectId": "proceedings_1",
+                    "qualifier": "subject"
+                }
+            ]
+        }
+    ]
+}

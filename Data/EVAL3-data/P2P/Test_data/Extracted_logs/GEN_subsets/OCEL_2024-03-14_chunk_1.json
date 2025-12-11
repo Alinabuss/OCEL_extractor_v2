@@ -1,0 +1,130 @@
+{
+    "objectTypes": [
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "double"
+                },
+                {
+                    "name": "completedBy",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "GoodsReceiptRegistered",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "InvoiceReceiptCreated",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "double"
+                },
+                {
+                    "name": "completedBy",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "1470",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "time": "2024-03-14T00:00:00Z",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "1473",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "time": "2024-03-14T13:50:00Z",
+                    "value": "23000.0"
+                },
+                {
+                    "name": "completedBy",
+                    "time": "2024-03-14T13:50:00Z",
+                    "value": "Finance/Account Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "1470",
+                    "qualifier": "pertains-to"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "GoodsReceiptRegistered",
+            "time": "2024-03-14T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "1470",
+                    "qualifier": "registered"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "InvoiceReceiptCreated",
+            "time": "2024-03-14T13:50:00Z",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "value": "23000.0"
+                },
+                {
+                    "name": "completedBy",
+                    "value": "Finance/Account Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "1473",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "1470",
+                    "qualifier": "pertains-to"
+                }
+            ]
+        }
+    ]
+}

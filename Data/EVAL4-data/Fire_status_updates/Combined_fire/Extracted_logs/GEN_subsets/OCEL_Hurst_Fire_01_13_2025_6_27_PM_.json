@@ -1,0 +1,158 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ResidentGroup",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "StatusUpdate",
+            "attributes": [
+                {
+                    "name": "message",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire_hurst",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Hurst Fire",
+                    "time": "2025-01-13T18:27:00Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "angeles_national_forest",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Angeles National Forest",
+                    "time": "2025-01-13T18:27:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "la_county_fire_dept",
+                    "qualifier": "unified_command_with"
+                },
+                {
+                    "objectId": "la_city_fire_dept",
+                    "qualifier": "unified_command_with"
+                }
+            ]
+        },
+        {
+            "id": "la_county_fire_dept",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Los Angeles County Fire Department",
+                    "time": "2025-01-13T18:27:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "angeles_national_forest",
+                    "qualifier": "unified_command_with"
+                }
+            ]
+        },
+        {
+            "id": "la_city_fire_dept",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Los Angeles City Fire Department",
+                    "time": "2025-01-13T18:27:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "angeles_national_forest",
+                    "qualifier": "unified_command_with"
+                }
+            ]
+        },
+        {
+            "id": "residents_returning_home",
+            "type": "ResidentGroup",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Residents returning home",
+                    "time": "2025-01-13T18:27:00Z"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "StatusUpdate",
+            "time": "2025-01-13T18:27:00Z",
+            "attributes": [
+                {
+                    "name": "message",
+                    "value": "Firefighting efforts continue to concentrate on building and improving containment lines with a focus on public safety and structure protection. Residents returning home are advised to use extreme caution. The Angeles National Forest is in unified command with Los Angeles County Fire Department and Los Angeles City Fire Department."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_hurst",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "angeles_national_forest",
+                    "qualifier": "unified_command_member"
+                },
+                {
+                    "objectId": "la_county_fire_dept",
+                    "qualifier": "unified_command_member"
+                },
+                {
+                    "objectId": "la_city_fire_dept",
+                    "qualifier": "unified_command_member"
+                },
+                {
+                    "objectId": "residents_returning_home",
+                    "qualifier": "advised"
+                }
+            ]
+        }
+    ]
+}

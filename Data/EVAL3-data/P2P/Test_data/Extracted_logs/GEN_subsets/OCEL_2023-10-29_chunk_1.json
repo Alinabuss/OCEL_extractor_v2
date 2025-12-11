@@ -1,0 +1,104 @@
+{
+    "objectTypes": [
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PurchaseRequisition",
+            "attributes": []
+        },
+        {
+            "name": "Quotation",
+            "attributes": []
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "RequestForQuotationCreation",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Procurement Department",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Procurement Department"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "purchase_requisition:552:pr_trigger_552",
+            "type": "PurchaseRequisition",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "005",
+                    "qualifier": "part_of"
+                }
+            ]
+        },
+        {
+            "id": "quotation:553",
+            "type": "Quotation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "005",
+                    "qualifier": "part_of"
+                }
+            ]
+        },
+        {
+            "id": "005",
+            "type": "PurchasingGroup",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "RequestForQuotationCreation",
+            "time": "2023-10-29T10:14:00Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "completed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Procurement Department",
+                    "qualifier": "performed_by"
+                },
+                {
+                    "objectId": "purchase_requisition:552:pr_trigger_552",
+                    "qualifier": "associated"
+                },
+                {
+                    "objectId": "quotation:553",
+                    "qualifier": "generated"
+                }
+            ]
+        }
+    ]
+}

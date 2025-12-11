@@ -1,0 +1,201 @@
+{
+    "objectTypes": [
+        {
+            "name": "Applicant",
+            "attributes": []
+        },
+        {
+            "name": "Court",
+            "attributes": []
+        },
+        {
+            "name": "ForensicReport",
+            "attributes": [
+                {
+                    "name": "isNew",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "AdditionalEvidence",
+            "attributes": [
+                {
+                    "name": "submissionDate",
+                    "type": "date"
+                }
+            ]
+        },
+        {
+            "name": "Hearing",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "CourtConclusion",
+            "attributes": [
+                {
+                    "name": "conclusion",
+                    "type": "string"
+                },
+                {
+                    "name": "inferenceFromForensicReport",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "RefuseEvidenceAdmission",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Hearing",
+            "attributes": [
+                {
+                    "name": "applicantAction",
+                    "type": "string"
+                },
+                {
+                    "name": "intervention",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "applicant_1",
+            "type": "Applicant",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "court_1",
+            "type": "Court",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "forensic_report_1",
+            "type": "ForensicReport",
+            "attributes": [
+                {
+                    "name": "isNew",
+                    "time": "",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "about"
+                }
+            ]
+        },
+        {
+            "id": "additional_evidence_1",
+            "type": "AdditionalEvidence",
+            "attributes": [
+                {
+                    "name": "submissionDate",
+                    "time": "2019-01-08T00:00:00Z",
+                    "value": "2019-01-08"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "hearing_1",
+            "type": "Hearing",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "CourtConclusion",
+            "time": "unknown",
+            "attributes": [
+                {
+                    "name": "conclusion",
+                    "value": "no circumstances impeding the applicant from standing trial"
+                },
+                {
+                    "name": "inferenceFromForensicReport",
+                    "value": "could not be inferred from the new forensic report that he suffered from a disorder that could justify discontinuation of the proceedings"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court_1",
+                    "qualifier": "court"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "applicant"
+                },
+                {
+                    "objectId": "forensic_report_1",
+                    "qualifier": "forensicReport"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "RefuseEvidenceAdmission",
+            "time": "unknown",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "refused to admit the additional evidence submitted on 2019-01-08"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court_1",
+                    "qualifier": "court"
+                },
+                {
+                    "objectId": "additional_evidence_1",
+                    "qualifier": "evidence"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "type": "Hearing",
+            "time": "unknown",
+            "attributes": [
+                {
+                    "name": "applicantAction",
+                    "value": "made use of his right to remain silent"
+                },
+                {
+                    "name": "intervention",
+                    "value": "only intervened during his closing statement"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "hearing_1",
+                    "qualifier": "hearing"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "participant"
+                },
+                {
+                    "objectId": "court_1",
+                    "qualifier": "participant"
+                }
+            ]
+        }
+    ]
+}

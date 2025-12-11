@@ -1,0 +1,209 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "obligation_to_submit_tax_declarations",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "Company",
+            "attributes": [
+                {
+                    "name": "position",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "TaxDeclaration",
+            "attributes": [
+                {
+                    "name": "declaration_type",
+                    "type": "string"
+                },
+                {
+                    "name": "period",
+                    "type": "string"
+                },
+                {
+                    "name": "submitted",
+                    "type": "boolean"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "IntervenedInPropertySale",
+            "attributes": [
+                {
+                    "name": "amounts_properly_declared",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "CorporateTaxDeclarationNotSubmitted",
+            "attributes": [
+                {
+                    "name": "declaration_type",
+                    "type": "string"
+                },
+                {
+                    "name": "period",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "applicant_1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "obligation_to_submit_tax_declarations",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "company_1",
+                    "qualifier": "sole_administrator_of"
+                },
+                {
+                    "objectId": "company_2",
+                    "qualifier": "sole_administrator_of"
+                }
+            ]
+        },
+        {
+            "id": "company_1",
+            "type": "Company",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "has_sole_administrator"
+                }
+            ]
+        },
+        {
+            "id": "company_2",
+            "type": "Company",
+            "attributes": [
+                {
+                    "name": "position",
+                    "value": "second"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "has_sole_administrator"
+                }
+            ]
+        },
+        {
+            "id": "td_company2_2008",
+            "type": "TaxDeclaration",
+            "attributes": [
+                {
+                    "name": "declaration_type",
+                    "value": "corporate"
+                },
+                {
+                    "name": "period",
+                    "value": "2008"
+                },
+                {
+                    "name": "submitted",
+                    "value": "false"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "company_2",
+                    "qualifier": "declaration_for"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "IntervenedInPropertySale",
+            "time": "2008-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "amounts_properly_declared",
+                    "value": "false"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "intervener"
+                },
+                {
+                    "objectId": "company_1",
+                    "qualifier": "seller"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "IntervenedInPropertySale",
+            "time": "2008-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "amounts_properly_declared",
+                    "value": "false"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "intervener"
+                },
+                {
+                    "objectId": "company_2",
+                    "qualifier": "seller"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "type": "CorporateTaxDeclarationNotSubmitted",
+            "time": "2008-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "declaration_type",
+                    "value": "corporate"
+                },
+                {
+                    "name": "period",
+                    "value": "2008"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "company_2",
+                    "qualifier": "affected_object"
+                },
+                {
+                    "objectId": "td_company2_2008",
+                    "qualifier": "not_submitted"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "responsible"
+                }
+            ]
+        }
+    ]
+}

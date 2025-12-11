@@ -1,0 +1,110 @@
+{
+    "objectTypes": [
+        {
+            "name": "Match",
+            "attributes": []
+        },
+        {
+            "name": "Session",
+            "attributes": [
+                {
+                    "name": "startTime",
+                    "type": "time"
+                }
+            ]
+        },
+        {
+            "name": "SiegeWorkshop",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "SessionInitiated",
+            "attributes": []
+        },
+        {
+            "name": "StartQueue",
+            "attributes": [
+                {
+                    "name": "unit",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "M227028371",
+            "type": "Match",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "S227028371_1472826",
+            "type": "Session",
+            "attributes": [
+                {
+                    "name": "startTime",
+                    "time": "2023-04-17T01:00:35Z",
+                    "value": "2023-04-17T01:00:35Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "M227028371",
+                    "qualifier": "inRelationTo"
+                }
+            ]
+        },
+        {
+            "id": "Siege_Workshop_M227028371_2",
+            "type": "SiegeWorkshop",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "SessionInitiated",
+            "time": "2023-04-17T01:00:35Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "S227028371_1472826",
+                    "qualifier": "session"
+                },
+                {
+                    "objectId": "M227028371",
+                    "qualifier": "relatedMatch"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "StartQueue",
+            "time": "2023-04-17T01:00:35Z",
+            "attributes": [
+                {
+                    "name": "unit",
+                    "value": "mangonel"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Siege_Workshop_M227028371_2",
+                    "qualifier": "siegeWorkshop"
+                },
+                {
+                    "objectId": "S227028371_1472826",
+                    "qualifier": "session"
+                },
+                {
+                    "objectId": "M227028371",
+                    "qualifier": "match"
+                }
+            ]
+        }
+    ]
+}

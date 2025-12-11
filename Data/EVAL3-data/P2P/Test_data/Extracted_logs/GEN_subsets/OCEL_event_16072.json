@@ -1,0 +1,120 @@
+{
+    "objectTypes": [
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                },
+                {
+                    "name": "movementType",
+                    "type": "string"
+                },
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PurchasingOrder",
+            "attributes": [
+                {
+                    "name": "value",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "GoodsReceiptCreated",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                },
+                {
+                    "name": "department",
+                    "type": "string"
+                },
+                {
+                    "name": "movementType",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "GR-1046",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "time": "2023-09-13T12:22:00Z",
+                    "value": "complete"
+                },
+                {
+                    "name": "department",
+                    "time": "2023-09-13T12:22:00Z",
+                    "value": "Warehouse Department"
+                },
+                {
+                    "name": "movementType",
+                    "time": "2023-09-13T12:22:00Z",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "PO-855",
+                    "qualifier": "associatedWith"
+                }
+            ]
+        },
+        {
+            "id": "PO-855",
+            "type": "PurchasingOrder",
+            "attributes": [
+                {
+                    "name": "value",
+                    "value": "005"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "GoodsReceiptCreated",
+            "time": "2023-09-13T12:22:00Z",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "value": "complete"
+                },
+                {
+                    "name": "department",
+                    "value": "Warehouse Department"
+                },
+                {
+                    "name": "movementType",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "GR-1046",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "PO-855",
+                    "qualifier": "associatedWith"
+                }
+            ]
+        }
+    ]
+}

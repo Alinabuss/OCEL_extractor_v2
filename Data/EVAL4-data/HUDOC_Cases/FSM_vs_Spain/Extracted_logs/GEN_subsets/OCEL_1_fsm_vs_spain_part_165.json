@@ -1,0 +1,308 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                },
+                {
+                    "name": "category",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Authority",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "LegalCode",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "LegalProvision",
+            "attributes": [
+                {
+                    "name": "allows_accompaniment_from_first_contact",
+                    "type": "boolean"
+                },
+                {
+                    "name": "is_new",
+                    "type": "boolean"
+                },
+                {
+                    "name": "falls_short_in_criminal_proceedings",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "Proceeding",
+            "attributes": [
+                {
+                    "name": "nature",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Judge",
+            "attributes": [
+                {
+                    "name": "accustomed_to_procedural_adjustments",
+                    "type": "boolean"
+                },
+                {
+                    "name": "applies_procedural_adjustments",
+                    "type": "boolean"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "FirstContactWithAuthorities",
+            "attributes": []
+        },
+        {
+            "name": "CriminalProceeding",
+            "attributes": []
+        },
+        {
+            "name": "FinalJudgmentDelivered",
+            "attributes": []
+        },
+        {
+            "name": "ProvisionIntroducedIntoCode",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "person_with_disabilities",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "category",
+                    "value": "person with disabilities"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "elderly_person",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "category",
+                    "value": "elderly person"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "companion_person",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "companion"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "authorities",
+            "type": "Authority",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "authorities"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "code_of_civil_procedure",
+            "type": "LegalCode",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Code of Civil Procedure"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "provision_accompaniment",
+            "type": "LegalProvision",
+            "attributes": [
+                {
+                    "name": "allows_accompaniment_from_first_contact",
+                    "value": "true"
+                },
+                {
+                    "name": "is_new",
+                    "value": "true"
+                },
+                {
+                    "name": "falls_short_in_criminal_proceedings",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "code_of_civil_procedure",
+                    "qualifier": "introduced_into"
+                }
+            ]
+        },
+        {
+            "id": "applicant",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "applicant"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "criminal_proceeding_case",
+            "type": "Proceeding",
+            "attributes": [
+                {
+                    "name": "nature",
+                    "value": "criminal"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant",
+                    "qualifier": "against"
+                }
+            ]
+        },
+        {
+            "id": "judges_civil",
+            "type": "Judge",
+            "attributes": [
+                {
+                    "name": "accustomed_to_procedural_adjustments",
+                    "value": "true"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "judges_criminal",
+            "type": "Judge",
+            "attributes": [
+                {
+                    "name": "applies_procedural_adjustments",
+                    "value": "false"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "CriminalProceeding",
+            "time": "unspecified",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "criminal_proceeding_case",
+                    "qualifier": "case"
+                },
+                {
+                    "objectId": "applicant",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "provision_accompaniment",
+                    "qualifier": "not_in_force"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "FinalJudgmentDelivered",
+            "time": "unspecified",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "applicant",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "criminal_proceeding_case",
+                    "qualifier": "case"
+                },
+                {
+                    "objectId": "provision_accompaniment",
+                    "qualifier": "not_in_force"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "type": "ProvisionIntroducedIntoCode",
+            "time": "unspecified",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "provision_accompaniment",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "code_of_civil_procedure",
+                    "qualifier": "target_code"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "type": "FirstContactWithAuthorities",
+            "time": "unspecified",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "person_with_disabilities",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "elderly_person",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "companion_person",
+                    "qualifier": "possible_companion"
+                },
+                {
+                    "objectId": "authorities",
+                    "qualifier": "with_authority"
+                },
+                {
+                    "objectId": "provision_accompaniment",
+                    "qualifier": "provision_applies_from"
+                }
+            ]
+        }
+    ]
+}

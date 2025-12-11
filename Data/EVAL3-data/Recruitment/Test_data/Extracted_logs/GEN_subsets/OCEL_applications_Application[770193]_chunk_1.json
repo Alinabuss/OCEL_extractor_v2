@@ -1,0 +1,193 @@
+{
+    "objectTypes": [
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Manager",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": [
+                {
+                    "name": "applicationId",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Vacancy",
+            "attributes": [
+                {
+                    "name": "vacancyId",
+                    "type": "string"
+                },
+                {
+                    "name": "title",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Interview",
+            "attributes": []
+        },
+        {
+            "name": "Rejection Sent",
+            "attributes": [
+                {
+                    "name": "notice",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Detlef Jansen",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Detlef Jansen"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Jana Geisler",
+            "type": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Jana Geisler"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Miguel Milano",
+            "type": "Manager",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Miguel Milano"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Application[770193]",
+            "type": "Application",
+            "attributes": [
+                {
+                    "name": "applicationId",
+                    "value": "770193"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Detlef Jansen",
+                    "qualifier": "applied-by"
+                },
+                {
+                    "objectId": "Vacancy[550011]",
+                    "qualifier": "related-to"
+                }
+            ]
+        },
+        {
+            "id": "Vacancy[550011]",
+            "type": "Vacancy",
+            "attributes": [
+                {
+                    "name": "vacancyId",
+                    "value": "550011"
+                },
+                {
+                    "name": "title",
+                    "value": "Programmer"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Interview",
+            "time": "2019-07-03T15:52:05Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Detlef Jansen",
+                    "qualifier": "interviewee"
+                },
+                {
+                    "objectId": "Jana Geisler",
+                    "qualifier": "recruiter"
+                },
+                {
+                    "objectId": "Miguel Milano",
+                    "qualifier": "manager"
+                },
+                {
+                    "objectId": "Application[770193]",
+                    "qualifier": "related-application"
+                },
+                {
+                    "objectId": "Vacancy[550011]",
+                    "qualifier": "related-vacancy"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Rejection Sent",
+            "time": "2019-07-04T16:27:19Z",
+            "attributes": [
+                {
+                    "name": "notice",
+                    "value": "rejection"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Jana Geisler",
+                    "qualifier": "sender"
+                },
+                {
+                    "objectId": "Detlef Jansen",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "Application[770193]",
+                    "qualifier": "related-application"
+                }
+            ]
+        }
+    ]
+}

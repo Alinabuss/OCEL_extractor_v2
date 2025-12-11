@@ -1,0 +1,121 @@
+{
+    "objectTypes": [
+        {
+            "name": "purchasing group",
+            "attributes": [
+                {
+                    "name": "part of purchasing group",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "receipt",
+            "attributes": [
+                {
+                    "name": "Warehouse Department",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "goods receipt",
+            "attributes": [
+                {
+                    "name": "Warehouse Department",
+                    "type": "string"
+                },
+                {
+                    "name": "type for goods receipt",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "create Report goods receipt",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Goods Receipt:540",
+            "type": "goods receipt",
+            "attributes": [
+                {
+                    "name": "Warehouse Department",
+                    "time": "1970-01-01T00:00:00Z",
+                    "value": "Warehouse Department"
+                },
+                {
+                    "name": "type for goods receipt",
+                    "time": "1970-01-01T00:00:00Z",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "goods receipt:540",
+            "type": "receipt",
+            "attributes": [
+                {
+                    "name": "Warehouse Department",
+                    "time": "1970-01-01T00:00:00Z",
+                    "value": "Warehouse Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase order:457",
+                    "qualifier": null
+                }
+            ]
+        },
+        {
+            "id": "purchase order:457",
+            "type": "purchasing group",
+            "attributes": [
+                {
+                    "name": "part of purchasing group",
+                    "time": "1970-01-01T00:00:00Z",
+                    "value": "004"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1010,
+            "type": "create Report goods receipt",
+            "time": "2023-01-28T06:22:00Z",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase order:457",
+                    "qualifier": null
+                },
+                {
+                    "objectId": "Goods Receipt:540",
+                    "qualifier": null
+                },
+                {
+                    "objectId": "goods receipt:540",
+                    "qualifier": null
+                }
+            ]
+        }
+    ]
+}

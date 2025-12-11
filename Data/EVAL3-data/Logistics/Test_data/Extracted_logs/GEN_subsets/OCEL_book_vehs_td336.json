@@ -1,0 +1,104 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "type": "double"
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduled_departure",
+                    "type": "dateTime"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "VehiclesBooked",
+            "attributes": [
+                {
+                    "name": "vehicle_count",
+                    "type": "int"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "TD[336]",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "value": "3.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "VH[73]",
+                    "qualifier": "associated"
+                },
+                {
+                    "objectId": "VH[79]",
+                    "qualifier": "associated"
+                }
+            ]
+        },
+        {
+            "id": "VH[73]",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduled_departure",
+                    "value": "2024-02-06T11:00:00Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "VH[79]",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduled_departure",
+                    "value": "2024-02-27T11:00:00Z"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "E1",
+            "type": "VehiclesBooked",
+            "time": "2024-02-02T12:46:17Z",
+            "attributes": [
+                {
+                    "name": "vehicle_count",
+                    "value": "2"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "TD[336]",
+                    "qualifier": "transportDocument"
+                },
+                {
+                    "objectId": "VH[73]",
+                    "qualifier": "bookedVehicle"
+                },
+                {
+                    "objectId": "VH[79]",
+                    "qualifier": "bookedVehicle"
+                }
+            ]
+        }
+    ]
+}

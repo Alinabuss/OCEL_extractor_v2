@@ -1,0 +1,82 @@
+{
+    "objectTypes": [
+        {
+            "name": "Applicant",
+            "attributes": []
+        },
+        {
+            "name": "MedicalFile",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ProvideInformation",
+            "attributes": [
+                {
+                    "name": "information",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "SubmitMedicalFile",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "applicant_1",
+            "type": "Applicant",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "medicalfile_1",
+                    "qualifier": "hasMedicalFile"
+                }
+            ]
+        },
+        {
+            "id": "medicalfile_1",
+            "type": "MedicalFile",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "belongsTo"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "ProvideInformation",
+            "time": "2023-01-01T09:00:00Z",
+            "attributes": [
+                {
+                    "name": "information",
+                    "value": "specific medical treatment given"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "medicalfile_1",
+                    "qualifier": "regarding"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "SubmitMedicalFile",
+            "time": "2023-01-01T09:01:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "medicalfile_1",
+                    "qualifier": "submitted"
+                }
+            ]
+        }
+    ]
+}

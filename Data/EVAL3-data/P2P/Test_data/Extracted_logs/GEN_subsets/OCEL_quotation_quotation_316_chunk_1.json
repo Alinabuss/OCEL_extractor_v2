@@ -1,0 +1,102 @@
+{
+    "objectTypes": [
+        {
+            "name": "Quotation",
+            "attributes": []
+        },
+        {
+            "name": "PurchaseRequisition",
+            "attributes": []
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": []
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Request for Quotation Created",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                },
+                {
+                    "name": "created_by",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "quotation:316",
+            "type": "Quotation",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "purchase_requisition:319:pr_trigger_319",
+            "type": "PurchaseRequisition",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Purchasing Group 001",
+                    "qualifier": "associated_with"
+                }
+            ]
+        },
+        {
+            "id": "Purchasing Group 001",
+            "type": "PurchasingGroup",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "quotation:316",
+                    "qualifier": "includes"
+                }
+            ]
+        },
+        {
+            "id": "Procurement Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Request for Quotation Created",
+            "time": "2023-03-05T01:15:00Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "complete"
+                },
+                {
+                    "name": "created_by",
+                    "value": "Procurement Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:316",
+                    "qualifier": "quotation"
+                },
+                {
+                    "objectId": "purchase_requisition:319:pr_trigger_319",
+                    "qualifier": "involved_requisition"
+                },
+                {
+                    "objectId": "Procurement Department",
+                    "qualifier": "creator"
+                }
+            ]
+        }
+    ]
+}

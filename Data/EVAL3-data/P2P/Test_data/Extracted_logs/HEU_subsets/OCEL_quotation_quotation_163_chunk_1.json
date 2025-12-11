@@ -1,0 +1,157 @@
+{
+    "objectTypes": [
+        {
+            "name": "purchase requisition",
+            "attributes": [
+                {
+                    "name": "part",
+                    "type": "string"
+                },
+                {
+                    "name": "part of purchase group",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "approval",
+            "attributes": []
+        },
+        {
+            "name": "purchase order",
+            "attributes": []
+        },
+        {
+            "name": "quotation",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "initiate creation of a purchase order",
+            "attributes": [
+                {
+                    "name": "resource",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "create Report request for quotation",
+            "attributes": [
+                {
+                    "name": "resource",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "approval",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Quotation:163",
+            "type": "quotation",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Purchase Order[272 ]",
+            "type": "purchase order",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "purchase_requisition:170 : pr_trigger_170",
+            "type": "purchase requisition",
+            "attributes": [
+                {
+                    "name": "part",
+                    "time": "1970-01-01T00:00:00Z",
+                    "value": "purchasing group 004"
+                },
+                {
+                    "name": "part of purchase group",
+                    "time": "1970-01-01T00:00:00Z",
+                    "value": "004"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Purchase Order[272 ]",
+                    "qualifier": null
+                }
+            ]
+        },
+        {
+            "id": "purchase order:272",
+            "type": "approval",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 340,
+            "type": "create Report request for quotation",
+            "time": "2022-08-31T14:06:00Z",
+            "attributes": [
+                {
+                    "name": "resource",
+                    "value": "Procurement Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_requisition:170 : pr_trigger_170",
+                    "qualifier": null
+                },
+                {
+                    "objectId": "Quotation:163",
+                    "qualifier": null
+                }
+            ]
+        },
+        {
+            "id": 341,
+            "type": "initiate creation of a purchase order",
+            "time": "2022-08-31T19:19:00Z",
+            "attributes": [
+                {
+                    "name": "resource",
+                    "value": "Procurement Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Purchase Order[272 ]",
+                    "qualifier": null
+                }
+            ]
+        },
+        {
+            "id": 342,
+            "type": "approval",
+            "time": "2022-09-02T04:23:00Z",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase order:272",
+                    "qualifier": null
+                }
+            ]
+        }
+    ]
+}

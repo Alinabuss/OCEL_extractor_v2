@@ -1,0 +1,214 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "area_acres",
+                    "type": "integer"
+                },
+                {
+                    "name": "containment_percent",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "address",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "FireReported",
+            "attributes": [
+                {
+                    "name": "reported_location",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "UnifiedCommandEstablished",
+            "attributes": [
+                {
+                    "name": "note",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "StatusReport",
+            "attributes": [
+                {
+                    "name": "area_acres",
+                    "type": "integer"
+                },
+                {
+                    "name": "containment_percent",
+                    "type": "string"
+                },
+                {
+                    "name": "progress",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire_lidia",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-08T13:08:00Z",
+                    "value": "Lidia Fire"
+                },
+                {
+                    "name": "area_acres",
+                    "time": "2025-01-09T16:46:00Z",
+                    "value": "348"
+                },
+                {
+                    "name": "containment_percent",
+                    "time": "2025-01-09T16:46:00Z",
+                    "value": "60%"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "loc_soledad_acton_ca",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "address",
+                    "time": "2025-01-08T13:08:00Z",
+                    "value": "Soledad Canyon Road, Acton, California"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_lidia",
+                    "qualifier": "location-of"
+                }
+            ]
+        },
+        {
+            "id": "angeles_national_forest",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-09T16:46:00Z",
+                    "value": "Angeles National Forest"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "los_angeles_county_fire_dept",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-09T16:46:00Z",
+                    "value": "Los Angeles County Fire Department"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "FireReported",
+            "time": "2025-01-08T13:08:00Z",
+            "attributes": [
+                {
+                    "name": "reported_location",
+                    "value": "Soledad Canyon Road, Acton, California"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_lidia",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "loc_soledad_acton_ca",
+                    "qualifier": "location"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "UnifiedCommandEstablished",
+            "time": "2025-01-09T16:46:00Z",
+            "attributes": [
+                {
+                    "name": "note",
+                    "value": "Unified command established between Angeles National Forest and Los Angeles County Fire Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "angeles_national_forest",
+                    "qualifier": "participant"
+                },
+                {
+                    "objectId": "los_angeles_county_fire_dept",
+                    "qualifier": "participant"
+                },
+                {
+                    "objectId": "fire_lidia",
+                    "qualifier": "subject"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "StatusReport",
+            "time": "2025-01-09T16:46:00Z",
+            "attributes": [
+                {
+                    "name": "area_acres",
+                    "value": "348"
+                },
+                {
+                    "name": "containment_percent",
+                    "value": "60%"
+                },
+                {
+                    "name": "progress",
+                    "value": "firefighters making significant progress"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_lidia",
+                    "qualifier": "subject"
+                }
+            ]
+        }
+    ]
+}

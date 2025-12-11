@@ -1,0 +1,101 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "category",
+                    "type": "string"
+                },
+                {
+                    "name": "scheduledDeparture",
+                    "type": "datetime"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "VehiclesBooked",
+            "attributes": [
+                {
+                    "name": "result",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "td128",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "time": "",
+                    "value": "3.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "vh34",
+                    "qualifier": "associated-vehicle"
+                }
+            ]
+        },
+        {
+            "id": "vh34",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "category",
+                    "time": "",
+                    "value": "regular"
+                },
+                {
+                    "name": "scheduledDeparture",
+                    "time": "",
+                    "value": "2023-09-22T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td128",
+                    "qualifier": "associated-with-transport-document"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "VehiclesBooked",
+            "time": "2023-09-01T08:23:19Z",
+            "attributes": [
+                {
+                    "name": "result",
+                    "value": "success"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td128",
+                    "qualifier": "for-transport-document"
+                },
+                {
+                    "objectId": "vh34",
+                    "qualifier": "booked-vehicle"
+                }
+            ]
+        }
+    ]
+}

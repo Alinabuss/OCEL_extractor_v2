@@ -1,0 +1,115 @@
+{
+    "objectTypes": [
+        {
+            "name": "Worker",
+            "attributes": []
+        },
+        {
+            "name": "Part",
+            "attributes": [
+                {
+                    "name": "gender",
+                    "type": "string"
+                },
+                {
+                    "name": "specific_mass",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Workstation",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Processing",
+            "attributes": [
+                {
+                    "name": "duration_recorded",
+                    "type": "boolean"
+                },
+                {
+                    "name": "emission_CO2_kg",
+                    "type": "float"
+                },
+                {
+                    "name": "compressed_air_m3",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o1",
+            "type": "Worker",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "o2",
+            "type": "Part",
+            "attributes": [
+                {
+                    "name": "gender",
+                    "time": "2023-04-05T14:52:06Z",
+                    "value": "male"
+                },
+                {
+                    "name": "specific_mass",
+                    "time": "2023-04-05T14:52:06Z",
+                    "value": "not provided"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o3",
+                    "qualifier": "located_at"
+                }
+            ]
+        },
+        {
+            "id": "o3",
+            "type": "Workstation",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Processing",
+            "time": "2023-04-05T14:52:06Z",
+            "attributes": [
+                {
+                    "name": "duration_recorded",
+                    "value": "true"
+                },
+                {
+                    "name": "emission_CO2_kg",
+                    "value": "0.00136458"
+                },
+                {
+                    "name": "compressed_air_m3",
+                    "value": "0.021"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o1",
+                    "qualifier": "processor"
+                },
+                {
+                    "objectId": "o2",
+                    "qualifier": "processed"
+                },
+                {
+                    "objectId": "o3",
+                    "qualifier": "at"
+                }
+            ]
+        }
+    ]
+}

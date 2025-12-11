@@ -1,0 +1,146 @@
+{
+    "objectTypes": [
+        {
+            "name": "Player",
+            "attributes": [
+                {
+                    "name": "playerId",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Match",
+            "attributes": [
+                {
+                    "name": "matchId",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Session",
+            "attributes": [
+                {
+                    "name": "sessionLabel",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "SessionInitiated",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "CreateInitialStoneWall",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Player[P688587]",
+            "type": "Player",
+            "attributes": [
+                {
+                    "name": "playerId",
+                    "time": "2023-07-31T00:10:50Z",
+                    "value": "P688587"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Match[M250230427]",
+            "type": "Match",
+            "attributes": [
+                {
+                    "name": "matchId",
+                    "time": "2023-07-31T00:10:50Z",
+                    "value": "M250230427"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Session[S250230427_688587]",
+            "type": "Session",
+            "attributes": [
+                {
+                    "name": "sessionLabel",
+                    "time": "2023-07-31T00:10:50Z",
+                    "value": "S250230427_688587"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Match[M250230427]",
+                    "qualifier": "for"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "SessionInitiated",
+            "time": "2023-07-31T00:10:50Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Player initiated a session for the match"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Player[P688587]",
+                    "qualifier": "initiator"
+                },
+                {
+                    "objectId": "Session[S250230427_688587]",
+                    "qualifier": "session"
+                },
+                {
+                    "objectId": "Match[M250230427]",
+                    "qualifier": "match"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "CreateInitialStoneWall",
+            "time": "2023-07-31T00:10:50Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Creation of an initial stone wall during the session"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Player[P688587]",
+                    "qualifier": "participant"
+                },
+                {
+                    "objectId": "Match[M250230427]",
+                    "qualifier": "match"
+                },
+                {
+                    "objectId": "Session[S250230427_688587]",
+                    "qualifier": "session"
+                }
+            ]
+        }
+    ]
+}

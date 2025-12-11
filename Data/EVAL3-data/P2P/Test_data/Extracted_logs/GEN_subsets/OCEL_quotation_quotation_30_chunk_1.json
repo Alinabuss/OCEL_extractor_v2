@@ -1,0 +1,150 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                },
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Quotation",
+            "attributes": []
+        },
+        {
+            "name": "Actor",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Purchase Order Created",
+            "attributes": []
+        },
+        {
+            "name": "Purchase Order Approved",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:47",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "time": "2022-05-06T19:52:00Z",
+                    "value": "002"
+                },
+                {
+                    "name": "lifecycle",
+                    "time": "2022-05-06T19:52:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:30",
+                    "qualifier": "associated"
+                }
+            ]
+        },
+        {
+            "id": "purchase_order:48",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "time": "2022-05-12T02:38:00Z",
+                    "value": "002"
+                },
+                {
+                    "name": "lifecycle",
+                    "time": "2022-05-12T02:38:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:30",
+                    "qualifier": "associated"
+                }
+            ]
+        },
+        {
+            "id": "quotation:30",
+            "type": "Quotation",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "actor:procurement_department",
+            "type": "Actor",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Procurement Department"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "actor:procurement_order_manager",
+            "type": "Actor",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Procurement Order Manager"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "event:1",
+            "type": "Purchase Order Created",
+            "time": "2022-05-06T19:52:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:47",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "actor:procurement_department",
+                    "qualifier": "performedBy"
+                }
+            ]
+        },
+        {
+            "id": "event:2",
+            "type": "Purchase Order Approved",
+            "time": "2022-05-12T02:38:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:48",
+                    "qualifier": "approved"
+                },
+                {
+                    "objectId": "actor:procurement_order_manager",
+                    "qualifier": "performedBy"
+                }
+            ]
+        }
+    ]
+}

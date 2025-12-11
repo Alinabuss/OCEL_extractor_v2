@@ -1,0 +1,260 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "lastUpdate",
+                    "type": "time"
+                }
+            ]
+        },
+        {
+            "name": "Weather",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "amount",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Crew",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Agency",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Map",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "SituationReport",
+            "attributes": [
+                {
+                    "name": "message",
+                    "type": "string"
+                },
+                {
+                    "name": "rain_amount",
+                    "type": "string"
+                },
+                {
+                    "name": "fire_potential",
+                    "type": "string"
+                },
+                {
+                    "name": "fire_activity",
+                    "type": "string"
+                },
+                {
+                    "name": "smoldering",
+                    "type": "string"
+                },
+                {
+                    "name": "crew_tasks",
+                    "type": "string"
+                },
+                {
+                    "name": "repair_priority",
+                    "type": "string"
+                },
+                {
+                    "name": "advisory",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Fire_Border2",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-27T15:16:00Z",
+                    "value": "Border 2 Fire"
+                },
+                {
+                    "name": "lastUpdate",
+                    "time": "2025-01-27T15:16:00Z",
+                    "value": "2025-01-27T15:16:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Weather_Rain_2025-01-27",
+                    "qualifier": "affected-by"
+                },
+                {
+                    "objectId": "Crew_GroundCrews",
+                    "qualifier": "has-response-crews"
+                }
+            ]
+        },
+        {
+            "id": "Weather_Rain_2025-01-27",
+            "type": "Weather",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-27T15:16:00Z",
+                    "value": "Continued rain showers"
+                },
+                {
+                    "name": "amount",
+                    "time": "2025-01-27T15:16:00Z",
+                    "value": "over a half inch"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Fire_Border2",
+                    "qualifier": "affects"
+                }
+            ]
+        },
+        {
+            "id": "Crew_GroundCrews",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-27T15:16:00Z",
+                    "value": "Ground crews will continue to patrol fire lines and mop up hot spots; will screen for suppression repair needs and prioritize repair efforts"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Fire_Border2",
+                    "qualifier": "assigned-to"
+                }
+            ]
+        },
+        {
+            "id": "Agency_SanDiegoCountySheriff",
+            "type": "Agency",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-27T15:16:00Z",
+                    "value": "San Diego County Sheriff's Office"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Map_GenasysProtect",
+                    "qualifier": "encourages"
+                }
+            ]
+        },
+        {
+            "id": "Map_GenasysProtect",
+            "type": "Map",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-27T15:16:00Z",
+                    "value": "Genasys Protect evacuation map"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Agency_SanDiegoCountySheriff",
+                    "qualifier": "referenced-by"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "SituationReport",
+            "time": "2025-01-27T15:16:00Z",
+            "attributes": [
+                {
+                    "name": "message",
+                    "value": "Continued rain showers have brought over a half inch of rain across much of the fire area and has greatly reduced fire potential. Minimal fire activity and smoldering was seen overnight. Ground crews will continue to patrol fire lines and mop up hot spots. Crews will also be working to screen for suppression repair needs and making repair efforts a high priority. For the most current information on evacuation orders, the San Diego County Sheriff's Office encourages all residents to check the Genasys Protect evacuation map linked below."
+                },
+                {
+                    "name": "rain_amount",
+                    "value": "over a half inch"
+                },
+                {
+                    "name": "fire_potential",
+                    "value": "greatly reduced"
+                },
+                {
+                    "name": "fire_activity",
+                    "value": "minimal"
+                },
+                {
+                    "name": "smoldering",
+                    "value": "seen overnight"
+                },
+                {
+                    "name": "crew_tasks",
+                    "value": "patrol fire lines; mop up hot spots; screen for suppression repair needs; prioritize repair efforts"
+                },
+                {
+                    "name": "repair_priority",
+                    "value": "high"
+                },
+                {
+                    "name": "advisory",
+                    "value": "San Diego County Sheriff's Office encourages residents to check the Genasys Protect evacuation map"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Fire_Border2",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "Weather_Rain_2025-01-27",
+                    "qualifier": "mentions"
+                },
+                {
+                    "objectId": "Crew_GroundCrews",
+                    "qualifier": "mentions"
+                },
+                {
+                    "objectId": "Agency_SanDiegoCountySheriff",
+                    "qualifier": "mentions"
+                },
+                {
+                    "objectId": "Map_GenasysProtect",
+                    "qualifier": "references"
+                }
+            ]
+        }
+    ]
+}

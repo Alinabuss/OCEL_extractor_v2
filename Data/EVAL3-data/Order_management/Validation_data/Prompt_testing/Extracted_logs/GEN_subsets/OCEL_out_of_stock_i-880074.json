@@ -1,0 +1,131 @@
+{
+    "objectTypes": [
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "title",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "MarkedOutOfStock",
+            "attributes": [
+                {
+                    "name": "stockStatus",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "iPad Pro",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "title",
+                    "time": "",
+                    "value": "iPad Pro"
+                },
+                {
+                    "name": "price",
+                    "time": "",
+                    "value": "1099.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "i-880074",
+                    "qualifier": "associated_with"
+                }
+            ]
+        },
+        {
+            "id": "i-880074",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "time": "",
+                    "value": "1099.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Marco Pegoraro",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Marco Pegoraro"
+                },
+                {
+                    "name": "role",
+                    "time": "2023-04-11T12:38:26Z",
+                    "value": "warehousing"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "i-880074",
+                    "qualifier": "responsible_for"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "evt-1",
+            "type": "MarkedOutOfStock",
+            "time": "2023-04-11T12:38:26Z",
+            "attributes": [
+                {
+                    "name": "stockStatus",
+                    "value": "out of stock"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "i-880074",
+                    "qualifier": "affected_item"
+                },
+                {
+                    "objectId": "Marco Pegoraro",
+                    "qualifier": "responsible"
+                }
+            ]
+        }
+    ]
+}

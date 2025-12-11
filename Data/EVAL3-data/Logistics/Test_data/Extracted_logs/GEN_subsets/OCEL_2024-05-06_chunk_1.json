@@ -1,0 +1,115 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "type": "timestamp"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "TransportDocumentAssociated",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "TD457",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "time": "2024-05-06T14:54:47Z",
+                    "value": "3.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "VH100",
+                    "qualifier": "associatedVehicle"
+                },
+                {
+                    "objectId": "VH105",
+                    "qualifier": "associatedVehicle"
+                },
+                {
+                    "objectId": "VH100",
+                    "qualifier": "high-priority"
+                }
+            ]
+        },
+        {
+            "id": "VH100",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "time": "2024-05-06T14:54:47Z",
+                    "value": "2024-05-10T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "TD457",
+                    "qualifier": "bookedFor"
+                },
+                {
+                    "objectId": "TD457",
+                    "qualifier": "high-priorityFor"
+                }
+            ]
+        },
+        {
+            "id": "VH105",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "time": "2024-05-06T14:54:47Z",
+                    "value": "2024-05-28T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "TD457",
+                    "qualifier": "bookedFor"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "E1",
+            "type": "TransportDocumentAssociated",
+            "time": "2024-05-06T14:54:47Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "TD457",
+                    "qualifier": "transportDocument"
+                },
+                {
+                    "objectId": "VH100",
+                    "qualifier": "bookedVehicle"
+                },
+                {
+                    "objectId": "VH105",
+                    "qualifier": "bookedVehicle"
+                }
+            ]
+        }
+    ]
+}

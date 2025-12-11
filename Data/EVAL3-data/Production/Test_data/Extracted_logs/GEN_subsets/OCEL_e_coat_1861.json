@@ -1,0 +1,111 @@
+{
+    "objectTypes": [
+        {
+            "name": "FormedPart",
+            "attributes": []
+        },
+        {
+            "name": "Workstation",
+            "attributes": []
+        },
+        {
+            "name": "Machine",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "CoatingProcess",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "type": "integer"
+                },
+                {
+                    "name": "co2_kg",
+                    "type": "double"
+                },
+                {
+                    "name": "electricity_kwh",
+                    "type": "double"
+                },
+                {
+                    "name": "coating_material_kg",
+                    "type": "double"
+                },
+                {
+                    "name": "coating_waste_kg",
+                    "type": "double"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "FormedPart[1861]",
+            "type": "FormedPart",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Workstation[1]",
+            "type": "Workstation",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Machine[coater03]",
+            "type": "Machine",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Workstation[1]",
+                    "qualifier": "locatedAt"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "CoatingProcess",
+            "time": "2023-04-04T09:01:44Z",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "value": "300"
+                },
+                {
+                    "name": "co2_kg",
+                    "value": "0.175"
+                },
+                {
+                    "name": "electricity_kwh",
+                    "value": "0.25"
+                },
+                {
+                    "name": "coating_material_kg",
+                    "value": "0.0004"
+                },
+                {
+                    "name": "coating_waste_kg",
+                    "value": "0.0001"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "FormedPart[1861]",
+                    "qualifier": "treatedPart"
+                },
+                {
+                    "objectId": "Workstation[1]",
+                    "qualifier": "performedAt"
+                },
+                {
+                    "objectId": "Machine[coater03]",
+                    "qualifier": "usedMachine"
+                }
+            ]
+        }
+    ]
+}

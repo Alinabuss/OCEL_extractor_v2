@@ -1,0 +1,159 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "fullName",
+                    "type": "string"
+                },
+                {
+                    "name": "role",
+                    "type": "string"
+                },
+                {
+                    "name": "diagnoses",
+                    "type": "string"
+                },
+                {
+                    "name": "incapacity_status",
+                    "type": "string"
+                },
+                {
+                    "name": "guardianship",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Report",
+            "attributes": [
+                {
+                    "name": "content",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "CourtDecision",
+            "attributes": [
+                {
+                    "name": "decisionText",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Mr F.S.M.",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "fullName",
+                    "value": "Mr F.S.M."
+                },
+                {
+                    "name": "diagnoses",
+                    "value": "disorder with an origin in his childhood or adolescence; schizoid and compulsive disorder; psychotic disorder with compensatory mechanisms; ADHD with symptoms since childhood"
+                },
+                {
+                    "name": "incapacity_status",
+                    "time": "2016-10-11T00:00:00Z",
+                    "value": "partially incapacitated"
+                },
+                {
+                    "name": "guardianship",
+                    "time": "2016-10-11T00:00:00Z",
+                    "value": "placement under partial guardianship (curatela)"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Ciutadella de Menorca Court of First Instance no. 1",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Ciutadella de Menorca Court of First Instance no. 1"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "forensic_report_by_court_expert",
+            "type": "Report",
+            "attributes": [
+                {
+                    "name": "content",
+                    "value": "[According to the report by the court's forensic expert,] Mr F.S.M. has been diagnosed with a disorder with an origin in his childhood or adolescence, schizoid and compulsive disorder and psychotic disorder with compensatory mechanisms, [arising from] ADHD with symptoms since childhood. Partial guardianship [is proposed from the medical perspective], mainly with regard to important decisions or decisions with administrative content"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Mr F.S.M.",
+                    "qualifier": "concerns"
+                },
+                {
+                    "objectId": "court_forensic_expert",
+                    "qualifier": "authored_by"
+                }
+            ]
+        },
+        {
+            "id": "court_forensic_expert",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "court's forensic expert"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Ciutadella de Menorca Court of First Instance no. 1",
+                    "qualifier": "forensic_expert_of"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "CourtDecision",
+            "time": "2016-10-11T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "decisionText",
+                    "value": "On 11 October 2016 the Ciutadella de Menorca Court of First Instance no. 1 declared the applicant partially incapacitated and ordered his placement under partial guardianship (curatela)."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Mr F.S.M.",
+                    "qualifier": "applicant"
+                },
+                {
+                    "objectId": "Ciutadella de Menorca Court of First Instance no. 1",
+                    "qualifier": "court"
+                },
+                {
+                    "objectId": "forensic_report_by_court_expert",
+                    "qualifier": "based_on"
+                }
+            ]
+        }
+    ]
+}

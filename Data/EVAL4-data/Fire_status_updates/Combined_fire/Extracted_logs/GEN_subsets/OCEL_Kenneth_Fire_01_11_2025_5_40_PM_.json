@@ -1,0 +1,184 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "MopUpHotSpots",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "impact",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ImproveContainmentLines",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "impact",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "MonitoringAndPatrolling",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                },
+                {
+                    "name": "goal",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "kenneth-fire",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-11T17:40:00Z",
+                    "value": "Kenneth Fire"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "firefighters",
+                    "qualifier": "responded_by"
+                }
+            ]
+        },
+        {
+            "id": "firefighters",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-11T17:40:00Z",
+                    "value": "Firefighters"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "kenneth-fire",
+                    "qualifier": "works_on"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "MopUpHotSpots",
+            "time": "2025-01-11T17:40:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "worked throughout the day to mop up hot spots"
+                },
+                {
+                    "name": "impact",
+                    "value": "added to overall containment"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "kenneth-fire",
+                    "qualifier": "affected"
+                },
+                {
+                    "objectId": "firefighters",
+                    "qualifier": "performed_by"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "ImproveContainmentLines",
+            "time": "2025-01-11T17:40:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "worked throughout the day to improve containment lines"
+                },
+                {
+                    "name": "impact",
+                    "value": "added to overall containment"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "kenneth-fire",
+                    "qualifier": "affected"
+                },
+                {
+                    "objectId": "firefighters",
+                    "qualifier": "performed_by"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "MonitoringAndPatrolling",
+            "time": "2025-01-11T17:40:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "will continue monitoring and patrolling this evening"
+                },
+                {
+                    "name": "status",
+                    "value": "planned"
+                },
+                {
+                    "name": "goal",
+                    "value": "ensure the fire remains within its established perimeter"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "kenneth-fire",
+                    "qualifier": "planned_for"
+                },
+                {
+                    "objectId": "firefighters",
+                    "qualifier": "planned_by"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,185 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containerCount",
+                    "type": "double"
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "type": "dateTime"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "AssociateTransportDocument",
+            "attributes": []
+        },
+        {
+            "name": "BookVehicle",
+            "attributes": []
+        },
+        {
+            "name": "ProcessTransportDocument",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "td74",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containerCount",
+                    "time": "2023-07-20T07:49:23Z",
+                    "value": "5.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "vh21",
+                    "qualifier": "associatedWith"
+                },
+                {
+                    "objectId": "vh21",
+                    "qualifier": "regularVehicle"
+                }
+            ]
+        },
+        {
+            "id": "td75",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containerCount",
+                    "time": "2023-07-20T13:38:00Z",
+                    "value": "3.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "vh21",
+                    "qualifier": "regularVehicle"
+                }
+            ]
+        },
+        {
+            "id": "td76",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containerCount",
+                    "time": "2023-07-20T13:38:00Z",
+                    "value": "4.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "vh22",
+                    "qualifier": "bookedVehicle"
+                }
+            ]
+        },
+        {
+            "id": "vh21",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "time": "2023-07-20T07:49:23Z",
+                    "value": "2023-08-08T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td74",
+                    "qualifier": "regularlyBookedFor"
+                },
+                {
+                    "objectId": "td75",
+                    "qualifier": "regularlyBookedFor"
+                }
+            ]
+        },
+        {
+            "id": "vh22",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "time": "2023-07-20T13:38:00Z",
+                    "value": "2023-08-11T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td76",
+                    "qualifier": "bookedFor"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "AssociateTransportDocument",
+            "time": "2023-07-20T07:49:23Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "td74",
+                    "qualifier": "transportDocument"
+                },
+                {
+                    "objectId": "vh21",
+                    "qualifier": "vehicle"
+                },
+                {
+                    "objectId": "vh21",
+                    "qualifier": "regularVehicle"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "BookVehicle",
+            "time": "2023-07-20T13:38:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "td76",
+                    "qualifier": "transportDocument"
+                },
+                {
+                    "objectId": "vh22",
+                    "qualifier": "vehicle"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "ProcessTransportDocument",
+            "time": "2023-07-20T13:38:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "td75",
+                    "qualifier": "transportDocument"
+                },
+                {
+                    "objectId": "vh21",
+                    "qualifier": "regularVehicle"
+                }
+            ]
+        }
+    ]
+}

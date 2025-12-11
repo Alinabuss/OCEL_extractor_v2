@@ -1,0 +1,151 @@
+{
+    "objectTypes": [
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                },
+                {
+                    "name": "movement_type",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "GoodsReceiptCreated",
+            "attributes": []
+        },
+        {
+            "name": "TwoWayMatchCompleted",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "goods receipt:341",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "status",
+                    "time": "2022-09-16T14:54:00Z",
+                    "value": "complete"
+                },
+                {
+                    "name": "movement_type",
+                    "time": "2022-09-21T10:26:00Z",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:282",
+                    "qualifier": "linked-to"
+                }
+            ]
+        },
+        {
+            "id": "purchase_order:282",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "time": "2022-09-16T14:54:00Z",
+                    "value": "003"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "invoice receipt:364",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "time": "2022-09-21T10:26:00Z",
+                    "value": "146800.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Warehouse Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Finance/Account Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "GoodsReceiptCreated",
+            "time": "2022-09-16T14:54:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:341",
+                    "qualifier": "creates"
+                },
+                {
+                    "objectId": "purchase_order:282",
+                    "qualifier": "linked-to"
+                },
+                {
+                    "objectId": "Warehouse Department",
+                    "qualifier": "performed-by"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "TwoWayMatchCompleted",
+            "time": "2022-09-21T10:26:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:364",
+                    "qualifier": "involves"
+                },
+                {
+                    "objectId": "goods receipt:341",
+                    "qualifier": "confirms"
+                },
+                {
+                    "objectId": "Finance/Account Department",
+                    "qualifier": "performed-by"
+                }
+            ]
+        }
+    ]
+}

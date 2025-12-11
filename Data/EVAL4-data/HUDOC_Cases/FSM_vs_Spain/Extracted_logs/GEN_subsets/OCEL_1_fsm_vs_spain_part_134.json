@@ -1,0 +1,200 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Hearing",
+            "attributes": []
+        },
+        {
+            "name": "Court",
+            "attributes": []
+        },
+        {
+            "name": "ForensicReport",
+            "attributes": [
+                {
+                    "name": "indicates_need_for_procedural_adjustments",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "CaseReference",
+            "attributes": [
+                {
+                    "name": "cited",
+                    "type": "boolean"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Attendance",
+            "attributes": []
+        },
+        {
+            "name": "OpportunityToAddressCourt",
+            "attributes": []
+        },
+        {
+            "name": "DidNotReferToProceduralAdjustments",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "applicant_1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "unknown",
+                    "value": "applicant"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "lawyer_1",
+                    "qualifier": "has_lawyer"
+                }
+            ]
+        },
+        {
+            "id": "lawyer_1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "unknown",
+                    "value": "lawyer"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "represents"
+                }
+            ]
+        },
+        {
+            "id": "hearing_1",
+            "type": "Hearing",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "court_1",
+                    "qualifier": "before"
+                }
+            ]
+        },
+        {
+            "id": "court_1",
+            "type": "Court",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "report_1",
+            "type": "ForensicReport",
+            "attributes": [
+                {
+                    "name": "indicates_need_for_procedural_adjustments",
+                    "time": "unknown",
+                    "value": "true"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "case_vaudelle",
+            "type": "CaseReference",
+            "attributes": [
+                {
+                    "name": "cited",
+                    "time": "unknown",
+                    "value": "true"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Attendance",
+            "time": "unknown",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "attended"
+                },
+                {
+                    "objectId": "lawyer_1",
+                    "qualifier": "attended"
+                },
+                {
+                    "objectId": "hearing_1",
+                    "qualifier": "context"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "OpportunityToAddressCourt",
+            "time": "unknown",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "had_opportunity_to_address"
+                },
+                {
+                    "objectId": "lawyer_1",
+                    "qualifier": "had_opportunity_to_address"
+                },
+                {
+                    "objectId": "court_1",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "hearing_1",
+                    "qualifier": "context"
+                },
+                {
+                    "objectId": "case_vaudelle",
+                    "qualifier": "contrast_with"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "DidNotReferToProceduralAdjustments",
+            "time": "unknown",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "did_not_refer"
+                },
+                {
+                    "objectId": "lawyer_1",
+                    "qualifier": "did_not_refer"
+                },
+                {
+                    "objectId": "report_1",
+                    "qualifier": "despite_report_indicating_need"
+                }
+            ]
+        }
+    ]
+}

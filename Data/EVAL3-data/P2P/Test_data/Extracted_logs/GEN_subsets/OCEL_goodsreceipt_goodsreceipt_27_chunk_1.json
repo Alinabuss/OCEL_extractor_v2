@@ -1,0 +1,109 @@
+{
+    "objectTypes": [
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Two-way Match",
+            "attributes": [
+                {
+                    "name": "confirmation",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "goods receipt:27",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:27",
+                    "qualifier": "linkedTo"
+                }
+            ]
+        },
+        {
+            "id": "invoice receipt:27",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "value": "115600.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Finance/Account Department",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Finance/Account Department"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Two-way Match",
+            "time": "2022-05-03T07:10:00Z",
+            "attributes": [
+                {
+                    "name": "confirmation",
+                    "value": "confirmed completion"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:27",
+                    "qualifier": "conductedFor"
+                },
+                {
+                    "objectId": "invoice receipt:27",
+                    "qualifier": "linkedTo"
+                },
+                {
+                    "objectId": "Finance/Account Department",
+                    "qualifier": "conductedBy"
+                }
+            ]
+        }
+    ]
+}

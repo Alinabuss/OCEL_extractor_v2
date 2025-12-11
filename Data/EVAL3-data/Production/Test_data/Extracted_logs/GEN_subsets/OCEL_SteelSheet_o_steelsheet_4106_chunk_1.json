@@ -1,0 +1,229 @@
+{
+    "objectTypes": [
+        {
+            "name": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "SteelCoil",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Machine",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Waste",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "type": "float"
+                },
+                {
+                    "name": "disposition",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "EnergySource",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Split",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "type": "float"
+                },
+                {
+                    "name": "produced_mass_kg",
+                    "type": "float"
+                },
+                {
+                    "name": "consumed_energy_kwh",
+                    "type": "float"
+                },
+                {
+                    "name": "carbon_emissions_kg",
+                    "type": "float"
+                },
+                {
+                    "name": "waste_mass_kg",
+                    "type": "float"
+                },
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "location",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o_steelsheet_4106",
+            "type": "SteelSheet",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "o_steelsheet_4106_out",
+            "type": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "time": "2023-04-05T11:46:14Z",
+                    "value": "0.02121"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_steelsheet_4106",
+                    "qualifier": "derivedFrom"
+                }
+            ]
+        },
+        {
+            "id": "o_steelcoil_1",
+            "type": "SteelCoil",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "time": "2023-04-05T11:46:14Z",
+                    "value": "31.91076"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_machine_splitter_01",
+            "type": "Machine",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-04-05T11:46:14Z",
+                    "value": "Machine Splitter 01"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_waste_1",
+            "type": "Waste",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "time": "2023-04-05T11:46:14Z",
+                    "value": "0.00042"
+                },
+                {
+                    "name": "disposition",
+                    "time": "2023-04-05T11:46:14Z",
+                    "value": "recycling"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_grid",
+            "type": "EnergySource",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-04-05T11:46:14Z",
+                    "value": "grid"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e_2023-04-05T11:46:14Z_split_1",
+            "type": "Split",
+            "time": "2023-04-05T11:46:14Z",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "value": "13.93"
+                },
+                {
+                    "name": "produced_mass_kg",
+                    "value": "0.02121"
+                },
+                {
+                    "name": "consumed_energy_kwh",
+                    "value": "0.0212748"
+                },
+                {
+                    "name": "carbon_emissions_kg",
+                    "value": "0.014560905"
+                },
+                {
+                    "name": "waste_mass_kg",
+                    "value": "0.00042"
+                },
+                {
+                    "name": "description",
+                    "value": "splitting the steel sheet"
+                },
+                {
+                    "name": "location",
+                    "value": "workstation"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_steelsheet_4106",
+                    "qualifier": "input"
+                },
+                {
+                    "objectId": "o_steelsheet_4106_out",
+                    "qualifier": "output"
+                },
+                {
+                    "objectId": "o_steelcoil_1",
+                    "qualifier": "used_material"
+                },
+                {
+                    "objectId": "o_waste_1",
+                    "qualifier": "waste"
+                },
+                {
+                    "objectId": "o_machine_splitter_01",
+                    "qualifier": "machine"
+                },
+                {
+                    "objectId": "o_grid",
+                    "qualifier": "energy_source"
+                }
+            ]
+        }
+    ]
+}

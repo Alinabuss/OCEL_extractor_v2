@@ -1,0 +1,96 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "type": "time"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "TransportDocumentCreated",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "td29",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "value": "5.0",
+                    "time": "2023-06-15T08:06:30Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "vh7",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "value": "2023-06-20T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td29",
+                    "qualifier": "booked_for"
+                }
+            ]
+        },
+        {
+            "id": "vh10",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "value": "2023-06-30T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td29",
+                    "qualifier": "booked_for"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "TransportDocumentCreated",
+            "time": "2023-06-15T08:06:30Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "td29",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "vh7",
+                    "qualifier": "initiated_booking"
+                },
+                {
+                    "objectId": "vh10",
+                    "qualifier": "initiated_booking"
+                }
+            ]
+        }
+    ]
+}

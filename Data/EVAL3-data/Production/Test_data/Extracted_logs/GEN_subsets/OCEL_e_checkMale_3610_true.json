@@ -1,0 +1,105 @@
+{
+    "objectTypes": [
+        {
+            "name": "MalePart",
+            "attributes": []
+        },
+        {
+            "name": "Worker",
+            "attributes": []
+        },
+        {
+            "name": "Workstation",
+            "attributes": [
+                {
+                    "name": "energy_source",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Check",
+            "attributes": [
+                {
+                    "name": "CO2_kg",
+                    "type": "float"
+                },
+                {
+                    "name": "compressed_air_m3",
+                    "type": "float"
+                },
+                {
+                    "name": "duration",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o_malepart_3610",
+            "type": "MalePart",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "o_worker_1",
+            "type": "Worker",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "o_workstation_2",
+                    "qualifier": "works_at"
+                }
+            ]
+        },
+        {
+            "id": "o_workstation_2",
+            "type": "Workstation",
+            "attributes": [
+                {
+                    "name": "energy_source",
+                    "value": "grid"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Check",
+            "time": "2023-04-05T14:59:13Z",
+            "attributes": [
+                {
+                    "name": "CO2_kg",
+                    "value": "0.0019494"
+                },
+                {
+                    "name": "compressed_air_m3",
+                    "value": "0.03"
+                },
+                {
+                    "name": "duration",
+                    "value": "unspecified"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_malepart_3610",
+                    "qualifier": "checked"
+                },
+                {
+                    "objectId": "o_worker_1",
+                    "qualifier": "performed_by"
+                },
+                {
+                    "objectId": "o_workstation_2",
+                    "qualifier": "performed_at"
+                }
+            ]
+        }
+    ]
+}

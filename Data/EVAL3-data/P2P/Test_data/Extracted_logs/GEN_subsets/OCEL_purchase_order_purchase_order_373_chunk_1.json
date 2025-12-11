@@ -1,0 +1,152 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseOrder",
+            "attributes": []
+        },
+        {
+            "name": "GoodsReceipt",
+            "attributes": []
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": [
+                {
+                    "name": "groupId",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Goods Receipt Created",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:373",
+            "type": "PurchaseOrder",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchasing_group:005",
+                    "qualifier": "belongs-to"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt:445",
+            "type": "GoodsReceipt",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:373",
+                    "qualifier": "associated-with"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt:443",
+            "type": "GoodsReceipt",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:373",
+                    "qualifier": "associated-with"
+                }
+            ]
+        },
+        {
+            "id": "purchasing_group:005",
+            "type": "PurchasingGroup",
+            "attributes": [
+                {
+                    "name": "groupId",
+                    "time": "",
+                    "value": "005"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "department:Warehouse Department",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Warehouse Department"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Goods Receipt Created",
+            "time": "2022-10-25T16:59:00Z",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:445",
+                    "qualifier": "goodsReceipt"
+                },
+                {
+                    "objectId": "purchase_order:373",
+                    "qualifier": "purchaseOrder"
+                },
+                {
+                    "objectId": "department:Warehouse Department",
+                    "qualifier": "created-by"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "Goods Receipt Created",
+            "time": "2022-10-25T20:20:00Z",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:443",
+                    "qualifier": "goodsReceipt"
+                },
+                {
+                    "objectId": "purchase_order:373",
+                    "qualifier": "purchaseOrder"
+                },
+                {
+                    "objectId": "department:Warehouse Department",
+                    "qualifier": "created-by"
+                }
+            ]
+        }
+    ]
+}

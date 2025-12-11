@@ -1,0 +1,99 @@
+{
+    "objectTypes": [
+        {
+            "name": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "credit amount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movement type",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "two-way match",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt:219",
+            "type": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "credit amount",
+                    "value": "9800.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:224",
+                    "qualifier": "associated_with"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt:224",
+            "type": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movement type",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Finance/Account Department",
+            "type": "department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "two-way match",
+            "time": "2022-07-28T07:10:00Z",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:219",
+                    "qualifier": "involves"
+                },
+                {
+                    "objectId": "goods receipt:224",
+                    "qualifier": "associated_with"
+                },
+                {
+                    "objectId": "Finance/Account Department",
+                    "qualifier": "performed_by"
+                }
+            ]
+        }
+    ]
+}

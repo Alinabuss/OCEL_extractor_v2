@@ -1,0 +1,150 @@
+{
+    "objectTypes": [
+        {
+            "name": "hinge",
+            "attributes": [
+                {
+                    "name": "weight",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "female_part",
+            "attributes": []
+        },
+        {
+            "name": "male_part",
+            "attributes": []
+        },
+        {
+            "name": "steel_pin",
+            "attributes": [
+                {
+                    "name": "weight",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "workstation",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "assembly",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o_hinge_1978",
+            "type": "hinge",
+            "attributes": [
+                {
+                    "name": "weight",
+                    "value": 0.18599
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_femalepart_1978",
+                    "qualifier": "has_component"
+                },
+                {
+                    "objectId": "o_malepart_2323",
+                    "qualifier": "has_component"
+                },
+                {
+                    "objectId": "o_steelpin_2426",
+                    "qualifier": "has_component"
+                }
+            ]
+        },
+        {
+            "id": "o_femalepart_1978",
+            "type": "female_part",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "o_hinge_1978",
+                    "qualifier": "component_of"
+                }
+            ]
+        },
+        {
+            "id": "o_malepart_2323",
+            "type": "male_part",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "o_hinge_1978",
+                    "qualifier": "component_of"
+                }
+            ]
+        },
+        {
+            "id": "o_steelpin_2426",
+            "type": "steel_pin",
+            "attributes": [
+                {
+                    "name": "weight",
+                    "value": 0.001
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_hinge_1978",
+                    "qualifier": "component_of"
+                }
+            ]
+        },
+        {
+            "id": "o_workstation_3",
+            "type": "workstation",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e_assembly_1",
+            "type": "assembly",
+            "time": "2023-04-04T13:58:09Z",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "value": 5.0
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_hinge_1978",
+                    "qualifier": "output"
+                },
+                {
+                    "objectId": "o_femalepart_1978",
+                    "qualifier": "input"
+                },
+                {
+                    "objectId": "o_malepart_2323",
+                    "qualifier": "input"
+                },
+                {
+                    "objectId": "o_steelpin_2426",
+                    "qualifier": "input"
+                },
+                {
+                    "objectId": "o_workstation_3",
+                    "qualifier": "performed_at"
+                }
+            ]
+        }
+    ]
+}

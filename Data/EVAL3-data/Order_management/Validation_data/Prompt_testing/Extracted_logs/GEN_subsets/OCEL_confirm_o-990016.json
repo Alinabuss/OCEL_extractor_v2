@@ -1,0 +1,169 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Customer",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Order",
+            "attributes": [
+                {
+                    "name": "totalPrice",
+                    "type": "double"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "double"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "double"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "OrderConfirmed",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Wil van der Aalst",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Wil van der Aalst"
+                },
+                {
+                    "name": "role",
+                    "value": "sales"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Nordica Systems GmbH",
+            "type": "Customer",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Nordica Systems GmbH"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o-990016",
+            "type": "Order",
+            "attributes": [
+                {
+                    "name": "totalPrice",
+                    "value": "3990.98"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "i-880076",
+                    "qualifier": "includes"
+                },
+                {
+                    "objectId": "Fire Stick 4K",
+                    "qualifier": "features"
+                }
+            ]
+        },
+        {
+            "id": "i-880076",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "199.99"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Fire Stick 4K",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Fire Stick 4K"
+                },
+                {
+                    "name": "price",
+                    "value": "89.99"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e-1",
+            "type": "OrderConfirmed",
+            "time": "2023-04-11T07:30:24Z",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "confirmed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Wil van der Aalst",
+                    "qualifier": "confirmedBy"
+                },
+                {
+                    "objectId": "o-990016",
+                    "qualifier": "relatedToOrder"
+                },
+                {
+                    "objectId": "Nordica Systems GmbH",
+                    "qualifier": "forCustomer"
+                }
+            ]
+        }
+    ]
+}

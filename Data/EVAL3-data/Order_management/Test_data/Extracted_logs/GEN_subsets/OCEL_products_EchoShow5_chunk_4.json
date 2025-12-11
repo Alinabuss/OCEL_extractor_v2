@@ -1,0 +1,317 @@
+{
+    "objectTypes": [
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "name": "Package",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Package Sent",
+            "attributes": []
+        },
+        {
+            "name": "Reorder",
+            "attributes": [
+                {
+                    "name": "actor",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Pick",
+            "attributes": [
+                {
+                    "name": "actor",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "pkg-001",
+            "type": "Package",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "i-885229",
+                    "qualifier": "contains"
+                },
+                {
+                    "objectId": "i-885499",
+                    "qualifier": "contains"
+                },
+                {
+                    "objectId": "i-885636",
+                    "qualifier": "contains"
+                },
+                {
+                    "objectId": "prod-echo-studio",
+                    "qualifier": "contains"
+                },
+                {
+                    "objectId": "prod-echo-show-5",
+                    "qualifier": "contains"
+                }
+            ]
+        },
+        {
+            "id": "i-885229",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "time": "2023-12-22T10:55:00Z",
+                    "value": "43.9"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-885499",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "time": "2023-12-22T10:55:00Z",
+                    "value": "535.02"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-885636",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "time": "2023-12-22T10:55:00Z",
+                    "value": "785.67"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "prod-echo-studio",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-12-22T10:55:00Z",
+                    "value": "Echo Studio"
+                },
+                {
+                    "name": "price",
+                    "time": "2023-12-22T10:55:00Z",
+                    "value": "199.99"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "prod-echo-show-5",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-12-22T10:55:00Z",
+                    "value": "Echo Show 5"
+                },
+                {
+                    "name": "price",
+                    "time": "2023-12-22T10:55:00Z",
+                    "value": "89.99"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-885750",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "time": "2023-12-28T09:25:30Z",
+                    "value": "101.15"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "prod-echo-show-5",
+                    "qualifier": "corresponds-to"
+                }
+            ]
+        },
+        {
+            "id": "i-885873",
+            "type": "Item",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "prod-echo-show-5",
+                    "qualifier": "associated-with"
+                },
+                {
+                    "objectId": "i-885750",
+                    "qualifier": "linked-to"
+                }
+            ]
+        },
+        {
+            "id": "i-885942",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "time": "2024-01-02T09:25:28Z",
+                    "value": "101.15"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "prod-echo-show-5",
+                    "qualifier": "corresponds-to"
+                }
+            ]
+        },
+        {
+            "id": "i-885958",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "time": "2024-01-04T16:19:04Z",
+                    "value": "101.15"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "prod-echo-show-5",
+                    "qualifier": "associated-with"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Package Sent",
+            "time": "2023-12-22T10:55:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "pkg-001",
+                    "qualifier": "package"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Reorder",
+            "time": "2023-12-28T09:25:30Z",
+            "attributes": [
+                {
+                    "name": "actor",
+                    "value": "Mahsa Bafrani"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "i-885750",
+                    "qualifier": "item"
+                },
+                {
+                    "objectId": "prod-echo-show-5",
+                    "qualifier": "product"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "Pick",
+            "time": "2023-12-29T10:12:15Z",
+            "attributes": [
+                {
+                    "name": "actor",
+                    "value": "Benedikt Knopp"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "i-885873",
+                    "qualifier": "item"
+                },
+                {
+                    "objectId": "prod-echo-show-5",
+                    "qualifier": "product"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "Pick",
+            "time": "2024-01-02T09:25:28Z",
+            "attributes": [
+                {
+                    "name": "actor",
+                    "value": "Christopher Schwanen"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "i-885942",
+                    "qualifier": "item"
+                },
+                {
+                    "objectId": "prod-echo-show-5",
+                    "qualifier": "product"
+                }
+            ]
+        },
+        {
+            "id": "e5",
+            "type": "Reorder",
+            "time": "2024-01-04T16:19:04Z",
+            "attributes": [
+                {
+                    "name": "actor",
+                    "value": "Benedikt Knopp"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "i-885958",
+                    "qualifier": "item"
+                },
+                {
+                    "objectId": "prod-echo-show-5",
+                    "qualifier": "product"
+                }
+            ]
+        }
+    ]
+}

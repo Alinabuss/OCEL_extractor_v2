@@ -1,0 +1,95 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "EKKO-EKGRP",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Quotation",
+            "attributes": [
+                {
+                    "name": "EBAN-EKGRP",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "title",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Purchase Order Approval Completed",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:418",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "EKKO-EKGRP",
+                    "value": "002"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:245",
+                    "qualifier": "associated_with"
+                }
+            ]
+        },
+        {
+            "id": "quotation:245",
+            "type": "Quotation",
+            "attributes": [
+                {
+                    "name": "EBAN-EKGRP",
+                    "value": "002"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "procurement_order_manager",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "title",
+                    "value": "Procurement Order Manager"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Purchase Order Approval Completed",
+            "time": "2022-12-05T15:10:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:418",
+                    "qualifier": "target"
+                },
+                {
+                    "objectId": "procurement_order_manager",
+                    "qualifier": "performed_by"
+                }
+            ]
+        }
+    ]
+}

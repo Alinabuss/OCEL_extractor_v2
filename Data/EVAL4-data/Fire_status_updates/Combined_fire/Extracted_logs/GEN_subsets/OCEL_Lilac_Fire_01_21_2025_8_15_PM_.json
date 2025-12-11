@@ -1,0 +1,155 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Crew",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Perimeter",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Situation Update",
+            "attributes": [
+                {
+                    "name": "forwardRateOfSpread",
+                    "type": "string"
+                },
+                {
+                    "name": "plannedActions",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire_Lilac",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Lilac Fire"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "loc_old_highway_395_lilac",
+                    "qualifier": "located-near"
+                },
+                {
+                    "objectId": "perimeter_Lilac",
+                    "qualifier": "has-perimeter"
+                }
+            ]
+        },
+        {
+            "id": "loc_old_highway_395_lilac",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Old Highway 395 and Lilac Road"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "crew_fire_1",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Fire crew"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "perimeter_Lilac",
+                    "qualifier": "works-within"
+                }
+            ]
+        },
+        {
+            "id": "perimeter_Lilac",
+            "type": "Perimeter",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "fire's perimeter"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_Lilac",
+                    "qualifier": "perimeter-of"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Situation Update",
+            "time": "2025-01-21T20:15:00Z",
+            "attributes": [
+                {
+                    "name": "forwardRateOfSpread",
+                    "value": "stopped"
+                },
+                {
+                    "name": "plannedActions",
+                    "value": "build containment lines; extinguish hotspots"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_Lilac",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "loc_old_highway_395_lilac",
+                    "qualifier": "located-near"
+                },
+                {
+                    "objectId": "crew_fire_1",
+                    "qualifier": "involved"
+                },
+                {
+                    "objectId": "perimeter_Lilac",
+                    "qualifier": "within"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,159 @@
+{
+    "objectTypes": [
+        {
+            "name": "Applicant",
+            "attributes": []
+        },
+        {
+            "name": "Lawyer",
+            "attributes": []
+        },
+        {
+            "name": "LegalProvision",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "MedicalCondition",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Proceedings",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Complaint",
+            "attributes": [
+                {
+                    "name": "text",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "applicant_1",
+            "type": "Applicant",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "lawyer_1",
+                    "qualifier": "represented_by"
+                },
+                {
+                    "objectId": "cognitive_impairment_1",
+                    "qualifier": "has_condition"
+                }
+            ]
+        },
+        {
+            "id": "lawyer_1",
+            "type": "Lawyer",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "represents"
+                }
+            ]
+        },
+        {
+            "id": "cognitive_impairment_1",
+            "type": "MedicalCondition",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "",
+                    "value": "cognitive impairment"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "affects"
+                }
+            ]
+        },
+        {
+            "id": "proceedings_1",
+            "type": "Proceedings",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Article6_1",
+            "type": "LegalProvision",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "time": "",
+                    "value": "Article 6 \u00a71"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Article6_3b",
+            "type": "LegalProvision",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "time": "",
+                    "value": "Article 6 \u00a73(b)"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Complaint",
+            "time": "",
+            "attributes": [
+                {
+                    "name": "text",
+                    "value": "The applicant complained under Article 6 \u00a71 and 3(b) of the Convention that he had been unable to prepare his defence properly because of his cognitive impairment, which had prevented him from comprehending the proceedings and being able to communicate adequately with his lawyer."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "complainant"
+                },
+                {
+                    "objectId": "Article6_1",
+                    "qualifier": "legal_basis"
+                },
+                {
+                    "objectId": "Article6_3b",
+                    "qualifier": "legal_basis"
+                },
+                {
+                    "objectId": "cognitive_impairment_1",
+                    "qualifier": "cited_cause"
+                },
+                {
+                    "objectId": "proceedings_1",
+                    "qualifier": "affected"
+                },
+                {
+                    "objectId": "lawyer_1",
+                    "qualifier": "counsel"
+                }
+            ]
+        }
+    ]
+}

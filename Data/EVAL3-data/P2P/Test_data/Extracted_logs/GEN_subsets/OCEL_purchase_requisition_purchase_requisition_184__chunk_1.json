@@ -1,0 +1,116 @@
+{
+    "objectTypes": [
+        {
+            "name": "Purchase Requisition",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Material",
+            "attributes": [
+                {
+                    "name": "netPrice",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Purchasing Group",
+            "attributes": [
+                {
+                    "name": "groupId",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Purchase Requisition Approval",
+            "attributes": [
+                {
+                    "name": "performedBy",
+                    "type": "string"
+                },
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Purchase Requisition[184:pr_trigger_184]",
+            "type": "Purchase Requisition",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "time": "2022-09-10T16:49:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Material[443]",
+                    "qualifier": "associated-with"
+                },
+                {
+                    "objectId": "Purchasing Group[004]",
+                    "qualifier": "belongs-to"
+                }
+            ]
+        },
+        {
+            "id": "Material[443]",
+            "type": "Material",
+            "attributes": [
+                {
+                    "name": "netPrice",
+                    "time": "2022-09-10T16:49:00Z",
+                    "value": "950.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Purchasing Group[004]",
+            "type": "Purchasing Group",
+            "attributes": [
+                {
+                    "name": "groupId",
+                    "time": "2022-09-10T16:49:00Z",
+                    "value": "004"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Purchase Requisition Approval",
+            "time": "2022-09-10T16:49:00Z",
+            "attributes": [
+                {
+                    "name": "performedBy",
+                    "value": "procurement requisition manager"
+                },
+                {
+                    "name": "lifecycle",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Purchase Requisition[184:pr_trigger_184]",
+                    "qualifier": "approved"
+                }
+            ]
+        }
+    ]
+}

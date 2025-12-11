@@ -1,0 +1,476 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Crew",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "AirSupport",
+            "attributes": [
+                {
+                    "name": "type",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "SpotFire",
+            "attributes": [
+                {
+                    "name": "location",
+                    "type": "string"
+                },
+                {
+                    "name": "area",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Warning",
+            "attributes": [
+                {
+                    "name": "type",
+                    "type": "string"
+                },
+                {
+                    "name": "inEffectUntil",
+                    "type": "datetime"
+                }
+            ]
+        },
+        {
+            "name": "Community",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "WeatherCondition",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "InitialAttackSuccessful",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "AirAndGroundOperationsContinued",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ContainmentTechniqueUsed",
+            "attributes": [
+                {
+                    "name": "techniques",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "HighWindsTest",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "RespondedToSpotFire",
+            "attributes": [
+                {
+                    "name": "location",
+                    "type": "string"
+                },
+                {
+                    "name": "areaAffected",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "RedFlagWarningRemainsInEffect",
+            "attributes": [
+                {
+                    "name": "inEffectUntil",
+                    "type": "datetime"
+                }
+            ]
+        },
+        {
+            "name": "ContinueFirefightNightActions",
+            "attributes": [
+                {
+                    "name": "activities",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "FirefightersStaged",
+            "attributes": [
+                {
+                    "name": "locations",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire_hughes",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-23T20:22:00Z",
+                    "value": "Hughes Fire"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "crews",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-23T20:22:00Z",
+                    "value": "crews in various regions of the fire"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "community_castaic",
+                    "qualifier": "staged-in"
+                },
+                {
+                    "objectId": "community_santa_clarita",
+                    "qualifier": "staged-in"
+                }
+            ]
+        },
+        {
+            "id": "air_support",
+            "type": "AirSupport",
+            "attributes": [
+                {
+                    "name": "type",
+                    "time": "2025-01-23T20:22:00Z",
+                    "value": "air support"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "crews",
+                    "qualifier": "aided"
+                }
+            ]
+        },
+        {
+            "id": "spotfire_westflank",
+            "type": "SpotFire",
+            "attributes": [
+                {
+                    "name": "location",
+                    "time": "2025-01-23T20:22:00Z",
+                    "value": "west flank"
+                },
+                {
+                    "name": "area",
+                    "time": "2025-01-23T20:22:00Z",
+                    "value": "approximately 100 acres"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_hughes",
+                    "qualifier": "part-of"
+                }
+            ]
+        },
+        {
+            "id": "redflag_1",
+            "type": "Warning",
+            "attributes": [
+                {
+                    "name": "type",
+                    "time": "2025-01-23T20:22:00Z",
+                    "value": "Red Flag Warning"
+                },
+                {
+                    "name": "inEffectUntil",
+                    "time": "2025-01-23T20:22:00Z",
+                    "value": "2025-01-24T10:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_hughes",
+                    "qualifier": "applies-to"
+                }
+            ]
+        },
+        {
+            "id": "community_castaic",
+            "type": "Community",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-23T20:22:00Z",
+                    "value": "Castaic"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "community_santa_clarita",
+            "type": "Community",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-23T20:22:00Z",
+                    "value": "Santa Clarita"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "high_winds",
+            "type": "WeatherCondition",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-23T20:22:00Z",
+                    "value": "high winds"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_hughes",
+                    "qualifier": "tested"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "InitialAttackSuccessful",
+            "time": "2025-01-22T20:22:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Highly successful initial attack (yesterday)"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_hughes",
+                    "qualifier": "target"
+                },
+                {
+                    "objectId": "crews",
+                    "qualifier": "performed-by"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "AirAndGroundOperationsContinued",
+            "time": "2025-01-23T20:22:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Continued aggressive air and ground operations on 1/23/2025"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_hughes",
+                    "qualifier": "target"
+                },
+                {
+                    "objectId": "crews",
+                    "qualifier": "involved"
+                },
+                {
+                    "objectId": "air_support",
+                    "qualifier": "aided"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "type": "ContainmentTechniqueUsed",
+            "time": "2025-01-23T20:22:00Z",
+            "attributes": [
+                {
+                    "name": "techniques",
+                    "value": "direct; indirect"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "crews",
+                    "qualifier": "performed-by"
+                },
+                {
+                    "objectId": "fire_hughes",
+                    "qualifier": "applied-to"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "type": "HighWindsTest",
+            "time": "2025-01-23T20:22:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "High winds tested the fire's containment lines"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "high_winds",
+                    "qualifier": "condition"
+                },
+                {
+                    "objectId": "fire_hughes",
+                    "qualifier": "affected"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "type": "RespondedToSpotFire",
+            "time": "2025-01-23T20:22:00Z",
+            "attributes": [
+                {
+                    "name": "location",
+                    "value": "west flank"
+                },
+                {
+                    "name": "areaAffected",
+                    "value": "approximately 100 acres"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "crews",
+                    "qualifier": "responded"
+                },
+                {
+                    "objectId": "spotfire_westflank",
+                    "qualifier": "target"
+                },
+                {
+                    "objectId": "fire_hughes",
+                    "qualifier": "affected"
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "type": "RedFlagWarningRemainsInEffect",
+            "time": "2025-01-23T20:22:00Z",
+            "attributes": [
+                {
+                    "name": "inEffectUntil",
+                    "value": "2025-01-24T10:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "redflag_1",
+                    "qualifier": "warning"
+                },
+                {
+                    "objectId": "fire_hughes",
+                    "qualifier": "applies-to"
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "type": "ContinueFirefightNightActions",
+            "time": "2025-01-23T20:22:00Z",
+            "attributes": [
+                {
+                    "name": "activities",
+                    "value": "improving fireline; performing tactical patrols; mopping up hot spots to prevent spread"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "crews",
+                    "qualifier": "performed-by"
+                },
+                {
+                    "objectId": "fire_hughes",
+                    "qualifier": "target"
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "type": "FirefightersStaged",
+            "time": "2025-01-23T20:22:00Z",
+            "attributes": [
+                {
+                    "name": "locations",
+                    "value": "Castaic; Santa Clarita; any communities that are threatened by the fire"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "crews",
+                    "qualifier": "staged"
+                },
+                {
+                    "objectId": "community_castaic",
+                    "qualifier": "location"
+                },
+                {
+                    "objectId": "community_santa_clarita",
+                    "qualifier": "location"
+                }
+            ]
+        }
+    ]
+}

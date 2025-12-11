@@ -1,0 +1,295 @@
+{
+    "objectTypes": [
+        {
+            "name": "FireIncident",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Road",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Group",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "EvacuationOrder",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Warning",
+            "attributes": [
+                {
+                    "name": "type",
+                    "type": "string"
+                },
+                {
+                    "name": "until",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "SituationReport",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "EvacuationOrdersUpdated",
+            "attributes": [
+                {
+                    "name": "downgraded_to",
+                    "type": "string"
+                },
+                {
+                    "name": "orders_lifted",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire_hurst",
+            "type": "FireIncident",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-10T14:06:00Z",
+                    "value": "Hurst Fire"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "road_i210",
+                    "qualifier": "north_of"
+                },
+                {
+                    "objectId": "road_santa_clara_divide",
+                    "qualifier": "control_lines_extend_to"
+                }
+            ]
+        },
+        {
+            "id": "road_i210",
+            "type": "Road",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-10T14:06:00Z",
+                    "value": "I-210 Foothill Freeway"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "road_santa_clara_divide",
+            "type": "Road",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-10T14:06:00Z",
+                    "value": "Santa Clara Divide Road"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "crew_firefighters",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-10T14:06:00Z",
+                    "value": "Firefighters"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "crew_crews",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-10T14:06:00Z",
+                    "value": "Crews"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "residents",
+            "type": "Group",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-10T14:06:00Z",
+                    "value": "Residents"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "org_ladwp",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-10T14:06:00Z",
+                    "value": "Los Angeles Department of Water and Power"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "evac_orders",
+            "type": "EvacuationOrder",
+            "attributes": [
+                {
+                    "name": "status",
+                    "time": "2025-01-09T15:00:00Z",
+                    "value": "downgraded to warnings and lifted"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "red_flag_warning_1",
+            "type": "Warning",
+            "attributes": [
+                {
+                    "name": "type",
+                    "time": "2025-01-10T14:06:00Z",
+                    "value": "Red flag warning"
+                },
+                {
+                    "name": "until",
+                    "time": "2025-01-10T14:06:00Z",
+                    "value": "6:00 p.m. on Thursday"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "EvacuationOrdersUpdated",
+            "time": "2025-01-09T15:00:00Z",
+            "attributes": [
+                {
+                    "name": "downgraded_to",
+                    "value": "warnings"
+                },
+                {
+                    "name": "orders_lifted",
+                    "value": "lifted"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "evac_orders",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "residents",
+                    "qualifier": "affected"
+                },
+                {
+                    "objectId": "fire_hurst",
+                    "qualifier": "related_to"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "SituationReport",
+            "time": "2025-01-10T14:06:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Firefighters have successfully contained the fire north of the I-210 Foothill Freeway; control lines extend to Santa Clara Divide Road; crews managed several flare-ups within the fire's perimeter; residents returning home are advised to observe extreme caution and not to drink the water until advised by the Los Angeles Department of Water and Power; a red flag warning remains in effect until 6:00 p.m. on Thursday."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_hurst",
+                    "qualifier": "incident"
+                },
+                {
+                    "objectId": "road_i210",
+                    "qualifier": "location_reference"
+                },
+                {
+                    "objectId": "road_santa_clara_divide",
+                    "qualifier": "control_lines_to"
+                },
+                {
+                    "objectId": "crew_firefighters",
+                    "qualifier": "by"
+                },
+                {
+                    "objectId": "crew_crews",
+                    "qualifier": "by"
+                },
+                {
+                    "objectId": "residents",
+                    "qualifier": "audience"
+                },
+                {
+                    "objectId": "org_ladwp",
+                    "qualifier": "advisory_source"
+                },
+                {
+                    "objectId": "red_flag_warning_1",
+                    "qualifier": "warning_in_effect"
+                }
+            ]
+        }
+    ]
+}

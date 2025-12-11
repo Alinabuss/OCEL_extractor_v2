@@ -1,0 +1,243 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                },
+                {
+                    "name": "memory_problems",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Judgment",
+            "attributes": []
+        },
+        {
+            "name": "Proceedings",
+            "attributes": [
+                {
+                    "name": "stage",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Evidence",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Argument",
+            "attributes": [
+                {
+                    "name": "claim",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Request",
+            "attributes": [
+                {
+                    "name": "request",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "applicant_1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "2021-01-01T09:00:00Z",
+                    "value": "applicant"
+                },
+                {
+                    "name": "memory_problems",
+                    "time": "2021-01-01T09:00:00Z",
+                    "value": "true"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "court_constitutional",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2021-01-02T09:00:00Z",
+                    "value": "Constitutional Court"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "court_audiencia",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2021-01-02T09:00:00Z",
+                    "value": "Audiencia Provincial"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "court_supreme",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2021-01-02T09:00:00Z",
+                    "value": "Supreme Court"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "proceedings_1",
+            "type": "Proceedings",
+            "attributes": [
+                {
+                    "name": "stage",
+                    "time": "2021-01-02T09:00:00Z",
+                    "value": "hearing before the Audiencia Provincial"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court_audiencia",
+                    "qualifier": "heard_before"
+                }
+            ]
+        },
+        {
+            "id": "judgment_audiencia",
+            "type": "Judgment",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "court_audiencia",
+                    "qualifier": "issued_by"
+                },
+                {
+                    "objectId": "proceedings_1",
+                    "qualifier": "decides_on"
+                }
+            ]
+        },
+        {
+            "id": "judgment_supreme",
+            "type": "Judgment",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "court_supreme",
+                    "qualifier": "issued_by"
+                },
+                {
+                    "objectId": "proceedings_1",
+                    "qualifier": "decides_on"
+                }
+            ]
+        },
+        {
+            "id": "evidence_1",
+            "type": "Evidence",
+            "attributes": [
+                {
+                    "name": "status",
+                    "time": "2021-01-02T09:00:00Z",
+                    "value": "unduly rejected"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "proceedings_1",
+                    "qualifier": "part_of"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Argument",
+            "time": "2021-01-01T09:00:00Z",
+            "attributes": [
+                {
+                    "name": "claim",
+                    "value": "owing to the applicant's memory problems, he could not participate in his defence by providing an alternative version of the facts and/or relevant information and, therefore, he was not able to defend himself."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "author"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Request",
+            "time": "2021-01-02T09:00:00Z",
+            "attributes": [
+                {
+                    "name": "request",
+                    "value": "asked the Constitutional Court to quash the judgments of the Audiencia Provincial and the Supreme Court and to restore the proceedings to the moment of the hearing before the Audiencia Provincial in order to properly assess the unduly rejected evidence."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "requester"
+                },
+                {
+                    "objectId": "court_constitutional",
+                    "qualifier": "addressee"
+                },
+                {
+                    "objectId": "judgment_audiencia",
+                    "qualifier": "to_quash"
+                },
+                {
+                    "objectId": "judgment_supreme",
+                    "qualifier": "to_quash"
+                },
+                {
+                    "objectId": "proceedings_1",
+                    "qualifier": "to_restore"
+                },
+                {
+                    "objectId": "evidence_1",
+                    "qualifier": "for_assessment"
+                }
+            ]
+        }
+    ]
+}

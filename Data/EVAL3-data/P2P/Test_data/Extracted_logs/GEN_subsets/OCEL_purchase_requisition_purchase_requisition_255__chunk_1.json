@@ -1,0 +1,89 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseRequisition",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Quotation",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "CreateRequestForQuotation",
+            "attributes": [
+                {
+                    "name": "created_by",
+                    "type": "string"
+                },
+                {
+                    "name": "completeness",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_requisition:255:pr_trigger_255",
+            "type": "PurchaseRequisition",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "value": "004"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:256",
+                    "qualifier": "linked"
+                }
+            ]
+        },
+        {
+            "id": "quotation:256",
+            "type": "Quotation",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "value": "004"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "CreateRequestForQuotation",
+            "time": "2022-12-20T03:14:00Z",
+            "attributes": [
+                {
+                    "name": "created_by",
+                    "value": "Procurement Department"
+                },
+                {
+                    "name": "completeness",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_requisition:255:pr_trigger_255",
+                    "qualifier": "associated"
+                }
+            ]
+        }
+    ]
+}

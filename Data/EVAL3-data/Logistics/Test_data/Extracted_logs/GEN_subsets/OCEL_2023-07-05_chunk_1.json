@@ -1,0 +1,153 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "type": "float"
+                },
+                {
+                    "name": "departureTime",
+                    "type": "datetime"
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "departureTime",
+                    "type": "datetime"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "TransportDocumentCreated",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "TransportDocumentAssociatedWithVehicle",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "td54",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "time": "2023-07-05T07:55:47Z",
+                    "value": "5.0"
+                },
+                {
+                    "name": "departureTime",
+                    "time": "2023-07-28T11:00:00Z",
+                    "value": "2023-07-28T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "vh18",
+                    "qualifier": "bookedVehicle"
+                }
+            ]
+        },
+        {
+            "id": "td55",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "time": "2023-07-05T13:42:42Z",
+                    "value": "4.0"
+                },
+                {
+                    "name": "departureTime",
+                    "time": "2023-07-28T11:00:00Z",
+                    "value": "2023-07-28T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "vh18",
+                    "qualifier": "bookedVehicle"
+                }
+            ]
+        },
+        {
+            "id": "vh18",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "departureTime",
+                    "time": "2023-07-28T11:00:00Z",
+                    "value": "2023-07-28T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td54",
+                    "qualifier": "bookedFor"
+                },
+                {
+                    "objectId": "td55",
+                    "qualifier": "bookedFor"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "TransportDocumentCreated",
+            "time": "2023-07-05T07:55:47Z",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "value": "5.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td54",
+                    "qualifier": "transportDocument"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "TransportDocumentAssociatedWithVehicle",
+            "time": "2023-07-05T13:42:42Z",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "value": "4.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td55",
+                    "qualifier": "transportDocument"
+                },
+                {
+                    "objectId": "vh18",
+                    "qualifier": "vehicle"
+                }
+            ]
+        }
+    ]
+}

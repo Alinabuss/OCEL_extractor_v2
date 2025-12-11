@@ -1,0 +1,101 @@
+{
+    "objectTypes": [
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Two-way Match Completed",
+            "attributes": [
+                {
+                    "name": "matchKind",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt:1888",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "value": "85500.0"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt:1890",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "value": "101"
+                }
+            ]
+        },
+        {
+            "id": "Finance/Account Department",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Finance/Account Department"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Two-way Match Completed",
+            "time": "2024-10-01T07:10:00Z",
+            "attributes": [
+                {
+                    "name": "matchKind",
+                    "value": "two-way"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:1888",
+                    "qualifier": "involves"
+                },
+                {
+                    "objectId": "goods receipt:1890",
+                    "qualifier": "involves"
+                },
+                {
+                    "objectId": "Finance/Account Department",
+                    "qualifier": "completed-by"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,426 @@
+{
+    "objectTypes": [
+        {
+            "name": "FormedPart",
+            "attributes": []
+        },
+        {
+            "name": "FemalePart",
+            "attributes": []
+        },
+        {
+            "name": "Machine",
+            "attributes": []
+        },
+        {
+            "name": "Workstation",
+            "attributes": []
+        },
+        {
+            "name": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "weight_kg",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Coating",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "type": "integer"
+                },
+                {
+                    "name": "co2_kg",
+                    "type": "float"
+                },
+                {
+                    "name": "energy_kwh_grid",
+                    "type": "float"
+                },
+                {
+                    "name": "coating_material_kg",
+                    "type": "float"
+                },
+                {
+                    "name": "coating_material_waste_kg",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "CuttFemalePart",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "type": "float"
+                },
+                {
+                    "name": "energy_kwh_grid",
+                    "type": "float"
+                },
+                {
+                    "name": "compressed_air_m3",
+                    "type": "float"
+                },
+                {
+                    "name": "nitrogen_consumed_m3",
+                    "type": "float"
+                },
+                {
+                    "name": "nitrogen_emitted_m3",
+                    "type": "float"
+                },
+                {
+                    "name": "steel_waste_kg",
+                    "type": "float"
+                },
+                {
+                    "name": "co2_kg",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Forming",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "type": "float"
+                },
+                {
+                    "name": "co2_kg",
+                    "type": "float"
+                },
+                {
+                    "name": "energy_kwh_grid",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o_workstation_1",
+            "type": "Workstation",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "o_workstation_2",
+            "type": "Workstation",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "o_machine_coater03",
+            "type": "Machine",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "o_workstation_1",
+                    "qualifier": "located_at"
+                }
+            ]
+        },
+        {
+            "id": "o_machine_former02",
+            "type": "Machine",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "o_workstation_1",
+                    "qualifier": "located_at"
+                }
+            ]
+        },
+        {
+            "id": "o_machine_cutter01",
+            "type": "Machine",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "o_workstation_2",
+                    "qualifier": "located_at"
+                }
+            ]
+        },
+        {
+            "id": "Cutter01",
+            "type": "Machine",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "o_workstation_2",
+                    "qualifier": "located_at"
+                }
+            ]
+        },
+        {
+            "id": "o_formedpart_855",
+            "type": "FormedPart",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "o_formedpart_890",
+            "type": "FormedPart",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "o_formedpart_482",
+            "type": "FormedPart",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "o_formedpart_901",
+            "type": "FormedPart",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "FemalePart 552",
+            "type": "FormedPart",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "o_femalepart_482",
+            "type": "FemalePart",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "o_steelsheet_901",
+            "type": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "weight_kg",
+                    "value": "0.02133"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Coating",
+            "time": "2023-04-03T10:55:38Z",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "value": "300"
+                },
+                {
+                    "name": "co2_kg",
+                    "value": "0.1751156951"
+                },
+                {
+                    "name": "energy_kwh_grid",
+                    "value": "0.25"
+                },
+                {
+                    "name": "coating_material_kg",
+                    "value": "0.0004"
+                },
+                {
+                    "name": "coating_material_waste_kg",
+                    "value": "0.0001"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_formedpart_855",
+                    "qualifier": "coated"
+                },
+                {
+                    "objectId": "o_machine_coater03",
+                    "qualifier": "machine"
+                },
+                {
+                    "objectId": "o_workstation_1",
+                    "qualifier": "workstation"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "Coating",
+            "time": "2023-04-03T11:02:58Z",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "value": "300"
+                },
+                {
+                    "name": "co2_kg",
+                    "value": "0.1751156951"
+                },
+                {
+                    "name": "energy_kwh_grid",
+                    "value": "0.25"
+                },
+                {
+                    "name": "coating_material_kg",
+                    "value": "0.0004"
+                },
+                {
+                    "name": "coating_material_waste_kg",
+                    "value": "0.0001"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_formedpart_890",
+                    "qualifier": "coated"
+                },
+                {
+                    "objectId": "o_machine_coater03",
+                    "qualifier": "machine"
+                },
+                {
+                    "objectId": "o_workstation_1",
+                    "qualifier": "workstation"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "type": "CuttFemalePart",
+            "time": "2023-04-03T11:04:42Z",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "value": "12.59"
+                },
+                {
+                    "name": "energy_kwh_grid",
+                    "value": "0.01924"
+                },
+                {
+                    "name": "compressed_air_m3",
+                    "value": "0.103"
+                },
+                {
+                    "name": "nitrogen_consumed_m3",
+                    "value": "0.077"
+                },
+                {
+                    "name": "steel_waste_kg",
+                    "value": "0.00253"
+                },
+                {
+                    "name": "co2_kg",
+                    "value": "0.09699"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_formedpart_482",
+                    "qualifier": "input"
+                },
+                {
+                    "objectId": "o_femalepart_482",
+                    "qualifier": "output"
+                },
+                {
+                    "objectId": "o_machine_cutter01",
+                    "qualifier": "machine"
+                },
+                {
+                    "objectId": "o_workstation_2",
+                    "qualifier": "workstation"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "type": "Forming",
+            "time": "2023-04-03T11:04:43Z",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "value": "5"
+                },
+                {
+                    "name": "co2_kg",
+                    "value": "0.0028500228"
+                },
+                {
+                    "name": "energy_kwh_grid",
+                    "value": "0.0041667"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_steelsheet_901",
+                    "qualifier": "input"
+                },
+                {
+                    "objectId": "o_formedpart_901",
+                    "qualifier": "output"
+                },
+                {
+                    "objectId": "o_machine_former02",
+                    "qualifier": "machine"
+                },
+                {
+                    "objectId": "o_workstation_1",
+                    "qualifier": "workstation"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "type": "CuttFemalePart",
+            "time": "2023-04-03T11:05:04Z",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "value": "12.54"
+                },
+                {
+                    "name": "steel_waste_kg",
+                    "value": "0.00255"
+                },
+                {
+                    "name": "nitrogen_emitted_m3",
+                    "value": "0.077"
+                },
+                {
+                    "name": "energy_kwh_grid",
+                    "value": "0.0191587"
+                },
+                {
+                    "name": "compressed_air_m3",
+                    "value": "0.085"
+                },
+                {
+                    "name": "nitrogen_consumed_m3",
+                    "value": "0.077"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "FemalePart 552",
+                    "qualifier": "input"
+                },
+                {
+                    "objectId": "Cutter01",
+                    "qualifier": "machine"
+                },
+                {
+                    "objectId": "o_workstation_2",
+                    "qualifier": "workstation"
+                }
+            ]
+        }
+    ]
+}

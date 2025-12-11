@@ -1,0 +1,186 @@
+{
+    "objectTypes": [
+        {
+            "name": "Order",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Customer",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "SalesPerson",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Order Confirmed",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "order-1",
+            "type": "Order",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "confirmed",
+                    "time": "2024-02-05T11:32:27Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "customer-1",
+                    "qualifier": "for"
+                },
+                {
+                    "objectId": "sp-mara-nitschke",
+                    "qualifier": "managed_by"
+                },
+                {
+                    "objectId": "product-iphone-x",
+                    "qualifier": "includes"
+                },
+                {
+                    "objectId": "product-ipad-air",
+                    "qualifier": "includes"
+                },
+                {
+                    "objectId": "product-echo-studio",
+                    "qualifier": "includes"
+                }
+            ]
+        },
+        {
+            "id": "customer-1",
+            "type": "Customer",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Eastern Oak Insurance Zrt"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "sp-mara-nitschke",
+            "type": "SalesPerson",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Mara Nitschke"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "product-iphone-x",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "iPhone X"
+                },
+                {
+                    "name": "price",
+                    "value": 699.0
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "product-ipad-air",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "iPad Air"
+                },
+                {
+                    "name": "price",
+                    "value": 476.0
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "product-echo-studio",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Echo Studio"
+                },
+                {
+                    "name": "price",
+                    "value": 199.99
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Order Confirmed",
+            "time": "2024-02-05T11:32:27Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "order-1",
+                    "qualifier": "order"
+                },
+                {
+                    "objectId": "customer-1",
+                    "qualifier": "customer"
+                },
+                {
+                    "objectId": "sp-mara-nitschke",
+                    "qualifier": "confirmed_by"
+                },
+                {
+                    "objectId": "product-iphone-x",
+                    "qualifier": "included"
+                },
+                {
+                    "objectId": "product-ipad-air",
+                    "qualifier": "included"
+                },
+                {
+                    "objectId": "product-echo-studio",
+                    "qualifier": "included"
+                }
+            ]
+        }
+    ]
+}

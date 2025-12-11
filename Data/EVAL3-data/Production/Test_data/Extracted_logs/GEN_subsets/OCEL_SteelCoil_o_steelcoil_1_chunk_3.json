@@ -1,0 +1,394 @@
+{
+    "objectTypes": [
+        {
+            "name": "steel_coil",
+            "attributes": [
+                {
+                    "name": "weight_kg",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "steel_sheet",
+            "attributes": [
+                {
+                    "name": "weight_kg",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "machine",
+            "attributes": [
+                {
+                    "name": "alias",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "workstation",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Split",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "type": "float"
+                },
+                {
+                    "name": "co2_kg",
+                    "type": "float"
+                },
+                {
+                    "name": "steel_waste_kg",
+                    "type": "float"
+                },
+                {
+                    "name": "energy_kwh",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o_steelcoil_1",
+            "type": "steel_coil",
+            "attributes": [
+                {
+                    "name": "weight_kg",
+                    "time": "2023-04-06T00:00:00Z",
+                    "value": "31.91076"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "5024",
+            "type": "steel_sheet",
+            "attributes": [
+                {
+                    "name": "weight_kg",
+                    "time": "2023-04-06T09:33:59Z",
+                    "value": "0.02123"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_steelcoil_1",
+                    "qualifier": "created_from"
+                }
+            ]
+        },
+        {
+            "id": "steelsheet_5031",
+            "type": "steel_sheet",
+            "attributes": [
+                {
+                    "name": "weight_kg",
+                    "time": "2023-04-06T09:35:39Z",
+                    "value": "0.02096"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_steelcoil_1",
+                    "qualifier": "created_from"
+                }
+            ]
+        },
+        {
+            "id": "o_steelsheet_5061",
+            "type": "steel_sheet",
+            "attributes": [
+                {
+                    "name": "weight_kg",
+                    "time": "2023-04-06T09:42:45Z",
+                    "value": "0.02113"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_steelcoil_1",
+                    "qualifier": "created_from"
+                }
+            ]
+        },
+        {
+            "id": "SteelSheet[5092]",
+            "type": "steel_sheet",
+            "attributes": [
+                {
+                    "name": "weight_kg",
+                    "time": "2023-04-06T09:50:06Z",
+                    "value": "0.02108"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_steelcoil_1",
+                    "qualifier": "created_from"
+                }
+            ]
+        },
+        {
+            "id": "SteelSheet[5133]",
+            "type": "steel_sheet",
+            "attributes": [
+                {
+                    "name": "weight_kg",
+                    "time": "2023-04-06T09:59:48Z",
+                    "value": "0.02154"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_steelcoil_1",
+                    "qualifier": "created_from"
+                }
+            ]
+        },
+        {
+            "id": "Splitter01",
+            "type": "machine",
+            "attributes": [
+                {
+                    "name": "alias",
+                    "time": "2023-04-06T00:00:00Z",
+                    "value": "machine_splitter01"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Workstation 1",
+                    "qualifier": "located_at"
+                }
+            ]
+        },
+        {
+            "id": "Workstation 1",
+            "type": "workstation",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-04-06T00:00:00Z",
+                    "value": "Workstation 1"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Split",
+            "time": "2023-04-06T09:33:59Z",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "value": "14.4085"
+                },
+                {
+                    "name": "co2_kg",
+                    "value": "0.0150658"
+                },
+                {
+                    "name": "steel_waste_kg",
+                    "value": "0.00042"
+                },
+                {
+                    "name": "energy_kwh",
+                    "value": "0.022013"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_steelcoil_1",
+                    "qualifier": "input"
+                },
+                {
+                    "objectId": "5024",
+                    "qualifier": "output"
+                },
+                {
+                    "objectId": "Splitter01",
+                    "qualifier": "machine"
+                },
+                {
+                    "objectId": "Workstation 1",
+                    "qualifier": "workstation"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Split",
+            "time": "2023-04-06T09:35:39Z",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "value": "13.90"
+                },
+                {
+                    "name": "co2_kg",
+                    "value": "0.01454"
+                },
+                {
+                    "name": "steel_waste_kg",
+                    "value": "0.00042"
+                },
+                {
+                    "name": "energy_kwh",
+                    "value": "0.02124"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_steelcoil_1",
+                    "qualifier": "input"
+                },
+                {
+                    "objectId": "steelsheet_5031",
+                    "qualifier": "output"
+                },
+                {
+                    "objectId": "Splitter01",
+                    "qualifier": "machine"
+                },
+                {
+                    "objectId": "Workstation 1",
+                    "qualifier": "workstation"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "Split",
+            "time": "2023-04-06T09:42:45Z",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "value": "14.10"
+                },
+                {
+                    "name": "co2_kg",
+                    "value": "0.01475"
+                },
+                {
+                    "name": "steel_waste_kg",
+                    "value": "0.00042"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_steelcoil_1",
+                    "qualifier": "input"
+                },
+                {
+                    "objectId": "o_steelsheet_5061",
+                    "qualifier": "output"
+                },
+                {
+                    "objectId": "Splitter01",
+                    "qualifier": "machine"
+                },
+                {
+                    "objectId": "Workstation 1",
+                    "qualifier": "workstation"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "Split",
+            "time": "2023-04-06T09:50:06Z",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "value": "14.413"
+                },
+                {
+                    "name": "co2_kg",
+                    "value": "0.015"
+                },
+                {
+                    "name": "steel_waste_kg",
+                    "value": "0.00042"
+                },
+                {
+                    "name": "energy_kwh",
+                    "value": "0.022"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_steelcoil_1",
+                    "qualifier": "input"
+                },
+                {
+                    "objectId": "SteelSheet[5092]",
+                    "qualifier": "output"
+                },
+                {
+                    "objectId": "Splitter01",
+                    "qualifier": "machine"
+                },
+                {
+                    "objectId": "Workstation 1",
+                    "qualifier": "workstation"
+                }
+            ]
+        },
+        {
+            "id": "e5",
+            "type": "Split",
+            "time": "2023-04-06T09:59:48Z",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "value": "14.0938"
+                },
+                {
+                    "name": "co2_kg",
+                    "value": "0.014737"
+                },
+                {
+                    "name": "steel_waste_kg",
+                    "value": "0.00042"
+                },
+                {
+                    "name": "energy_kwh",
+                    "value": "0.0215323"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_steelcoil_1",
+                    "qualifier": "input"
+                },
+                {
+                    "objectId": "SteelSheet[5133]",
+                    "qualifier": "output"
+                },
+                {
+                    "objectId": "Splitter01",
+                    "qualifier": "machine"
+                },
+                {
+                    "objectId": "Workstation 1",
+                    "qualifier": "workstation"
+                }
+            ]
+        }
+    ]
+}

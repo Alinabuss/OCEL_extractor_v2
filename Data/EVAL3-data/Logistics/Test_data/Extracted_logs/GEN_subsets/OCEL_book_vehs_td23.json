@@ -1,0 +1,82 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "departureDate",
+                    "type": "dateTime"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "VehicleBooked",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "td23",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "value": "3.0",
+                    "time": "2023-06-08T15:18:07Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "vh9",
+                    "qualifier": "bookedVehicle"
+                }
+            ]
+        },
+        {
+            "id": "vh9",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "departureDate",
+                    "value": "2023-06-27T11:00:00Z",
+                    "time": "2023-06-08T15:18:07Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td23",
+                    "qualifier": "bookedForTransportDocument"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "VehicleBooked",
+            "time": "2023-06-08T15:18:07Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "td23",
+                    "qualifier": "transportDocument"
+                },
+                {
+                    "objectId": "vh9",
+                    "qualifier": "vehicle"
+                }
+            ]
+        }
+    ]
+}

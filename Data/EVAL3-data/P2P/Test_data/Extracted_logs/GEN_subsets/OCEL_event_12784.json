@@ -1,0 +1,118 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                },
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Quotation",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Approve Purchase Order",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:703",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "value": "003"
+                },
+                {
+                    "name": "lifecycle",
+                    "value": "complete",
+                    "time": "2023-06-05T03:45:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:413",
+                    "qualifier": "associated_with"
+                }
+            ]
+        },
+        {
+            "id": "quotation:413",
+            "type": "Quotation",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "value": "003"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "procurement_order_manager",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Procurement Order Manager"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Approve Purchase Order",
+            "time": "2023-06-05T03:45:00Z",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:703",
+                    "qualifier": "approved"
+                },
+                {
+                    "objectId": "quotation:413",
+                    "qualifier": "related"
+                },
+                {
+                    "objectId": "procurement_order_manager",
+                    "qualifier": "performer"
+                }
+            ]
+        }
+    ]
+}

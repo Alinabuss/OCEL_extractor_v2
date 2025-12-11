@@ -1,0 +1,158 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": [
+                {
+                    "name": "applicationId",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Vacancy",
+            "attributes": [
+                {
+                    "name": "vacancyId",
+                    "type": "string"
+                },
+                {
+                    "name": "title",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Interview",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "Ed Meister",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Ed Meister"
+                },
+                {
+                    "name": "role",
+                    "value": "recruiter"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Vaishnavi Sashikanth",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Vaishnavi Sashikanth"
+                },
+                {
+                    "name": "role",
+                    "value": "manager"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Chun Davis",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Chun Davis"
+                },
+                {
+                    "name": "role",
+                    "value": "applicant"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Application[770146]",
+                    "qualifier": "applicantOf"
+                }
+            ]
+        },
+        {
+            "id": "Application[770146]",
+            "type": "Application",
+            "attributes": [
+                {
+                    "name": "applicationId",
+                    "value": "770146"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Vacancy[550001]",
+                    "qualifier": "appliesTo"
+                }
+            ]
+        },
+        {
+            "id": "Vacancy[550001]",
+            "type": "Vacancy",
+            "attributes": [
+                {
+                    "name": "vacancyId",
+                    "value": "550001"
+                },
+                {
+                    "name": "title",
+                    "value": "Manager"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "evt-1",
+            "type": "Interview",
+            "time": "2019-06-21T08:50:24Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Ed Meister",
+                    "qualifier": "interviewer"
+                },
+                {
+                    "objectId": "Vaishnavi Sashikanth",
+                    "qualifier": "interviewer"
+                },
+                {
+                    "objectId": "Chun Davis",
+                    "qualifier": "interviewee"
+                },
+                {
+                    "objectId": "Application[770146]",
+                    "qualifier": "application"
+                },
+                {
+                    "objectId": "Vacancy[550001]",
+                    "qualifier": "vacancy"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,191 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "acres_burned",
+                    "type": "string"
+                },
+                {
+                    "name": "containment",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "EvacuationOrder",
+            "attributes": [
+                {
+                    "name": "jurisdiction",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Deputy",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "EvacuationOrdersLifted",
+            "attributes": [
+                {
+                    "name": "note",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "SituationReport",
+            "attributes": [
+                {
+                    "name": "content",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "IdentificationCheckPlanned",
+            "attributes": [
+                {
+                    "name": "purpose",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire_kenneth",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-10T11:18:00Z",
+                    "value": "Kenneth Fire"
+                },
+                {
+                    "name": "acres_burned",
+                    "time": "2025-01-10T11:18:00Z",
+                    "value": "approximately 1,000 acres"
+                },
+                {
+                    "name": "containment",
+                    "time": "2025-01-10T11:18:00Z",
+                    "value": "35%"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "evac_la_all",
+            "type": "EvacuationOrder",
+            "attributes": [
+                {
+                    "name": "jurisdiction",
+                    "time": "2025-01-09T20:00:00Z",
+                    "value": "Los Angeles County"
+                },
+                {
+                    "name": "status",
+                    "time": "2025-01-09T20:00:00Z",
+                    "value": "lifted"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_kenneth",
+                    "qualifier": "issued_due_to"
+                }
+            ]
+        },
+        {
+            "id": "deputies",
+            "type": "Deputy",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-10T11:18:00Z",
+                    "value": "Deputies"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "EvacuationOrdersLifted",
+            "time": "2025-01-09T20:00:00Z",
+            "attributes": [
+                {
+                    "name": "note",
+                    "value": "All Los Angeles County evacuation orders and warnings issued due to the Kenneth Fire have been lifted."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "evac_la_all",
+                    "qualifier": "lifted"
+                },
+                {
+                    "objectId": "fire_kenneth",
+                    "qualifier": "relatedTo"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "SituationReport",
+            "time": "2025-01-10T11:18:00Z",
+            "attributes": [
+                {
+                    "name": "content",
+                    "value": "The fire has burned approximately 1,000 acres and is currently 35% contained."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_kenneth",
+                    "qualifier": "reports_on"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "IdentificationCheckPlanned",
+            "time": "2025-01-10T11:18:00Z",
+            "attributes": [
+                {
+                    "name": "purpose",
+                    "value": "to see if people traveling through the area reside in the above listed areas."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "deputies",
+                    "qualifier": "executor"
+                },
+                {
+                    "objectId": "fire_kenneth",
+                    "qualifier": "area"
+                }
+            ]
+        }
+    ]
+}

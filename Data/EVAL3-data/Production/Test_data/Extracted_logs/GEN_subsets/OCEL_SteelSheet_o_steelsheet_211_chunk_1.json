@@ -1,0 +1,183 @@
+{
+    "objectTypes": [
+        {
+            "name": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "weight_kg",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Machine",
+            "attributes": []
+        },
+        {
+            "name": "Workstation",
+            "attributes": [
+                {
+                    "name": "designed_for_energy",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Energy",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "type": "float"
+                },
+                {
+                    "name": "unit",
+                    "type": "string"
+                },
+                {
+                    "name": "source",
+                    "type": "string"
+                },
+                {
+                    "name": "emission_equivalent_wh",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "heating",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "type": "integer"
+                },
+                {
+                    "name": "co2_emission_kg",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o_steelsheet_211",
+            "type": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "weight_kg",
+                    "time": "2023-04-03T08:05:16Z",
+                    "value": "0.02126"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_machine_oven01",
+            "type": "Machine",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "o_workstation_1",
+                    "qualifier": "locatedAt"
+                }
+            ]
+        },
+        {
+            "id": "o_workstation_1",
+            "type": "Workstation",
+            "attributes": [
+                {
+                    "name": "designed_for_energy",
+                    "time": "2023-04-03T08:05:16Z",
+                    "value": "electricity_from_grid"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_electricity_grid_1",
+            "type": "Energy",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "time": "2023-04-03T08:05:16Z",
+                    "value": "0.02"
+                },
+                {
+                    "name": "unit",
+                    "time": "2023-04-03T08:05:16Z",
+                    "value": "kWh"
+                },
+                {
+                    "name": "source",
+                    "time": "2023-04-03T08:05:16Z",
+                    "value": "grid"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_gas_input_1",
+            "type": "Energy",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "time": "2023-04-03T08:05:16Z",
+                    "value": "0.49392"
+                },
+                {
+                    "name": "unit",
+                    "time": "2023-04-03T08:05:16Z",
+                    "value": "Wh"
+                },
+                {
+                    "name": "source",
+                    "time": "2023-04-03T08:05:16Z",
+                    "value": "gas"
+                },
+                {
+                    "name": "emission_equivalent_wh",
+                    "time": "2023-04-03T08:05:16Z",
+                    "value": "0.49392"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e_heating_1",
+            "type": "heating",
+            "time": "2023-04-03T08:05:16Z",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "value": "900"
+                },
+                {
+                    "name": "co2_emission_kg",
+                    "value": "0.0138019093344"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_steelsheet_211",
+                    "qualifier": "heated"
+                },
+                {
+                    "objectId": "o_machine_oven01",
+                    "qualifier": "performedOn"
+                },
+                {
+                    "objectId": "o_electricity_grid_1",
+                    "qualifier": "consumed"
+                },
+                {
+                    "objectId": "o_gas_input_1",
+                    "qualifier": "consumed"
+                }
+            ]
+        }
+    ]
+}

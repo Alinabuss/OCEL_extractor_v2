@@ -1,0 +1,89 @@
+{
+    "objectTypes": [
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "credit amount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement type",
+                    "type": "integer"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "InvoiceReceiptCreationCompleted",
+            "attributes": [
+                {
+                    "name": "department",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt:653",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "credit amount",
+                    "time": "2023-03-10T01:06:00Z",
+                    "value": "18900.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "goods receipt:654",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement type",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "event-1",
+            "type": "InvoiceReceiptCreationCompleted",
+            "time": "2023-03-10T01:06:00Z",
+            "attributes": [
+                {
+                    "name": "department",
+                    "value": "finance/account"
+                },
+                {
+                    "name": "status",
+                    "value": "completed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:653",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "goods receipt:654",
+                    "qualifier": "linked"
+                }
+            ]
+        }
+    ]
+}

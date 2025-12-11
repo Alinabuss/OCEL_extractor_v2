@@ -1,0 +1,92 @@
+{
+    "objectTypes": [
+        {
+            "name": "goods receipt",
+            "attributes": [
+                {
+                    "name": "department",
+                    "type": "string"
+                },
+                {
+                    "name": "movement_type",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "purchase order",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                },
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Goods Receipt Created",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "goods receipt:373",
+            "type": "goods receipt",
+            "attributes": [
+                {
+                    "name": "department",
+                    "value": "Warehouse Department"
+                },
+                {
+                    "name": "movement_type",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:322",
+                    "qualifier": "related_to"
+                }
+            ]
+        },
+        {
+            "id": "purchase_order:322",
+            "type": "purchase order",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "value": "001"
+                },
+                {
+                    "name": "lifecycle",
+                    "value": "complete",
+                    "time": "2022-09-25T20:06:00Z"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "event:1",
+            "type": "Goods Receipt Created",
+            "time": "2022-09-25T20:06:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:373",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "purchase_order:322",
+                    "qualifier": "completes"
+                }
+            ]
+        }
+    ]
+}

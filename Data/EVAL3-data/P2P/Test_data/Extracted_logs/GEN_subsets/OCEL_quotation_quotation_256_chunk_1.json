@@ -1,0 +1,159 @@
+{
+    "objectTypes": [
+        {
+            "name": "RequestForQuotation",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PurchaseRequisition",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "CreateRequestForQuotation",
+            "attributes": [
+                {
+                    "name": "department",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "CreatePurchaseOrder",
+            "attributes": [
+                {
+                    "name": "department",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "quotation:256",
+            "type": "RequestForQuotation",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "time": "2022-12-20T03:14:00Z",
+                    "value": "004"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_requisition:255:pr_trigger_255",
+                    "qualifier": "associated"
+                }
+            ]
+        },
+        {
+            "id": "purchase_requisition:255:pr_trigger_255",
+            "type": "PurchaseRequisition",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "time": "2022-12-20T03:14:00Z",
+                    "value": "004"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "purchase_order:434",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "time": "2022-12-21T02:03:00Z",
+                    "value": "004"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:256",
+                    "qualifier": "linked"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "CreateRequestForQuotation",
+            "time": "2022-12-20T03:14:00Z",
+            "attributes": [
+                {
+                    "name": "department",
+                    "value": "Procurement Department"
+                },
+                {
+                    "name": "status",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:256",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "purchase_requisition:255:pr_trigger_255",
+                    "qualifier": "associated"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "CreatePurchaseOrder",
+            "time": "2022-12-21T02:03:00Z",
+            "attributes": [
+                {
+                    "name": "department",
+                    "value": "Procurement Department"
+                },
+                {
+                    "name": "status",
+                    "value": "completed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:434",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "quotation:256",
+                    "qualifier": "linked"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,82 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "type": "double"
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "departureTime",
+                    "type": "dateTime"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Vehicle Booking",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "td156",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "time": "2023-09-19T12:49:50Z",
+                    "value": "1.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "vh37",
+                    "qualifier": "has_regular_vehicle"
+                }
+            ]
+        },
+        {
+            "id": "vh37",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "departureTime",
+                    "time": "2023-09-19T12:49:50Z",
+                    "value": "2023-10-03T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td156",
+                    "qualifier": "designated_as_regular_for"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Vehicle Booking",
+            "time": "2023-09-19T12:49:50Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "td156",
+                    "qualifier": "transportDocument"
+                },
+                {
+                    "objectId": "vh37",
+                    "qualifier": "bookedVehicle"
+                }
+            ]
+        }
+    ]
+}

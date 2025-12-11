@@ -1,0 +1,111 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "identifier",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ReorderInitiated",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "o-person-nina-graves",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Nina Graves"
+                },
+                {
+                    "name": "department",
+                    "value": "warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o-item-i-880081",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "identifier",
+                    "value": "i-880081"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-product-ipad-mini",
+                    "qualifier": "associatedWith"
+                }
+            ]
+        },
+        {
+            "id": "o-product-ipad-mini",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "iPad mini"
+                },
+                {
+                    "name": "price",
+                    "value": "449.0"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "ReorderInitiated",
+            "time": "2023-04-12T14:30:27Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "o-person-nina-graves",
+                    "qualifier": "initiator"
+                },
+                {
+                    "objectId": "o-item-i-880081",
+                    "qualifier": "reorderedItem"
+                }
+            ]
+        }
+    ]
+}

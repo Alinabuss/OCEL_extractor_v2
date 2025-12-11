@@ -1,0 +1,115 @@
+{
+    "objectTypes": [
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "mentalHealthAssessment",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Court",
+            "attributes": []
+        },
+        {
+            "name": "ForensicExpert",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Preliminary Hearing",
+            "attributes": [
+                {
+                    "name": "concern",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Verbal Report",
+            "attributes": [
+                {
+                    "name": "conclusion",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "applicant-1",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "mentalHealthAssessment",
+                    "time": "2017-10-11T00:00:00Z",
+                    "value": "the applicant's mental health condition was not so serious as to impede him from understanding the purpose of the trial and its implications"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "audiencia-provincial",
+            "type": "Court",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "forensic-expert-1",
+            "type": "ForensicExpert",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Preliminary Hearing",
+            "time": "2017-10-11T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "concern",
+                    "value": "the applicant's capacity to understand the implications of the trial and the accusation against him"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "audiencia-provincial",
+                    "qualifier": "held-by"
+                },
+                {
+                    "objectId": "applicant-1",
+                    "qualifier": "requested-by"
+                },
+                {
+                    "objectId": "applicant-1",
+                    "qualifier": "subject-of"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Verbal Report",
+            "time": "2017-10-11T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "conclusion",
+                    "value": "the applicant's mental health condition was not so serious as to impede him from understanding the purpose of the trial and its implications"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "forensic-expert-1",
+                    "qualifier": "given-by"
+                },
+                {
+                    "objectId": "applicant-1",
+                    "qualifier": "about"
+                }
+            ]
+        }
+    ]
+}

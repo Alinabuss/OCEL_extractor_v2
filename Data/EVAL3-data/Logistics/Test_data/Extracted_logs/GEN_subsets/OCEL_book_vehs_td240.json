@@ -1,0 +1,100 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "type": "datetime"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Association",
+            "attributes": []
+        },
+        {
+            "name": "Booking",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "TD240",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "value": "2.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "VH56",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "value": "2023-12-08T11:00:00Z"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Association",
+            "time": "2023-11-22T13:05:19Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "TD240",
+                    "qualifier": "transportDocument"
+                },
+                {
+                    "objectId": "VH56",
+                    "qualifier": "vehicle"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "Booking",
+            "time": "2023-11-22T13:05:19Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "successful"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "VH56",
+                    "qualifier": "vehicle"
+                },
+                {
+                    "objectId": "TD240",
+                    "qualifier": "transportDocument"
+                }
+            ]
+        }
+    ]
+}

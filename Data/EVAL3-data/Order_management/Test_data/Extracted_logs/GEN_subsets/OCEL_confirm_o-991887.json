@@ -1,0 +1,175 @@
+{
+    "objectTypes": [
+        {
+            "name": "Order",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Customer",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Order Confirmed",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o-991887",
+            "type": "Order",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "193.56"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "i-887259",
+                    "qualifier": "contains"
+                },
+                {
+                    "objectId": "c-Balkan_Minerals_d.o.o.",
+                    "qualifier": "customer"
+                }
+            ]
+        },
+        {
+            "id": "i-887259",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "94.28"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-Kindle",
+                    "qualifier": "represents"
+                }
+            ]
+        },
+        {
+            "id": "product-Kindle",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Kindle"
+                },
+                {
+                    "name": "price",
+                    "value": "79.99"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "c-Balkan_Minerals_d.o.o.",
+            "type": "Customer",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Balkan Minerals d.o.o."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "emp-Christine_von_Dobbert",
+                    "qualifier": "primary_sales_representative"
+                }
+            ]
+        },
+        {
+            "id": "emp-Christine_von_Dobbert",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Christine von Dobbert"
+                },
+                {
+                    "name": "role",
+                    "value": "Sales"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e-1",
+            "type": "Order Confirmed",
+            "time": "2024-03-05T14:43:43Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "confirmed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-991887",
+                    "qualifier": "order"
+                },
+                {
+                    "objectId": "c-Balkan_Minerals_d.o.o.",
+                    "qualifier": "customer"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,209 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                },
+                {
+                    "name": "gender",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Report",
+            "attributes": []
+        },
+        {
+            "name": "Diagnosis",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "onset",
+                    "type": "string"
+                },
+                {
+                    "name": "symptoms_present_since",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Observation",
+            "attributes": [
+                {
+                    "name": "details",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ReportConclusion",
+            "attributes": [
+                {
+                    "name": "conclusion",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "person_expert_1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "expert"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "person_applicant_1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "applicant"
+                },
+                {
+                    "name": "gender",
+                    "value": "male"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "report_1",
+            "type": "Report",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "person_applicant_1",
+                    "qualifier": "about"
+                }
+            ]
+        },
+        {
+            "id": "diagnosis_1",
+            "type": "Diagnosis",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "disorder starting in childhood or adolescence"
+                },
+                {
+                    "name": "onset",
+                    "value": "childhood or adolescence"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "diagnosis_2",
+            "type": "Diagnosis",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "schizoid and compulsive disorder"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "diagnosis_3",
+            "type": "Diagnosis",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "psychotic disorder with compensatory mechanisms"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "diagnosis_4",
+            "type": "Diagnosis",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "effects of ADHD"
+                },
+                {
+                    "name": "symptoms_present_since",
+                    "value": "childhood"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Observation",
+            "time": "",
+            "attributes": [
+                {
+                    "name": "details",
+                    "value": "Observed disturbances in the applicant's memory; deterioration of his intellectual capacities; difficulties managing documents and administrative tasks."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person_expert_1",
+                    "qualifier": "observer"
+                },
+                {
+                    "objectId": "person_applicant_1",
+                    "qualifier": "subject"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "ReportConclusion",
+            "time": "",
+            "attributes": [
+                {
+                    "name": "conclusion",
+                    "value": "The report concluded that the applicant's diagnosis was compatible with: a disorder starting in childhood or adolescence; schizoid and compulsive disorder; psychotic disorder with compensatory mechanisms; and the effects of ADHD, with symptoms having been present since childhood."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "report_1",
+                    "qualifier": "source"
+                },
+                {
+                    "objectId": "person_applicant_1",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "diagnosis_1",
+                    "qualifier": "compatible_with"
+                },
+                {
+                    "objectId": "diagnosis_2",
+                    "qualifier": "compatible_with"
+                },
+                {
+                    "objectId": "diagnosis_3",
+                    "qualifier": "compatible_with"
+                },
+                {
+                    "objectId": "diagnosis_4",
+                    "qualifier": "compatible_with"
+                }
+            ]
+        }
+    ]
+}

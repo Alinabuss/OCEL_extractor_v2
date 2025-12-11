@@ -1,0 +1,164 @@
+{
+    "objectTypes": [
+        {
+            "name": "Machine",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "SteelCoil",
+            "attributes": [
+                {
+                    "name": "material",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "weight",
+                    "type": "double"
+                }
+            ]
+        },
+        {
+            "name": "Workstation",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Splitting",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "type": "double"
+                },
+                {
+                    "name": "co2_kg",
+                    "type": "double"
+                },
+                {
+                    "name": "electricity_kwh",
+                    "type": "double"
+                },
+                {
+                    "name": "electricity_source",
+                    "type": "string"
+                },
+                {
+                    "name": "steel_waste_kg",
+                    "type": "double"
+                },
+                {
+                    "name": "waste_destination",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "splitter01",
+            "type": "Machine",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "splitter01"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_steelcoil_4",
+            "type": "SteelCoil",
+            "attributes": [
+                {
+                    "name": "material",
+                    "value": "steel"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_steelsheet_1049",
+            "type": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "weight",
+                    "time": "2023-04-03T11:23:13Z",
+                    "value": "0.02128"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_steelcoil_4",
+                    "qualifier": "produced_from"
+                }
+            ]
+        },
+        {
+            "id": "o_workstation_1",
+            "type": "Workstation",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Splitting",
+            "time": "2023-04-03T11:23:13Z",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "value": "14.48"
+                },
+                {
+                    "name": "co2_kg",
+                    "value": "0.01514"
+                },
+                {
+                    "name": "electricity_kwh",
+                    "value": "0.02212"
+                },
+                {
+                    "name": "electricity_source",
+                    "value": "grid"
+                },
+                {
+                    "name": "steel_waste_kg",
+                    "value": "0.00042"
+                },
+                {
+                    "name": "waste_destination",
+                    "value": "recycling"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_steelcoil_4",
+                    "qualifier": "input"
+                },
+                {
+                    "objectId": "o_steelsheet_1049",
+                    "qualifier": "output"
+                },
+                {
+                    "objectId": "splitter01",
+                    "qualifier": "machine"
+                },
+                {
+                    "objectId": "o_workstation_1",
+                    "qualifier": "workstation"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,239 @@
+{
+    "objectTypes": [
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "notes",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Government",
+            "attributes": [
+                {
+                    "name": "referred_remedies_count",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Remedy",
+            "attributes": [
+                {
+                    "name": "availability",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "DomesticCourt",
+            "attributes": []
+        },
+        {
+            "name": "ProceduralAdjustment",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "mental_health_condition",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "DomesticAuthority",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ReferRemedies",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "count",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "IssueRaised",
+            "attributes": [
+                {
+                    "name": "issue",
+                    "type": "string"
+                },
+                {
+                    "name": "occurrences",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "CourtNote",
+            "attributes": [
+                {
+                    "name": "observation_1",
+                    "type": "string"
+                },
+                {
+                    "name": "observation_2",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "gov_1",
+            "type": "Government",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "court_1",
+            "type": "Court",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "remedies_1",
+            "type": "Remedy",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "dom_court_1",
+            "type": "DomesticCourt",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "proc_adj_1",
+            "type": "ProceduralAdjustment",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "applicant_1",
+            "type": "Applicant",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "dom_auth_1",
+            "type": "DomesticAuthority",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "ReferRemedies",
+            "time": "2020-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Government referred to several available remedies"
+                },
+                {
+                    "name": "count",
+                    "value": "several"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "gov_1",
+                    "qualifier": "referrer"
+                },
+                {
+                    "objectId": "remedies_1",
+                    "qualifier": "referred"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "IssueRaised",
+            "time": "2020-01-02T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "issue",
+                    "value": "applicant's mental health condition"
+                },
+                {
+                    "name": "occurrences",
+                    "value": "several"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "dom_auth_1",
+                    "qualifier": "raised_before"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "CourtNote",
+            "time": "2020-01-03T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "observation_1",
+                    "value": "Government did not provide any examples where the use of those remedies had resulted in the domestic courts granting any specific procedural adjustments"
+                },
+                {
+                    "name": "observation_2",
+                    "value": "the issue of the applicant's mental health condition was raised before the domestic authorities on several occasions"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court_1",
+                    "qualifier": "noter"
+                },
+                {
+                    "objectId": "gov_1",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "remedies_1",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "dom_court_1",
+                    "qualifier": "mentioned"
+                },
+                {
+                    "objectId": "proc_adj_1",
+                    "qualifier": "mentioned"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "dom_auth_1",
+                    "qualifier": "mentioned"
+                }
+            ]
+        }
+    ]
+}

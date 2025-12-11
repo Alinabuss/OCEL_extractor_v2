@@ -1,0 +1,156 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "fireType",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "kind",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "RespondingGroup",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "FirefightersOnScene",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire_1",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-23T15:26:00Z",
+                    "value": "Border Fire"
+                },
+                {
+                    "name": "fireType",
+                    "time": "2025-01-23T15:26:00Z",
+                    "value": "vegetation"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "trail_1",
+                    "qualifier": "near"
+                }
+            ]
+        },
+        {
+            "id": "trail_1",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-23T15:26:00Z",
+                    "value": "Otay Mountain Truck Trail"
+                },
+                {
+                    "name": "kind",
+                    "time": "2025-01-23T15:26:00Z",
+                    "value": "trail"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "wilderness_1",
+                    "qualifier": "within"
+                }
+            ]
+        },
+        {
+            "id": "wilderness_1",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-23T15:26:00Z",
+                    "value": "Otay Mountain Wilderness"
+                },
+                {
+                    "name": "kind",
+                    "time": "2025-01-23T15:26:00Z",
+                    "value": "wilderness"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "firefighters_1",
+            "type": "RespondingGroup",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-23T15:26:00Z",
+                    "value": "Firefighters"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "FirefightersOnScene",
+            "time": "2025-01-23T15:26:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Firefighters are on scene of a vegetation fire located near Otay Mountain Truck Trail within the Otay Mountain Wilderness."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "incident"
+                },
+                {
+                    "objectId": "firefighters_1",
+                    "qualifier": "onScene"
+                },
+                {
+                    "objectId": "trail_1",
+                    "qualifier": "near"
+                },
+                {
+                    "objectId": "wilderness_1",
+                    "qualifier": "within"
+                }
+            ]
+        }
+    ]
+}

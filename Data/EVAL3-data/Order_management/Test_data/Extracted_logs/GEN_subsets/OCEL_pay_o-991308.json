@@ -1,0 +1,121 @@
+{
+    "objectTypes": [
+        {
+            "name": "Order",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "value",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                },
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Order Paid",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "o-991308",
+            "type": "Order",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "2749.25",
+                    "time": "2023-12-25T14:23:47Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "i-885167",
+                    "qualifier": "comprised"
+                }
+            ]
+        },
+        {
+            "id": "i-885167",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "value",
+                    "value": "2744.25",
+                    "time": "2023-12-25T14:23:47Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "MacBook Pro",
+                    "qualifier": "corresponds_to"
+                }
+            ]
+        },
+        {
+            "id": "MacBook Pro",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "2500.0",
+                    "time": "2023-12-25T14:23:47Z"
+                },
+                {
+                    "name": "name",
+                    "value": "MacBook Pro",
+                    "time": "2023-12-25T14:23:47Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-991308",
+                    "qualifier": "linked_as_item"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e-1",
+            "type": "Order Paid",
+            "time": "2023-12-25T14:23:47Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "o-991308",
+                    "qualifier": "order"
+                },
+                {
+                    "objectId": "i-885167",
+                    "qualifier": "item"
+                },
+                {
+                    "objectId": "MacBook Pro",
+                    "qualifier": "product"
+                }
+            ]
+        }
+    ]
+}

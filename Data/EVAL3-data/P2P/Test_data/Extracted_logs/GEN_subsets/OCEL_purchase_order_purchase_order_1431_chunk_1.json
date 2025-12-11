@@ -1,0 +1,107 @@
+{
+    "objectTypes": [
+        {
+            "name": "goods_receipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "type": "integer"
+                },
+                {
+                    "name": "department",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "purchase_order",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "GoodsReceiptCreated",
+            "attributes": []
+        },
+        {
+            "name": "GoodsReceiptCompleted",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "goods receipt:1769",
+            "type": "goods_receipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "time": "2024-07-22T23:33:00Z",
+                    "value": "101"
+                },
+                {
+                    "name": "department",
+                    "time": "2024-07-22T23:33:00Z",
+                    "value": "Warehouse Department"
+                },
+                {
+                    "name": "status",
+                    "time": "2024-07-22T23:33:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:1431",
+                    "qualifier": "associated_with"
+                }
+            ]
+        },
+        {
+            "id": "purchase_order:1431",
+            "type": "purchase_order",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "time": "",
+                    "value": "003"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "ev1",
+            "type": "GoodsReceiptCreated",
+            "time": "2024-07-22T23:33:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:1769",
+                    "qualifier": "created"
+                }
+            ]
+        },
+        {
+            "id": "ev2",
+            "type": "GoodsReceiptCompleted",
+            "time": "2024-07-22T23:33:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:1769",
+                    "qualifier": "completed"
+                }
+            ]
+        }
+    ]
+}

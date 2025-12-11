@@ -1,0 +1,162 @@
+{
+    "objectTypes": [
+        {
+            "name": "Patient",
+            "attributes": []
+        },
+        {
+            "name": "Diagnosis",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "recurrence",
+                    "type": "boolean"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "DiagnosisCommunicated",
+            "attributes": [
+                {
+                    "name": "condition",
+                    "type": "string"
+                },
+                {
+                    "name": "recurrence",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "InstructedToSign",
+            "attributes": [
+                {
+                    "name": "instruction",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ExpressedLackOfKnowledge",
+            "attributes": [
+                {
+                    "name": "message",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "patient_1",
+            "type": "Patient",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "diagnosis_1",
+                    "qualifier": "hasDiagnosis"
+                }
+            ]
+        },
+        {
+            "id": "diagnosis_1",
+            "type": "Diagnosis",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-09-11T00:00:00Z",
+                    "value": "cancer"
+                },
+                {
+                    "name": "recurrence",
+                    "time": "2025-09-11T00:00:00Z",
+                    "value": "true"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "DiagnosisCommunicated",
+            "time": "2025-09-11T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "condition",
+                    "value": "cancer"
+                },
+                {
+                    "name": "recurrence",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "patient_1",
+                    "qualifier": "patient"
+                },
+                {
+                    "objectId": "diagnosis_1",
+                    "qualifier": "diagnosis"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "ExpressedLackOfKnowledge",
+            "time": "2025-09-11T00:01:00Z",
+            "attributes": [
+                {
+                    "name": "message",
+                    "value": "I don't have any idea about anything."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "patient_1",
+                    "qualifier": "subject"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "InstructedToSign",
+            "time": "2025-09-11T00:02:00Z",
+            "attributes": [
+                {
+                    "name": "instruction",
+                    "value": "sign here, sign there"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "patient_1",
+                    "qualifier": "recipient"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "ExpressedLackOfKnowledge",
+            "time": "2025-09-11T00:03:00Z",
+            "attributes": [
+                {
+                    "name": "message",
+                    "value": "I don't know anything else."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "patient_1",
+                    "qualifier": "subject"
+                }
+            ]
+        }
+    ]
+}

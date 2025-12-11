@@ -1,0 +1,107 @@
+{
+    "objectTypes": [
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "double"
+                }
+            ]
+        },
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Two-way Match Finalized",
+            "attributes": [
+                {
+                    "name": "matchType",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt:1892",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "time": "2024-10-03T07:10:00Z",
+                    "value": "28600.00"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "goods receipt:1887",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "time": "2024-10-03T07:10:00Z",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "department:finance and account",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2024-10-03T07:10:00Z",
+                    "value": "finance and account department"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "event:1",
+            "type": "Two-way Match Finalized",
+            "time": "2024-10-03T07:10:00Z",
+            "attributes": [
+                {
+                    "name": "matchType",
+                    "value": "two-way"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:1892",
+                    "qualifier": "involved"
+                },
+                {
+                    "objectId": "goods receipt:1887",
+                    "qualifier": "involved"
+                },
+                {
+                    "objectId": "department:finance and account",
+                    "qualifier": "finalizer"
+                }
+            ]
+        }
+    ]
+}

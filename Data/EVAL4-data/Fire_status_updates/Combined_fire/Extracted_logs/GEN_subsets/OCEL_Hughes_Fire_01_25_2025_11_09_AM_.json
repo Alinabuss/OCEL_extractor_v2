@@ -1,0 +1,574 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "containment",
+                    "type": "float"
+                },
+                {
+                    "name": "within_current_perimeter",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "ResponderGroup",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "website",
+                    "type": "uri"
+                }
+            ]
+        },
+        {
+            "name": "EvacuationCenter",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "EvacuationOrder",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Residents",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ResourcePool",
+            "attributes": [
+                {
+                    "name": "release_planned",
+                    "type": "boolean"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ContainmentUpdate",
+            "attributes": [
+                {
+                    "name": "containment",
+                    "type": "float"
+                },
+                {
+                    "name": "perimeter_status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PatrolAndMopUp",
+            "attributes": [
+                {
+                    "name": "terrain",
+                    "type": "string"
+                },
+                {
+                    "name": "activity",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "EvacuationOrderChanged",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                },
+                {
+                    "name": "note",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ExitUnifiedCommand",
+            "attributes": []
+        },
+        {
+            "name": "EvacuationCenterClosed",
+            "attributes": [
+                {
+                    "name": "reason",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "BeginReleasingResources",
+            "attributes": [
+                {
+                    "name": "note",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "WeatherForecastIssued",
+            "attributes": [
+                {
+                    "name": "cooler_expected",
+                    "type": "boolean"
+                },
+                {
+                    "name": "higher_humidity_expected",
+                    "type": "boolean"
+                },
+                {
+                    "name": "potential_for_rain",
+                    "type": "boolean"
+                },
+                {
+                    "name": "alert_for_flooding_debris_flows",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "SandbagInfoProvided",
+            "attributes": [
+                {
+                    "name": "url",
+                    "type": "uri"
+                },
+                {
+                    "name": "target",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "AdditionalInfoReference",
+            "attributes": [
+                {
+                    "name": "source",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire_hughes",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-25T11:09:00Z",
+                    "value": "Hughes Fire"
+                },
+                {
+                    "name": "containment",
+                    "time": "2025-01-25T11:09:00Z",
+                    "value": "87"
+                },
+                {
+                    "name": "within_current_perimeter",
+                    "time": "2025-01-25T11:09:00Z",
+                    "value": "true"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "crew_firefighters",
+            "type": "ResponderGroup",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-25T11:09:00Z",
+                    "value": "firefighters/crews"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_hughes",
+                    "qualifier": "assigned_to"
+                }
+            ]
+        },
+        {
+            "id": "org_lasd",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-25T11:09:00Z",
+                    "value": "Los Angeles County Sheriff's Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_hughes",
+                    "qualifier": "involved_in"
+                }
+            ]
+        },
+        {
+            "id": "org_redcross",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-25T11:09:00Z",
+                    "value": "Red Cross"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "evac_center_redcross",
+            "type": "EvacuationCenter",
+            "attributes": [
+                {
+                    "name": "status",
+                    "time": "2025-01-25T11:09:00Z",
+                    "value": "closed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "org_redcross",
+                    "qualifier": "operated_by"
+                },
+                {
+                    "objectId": "fire_hughes",
+                    "qualifier": "for_fire"
+                }
+            ]
+        },
+        {
+            "id": "evac_order_1",
+            "type": "EvacuationOrder",
+            "attributes": [
+                {
+                    "name": "status",
+                    "time": "2025-01-25T11:09:00Z",
+                    "value": "lifted"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_hughes",
+                    "qualifier": "for_fire"
+                }
+            ]
+        },
+        {
+            "id": "residents_local",
+            "type": "Residents",
+            "attributes": [
+                {
+                    "name": "status",
+                    "time": "2025-01-25T11:09:00Z",
+                    "value": "returning"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_hughes",
+                    "qualifier": "affected_by"
+                }
+            ]
+        },
+        {
+            "id": "org_dpw",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-25T11:09:00Z",
+                    "value": "Los Angeles County Department of Public Works"
+                },
+                {
+                    "name": "website",
+                    "time": "2025-01-25T11:09:00Z",
+                    "value": "https://dpw.lacounty.gov/dsg/sandbags/"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "resources_fire",
+            "type": "ResourcePool",
+            "attributes": [
+                {
+                    "name": "release_planned",
+                    "time": "2025-01-25T11:09:00Z",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_hughes",
+                    "qualifier": "allocated_to"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "ContainmentUpdate",
+            "time": "2025-01-25T11:09:00Z",
+            "attributes": [
+                {
+                    "name": "containment",
+                    "value": "87"
+                },
+                {
+                    "name": "perimeter_status",
+                    "value": "within current perimeter"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_hughes",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "crew_firefighters",
+                    "qualifier": "performed_by"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "PatrolAndMopUp",
+            "time": "2025-01-25T11:09:00Z",
+            "attributes": [
+                {
+                    "name": "terrain",
+                    "value": "northern flank - rugged"
+                },
+                {
+                    "name": "activity",
+                    "value": "patrol for hot spots; continue mop-up activities"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "crew_firefighters",
+                    "qualifier": "performed_by"
+                },
+                {
+                    "objectId": "fire_hughes",
+                    "qualifier": "about"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "EvacuationOrderChanged",
+            "time": "2025-01-25T11:09:00Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "lifted"
+                },
+                {
+                    "name": "note",
+                    "value": "lifted yesterday"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "evac_order_1",
+                    "qualifier": "changed"
+                },
+                {
+                    "objectId": "residents_local",
+                    "qualifier": "affected"
+                },
+                {
+                    "objectId": "fire_hughes",
+                    "qualifier": "for"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "ExitUnifiedCommand",
+            "time": "2025-01-25T11:09:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "org_lasd",
+                    "qualifier": "exited_unified_command"
+                },
+                {
+                    "objectId": "fire_hughes",
+                    "qualifier": "for"
+                }
+            ]
+        },
+        {
+            "id": "e5",
+            "type": "EvacuationCenterClosed",
+            "time": "2025-01-25T11:09:00Z",
+            "attributes": [
+                {
+                    "name": "reason",
+                    "value": "rapid rate of containment and repopulation"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "evac_center_redcross",
+                    "qualifier": "closed"
+                },
+                {
+                    "objectId": "org_redcross",
+                    "qualifier": "operated_by"
+                },
+                {
+                    "objectId": "fire_hughes",
+                    "qualifier": "for"
+                }
+            ]
+        },
+        {
+            "id": "e6",
+            "type": "BeginReleasingResources",
+            "time": "2025-01-25T11:09:00Z",
+            "attributes": [
+                {
+                    "name": "note",
+                    "value": "begin releasing firefighters and resources to make them available for future incidents"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "crew_firefighters",
+                    "qualifier": "released"
+                },
+                {
+                    "objectId": "resources_fire",
+                    "qualifier": "released"
+                },
+                {
+                    "objectId": "fire_hughes",
+                    "qualifier": "for"
+                }
+            ]
+        },
+        {
+            "id": "e7",
+            "type": "WeatherForecastIssued",
+            "time": "2025-01-25T11:09:00Z",
+            "attributes": [
+                {
+                    "name": "cooler_expected",
+                    "value": "true"
+                },
+                {
+                    "name": "higher_humidity_expected",
+                    "value": "true"
+                },
+                {
+                    "name": "potential_for_rain",
+                    "value": "true"
+                },
+                {
+                    "name": "alert_for_flooding_debris_flows",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_hughes",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "crew_firefighters",
+                    "qualifier": "affects"
+                },
+                {
+                    "objectId": "residents_local",
+                    "qualifier": "advises"
+                }
+            ]
+        },
+        {
+            "id": "e8",
+            "type": "SandbagInfoProvided",
+            "time": "2025-01-25T11:09:00Z",
+            "attributes": [
+                {
+                    "name": "url",
+                    "value": "https://dpw.lacounty.gov/dsg/sandbags/"
+                },
+                {
+                    "name": "target",
+                    "value": "residents seeking sandbags"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "org_dpw",
+                    "qualifier": "provided_by"
+                },
+                {
+                    "objectId": "residents_local",
+                    "qualifier": "for"
+                },
+                {
+                    "objectId": "fire_hughes",
+                    "qualifier": "for"
+                }
+            ]
+        },
+        {
+            "id": "e9",
+            "type": "AdditionalInfoReference",
+            "time": "2025-01-25T11:09:00Z",
+            "attributes": [
+                {
+                    "name": "source",
+                    "value": "Hughes Fire Information | InciWeb"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_hughes",
+                    "qualifier": "about"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,103 @@
+{
+    "objectTypes": [
+        {
+            "name": "purchase_order",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                },
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "quotation",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "PurchaseOrderCreated",
+            "attributes": [
+                {
+                    "name": "created_by",
+                    "type": "string"
+                },
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:55",
+            "type": "purchase_order",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "value": "004"
+                },
+                {
+                    "name": "lifecycle",
+                    "value": "completed",
+                    "time": "2022-05-10T05:01:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:29",
+                    "qualifier": "linked_to"
+                }
+            ]
+        },
+        {
+            "id": "quotation:29",
+            "type": "quotation",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "value": "004"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:55",
+                    "qualifier": "linked_to"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "event:1",
+            "type": "PurchaseOrderCreated",
+            "time": "2022-05-10T05:01:00Z",
+            "attributes": [
+                {
+                    "name": "created_by",
+                    "value": "Procurement Department"
+                },
+                {
+                    "name": "lifecycle",
+                    "value": "completed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:55",
+                    "qualifier": "created"
+                }
+            ]
+        }
+    ]
+}

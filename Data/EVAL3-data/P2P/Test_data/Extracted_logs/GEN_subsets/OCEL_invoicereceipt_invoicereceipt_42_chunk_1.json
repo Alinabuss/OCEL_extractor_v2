@@ -1,0 +1,99 @@
+{
+    "objectTypes": [
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "float"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Invoice Receipt Created",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "Invoice Receipt: 42",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "time": "2022-05-09T23:01:00Z",
+                    "value": "8400.0"
+                },
+                {
+                    "name": "status",
+                    "time": "2022-05-09T23:01:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Goods Receipt (movement 101)",
+                    "qualifier": "correspondsTo"
+                },
+                {
+                    "objectId": "Finance/Account Department",
+                    "qualifier": "associatedWith"
+                }
+            ]
+        },
+        {
+            "id": "Goods Receipt (movement 101)",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Finance/Account Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Invoice Receipt Created",
+            "time": "2022-05-09T23:01:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Invoice Receipt: 42",
+                    "qualifier": "creates"
+                },
+                {
+                    "objectId": "Goods Receipt (movement 101)",
+                    "qualifier": "follows"
+                }
+            ]
+        }
+    ]
+}

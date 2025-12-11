@@ -1,0 +1,127 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Quotation",
+            "attributes": []
+        },
+        {
+            "name": "User",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "PurchaseOrderApproved",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:304",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "value": "001"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:169",
+                    "qualifier": "linkedTo"
+                }
+            ]
+        },
+        {
+            "id": "purchase_order:305",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "value": "001"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:169",
+                    "qualifier": "linkedTo"
+                }
+            ]
+        },
+        {
+            "id": "quotation:169",
+            "type": "Quotation",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "user:Procurement Order Manager",
+            "type": "User",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Procurement Order Manager"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "event:1",
+            "type": "PurchaseOrderApproved",
+            "time": "2022-09-12T15:50:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:304",
+                    "qualifier": "approved"
+                },
+                {
+                    "objectId": "user:Procurement Order Manager",
+                    "qualifier": "completedBy"
+                }
+            ]
+        },
+        {
+            "id": "event:2",
+            "type": "PurchaseOrderApproved",
+            "time": "2022-09-12T20:10:00Z",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:305",
+                    "qualifier": "approved"
+                },
+                {
+                    "objectId": "user:Procurement Order Manager",
+                    "qualifier": "completedBy"
+                }
+            ]
+        }
+    ]
+}

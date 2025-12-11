@@ -1,0 +1,212 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "area_acres",
+                    "type": "float"
+                },
+                {
+                    "name": "containment_percent",
+                    "type": "float"
+                },
+                {
+                    "name": "status_note",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "street",
+                    "type": "string"
+                },
+                {
+                    "name": "city",
+                    "type": "string"
+                },
+                {
+                    "name": "state",
+                    "type": "string"
+                },
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Fire Reported",
+            "attributes": [
+                {
+                    "name": "note",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Status Snapshot",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "o_fire_lidia",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-08T13:08:00Z",
+                    "value": "Lidia Fire"
+                },
+                {
+                    "name": "area_acres",
+                    "time": "2025-01-09T23:11:00Z",
+                    "value": "348"
+                },
+                {
+                    "name": "containment_percent",
+                    "time": "2025-01-09T23:11:00Z",
+                    "value": "60"
+                },
+                {
+                    "name": "status_note",
+                    "time": "2025-01-09T23:11:00Z",
+                    "value": "firefighters making significant progress"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_loc_soledad_canyon_acton_ca",
+                    "qualifier": "located-at"
+                }
+            ]
+        },
+        {
+            "id": "o_loc_soledad_canyon_acton_ca",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "street",
+                    "time": "2025-01-08T13:08:00Z",
+                    "value": "Soledad Canyon Road"
+                },
+                {
+                    "name": "city",
+                    "time": "2025-01-08T13:08:00Z",
+                    "value": "Acton"
+                },
+                {
+                    "name": "state",
+                    "time": "2025-01-08T13:08:00Z",
+                    "value": "California"
+                },
+                {
+                    "name": "description",
+                    "time": "2025-01-08T13:08:00Z",
+                    "value": "Soledad Canyon Road, Acton, California"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_org_angeles_national_forest",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-09T23:11:00Z",
+                    "value": "Angeles National Forest"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_org_la_county_fire_department",
+                    "qualifier": "unified-command-with"
+                }
+            ]
+        },
+        {
+            "id": "o_org_la_county_fire_department",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-09T23:11:00Z",
+                    "value": "Los Angeles County Fire Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_org_angeles_national_forest",
+                    "qualifier": "unified-command-with"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Fire Reported",
+            "time": "2025-01-08T13:08:00Z",
+            "attributes": [
+                {
+                    "name": "note",
+                    "value": "Reported on Soledad Canyon Road in Acton, California (approximately 1:08 p.m.)"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_fire_lidia",
+                    "qualifier": "incident"
+                },
+                {
+                    "objectId": "o_loc_soledad_canyon_acton_ca",
+                    "qualifier": "location"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Status Snapshot",
+            "time": "2025-01-09T23:11:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "o_fire_lidia",
+                    "qualifier": "incident"
+                },
+                {
+                    "objectId": "o_org_angeles_national_forest",
+                    "qualifier": "unified-command-member"
+                },
+                {
+                    "objectId": "o_org_la_county_fire_department",
+                    "qualifier": "unified-command-member"
+                },
+                {
+                    "objectId": "o_loc_soledad_canyon_acton_ca",
+                    "qualifier": "location"
+                }
+            ]
+        }
+    ]
+}

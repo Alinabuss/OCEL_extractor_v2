@@ -1,0 +1,98 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseRequisition",
+            "attributes": [
+                {
+                    "name": "purchasingGroup",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Material",
+            "attributes": [
+                {
+                    "name": "netPrice",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "PurchaseRequisitionApprovalDelegationCompleted",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_requisition:628:pr_trigger_628",
+            "type": "PurchaseRequisition",
+            "attributes": [
+                {
+                    "name": "purchasingGroup",
+                    "time": "2023-12-19T08:11:00Z",
+                    "value": "001"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "material:1573",
+                    "qualifier": "associated_with"
+                }
+            ]
+        },
+        {
+            "id": "material:1573",
+            "type": "Material",
+            "attributes": [
+                {
+                    "name": "netPrice",
+                    "time": "2023-12-19T08:11:00Z",
+                    "value": 300.0
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "department:Manufacturing Department",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-12-19T08:11:00Z",
+                    "value": "Manufacturing Department"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "PurchaseRequisitionApprovalDelegationCompleted",
+            "time": "2023-12-19T08:11:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchase_requisition:628:pr_trigger_628",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "department:Manufacturing Department",
+                    "qualifier": "performed_by"
+                }
+            ]
+        }
+    ]
+}

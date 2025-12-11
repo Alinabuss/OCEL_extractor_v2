@@ -1,0 +1,82 @@
+{
+    "objectTypes": [
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "type": "timestamp"
+                }
+            ]
+        },
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "VehicleBooked",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "vh45",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "time": "2023-10-12T08:37:05Z",
+                    "value": "2023-10-31T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td185",
+                    "qualifier": "booked_for"
+                }
+            ]
+        },
+        {
+            "id": "td185",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "time": "2023-10-12T08:37:05Z",
+                    "value": "3.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "vh45",
+                    "qualifier": "booked_vehicle"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "VehicleBooked",
+            "time": "2023-10-12T08:37:05Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "vh45",
+                    "qualifier": "vehicle"
+                },
+                {
+                    "objectId": "td185",
+                    "qualifier": "transport_document"
+                }
+            ]
+        }
+    ]
+}

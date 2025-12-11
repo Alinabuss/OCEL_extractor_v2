@@ -1,0 +1,124 @@
+{
+    "objectTypes": [
+        {
+            "name": "FireIncident",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "fire_type",
+                    "type": "string"
+                },
+                {
+                    "name": "forward_progress",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ResponderGroup",
+            "attributes": []
+        },
+        {
+            "name": "AirResource",
+            "attributes": [
+                {
+                    "name": "organization",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "StatusUpdate",
+            "attributes": [
+                {
+                    "name": "message",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "LidiaFire",
+            "type": "FireIncident",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-08T22:45:00Z",
+                    "value": "Lidia Fire"
+                },
+                {
+                    "name": "fire_type",
+                    "time": "2025-01-08T22:45:00Z",
+                    "value": "brush fire"
+                },
+                {
+                    "name": "forward_progress",
+                    "time": "2025-01-08T22:45:00Z",
+                    "value": "stopped"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Firefighters",
+            "type": "ResponderGroup",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "LidiaFire",
+                    "qualifier": "workingOn"
+                }
+            ]
+        },
+        {
+            "id": "CAL_FIRE_AIR_RESOURCES",
+            "type": "AirResource",
+            "attributes": [
+                {
+                    "name": "organization",
+                    "time": "2025-01-08T22:45:00Z",
+                    "value": "CAL FIRE"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "LidiaFire",
+                    "qualifier": "assignedTo"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "StatusUpdate",
+            "time": "2025-01-08T22:45:00Z",
+            "attributes": [
+                {
+                    "name": "message",
+                    "value": "Forward progress has been stopped on this brush fire. Firefighters are working hard to gain additional containment. CAL FIRE air resources are assigned."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "LidiaFire",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "Firefighters",
+                    "qualifier": "working"
+                },
+                {
+                    "objectId": "CAL_FIRE_AIR_RESOURCES",
+                    "qualifier": "assigned"
+                }
+            ]
+        }
+    ]
+}

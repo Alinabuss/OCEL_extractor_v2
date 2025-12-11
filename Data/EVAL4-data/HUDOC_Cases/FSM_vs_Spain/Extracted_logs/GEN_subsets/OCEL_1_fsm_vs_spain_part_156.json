@@ -1,0 +1,149 @@
+{
+    "objectTypes": [
+        {
+            "name": "LegalAct",
+            "attributes": [
+                {
+                    "name": "title",
+                    "type": "string"
+                },
+                {
+                    "name": "clarity_on_requesting_procedural_adjustments",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Article",
+            "attributes": [
+                {
+                    "name": "number",
+                    "type": "string"
+                },
+                {
+                    "name": "title",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Applicant",
+            "attributes": []
+        },
+        {
+            "name": "Lawyers",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "RequestApplicationOfArticle",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                },
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "act-1",
+            "type": "LegalAct",
+            "attributes": [
+                {
+                    "name": "title",
+                    "time": "",
+                    "value": "Criminal Procedure Act"
+                },
+                {
+                    "name": "clarity_on_requesting_procedural_adjustments",
+                    "time": "",
+                    "value": "does_not_clearly_set_out"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "article-383",
+            "type": "Article",
+            "attributes": [
+                {
+                    "name": "number",
+                    "time": "",
+                    "value": "383"
+                },
+                {
+                    "name": "title",
+                    "time": "",
+                    "value": "Article 383 of the Criminal Procedure Act"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "act-1",
+                    "qualifier": "part-of"
+                }
+            ]
+        },
+        {
+            "id": "applicant-1",
+            "type": "Applicant",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "lawyers-1",
+            "type": "Lawyers",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "",
+                    "value": "applicant's lawyers"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant-1",
+                    "qualifier": "represents"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "RequestApplicationOfArticle",
+            "time": "",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "ask_that_article_be_applied"
+                },
+                {
+                    "name": "description",
+                    "value": "concentrated their efforts on asking that Article 383 be applied"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "lawyers-1",
+                    "qualifier": "requester"
+                },
+                {
+                    "objectId": "article-383",
+                    "qualifier": "target"
+                }
+            ]
+        }
+    ]
+}

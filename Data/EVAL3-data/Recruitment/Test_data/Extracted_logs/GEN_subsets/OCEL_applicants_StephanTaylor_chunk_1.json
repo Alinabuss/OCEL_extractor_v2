@@ -1,0 +1,252 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Vacancy",
+            "attributes": [
+                {
+                    "name": "title",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": []
+        },
+        {
+            "name": "Offer",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Interview Invitation",
+            "attributes": []
+        },
+        {
+            "name": "Interview",
+            "attributes": []
+        },
+        {
+            "name": "Offer Extended",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "Stephan Taylor",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Stephan Taylor"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Dionne Geisler",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Dionne Geisler"
+                },
+                {
+                    "name": "role",
+                    "value": "recruiter"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Dionne Hense",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Dionne Hense"
+                },
+                {
+                    "name": "role",
+                    "value": "recruiter"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Vaishnavi Sashikanth",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Vaishnavi Sashikanth"
+                },
+                {
+                    "name": "role",
+                    "value": "manager"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Dionne Keane",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Dionne Keane"
+                },
+                {
+                    "name": "role",
+                    "value": "recruiter"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Vacancy[550019]",
+            "type": "Vacancy",
+            "attributes": [
+                {
+                    "name": "title",
+                    "value": "Manager"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Application[770001]",
+            "type": "Application",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Vacancy[550019]",
+                    "qualifier": "associated-with"
+                },
+                {
+                    "objectId": "Stephan Taylor",
+                    "qualifier": "applicant"
+                }
+            ]
+        },
+        {
+            "id": "Offer[990009]",
+            "type": "Offer",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Application[770001]",
+                    "qualifier": "connected-to"
+                },
+                {
+                    "objectId": "Vacancy[550019]",
+                    "qualifier": "connected-to"
+                },
+                {
+                    "objectId": "Stephan Taylor",
+                    "qualifier": "recipient"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Interview Invitation",
+            "time": "2019-07-02T17:04:25Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Dionne Geisler",
+                    "qualifier": "inviter"
+                },
+                {
+                    "objectId": "Dionne Hense",
+                    "qualifier": "inviter"
+                },
+                {
+                    "objectId": "Stephan Taylor",
+                    "qualifier": "invitee"
+                },
+                {
+                    "objectId": "Application[770001]",
+                    "qualifier": "application"
+                },
+                {
+                    "objectId": "Vacancy[550019]",
+                    "qualifier": "vacancy"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "Interview",
+            "time": "2019-07-03T08:52:15Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Vaishnavi Sashikanth",
+                    "qualifier": "interviewer"
+                },
+                {
+                    "objectId": "Dionne Keane",
+                    "qualifier": "overseer"
+                },
+                {
+                    "objectId": "Stephan Taylor",
+                    "qualifier": "interviewee"
+                },
+                {
+                    "objectId": "Application[770001]",
+                    "qualifier": "application"
+                },
+                {
+                    "objectId": "Vacancy[550019]",
+                    "qualifier": "vacancy"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "type": "Offer Extended",
+            "time": "2019-07-04T07:00:28Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Dionne Keane",
+                    "qualifier": "recruiter"
+                },
+                {
+                    "objectId": "Stephan Taylor",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "Offer[990009]",
+                    "qualifier": "offer"
+                },
+                {
+                    "objectId": "Application[770001]",
+                    "qualifier": "application"
+                },
+                {
+                    "objectId": "Vacancy[550019]",
+                    "qualifier": "vacancy"
+                }
+            ]
+        }
+    ]
+}

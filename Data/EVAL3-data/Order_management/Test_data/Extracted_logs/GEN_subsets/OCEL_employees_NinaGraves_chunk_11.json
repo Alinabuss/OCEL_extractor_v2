@@ -1,0 +1,241 @@
+{
+    "objectTypes": [
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "fullName",
+                    "type": "string"
+                },
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "marketPrice",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Reorder",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Picking",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                },
+                {
+                    "name": "buyerRecordedPrice",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o-nina-graves",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "fullName",
+                    "value": "Nina Graves"
+                },
+                {
+                    "name": "department",
+                    "value": "warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "p-fire-stick-4k",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Fire Stick 4K"
+                },
+                {
+                    "name": "marketPrice",
+                    "value": "89.99"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "p-iphone-11",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "iPhone 11"
+                },
+                {
+                    "name": "marketPrice",
+                    "value": "799.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "p-fire-stick",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Fire Stick"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-887376",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "time": "2024-03-14T08:27:29Z",
+                    "value": "106.06"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "p-fire-stick-4k",
+                    "qualifier": "ofProduct"
+                }
+            ]
+        },
+        {
+            "id": "i-887551",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "time": "2024-03-19T14:18:05Z",
+                    "value": "941.7"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "p-iphone-11",
+                    "qualifier": "ofProduct"
+                }
+            ]
+        },
+        {
+            "id": "i-887627",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "time": "2024-03-26T09:17:15Z",
+                    "value": "39.99"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "p-fire-stick",
+                    "qualifier": "ofProduct"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "ev-1",
+            "type": "Reorder",
+            "time": "2024-03-14T08:27:29Z",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "106.06"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-nina-graves",
+                    "qualifier": "performedBy"
+                },
+                {
+                    "objectId": "i-887376",
+                    "qualifier": "item"
+                }
+            ]
+        },
+        {
+            "id": "ev-2",
+            "type": "Picking",
+            "time": "2024-03-19T14:18:05Z",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "941.7"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-nina-graves",
+                    "qualifier": "performedBy"
+                },
+                {
+                    "objectId": "i-887551",
+                    "qualifier": "item"
+                }
+            ]
+        },
+        {
+            "id": "ev-3",
+            "type": "Picking",
+            "time": "2024-03-26T09:17:15Z",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "39.99"
+                },
+                {
+                    "name": "buyerRecordedPrice",
+                    "value": "47.13"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-nina-graves",
+                    "qualifier": "performedBy"
+                },
+                {
+                    "objectId": "i-887627",
+                    "qualifier": "item"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,116 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseRequisition",
+            "attributes": []
+        },
+        {
+            "name": "Quotation",
+            "attributes": []
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": [
+                {
+                    "name": "identifier",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "OrganizationalUnit",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Request for Quotation Created",
+            "attributes": [
+                {
+                    "name": "completeness",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_requisition:332:pr_trigger_332",
+            "type": "PurchaseRequisition",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "002",
+                    "qualifier": "belongs-to"
+                }
+            ]
+        },
+        {
+            "id": "quotation:332",
+            "type": "Quotation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "002",
+                    "qualifier": "associated-with"
+                }
+            ]
+        },
+        {
+            "id": "002",
+            "type": "PurchasingGroup",
+            "attributes": [
+                {
+                    "name": "identifier",
+                    "time": "2023-03-08T23:27:00Z",
+                    "value": "002"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Procurement Department",
+            "type": "OrganizationalUnit",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-03-08T23:27:00Z",
+                    "value": "Procurement Department"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Request for Quotation Created",
+            "time": "2023-03-08T23:27:00Z",
+            "attributes": [
+                {
+                    "name": "completeness",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_requisition:332:pr_trigger_332",
+                    "qualifier": "involves"
+                },
+                {
+                    "objectId": "quotation:332",
+                    "qualifier": "involves"
+                },
+                {
+                    "objectId": "Procurement Department",
+                    "qualifier": "created-by"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,138 @@
+{
+    "objectTypes": [
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "number"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Pick",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "employee-BenediktKnopp",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Benedikt Knopp"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "dept-Warehousing",
+                    "qualifier": "worksIn"
+                }
+            ]
+        },
+        {
+            "id": "dept-Warehousing",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "product-iPadMini",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "iPad mini"
+                },
+                {
+                    "name": "price",
+                    "value": "449.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-880530",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "449.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-iPadMini",
+                    "qualifier": "associatedWith"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "evt-1",
+            "type": "Pick",
+            "time": "2023-05-15T14:04:04Z",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "picked"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "employee-BenediktKnopp",
+                    "qualifier": "performedBy"
+                },
+                {
+                    "objectId": "i-880530",
+                    "qualifier": "pickedItem"
+                }
+            ]
+        }
+    ]
+}

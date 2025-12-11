@@ -1,0 +1,127 @@
+{
+    "objectTypes": [
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "float"
+                },
+                {
+                    "name": "lifecycleStatus",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "FinalizeInvoiceReceiptCreation",
+            "attributes": []
+        },
+        {
+            "name": "UpdateLifecycleStatus",
+            "attributes": [
+                {
+                    "name": "lifecycleStatus",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt[639]",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "time": "2023-03-03T22:28:00Z",
+                    "value": "23700.00"
+                },
+                {
+                    "name": "lifecycleStatus",
+                    "time": "2023-03-03T22:28:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt[642]",
+                    "qualifier": "relatedTo"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt[642]",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "time": "2023-03-03T22:28:00Z",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Finance/Account Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "FinalizeInvoiceReceiptCreation",
+            "time": "2023-03-03T22:28:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt[639]",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "Finance/Account Department",
+                    "qualifier": "performedBy"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "UpdateLifecycleStatus",
+            "time": "2023-03-03T22:28:00Z",
+            "attributes": [
+                {
+                    "name": "lifecycleStatus",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt[639]",
+                    "qualifier": "affected"
+                }
+            ]
+        }
+    ]
+}

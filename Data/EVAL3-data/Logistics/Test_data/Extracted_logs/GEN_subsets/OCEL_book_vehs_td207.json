@@ -1,0 +1,111 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "departureDate",
+                    "type": "datetime"
+                },
+                {
+                    "name": "classification",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "TransportDocumentCreated",
+            "attributes": []
+        },
+        {
+            "name": "VehiclesBooked",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "td207",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "value": "3.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "vh45",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "departureDate",
+                    "value": "2023-10-31T11:00:00Z"
+                },
+                {
+                    "name": "classification",
+                    "value": "booked vehicle"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td207",
+                    "qualifier": "linked_to"
+                }
+            ]
+        },
+        {
+            "id": "vh48",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "departureDate",
+                    "value": "2023-11-10T11:00:00Z"
+                },
+                {
+                    "name": "classification",
+                    "value": "booked vehicle"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td207",
+                    "qualifier": "linked_to"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "VehiclesBooked",
+            "time": "2023-10-27T07:49:02Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "vh45",
+                    "qualifier": "booked_vehicle"
+                },
+                {
+                    "objectId": "vh48",
+                    "qualifier": "booked_vehicle"
+                },
+                {
+                    "objectId": "td207",
+                    "qualifier": "transport_document"
+                }
+            ]
+        }
+    ]
+}

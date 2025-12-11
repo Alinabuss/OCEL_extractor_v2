@@ -1,0 +1,242 @@
+{
+    "objectTypes": [
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "fullName",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Manager",
+            "attributes": [
+                {
+                    "name": "fullName",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Recruiter",
+            "attributes": [
+                {
+                    "name": "fullName",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": [
+                {
+                    "name": "applicationId",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Vacancy",
+            "attributes": [
+                {
+                    "name": "vacancyId",
+                    "type": "string"
+                },
+                {
+                    "name": "title",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Interview",
+            "attributes": []
+        },
+        {
+            "name": "Rejection Sent",
+            "attributes": []
+        },
+        {
+            "name": "Application Submitted",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "Applicant[Ray Jansen]",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "fullName",
+                    "value": "Ray Jansen"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Manager[Martin Klenk]",
+            "type": "Manager",
+            "attributes": [
+                {
+                    "name": "fullName",
+                    "value": "Martin Klenk"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Recruiter[Jana Kershaw]",
+            "type": "Recruiter",
+            "attributes": [
+                {
+                    "name": "fullName",
+                    "value": "Jana Kershaw"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Application[770044]",
+            "type": "Application",
+            "attributes": [
+                {
+                    "name": "applicationId",
+                    "value": "770044"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Applicant[Ray Jansen]",
+                    "qualifier": "submitted-by"
+                },
+                {
+                    "objectId": "Vacancy[550004]",
+                    "qualifier": "applies-to"
+                }
+            ]
+        },
+        {
+            "id": "Application[770378]",
+            "type": "Application",
+            "attributes": [
+                {
+                    "name": "applicationId",
+                    "value": "770378"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Applicant[Ray Jansen]",
+                    "qualifier": "submitted-by"
+                },
+                {
+                    "objectId": "Vacancy[550050]",
+                    "qualifier": "applies-to"
+                }
+            ]
+        },
+        {
+            "id": "Vacancy[550004]",
+            "type": "Vacancy",
+            "attributes": [
+                {
+                    "name": "vacancyId",
+                    "value": "550004"
+                },
+                {
+                    "name": "title",
+                    "value": "Programmer"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Vacancy[550050]",
+            "type": "Vacancy",
+            "attributes": [
+                {
+                    "name": "vacancyId",
+                    "value": "550050"
+                },
+                {
+                    "name": "title",
+                    "value": "Manager"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Interview",
+            "time": "2019-06-28T15:53:46Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Applicant[Ray Jansen]",
+                    "qualifier": "applicant"
+                },
+                {
+                    "objectId": "Manager[Martin Klenk]",
+                    "qualifier": "interviewer"
+                },
+                {
+                    "objectId": "Recruiter[Jana Kershaw]",
+                    "qualifier": "recruiter"
+                },
+                {
+                    "objectId": "Application[770044]",
+                    "qualifier": "application"
+                },
+                {
+                    "objectId": "Vacancy[550004]",
+                    "qualifier": "vacancy"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "Rejection Sent",
+            "time": "2019-07-02T07:53:17Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Recruiter[Jana Kershaw]",
+                    "qualifier": "sender"
+                },
+                {
+                    "objectId": "Applicant[Ray Jansen]",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "Application[770044]",
+                    "qualifier": "application"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "type": "Application Submitted",
+            "time": "2019-07-02T10:36:55Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Applicant[Ray Jansen]",
+                    "qualifier": "applicant"
+                },
+                {
+                    "objectId": "Application[770378]",
+                    "qualifier": "application"
+                },
+                {
+                    "objectId": "Vacancy[550050]",
+                    "qualifier": "vacancy"
+                }
+            ]
+        }
+    ]
+}

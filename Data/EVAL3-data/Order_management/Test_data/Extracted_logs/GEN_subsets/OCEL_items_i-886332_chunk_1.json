@@ -1,0 +1,143 @@
+{
+    "objectTypes": [
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Role",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Pick",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "emp-Nina-Graves",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2024-01-18T15:30:32Z",
+                    "value": "Nina Graves"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "role-Warehousing",
+                    "qualifier": "in_role"
+                }
+            ]
+        },
+        {
+            "id": "role-Warehousing",
+            "type": "Role",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2024-01-18T15:30:32Z",
+                    "value": "Warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-886332",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "time": "2024-01-18T15:30:32Z",
+                    "value": "556.38"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-iPad",
+                    "qualifier": "associated_with"
+                }
+            ]
+        },
+        {
+            "id": "product-iPad",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2024-01-18T15:30:32Z",
+                    "value": "iPad"
+                },
+                {
+                    "name": "price",
+                    "time": "2024-01-18T15:30:32Z",
+                    "value": "495.00"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e-1",
+            "type": "Pick",
+            "time": "2024-01-18T15:30:32Z",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "picked"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "emp-Nina-Graves",
+                    "qualifier": "performed_by"
+                },
+                {
+                    "objectId": "i-886332",
+                    "qualifier": "picked_item"
+                }
+            ]
+        }
+    ]
+}

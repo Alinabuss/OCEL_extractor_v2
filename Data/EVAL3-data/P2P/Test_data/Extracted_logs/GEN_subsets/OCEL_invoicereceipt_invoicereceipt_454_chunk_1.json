@@ -1,0 +1,156 @@
+{
+    "objectTypes": [
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "decimal"
+                },
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "InvoiceReceiptCreation",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "decimal"
+                }
+            ]
+        },
+        {
+            "name": "TwoWayMatch",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "decimal"
+                },
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt:454",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "time": "2022-11-04T03:58:00Z",
+                    "value": "43400.00"
+                },
+                {
+                    "name": "lifecycle",
+                    "time": "2022-11-04T08:10:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:455",
+                    "qualifier": "relatedGoodsReceipt"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt:455",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Finance/Account Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "event:1",
+            "type": "InvoiceReceiptCreation",
+            "time": "2022-11-04T03:58:00Z",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "value": "43400.00"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:454",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "goods receipt:455",
+                    "qualifier": "relatedGoodsReceipt"
+                },
+                {
+                    "objectId": "Finance/Account Department",
+                    "qualifier": "performedBy"
+                }
+            ]
+        },
+        {
+            "id": "event:2",
+            "type": "TwoWayMatch",
+            "time": "2022-11-04T08:10:00Z",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "value": "43400.00"
+                },
+                {
+                    "name": "lifecycle",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:454",
+                    "qualifier": "matched"
+                },
+                {
+                    "objectId": "goods receipt:455",
+                    "qualifier": "relatedGoodsReceipt"
+                },
+                {
+                    "objectId": "Finance/Account Department",
+                    "qualifier": "performedBy"
+                }
+            ]
+        }
+    ]
+}

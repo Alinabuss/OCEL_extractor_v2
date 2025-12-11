@@ -1,0 +1,277 @@
+{
+    "objectTypes": [
+        {
+            "name": "Match",
+            "attributes": [
+                {
+                    "name": "date",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Session",
+            "attributes": [
+                {
+                    "name": "session_id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Player",
+            "attributes": [
+                {
+                    "name": "player_id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Villager",
+            "attributes": [
+                {
+                    "name": "villager_id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "House",
+            "attributes": [
+                {
+                    "name": "construction_status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "TownCenter",
+            "attributes": [
+                {
+                    "name": "location_id",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Construction_Initiated",
+            "attributes": []
+        },
+        {
+            "name": "Construction_Completed",
+            "attributes": [
+                {
+                    "name": "outcome",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Gather_Wood",
+            "attributes": []
+        },
+        {
+            "name": "Queue_Completed",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "M250230427",
+            "type": "Match",
+            "attributes": [
+                {
+                    "name": "date",
+                    "time": "2023-07-31T00:00:00Z",
+                    "value": "2023-07-31"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "S250230427_688587",
+            "type": "Session",
+            "attributes": [
+                {
+                    "name": "session_id",
+                    "time": "2023-07-31T00:00:00Z",
+                    "value": "S250230427_688587"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "M250230427",
+                    "qualifier": "associated_with"
+                }
+            ]
+        },
+        {
+            "id": "P688587",
+            "type": "Player",
+            "attributes": [
+                {
+                    "name": "player_id",
+                    "time": "2023-07-31T00:00:00Z",
+                    "value": "P688587"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Villager_M250230427_6",
+            "type": "Villager",
+            "attributes": [
+                {
+                    "name": "villager_id",
+                    "time": "2023-07-31T00:00:00Z",
+                    "value": "Villager_M250230427_6"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "M250230427",
+                    "qualifier": "participates_in"
+                }
+            ]
+        },
+        {
+            "id": "House_M250230427_4",
+            "type": "House",
+            "attributes": [
+                {
+                    "name": "construction_status",
+                    "time": "2023-07-31T00:10:53Z",
+                    "value": "started"
+                },
+                {
+                    "name": "construction_status",
+                    "time": "2023-07-31T00:11:18Z",
+                    "value": "completed"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Town_Center_M250230427_2",
+            "type": "TownCenter",
+            "attributes": [
+                {
+                    "name": "location_id",
+                    "time": "2023-07-31T00:00:00Z",
+                    "value": "Town_Center_M250230427_2"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Construction_Initiated",
+            "time": "2023-07-31T00:10:53Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "P688587",
+                    "qualifier": "initiator"
+                },
+                {
+                    "objectId": "Villager_M250230427_6",
+                    "qualifier": "participant"
+                },
+                {
+                    "objectId": "House_M250230427_4",
+                    "qualifier": "target"
+                },
+                {
+                    "objectId": "S250230427_688587",
+                    "qualifier": "session"
+                },
+                {
+                    "objectId": "M250230427",
+                    "qualifier": "match"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Construction_Completed",
+            "time": "2023-07-31T00:11:18Z",
+            "attributes": [
+                {
+                    "name": "outcome",
+                    "value": "successful"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Villager_M250230427_6",
+                    "qualifier": "completer"
+                },
+                {
+                    "objectId": "House_M250230427_4",
+                    "qualifier": "target"
+                },
+                {
+                    "objectId": "S250230427_688587",
+                    "qualifier": "session"
+                },
+                {
+                    "objectId": "M250230427",
+                    "qualifier": "match"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "Gather_Wood",
+            "time": "2023-07-31T00:13:20Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Villager_M250230427_6",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "Town_Center_M250230427_2",
+                    "qualifier": "location"
+                },
+                {
+                    "objectId": "S250230427_688587",
+                    "qualifier": "session"
+                },
+                {
+                    "objectId": "M250230427",
+                    "qualifier": "match"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "Queue_Completed",
+            "time": "2023-07-31T00:13:20Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Villager_M250230427_6",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "Town_Center_M250230427_2",
+                    "qualifier": "location"
+                },
+                {
+                    "objectId": "S250230427_688587",
+                    "qualifier": "session"
+                },
+                {
+                    "objectId": "M250230427",
+                    "qualifier": "match"
+                }
+            ]
+        }
+    ]
+}

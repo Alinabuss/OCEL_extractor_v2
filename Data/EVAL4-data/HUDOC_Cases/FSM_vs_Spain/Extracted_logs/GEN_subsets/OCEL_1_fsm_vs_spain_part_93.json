@@ -1,0 +1,247 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": []
+        },
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ForensicReport",
+            "attributes": [
+                {
+                    "name": "measures",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Hearing",
+            "attributes": []
+        },
+        {
+            "name": "Defence",
+            "attributes": []
+        },
+        {
+            "name": "DomesticRemedies",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Argument",
+            "attributes": [
+                {
+                    "name": "content",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ForensicReportRequested",
+            "attributes": []
+        },
+        {
+            "name": "ForensicReportStatesMeasures",
+            "attributes": [
+                {
+                    "name": "measures",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "RemediesExhausted",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "he",
+            "type": "Person",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Audiencia_Provincial",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Audiencia Provincial"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "ForensicReport_1",
+            "type": "ForensicReport",
+            "attributes": [
+                {
+                    "name": "measures",
+                    "value": "measures needed to preserve his right to defend himself",
+                    "time": "1970-01-01T00:00:02Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Audiencia_Provincial",
+                    "qualifier": "requested_by"
+                },
+                {
+                    "objectId": "he",
+                    "qualifier": "concerns"
+                }
+            ]
+        },
+        {
+            "id": "Hearing_1",
+            "type": "Hearing",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Defence_1",
+            "type": "Defence",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "he",
+                    "qualifier": "belongs_to"
+                }
+            ]
+        },
+        {
+            "id": "DomesticRemedies_1",
+            "type": "DomesticRemedies",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "duly exhausted",
+                    "time": "1970-01-01T00:00:04Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "he",
+                    "qualifier": "concerns"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e2",
+            "type": "ForensicReportRequested",
+            "time": "1970-01-01T00:00:01Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Audiencia_Provincial",
+                    "qualifier": "requester"
+                },
+                {
+                    "objectId": "ForensicReport_1",
+                    "qualifier": "requested_report"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "ForensicReportStatesMeasures",
+            "time": "1970-01-01T00:00:02Z",
+            "attributes": [
+                {
+                    "name": "measures",
+                    "value": "measures needed to preserve his right to defend himself"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "ForensicReport_1",
+                    "qualifier": "report"
+                },
+                {
+                    "objectId": "he",
+                    "qualifier": "protects_right_of"
+                },
+                {
+                    "objectId": "Defence_1",
+                    "qualifier": "concerns_defence"
+                }
+            ]
+        },
+        {
+            "id": "e1",
+            "type": "Argument",
+            "time": "1970-01-01T00:00:03Z",
+            "attributes": [
+                {
+                    "name": "content",
+                    "value": "He further argued that the difficulties in the preparation of the defence had not been raised at the hearing because it was not a new element and, indeed, the Audiencia Provincial had requested a forensic report which had stated the measures needed to preserve his right to defend himself (see paragraphs 14 and 16 above)."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "he",
+                    "qualifier": "performer"
+                },
+                {
+                    "objectId": "Defence_1",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "Hearing_1",
+                    "qualifier": "referenced_hearing"
+                },
+                {
+                    "objectId": "Audiencia_Provincial",
+                    "qualifier": "referenced_court"
+                },
+                {
+                    "objectId": "ForensicReport_1",
+                    "qualifier": "referenced_report"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "RemediesExhausted",
+            "time": "1970-01-01T00:00:04Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "duly exhausted"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "DomesticRemedies_1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "he",
+                    "qualifier": "affected_person"
+                }
+            ]
+        }
+    ]
+}

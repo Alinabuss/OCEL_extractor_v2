@@ -1,0 +1,86 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "type": "float"
+                },
+                {
+                    "name": "unit",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "type": "time"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "TransportDocumentCreated",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "td21",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "time": "2023-06-08T08:40:11Z",
+                    "value": "2.0"
+                },
+                {
+                    "name": "unit",
+                    "time": "2023-06-08T08:40:11Z",
+                    "value": "containers"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "vh9",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "time": "2023-06-27T11:00:00Z",
+                    "value": "2023-06-27T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td21",
+                    "qualifier": "regular-for"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "TransportDocumentCreated",
+            "time": "2023-06-08T08:40:11Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "td21",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "vh9",
+                    "qualifier": "booked"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,179 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Quotation",
+            "attributes": []
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": []
+        },
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Approve Purchase Order",
+            "attributes": [
+                {
+                    "name": "actor",
+                    "type": "string"
+                },
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Two-way Match",
+            "attributes": [
+                {
+                    "name": "actor",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:1367",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "time": "2024-06-05T02:09:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:800",
+                    "qualifier": "linkedTo"
+                },
+                {
+                    "objectId": "purchasing_group:001",
+                    "qualifier": "associatedWith"
+                }
+            ]
+        },
+        {
+            "id": "quotation:800",
+            "type": "Quotation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchasing_group:001",
+                    "qualifier": "associatedWith"
+                }
+            ]
+        },
+        {
+            "id": "purchasing_group:001",
+            "type": "PurchasingGroup",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "goods receipt:1626",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "time": "2024-06-05T07:10:00Z",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "invoice receipt:1626",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "time": "2024-06-05T07:10:00Z",
+                    "value": "41600.0"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Approve Purchase Order",
+            "time": "2024-06-05T02:09:00Z",
+            "attributes": [
+                {
+                    "name": "actor",
+                    "value": "procurement order manager"
+                },
+                {
+                    "name": "lifecycle",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:1367",
+                    "qualifier": "approved"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Two-way Match",
+            "time": "2024-06-05T07:10:00Z",
+            "attributes": [
+                {
+                    "name": "actor",
+                    "value": "Finance/Account Department"
+                },
+                {
+                    "name": "status",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:1626",
+                    "qualifier": "involved"
+                },
+                {
+                    "objectId": "invoice receipt:1626",
+                    "qualifier": "involved"
+                }
+            ]
+        }
+    ]
+}

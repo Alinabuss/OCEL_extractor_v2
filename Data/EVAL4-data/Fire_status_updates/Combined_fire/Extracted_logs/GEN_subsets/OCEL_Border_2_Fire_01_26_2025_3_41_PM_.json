@@ -1,0 +1,345 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "activity",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Weather",
+            "attributes": [
+                {
+                    "name": "phenomenon",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Fuel",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Crew",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Equipment",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Authority",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Map",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PersonGroup",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "EvacuationNotice",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "WeatherObservation",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "SuppressionActivity",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PublicAdvisory",
+            "attributes": [
+                {
+                    "name": "message",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire_1",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Border 2 Fire"
+                },
+                {
+                    "name": "activity",
+                    "value": "substantial decrease",
+                    "time": "2025-01-26T15:41:00Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "weather_rainfall_1",
+            "type": "Weather",
+            "attributes": [
+                {
+                    "name": "phenomenon",
+                    "value": "rainfall overnight and into the morning hours"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "fuel_1",
+            "type": "Fuel",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "grass and other light, flashy fuels"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "fuel_for"
+                }
+            ]
+        },
+        {
+            "id": "crew_fire_1",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "fire crews"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "working_on"
+                }
+            ]
+        },
+        {
+            "id": "crew_engine_1",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "engine crews"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "working_on"
+                }
+            ]
+        },
+        {
+            "id": "equipment_dozers_1",
+            "type": "Equipment",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "dozers"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "working_on"
+                }
+            ]
+        },
+        {
+            "id": "agency_san_diego_sheriff_office",
+            "type": "Authority",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "San Diego County Sheriff's Office"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "map_genasys_protect",
+            "type": "Map",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Genasys Protect evacuation map"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "evac_orders_warnings_1",
+                    "qualifier": "provides_updates_for"
+                }
+            ]
+        },
+        {
+            "id": "group_residents_all",
+            "type": "PersonGroup",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "all residents"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "evac_orders_warnings_1",
+            "type": "EvacuationNotice",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "evacuation orders and warnings"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "WeatherObservation",
+            "time": "2025-01-26T15:41:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Rainfall overnight and into the morning hours has led to a substantial decrease in fire activity. The saturation of grass and other light, flashy fuels will lessen the threat of the spread of the Border 2 Fire."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "weather_rainfall_1",
+                    "qualifier": "observed"
+                },
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "reduced_activity"
+                },
+                {
+                    "objectId": "fuel_1",
+                    "qualifier": "saturation_will_lessen_threat"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "SuppressionActivity",
+            "time": "2025-01-26T15:41:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Fire crews continue working in very steep terrain to cut containment line directly on the fire's edge, and dozers and engine crews, where able to make access, are cutting line and putting out any hot spots."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "crew_fire_1",
+                    "qualifier": "performer"
+                },
+                {
+                    "objectId": "equipment_dozers_1",
+                    "qualifier": "equipment"
+                },
+                {
+                    "objectId": "crew_engine_1",
+                    "qualifier": "performer"
+                },
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "target"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "PublicAdvisory",
+            "time": "2025-01-26T15:41:00Z",
+            "attributes": [
+                {
+                    "name": "message",
+                    "value": "The San Diego County Sheriff's Office encourages all residents to check the Genasys Protect evacuation map for the latest updates to evacuation orders and warnings."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "agency_san_diego_sheriff_office",
+                    "qualifier": "issuer"
+                },
+                {
+                    "objectId": "group_residents_all",
+                    "qualifier": "audience"
+                },
+                {
+                    "objectId": "map_genasys_protect",
+                    "qualifier": "referenced_resource"
+                },
+                {
+                    "objectId": "evac_orders_warnings_1",
+                    "qualifier": "about"
+                }
+            ]
+        }
+    ]
+}

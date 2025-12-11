@@ -1,0 +1,113 @@
+{
+    "objectTypes": [
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "listed_price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "OrgUnit",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Reorder",
+            "attributes": [
+                {
+                    "name": "processed_price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "i-881672",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "MacBook Pro"
+                },
+                {
+                    "name": "listed_price",
+                    "value": "2500.00"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "emp-nina-graves",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Nina Graves"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "org-Warehousing",
+                    "qualifier": "works_in"
+                }
+            ]
+        },
+        {
+            "id": "org-Warehousing",
+            "type": "OrgUnit",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Warehousing"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Reorder",
+            "time": "2023-06-28T10:56:02Z",
+            "attributes": [
+                {
+                    "name": "processed_price",
+                    "value": "2642.75"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "i-881672",
+                    "qualifier": "reordered_item"
+                },
+                {
+                    "objectId": "emp-nina-graves",
+                    "qualifier": "reordered_by"
+                }
+            ]
+        }
+    ]
+}

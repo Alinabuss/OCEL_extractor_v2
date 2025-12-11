@@ -1,0 +1,120 @@
+{
+    "objectTypes": [
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "mental_capacity",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Lawyer",
+            "attributes": []
+        },
+        {
+            "name": "AdjustmentMeasure",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "NoAllegation",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "LawyersInPositionToAssessAndSpecify",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "applicant-1",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "mental_capacity",
+                    "value": "diminished"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "lawyers-1",
+            "type": "Lawyer",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "applicant-1",
+                    "qualifier": "assists"
+                }
+            ]
+        },
+        {
+            "id": "adjustment-measures-1",
+            "type": "AdjustmentMeasure",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "applicant-1",
+                    "qualifier": "for_applicant"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "NoAllegation",
+            "time": "2020-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "No allegation that the applicant's diminished mental capacity prevented him from understanding his own difficulties"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant-1",
+                    "qualifier": "concerns"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "LawyersInPositionToAssessAndSpecify",
+            "time": "2020-01-01T00:00:01Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Lawyers assisting the applicant were fully in a position to assess the need for requesting adjustment measures and to specify their nature"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "lawyers-1",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "applicant-1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "adjustment-measures-1",
+                    "qualifier": "target"
+                }
+            ]
+        }
+    ]
+}

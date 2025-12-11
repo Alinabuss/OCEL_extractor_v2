@@ -1,0 +1,84 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseRequisition",
+            "attributes": []
+        },
+        {
+            "name": "Quotation",
+            "attributes": []
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": []
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "CompleteRequestForQuotationCreated",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_requisition:852:pr_trigger_852",
+            "type": "PurchaseRequisition",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Purchasing Group 001",
+                    "qualifier": "associatedWith"
+                },
+                {
+                    "objectId": "quotation:850",
+                    "qualifier": "linked"
+                }
+            ]
+        },
+        {
+            "id": "quotation:850",
+            "type": "Quotation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Purchasing Group 001",
+                    "qualifier": "connectedTo"
+                }
+            ]
+        },
+        {
+            "id": "Purchasing Group 001",
+            "type": "PurchasingGroup",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Procurement Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "CompleteRequestForQuotationCreated",
+            "time": "2024-07-17T19:07:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchase_requisition:852:pr_trigger_852",
+                    "qualifier": "for"
+                },
+                {
+                    "objectId": "Procurement Department",
+                    "qualifier": "createdBy"
+                }
+            ]
+        }
+    ]
+}

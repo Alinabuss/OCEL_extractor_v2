@@ -1,0 +1,169 @@
+{
+    "objectTypes": [
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "mentalHealthCondition",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Lawyer",
+            "attributes": [
+                {
+                    "name": "legalAid",
+                    "type": "string"
+                },
+                {
+                    "name": "appointed",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "AppointLawyers",
+            "attributes": [
+                {
+                    "name": "numberOfLawyers",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ProvisionalReleaseRequest",
+            "attributes": [
+                {
+                    "name": "argument",
+                    "type": "string"
+                },
+                {
+                    "name": "ensureAttendance",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "applicant_1",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "mentalHealthCondition",
+                    "time": "2018-07-25T00:00:00Z",
+                    "value": "present"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "lawyer_legal_aid",
+            "type": "Lawyer",
+            "attributes": [
+                {
+                    "name": "legalAid",
+                    "value": "true"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "lawyer_new_1",
+            "type": "Lawyer",
+            "attributes": [
+                {
+                    "name": "appointed",
+                    "time": "2018-07-24T00:00:00Z",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "lawyer_legal_aid",
+                    "qualifier": "replaces"
+                }
+            ]
+        },
+        {
+            "id": "lawyer_new_2",
+            "type": "Lawyer",
+            "attributes": [
+                {
+                    "name": "appointed",
+                    "time": "2018-07-24T00:00:00Z",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "lawyer_legal_aid",
+                    "qualifier": "replaces"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "AppointLawyers",
+            "time": "2018-07-24T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "numberOfLawyers",
+                    "value": "2"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "appointor"
+                },
+                {
+                    "objectId": "lawyer_new_1",
+                    "qualifier": "appointed"
+                },
+                {
+                    "objectId": "lawyer_new_2",
+                    "qualifier": "appointed"
+                },
+                {
+                    "objectId": "lawyer_legal_aid",
+                    "qualifier": "replaced"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "ProvisionalReleaseRequest",
+            "time": "2018-07-25T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "argument",
+                    "value": "no risk of absconding due to mental health condition"
+                },
+                {
+                    "name": "ensureAttendance",
+                    "value": "they would personally ensure his attendance"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "lawyer_new_1",
+                    "qualifier": "requester"
+                },
+                {
+                    "objectId": "lawyer_new_2",
+                    "qualifier": "requester"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "subject"
+                }
+            ]
+        }
+    ]
+}

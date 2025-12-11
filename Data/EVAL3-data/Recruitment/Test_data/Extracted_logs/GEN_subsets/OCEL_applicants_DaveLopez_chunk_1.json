@@ -1,0 +1,213 @@
+{
+    "objectTypes": [
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Manager",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": [
+                {
+                    "name": "applicationId",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Vacancy",
+            "attributes": [
+                {
+                    "name": "vacancyId",
+                    "type": "string"
+                },
+                {
+                    "name": "position",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Interview Invitation",
+            "attributes": []
+        },
+        {
+            "name": "Interview",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "Applicant:Dave Lopez",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Dave Lopez"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Recruiter:Jana Hense",
+            "type": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Jana Hense"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Recruiter:Ed Keane",
+            "type": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Ed Keane"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Recruiter:Ed Meister",
+            "type": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Ed Meister"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Manager:Miguel Milano",
+            "type": "Manager",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Miguel Milano"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Application[770033]",
+            "type": "Application",
+            "attributes": [
+                {
+                    "name": "applicationId",
+                    "value": "770033"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Applicant:Dave Lopez",
+                    "qualifier": "submitted-by"
+                },
+                {
+                    "objectId": "Vacancy[550011]",
+                    "qualifier": "for-vacancy"
+                }
+            ]
+        },
+        {
+            "id": "Vacancy[550011]",
+            "type": "Vacancy",
+            "attributes": [
+                {
+                    "name": "vacancyId",
+                    "value": "550011"
+                },
+                {
+                    "name": "position",
+                    "value": "Programmer"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Interview Invitation",
+            "time": "2019-07-03T13:44:08Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Recruiter:Jana Hense",
+                    "qualifier": "inviter"
+                },
+                {
+                    "objectId": "Recruiter:Ed Keane",
+                    "qualifier": "involved"
+                },
+                {
+                    "objectId": "Applicant:Dave Lopez",
+                    "qualifier": "applicant"
+                },
+                {
+                    "objectId": "Application[770033]",
+                    "qualifier": "application"
+                },
+                {
+                    "objectId": "Vacancy[550011]",
+                    "qualifier": "vacancy"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Interview",
+            "time": "2019-07-04T07:26:25Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Recruiter:Ed Meister",
+                    "qualifier": "interviewer"
+                },
+                {
+                    "objectId": "Applicant:Dave Lopez",
+                    "qualifier": "applicant"
+                },
+                {
+                    "objectId": "Application[770033]",
+                    "qualifier": "application"
+                },
+                {
+                    "objectId": "Vacancy[550011]",
+                    "qualifier": "vacancy"
+                },
+                {
+                    "objectId": "Manager:Miguel Milano",
+                    "qualifier": "manager"
+                }
+            ]
+        }
+    ]
+}

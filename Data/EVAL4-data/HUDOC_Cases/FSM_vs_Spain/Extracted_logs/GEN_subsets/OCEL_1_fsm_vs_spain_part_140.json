@@ -1,0 +1,129 @@
+{
+    "objectTypes": [
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Proceeding",
+            "attributes": [
+                {
+                    "name": "category",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Guardian",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Decision",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "court_the",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "the Court"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "domestic_courts",
+                    "qualifier": "cannot_overlook"
+                }
+            ]
+        },
+        {
+            "id": "domestic_courts",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "domestic courts"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "incapacity_proceedings",
+            "type": "Proceeding",
+            "attributes": [
+                {
+                    "name": "category",
+                    "time": "",
+                    "value": "incapacity"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "criminal_proceedings",
+            "type": "Proceeding",
+            "attributes": [
+                {
+                    "name": "category",
+                    "time": "",
+                    "value": "criminal"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "guardian",
+            "type": "Guardian",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Decision",
+            "time": "2020-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "value": "paragraph 17"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "domestic_courts",
+                    "qualifier": "made_by"
+                },
+                {
+                    "objectId": "incapacity_proceedings",
+                    "qualifier": "observes_steps_in"
+                },
+                {
+                    "objectId": "criminal_proceedings",
+                    "qualifier": "parallel_to_developments"
+                },
+                {
+                    "objectId": "guardian",
+                    "qualifier": "presence_considered_unnecessary"
+                }
+            ]
+        }
+    ]
+}

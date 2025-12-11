@@ -1,0 +1,100 @@
+{
+    "objectTypes": [
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "integer"
+                },
+                {
+                    "name": "processingStatus",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "TwoWayMatch",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "goods receipt:242",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "value": "101",
+                    "time": "2022-08-05T07:10:00Z"
+                },
+                {
+                    "name": "processingStatus",
+                    "value": "finalized",
+                    "time": "2022-08-05T07:10:00Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "invoice receipt:239",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "value": "15000.0",
+                    "time": "2022-08-05T07:10:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:242",
+                    "qualifier": "associatedWith"
+                }
+            ]
+        },
+        {
+            "id": "Finance/Account Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "match:1",
+            "type": "TwoWayMatch",
+            "time": "2022-08-05T07:10:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:242",
+                    "qualifier": "goodsReceipt"
+                },
+                {
+                    "objectId": "invoice receipt:239",
+                    "qualifier": "invoiceReceipt"
+                },
+                {
+                    "objectId": "Finance/Account Department",
+                    "qualifier": "performedBy"
+                }
+            ]
+        }
+    ]
+}

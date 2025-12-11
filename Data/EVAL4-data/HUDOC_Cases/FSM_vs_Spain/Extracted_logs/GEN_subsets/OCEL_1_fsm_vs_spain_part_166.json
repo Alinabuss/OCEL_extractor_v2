@@ -1,0 +1,305 @@
+{
+    "objectTypes": [
+        {
+            "name": "Legislation",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Provision",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Concept",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PersonGroup",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "DefendantGroup",
+            "attributes": [
+                {
+                    "name": "capacity",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Country",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Proceeding",
+            "attributes": [
+                {
+                    "name": "type",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ApplicabilityStatement",
+            "attributes": [
+                {
+                    "name": "statement",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "IntroduceProvisionSuggestion",
+            "attributes": [
+                {
+                    "name": "statement",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ExperienceStatement",
+            "attributes": [
+                {
+                    "name": "statement",
+                    "type": "string"
+                },
+                {
+                    "name": "level",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "legislation_this_code",
+            "type": "Legislation",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "This Code",
+                    "time": ""
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "legislation_criminal_procedure_act",
+            "type": "Legislation",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Criminal Procedure Act",
+                    "time": ""
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "legislation_criminal_code",
+            "type": "Legislation",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Criminal Code",
+                    "time": ""
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "provision_specific_in_act",
+            "type": "Provision",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "specific provisions in the Criminal Procedure Act",
+                    "time": ""
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "legislation_criminal_procedure_act",
+                    "qualifier": "part-of"
+                }
+            ]
+        },
+        {
+            "id": "concept_procedural_adjustments",
+            "type": "Concept",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "procedural adjustments for vulnerable persons",
+                    "time": ""
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "group_vulnerable_persons",
+                    "qualifier": "for"
+                }
+            ]
+        },
+        {
+            "id": "group_vulnerable_persons",
+            "type": "PersonGroup",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "vulnerable persons",
+                    "time": ""
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "group_defendants_partial_incapacity",
+            "type": "DefendantGroup",
+            "attributes": [
+                {
+                    "name": "capacity",
+                    "value": "partial incapacity",
+                    "time": ""
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "country_spain",
+            "type": "Country",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Spain",
+                    "time": ""
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "proceeding_criminal",
+            "type": "Proceeding",
+            "attributes": [
+                {
+                    "name": "type",
+                    "value": "criminal",
+                    "time": ""
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "ApplicabilityStatement",
+            "time": "2025-09-11T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "statement",
+                    "value": "This Code is, however, applicable in criminal proceedings only in the absence of specific provisions in the Criminal Procedure Act."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "legislation_this_code",
+                    "qualifier": "applies"
+                },
+                {
+                    "objectId": "proceeding_criminal",
+                    "qualifier": "context"
+                },
+                {
+                    "objectId": "provision_specific_in_act",
+                    "qualifier": "absence-condition"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "IntroduceProvisionSuggestion",
+            "time": "2025-09-11T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "statement",
+                    "value": "In order for the concept of procedural adjustments for vulnerable persons to be effectively applied in practice, it might be necessary to introduce a specific provision into the Criminal Procedure Act and the Criminal Code."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "concept_procedural_adjustments",
+                    "qualifier": "purpose"
+                },
+                {
+                    "objectId": "legislation_criminal_procedure_act",
+                    "qualifier": "target"
+                },
+                {
+                    "objectId": "legislation_criminal_code",
+                    "qualifier": "target"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "ExperienceStatement",
+            "time": "2025-09-11T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "statement",
+                    "value": "Spain has little experience of making accommodations and adjustments in criminal trials for defendants with partial incapacity."
+                },
+                {
+                    "name": "level",
+                    "value": "little"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "country_spain",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "concept_procedural_adjustments",
+                    "qualifier": "topic"
+                },
+                {
+                    "objectId": "group_defendants_partial_incapacity",
+                    "qualifier": "for"
+                },
+                {
+                    "objectId": "proceeding_criminal",
+                    "qualifier": "context"
+                }
+            ]
+        }
+    ]
+}

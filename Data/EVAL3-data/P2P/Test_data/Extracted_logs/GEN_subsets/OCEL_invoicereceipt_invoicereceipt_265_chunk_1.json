@@ -1,0 +1,96 @@
+{
+    "objectTypes": [
+        {
+            "name": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "credit amount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movement type",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Invoice Receipt Creation Completed",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt[265]",
+            "type": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "credit amount",
+                    "time": "2022-08-17T10:03:00Z",
+                    "value": "233,200.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt[272]",
+                    "qualifier": "associatedWith"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt[272]",
+            "type": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movement type",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Finance/Account Department",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Finance/Account Department"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Invoice Receipt Creation Completed",
+            "time": "2022-08-17T10:03:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt[265]",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "Finance/Account Department",
+                    "qualifier": "performedBy"
+                }
+            ]
+        }
+    ]
+}

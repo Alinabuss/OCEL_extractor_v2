@@ -1,0 +1,310 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": []
+        },
+        {
+            "name": "Judge",
+            "attributes": [
+                {
+                    "name": "predetermined_by",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Lawyer",
+            "attributes": []
+        },
+        {
+            "name": "Charge",
+            "attributes": []
+        },
+        {
+            "name": "Trial",
+            "attributes": []
+        },
+        {
+            "name": "Evidence",
+            "attributes": []
+        },
+        {
+            "name": "Statement",
+            "attributes": [
+                {
+                    "name": "self_incriminating",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "Declaration",
+            "attributes": []
+        },
+        {
+            "name": "Presumption",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "AccessToOrdinaryJudge",
+            "attributes": []
+        },
+        {
+            "name": "DefenceAndAssistanceOfLawyer",
+            "attributes": []
+        },
+        {
+            "name": "BeInformedOfCharges",
+            "attributes": []
+        },
+        {
+            "name": "PublicTrial",
+            "attributes": [
+                {
+                    "name": "without_undue_delays",
+                    "type": "boolean"
+                },
+                {
+                    "name": "with_full_guarantees",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "UseOfEvidenceAppropriateToDefence",
+            "attributes": [
+                {
+                    "name": "appropriate_to_defence",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "NotMakeSelfIncriminatingStatements",
+            "attributes": []
+        },
+        {
+            "name": "NotDeclareGuilty",
+            "attributes": []
+        },
+        {
+            "name": "BePresumedInnocent",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "person:all",
+            "type": "Person",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "judge:ordinary",
+            "type": "Judge",
+            "attributes": [
+                {
+                    "name": "predetermined_by",
+                    "time": "2025-09-11T00:00:00Z",
+                    "value": "law"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "lawyer:defence",
+            "type": "Lawyer",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "charge:against_persons",
+            "type": "Charge",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "trial:public",
+            "type": "Trial",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "evidence:appropriate_to_defence",
+            "type": "Evidence",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "statement:self_incriminating",
+            "type": "Statement",
+            "attributes": [
+                {
+                    "name": "self_incriminating",
+                    "time": "2025-09-11T00:00:00Z",
+                    "value": "true"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "declaration:guilty",
+            "type": "Declaration",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "presumption:innocence",
+            "type": "Presumption",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "AccessToOrdinaryJudge",
+            "time": "2025-09-11T00:00:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "person:all",
+                    "qualifier": "holder"
+                },
+                {
+                    "objectId": "judge:ordinary",
+                    "qualifier": "target"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "DefenceAndAssistanceOfLawyer",
+            "time": "2025-09-11T00:00:01Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "person:all",
+                    "qualifier": "holder"
+                },
+                {
+                    "objectId": "lawyer:defence",
+                    "qualifier": "target"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "BeInformedOfCharges",
+            "time": "2025-09-11T00:00:02Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "person:all",
+                    "qualifier": "holder"
+                },
+                {
+                    "objectId": "charge:against_persons",
+                    "qualifier": "target"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "PublicTrial",
+            "time": "2025-09-11T00:00:03Z",
+            "attributes": [
+                {
+                    "name": "without_undue_delays",
+                    "value": "true"
+                },
+                {
+                    "name": "with_full_guarantees",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person:all",
+                    "qualifier": "holder"
+                },
+                {
+                    "objectId": "trial:public",
+                    "qualifier": "target"
+                }
+            ]
+        },
+        {
+            "id": "e5",
+            "type": "UseOfEvidenceAppropriateToDefence",
+            "time": "2025-09-11T00:00:04Z",
+            "attributes": [
+                {
+                    "name": "appropriate_to_defence",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person:all",
+                    "qualifier": "holder"
+                },
+                {
+                    "objectId": "evidence:appropriate_to_defence",
+                    "qualifier": "target"
+                }
+            ]
+        },
+        {
+            "id": "e6",
+            "type": "NotMakeSelfIncriminatingStatements",
+            "time": "2025-09-11T00:00:05Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "person:all",
+                    "qualifier": "holder"
+                },
+                {
+                    "objectId": "statement:self_incriminating",
+                    "qualifier": "prohibited"
+                }
+            ]
+        },
+        {
+            "id": "e7",
+            "type": "NotDeclareGuilty",
+            "time": "2025-09-11T00:00:06Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "person:all",
+                    "qualifier": "holder"
+                },
+                {
+                    "objectId": "declaration:guilty",
+                    "qualifier": "prohibited"
+                }
+            ]
+        },
+        {
+            "id": "e8",
+            "type": "BePresumedInnocent",
+            "time": "2025-09-11T00:00:07Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "person:all",
+                    "qualifier": "holder"
+                },
+                {
+                    "objectId": "presumption:innocence",
+                    "qualifier": "status"
+                }
+            ]
+        }
+    ]
+}

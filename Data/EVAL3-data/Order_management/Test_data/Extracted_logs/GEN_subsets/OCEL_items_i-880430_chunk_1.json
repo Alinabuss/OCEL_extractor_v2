@@ -1,0 +1,137 @@
+{
+    "objectTypes": [
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "OrganizationalUnit",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Reorder",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "employee-Christopher_Schwanen",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-05-17T07:21:50Z",
+                    "value": "Christopher Schwanen"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "org-Warehousing",
+                    "qualifier": "works_in"
+                }
+            ]
+        },
+        {
+            "id": "org-Warehousing",
+            "type": "OrganizationalUnit",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-05-17T07:21:50Z",
+                    "value": "Warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "product-Echo_Show_5",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-05-17T07:21:50Z",
+                    "value": "Echo Show 5"
+                },
+                {
+                    "name": "price",
+                    "time": "2023-05-17T07:21:50Z",
+                    "value": "89.99"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-880430",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "time": "2023-05-17T07:21:50Z",
+                    "value": "89.99"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-Echo_Show_5",
+                    "qualifier": "associated_with"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Reorder",
+            "time": "2023-05-17T07:21:50Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "employee-Christopher_Schwanen",
+                    "qualifier": "initiator"
+                },
+                {
+                    "objectId": "i-880430",
+                    "qualifier": "item"
+                },
+                {
+                    "objectId": "product-Echo_Show_5",
+                    "qualifier": "product"
+                }
+            ]
+        }
+    ]
+}

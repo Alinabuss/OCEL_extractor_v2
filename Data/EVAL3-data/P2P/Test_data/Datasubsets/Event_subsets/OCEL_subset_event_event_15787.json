@@ -1,0 +1,154 @@
+{
+  "objectTypes": [
+    {
+      "name": "goods receipt",
+      "attributes": [
+        {
+          "name": "Movement Type (MSEG-BWART)",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "invoice receipt",
+      "attributes": [
+        {
+          "name": "Credit Amount (BSEG-WRBTR)",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "payment",
+      "attributes": [
+        {
+          "name": "Payment Method (ZLSCH)",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "purchase_order",
+      "attributes": [
+        {
+          "name": "Purchasing Group (EKKO-EKGRP)",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "eventTypes": [
+    {
+      "name": "Execute Payment",
+      "attributes": [
+        {
+          "name": "lifecycle",
+          "type": "string"
+        },
+        {
+          "name": "resource",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "id": "goods receipt:1012",
+      "type": "goods receipt",
+      "attributes": [
+        {
+          "name": "Movement Type (MSEG-BWART)",
+          "time": "1970-01-01T00:00:00Z",
+          "value": "101"
+        }
+      ],
+      "relationships": [
+        {
+          "objectId": "purchase_order:848",
+          "qualifier": "Good Receipts of Purchase Order"
+        }
+      ]
+    },
+    {
+      "id": "invoice receipt:1009",
+      "type": "invoice receipt",
+      "attributes": [
+        {
+          "name": "Credit Amount (BSEG-WRBTR)",
+          "time": "1970-01-01T00:00:00Z",
+          "value": "2850.0"
+        }
+      ],
+      "relationships": [
+        {
+          "objectId": "payment:490",
+          "qualifier": "invoice_receipt_pm"
+        }
+      ]
+    },
+    {
+      "id": "payment:490",
+      "type": "payment",
+      "attributes": [
+        {
+          "name": "Payment Method (ZLSCH)",
+          "time": "1970-01-01T00:00:00Z",
+          "value": "D:Direct Debit"
+        }
+      ]
+    },
+    {
+      "id": "purchase_order:848",
+      "type": "purchase_order",
+      "attributes": [
+        {
+          "name": "Purchasing Group (EKKO-EKGRP)",
+          "time": "1970-01-01T00:00:00Z",
+          "value": "004"
+        }
+      ],
+      "relationships": [
+        {
+          "objectId": "invoice receipt:1009",
+          "qualifier": "Invoice Receipts of Purchase Order"
+        }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "event_15787",
+      "type": "Execute Payment",
+      "time": "2023-09-08T07:20:00Z",
+      "attributes": [
+        {
+          "name": "lifecycle",
+          "value": "complete"
+        },
+        {
+          "name": "resource",
+          "value": "Finance/Account Department"
+        }
+      ],
+      "relationships": [
+        {
+          "objectId": "goods receipt:1012",
+          "qualifier": "goods receipt"
+        },
+        {
+          "objectId": "payment:490",
+          "qualifier": "payment"
+        },
+        {
+          "objectId": "invoice receipt:1009",
+          "qualifier": "invoice receipt"
+        },
+        {
+          "objectId": "purchase_order:848",
+          "qualifier": "purchase_order"
+        }
+      ]
+    }
+  ]
+}

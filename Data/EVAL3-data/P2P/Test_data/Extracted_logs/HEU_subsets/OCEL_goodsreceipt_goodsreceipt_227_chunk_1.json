@@ -1,0 +1,201 @@
+{
+    "objectTypes": [
+        {
+            "name": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "Finance Account manager",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "purchase order",
+            "attributes": [
+                {
+                    "name": "purchasing group",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "receipt goods",
+            "attributes": [
+                {
+                    "name": "movement type",
+                    "type": "string"
+                },
+                {
+                    "name": "July",
+                    "type": "string"
+                },
+                {
+                    "name": "credit amount",
+                    "type": "string"
+                },
+                {
+                    "name": "July",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "creation of a goods receipt",
+            "attributes": [
+                {
+                    "name": "resource",
+                    "type": "string"
+                },
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "report",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "create invoice receipt",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "Goods Receipt:227",
+            "type": "receipt goods",
+            "attributes": [
+                {
+                    "name": "July",
+                    "time": "1970-01-01T00:00:00Z",
+                    "value": "July"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "goods receipt:227",
+            "type": "receipt goods",
+            "attributes": [
+                {
+                    "name": "movement type",
+                    "time": "1970-01-01T00:00:00Z",
+                    "value": "101 \""
+                },
+                {
+                    "name": "July",
+                    "time": "1970-01-01T00:00:00Z",
+                    "value": "July"
+                },
+                {
+                    "name": "credit amount",
+                    "time": "1970-01-01T00:00:00Z",
+                    "value": "98,100.00"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:207",
+                    "qualifier": null
+                }
+            ]
+        },
+        {
+            "id": "Invoice Receipt[236",
+            "type": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "Finance Account manager",
+                    "time": "1970-01-01T00:00:00Z",
+                    "value": "Finance / Account Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:227",
+                    "qualifier": null
+                }
+            ]
+        },
+        {
+            "id": "purchase_order:207",
+            "type": "purchase order",
+            "attributes": [
+                {
+                    "name": "purchasing group",
+                    "time": "1970-01-01T00:00:00Z",
+                    "value": "003"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 802,
+            "type": "report",
+            "time": "2022-07-28T09:11:00Z",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Goods Receipt:227",
+                    "qualifier": null
+                }
+            ]
+        },
+        {
+            "id": 803,
+            "type": "creation of a goods receipt",
+            "time": "2022-07-28T09:11:00Z",
+            "attributes": [
+                {
+                    "name": "resource",
+                    "value": "Warehouse Department"
+                },
+                {
+                    "name": "lifecycle",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:207",
+                    "qualifier": null
+                },
+                {
+                    "objectId": "Goods Receipt:227",
+                    "qualifier": null
+                },
+                {
+                    "objectId": "goods receipt:227",
+                    "qualifier": null
+                }
+            ]
+        },
+        {
+            "id": 804,
+            "type": "create invoice receipt",
+            "time": "2022-08-04T16:05:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Invoice Receipt[236",
+                    "qualifier": null
+                }
+            ]
+        }
+    ]
+}

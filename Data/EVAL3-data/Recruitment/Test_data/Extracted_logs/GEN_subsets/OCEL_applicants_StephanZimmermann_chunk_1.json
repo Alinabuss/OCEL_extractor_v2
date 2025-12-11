@@ -1,0 +1,109 @@
+{
+    "objectTypes": [
+        {
+            "name": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": [
+                {
+                    "name": "applicationId",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Rejection Sent",
+            "attributes": [
+                {
+                    "name": "result",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Simon Hense",
+            "type": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Simon Hense"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Stephan Zimmermann",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Stephan Zimmermann"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Application[770151]",
+            "type": "Application",
+            "attributes": [
+                {
+                    "name": "applicationId",
+                    "value": "770151"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Stephan Zimmermann",
+                    "qualifier": "belongs-to"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Rejection Sent",
+            "time": "2019-07-02T08:30:06Z",
+            "attributes": [
+                {
+                    "name": "result",
+                    "value": "rejection"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Simon Hense",
+                    "qualifier": "sender"
+                },
+                {
+                    "objectId": "Stephan Zimmermann",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "Application[770151]",
+                    "qualifier": "application"
+                }
+            ]
+        }
+    ]
+}

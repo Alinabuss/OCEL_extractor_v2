@@ -1,0 +1,87 @@
+{
+    "objectTypes": [
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "departureDate",
+                    "type": "time"
+                }
+            ]
+        },
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "VehicleBooked",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "vh24",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "departureDate",
+                    "time": "",
+                    "value": "2023-08-18T11:00:00Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "td101",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "time": "",
+                    "value": "4.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "vh24",
+                    "qualifier": "regularVehicle"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "VehicleBooked",
+            "time": "2023-08-14T07:33:25Z",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "booked"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "vh24",
+                    "qualifier": "vehicle"
+                },
+                {
+                    "objectId": "td101",
+                    "qualifier": "transportDocument"
+                }
+            ]
+        }
+    ]
+}

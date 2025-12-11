@@ -1,0 +1,128 @@
+{
+    "objectTypes": [
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Reorder",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "emp-nina-graves",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Nina Graves"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "dept-warehousing",
+                    "qualifier": "member_of"
+                }
+            ]
+        },
+        {
+            "id": "dept-warehousing",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-884808",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "2744.25"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-macbook-pro",
+                    "qualifier": "associated_with"
+                }
+            ]
+        },
+        {
+            "id": "product-macbook-pro",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "MacBook Pro"
+                },
+                {
+                    "name": "price",
+                    "value": "2500.00"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Reorder",
+            "time": "2023-11-13T16:06:51Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "emp-nina-graves",
+                    "qualifier": "performed_by"
+                },
+                {
+                    "objectId": "i-884808",
+                    "qualifier": "reordered_item"
+                }
+            ]
+        }
+    ]
+}

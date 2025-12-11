@@ -1,0 +1,202 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "fuelType",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Infrastructure",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "function",
+                    "type": "string"
+                },
+                {
+                    "name": "criticality",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ResponderGroup",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "OnScene",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ThreatToInfrastructure",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire_border_2",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Border 2 Fire"
+                },
+                {
+                    "name": "fuelType",
+                    "time": "",
+                    "value": "vegetation"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "otay_truck_trail",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Otay Mountain Truck Trail"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "otay_mountain_wilderness",
+                    "qualifier": "within"
+                }
+            ]
+        },
+        {
+            "id": "otay_mountain_wilderness",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Otay Mountain Wilderness"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "otay_repeater_site",
+            "type": "Infrastructure",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Otay Mountain Repeater Site"
+                },
+                {
+                    "name": "function",
+                    "time": "",
+                    "value": "communication"
+                },
+                {
+                    "name": "criticality",
+                    "time": "",
+                    "value": "critical"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "firefighters",
+            "type": "ResponderGroup",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Firefighters"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "OnScene",
+            "time": "2025-01-23T17:59:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Firefighters are on scene of a vegetation fire located near Otay Mountain Truck Trail within the Otay Mountain Wilderness."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "firefighters",
+                    "qualifier": "responder"
+                },
+                {
+                    "objectId": "fire_border_2",
+                    "qualifier": "incident"
+                },
+                {
+                    "objectId": "otay_truck_trail",
+                    "qualifier": "near"
+                },
+                {
+                    "objectId": "otay_mountain_wilderness",
+                    "qualifier": "within"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "ThreatToInfrastructure",
+            "time": "2025-01-23T17:59:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "There is a threat to critical communication infrastructure on Otay Mountain Repeater Site."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "otay_repeater_site",
+                    "qualifier": "threatened"
+                }
+            ]
+        }
+    ]
+}

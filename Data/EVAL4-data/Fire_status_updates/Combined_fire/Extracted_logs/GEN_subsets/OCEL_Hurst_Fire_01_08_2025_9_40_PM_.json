@@ -1,0 +1,216 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ContainmentArea",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ControlLine",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "FlareUps",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Warning",
+            "attributes": [
+                {
+                    "name": "type",
+                    "type": "string"
+                },
+                {
+                    "name": "end_time",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "StatusReport",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o1",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-08T21:40:00Z",
+                    "value": "Hurst Fire"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o3",
+                    "qualifier": "within_planned_containment_area"
+                }
+            ]
+        },
+        {
+            "id": "o2",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-08T21:40:00Z",
+                    "value": "firefighters"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o1",
+                    "qualifier": "assigned_to"
+                }
+            ]
+        },
+        {
+            "id": "o3",
+            "type": "ContainmentArea",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-08T21:40:00Z",
+                    "value": "planned containment area"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o4",
+            "type": "ControlLine",
+            "attributes": [
+                {
+                    "name": "status",
+                    "time": "2025-01-08T21:40:00Z",
+                    "value": "established"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o1",
+                    "qualifier": "control_lines_for"
+                }
+            ]
+        },
+        {
+            "id": "o5",
+            "type": "FlareUps",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-08T21:40:00Z",
+                    "value": "a few flare-ups within the fire perimeter"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o1",
+                    "qualifier": "within_fire_perimeter"
+                }
+            ]
+        },
+        {
+            "id": "o6",
+            "type": "Warning",
+            "attributes": [
+                {
+                    "name": "type",
+                    "time": "2025-01-08T21:40:00Z",
+                    "value": "red flag warning"
+                },
+                {
+                    "name": "end_time",
+                    "time": "2025-01-08T21:40:00Z",
+                    "value": "6 p.m. Thursday"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o1",
+                    "qualifier": "in_effect_for_area"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "StatusReport",
+            "time": "2025-01-08T21:40:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Firefighters held the fire within a planned containment area and successfully established control lines. Crews were able to get a handle on a few flare-ups within the fire perimeter. Overnight, firefighters will continue to strengthen containment lines and create dozer lines to minimize the fire growth. A red flag warning remains in effect for the area until 6 p.m. Thursday."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "o2",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "o3",
+                    "qualifier": "location"
+                },
+                {
+                    "objectId": "o4",
+                    "qualifier": "established"
+                },
+                {
+                    "objectId": "o5",
+                    "qualifier": "handled"
+                },
+                {
+                    "objectId": "o6",
+                    "qualifier": "in_effect"
+                }
+            ]
+        }
+    ]
+}

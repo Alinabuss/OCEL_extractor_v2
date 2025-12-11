@@ -1,0 +1,195 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "category",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Authority",
+            "attributes": []
+        },
+        {
+            "name": "Guardianship",
+            "attributes": [
+                {
+                    "name": "purpose",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Judgment",
+            "attributes": []
+        },
+        {
+            "name": "LegalProvision",
+            "attributes": [
+                {
+                    "name": "code",
+                    "type": "string"
+                },
+                {
+                    "name": "articleNumber",
+                    "type": "string"
+                },
+                {
+                    "name": "text",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "FirstContactWithAuthorities",
+            "attributes": [
+                {
+                    "name": "accompaniment",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "person:disabled:1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "category",
+                    "value": "person with disabilities"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "person:elderly:1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "category",
+                    "value": "elderly person"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "person:chosen:1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "category",
+                    "value": "person of their own choosing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "authority:1",
+            "type": "Authority",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "authorities"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "guardianship:1",
+            "type": "Guardianship",
+            "attributes": [
+                {
+                    "name": "purpose",
+                    "value": "The guardianship of incapacitated persons shall have as its purpose the guardian's assistance in those acts expressly referred to in the judgment that established the guardianship."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "judgment:1",
+                    "qualifier": "established_in"
+                },
+                {
+                    "objectId": "article:289",
+                    "qualifier": "described_by"
+                }
+            ]
+        },
+        {
+            "id": "judgment:1",
+            "type": "Judgment",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "article:289",
+            "type": "LegalProvision",
+            "attributes": [
+                {
+                    "name": "code",
+                    "value": "Spanish Civil Code"
+                },
+                {
+                    "name": "articleNumber",
+                    "value": "Article 289"
+                },
+                {
+                    "name": "text",
+                    "value": "The guardianship of incapacitated persons shall have as its purpose the guardian's assistance in those acts expressly referred to in the judgment that established the guardianship."
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "article:290",
+            "type": "LegalProvision",
+            "attributes": [
+                {
+                    "name": "code",
+                    "value": "Spanish Civil Code"
+                },
+                {
+                    "name": "articleNumber",
+                    "value": "Article 290"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "FirstContactWithAuthorities",
+            "time": "unknown",
+            "attributes": [
+                {
+                    "name": "accompaniment",
+                    "value": "may be accompanied by a person of their own choosing"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person:disabled:1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "person:elderly:1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "person:chosen:1",
+                    "qualifier": "accompanying_person"
+                },
+                {
+                    "objectId": "authority:1",
+                    "qualifier": "authority"
+                }
+            ]
+        }
+    ]
+}

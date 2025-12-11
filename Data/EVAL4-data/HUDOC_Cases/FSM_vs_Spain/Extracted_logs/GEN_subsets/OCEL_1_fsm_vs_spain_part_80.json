@@ -1,0 +1,193 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "age",
+                    "type": "string"
+                },
+                {
+                    "name": "hasDisability",
+                    "type": "boolean"
+                },
+                {
+                    "name": "requestedAccessibleCommunication",
+                    "type": "boolean"
+                },
+                {
+                    "name": "elderly",
+                    "type": "boolean"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Communication",
+            "attributes": [
+                {
+                    "name": "language",
+                    "type": "string"
+                },
+                {
+                    "name": "means",
+                    "type": "string"
+                },
+                {
+                    "name": "condition",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "person_with_disability_1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "hasDisability",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "supporter_1",
+                    "qualifier": "isSupportedBy"
+                }
+            ]
+        },
+        {
+            "id": "person_age_80_plus_1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "age",
+                    "value": "80 years old or older"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "elderly_person_requested_1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "elderly",
+                    "value": "true"
+                },
+                {
+                    "name": "requestedAccessibleCommunication",
+                    "value": "true"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "supporter_1",
+            "type": "Person",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "person_with_disability_1",
+                    "qualifier": "supportsInLegalCapacity"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Communication",
+            "time": "2025-09-11T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "language",
+                    "value": "clear, simple and accessible"
+                },
+                {
+                    "name": "means",
+                    "value": "easy-read versions"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person_with_disability_1",
+                    "qualifier": "recipient"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Communication",
+            "time": "2025-09-11T00:00:01Z",
+            "attributes": [
+                {
+                    "name": "language",
+                    "value": "clear, simple and accessible"
+                },
+                {
+                    "name": "means",
+                    "value": "easy-read versions"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person_age_80_plus_1",
+                    "qualifier": "recipient"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "Communication",
+            "time": "2025-09-11T00:00:02Z",
+            "attributes": [
+                {
+                    "name": "language",
+                    "value": "clear, simple and accessible"
+                },
+                {
+                    "name": "means",
+                    "value": "easy-read versions"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "elderly_person_requested_1",
+                    "qualifier": "recipient"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "Communication",
+            "time": "2025-09-11T00:00:03Z",
+            "attributes": [
+                {
+                    "name": "language",
+                    "value": "clear, simple and accessible"
+                },
+                {
+                    "name": "means",
+                    "value": "easy-read versions"
+                },
+                {
+                    "name": "condition",
+                    "value": "if necessary"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "supporter_1",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "person_with_disability_1",
+                    "qualifier": "supportedPerson"
+                }
+            ]
+        }
+    ]
+}

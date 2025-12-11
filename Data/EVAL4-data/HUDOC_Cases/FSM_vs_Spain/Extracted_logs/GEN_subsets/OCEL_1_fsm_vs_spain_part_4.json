@@ -1,0 +1,219 @@
+{
+    "objectTypes": [
+        {
+            "name": "Government",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "alias",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Complaint",
+            "attributes": [
+                {
+                    "name": "articles",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Judgment",
+            "attributes": [
+                {
+                    "name": "adoptedDate",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Parties",
+            "attributes": [
+                {
+                    "name": "observations",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Deliberation",
+            "attributes": [
+                {
+                    "name": "inPrivate",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "DeliverJudgment",
+            "attributes": [
+                {
+                    "name": "decisions",
+                    "type": "string"
+                },
+                {
+                    "name": "adopted",
+                    "type": "boolean"
+                },
+                {
+                    "name": "partiesObservationsMentioned",
+                    "type": "boolean"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o_gov_spanish",
+            "type": "Government",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Spanish Government"
+                },
+                {
+                    "name": "alias",
+                    "value": "the Government"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_applicant_1",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "not disclosed"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_complaint_1",
+            "type": "Complaint",
+            "attributes": [
+                {
+                    "name": "articles",
+                    "value": "Article 6 \u00a7\u00a7 1 and 3 (b) of the Convention"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_parties",
+            "type": "Parties",
+            "attributes": [
+                {
+                    "name": "observations",
+                    "value": "mentioned"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_judgment_1",
+            "type": "Judgment",
+            "attributes": [
+                {
+                    "name": "adoptedDate",
+                    "value": "2025-02-04"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Deliberation",
+            "time": "2024-10-15T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "inPrivate",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_judgment_1",
+                    "qualifier": "regarding"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "Deliberation",
+            "time": "2025-02-04T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "inPrivate",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_judgment_1",
+                    "qualifier": "regarding"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "type": "DeliverJudgment",
+            "time": "2025-02-04T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "decisions",
+                    "value": "Give notice to the Spanish Government of the complaints under Article 6 \u00a7\u00a7 1 and 3 (b) of the Convention; declare the remainder inadmissible; decision not to disclose the applicant's name"
+                },
+                {
+                    "name": "adopted",
+                    "value": "true"
+                },
+                {
+                    "name": "partiesObservationsMentioned",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_judgment_1",
+                    "qualifier": "delivers"
+                },
+                {
+                    "objectId": "o_gov_spanish",
+                    "qualifier": "noticeRecipient"
+                },
+                {
+                    "objectId": "o_applicant_1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "o_complaint_1",
+                    "qualifier": "concerns"
+                },
+                {
+                    "objectId": "o_parties",
+                    "qualifier": "observationsFrom"
+                }
+            ]
+        }
+    ]
+}

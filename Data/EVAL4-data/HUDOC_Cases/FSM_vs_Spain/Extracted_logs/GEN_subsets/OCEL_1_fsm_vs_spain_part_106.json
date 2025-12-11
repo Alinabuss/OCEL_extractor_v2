@@ -1,0 +1,179 @@
+{
+    "objectTypes": [
+        {
+            "name": "Government",
+            "attributes": []
+        },
+        {
+            "name": "DomesticCourt",
+            "attributes": []
+        },
+        {
+            "name": "Applicant",
+            "attributes": []
+        },
+        {
+            "name": "ForensicExpert",
+            "attributes": []
+        },
+        {
+            "name": "Proceedings",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Examination",
+            "attributes": []
+        },
+        {
+            "name": "ExpertReport",
+            "attributes": [
+                {
+                    "name": "finding",
+                    "type": "string"
+                },
+                {
+                    "name": "can_stand_trial",
+                    "type": "boolean"
+                },
+                {
+                    "name": "aware_of_accusation_and_consequences",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "Submission",
+            "attributes": [
+                {
+                    "name": "claim",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "gov1",
+            "type": "Government",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "domestic_courts",
+            "type": "DomesticCourt",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "applicant1",
+                    "qualifier": "ensured_examination_of"
+                }
+            ]
+        },
+        {
+            "id": "applicant1",
+            "type": "Applicant",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "forensic_expert_1",
+            "type": "ForensicExpert",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "forensic_expert_2",
+            "type": "ForensicExpert",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "proceedings1",
+            "type": "Proceedings",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Examination",
+            "time": "unknown",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "forensic_expert_1",
+                    "qualifier": "performed_by"
+                },
+                {
+                    "objectId": "forensic_expert_2",
+                    "qualifier": "performed_by"
+                },
+                {
+                    "objectId": "applicant1",
+                    "qualifier": "examined"
+                },
+                {
+                    "objectId": "domestic_courts",
+                    "qualifier": "ensured_by"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "ExpertReport",
+            "time": "unknown",
+            "attributes": [
+                {
+                    "name": "finding",
+                    "value": "moderate cognitive impairment"
+                },
+                {
+                    "name": "can_stand_trial",
+                    "value": "true"
+                },
+                {
+                    "name": "aware_of_accusation_and_consequences",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "forensic_expert_1",
+                    "qualifier": "reported_by"
+                },
+                {
+                    "objectId": "forensic_expert_2",
+                    "qualifier": "reported_by"
+                },
+                {
+                    "objectId": "applicant1",
+                    "qualifier": "about"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "Submission",
+            "time": "unknown",
+            "attributes": [
+                {
+                    "name": "claim",
+                    "value": "the overall fairness of the proceedings had been respected"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "gov1",
+                    "qualifier": "submitted_by"
+                },
+                {
+                    "objectId": "proceedings1",
+                    "qualifier": "about"
+                }
+            ]
+        }
+    ]
+}

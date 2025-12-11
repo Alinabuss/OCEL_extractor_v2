@@ -1,0 +1,175 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "type": "float"
+                },
+                {
+                    "name": "priority",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "departureTime",
+                    "type": "datetime"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "TransportDocumentCreated",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "TransportDocumentTransaction",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "td48",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "time": "2023-06-29T13:52:23Z",
+                    "value": "3.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "vh12",
+                    "qualifier": "linked"
+                }
+            ]
+        },
+        {
+            "id": "td47",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "time": "2023-06-29T13:52:48Z",
+                    "value": "5.0"
+                },
+                {
+                    "name": "priority",
+                    "time": "2023-06-29T13:52:48Z",
+                    "value": "high-priority"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "vh11",
+                    "qualifier": "booked-vehicle"
+                },
+                {
+                    "objectId": "vh13",
+                    "qualifier": "booked-vehicle"
+                }
+            ]
+        },
+        {
+            "id": "vh12",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "departureTime",
+                    "time": "2023-06-29T13:52:23Z",
+                    "value": "2023-07-07T11:00:00Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "vh11",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "departureTime",
+                    "time": "2023-06-29T13:52:48Z",
+                    "value": "2023-07-04T11:00:00Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "vh13",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "departureTime",
+                    "time": "2023-06-29T13:52:48Z",
+                    "value": "2023-07-11T11:00:00Z"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "TransportDocumentCreated",
+            "time": "2023-06-29T13:52:23Z",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "value": "3.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td48",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "vh12",
+                    "qualifier": "linked"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "TransportDocumentTransaction",
+            "time": "2023-06-29T13:52:48Z",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "value": "5.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td47",
+                    "qualifier": "involved"
+                },
+                {
+                    "objectId": "vh11",
+                    "qualifier": "booked"
+                },
+                {
+                    "objectId": "vh13",
+                    "qualifier": "booked"
+                }
+            ]
+        }
+    ]
+}

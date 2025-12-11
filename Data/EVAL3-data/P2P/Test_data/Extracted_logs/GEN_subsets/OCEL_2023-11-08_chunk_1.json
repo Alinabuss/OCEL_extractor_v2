@@ -1,0 +1,91 @@
+{
+    "objectTypes": [
+        {
+            "name": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "credit amount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movement type",
+                    "type": "integer"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Invoice Receipt Creation Completed",
+            "attributes": [
+                {
+                    "name": "department",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt:1165",
+            "type": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "credit amount",
+                    "value": 6250.0,
+                    "time": "2023-11-08T08:40:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:1169",
+                    "qualifier": "associated_with"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt:1169",
+            "type": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movement type",
+                    "value": 101,
+                    "time": "2023-11-08T08:40:00Z"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Invoice Receipt Creation Completed",
+            "time": "2023-11-08T08:40:00Z",
+            "attributes": [
+                {
+                    "name": "department",
+                    "value": "Finance/Account Department"
+                },
+                {
+                    "name": "status",
+                    "value": "successfully completed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:1165",
+                    "qualifier": "created"
+                }
+            ]
+        }
+    ]
+}

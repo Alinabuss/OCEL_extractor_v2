@@ -1,0 +1,101 @@
+{
+    "objectTypes": [
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "credit",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Invoice Receipt Created",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt:150",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "credit",
+                    "time": "2022-06-30T03:14:00Z",
+                    "value": "49350.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:150",
+                    "qualifier": "linked_to"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt:150",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "time": "",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Finance/Account Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Invoice Receipt Created",
+            "time": "2022-06-30T03:14:00Z",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:150",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "goods receipt:150",
+                    "qualifier": "linked"
+                },
+                {
+                    "objectId": "Finance/Account Department",
+                    "qualifier": "associated_with"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,156 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "terrain",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Crew",
+            "attributes": [
+                {
+                    "name": "crewType",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Aircraft",
+            "attributes": [
+                {
+                    "name": "capability",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Weather",
+            "attributes": [
+                {
+                    "name": "phenomenon",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Border 2 Fire Status Update",
+            "attributes": [
+                {
+                    "name": "fireSpread",
+                    "type": "string"
+                },
+                {
+                    "name": "firefightingEffort",
+                    "type": "string"
+                },
+                {
+                    "name": "fireLineConstructionStatus",
+                    "type": "string"
+                },
+                {
+                    "name": "rainExpected",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Border 2 Fire",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "terrain",
+                    "time": "2025-01-26T09:14:00Z",
+                    "value": "remote wilderness locations and steep terrains"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Hand Crews",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "crewType",
+                    "time": "2025-01-26T09:14:00Z",
+                    "value": "hand"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Helicopter",
+            "type": "Aircraft",
+            "attributes": [
+                {
+                    "name": "capability",
+                    "time": "2025-01-26T09:14:00Z",
+                    "value": "water drops"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Rain",
+            "type": "Weather",
+            "attributes": [
+                {
+                    "name": "phenomenon",
+                    "time": "2025-01-26T09:14:00Z",
+                    "value": "rain expected on and off today"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Border 2 Fire Status Update",
+            "time": "2025-01-26T09:14:00Z",
+            "attributes": [
+                {
+                    "name": "fireSpread",
+                    "value": "decreased"
+                },
+                {
+                    "name": "firefightingEffort",
+                    "value": "substantial"
+                },
+                {
+                    "name": "fireLineConstructionStatus",
+                    "value": "ongoing; will continue"
+                },
+                {
+                    "name": "rainExpected",
+                    "value": "on and off today"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Border 2 Fire",
+                    "qualifier": "affected"
+                },
+                {
+                    "objectId": "Hand Crews",
+                    "qualifier": "performer"
+                },
+                {
+                    "objectId": "Helicopter",
+                    "qualifier": "support"
+                },
+                {
+                    "objectId": "Rain",
+                    "qualifier": "forecast"
+                }
+            ]
+        }
+    ]
+}

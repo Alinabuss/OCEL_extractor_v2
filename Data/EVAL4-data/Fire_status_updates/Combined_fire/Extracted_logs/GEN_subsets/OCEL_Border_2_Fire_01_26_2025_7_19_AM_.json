@@ -1,0 +1,222 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "spread",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Crew",
+            "attributes": [
+                {
+                    "name": "crewType",
+                    "type": "string"
+                },
+                {
+                    "name": "activity",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "AerialSupport",
+            "attributes": [
+                {
+                    "name": "method",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Weather",
+            "attributes": [
+                {
+                    "name": "phenomenon",
+                    "type": "string"
+                },
+                {
+                    "name": "forecast",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "terrain",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "SituationReport",
+            "attributes": [
+                {
+                    "name": "summary",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire:border_2",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-26T07:19:00Z",
+                    "value": "Border 2 Fire"
+                },
+                {
+                    "name": "spread",
+                    "time": "2025-01-26T07:19:00Z",
+                    "value": "decreased"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "location:remote_wilderness_steep_terrain",
+                    "qualifier": "located_in"
+                }
+            ]
+        },
+        {
+            "id": "crew:hand_crews",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "crewType",
+                    "time": "2025-01-26T07:19:00Z",
+                    "value": "hand"
+                },
+                {
+                    "name": "activity",
+                    "time": "2025-01-26T07:19:00Z",
+                    "value": "ongoing fire line construction"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "support:helicopter_water_drops",
+                    "qualifier": "supported_by"
+                },
+                {
+                    "objectId": "location:remote_wilderness_steep_terrain",
+                    "qualifier": "operates_in"
+                }
+            ]
+        },
+        {
+            "id": "support:helicopter_water_drops",
+            "type": "AerialSupport",
+            "attributes": [
+                {
+                    "name": "method",
+                    "time": "2025-01-26T07:19:00Z",
+                    "value": "helicopter water drops"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "crew:hand_crews",
+                    "qualifier": "supports"
+                }
+            ]
+        },
+        {
+            "id": "weather:rain",
+            "type": "Weather",
+            "attributes": [
+                {
+                    "name": "phenomenon",
+                    "time": "2025-01-26T07:19:00Z",
+                    "value": "rain"
+                },
+                {
+                    "name": "forecast",
+                    "time": "2025-01-26T07:19:00Z",
+                    "value": "expected to continue on and off today"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire:border_2",
+                    "qualifier": "mitigates"
+                }
+            ]
+        },
+        {
+            "id": "location:remote_wilderness_steep_terrain",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-26T07:19:00Z",
+                    "value": "remote wilderness locations"
+                },
+                {
+                    "name": "terrain",
+                    "time": "2025-01-26T07:19:00Z",
+                    "value": "steep terrains"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire:border_2",
+                    "qualifier": "contains"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "event:2025-01-26T07:19:00Z:1",
+            "type": "SituationReport",
+            "time": "2025-01-26T07:19:00Z",
+            "attributes": [
+                {
+                    "name": "summary",
+                    "value": "Substantial firefighting efforts have decreased fire spread. Due to remote wilderness locations and steep terrains, hand crews will continue ongoing fire line construction while being supported by helicopter water drops. Rain is expected to continue on and off today which will help mitigate fire activity."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire:border_2",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "crew:hand_crews",
+                    "qualifier": "mentions"
+                },
+                {
+                    "objectId": "support:helicopter_water_drops",
+                    "qualifier": "mentions"
+                },
+                {
+                    "objectId": "weather:rain",
+                    "qualifier": "mentions"
+                },
+                {
+                    "objectId": "location:remote_wilderness_steep_terrain",
+                    "qualifier": "context"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,369 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "WeatherObservation",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "activity",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Resources",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "EvacuationMap",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "purpose",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "NoFireActivityObserved",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "WeatherSprinklesObserved",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "SkiesMostlyClearObserved",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "CrewsPatrollingAndCleanup",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "NoAnticipatedFireGrowth",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ResourcesRelease",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "EvacuationMapAdvisory",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire_1",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-29T18:39:00Z",
+                    "value": "Border 2 Fire"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "weather_1",
+            "type": "WeatherObservation",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-29T18:39:00Z",
+                    "value": "A few sprinkles fell on the fire this morning; skies were mostly clear throughout the day."
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "crew_1",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-29T18:39:00Z",
+                    "value": "Fire crews"
+                },
+                {
+                    "name": "activity",
+                    "time": "2025-01-29T18:39:00Z",
+                    "value": "Patrolling for hot spots; picking up trash and hose from the fire line"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "resources_1",
+            "type": "Resources",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-29T18:39:00Z",
+                    "value": "Equipment and personnel"
+                },
+                {
+                    "name": "status",
+                    "time": "2025-01-29T18:39:00Z",
+                    "value": "Being released from the incident"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "org_1",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-29T18:39:00Z",
+                    "value": "San Diego County Sheriff's Office"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "map_1",
+            "type": "EvacuationMap",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-29T18:39:00Z",
+                    "value": "Genasys Protect evacuation map"
+                },
+                {
+                    "name": "purpose",
+                    "time": "2025-01-29T18:39:00Z",
+                    "value": "Evacuation information"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "NoFireActivityObserved",
+            "time": "2025-01-29T18:39:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "No fire activity was observed today."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "incident"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "WeatherSprinklesObserved",
+            "time": "2025-01-29T18:39:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "A few sprinkles fell on the fire this morning."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "weather_1",
+                    "qualifier": "observed"
+                },
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "affected"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "SkiesMostlyClearObserved",
+            "time": "2025-01-29T18:39:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Skies were mostly clear throughout the day."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "weather_1",
+                    "qualifier": "observed"
+                },
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "affected"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "CrewsPatrollingAndCleanup",
+            "time": "2025-01-29T18:39:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Fire crews spent much of the day patrolling for any hot spots and picking up trash and hose from the fire line."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "crew_1",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "incident"
+                }
+            ]
+        },
+        {
+            "id": "e5",
+            "type": "NoAnticipatedFireGrowth",
+            "time": "2025-01-29T18:39:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "There is no anticipated fire growth going forward."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "forecast"
+                }
+            ]
+        },
+        {
+            "id": "e6",
+            "type": "ResourcesRelease",
+            "time": "2025-01-29T18:39:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Equipment and personnel are being released from the incident."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "resources_1",
+                    "qualifier": "resource"
+                },
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "incident"
+                }
+            ]
+        },
+        {
+            "id": "e7",
+            "type": "EvacuationMapAdvisory",
+            "time": "2025-01-29T18:39:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "San Diego County Sheriff's Office encourages all residents to check the Genasys Protect evacuation map for the most current information on evacuation orders."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "org_1",
+                    "qualifier": "issuer"
+                },
+                {
+                    "objectId": "map_1",
+                    "qualifier": "referenced"
+                },
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "related"
+                }
+            ]
+        }
+    ]
+}

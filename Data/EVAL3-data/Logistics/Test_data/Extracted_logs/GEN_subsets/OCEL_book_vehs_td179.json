@@ -1,0 +1,89 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportationDocument",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "type": "double"
+                },
+                {
+                    "name": "unit",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Booked",
+            "attributes": []
+        },
+        {
+            "name": "SetForDeparture",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "td179",
+            "type": "TransportationDocument",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "value": "4.0"
+                },
+                {
+                    "name": "unit",
+                    "value": "containers"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "vh44",
+            "type": "Vehicle",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "td179",
+                    "qualifier": "designatedAsRegularFor"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Booked",
+            "time": "2023-10-09T13:40:40Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "td179",
+                    "qualifier": "booked"
+                },
+                {
+                    "objectId": "vh44",
+                    "qualifier": "booked"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "SetForDeparture",
+            "time": "2023-10-27T11:00:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "vh44",
+                    "qualifier": "setForDeparture"
+                }
+            ]
+        }
+    ]
+}

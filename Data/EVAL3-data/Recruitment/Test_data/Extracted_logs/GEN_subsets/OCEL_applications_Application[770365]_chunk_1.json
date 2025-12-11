@@ -1,0 +1,225 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": [
+                {
+                    "name": "position",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Vacancy",
+            "attributes": [
+                {
+                    "name": "position",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Application Submitted",
+            "attributes": []
+        },
+        {
+            "name": "Recruiters Assigned",
+            "attributes": []
+        },
+        {
+            "name": "Screening",
+            "attributes": [
+                {
+                    "name": "round",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Application[770365]",
+            "type": "Application",
+            "attributes": [
+                {
+                    "name": "position",
+                    "value": "Programmer"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Vacancy[550031]",
+                    "qualifier": "vacancy"
+                },
+                {
+                    "objectId": "Pete Weber",
+                    "qualifier": "submitted_by"
+                }
+            ]
+        },
+        {
+            "id": "Vacancy[550031]",
+            "type": "Vacancy",
+            "attributes": [
+                {
+                    "name": "position",
+                    "value": "Programmer"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Pete Weber",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Pete Weber"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Jana Hense",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Jana Hense"
+                },
+                {
+                    "name": "role",
+                    "value": "recruiter"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Application[770365]",
+                    "qualifier": "assigned_to"
+                }
+            ]
+        },
+        {
+            "id": "Dionne Kershaw",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Dionne Kershaw"
+                },
+                {
+                    "name": "role",
+                    "value": "recruiter"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Application[770365]",
+                    "qualifier": "assigned_to"
+                }
+            ]
+        },
+        {
+            "id": "Dionne Keane",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Dionne Keane"
+                },
+                {
+                    "name": "role",
+                    "value": "recruiter"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Application[770365]",
+                    "qualifier": "assigned_to"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Application Submitted",
+            "time": "2019-07-01T07:52:38Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Application[770365]",
+                    "qualifier": "application"
+                },
+                {
+                    "objectId": "Pete Weber",
+                    "qualifier": "submitted_by"
+                },
+                {
+                    "objectId": "Vacancy[550031]",
+                    "qualifier": "vacancy"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Recruiters Assigned",
+            "time": "2019-07-01T18:27:44Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Application[770365]",
+                    "qualifier": "application"
+                },
+                {
+                    "objectId": "Jana Hense",
+                    "qualifier": "assigned"
+                },
+                {
+                    "objectId": "Dionne Kershaw",
+                    "qualifier": "assigned"
+                },
+                {
+                    "objectId": "Dionne Keane",
+                    "qualifier": "assigned"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "Screening",
+            "time": "2019-07-03T12:03:26Z",
+            "attributes": [
+                {
+                    "name": "round",
+                    "value": "first"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Application[770365]",
+                    "qualifier": "application"
+                },
+                {
+                    "objectId": "Dionne Kershaw",
+                    "qualifier": "screened_by"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,502 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Crew",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "AirSupport",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "SpotFire",
+            "attributes": [
+                {
+                    "name": "area_acres",
+                    "type": "integer"
+                },
+                {
+                    "name": "location",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ContainmentLine",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Warning",
+            "attributes": [
+                {
+                    "name": "type",
+                    "type": "string"
+                },
+                {
+                    "name": "until",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Initial Attack",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Air and Ground Operations",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "containment_techniques",
+                    "type": "string"
+                },
+                {
+                    "name": "aided_by",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "High Winds",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Spot Fire Response",
+            "attributes": [
+                {
+                    "name": "area_acres",
+                    "type": "integer"
+                },
+                {
+                    "name": "location",
+                    "type": "string"
+                },
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Red Flag Warning Active",
+            "attributes": [
+                {
+                    "name": "until",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Staging",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Night Operations",
+            "attributes": [
+                {
+                    "name": "activities",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire1",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-23T20:17:00Z",
+                    "value": "Hughes Fire"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "crew1",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-23T20:17:00Z",
+                    "value": "crews in various regions of the fire"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire1",
+                    "qualifier": "operating-on"
+                },
+                {
+                    "objectId": "loc1",
+                    "qualifier": "staged-in"
+                },
+                {
+                    "objectId": "loc2",
+                    "qualifier": "staged-in"
+                },
+                {
+                    "objectId": "loc3",
+                    "qualifier": "staged-in"
+                }
+            ]
+        },
+        {
+            "id": "air1",
+            "type": "AirSupport",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-23T20:17:00Z",
+                    "value": "air support aiding operations"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire1",
+                    "qualifier": "supports"
+                },
+                {
+                    "objectId": "crew1",
+                    "qualifier": "supports"
+                }
+            ]
+        },
+        {
+            "id": "containment1",
+            "type": "ContainmentLine",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-23T20:17:00Z",
+                    "value": "containment lines"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire1",
+                    "qualifier": "part-of"
+                }
+            ]
+        },
+        {
+            "id": "spot1",
+            "type": "SpotFire",
+            "attributes": [
+                {
+                    "name": "area_acres",
+                    "time": "2025-01-23T20:17:00Z",
+                    "value": "100"
+                },
+                {
+                    "name": "location",
+                    "time": "2025-01-23T20:17:00Z",
+                    "value": "west flank"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire1",
+                    "qualifier": "part-of"
+                }
+            ]
+        },
+        {
+            "id": "loc1",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-23T20:17:00Z",
+                    "value": "Castaic"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "loc2",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-23T20:17:00Z",
+                    "value": "Santa Clarita"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "loc3",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-23T20:17:00Z",
+                    "value": "any communities that are threatened by the fire"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "warning1",
+            "type": "Warning",
+            "attributes": [
+                {
+                    "name": "type",
+                    "time": "2025-01-23T20:17:00Z",
+                    "value": "Red Flag Warning"
+                },
+                {
+                    "name": "until",
+                    "time": "2025-01-23T20:17:00Z",
+                    "value": "10:00 a.m. Friday"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire1",
+                    "qualifier": "applies-to"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Initial Attack",
+            "time": "2025-01-22T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "highly successful initial attack set the stage for continued operations"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire1",
+                    "qualifier": "affects"
+                },
+                {
+                    "objectId": "crew1",
+                    "qualifier": "performed-by"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Air and Ground Operations",
+            "time": "2025-01-23T20:17:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "continued aggressive air and ground operations"
+                },
+                {
+                    "name": "containment_techniques",
+                    "value": "direct and indirect"
+                },
+                {
+                    "name": "aided_by",
+                    "value": "air support"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire1",
+                    "qualifier": "affects"
+                },
+                {
+                    "objectId": "crew1",
+                    "qualifier": "performed-by"
+                },
+                {
+                    "objectId": "air1",
+                    "qualifier": "provider"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "High Winds",
+            "time": "2025-01-23T20:17:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "high winds tested the fire's containment lines"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire1",
+                    "qualifier": "affects"
+                },
+                {
+                    "objectId": "containment1",
+                    "qualifier": "tested"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "Spot Fire Response",
+            "time": "2025-01-23T20:17:00Z",
+            "attributes": [
+                {
+                    "name": "area_acres",
+                    "value": "100"
+                },
+                {
+                    "name": "location",
+                    "value": "west flank"
+                },
+                {
+                    "name": "description",
+                    "value": "crews responded swiftly to a spot fire"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "spot1",
+                    "qualifier": "addressed"
+                },
+                {
+                    "objectId": "crew1",
+                    "qualifier": "performed-by"
+                },
+                {
+                    "objectId": "fire1",
+                    "qualifier": "on"
+                }
+            ]
+        },
+        {
+            "id": "e5",
+            "type": "Red Flag Warning Active",
+            "time": "2025-01-23T20:17:00Z",
+            "attributes": [
+                {
+                    "name": "until",
+                    "value": "10:00 a.m. Friday"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "warning1",
+                    "qualifier": "instance-of"
+                },
+                {
+                    "objectId": "fire1",
+                    "qualifier": "applies-to"
+                }
+            ]
+        },
+        {
+            "id": "e6",
+            "type": "Staging",
+            "time": "2025-01-23T20:17:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Firefighters will remain staged within Castaic, Santa Clarita and any communities that are threatened by the fire"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "crew1",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "loc1",
+                    "qualifier": "staged-in"
+                },
+                {
+                    "objectId": "loc2",
+                    "qualifier": "staged-in"
+                },
+                {
+                    "objectId": "loc3",
+                    "qualifier": "staged-in"
+                },
+                {
+                    "objectId": "fire1",
+                    "qualifier": "related-to"
+                }
+            ]
+        },
+        {
+            "id": "e7",
+            "type": "Night Operations",
+            "time": "2025-01-23T20:17:00Z",
+            "attributes": [
+                {
+                    "name": "activities",
+                    "value": "improving fireline, performing tactical patrols, and mopping up hot spots to prevent the fire's spread"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "crew1",
+                    "qualifier": "performed-by"
+                },
+                {
+                    "objectId": "fire1",
+                    "qualifier": "affects"
+                }
+            ]
+        }
+    ]
+}

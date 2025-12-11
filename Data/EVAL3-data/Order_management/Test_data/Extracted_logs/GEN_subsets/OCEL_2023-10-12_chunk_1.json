@@ -1,0 +1,266 @@
+{
+    "objectTypes": [
+        {
+            "name": "Worker",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                },
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Pick",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "worker-Mahsa-Bafrani",
+            "type": "Worker",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-10-12T06:26:03Z",
+                    "value": "Mahsa Bafrani"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "dept-warehousing",
+                    "qualifier": "works-in"
+                }
+            ]
+        },
+        {
+            "id": "worker-Detlef-Wetzeler",
+            "type": "Worker",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-10-12T18:37:01Z",
+                    "value": "Detlef Wetzeler"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "dept-warehousing",
+                    "qualifier": "works-in"
+                }
+            ]
+        },
+        {
+            "id": "dept-warehousing",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-10-12T06:26:03Z",
+                    "value": "warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "product-iPad-Air",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-10-12T06:26:03Z",
+                    "value": "iPad Air"
+                },
+                {
+                    "name": "price",
+                    "time": "2023-10-12T06:26:03Z",
+                    "value": "476.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "product-Fire-Stick",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-10-12T11:10:21Z",
+                    "value": "Fire Stick"
+                },
+                {
+                    "name": "price",
+                    "time": "2023-10-12T11:10:21Z",
+                    "value": "39.99"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-883975",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "time": "2023-10-12T06:26:03Z",
+                    "value": "522.5"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-iPad-Air",
+                    "qualifier": "product"
+                }
+            ]
+        },
+        {
+            "id": "i-884126",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "time": "2023-10-12T11:10:21Z",
+                    "value": "43.9"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-Fire-Stick",
+                    "qualifier": "product"
+                }
+            ]
+        },
+        {
+            "id": "i-884086",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "time": "2023-10-12T18:37:01Z",
+                    "value": "43.9"
+                },
+                {
+                    "name": "name",
+                    "time": "2023-10-12T18:37:01Z",
+                    "value": "Fire Stick"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-Fire-Stick",
+                    "qualifier": "product"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Pick",
+            "time": "2023-10-12T06:26:03Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "worker-Mahsa-Bafrani",
+                    "qualifier": "picker"
+                },
+                {
+                    "objectId": "i-883975",
+                    "qualifier": "item"
+                },
+                {
+                    "objectId": "product-iPad-Air",
+                    "qualifier": "product"
+                },
+                {
+                    "objectId": "dept-warehousing",
+                    "qualifier": "department"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Pick",
+            "time": "2023-10-12T11:10:21Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "worker-Mahsa-Bafrani",
+                    "qualifier": "picker"
+                },
+                {
+                    "objectId": "i-884126",
+                    "qualifier": "item"
+                },
+                {
+                    "objectId": "product-Fire-Stick",
+                    "qualifier": "product"
+                },
+                {
+                    "objectId": "dept-warehousing",
+                    "qualifier": "department"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "Pick",
+            "time": "2023-10-12T18:37:01Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "worker-Detlef-Wetzeler",
+                    "qualifier": "picker"
+                },
+                {
+                    "objectId": "i-884086",
+                    "qualifier": "item"
+                },
+                {
+                    "objectId": "product-Fire-Stick",
+                    "qualifier": "product"
+                },
+                {
+                    "objectId": "dept-warehousing",
+                    "qualifier": "department"
+                }
+            ]
+        }
+    ]
+}

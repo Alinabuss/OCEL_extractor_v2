@@ -1,0 +1,229 @@
+{
+    "objectTypes": [
+        {
+            "name": "LegalCode",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Article",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PersonGroup",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Amendment",
+            "attributes": [
+                {
+                    "name": "year",
+                    "type": "string"
+                },
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "EntryIntoForce",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "code_civ_proc",
+            "type": "LegalCode",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Code of Civil Procedure"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "criminal_proc_act",
+            "type": "LegalCode",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Criminal Procedure Act"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "article_7_bis",
+            "type": "Article",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Article 7 bis"
+                },
+                {
+                    "name": "in_force_since",
+                    "time": "2024-03-01T00:00:00Z",
+                    "value": "March 2024"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "code_civ_proc",
+                    "qualifier": "part-of"
+                }
+            ]
+        },
+        {
+            "id": "article_4",
+            "type": "Article",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Article 4"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "code_civ_proc",
+                    "qualifier": "part-of"
+                },
+                {
+                    "objectId": "criminal_proc_act",
+                    "qualifier": "applicable_in_absence_of_specific_provisions_in"
+                }
+            ]
+        },
+        {
+            "id": "persons_with_disabilities",
+            "type": "PersonGroup",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "persons with disabilities"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "elderly_persons",
+            "type": "PersonGroup",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "elderly persons"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Amendment",
+            "time": "2021-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Amendment to include a specific provision regulating procedural adjustments for persons with disabilities."
+                },
+                {
+                    "name": "year",
+                    "value": "2021"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "code_civ_proc",
+                    "qualifier": "amended"
+                },
+                {
+                    "objectId": "article_7_bis",
+                    "qualifier": "included"
+                },
+                {
+                    "objectId": "persons_with_disabilities",
+                    "qualifier": "targets"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Amendment",
+            "time": "2023-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Further amendment to regulate procedural adjustments for elderly persons."
+                },
+                {
+                    "name": "year",
+                    "value": "2023"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "code_civ_proc",
+                    "qualifier": "amended"
+                },
+                {
+                    "objectId": "article_7_bis",
+                    "qualifier": "amended"
+                },
+                {
+                    "objectId": "elderly_persons",
+                    "qualifier": "targets"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "EntryIntoForce",
+            "time": "2024-03-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Relevant rule (Article 7 bis) in force since March 2024."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "article_7_bis",
+                    "qualifier": "in_force"
+                },
+                {
+                    "objectId": "code_civ_proc",
+                    "qualifier": "in_force"
+                }
+            ]
+        }
+    ]
+}

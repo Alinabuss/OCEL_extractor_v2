@@ -1,0 +1,219 @@
+{
+    "objectTypes": [
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Proceedings",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "LegalProvision",
+            "attributes": [
+                {
+                    "name": "citation",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "MinimumRights",
+            "attributes": [
+                {
+                    "name": "label",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Requirement",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ProceduralSituation",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "CaseType",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "EvaluateOverallFairness",
+            "attributes": [
+                {
+                    "name": "scope",
+                    "type": "string"
+                },
+                {
+                    "name": "condition",
+                    "type": "string"
+                },
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "court_1",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Court"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "proceedings_1",
+            "type": "Proceedings",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "proceedings"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "article6_3",
+            "type": "LegalProvision",
+            "attributes": [
+                {
+                    "name": "citation",
+                    "value": "Article 6(3)"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "minimum_rights_article6_3",
+            "type": "MinimumRights",
+            "attributes": [
+                {
+                    "name": "label",
+                    "value": "minimum rights"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "article6_3",
+                    "qualifier": "listed_in"
+                },
+                {
+                    "objectId": "fair_trial_requirements_1",
+                    "qualifier": "exemplify"
+                }
+            ]
+        },
+        {
+            "id": "fair_trial_requirements_1",
+            "type": "Requirement",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "requirements of a fair trial"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "procedural_situations_1",
+                    "qualifier": "in_respect_of"
+                }
+            ]
+        },
+        {
+            "id": "procedural_situations_1",
+            "type": "ProceduralSituation",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "typical procedural situations"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "criminal_cases_1",
+                    "qualifier": "arise_in"
+                }
+            ]
+        },
+        {
+            "id": "criminal_cases_1",
+            "type": "CaseType",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "criminal cases"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "EvaluateOverallFairness",
+            "time": "2025-09-11T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "scope",
+                    "value": "overall fairness"
+                },
+                {
+                    "name": "condition",
+                    "value": "if appropriate"
+                },
+                {
+                    "name": "description",
+                    "value": "Court takes into account the minimum rights listed in Article 6(3)"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court_1",
+                    "qualifier": "performer"
+                },
+                {
+                    "objectId": "proceedings_1",
+                    "qualifier": "evaluated"
+                },
+                {
+                    "objectId": "minimum_rights_article6_3",
+                    "qualifier": "considered"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,247 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                },
+                {
+                    "name": "hasCondition",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "instance",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "MedicalInformation",
+            "attributes": [
+                {
+                    "name": "provided",
+                    "type": "boolean"
+                },
+                {
+                    "name": "significance_for_article_383",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "LegalArticle",
+            "attributes": [
+                {
+                    "name": "number",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Proceedings",
+            "attributes": [
+                {
+                    "name": "decision_to_discontinue_requires_more",
+                    "type": "boolean"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Assessment",
+            "attributes": [
+                {
+                    "name": "result",
+                    "type": "string"
+                },
+                {
+                    "name": "article_383_applicable",
+                    "type": "boolean"
+                },
+                {
+                    "name": "medical_information_assessed_as_whole",
+                    "type": "boolean"
+                },
+                {
+                    "name": "conclusion",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ClosingStatement",
+            "attributes": [
+                {
+                    "name": "evidence_of_capacity",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "appellant-1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "appellant"
+                },
+                {
+                    "name": "hasCondition",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "proceedings-1",
+                    "qualifier": "partyTo"
+                }
+            ]
+        },
+        {
+            "id": "court-1",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "instance",
+                    "value": "first-instance"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "proceedings-1",
+                    "qualifier": "hearingCourtFor"
+                }
+            ]
+        },
+        {
+            "id": "medinfo-1",
+            "type": "MedicalInformation",
+            "attributes": [
+                {
+                    "name": "provided",
+                    "value": "true"
+                },
+                {
+                    "name": "significance_for_article_383",
+                    "value": "not significant"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "proceedings-1",
+                    "qualifier": "relatesTo"
+                }
+            ]
+        },
+        {
+            "id": "article-383",
+            "type": "LegalArticle",
+            "attributes": [
+                {
+                    "name": "number",
+                    "value": "383"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "proceedings-1",
+                    "qualifier": "referredIn"
+                }
+            ]
+        },
+        {
+            "id": "proceedings-1",
+            "type": "Proceedings",
+            "attributes": [
+                {
+                    "name": "decision_to_discontinue_requires_more",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "article-383",
+                    "qualifier": "underArticle"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "ClosingStatement",
+            "time": "2025-09-11T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "evidence_of_capacity",
+                    "value": "statements made in his closing statement"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "appellant-1",
+                    "qualifier": "made"
+                },
+                {
+                    "objectId": "proceedings-1",
+                    "qualifier": "partOf"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Assessment",
+            "time": "2025-09-11T00:00:01Z",
+            "attributes": [
+                {
+                    "name": "result",
+                    "value": "appellant in a position to exercise his defence rights effectively"
+                },
+                {
+                    "name": "article_383_applicable",
+                    "value": "false"
+                },
+                {
+                    "name": "medical_information_assessed_as_whole",
+                    "value": "true"
+                },
+                {
+                    "name": "conclusion",
+                    "value": "no doubt about his capacity to mount a defence"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court-1",
+                    "qualifier": "performedBy"
+                },
+                {
+                    "objectId": "appellant-1",
+                    "qualifier": "assessed"
+                },
+                {
+                    "objectId": "medinfo-1",
+                    "qualifier": "considered"
+                },
+                {
+                    "objectId": "article-383",
+                    "qualifier": "refersTo"
+                },
+                {
+                    "objectId": "proceedings-1",
+                    "qualifier": "concerns"
+                }
+            ]
+        }
+    ]
+}

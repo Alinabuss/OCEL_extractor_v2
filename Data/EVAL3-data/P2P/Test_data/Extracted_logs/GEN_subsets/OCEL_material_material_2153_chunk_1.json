@@ -1,0 +1,81 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseRequisition",
+            "attributes": [
+                {
+                    "name": "purchasingGroup",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Material",
+            "attributes": [
+                {
+                    "name": "netPrice",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "PurchaseRequisitionApproved",
+            "attributes": [
+                {
+                    "name": "actor",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_requisition:867:pr_trigger_867",
+            "type": "PurchaseRequisition",
+            "attributes": [
+                {
+                    "name": "purchasingGroup",
+                    "value": "004"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "material:2153",
+                    "qualifier": "associated"
+                }
+            ]
+        },
+        {
+            "id": "material:2153",
+            "type": "Material",
+            "attributes": [
+                {
+                    "name": "netPrice",
+                    "value": "950.0"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "evt-1",
+            "type": "PurchaseRequisitionApproved",
+            "time": "2024-08-21T12:15:00Z",
+            "attributes": [
+                {
+                    "name": "actor",
+                    "value": "Procurement Requisition Manager"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_requisition:867:pr_trigger_867",
+                    "qualifier": "approved"
+                }
+            ]
+        }
+    ]
+}

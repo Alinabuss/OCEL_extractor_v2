@@ -1,0 +1,154 @@
+{
+    "objectTypes": [
+        {
+            "name": "Workstation",
+            "attributes": []
+        },
+        {
+            "name": "Machine",
+            "attributes": []
+        },
+        {
+            "name": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "SteelCoil",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "SplitSteelSheet",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "type": "float"
+                },
+                {
+                    "name": "co2_kg",
+                    "type": "float"
+                },
+                {
+                    "name": "electricity_kwh",
+                    "type": "float"
+                },
+                {
+                    "name": "waste_kg",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Workstation[1]",
+            "type": "Workstation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Machine[2]",
+                    "qualifier": "uses"
+                }
+            ]
+        },
+        {
+            "id": "Machine[2]",
+            "type": "Machine",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "o_steelsheet_5368",
+            "type": "SteelSheet",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "SteelSheet[5368]",
+            "type": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "time": "2023-04-06T10:55:28Z",
+                    "value": "0.02111"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "SteelCoil[1]",
+                    "qualifier": "derivedFrom"
+                }
+            ]
+        },
+        {
+            "id": "SteelCoil[1]",
+            "type": "SteelCoil",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "time": "2023-04-06T10:55:28Z",
+                    "value": "31.91076"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "SplitSteelSheet",
+            "time": "2023-04-06T10:55:28Z",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "value": "14.43"
+                },
+                {
+                    "name": "co2_kg",
+                    "value": "0.0151"
+                },
+                {
+                    "name": "electricity_kwh",
+                    "value": "0.022"
+                },
+                {
+                    "name": "waste_kg",
+                    "value": "0.00042"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Workstation[1]",
+                    "qualifier": "performedBy"
+                },
+                {
+                    "objectId": "Machine[2]",
+                    "qualifier": "usedMachine"
+                },
+                {
+                    "objectId": "o_steelsheet_5368",
+                    "qualifier": "involved"
+                },
+                {
+                    "objectId": "SteelSheet[5368]",
+                    "qualifier": "produced"
+                },
+                {
+                    "objectId": "SteelCoil[1]",
+                    "qualifier": "input"
+                }
+            ]
+        }
+    ]
+}

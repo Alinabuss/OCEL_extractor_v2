@@ -1,0 +1,128 @@
+{
+    "objectTypes": [
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Pick Item",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "benedikt-knopp",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Benedikt Knopp"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "warehousing",
+                    "qualifier": "worksIn"
+                }
+            ]
+        },
+        {
+            "id": "warehousing",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "product-kindle-paperwhite",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Kindle Paperwhite"
+                },
+                {
+                    "name": "price",
+                    "value": "129.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-880603",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "129.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-kindle-paperwhite",
+                    "qualifier": "associatedWith"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Pick Item",
+            "time": "2023-05-18T12:43:40Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "benedikt-knopp",
+                    "qualifier": "picker"
+                },
+                {
+                    "objectId": "i-880603",
+                    "qualifier": "pickedItem"
+                }
+            ]
+        }
+    ]
+}

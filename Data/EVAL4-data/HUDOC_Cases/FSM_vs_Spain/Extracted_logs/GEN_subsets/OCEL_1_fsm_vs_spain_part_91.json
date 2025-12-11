@@ -1,0 +1,136 @@
+{
+    "objectTypes": [
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "designation",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "LegalProvision",
+            "attributes": [
+                {
+                    "name": "articleNumber",
+                    "type": "string"
+                },
+                {
+                    "name": "instrument",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "LegalInstrument",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "LegalConcept",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Argue",
+            "attributes": [
+                {
+                    "name": "content",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "applicant_1",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "designation",
+                    "value": "the applicant"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "convention_1",
+            "type": "LegalInstrument",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "the Convention"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "article35",
+            "type": "LegalProvision",
+            "attributes": [
+                {
+                    "name": "articleNumber",
+                    "value": "35"
+                },
+                {
+                    "name": "instrument",
+                    "value": "Convention"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "convention_1",
+                    "qualifier": "part-of"
+                }
+            ]
+        },
+        {
+            "id": "exhaustion_of_remedies",
+            "type": "LegalConcept",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "exhaustion of remedies"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Argue",
+            "attributes": [
+                {
+                    "name": "content",
+                    "value": "The applicant argued that Article 35 of the Convention should not be applied with excessive formalism with regard to exhaustion of remedies."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "article35",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "exhaustion_of_remedies",
+                    "qualifier": "regarding"
+                }
+            ]
+        }
+    ]
+}

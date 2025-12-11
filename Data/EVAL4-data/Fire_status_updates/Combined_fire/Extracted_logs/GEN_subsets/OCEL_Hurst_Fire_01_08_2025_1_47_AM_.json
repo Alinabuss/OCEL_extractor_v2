@@ -1,0 +1,293 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "behavior",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Group",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Asset",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Condition",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "SituationReport",
+            "attributes": [
+                {
+                    "name": "headline",
+                    "type": "string"
+                },
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "advisory",
+                    "type": "string"
+                },
+                {
+                    "name": "conditions",
+                    "type": "string"
+                },
+                {
+                    "name": "behavior",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire_1",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-08T01:47:00Z",
+                    "value": "Hurst Fire"
+                },
+                {
+                    "name": "behavior",
+                    "time": "2025-01-08T01:47:00Z",
+                    "value": "spreading rapidly"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "crew_1",
+            "type": "Group",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-08T01:47:00Z",
+                    "value": "Fire crews"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "responding_to"
+                },
+                {
+                    "objectId": "infra_1",
+                    "qualifier": "protects"
+                }
+            ]
+        },
+        {
+            "id": "infra_1",
+            "type": "Asset",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-08T01:47:00Z",
+                    "value": "critical infrastructure"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "structures_1",
+            "type": "Asset",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-08T01:47:00Z",
+                    "value": "homes and other structures"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "communities_1",
+            "type": "Group",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-08T01:47:00Z",
+                    "value": "nearby communities"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "residents_1",
+            "type": "Group",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-08T01:47:00Z",
+                    "value": "residents"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "authorities_1",
+            "type": "Group",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-08T01:47:00Z",
+                    "value": "local authorities"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "cond_dryfuels",
+            "type": "Condition",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-08T01:47:00Z",
+                    "value": "dry fuels"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "contributes_to"
+                }
+            ]
+        },
+        {
+            "id": "cond_strongwinds",
+            "type": "Condition",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-08T01:47:00Z",
+                    "value": "strong winds"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "contributes_to"
+                }
+            ]
+        },
+        {
+            "id": "cond_lowhumidity",
+            "type": "Condition",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-08T01:47:00Z",
+                    "value": "low humidity"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "contributes_to"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "SituationReport",
+            "time": "2025-01-08T01:47:00Z",
+            "attributes": [
+                {
+                    "name": "headline",
+                    "value": "Hurst Fire"
+                },
+                {
+                    "name": "description",
+                    "value": "The Hurst Fire is spreading rapidly under high winds, creating dangerous conditions for nearby communities. Fire crews are working tirelessly to contain the fire and protect critical infrastructure as it threatens homes and other structures. The combination of dry fuels, strong winds, and low humidity is contributing to aggressive fire behavior, making containment efforts extremely challenging."
+                },
+                {
+                    "name": "advisory",
+                    "value": "Residents are urged to remain vigilant and follow directives from local authorities as the situation evolves."
+                },
+                {
+                    "name": "conditions",
+                    "value": "dry fuels; strong winds; low humidity"
+                },
+                {
+                    "name": "behavior",
+                    "value": "spreading rapidly"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "crew_1",
+                    "qualifier": "responding"
+                },
+                {
+                    "objectId": "infra_1",
+                    "qualifier": "protected_asset"
+                },
+                {
+                    "objectId": "structures_1",
+                    "qualifier": "threatened"
+                },
+                {
+                    "objectId": "communities_1",
+                    "qualifier": "affected"
+                },
+                {
+                    "objectId": "residents_1",
+                    "qualifier": "advised"
+                },
+                {
+                    "objectId": "authorities_1",
+                    "qualifier": "referenced_authority"
+                },
+                {
+                    "objectId": "cond_dryfuels",
+                    "qualifier": "contributing_factor"
+                },
+                {
+                    "objectId": "cond_strongwinds",
+                    "qualifier": "contributing_factor"
+                },
+                {
+                    "objectId": "cond_lowhumidity",
+                    "qualifier": "contributing_factor"
+                }
+            ]
+        }
+    ]
+}

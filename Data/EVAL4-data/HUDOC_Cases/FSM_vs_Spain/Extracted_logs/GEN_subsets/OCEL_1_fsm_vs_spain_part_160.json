@@ -1,0 +1,183 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "age",
+                    "type": "integer"
+                },
+                {
+                    "name": "hasDisability",
+                    "type": "boolean"
+                },
+                {
+                    "name": "isElderly",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "PersonGroup",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Proceeding",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ElderlyDefinition",
+            "attributes": [
+                {
+                    "name": "ageThreshold",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "AccommodationsObligation",
+            "attributes": [
+                {
+                    "name": "condition",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "person:65",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "age",
+                    "time": "2025-09-11T00:00:00Z",
+                    "value": "65"
+                },
+                {
+                    "name": "isElderly",
+                    "time": "2025-09-11T00:00:00Z",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "group:elderly_persons",
+                    "qualifier": "memberOf"
+                }
+            ]
+        },
+        {
+            "id": "person:80",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "age",
+                    "time": "2025-09-11T00:00:00Z",
+                    "value": "80"
+                },
+                {
+                    "name": "isElderly",
+                    "time": "2025-09-11T00:00:00Z",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "group:elderly_persons",
+                    "qualifier": "memberOf"
+                }
+            ]
+        },
+        {
+            "id": "group:elderly_persons",
+            "type": "PersonGroup",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-09-11T00:00:00Z",
+                    "value": "elderly persons (aged 65 years or older)"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "group:persons_with_disabilities",
+            "type": "PersonGroup",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-09-11T00:00:00Z",
+                    "value": "persons with disabilities"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "proceeding:1",
+            "type": "Proceeding",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "group:persons_with_disabilities",
+                    "qualifier": "involves"
+                },
+                {
+                    "objectId": "group:elderly_persons",
+                    "qualifier": "involves"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "ElderlyDefinition",
+            "time": "2025-09-11T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "ageThreshold",
+                    "value": "65"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "group:elderly_persons",
+                    "qualifier": "defined-by"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "AccommodationsObligation",
+            "time": "2025-09-11T00:00:01Z",
+            "attributes": [
+                {
+                    "name": "condition",
+                    "value": "if they so request or, in any event, if they are 80 years of age or older"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "proceeding:1",
+                    "qualifier": "applies-to"
+                },
+                {
+                    "objectId": "group:persons_with_disabilities",
+                    "qualifier": "applies-to"
+                },
+                {
+                    "objectId": "group:elderly_persons",
+                    "qualifier": "applies-to"
+                }
+            ]
+        }
+    ]
+}

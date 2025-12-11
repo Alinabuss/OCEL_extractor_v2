@@ -1,0 +1,142 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "fullName",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "OrganizationalUnit",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "number"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Report Out of Stock",
+            "attributes": [
+                {
+                    "name": "reportedState",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Leah Tacke genannt Unterberg",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "fullName",
+                    "value": "Leah Tacke genannt Unterberg"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "warehousing",
+                    "qualifier": "works_in"
+                }
+            ]
+        },
+        {
+            "id": "warehousing",
+            "type": "OrganizationalUnit",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "iPad mini",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "iPad mini"
+                },
+                {
+                    "name": "price",
+                    "value": 449.0
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-886107",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": 504.68
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "iPad mini",
+                    "qualifier": "associated_with"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Report Out of Stock",
+            "time": "2024-01-10T08:11:57Z",
+            "attributes": [
+                {
+                    "name": "reportedState",
+                    "value": "out of stock"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Leah Tacke genannt Unterberg",
+                    "qualifier": "reporter"
+                },
+                {
+                    "objectId": "i-886107",
+                    "qualifier": "item"
+                },
+                {
+                    "objectId": "iPad mini",
+                    "qualifier": "product"
+                }
+            ]
+        }
+    ]
+}

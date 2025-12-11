@@ -1,0 +1,184 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "area",
+                    "type": "string"
+                },
+                {
+                    "name": "direction",
+                    "type": "string"
+                },
+                {
+                    "name": "driving_force",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Structure",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Status Update",
+            "attributes": [
+                {
+                    "name": "summary",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire_1",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-08T06:31:00Z",
+                    "value": "Woodley Fire"
+                },
+                {
+                    "name": "area",
+                    "time": "2025-01-08T06:31:00Z",
+                    "value": "approximately 75 acres"
+                },
+                {
+                    "name": "direction",
+                    "time": "2025-01-08T06:31:00Z",
+                    "value": "south"
+                },
+                {
+                    "name": "driving_force",
+                    "time": "2025-01-08T06:31:00Z",
+                    "value": "strong winds"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "ic_1",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-08T06:31:00Z",
+                    "value": "Incident Command"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "crew_1",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-08T06:31:00Z",
+                    "value": "Crews"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "loc_burbank_boulevard",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-08T06:31:00Z",
+                    "value": "Burbank Boulevard"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "structures_1",
+            "type": "Structure",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-08T06:31:00Z",
+                    "value": "structures in the affected area"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "event_1",
+            "type": "Status Update",
+            "time": "2025-01-08T06:31:00Z",
+            "attributes": [
+                {
+                    "name": "summary",
+                    "value": "The fire has grown to approximately 75 acres; it is being driven south by strong winds; Incident Command reports it poses a threat of crossing Burbank Boulevard; crews are actively working to contain the fire and protect structures in the affected area."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "ic_1",
+                    "qualifier": "reported_by"
+                },
+                {
+                    "objectId": "crew_1",
+                    "qualifier": "responder"
+                },
+                {
+                    "objectId": "loc_burbank_boulevard",
+                    "qualifier": "threatened_location"
+                },
+                {
+                    "objectId": "structures_1",
+                    "qualifier": "at_risk"
+                }
+            ]
+        }
+    ]
+}

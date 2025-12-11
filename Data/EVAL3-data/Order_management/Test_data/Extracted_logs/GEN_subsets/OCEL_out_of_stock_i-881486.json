@@ -1,0 +1,121 @@
+{
+    "objectTypes": [
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "value",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Item Out of Stock",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "employee-nina-graves",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Nina Graves"
+                },
+                {
+                    "name": "department",
+                    "value": "Warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-881486",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "value",
+                    "value": "95.13"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-echo-show-5",
+                    "qualifier": "related-to"
+                }
+            ]
+        },
+        {
+            "id": "product-echo-show-5",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Echo Show 5"
+                },
+                {
+                    "name": "price",
+                    "value": "89.99"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Item Out of Stock",
+            "time": "2023-06-27T14:44:18Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Recorded item out of stock"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "employee-nina-graves",
+                    "qualifier": "recorded-by"
+                },
+                {
+                    "objectId": "i-881486",
+                    "qualifier": "affected"
+                }
+            ]
+        }
+    ]
+}

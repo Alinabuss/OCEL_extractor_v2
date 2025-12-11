@@ -1,0 +1,139 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "forwardRateOfSpread",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Crew",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "StatusReport",
+            "attributes": [
+                {
+                    "name": "summary",
+                    "type": "string"
+                },
+                {
+                    "name": "plannedActions",
+                    "type": "string"
+                },
+                {
+                    "name": "locationDescription",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire-LilacFire",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Lilac Fire"
+                },
+                {
+                    "name": "forwardRateOfSpread",
+                    "time": "2025-01-21T17:35:00Z",
+                    "value": "stopped"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "loc-OldHighway395_LilacRoad",
+                    "qualifier": "locatedNear"
+                }
+            ]
+        },
+        {
+            "id": "loc-OldHighway395_LilacRoad",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "near Old Highway 395 and Lilac Road"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "crew-FireCrew",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "fire crew"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-LilacFire",
+                    "qualifier": "workingOn"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e-1",
+            "type": "StatusReport",
+            "time": "2025-01-21T17:35:00Z",
+            "attributes": [
+                {
+                    "name": "summary",
+                    "value": "The forward rate of spread has been stopped."
+                },
+                {
+                    "name": "plannedActions",
+                    "value": "Fire crew will continue to build containment lines and extinguish hotspots within the fire's perimeter."
+                },
+                {
+                    "name": "locationDescription",
+                    "value": "near Old Highway 395 and Lilac Road"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-LilacFire",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "loc-OldHighway395_LilacRoad",
+                    "qualifier": "location"
+                },
+                {
+                    "objectId": "crew-FireCrew",
+                    "qualifier": "performer"
+                }
+            ]
+        }
+    ]
+}

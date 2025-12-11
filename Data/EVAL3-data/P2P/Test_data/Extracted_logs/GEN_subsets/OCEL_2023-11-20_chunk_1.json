@@ -1,0 +1,238 @@
+{
+    "objectTypes": [
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Quotation",
+            "attributes": []
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": []
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        },
+        {
+            "name": "Person",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "GoodsReceiptCreated",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "PurchaseOrderApproved",
+            "attributes": []
+        },
+        {
+            "name": "PurchaseOrderCreated",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "Goods_Receipt[1185]",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "status",
+                    "time": "2023-11-20T09:15:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Purchase_Order[991]",
+                    "qualifier": "linked-to"
+                }
+            ]
+        },
+        {
+            "id": "Purchase_Order[991]",
+            "type": "PurchaseOrder",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Purchasing Group 002",
+                    "qualifier": "associated-with"
+                }
+            ]
+        },
+        {
+            "id": "purchase_order:1001",
+            "type": "PurchaseOrder",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Purchasing Group 002",
+                    "qualifier": "associated-with"
+                }
+            ]
+        },
+        {
+            "id": "purchase_order:1003",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "status",
+                    "time": "2023-11-20T18:51:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:577",
+                    "qualifier": "linked-to"
+                },
+                {
+                    "objectId": "Purchasing Group 001",
+                    "qualifier": "associated-with"
+                }
+            ]
+        },
+        {
+            "id": "quotation:584",
+            "type": "Quotation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Purchasing Group 002",
+                    "qualifier": "associated-with"
+                }
+            ]
+        },
+        {
+            "id": "quotation:577",
+            "type": "Quotation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Purchasing Group 001",
+                    "qualifier": "associated-with"
+                }
+            ]
+        },
+        {
+            "id": "Purchasing Group 002",
+            "type": "PurchasingGroup",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Purchasing Group 001",
+            "type": "PurchasingGroup",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Warehouse Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Procurement Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Procurement Order Manager",
+            "type": "Person",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "GoodsReceiptCreated",
+            "time": "2023-11-20T09:15:00Z",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Goods_Receipt[1185]",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "Purchase_Order[991]",
+                    "qualifier": "linked-to"
+                },
+                {
+                    "objectId": "Warehouse Department",
+                    "qualifier": "performed-by"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "PurchaseOrderApproved",
+            "time": "2023-11-20T10:01:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:1001",
+                    "qualifier": "approved"
+                },
+                {
+                    "objectId": "quotation:584",
+                    "qualifier": "involved"
+                },
+                {
+                    "objectId": "Procurement Order Manager",
+                    "qualifier": "performed-by"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "PurchaseOrderCreated",
+            "time": "2023-11-20T18:51:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:1003",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "quotation:577",
+                    "qualifier": "linked-to"
+                },
+                {
+                    "objectId": "Procurement Department",
+                    "qualifier": "performed-by"
+                }
+            ]
+        }
+    ]
+}

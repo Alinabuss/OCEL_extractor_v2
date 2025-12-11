@@ -1,0 +1,140 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Location Reported",
+            "attributes": []
+        },
+        {
+            "name": "Forward Rate of Spread Stopped",
+            "attributes": []
+        },
+        {
+            "name": "Containment Updated",
+            "attributes": [
+                {
+                    "name": "containment_percent",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "Repopulation Completed",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire_1",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-22T19:51:00Z",
+                    "value": "Lilac Fire"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "location_1",
+                    "qualifier": "near"
+                }
+            ]
+        },
+        {
+            "id": "location_1",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-22T19:51:00Z",
+                    "value": "Old Highway 395 and Lilac Road"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "near"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Location Reported",
+            "time": "2025-01-22T19:51:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "location_1",
+                    "qualifier": "location"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Forward Rate of Spread Stopped",
+            "time": "2025-01-22T19:51:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "target"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "Containment Updated",
+            "time": "2025-01-22T19:51:00Z",
+            "attributes": [
+                {
+                    "name": "containment_percent",
+                    "value": "100"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "target"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "Repopulation Completed",
+            "time": "2025-01-21T20:00:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "target"
+                }
+            ]
+        }
+    ]
+}

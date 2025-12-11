@@ -1,0 +1,107 @@
+{
+    "objectTypes": [
+        {
+            "name": "Worker",
+            "attributes": []
+        },
+        {
+            "name": "Facility",
+            "attributes": [
+                {
+                    "name": "label",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "MoveParts",
+            "attributes": [
+                {
+                    "name": "duration",
+                    "type": "integer"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Facility[1]",
+            "type": "Facility",
+            "attributes": [
+                {
+                    "name": "label",
+                    "value": "DE01"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Worker[unspecified]",
+            "type": "Worker",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Facility[1]",
+                    "qualifier": "presentThroughout"
+                }
+            ]
+        },
+        {
+            "id": "Worker[1]",
+            "type": "Worker",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Facility[1]",
+                    "qualifier": "locatedAt"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "E1",
+            "type": "MoveParts",
+            "time": "2023-04-03T10:16:17Z",
+            "attributes": [
+                {
+                    "name": "duration",
+                    "value": "900"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Worker[unspecified]",
+                    "qualifier": "performedBy"
+                },
+                {
+                    "objectId": "Facility[1]",
+                    "qualifier": "at"
+                }
+            ]
+        },
+        {
+            "id": "E2",
+            "type": "MoveParts",
+            "time": "2023-04-04T09:58:29Z",
+            "attributes": [
+                {
+                    "name": "duration",
+                    "value": "900"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Worker[1]",
+                    "qualifier": "performedBy"
+                },
+                {
+                    "objectId": "Facility[1]",
+                    "qualifier": "at"
+                }
+            ]
+        }
+    ]
+}

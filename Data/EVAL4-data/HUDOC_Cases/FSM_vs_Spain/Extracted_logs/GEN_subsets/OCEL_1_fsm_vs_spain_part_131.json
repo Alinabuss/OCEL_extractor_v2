@@ -1,0 +1,177 @@
+{
+    "objectTypes": [
+        {
+            "name": "Court",
+            "attributes": []
+        },
+        {
+            "name": "Applicant",
+            "attributes": []
+        },
+        {
+            "name": "Lawyer",
+            "attributes": []
+        },
+        {
+            "name": "Hearing",
+            "attributes": [
+                {
+                    "name": "date",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Case",
+            "attributes": [
+                {
+                    "name": "citation_note",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Representation",
+            "attributes": []
+        },
+        {
+            "name": "Consideration",
+            "attributes": [
+                {
+                    "name": "importance",
+                    "type": "string"
+                },
+                {
+                    "name": "issue",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "court_1",
+            "type": "Court",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "applicant_1",
+            "type": "Applicant",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "lawyer_1",
+            "type": "Lawyer",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "chosen-by"
+                }
+            ]
+        },
+        {
+            "id": "hearing_2019_01",
+            "type": "Hearing",
+            "attributes": [
+                {
+                    "name": "date",
+                    "value": "January 2019",
+                    "time": "2019-01-01T00:00:00Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "case_Liebreich",
+            "type": "Case",
+            "attributes": [
+                {
+                    "name": "citation_note",
+                    "value": "cited above",
+                    "time": ""
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "case_Vaudelle",
+            "type": "Case",
+            "attributes": [
+                {
+                    "name": "citation_note",
+                    "value": "cited above",
+                    "time": ""
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Representation",
+            "time": "2019-01-01T00:00:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "represented"
+                },
+                {
+                    "objectId": "lawyer_1",
+                    "qualifier": "representative"
+                },
+                {
+                    "objectId": "hearing_2019_01",
+                    "qualifier": "context"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Consideration",
+            "time": "2019-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "importance",
+                    "value": "important factor"
+                },
+                {
+                    "name": "issue",
+                    "value": "capable of defending himself effectively"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court_1",
+                    "qualifier": "performed-by"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "lawyer_1",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "hearing_2019_01",
+                    "qualifier": "refers-to"
+                },
+                {
+                    "objectId": "case_Liebreich",
+                    "qualifier": "cites-mutatis-mutandis"
+                },
+                {
+                    "objectId": "case_Vaudelle",
+                    "qualifier": "cites-contrast"
+                }
+            ]
+        }
+    ]
+}

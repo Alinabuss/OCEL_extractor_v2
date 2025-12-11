@@ -1,0 +1,110 @@
+{
+    "objectTypes": [
+        {
+            "name": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "purchase order",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "goods receipt created",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "goods receipt:1056",
+            "type": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "time": "2023-09-14T07:16:00Z",
+                    "value": "101"
+                },
+                {
+                    "name": "status",
+                    "time": "2023-09-14T07:16:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:863",
+                    "qualifier": "associated"
+                }
+            ]
+        },
+        {
+            "id": "purchase_order:863",
+            "type": "purchase order",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "time": "2023-09-14T07:16:00Z",
+                    "value": "005"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Warehouse Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "event:1",
+            "type": "goods receipt created",
+            "time": "2023-09-14T07:16:00Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:1056",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "purchase_order:863",
+                    "qualifier": "associated"
+                },
+                {
+                    "objectId": "Warehouse Department",
+                    "qualifier": "creator"
+                }
+            ]
+        }
+    ]
+}

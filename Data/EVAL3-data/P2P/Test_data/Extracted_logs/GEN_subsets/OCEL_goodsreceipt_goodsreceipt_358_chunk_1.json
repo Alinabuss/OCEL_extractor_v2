@@ -1,0 +1,155 @@
+{
+    "objectTypes": [
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "type": "integer"
+                },
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PurchaseOrder",
+            "attributes": []
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": []
+        },
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "GoodsReceiptCreated",
+            "attributes": []
+        },
+        {
+            "name": "InvoiceReceiptCreated",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "goods receipt[358]",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "time": "2022-09-16T15:26:00Z",
+                    "value": "101"
+                },
+                {
+                    "name": "lifecycle",
+                    "time": "2022-09-16T15:26:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "purchase_order[308]",
+            "type": "PurchaseOrder",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchasing group 002",
+                    "qualifier": "belongs_to"
+                }
+            ]
+        },
+        {
+            "id": "purchasing group 002",
+            "type": "PurchasingGroup",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Warehouse Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "invoice receipt[376]",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "time": "2022-09-27T07:13:00Z",
+                    "value": "47350.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt[358]",
+                    "qualifier": "related_to"
+                }
+            ]
+        },
+        {
+            "id": "finance department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "GoodsReceiptCreated",
+            "time": "2022-09-16T15:26:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "goods receipt[358]",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "purchase_order[308]",
+                    "qualifier": "linked_to"
+                },
+                {
+                    "objectId": "Warehouse Department",
+                    "qualifier": "acknowledged_by"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "InvoiceReceiptCreated",
+            "time": "2022-09-27T07:13:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt[376]",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "goods receipt[358]",
+                    "qualifier": "related_to"
+                },
+                {
+                    "objectId": "finance department",
+                    "qualifier": "completed_by"
+                }
+            ]
+        }
+    ]
+}

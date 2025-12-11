@@ -1,0 +1,107 @@
+{
+    "objectTypes": [
+        {
+            "name": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": [
+                {
+                    "name": "applicationId",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Send Rejection",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Recruiter[Simon Hense]",
+            "type": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Simon Hense"
+                }
+            ]
+        },
+        {
+            "id": "Applicant[Detlef Schmidt]",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Detlef Schmidt"
+                }
+            ]
+        },
+        {
+            "id": "Application[770300]",
+            "type": "Application",
+            "attributes": [
+                {
+                    "name": "applicationId",
+                    "value": "770300"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Applicant[Detlef Schmidt]",
+                    "qualifier": "belongs-to"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Send Rejection",
+            "time": "2019-07-03T07:27:13Z",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "sent rejection"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Recruiter[Simon Hense]",
+                    "qualifier": "sender"
+                },
+                {
+                    "objectId": "Applicant[Detlef Schmidt]",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "Application[770300]",
+                    "qualifier": "concerns"
+                }
+            ]
+        }
+    ]
+}

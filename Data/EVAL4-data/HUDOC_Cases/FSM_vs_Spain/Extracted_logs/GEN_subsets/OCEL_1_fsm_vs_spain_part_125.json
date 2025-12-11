@@ -1,0 +1,210 @@
+{
+    "objectTypes": [
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "capacity_to_understand",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ForensicExpert",
+            "attributes": [
+                {
+                    "name": "profession",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Conclusion",
+            "attributes": []
+        },
+        {
+            "name": "DiscontinuationRequest",
+            "attributes": [
+                {
+                    "name": "requested_action",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "AcceptExamination",
+            "attributes": [
+                {
+                    "name": "paragraphs",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "RejectDiscontinuationRequest",
+            "attributes": [
+                {
+                    "name": "paragraphs",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "court_1",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Audiencia Provincial"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "applicant_1",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "capacity_to_understand",
+                    "time": "",
+                    "value": "sufficient"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "expert_1",
+            "type": "ForensicExpert",
+            "attributes": [
+                {
+                    "name": "profession",
+                    "time": "",
+                    "value": "forensic expert"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "expert_2",
+            "type": "ForensicExpert",
+            "attributes": [
+                {
+                    "name": "profession",
+                    "time": "",
+                    "value": "forensic expert"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "conclusions_1",
+            "type": "Conclusion",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "expert_1",
+                    "qualifier": "authoredBy"
+                },
+                {
+                    "objectId": "expert_2",
+                    "qualifier": "authoredBy"
+                }
+            ]
+        },
+        {
+            "id": "request_1",
+            "type": "DiscontinuationRequest",
+            "attributes": [
+                {
+                    "name": "requested_action",
+                    "time": "",
+                    "value": "discontinuation"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "expert_1",
+                    "qualifier": "targets"
+                },
+                {
+                    "objectId": "expert_2",
+                    "qualifier": "targets"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "AcceptExamination",
+            "time": "",
+            "attributes": [
+                {
+                    "name": "paragraphs",
+                    "value": "13,14"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court_1",
+                    "qualifier": "decisionBy"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "examined"
+                },
+                {
+                    "objectId": "expert_1",
+                    "qualifier": "examiner"
+                },
+                {
+                    "objectId": "expert_2",
+                    "qualifier": "examiner"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "RejectDiscontinuationRequest",
+            "time": "",
+            "attributes": [
+                {
+                    "name": "paragraphs",
+                    "value": "22,26,30"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court_1",
+                    "qualifier": "decisionBy"
+                },
+                {
+                    "objectId": "request_1",
+                    "qualifier": "rejectedRequest"
+                },
+                {
+                    "objectId": "conclusions_1",
+                    "qualifier": "basedOn"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "consideredApplicantCapacity"
+                }
+            ]
+        }
+    ]
+}

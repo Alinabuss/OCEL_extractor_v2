@@ -1,0 +1,146 @@
+{
+    "objectTypes": [
+        {
+            "name": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "type": "float"
+                },
+                {
+                    "name": "lifecycle_status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Invoice Receipt Created",
+            "attributes": [
+                {
+                    "name": "outcome",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Invoice Receipt Referenced",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt:1745",
+            "type": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "time": "2024-07-23T08:23:00Z",
+                    "value": "5850.0"
+                },
+                {
+                    "name": "lifecycle_status",
+                    "time": "2024-07-23T08:23:00Z",
+                    "value": "complete"
+                },
+                {
+                    "name": "credit_amount",
+                    "time": "2024-07-24T15:45:00Z",
+                    "value": "5850.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "goods receipt:1743",
+            "type": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "time": "2024-07-23T08:23:00Z",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "goods receipt:1744",
+            "type": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "time": "2024-07-24T15:45:00Z",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Finance/Account Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Invoice Receipt Created",
+            "time": "2024-07-23T08:23:00Z",
+            "attributes": [
+                {
+                    "name": "outcome",
+                    "value": "successful"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:1745",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "goods receipt:1743",
+                    "qualifier": "related"
+                },
+                {
+                    "objectId": "Finance/Account Department",
+                    "qualifier": "performed-by"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "Invoice Receipt Referenced",
+            "time": "2024-07-24T15:45:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:1745",
+                    "qualifier": "referenced"
+                },
+                {
+                    "objectId": "goods receipt:1744",
+                    "qualifier": "related"
+                },
+                {
+                    "objectId": "Finance/Account Department",
+                    "qualifier": "performed-by"
+                }
+            ]
+        }
+    ]
+}

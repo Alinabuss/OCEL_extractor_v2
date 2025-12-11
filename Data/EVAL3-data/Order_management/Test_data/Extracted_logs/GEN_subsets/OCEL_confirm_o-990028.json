@@ -1,0 +1,200 @@
+{
+    "objectTypes": [
+        {
+            "name": "Customer",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "SalesRepresentative",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "double"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "double"
+                }
+            ]
+        },
+        {
+            "name": "Order",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Order Confirmation",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "Nordica Systems GmbH",
+            "type": "Customer",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Nordica Systems GmbH",
+                    "time": ""
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "order-2023-04-17T17:14:29Z",
+                    "qualifier": "involved_in"
+                }
+            ]
+        },
+        {
+            "id": "Istvan Koren",
+            "type": "SalesRepresentative",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Istvan Koren",
+                    "time": ""
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "order-2023-04-17T17:14:29Z",
+                    "qualifier": "responsible_for"
+                }
+            ]
+        },
+        {
+            "id": "iPhone 11 Pro",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "iPhone 11 Pro",
+                    "time": ""
+                },
+                {
+                    "name": "price",
+                    "value": "1149.0",
+                    "time": ""
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "order-2023-04-17T17:14:29Z",
+                    "qualifier": "included_in"
+                }
+            ]
+        },
+        {
+            "id": "i-880120",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "1149.0",
+                    "time": ""
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "order-2023-04-17T17:14:29Z",
+                    "qualifier": "included_in"
+                }
+            ]
+        },
+        {
+            "id": "i-880121",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "149.99",
+                    "time": ""
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "order-2023-04-17T17:14:29Z",
+                    "qualifier": "included_in"
+                }
+            ]
+        },
+        {
+            "id": "order-2023-04-17T17:14:29Z",
+            "type": "Order",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Nordica Systems GmbH",
+                    "qualifier": "customer"
+                },
+                {
+                    "objectId": "Istvan Koren",
+                    "qualifier": "sales_representative"
+                },
+                {
+                    "objectId": "iPhone 11 Pro",
+                    "qualifier": "includes"
+                },
+                {
+                    "objectId": "i-880120",
+                    "qualifier": "includes"
+                },
+                {
+                    "objectId": "i-880121",
+                    "qualifier": "includes"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Order Confirmation",
+            "time": "2023-04-17T17:14:29Z",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "confirmation"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "order-2023-04-17T17:14:29Z",
+                    "qualifier": "confirmed"
+                },
+                {
+                    "objectId": "Nordica Systems GmbH",
+                    "qualifier": "involved"
+                },
+                {
+                    "objectId": "Istvan Koren",
+                    "qualifier": "responsible"
+                }
+            ]
+        }
+    ]
+}

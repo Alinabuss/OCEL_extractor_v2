@@ -1,0 +1,230 @@
+{
+    "objectTypes": [
+        {
+            "name": "Machine",
+            "attributes": [
+                {
+                    "name": "identifier",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Workstation",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "SteelCoil",
+            "attributes": [
+                {
+                    "name": "weight_kg",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "weight_kg",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Waste",
+            "attributes": [
+                {
+                    "name": "weight_kg",
+                    "type": "float"
+                },
+                {
+                    "name": "destination",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Emission",
+            "attributes": [
+                {
+                    "name": "co2_kg",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Energy",
+            "attributes": [
+                {
+                    "name": "kwh",
+                    "type": "float"
+                },
+                {
+                    "name": "source",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Split",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Splitter01",
+            "type": "Machine",
+            "attributes": [
+                {
+                    "name": "identifier",
+                    "time": "2023-04-03T08:19:34Z",
+                    "value": "Splitter01"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Workstation 1",
+                    "qualifier": "located_at"
+                }
+            ]
+        },
+        {
+            "id": "Workstation 1",
+            "type": "Workstation",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-04-03T08:19:34Z",
+                    "value": "Workstation 1"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "steel_coil_1",
+            "type": "SteelCoil",
+            "attributes": [
+                {
+                    "name": "weight_kg",
+                    "time": "2023-04-03T08:19:34Z",
+                    "value": "31.91076"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_steelsheet_275",
+            "type": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "weight_kg",
+                    "time": "2023-04-03T08:19:34Z",
+                    "value": "0.02108"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "steel_waste_1",
+            "type": "Waste",
+            "attributes": [
+                {
+                    "name": "weight_kg",
+                    "time": "2023-04-03T08:19:34Z",
+                    "value": "0.00042"
+                },
+                {
+                    "name": "destination",
+                    "time": "2023-04-03T08:19:34Z",
+                    "value": "recycling"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "emission_CO2_1",
+            "type": "Emission",
+            "attributes": [
+                {
+                    "name": "co2_kg",
+                    "time": "2023-04-03T08:19:34Z",
+                    "value": "0.01478"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "energy_grid_1",
+            "type": "Energy",
+            "attributes": [
+                {
+                    "name": "kwh",
+                    "time": "2023-04-03T08:19:34Z",
+                    "value": "0.0216"
+                },
+                {
+                    "name": "source",
+                    "time": "2023-04-03T08:19:34Z",
+                    "value": "grid"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Split",
+            "time": "2023-04-03T08:19:34Z",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "value": "14.14"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Splitter01",
+                    "qualifier": "used"
+                },
+                {
+                    "objectId": "Workstation 1",
+                    "qualifier": "at"
+                },
+                {
+                    "objectId": "steel_coil_1",
+                    "qualifier": "consumed"
+                },
+                {
+                    "objectId": "o_steelsheet_275",
+                    "qualifier": "produced"
+                },
+                {
+                    "objectId": "steel_waste_1",
+                    "qualifier": "generated"
+                },
+                {
+                    "objectId": "emission_CO2_1",
+                    "qualifier": "emitted"
+                },
+                {
+                    "objectId": "energy_grid_1",
+                    "qualifier": "consumed_from_grid"
+                }
+            ]
+        }
+    ]
+}

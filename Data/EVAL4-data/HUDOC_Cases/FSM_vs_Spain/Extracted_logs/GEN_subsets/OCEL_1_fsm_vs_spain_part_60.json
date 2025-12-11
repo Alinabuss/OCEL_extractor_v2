@@ -1,0 +1,429 @@
+{
+    "objectTypes": [
+        {
+            "name": "ForensicReport",
+            "attributes": [
+                {
+                    "name": "date",
+                    "type": "datetime"
+                },
+                {
+                    "name": "issued_in",
+                    "type": "string"
+                },
+                {
+                    "name": "conclusion",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PsychiatricReport",
+            "attributes": [
+                {
+                    "name": "date",
+                    "type": "datetime"
+                }
+            ]
+        },
+        {
+            "name": "Decision",
+            "attributes": [
+                {
+                    "name": "date",
+                    "type": "datetime"
+                },
+                {
+                    "name": "type",
+                    "type": "string"
+                },
+                {
+                    "name": "conclusion",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "MedicalDocumentation",
+            "attributes": [
+                {
+                    "name": "submitted_by",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "CaseFile",
+            "attributes": []
+        },
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "designation",
+                    "type": "string"
+                },
+                {
+                    "name": "described_as",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Defence",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "DecisionOrdered",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ForensicReportIssued",
+            "attributes": [
+                {
+                    "name": "location",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PsychiatricReportCreated",
+            "attributes": []
+        },
+        {
+            "name": "CourtOrderIssued",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "forensic_2017_10_11",
+            "type": "ForensicReport",
+            "attributes": [
+                {
+                    "name": "date",
+                    "time": "2017-10-11T00:00:00Z",
+                    "value": "2017-10-11"
+                },
+                {
+                    "name": "issued_in",
+                    "time": "2017-10-11T00:00:00Z",
+                    "value": "Barcelona"
+                },
+                {
+                    "name": "conclusion",
+                    "time": "2017-10-11T00:00:00Z",
+                    "value": "accused had sufficient capacity to know and understand the scope and purpose of the proceedings"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "medical_docs_1",
+                    "qualifier": "based_on"
+                },
+                {
+                    "objectId": "defence_1",
+                    "qualifier": "requested_by"
+                }
+            ]
+        },
+        {
+            "id": "forensic_2018_05_22",
+            "type": "ForensicReport",
+            "attributes": [
+                {
+                    "name": "date",
+                    "time": "2018-05-22T00:00:00Z",
+                    "value": "2018-05-22"
+                },
+                {
+                    "name": "issued_in",
+                    "time": "2018-05-22T00:00:00Z",
+                    "value": "Minorca"
+                },
+                {
+                    "name": "conclusion",
+                    "time": "2018-05-22T00:00:00Z",
+                    "value": "accused had sufficient capacity to know and understand the scope and purpose of the proceedings"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "medical_docs_1",
+                    "qualifier": "based_on"
+                },
+                {
+                    "objectId": "defence_1",
+                    "qualifier": "requested_by"
+                }
+            ]
+        },
+        {
+            "id": "psychiatric_2018_06_21",
+            "type": "PsychiatricReport",
+            "attributes": [
+                {
+                    "name": "date",
+                    "time": "2018-06-21T00:00:00Z",
+                    "value": "2018-06-21"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "decision_2016_10_11",
+            "type": "Decision",
+            "attributes": [
+                {
+                    "name": "date",
+                    "time": "2016-10-11T00:00:00Z",
+                    "value": "2016-10-11"
+                },
+                {
+                    "name": "type",
+                    "time": "2016-10-11T00:00:00Z",
+                    "value": "decision on partial incapacity placing the defendant under guardianship"
+                },
+                {
+                    "name": "conclusion",
+                    "time": "2016-10-11T00:00:00Z",
+                    "value": "accused had sufficient capacity to know and understand the scope and purpose of the proceedings"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "ciutadella_court",
+                    "qualifier": "ordered_by"
+                },
+                {
+                    "objectId": "defendant_1",
+                    "qualifier": "places_under_guardianship"
+                },
+                {
+                    "objectId": "medical_docs_1",
+                    "qualifier": "included_in"
+                }
+            ]
+        },
+        {
+            "id": "medical_docs_1",
+            "type": "MedicalDocumentation",
+            "attributes": [
+                {
+                    "name": "submitted_by",
+                    "time": "",
+                    "value": "party"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "casefile_1",
+            "type": "CaseFile",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "medical_docs_1",
+                    "qualifier": "contains"
+                }
+            ]
+        },
+        {
+            "id": "defendant_1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "designation",
+                    "time": "",
+                    "value": "defendant"
+                },
+                {
+                    "name": "described_as",
+                    "time": "",
+                    "value": "accused"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "ciutadella_court",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Ciutadella de Menorca Court"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "this_court",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "this court"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "defence_1",
+            "type": "Defence",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "",
+                    "value": "defence"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "DecisionOrdered",
+            "time": "2016-10-11T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "decision on partial incapacity placing the defendant under guardianship"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "decision_2016_10_11",
+                    "qualifier": "creates"
+                },
+                {
+                    "objectId": "ciutadella_court",
+                    "qualifier": "ordered_by"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "ForensicReportIssued",
+            "time": "2017-10-11T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "location",
+                    "value": "Barcelona"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "forensic_2017_10_11",
+                    "qualifier": "produced"
+                },
+                {
+                    "objectId": "medical_docs_1",
+                    "qualifier": "based_on"
+                },
+                {
+                    "objectId": "defence_1",
+                    "qualifier": "requested_by"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "type": "ForensicReportIssued",
+            "time": "2018-05-22T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "location",
+                    "value": "Minorca"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "forensic_2018_05_22",
+                    "qualifier": "produced"
+                },
+                {
+                    "objectId": "medical_docs_1",
+                    "qualifier": "based_on"
+                },
+                {
+                    "objectId": "defence_1",
+                    "qualifier": "requested_by"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "type": "PsychiatricReportCreated",
+            "time": "2018-06-21T00:00:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "psychiatric_2018_06_21",
+                    "qualifier": "created"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "type": "CourtOrderIssued",
+            "time": "2018-07-26T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "order assessing the psychiatric report of 21 June 2018"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "this_court",
+                    "qualifier": "issued_by"
+                },
+                {
+                    "objectId": "psychiatric_2018_06_21",
+                    "qualifier": "assessed"
+                },
+                {
+                    "objectId": "forensic_2017_10_11",
+                    "qualifier": "by_virtue_of"
+                },
+                {
+                    "objectId": "forensic_2018_05_22",
+                    "qualifier": "by_virtue_of"
+                },
+                {
+                    "objectId": "decision_2016_10_11",
+                    "qualifier": "by_virtue_of"
+                }
+            ]
+        }
+    ]
+}

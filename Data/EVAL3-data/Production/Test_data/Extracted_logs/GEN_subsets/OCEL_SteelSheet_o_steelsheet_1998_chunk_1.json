@@ -1,0 +1,158 @@
+{
+    "objectTypes": [
+        {
+            "name": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "weight",
+                    "type": "double"
+                },
+                {
+                    "name": "externalId",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "SteelCoil",
+            "attributes": [
+                {
+                    "name": "weight",
+                    "type": "double"
+                },
+                {
+                    "name": "externalId",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Workstation",
+            "attributes": [
+                {
+                    "name": "hasElectricConsumptionAttributes",
+                    "type": "boolean"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Production",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "type": "double"
+                },
+                {
+                    "name": "co2_emissions_kg",
+                    "type": "double"
+                },
+                {
+                    "name": "electricity_kwh",
+                    "type": "double"
+                },
+                {
+                    "name": "waste_kg",
+                    "type": "double"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o_steelsheet_1998",
+            "type": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "weight",
+                    "time": "2023-04-04T09:16:59Z",
+                    "value": "0.02127"
+                },
+                {
+                    "name": "externalId",
+                    "time": "2023-04-04T09:16:59Z",
+                    "value": "SteelSheet[1998]"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "SteelCoil[3]",
+                    "qualifier": "producedFrom"
+                },
+                {
+                    "objectId": "Splitter01",
+                    "qualifier": "producedBy"
+                }
+            ]
+        },
+        {
+            "id": "SteelCoil[3]",
+            "type": "SteelCoil",
+            "attributes": [
+                {
+                    "name": "weight",
+                    "time": "2023-04-04T09:16:59Z",
+                    "value": "31.91076"
+                },
+                {
+                    "name": "externalId",
+                    "time": "2023-04-04T09:16:59Z",
+                    "value": "SteelCoil[3]"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Splitter01",
+            "type": "Workstation",
+            "attributes": [
+                {
+                    "name": "hasElectricConsumptionAttributes",
+                    "time": "2023-04-04T09:16:59Z",
+                    "value": "true"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e_1",
+            "type": "Production",
+            "time": "2023-04-04T09:16:59Z",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "value": "13.8284324244"
+                },
+                {
+                    "name": "co2_emissions_kg",
+                    "value": "0.014459673"
+                },
+                {
+                    "name": "electricity_kwh",
+                    "value": "0.0211268"
+                },
+                {
+                    "name": "waste_kg",
+                    "value": "0.00042"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_steelsheet_1998",
+                    "qualifier": "produced"
+                },
+                {
+                    "objectId": "SteelCoil[3]",
+                    "qualifier": "processed"
+                },
+                {
+                    "objectId": "Splitter01",
+                    "qualifier": "performedBy"
+                }
+            ]
+        }
+    ]
+}

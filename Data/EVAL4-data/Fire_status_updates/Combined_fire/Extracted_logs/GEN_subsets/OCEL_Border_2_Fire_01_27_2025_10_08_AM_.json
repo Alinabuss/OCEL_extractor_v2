@@ -1,0 +1,231 @@
+{
+    "objectTypes": [
+        {
+            "name": "FireIncident",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "fire_potential",
+                    "type": "string"
+                },
+                {
+                    "name": "activity",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Weather",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "precipitation_amount",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Crew",
+            "attributes": [
+                {
+                    "name": "planned_tasks",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Agency",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "EvacuationMap",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "FireStatusUpdate",
+            "attributes": [
+                {
+                    "name": "rain_description",
+                    "type": "string"
+                },
+                {
+                    "name": "fire_potential",
+                    "type": "string"
+                },
+                {
+                    "name": "activity",
+                    "type": "string"
+                },
+                {
+                    "name": "ground_crews_plan",
+                    "type": "string"
+                },
+                {
+                    "name": "evacuation_advisory",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Border 2 Fire",
+            "type": "FireIncident",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-27T10:08:00Z",
+                    "value": "Border 2 Fire"
+                },
+                {
+                    "name": "fire_potential",
+                    "time": "2025-01-27T10:08:00Z",
+                    "value": "greatly reduced"
+                },
+                {
+                    "name": "activity",
+                    "time": "2025-01-27T10:08:00Z",
+                    "value": "Minimal fire activity and smoldering was seen overnight"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Rain_shower_2025-01-27",
+                    "qualifier": "affected_by"
+                }
+            ]
+        },
+        {
+            "id": "Rain_shower_2025-01-27",
+            "type": "Weather",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-27T10:08:00Z",
+                    "value": "Continued rain showers"
+                },
+                {
+                    "name": "precipitation_amount",
+                    "time": "2025-01-27T10:08:00Z",
+                    "value": "over a half inch"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Border 2 Fire",
+                    "qualifier": "across_fire_area"
+                }
+            ]
+        },
+        {
+            "id": "Ground crews",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "planned_tasks",
+                    "time": "2025-01-27T10:08:00Z",
+                    "value": "patrol fire lines; mop up hot spots; screen for suppression repair needs; make repair efforts a high priority"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "San Diego County Sheriff's Office",
+            "type": "Agency",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-27T10:08:00Z",
+                    "value": "San Diego County Sheriff's Office"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Genasys Protect evacuation map",
+                    "qualifier": "encourages_check"
+                }
+            ]
+        },
+        {
+            "id": "Genasys Protect evacuation map",
+            "type": "EvacuationMap",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-27T10:08:00Z",
+                    "value": "Genasys Protect evacuation map"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "FireStatusUpdate",
+            "time": "2025-01-27T10:08:00Z",
+            "attributes": [
+                {
+                    "name": "rain_description",
+                    "value": "Continued rain showers have brought over a half inch of rain across much of the fire area"
+                },
+                {
+                    "name": "fire_potential",
+                    "value": "greatly reduced"
+                },
+                {
+                    "name": "activity",
+                    "value": "Minimal fire activity and smoldering was seen overnight"
+                },
+                {
+                    "name": "ground_crews_plan",
+                    "value": "Ground crews will continue to patrol fire lines and mop up hot spots; crews will also be working to screen for suppression repair needs and making repair efforts a high priority"
+                },
+                {
+                    "name": "evacuation_advisory",
+                    "value": "San Diego County Sheriff's Office encourages all residents to check the Genasys Protect evacuation map linked below"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Border 2 Fire",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "Rain_shower_2025-01-27",
+                    "qualifier": "observed"
+                },
+                {
+                    "objectId": "Ground crews",
+                    "qualifier": "assigned"
+                },
+                {
+                    "objectId": "San Diego County Sheriff's Office",
+                    "qualifier": "advisory_issuer"
+                },
+                {
+                    "objectId": "Genasys Protect evacuation map",
+                    "qualifier": "referenced"
+                }
+            ]
+        }
+    ]
+}

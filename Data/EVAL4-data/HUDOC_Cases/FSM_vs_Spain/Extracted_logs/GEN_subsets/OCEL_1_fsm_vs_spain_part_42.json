@@ -1,0 +1,119 @@
+{
+    "objectTypes": [
+        {
+            "name": "Applicant",
+            "attributes": []
+        },
+        {
+            "name": "Court",
+            "attributes": []
+        },
+        {
+            "name": "ForensicReport",
+            "attributes": []
+        },
+        {
+            "name": "Request",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Request Rejected",
+            "attributes": [
+                {
+                    "name": "reason",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "applicant-1",
+            "type": "Applicant",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "court-1",
+            "type": "Court",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "forensic_report-1",
+            "type": "ForensicReport",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "applicant-1",
+                    "qualifier": "assesses"
+                }
+            ]
+        },
+        {
+            "id": "forensic_report-2",
+            "type": "ForensicReport",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "applicant-1",
+                    "qualifier": "assesses"
+                }
+            ]
+        },
+        {
+            "id": "request-1",
+            "type": "Request",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "",
+                    "value": "additional related request"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Request Rejected",
+            "time": "2018-09-13T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "reason",
+                    "value": "court stated that it was unnecessary to order a new forensic report as there had already been two previous forensic reports assessing the applicant's capacity."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "request-1",
+                    "qualifier": "affected"
+                },
+                {
+                    "objectId": "court-1",
+                    "qualifier": "issuer"
+                },
+                {
+                    "objectId": "applicant-1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "forensic_report-1",
+                    "qualifier": "referenced"
+                },
+                {
+                    "objectId": "forensic_report-2",
+                    "qualifier": "referenced"
+                }
+            ]
+        }
+    ]
+}

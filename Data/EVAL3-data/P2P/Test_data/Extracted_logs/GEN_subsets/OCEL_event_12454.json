@@ -1,0 +1,131 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseRequisition",
+            "attributes": []
+        },
+        {
+            "name": "Quotation",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": []
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "CreatePurchaseRequisition",
+            "attributes": []
+        },
+        {
+            "name": "CreateQuotation",
+            "attributes": []
+        },
+        {
+            "name": "CompleteRFQLifecycle",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "pr_trigger_410",
+            "type": "PurchaseRequisition",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "001",
+                    "qualifier": "purchasingGroup"
+                }
+            ]
+        },
+        {
+            "id": "407",
+            "type": "Quotation",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "time": "2023-05-25T09:56:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "001",
+                    "qualifier": "purchasingGroup"
+                }
+            ]
+        },
+        {
+            "id": "001",
+            "type": "PurchasingGroup",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Procurement Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "CreatePurchaseRequisition",
+            "time": "2023-05-25T09:56:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "pr_trigger_410",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "Procurement Department",
+                    "qualifier": "creator"
+                },
+                {
+                    "objectId": "001",
+                    "qualifier": "purchasingGroup"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "CreateQuotation",
+            "time": "2023-05-25T09:56:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "407",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "001",
+                    "qualifier": "purchasingGroup"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "type": "CompleteRFQLifecycle",
+            "time": "2023-05-25T09:56:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "407",
+                    "qualifier": "lifecycleCompleted"
+                }
+            ]
+        }
+    ]
+}

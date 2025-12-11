@@ -1,0 +1,91 @@
+{
+    "objectTypes": [
+        {
+            "name": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                },
+                {
+                    "name": "processedBy",
+                    "type": "string"
+                },
+                {
+                    "name": "creditAmount",
+                    "type": "double"
+                }
+            ]
+        },
+        {
+            "name": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "integer"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "invoice receipt created",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt[304]",
+            "type": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "complete"
+                },
+                {
+                    "name": "processedBy",
+                    "value": "Finance/Account Department"
+                },
+                {
+                    "name": "creditAmount",
+                    "value": "123500.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt[306]",
+                    "qualifier": "related"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt[306]",
+            "type": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "invoice receipt created",
+            "time": "2022-09-08T00:15:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt[304]",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "goods receipt[306]",
+                    "qualifier": "related"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,155 @@
+{
+    "objectTypes": [
+        {
+            "name": "Defendant",
+            "attributes": []
+        },
+        {
+            "name": "ForensicDoctor",
+            "attributes": []
+        },
+        {
+            "name": "Judge",
+            "attributes": []
+        },
+        {
+            "name": "Opinion",
+            "attributes": [
+                {
+                    "name": "content",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Regulation",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Examination",
+            "attributes": []
+        },
+        {
+            "name": "OpinionGiven",
+            "attributes": [
+                {
+                    "name": "content",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "defendant_1",
+            "type": "Defendant",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "doctor_1",
+            "type": "ForensicDoctor",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "judges_1",
+            "type": "Judge",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "opinion_1",
+                    "qualifier": "not-obliged-to-follow"
+                }
+            ]
+        },
+        {
+            "id": "opinion_1",
+            "type": "Opinion",
+            "attributes": [
+                {
+                    "name": "content",
+                    "time": "unknown",
+                    "value": "certain additional or special measures are required in order to assist the defendant"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "defendant_1",
+                    "qualifier": "concerns"
+                }
+            ]
+        },
+        {
+            "id": "regulation_new_1",
+            "type": "Regulation",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "time": "unknown",
+                    "value": "paragraph 5"
+                },
+                {
+                    "name": "status",
+                    "time": "unknown",
+                    "value": "new"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Examination",
+            "time": "unknown",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "doctor_1",
+                    "qualifier": "examiner"
+                },
+                {
+                    "objectId": "defendant_1",
+                    "qualifier": "examined"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "OpinionGiven",
+            "time": "unknown",
+            "attributes": [
+                {
+                    "name": "content",
+                    "value": "certain additional or special measures are required in order to assist the defendant"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "doctor_1",
+                    "qualifier": "author"
+                },
+                {
+                    "objectId": "defendant_1",
+                    "qualifier": "concerns"
+                },
+                {
+                    "objectId": "opinion_1",
+                    "qualifier": "produces"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,201 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "location",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Crew",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Forward rate of spread stopped",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Containment lines building continued",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Hotspot extinguishing continued",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Repopulation completed",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire-1",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Lilac Fire"
+                },
+                {
+                    "name": "location",
+                    "time": "2025-01-21T20:34:00Z",
+                    "value": "near Old Highway 395 and Lilac Road"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "loc-1",
+                    "qualifier": "near"
+                }
+            ]
+        },
+        {
+            "id": "loc-1",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Old Highway 395 and Lilac Road"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "crew-1",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Fire crew"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "assigned-to"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Forward rate of spread stopped",
+            "time": "2025-01-21T20:34:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "The forward rate of spread has been stopped."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "affects"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Containment lines building continued",
+            "time": "2025-01-21T20:34:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Fire crew will continue to build containment lines."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "target"
+                },
+                {
+                    "objectId": "crew-1",
+                    "qualifier": "performed-by"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "Hotspot extinguishing continued",
+            "time": "2025-01-21T20:34:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Fire crew will continue to extinguish hotspots within the fire's perimeter."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "within-perimeter"
+                },
+                {
+                    "objectId": "crew-1",
+                    "qualifier": "performed-by"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "Repopulation completed",
+            "time": "2025-01-21T20:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Repopulation has been completed as of January 21 at 8 p.m."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "repopulation-of"
+                }
+            ]
+        }
+    ]
+}

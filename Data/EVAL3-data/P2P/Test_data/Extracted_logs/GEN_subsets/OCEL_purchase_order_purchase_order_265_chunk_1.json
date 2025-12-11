@@ -1,0 +1,112 @@
+{
+    "objectTypes": [
+        {
+            "name": "purchase_order",
+            "attributes": [
+                {
+                    "name": "purchasingGroup",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "quotation",
+            "attributes": [
+                {
+                    "name": "purchasingGroup",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Purchase Order Created",
+            "attributes": [
+                {
+                    "name": "processStatus",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:265",
+            "type": "purchase_order",
+            "attributes": [
+                {
+                    "name": "purchasingGroup",
+                    "time": "2022-08-29T07:41:00Z",
+                    "value": "002"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:155",
+                    "qualifier": "related"
+                }
+            ]
+        },
+        {
+            "id": "quotation:155",
+            "type": "quotation",
+            "attributes": [
+                {
+                    "name": "purchasingGroup",
+                    "time": "",
+                    "value": "002"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "department:procurement",
+            "type": "department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Procurement Department"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "event:1",
+            "type": "Purchase Order Created",
+            "time": "2022-08-29T07:41:00Z",
+            "attributes": [
+                {
+                    "name": "processStatus",
+                    "value": "completed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:265",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "department:procurement",
+                    "qualifier": "createdBy"
+                },
+                {
+                    "objectId": "quotation:155",
+                    "qualifier": "related"
+                }
+            ]
+        }
+    ]
+}

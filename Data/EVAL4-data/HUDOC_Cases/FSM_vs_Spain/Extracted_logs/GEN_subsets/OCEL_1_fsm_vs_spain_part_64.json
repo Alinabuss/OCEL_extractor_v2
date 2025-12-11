@@ -1,0 +1,204 @@
+{
+    "objectTypes": [
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Appeal",
+            "attributes": [
+                {
+                    "name": "type",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Judgment",
+            "attributes": [
+                {
+                    "name": "title",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "LegalProvision",
+            "attributes": [
+                {
+                    "name": "article_number",
+                    "type": "string"
+                },
+                {
+                    "name": "act",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "SupremeCourtDecision",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "statement",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "court_supreme",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Supreme Court"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "court_audiencia",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Audiencia Provincial"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "applicant_1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "",
+                    "value": "applicant"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "judgment_audiencia",
+            "type": "Judgment",
+            "attributes": [
+                {
+                    "name": "title",
+                    "time": "",
+                    "value": "Judgment of the Audiencia Provincial"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court_audiencia",
+                    "qualifier": "issued_by"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "concerns"
+                }
+            ]
+        },
+        {
+            "id": "appeal_1",
+            "type": "Appeal",
+            "attributes": [
+                {
+                    "name": "type",
+                    "time": "",
+                    "value": "appeal"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "judgment_audiencia",
+                    "qualifier": "appeal_against"
+                }
+            ]
+        },
+        {
+            "id": "article_383",
+            "type": "LegalProvision",
+            "attributes": [
+                {
+                    "name": "article_number",
+                    "time": "",
+                    "value": "383"
+                },
+                {
+                    "name": "act",
+                    "time": "",
+                    "value": "Criminal Procedure Act"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "SupremeCourtDecision",
+            "time": "2021-03-04T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "The Supreme Court dismissed the appeal and upheld the judgment of the Audiencia Provincial, endorsing its conclusions concerning the applicant's capacity to stand trial."
+                },
+                {
+                    "name": "statement",
+                    "value": "[Article 383 of the Criminal Procedure Act] ... is connected with an essential requirement, namely the need for a procedural framework that outlines the exercise of jus puniendi by the State to define a scenario that makes it possible for the right to a defence to be upheld"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "appeal_1",
+                    "qualifier": "dismissed"
+                },
+                {
+                    "objectId": "judgment_audiencia",
+                    "qualifier": "upheld"
+                },
+                {
+                    "objectId": "court_supreme",
+                    "qualifier": "deciding_court"
+                },
+                {
+                    "objectId": "court_audiencia",
+                    "qualifier": "original_court"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "concerned"
+                },
+                {
+                    "objectId": "article_383",
+                    "qualifier": "referenced"
+                }
+            ]
+        }
+    ]
+}

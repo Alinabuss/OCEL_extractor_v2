@@ -1,0 +1,120 @@
+{
+    "objectTypes": [
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "name": "InventoryItem",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "number"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Report Out of Stock",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "Benedikt Knopp",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-11-16T16:40:51Z",
+                    "value": "Benedikt Knopp"
+                },
+                {
+                    "name": "department",
+                    "time": "2023-11-16T16:40:51Z",
+                    "value": "warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Fire Stick",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-11-16T16:40:51Z",
+                    "value": "Fire Stick"
+                },
+                {
+                    "name": "price",
+                    "time": "2023-11-16T16:40:51Z",
+                    "value": "39.99"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-884876",
+            "type": "InventoryItem",
+            "attributes": [
+                {
+                    "name": "price",
+                    "time": "2023-11-16T16:40:51Z",
+                    "value": "43.9"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Fire Stick",
+                    "qualifier": "corresponds_to"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e-1",
+            "type": "Report Out of Stock",
+            "time": "2023-11-16T16:40:51Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Benedikt Knopp",
+                    "qualifier": "reporter"
+                },
+                {
+                    "objectId": "i-884876",
+                    "qualifier": "reported_item"
+                },
+                {
+                    "objectId": "Fire Stick",
+                    "qualifier": "referenced_product"
+                }
+            ]
+        }
+    ]
+}

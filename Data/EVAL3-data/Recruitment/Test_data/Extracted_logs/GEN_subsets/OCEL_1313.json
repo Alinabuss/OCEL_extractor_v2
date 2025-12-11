@@ -1,0 +1,105 @@
+{
+    "objectTypes": [
+        {
+            "name": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": [
+                {
+                    "name": "identifier",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Send Rejection Notice",
+            "attributes": [
+                {
+                    "name": "noticeType",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Simon Geisler",
+            "type": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Simon Geisler"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Vanessa Neumann",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Vanessa Neumann"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Application[770158]",
+            "type": "Application",
+            "attributes": [
+                {
+                    "name": "identifier",
+                    "value": "Application[770158]"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Vanessa Neumann",
+                    "qualifier": "submitted_by"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Send Rejection Notice",
+            "time": "2019-06-24T15:36:26Z",
+            "attributes": [
+                {
+                    "name": "noticeType",
+                    "value": "rejection"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Simon Geisler",
+                    "qualifier": "sender"
+                },
+                {
+                    "objectId": "Application[770158]",
+                    "qualifier": "related"
+                }
+            ]
+        }
+    ]
+}

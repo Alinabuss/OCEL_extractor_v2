@@ -1,0 +1,241 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "terrain",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Crew",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Helicopter",
+            "attributes": [
+                {
+                    "name": "support_method",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Weather",
+            "attributes": [
+                {
+                    "name": "condition",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "FirefightingEffort",
+            "attributes": [
+                {
+                    "name": "intensity",
+                    "type": "string"
+                },
+                {
+                    "name": "effect",
+                    "type": "string"
+                },
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "FireLineConstruction",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                },
+                {
+                    "name": "support_method",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "WeatherForecast",
+            "attributes": [
+                {
+                    "name": "condition",
+                    "type": "string"
+                },
+                {
+                    "name": "expectation",
+                    "type": "string"
+                },
+                {
+                    "name": "expected_effect",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire_Border_2",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-26T07:30:00Z",
+                    "value": "Border 2 Fire"
+                },
+                {
+                    "name": "terrain",
+                    "time": "2025-01-26T07:30:00Z",
+                    "value": "remote wilderness locations and steep terrains"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "hand_crews_1",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "2025-01-26T07:30:00Z",
+                    "value": "hand crews"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "helicopter_support_1",
+            "type": "Helicopter",
+            "attributes": [
+                {
+                    "name": "support_method",
+                    "time": "2025-01-26T07:30:00Z",
+                    "value": "water drops"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "weather_rain_1",
+            "type": "Weather",
+            "attributes": [
+                {
+                    "name": "condition",
+                    "time": "2025-01-26T07:30:00Z",
+                    "value": "rain expected on and off today"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "FirefightingEffort",
+            "time": "2025-01-26T07:30:00Z",
+            "attributes": [
+                {
+                    "name": "intensity",
+                    "value": "Substantial"
+                },
+                {
+                    "name": "effect",
+                    "value": "decreased fire spread"
+                },
+                {
+                    "name": "description",
+                    "value": "Substantial firefighting efforts have decreased fire spread."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_Border_2",
+                    "qualifier": "affected"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "FireLineConstruction",
+            "time": "2025-01-26T07:30:00Z",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "hand crews will continue ongoing fire line construction"
+                },
+                {
+                    "name": "status",
+                    "value": "ongoing"
+                },
+                {
+                    "name": "support_method",
+                    "value": "helicopter water drops"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "hand_crews_1",
+                    "qualifier": "performed_by"
+                },
+                {
+                    "objectId": "helicopter_support_1",
+                    "qualifier": "supported_by"
+                },
+                {
+                    "objectId": "fire_Border_2",
+                    "qualifier": "target"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "WeatherForecast",
+            "time": "2025-01-26T07:30:00Z",
+            "attributes": [
+                {
+                    "name": "condition",
+                    "value": "rain"
+                },
+                {
+                    "name": "expectation",
+                    "value": "expected to continue on and off today"
+                },
+                {
+                    "name": "expected_effect",
+                    "value": "will help mitigate fire activity"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "weather_rain_1",
+                    "qualifier": "forecast_of"
+                },
+                {
+                    "objectId": "fire_Border_2",
+                    "qualifier": "helps_mitigate"
+                }
+            ]
+        }
+    ]
+}

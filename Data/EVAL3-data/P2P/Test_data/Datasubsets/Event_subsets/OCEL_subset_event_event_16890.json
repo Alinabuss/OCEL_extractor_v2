@@ -1,0 +1,109 @@
+{
+  "objectTypes": [
+    {
+      "name": "material",
+      "attributes": [
+        {
+          "name": "Net Price (EKPO-NETPR)",
+          "type": "float"
+        }
+      ]
+    },
+    {
+      "name": "purchase_requisition",
+      "attributes": [
+        {
+          "name": "Purchasing Group (EBAN-EKGRP)",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "eventTypes": [
+    {
+      "name": "Create Purchase Requisition",
+      "attributes": [
+        {
+          "name": "lifecycle",
+          "type": "string"
+        },
+        {
+          "name": "resource",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "id": "material:1363",
+      "type": "material",
+      "attributes": [
+        {
+          "name": "Net Price (EKPO-NETPR)",
+          "time": "1970-01-01T00:00:00Z",
+          "value": 750.0
+        }
+      ]
+    },
+    {
+      "id": "material:1362",
+      "type": "material",
+      "attributes": [
+        {
+          "name": "Net Price (EKPO-NETPR)",
+          "time": "1970-01-01T00:00:00Z",
+          "value": 900.0
+        }
+      ]
+    },
+    {
+      "id": "purchase_requisition:548:pr_trigger_548",
+      "type": "purchase_requisition",
+      "attributes": [
+        {
+          "name": "Purchasing Group (EBAN-EKGRP)",
+          "time": "1970-01-01T00:00:00Z",
+          "value": "003"
+        }
+      ],
+      "relationships": [
+        {
+          "objectId": "material:1362",
+          "qualifier": "assigned_materials of PR"
+        }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "event_16890",
+      "type": "Create Purchase Requisition",
+      "time": "2023-10-02T23:05:00Z",
+      "attributes": [
+        {
+          "name": "lifecycle",
+          "value": "complete"
+        },
+        {
+          "name": "resource",
+          "value": "Manufacturing Department"
+        }
+      ],
+      "relationships": [
+        {
+          "objectId": "material:1362",
+          "qualifier": "material"
+        },
+        {
+          "objectId": "purchase_requisition:548:pr_trigger_548",
+          "qualifier": "purchase_requisition"
+        },
+        {
+          "objectId": "material:1363",
+          "qualifier": "material"
+        }
+      ]
+    }
+  ]
+}

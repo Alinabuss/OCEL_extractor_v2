@@ -1,0 +1,149 @@
+{
+    "objectTypes": [
+        {
+            "name": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "identifier",
+                    "type": "string"
+                },
+                {
+                    "name": "mass_kg",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Machine",
+            "attributes": [
+                {
+                    "name": "identifier",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Workstation",
+            "attributes": [
+                {
+                    "name": "identifier",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Heating",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "type": "integer"
+                },
+                {
+                    "name": "emissions_kg_CO2e",
+                    "type": "float"
+                },
+                {
+                    "name": "electricity_kWh",
+                    "type": "float"
+                },
+                {
+                    "name": "gas_Wh",
+                    "type": "float"
+                },
+                {
+                    "name": "electricity_source",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o_steelsheet_5512",
+            "type": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "identifier",
+                    "time": "2023-04-06T11:30:40Z",
+                    "value": "SteelSheet[5512]"
+                },
+                {
+                    "name": "mass_kg",
+                    "time": "2023-04-06T11:30:40Z",
+                    "value": "0.02095"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Machine[oven01]",
+            "type": "Machine",
+            "attributes": [
+                {
+                    "name": "identifier",
+                    "time": "2023-04-06T11:30:40Z",
+                    "value": "Machine[oven01]"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Workstation[1]",
+                    "qualifier": "situated_at"
+                }
+            ]
+        },
+        {
+            "id": "Workstation[1]",
+            "type": "Workstation",
+            "attributes": [
+                {
+                    "name": "identifier",
+                    "time": "2023-04-06T11:30:40Z",
+                    "value": "Workstation[1]"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Heating",
+            "time": "2023-04-06T11:30:40Z",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "value": "900"
+                },
+                {
+                    "name": "emissions_kg_CO2e",
+                    "value": "0.0138019093344"
+                },
+                {
+                    "name": "electricity_kWh",
+                    "value": "0.02"
+                },
+                {
+                    "name": "gas_Wh",
+                    "value": "0.49392"
+                },
+                {
+                    "name": "electricity_source",
+                    "value": "grid"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_steelsheet_5512",
+                    "qualifier": "heated"
+                },
+                {
+                    "objectId": "Machine[oven01]",
+                    "qualifier": "involved"
+                }
+            ]
+        }
+    ]
+}

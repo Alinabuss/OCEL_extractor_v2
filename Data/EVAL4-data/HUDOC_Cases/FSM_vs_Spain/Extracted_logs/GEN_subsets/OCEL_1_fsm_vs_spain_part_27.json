@@ -1,0 +1,172 @@
+{
+    "objectTypes": [
+        {
+            "name": "Hearing",
+            "attributes": [
+                {
+                    "name": "rescheduled_for",
+                    "type": "date"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Applicant",
+            "attributes": []
+        },
+        {
+            "name": "Representative",
+            "attributes": []
+        },
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ForensicExamination",
+            "attributes": [
+                {
+                    "name": "purpose",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Hearing Adjourned",
+            "attributes": [
+                {
+                    "name": "rescheduled_to",
+                    "type": "date"
+                },
+                {
+                    "name": "reason",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Forensic Examination Ordered",
+            "attributes": [
+                {
+                    "name": "purpose",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "hearing_2018-01-17",
+            "type": "Hearing",
+            "attributes": [
+                {
+                    "name": "status",
+                    "time": "2018-01-17T00:00:00Z",
+                    "value": "adjourned"
+                },
+                {
+                    "name": "rescheduled_for",
+                    "time": "2018-01-17T00:00:00Z",
+                    "value": "2018-05-23"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "applicant_1",
+            "type": "Applicant",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "representative_other_party_1",
+            "type": "Representative",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "audiencia_provincial_1",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2018-01-17T00:00:00Z",
+                    "value": "Audiencia Provincial"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "forensic_exam_1",
+            "type": "ForensicExamination",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Hearing Adjourned",
+            "time": "2018-01-17T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "rescheduled_to",
+                    "value": "2018-05-23"
+                },
+                {
+                    "name": "reason",
+                    "value": "neither the applicant nor the representative of one of the other parties were present"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "hearing_2018-01-17",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "absent"
+                },
+                {
+                    "objectId": "representative_other_party_1",
+                    "qualifier": "absent"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Forensic Examination Ordered",
+            "time": "2018-01-17T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "purpose",
+                    "value": "evaluate the applicant's cognitive and volitional capacity; the origins and consequences of his disorders; and whether he had sufficient capacity to stand trial and to understand the scope and consequences of the trial and his statements"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "forensic_exam_1",
+                    "qualifier": "ordered"
+                },
+                {
+                    "objectId": "audiencia_provincial_1",
+                    "qualifier": "ordered_by"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "subject"
+                }
+            ]
+        }
+    ]
+}

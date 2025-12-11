@@ -1,0 +1,130 @@
+{
+    "objectTypes": [
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "LegalProvision",
+            "attributes": [
+                {
+                    "name": "articleNumber",
+                    "type": "string"
+                },
+                {
+                    "name": "act",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Proceedings",
+            "attributes": []
+        },
+        {
+            "name": "Paragraph",
+            "attributes": [
+                {
+                    "name": "number",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Confirmation",
+            "attributes": [
+                {
+                    "name": "content",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o1",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Supreme Court"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o2",
+            "type": "LegalProvision",
+            "attributes": [
+                {
+                    "name": "articleNumber",
+                    "value": "383"
+                },
+                {
+                    "name": "act",
+                    "value": "Criminal Procedure Act"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o3",
+            "type": "Paragraph",
+            "attributes": [
+                {
+                    "name": "number",
+                    "value": "32"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o4",
+            "type": "Proceedings",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "o2",
+                    "qualifier": "underArticle"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Confirmation",
+            "attributes": [
+                {
+                    "name": "content",
+                    "value": "confirmed that the threshold to order the discontinuation of the proceedings under Article 383 of the Criminal Procedure Act had not been met"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o1",
+                    "qualifier": "confirmedBy"
+                },
+                {
+                    "objectId": "o4",
+                    "qualifier": "aboutProceedings"
+                },
+                {
+                    "objectId": "o2",
+                    "qualifier": "referencesLegalProvision"
+                },
+                {
+                    "objectId": "o3",
+                    "qualifier": "refersToParagraph"
+                }
+            ]
+        }
+    ]
+}

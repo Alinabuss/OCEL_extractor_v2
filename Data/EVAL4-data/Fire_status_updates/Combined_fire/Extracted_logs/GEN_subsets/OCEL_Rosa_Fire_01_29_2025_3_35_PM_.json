@@ -1,0 +1,117 @@
+{
+    "objectTypes": [
+        {
+            "name": "Incident",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Responder",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "SituationReport",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Rosa Fire",
+            "type": "Incident",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-29T15:35:00Z",
+                    "value": "Rosa Fire"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Grass",
+                    "qualifier": "burning-in"
+                }
+            ]
+        },
+        {
+            "id": "Firefighters",
+            "type": "Responder",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-29T15:35:00Z",
+                    "value": "Firefighters"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Rosa Fire",
+                    "qualifier": "at-scene"
+                }
+            ]
+        },
+        {
+            "id": "Grass",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-29T15:35:00Z",
+                    "value": "grass"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "SituationReport",
+            "time": "2025-01-29T15:35:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Firefighters at scene working on containment, fire is burning in grass."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Rosa Fire",
+                    "qualifier": "incident"
+                },
+                {
+                    "objectId": "Firefighters",
+                    "qualifier": "at-scene"
+                },
+                {
+                    "objectId": "Grass",
+                    "qualifier": "location"
+                }
+            ]
+        }
+    ]
+}

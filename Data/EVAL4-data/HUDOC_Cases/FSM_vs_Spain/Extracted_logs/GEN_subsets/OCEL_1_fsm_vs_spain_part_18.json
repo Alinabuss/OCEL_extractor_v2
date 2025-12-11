@@ -1,0 +1,242 @@
+{
+    "objectTypes": [
+        {
+            "name": "Applicant",
+            "attributes": []
+        },
+        {
+            "name": "Relatives",
+            "attributes": []
+        },
+        {
+            "name": "Claim",
+            "attributes": [
+                {
+                    "name": "purpose",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Guardian",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "designation",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PublicProsecutor",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Claim Filed",
+            "attributes": [
+                {
+                    "name": "purpose",
+                    "type": "string"
+                },
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Resignation",
+            "attributes": [
+                {
+                    "name": "reason",
+                    "type": "string"
+                },
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Court Order",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "applicant-1",
+            "type": "Applicant",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "guardian-mrT",
+                    "qualifier": "initially_designated_guardian_of"
+                }
+            ]
+        },
+        {
+            "id": "relatives-1",
+            "type": "Relatives",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "public-prosecutor-1",
+                    "qualifier": "disagrees_with_about_guardian_appointment"
+                }
+            ]
+        },
+        {
+            "id": "claim-1",
+            "type": "Claim",
+            "attributes": [
+                {
+                    "name": "purpose",
+                    "time": "",
+                    "value": "change guardian"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant-1",
+                    "qualifier": "concerns"
+                }
+            ]
+        },
+        {
+            "id": "guardian-mrT",
+            "type": "Guardian",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Mr T."
+                },
+                {
+                    "name": "designation",
+                    "time": "",
+                    "value": "initially designated as the applicant's guardian"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant-1",
+                    "qualifier": "initially_designated_guardian_of"
+                }
+            ]
+        },
+        {
+            "id": "court-1",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "first-instance court"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "public-prosecutor-1",
+            "type": "PublicProsecutor",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Claim Filed",
+            "time": "2017-09-21T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "purpose",
+                    "value": "change guardian"
+                },
+                {
+                    "name": "description",
+                    "value": "applicant's relatives filed a claim seeking to change his guardian"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "relatives-1",
+                    "qualifier": "filed_by"
+                },
+                {
+                    "objectId": "claim-1",
+                    "qualifier": "claim"
+                },
+                {
+                    "objectId": "applicant-1",
+                    "qualifier": "subject"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Resignation",
+            "time": "2018-04-17T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "reason",
+                    "value": "health reasons"
+                },
+                {
+                    "name": "description",
+                    "value": "the person initially designated as the applicant's guardian, Mr T., resigned from his position for health reasons"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "guardian-mrT",
+                    "qualifier": "resigned"
+                },
+                {
+                    "objectId": "applicant-1",
+                    "qualifier": "affected"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "Court Order",
+            "time": "2018-10-18T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "the first-instance court ordered that Mr T"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court-1",
+                    "qualifier": "ordered_by"
+                },
+                {
+                    "objectId": "guardian-mrT",
+                    "qualifier": "concerned"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,109 @@
+{
+    "objectTypes": [
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "retail_price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Pick",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Nina Graves",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "department",
+                    "value": "warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "iPhone X",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "retail_price",
+                    "value": "699.00"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-885203",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "767.29"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "iPhone X",
+                    "qualifier": "associated-with"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Pick",
+            "time": "2023-12-04T08:23:36Z",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "picked"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "i-885203",
+                    "qualifier": "picked-item"
+                },
+                {
+                    "objectId": "Nina Graves",
+                    "qualifier": "performed-by"
+                },
+                {
+                    "objectId": "iPhone X",
+                    "qualifier": "related-product"
+                }
+            ]
+        }
+    ]
+}

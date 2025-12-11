@@ -1,0 +1,144 @@
+{
+    "objectTypes": [
+        {
+            "name": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "name": "SteelCoil",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "name": "Machine",
+            "attributes": []
+        },
+        {
+            "name": "Workstation",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Split",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "type": "number"
+                },
+                {
+                    "name": "emissions_kg_co2e",
+                    "type": "number"
+                },
+                {
+                    "name": "electricity_kwh",
+                    "type": "number"
+                },
+                {
+                    "name": "waste_kg",
+                    "type": "number"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o_steelsheet_5325",
+            "type": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "time": "2023-04-06T10:45:16Z",
+                    "value": "0.02104"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "steelcoil_1",
+                    "qualifier": "created_from"
+                }
+            ]
+        },
+        {
+            "id": "steelcoil_1",
+            "type": "SteelCoil",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "time": "2023-04-06T10:45:16Z",
+                    "value": "31.91076"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "splitter01",
+            "type": "Machine",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "workstation_1",
+                    "qualifier": "located_at"
+                }
+            ]
+        },
+        {
+            "id": "workstation_1",
+            "type": "Workstation",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e_split_2023-04-06T10:45:16Z",
+            "type": "Split",
+            "time": "2023-04-06T10:45:16Z",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "value": "13.9"
+                },
+                {
+                    "name": "emissions_kg_co2e",
+                    "value": "0.01454"
+                },
+                {
+                    "name": "electricity_kwh",
+                    "value": "0.02124"
+                },
+                {
+                    "name": "waste_kg",
+                    "value": "0.00042"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "splitter01",
+                    "qualifier": "machine"
+                },
+                {
+                    "objectId": "steelcoil_1",
+                    "qualifier": "input"
+                },
+                {
+                    "objectId": "o_steelsheet_5325",
+                    "qualifier": "output"
+                },
+                {
+                    "objectId": "workstation_1",
+                    "qualifier": "at"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,124 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseRequisition",
+            "attributes": [
+                {
+                    "name": "identifier",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Quotation",
+            "attributes": [
+                {
+                    "name": "identifier",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": [
+                {
+                    "name": "label",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Request for Quotation Creation Completed",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_requisition:288:pr_trigger_288",
+            "type": "PurchaseRequisition",
+            "attributes": [
+                {
+                    "name": "identifier",
+                    "value": "purchase_requisition:288:pr_trigger_288"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:286",
+                    "qualifier": "associated-with"
+                },
+                {
+                    "objectId": "purchasing_group:002",
+                    "qualifier": "part-of"
+                }
+            ]
+        },
+        {
+            "id": "quotation:286",
+            "type": "Quotation",
+            "attributes": [
+                {
+                    "name": "identifier",
+                    "value": "quotation:286"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchasing_group:002",
+                    "qualifier": "part-of"
+                }
+            ]
+        },
+        {
+            "id": "purchasing_group:002",
+            "type": "PurchasingGroup",
+            "attributes": [
+                {
+                    "name": "label",
+                    "value": "002"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Procurement Department",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Procurement Department"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Request for Quotation Creation Completed",
+            "time": "2023-01-29T03:04:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchase_requisition:288:pr_trigger_288",
+                    "qualifier": "for"
+                },
+                {
+                    "objectId": "Procurement Department",
+                    "qualifier": "actor"
+                }
+            ]
+        }
+    ]
+}

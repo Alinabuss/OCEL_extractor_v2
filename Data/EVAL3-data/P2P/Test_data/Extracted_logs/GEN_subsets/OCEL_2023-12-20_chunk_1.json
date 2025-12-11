@@ -1,0 +1,104 @@
+{
+    "objectTypes": [
+        {
+            "name": "Request for Quotation",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Purchase Requisition",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Generate Request for Quotation",
+            "attributes": [
+                {
+                    "name": "department",
+                    "type": "string"
+                },
+                {
+                    "name": "completeness",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "quotation:622",
+            "type": "Request for Quotation",
+            "attributes": [
+                {
+                    "name": "status",
+                    "time": "2023-12-20T11:16:00Z",
+                    "value": "complete"
+                },
+                {
+                    "name": "purchasing_group",
+                    "time": "2023-12-20T11:16:00Z",
+                    "value": "004"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_requisition:626:pr_trigger_626",
+                    "qualifier": "linked_to"
+                }
+            ]
+        },
+        {
+            "id": "purchase_requisition:626:pr_trigger_626",
+            "type": "Purchase Requisition",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "time": "2023-12-20T11:16:00Z",
+                    "value": "004"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Generate Request for Quotation",
+            "time": "2023-12-20T11:16:00Z",
+            "attributes": [
+                {
+                    "name": "department",
+                    "value": "Procurement Department"
+                },
+                {
+                    "name": "completeness",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:622",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "purchase_requisition:626:pr_trigger_626",
+                    "qualifier": "linked"
+                }
+            ]
+        }
+    ]
+}

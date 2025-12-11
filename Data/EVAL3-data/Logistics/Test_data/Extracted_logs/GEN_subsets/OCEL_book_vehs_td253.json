@@ -1,0 +1,83 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "type": "float"
+                },
+                {
+                    "name": "amount_unit",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "type": "datetime"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "VehicleBooked",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "td253",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "value": "3.0"
+                },
+                {
+                    "name": "amount_unit",
+                    "value": "containers"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "vh59",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "value": "2023-12-19T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td253",
+                    "qualifier": "booked-for"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "VehicleBooked",
+            "time": "2023-12-04T07:07:02Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "td253",
+                    "qualifier": "for"
+                },
+                {
+                    "objectId": "vh59",
+                    "qualifier": "regular-vehicle"
+                }
+            ]
+        }
+    ]
+}

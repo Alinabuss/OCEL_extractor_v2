@@ -1,0 +1,163 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Customer",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Order",
+            "attributes": [
+                {
+                    "name": "total_price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "OrderConfirmation",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o-990025",
+            "type": "Order",
+            "attributes": [
+                {
+                    "name": "total_price",
+                    "time": "",
+                    "value": "986.99"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "i-880111",
+                    "qualifier": "contains"
+                },
+                {
+                    "objectId": "i-880113",
+                    "qualifier": "contains"
+                },
+                {
+                    "objectId": "c-SwissPeak-Timepieces-AG",
+                    "qualifier": "for"
+                }
+            ]
+        },
+        {
+            "id": "i-880111",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "time": "",
+                    "value": "29.99"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-990025",
+                    "qualifier": "partOf"
+                }
+            ]
+        },
+        {
+            "id": "i-880113",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "time": "",
+                    "value": "476"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-990025",
+                    "qualifier": "partOf"
+                }
+            ]
+        },
+        {
+            "id": "p-Christine-von-Dobbert",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Christine von Dobbert"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "c-SwissPeak-Timepieces-AG",
+            "type": "Customer",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "SwissPeak Timepieces AG"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "OrderConfirmation",
+            "time": "2023-04-13T14:07:55Z",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "confirmed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "p-Christine-von-Dobbert",
+                    "qualifier": "performedBy"
+                },
+                {
+                    "objectId": "c-SwissPeak-Timepieces-AG",
+                    "qualifier": "for"
+                },
+                {
+                    "objectId": "o-990025",
+                    "qualifier": "confirms"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,181 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": []
+        },
+        {
+            "name": "Party",
+            "attributes": []
+        },
+        {
+            "name": "Question",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "AskIntent",
+            "attributes": [
+                {
+                    "name": "content",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Response",
+            "attributes": [
+                {
+                    "name": "utterance",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ClosingStatement",
+            "attributes": [
+                {
+                    "name": "utterance",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "person_1",
+            "type": "Person",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "other_parties",
+            "type": "Party",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "questions_1",
+            "type": "Question",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "other_parties",
+                    "qualifier": "put-forward-by"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "AskIntent",
+            "time": "2020-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "content",
+                    "value": "Asked if he intended to reply to the questions put forward by the other parties"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "other_parties",
+                    "qualifier": "initiator"
+                },
+                {
+                    "objectId": "person_1",
+                    "qualifier": "addressee"
+                },
+                {
+                    "objectId": "questions_1",
+                    "qualifier": "about"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Response",
+            "time": "2020-01-01T00:00:01Z",
+            "attributes": [
+                {
+                    "name": "utterance",
+                    "value": "I cannot reply because I don't know"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person_1",
+                    "qualifier": "speaker"
+                },
+                {
+                    "objectId": "questions_1",
+                    "qualifier": "about"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "AskIntent",
+            "time": "2020-01-01T00:00:02Z",
+            "attributes": [
+                {
+                    "name": "content",
+                    "value": "Asked again if he intended to reply to the questions"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "other_parties",
+                    "qualifier": "initiator"
+                },
+                {
+                    "objectId": "person_1",
+                    "qualifier": "addressee"
+                },
+                {
+                    "objectId": "questions_1",
+                    "qualifier": "about"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "Response",
+            "time": "2020-01-01T00:00:03Z",
+            "attributes": [
+                {
+                    "name": "utterance",
+                    "value": "It's not that I don't want [to reply], but I can't"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person_1",
+                    "qualifier": "speaker"
+                },
+                {
+                    "objectId": "questions_1",
+                    "qualifier": "about"
+                }
+            ]
+        },
+        {
+            "id": "e5",
+            "type": "ClosingStatement",
+            "time": "2020-01-01T00:00:04Z",
+            "attributes": [
+                {
+                    "name": "utterance",
+                    "value": "I don't know anything. I can only say that I had cancer, I had it for many years, and they told me not to sit down, so I went to the construction sites, the paperwork was managed by others"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person_1",
+                    "qualifier": "speaker"
+                }
+            ]
+        }
+    ]
+}

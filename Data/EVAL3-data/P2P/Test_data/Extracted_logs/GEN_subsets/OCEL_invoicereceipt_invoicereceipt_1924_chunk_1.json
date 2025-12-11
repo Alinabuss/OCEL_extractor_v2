@@ -1,0 +1,120 @@
+{
+    "objectTypes": [
+        {
+            "name": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "resource",
+            "attributes": [
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "two-way match",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                },
+                {
+                    "name": "success",
+                    "type": "boolean"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt:1924",
+            "type": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "time": "2024-10-09T07:10:00Z",
+                    "value": "118900.00"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "goods receipt:1929",
+            "type": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "time": "2024-10-09T07:10:00Z",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:1924",
+                    "qualifier": "matched_with"
+                }
+            ]
+        },
+        {
+            "id": "resource:Finance/Account Department",
+            "type": "resource",
+            "attributes": [
+                {
+                    "name": "department",
+                    "time": "2024-10-09T07:10:00Z",
+                    "value": "Finance/Account Department"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "two-way match",
+            "time": "2024-10-09T07:10:00Z",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "value": "complete"
+                },
+                {
+                    "name": "success",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "resource:Finance/Account Department",
+                    "qualifier": "performed_by"
+                },
+                {
+                    "objectId": "invoice receipt:1924",
+                    "qualifier": "involved"
+                },
+                {
+                    "objectId": "goods receipt:1929",
+                    "qualifier": "involved"
+                }
+            ]
+        }
+    ]
+}

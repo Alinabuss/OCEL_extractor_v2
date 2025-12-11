@@ -1,0 +1,168 @@
+{
+    "objectTypes": [
+        {
+            "name": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "weight_kg",
+                    "type": "double"
+                }
+            ]
+        },
+        {
+            "name": "SteelCoil",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "type": "double"
+                }
+            ]
+        },
+        {
+            "name": "Machine",
+            "attributes": []
+        },
+        {
+            "name": "Workstation",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Split",
+            "attributes": [
+                {
+                    "name": "duration_s",
+                    "type": "double"
+                },
+                {
+                    "name": "co2_kg",
+                    "type": "double"
+                },
+                {
+                    "name": "electricity_kwh",
+                    "type": "double"
+                },
+                {
+                    "name": "electricity_source",
+                    "type": "string"
+                },
+                {
+                    "name": "waste_kg",
+                    "type": "double"
+                },
+                {
+                    "name": "sheet_weight_kg",
+                    "type": "double"
+                },
+                {
+                    "name": "coil_mass_kg",
+                    "type": "double"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o_steelsheet_958",
+            "type": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "weight_kg",
+                    "time": "2023-04-03T11:01:31Z",
+                    "value": "0.02112"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "SteelCoil[4]",
+                    "qualifier": "derived_from"
+                }
+            ]
+        },
+        {
+            "id": "SteelCoil[4]",
+            "type": "SteelCoil",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "time": "2023-04-03T11:01:31Z",
+                    "value": "31.91076"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Machine[Splitter01]",
+            "type": "Machine",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Workstation[1]",
+                    "qualifier": "located_at"
+                }
+            ]
+        },
+        {
+            "id": "Workstation[1]",
+            "type": "Workstation",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e_1",
+            "type": "Split",
+            "time": "2023-04-03T11:01:31Z",
+            "attributes": [
+                {
+                    "name": "duration_s",
+                    "value": "14.29"
+                },
+                {
+                    "name": "co2_kg",
+                    "value": "0.01494"
+                },
+                {
+                    "name": "electricity_kwh",
+                    "value": "0.0218294"
+                },
+                {
+                    "name": "electricity_source",
+                    "value": "grid"
+                },
+                {
+                    "name": "waste_kg",
+                    "value": "0.00042"
+                },
+                {
+                    "name": "sheet_weight_kg",
+                    "value": "0.02112"
+                },
+                {
+                    "name": "coil_mass_kg",
+                    "value": "31.91076"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_steelsheet_958",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "Machine[Splitter01]",
+                    "qualifier": "used"
+                },
+                {
+                    "objectId": "Workstation[1]",
+                    "qualifier": "performed_at"
+                },
+                {
+                    "objectId": "SteelCoil[4]",
+                    "qualifier": "input"
+                }
+            ]
+        }
+    ]
+}
