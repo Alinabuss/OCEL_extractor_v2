@@ -1,0 +1,153 @@
+{
+    "objectTypes": [
+        {
+            "name": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "identifier",
+                    "type": "string"
+                },
+                {
+                    "name": "weight_kg",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Workstation",
+            "attributes": [
+                {
+                    "name": "identifier",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Machine",
+            "attributes": [
+                {
+                    "name": "identifier",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Heating",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "type": "integer"
+                },
+                {
+                    "name": "emissions_kg_co2eq",
+                    "type": "float"
+                },
+                {
+                    "name": "electricity_kwh",
+                    "type": "float"
+                },
+                {
+                    "name": "gas_input_wh",
+                    "type": "float"
+                },
+                {
+                    "name": "burning_emissions_wh",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o_steelsheet_3233",
+            "type": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "identifier",
+                    "time": "2023-04-05T08:19:58Z",
+                    "value": "SteelSheet[3233]"
+                },
+                {
+                    "name": "weight_kg",
+                    "time": "2023-04-05T08:19:58Z",
+                    "value": "0.02136"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_workstation_1",
+            "type": "Workstation",
+            "attributes": [
+                {
+                    "name": "identifier",
+                    "time": "2023-04-05T08:19:58Z",
+                    "value": "Workstation[1]"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_machine_oven01",
+            "type": "Machine",
+            "attributes": [
+                {
+                    "name": "identifier",
+                    "time": "2023-04-05T08:19:58Z",
+                    "value": "Machine[oven01]"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_workstation_1",
+                    "qualifier": "situated_at"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Heating",
+            "time": "2023-04-05T08:19:58Z",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "value": "900"
+                },
+                {
+                    "name": "emissions_kg_co2eq",
+                    "value": "0.0138019093344"
+                },
+                {
+                    "name": "electricity_kwh",
+                    "value": "0.02"
+                },
+                {
+                    "name": "gas_input_wh",
+                    "value": "0.49392"
+                },
+                {
+                    "name": "burning_emissions_wh",
+                    "value": "0.49392"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_steelsheet_3233",
+                    "qualifier": "processed"
+                },
+                {
+                    "objectId": "o_workstation_1",
+                    "qualifier": "location"
+                },
+                {
+                    "objectId": "o_machine_oven01",
+                    "qualifier": "used"
+                }
+            ]
+        }
+    ]
+}

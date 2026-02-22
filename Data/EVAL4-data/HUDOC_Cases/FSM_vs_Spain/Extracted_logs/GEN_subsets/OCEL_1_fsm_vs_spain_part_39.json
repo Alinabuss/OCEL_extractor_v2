@@ -1,0 +1,217 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ForensicReport",
+            "attributes": [
+                {
+                    "name": "conclusion",
+                    "type": "string"
+                },
+                {
+                    "name": "acknowledged_limitations",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Decision",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Request",
+            "attributes": [
+                {
+                    "name": "requester",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ForensicReportIssued",
+            "attributes": [
+                {
+                    "name": "conclusion",
+                    "type": "string"
+                },
+                {
+                    "name": "acknowledged_limitations",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "p1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Mr [F.S.M.]"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "req1",
+            "type": "Request",
+            "attributes": [
+                {
+                    "name": "requester",
+                    "time": "",
+                    "value": "defence"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "decision-1",
+            "type": "Decision",
+            "attributes": [
+                {
+                    "name": "status",
+                    "time": "",
+                    "value": "incapacity granted"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "report-2017-10-11",
+            "type": "ForensicReport",
+            "attributes": [
+                {
+                    "name": "conclusion",
+                    "time": "2017-10-11T00:00:00Z",
+                    "value": "sufficient capacity to stand trial and to understand its scope and purpose"
+                },
+                {
+                    "name": "acknowledged_limitations",
+                    "time": "2017-10-11T00:00:00Z",
+                    "value": "certain limitations"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "decision-1",
+                    "qualifier": "corroborates"
+                },
+                {
+                    "objectId": "req1",
+                    "qualifier": "issued_in_response_to"
+                },
+                {
+                    "objectId": "p1",
+                    "qualifier": "concerns"
+                }
+            ]
+        },
+        {
+            "id": "report-2018-05-22",
+            "type": "ForensicReport",
+            "attributes": [
+                {
+                    "name": "conclusion",
+                    "time": "2018-05-22T00:00:00Z",
+                    "value": "sufficient capacity to stand trial and to understand its scope and purpose"
+                },
+                {
+                    "name": "acknowledged_limitations",
+                    "time": "2018-05-22T00:00:00Z",
+                    "value": "certain limitations"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "decision-1",
+                    "qualifier": "corroborates"
+                },
+                {
+                    "objectId": "req1",
+                    "qualifier": "issued_in_response_to"
+                },
+                {
+                    "objectId": "p1",
+                    "qualifier": "concerns"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "ForensicReportIssued",
+            "time": "2017-10-11T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "conclusion",
+                    "value": "sufficient capacity to stand trial and to understand its scope and purpose"
+                },
+                {
+                    "name": "acknowledged_limitations",
+                    "value": "certain limitations"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "report-2017-10-11",
+                    "qualifier": "produced"
+                },
+                {
+                    "objectId": "p1",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "req1",
+                    "qualifier": "in_response_to"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "ForensicReportIssued",
+            "time": "2018-05-22T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "conclusion",
+                    "value": "sufficient capacity to stand trial and to understand its scope and purpose"
+                },
+                {
+                    "name": "acknowledged_limitations",
+                    "value": "certain limitations"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "report-2018-05-22",
+                    "qualifier": "produced"
+                },
+                {
+                    "objectId": "p1",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "req1",
+                    "qualifier": "in_response_to"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,238 @@
+{
+    "objectTypes": [
+        {
+            "name": "purchase_requisition",
+            "attributes": []
+        },
+        {
+            "name": "quotation",
+            "attributes": []
+        },
+        {
+            "name": "purchase_order",
+            "attributes": []
+        },
+        {
+            "name": "purchasing_group",
+            "attributes": [
+                {
+                    "name": "code",
+                    "type": "string"
+                },
+                {
+                    "name": "EKKO-EKGRP",
+                    "type": "string"
+                },
+                {
+                    "name": "EBAN-EKGRP",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "resource",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "CreateRequestForQuotation",
+            "attributes": [
+                {
+                    "name": "completeness",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "CreatePurchaseOrder",
+            "attributes": [
+                {
+                    "name": "process_status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ApprovePurchaseOrder",
+            "attributes": [
+                {
+                    "name": "approval_status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_requisition:141:pr_trigger_141",
+            "type": "purchase_requisition",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "quotation:141",
+            "type": "quotation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchasing_group:004",
+                    "qualifier": "belongs_to"
+                }
+            ]
+        },
+        {
+            "id": "purchase_order:243",
+            "type": "purchase_order",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "quotation:141",
+                    "qualifier": "linked_to"
+                },
+                {
+                    "objectId": "purchasing_group:004",
+                    "qualifier": "belongs_to"
+                }
+            ]
+        },
+        {
+            "id": "purchase_order:242",
+            "type": "purchase_order",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "quotation:141",
+                    "qualifier": "related_to"
+                },
+                {
+                    "objectId": "purchasing_group:004",
+                    "qualifier": "belongs_to"
+                }
+            ]
+        },
+        {
+            "id": "purchasing_group:004",
+            "type": "purchasing_group",
+            "attributes": [
+                {
+                    "name": "code",
+                    "value": "004"
+                },
+                {
+                    "name": "EKKO-EKGRP",
+                    "value": "004"
+                },
+                {
+                    "name": "EBAN-EKGRP",
+                    "value": "004"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "resource:Procurement Department",
+            "type": "resource",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Procurement Department"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "resource:Procurement Order Manager",
+            "type": "resource",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Procurement Order Manager"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "CreateRequestForQuotation",
+            "time": "2022-08-16T01:43:00Z",
+            "attributes": [
+                {
+                    "name": "completeness",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_requisition:141:pr_trigger_141",
+                    "qualifier": "associated_with"
+                },
+                {
+                    "objectId": "quotation:141",
+                    "qualifier": "linked"
+                },
+                {
+                    "objectId": "resource:Procurement Department",
+                    "qualifier": "resource"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "CreatePurchaseOrder",
+            "time": "2022-08-16T17:50:00Z",
+            "attributes": [
+                {
+                    "name": "process_status",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:243",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "quotation:141",
+                    "qualifier": "linked"
+                },
+                {
+                    "objectId": "resource:Procurement Department",
+                    "qualifier": "resource"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "type": "ApprovePurchaseOrder",
+            "time": "2022-08-19T06:35:00Z",
+            "attributes": [
+                {
+                    "name": "approval_status",
+                    "value": "completed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:242",
+                    "qualifier": "approved"
+                },
+                {
+                    "objectId": "quotation:141",
+                    "qualifier": "related"
+                },
+                {
+                    "objectId": "resource:Procurement Order Manager",
+                    "qualifier": "resource"
+                }
+            ]
+        }
+    ]
+}

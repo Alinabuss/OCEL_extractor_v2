@@ -1,0 +1,124 @@
+{
+  "objectTypes": [
+    {
+      "name": "material",
+      "attributes": [
+        {
+          "name": "Net Price (EKPO-NETPR)",
+          "type": "float"
+        }
+      ]
+    },
+    {
+      "name": "purchase_requisition",
+      "attributes": [
+        {
+          "name": "Purchasing Group (EBAN-EKGRP)",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "eventTypes": [
+    {
+      "name": "Create Purchase Requisition",
+      "attributes": [
+        {
+          "name": "lifecycle",
+          "type": "string"
+        },
+        {
+          "name": "resource",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "id": "material:2007",
+      "type": "material",
+      "attributes": [
+        {
+          "name": "Net Price (EKPO-NETPR)",
+          "time": "1970-01-01T00:00:00Z",
+          "value": 300.0
+        }
+      ]
+    },
+    {
+      "id": "material:2005",
+      "type": "material",
+      "attributes": [
+        {
+          "name": "Net Price (EKPO-NETPR)",
+          "time": "1970-01-01T00:00:00Z",
+          "value": 100.0
+        }
+      ]
+    },
+    {
+      "id": "material:2006",
+      "type": "material",
+      "attributes": [
+        {
+          "name": "Net Price (EKPO-NETPR)",
+          "time": "1970-01-01T00:00:00Z",
+          "value": 200.0
+        }
+      ]
+    },
+    {
+      "id": "purchase_requisition:806:pr_trigger_806",
+      "type": "purchase_requisition",
+      "attributes": [
+        {
+          "name": "Purchasing Group (EBAN-EKGRP)",
+          "time": "1970-01-01T00:00:00Z",
+          "value": "001"
+        }
+      ],
+      "relationships": [
+        {
+          "objectId": "material:2007",
+          "qualifier": "assigned_materials of PR"
+        }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "event_24829",
+      "type": "Create Purchase Requisition",
+      "time": "2024-06-03T12:05:00Z",
+      "attributes": [
+        {
+          "name": "lifecycle",
+          "value": "complete"
+        },
+        {
+          "name": "resource",
+          "value": "Manufacturing Department"
+        }
+      ],
+      "relationships": [
+        {
+          "objectId": "material:2007",
+          "qualifier": "material"
+        },
+        {
+          "objectId": "purchase_requisition:806:pr_trigger_806",
+          "qualifier": "purchase_requisition"
+        },
+        {
+          "objectId": "material:2005",
+          "qualifier": "material"
+        },
+        {
+          "objectId": "material:2006",
+          "qualifier": "material"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+    "objectTypes": [
+        {
+            "name": "Worker",
+            "attributes": []
+        },
+        {
+            "name": "MalePart",
+            "attributes": []
+        },
+        {
+            "name": "Workstation",
+            "attributes": [
+                {
+                    "name": "grid_electric_consumption",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Check",
+            "attributes": [
+                {
+                    "name": "co2e_kg",
+                    "type": "float"
+                },
+                {
+                    "name": "compressed_air_m3",
+                    "type": "float"
+                },
+                {
+                    "name": "duration",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Worker[1]",
+            "type": "Worker",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "MalePart[3833]",
+            "type": "MalePart",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Workstation[2]",
+                    "qualifier": "located_at"
+                }
+            ]
+        },
+        {
+            "id": "Workstation[2]",
+            "type": "Workstation",
+            "attributes": [
+                {
+                    "name": "grid_electric_consumption",
+                    "value": "unspecified"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Check",
+            "time": "2023-04-05T15:37:03Z",
+            "attributes": [
+                {
+                    "name": "co2e_kg",
+                    "value": "0.00168948"
+                },
+                {
+                    "name": "compressed_air_m3",
+                    "value": "0.026"
+                },
+                {
+                    "name": "duration",
+                    "value": "unspecified"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Worker[1]",
+                    "qualifier": "performed"
+                },
+                {
+                    "objectId": "MalePart[3833]",
+                    "qualifier": "checked"
+                },
+                {
+                    "objectId": "Workstation[2]",
+                    "qualifier": "at"
+                }
+            ]
+        }
+    ]
+}

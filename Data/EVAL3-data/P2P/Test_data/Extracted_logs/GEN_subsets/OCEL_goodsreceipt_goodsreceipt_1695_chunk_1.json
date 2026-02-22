@@ -1,0 +1,101 @@
+{
+    "objectTypes": [
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "TwoWayMatchCompleted",
+            "attributes": [
+                {
+                    "name": "matchType",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "goods receipt:1695",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "value": "101",
+                    "time": "2024-06-28T07:10:00Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "invoice receipt:1692",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "value": "30500.0",
+                    "time": "2024-06-28T07:10:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:1695",
+                    "qualifier": "matchedWith"
+                }
+            ]
+        },
+        {
+            "id": "finance/account department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "TwoWayMatchCompleted",
+            "time": "2024-06-28T07:10:00Z",
+            "attributes": [
+                {
+                    "name": "matchType",
+                    "value": "two-way match"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:1695",
+                    "qualifier": "matched"
+                },
+                {
+                    "objectId": "invoice receipt:1692",
+                    "qualifier": "matched"
+                },
+                {
+                    "objectId": "finance/account department",
+                    "qualifier": "performedBy"
+                }
+            ]
+        }
+    ]
+}

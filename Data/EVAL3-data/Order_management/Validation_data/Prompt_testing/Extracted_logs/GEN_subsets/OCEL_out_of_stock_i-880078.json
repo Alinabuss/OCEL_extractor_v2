@@ -1,0 +1,137 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "identifier",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "IdentifyOutOfStock",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o-person-marco-pegoraro",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Marco Pegoraro"
+                },
+                {
+                    "name": "department",
+                    "value": "warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o-product-echo-dot",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Echo Dot"
+                },
+                {
+                    "name": "price",
+                    "value": "29.99"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-item-i-880078",
+                    "qualifier": "associated_with"
+                }
+            ]
+        },
+        {
+            "id": "o-item-i-880078",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "identifier",
+                    "value": "i-880078"
+                },
+                {
+                    "name": "price",
+                    "value": "29.99"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "IdentifyOutOfStock",
+            "time": "2023-04-11T10:07:07Z",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "identified"
+                },
+                {
+                    "name": "status",
+                    "value": "out_of_stock"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-person-marco-pegoraro",
+                    "qualifier": "performed_by"
+                },
+                {
+                    "objectId": "o-product-echo-dot",
+                    "qualifier": "about"
+                }
+            ]
+        }
+    ]
+}

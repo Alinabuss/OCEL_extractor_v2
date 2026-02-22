@@ -1,0 +1,126 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "size_acres",
+                    "type": "int"
+                },
+                {
+                    "name": "containment_percent",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "FireStatusUpdate",
+            "attributes": [
+                {
+                    "name": "acres",
+                    "type": "int"
+                },
+                {
+                    "name": "containment_percent",
+                    "type": "int"
+                },
+                {
+                    "name": "message",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire-Lidia-1",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-10T19:55:00Z",
+                    "value": "Lidia Fire"
+                },
+                {
+                    "name": "size_acres",
+                    "time": "2025-01-10T19:55:00Z",
+                    "value": "395"
+                },
+                {
+                    "name": "containment_percent",
+                    "time": "2025-01-10T19:55:00Z",
+                    "value": "98"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "crews-1",
+                    "qualifier": "involves"
+                }
+            ]
+        },
+        {
+            "id": "crews-1",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-10T19:55:00Z",
+                    "value": "Crews"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-Lidia-1",
+                    "qualifier": "responding_to"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "FireStatusUpdate",
+            "time": "2025-01-10T19:55:00Z",
+            "attributes": [
+                {
+                    "name": "acres",
+                    "value": "395"
+                },
+                {
+                    "name": "containment_percent",
+                    "value": "98"
+                },
+                {
+                    "name": "message",
+                    "value": "The fire remains 395 acres and is now 98% contained. Crews will continue to strengthen containment lines and extensive mop-up is required."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-Lidia-1",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "crews-1",
+                    "qualifier": "involved"
+                }
+            ]
+        }
+    ]
+}

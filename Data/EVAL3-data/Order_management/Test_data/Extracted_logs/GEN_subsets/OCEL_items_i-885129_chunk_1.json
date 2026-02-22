@@ -1,0 +1,128 @@
+{
+    "objectTypes": [
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "value",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Pick",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "product-EchoPlus",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Echo Plus"
+                },
+                {
+                    "name": "price",
+                    "value": "149.99"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-885129",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "value",
+                    "value": "164.63"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-EchoPlus",
+                    "qualifier": "associatedWith"
+                }
+            ]
+        },
+        {
+            "id": "person-DetlefWetzeler",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Detlef Wetzeler"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "dept-Warehousing",
+                    "qualifier": "memberOf"
+                }
+            ]
+        },
+        {
+            "id": "dept-Warehousing",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Warehousing"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e-1",
+            "type": "Pick",
+            "time": "2023-11-27T11:06:45Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "i-885129",
+                    "qualifier": "pickedItem"
+                },
+                {
+                    "objectId": "person-DetlefWetzeler",
+                    "qualifier": "performedBy"
+                }
+            ]
+        }
+    ]
+}

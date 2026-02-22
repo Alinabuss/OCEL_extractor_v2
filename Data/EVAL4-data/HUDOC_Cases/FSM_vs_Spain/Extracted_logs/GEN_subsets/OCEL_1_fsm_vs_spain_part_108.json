@@ -1,0 +1,166 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "guardianship_status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Organization",
+            "attributes": []
+        },
+        {
+            "name": "Judgment",
+            "attributes": [
+                {
+                    "name": "kind",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Proceedings",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "GovernmentNoted",
+            "attributes": [
+                {
+                    "name": "content",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "JudgmentStated",
+            "attributes": [
+                {
+                    "name": "statement",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "applicant_1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "guardianship_status",
+                    "time": "2020-01-01T00:00:00Z",
+                    "value": "partial"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "thirdparty_1",
+                    "qualifier": "assisted_by"
+                },
+                {
+                    "objectId": "thirdparty_1",
+                    "qualifier": "not_represented_by"
+                }
+            ]
+        },
+        {
+            "id": "thirdparty_1",
+            "type": "Person",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "government_1",
+            "type": "Organization",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "judgment_1",
+            "type": "Judgment",
+            "attributes": [
+                {
+                    "name": "kind",
+                    "time": "2020-01-01T00:00:01Z",
+                    "value": "incapacitation"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "proceedings_1",
+            "type": "Proceedings",
+            "attributes": [
+                {
+                    "name": "status",
+                    "time": "2020-01-01T00:00:01Z",
+                    "value": "pending"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "JudgmentStated",
+            "time": "2020-01-01T00:00:01Z",
+            "attributes": [
+                {
+                    "name": "statement",
+                    "value": "the impact of the applicant's incapacity in the pending criminal proceedings against him had been a matter to be determined in the framework of those proceedings"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "judgment_1",
+                    "qualifier": "source"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "proceedings_1",
+                    "qualifier": "referred"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "GovernmentNoted",
+            "time": "2020-01-01T00:00:02Z",
+            "attributes": [
+                {
+                    "name": "content",
+                    "value": "the applicant had only been placed under partial guardianship; he would be assisted by a third party for some actions but that did not imply that he would be represented by that person"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "government_1",
+                    "qualifier": "noticer"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "thirdparty_1",
+                    "qualifier": "referenced"
+                }
+            ]
+        }
+    ]
+}

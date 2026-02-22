@@ -1,0 +1,138 @@
+{
+    "objectTypes": [
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "name": "InventoryRecord",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "number"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Report",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "employee-1",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Nina Graves"
+                },
+                {
+                    "name": "department",
+                    "value": "warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "product-1",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Echo Show 5"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "item-1",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "89.99"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-1",
+                    "qualifier": "associated_with"
+                }
+            ]
+        },
+        {
+            "id": "inventory-1",
+            "type": "InventoryRecord",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "89.99"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "item-1",
+                    "qualifier": "for"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Report",
+            "time": "2023-05-18T09:12:18Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "out of stock"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "employee-1",
+                    "qualifier": "reporter"
+                },
+                {
+                    "objectId": "product-1",
+                    "qualifier": "about"
+                }
+            ]
+        }
+    ]
+}

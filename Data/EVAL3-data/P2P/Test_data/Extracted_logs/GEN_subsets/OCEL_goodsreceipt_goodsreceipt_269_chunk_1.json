@@ -1,0 +1,89 @@
+{
+    "objectTypes": [
+        {
+            "name": "Goods Receipt",
+            "attributes": []
+        },
+        {
+            "name": "Purchase Order",
+            "attributes": []
+        },
+        {
+            "name": "Purchasing Group",
+            "attributes": []
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Goods Receipt Created",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Goods Receipt[269]",
+            "type": "Goods Receipt",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Purchase Order[220]",
+            "type": "Purchase Order",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Purchasing Group[002]",
+                    "qualifier": "associatedWith"
+                }
+            ]
+        },
+        {
+            "id": "Purchasing Group[002]",
+            "type": "Purchasing Group",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Warehouse Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "evt1",
+            "type": "Goods Receipt Created",
+            "time": "2022-08-17T04:43:00Z",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Goods Receipt[269]",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "Purchase Order[220]",
+                    "qualifier": "linkedTo"
+                },
+                {
+                    "objectId": "Warehouse Department",
+                    "qualifier": "completedBy"
+                }
+            ]
+        }
+    ]
+}

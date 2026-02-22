@@ -1,0 +1,190 @@
+{
+    "objectTypes": [
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Vacancy",
+            "attributes": [
+                {
+                    "name": "vacancyId",
+                    "type": "string"
+                },
+                {
+                    "name": "position",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": [
+                {
+                    "name": "applicationId",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Offer",
+            "attributes": [
+                {
+                    "name": "label",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Offer Accepted",
+            "attributes": [
+                {
+                    "name": "position",
+                    "type": "string"
+                },
+                {
+                    "name": "result",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Applicant_VanessaLemmens",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Vanessa Lemmens"
+                },
+                {
+                    "name": "status",
+                    "time": "2019-06-24T16:57:00Z",
+                    "value": "hired"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Recruiter_JanaGeisler",
+            "type": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Jana Geisler"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Vacancy_550002",
+            "type": "Vacancy",
+            "attributes": [
+                {
+                    "name": "vacancyId",
+                    "value": "550002"
+                },
+                {
+                    "name": "position",
+                    "value": "Consultant"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Application_770144",
+            "type": "Application",
+            "attributes": [
+                {
+                    "name": "applicationId",
+                    "value": "770144"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Offer_990003",
+            "type": "Offer",
+            "attributes": [
+                {
+                    "name": "label",
+                    "value": "Offer[[990003]]"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Application_770144",
+                    "qualifier": "linkedTo"
+                },
+                {
+                    "objectId": "Recruiter_JanaGeisler",
+                    "qualifier": "handledBy"
+                },
+                {
+                    "objectId": "Vacancy_550002",
+                    "qualifier": "associatedWith"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Offer Accepted",
+            "time": "2019-06-24T16:57:00Z",
+            "attributes": [
+                {
+                    "name": "position",
+                    "value": "Consultant"
+                },
+                {
+                    "name": "result",
+                    "value": "hired"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Applicant_VanessaLemmens",
+                    "qualifier": "applicant"
+                },
+                {
+                    "objectId": "Offer_990003",
+                    "qualifier": "offer"
+                },
+                {
+                    "objectId": "Vacancy_550002",
+                    "qualifier": "vacancy"
+                },
+                {
+                    "objectId": "Application_770144",
+                    "qualifier": "application"
+                },
+                {
+                    "objectId": "Recruiter_JanaGeisler",
+                    "qualifier": "recruiter"
+                }
+            ]
+        }
+    ]
+}

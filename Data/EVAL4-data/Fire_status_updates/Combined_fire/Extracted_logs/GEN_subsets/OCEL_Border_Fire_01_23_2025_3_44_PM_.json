@@ -1,0 +1,142 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "classification",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Firefighters",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "OnScene",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire-1",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-23T15:44:00Z",
+                    "value": "Border Fire"
+                },
+                {
+                    "name": "classification",
+                    "time": "2025-01-23T15:44:00Z",
+                    "value": "vegetation fire"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "loc-1",
+                    "qualifier": "near"
+                }
+            ]
+        },
+        {
+            "id": "responder-1",
+            "type": "Firefighters",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-23T15:44:00Z",
+                    "value": "Firefighters"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "loc-1",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-23T15:44:00Z",
+                    "value": "Otay Mountain Truck Trail"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "loc-2",
+                    "qualifier": "within"
+                }
+            ]
+        },
+        {
+            "id": "loc-2",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-23T15:44:00Z",
+                    "value": "Otay Mountain Wilderness"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e-1",
+            "type": "OnScene",
+            "time": "2025-01-23T15:44:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Firefighters are on scene of a vegetation fire located near Otay Mountain Truck Trail within the Otay Mountain Wilderness."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "incident"
+                },
+                {
+                    "objectId": "responder-1",
+                    "qualifier": "on-scene"
+                },
+                {
+                    "objectId": "loc-1",
+                    "qualifier": "near"
+                },
+                {
+                    "objectId": "loc-2",
+                    "qualifier": "within"
+                }
+            ]
+        }
+    ]
+}

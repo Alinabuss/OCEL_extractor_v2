@@ -1,0 +1,138 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "value",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ReportOutOfStock",
+            "attributes": [
+                {
+                    "name": "out_of_stock_confirmed",
+                    "type": "boolean"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Marco Pegoraro",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Marco Pegoraro"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Warehousing",
+                    "qualifier": "works-in"
+                }
+            ]
+        },
+        {
+            "id": "Warehousing",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Fire Stick 4K",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Fire Stick 4K"
+                },
+                {
+                    "name": "price",
+                    "value": "89.99"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-885453",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "value",
+                    "value": "101.15"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Fire Stick 4K",
+                    "qualifier": "associated-with"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e-1",
+            "type": "ReportOutOfStock",
+            "time": "2023-12-12T12:35:14Z",
+            "attributes": [
+                {
+                    "name": "out_of_stock_confirmed",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Marco Pegoraro",
+                    "qualifier": "reporter"
+                },
+                {
+                    "objectId": "i-885453",
+                    "qualifier": "reported_item"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,293 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "containmentPercent",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "EvacuationOrder",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                },
+                {
+                    "name": "final",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "Roads",
+            "attributes": [
+                {
+                    "name": "open",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "Crews",
+            "attributes": [
+                {
+                    "name": "plannedActivities",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Resources",
+            "attributes": [
+                {
+                    "name": "releaseStatus",
+                    "type": "string"
+                },
+                {
+                    "name": "onScene",
+                    "type": "boolean"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "EvacuationLifted",
+            "attributes": [
+                {
+                    "name": "final",
+                    "type": "boolean"
+                },
+                {
+                    "name": "roadsOpen",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "StatusUpdate",
+            "attributes": [
+                {
+                    "name": "containmentPercent",
+                    "type": "integer"
+                },
+                {
+                    "name": "noActivityObserved",
+                    "type": "boolean"
+                },
+                {
+                    "name": "noActivityTimeframe",
+                    "type": "string"
+                },
+                {
+                    "name": "plannedActivities",
+                    "type": "string"
+                },
+                {
+                    "name": "resourceReleaseStatus",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire-1",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-30T08:21:00Z",
+                    "value": "Border 2 Fire"
+                },
+                {
+                    "name": "containmentPercent",
+                    "time": "2025-01-30T08:21:00Z",
+                    "value": "100"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "org-1",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "San Diego County Sheriff's Office"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "evac-1",
+            "type": "EvacuationOrder",
+            "attributes": [
+                {
+                    "name": "status",
+                    "time": "2025-01-30T07:00:00Z",
+                    "value": "lifted"
+                },
+                {
+                    "name": "final",
+                    "time": "2025-01-30T07:00:00Z",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "appliesTo"
+                }
+            ]
+        },
+        {
+            "id": "roads-1",
+            "type": "Roads",
+            "attributes": [
+                {
+                    "name": "open",
+                    "time": "2025-01-30T07:00:00Z",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "near"
+                }
+            ]
+        },
+        {
+            "id": "crews-1",
+            "type": "Crews",
+            "attributes": [
+                {
+                    "name": "plannedActivities",
+                    "time": "2025-01-30T08:21:00Z",
+                    "value": "patrolling the fire area; collecting hose left on the fire line; completing all fire suppression repair needs"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "assignedTo"
+                }
+            ]
+        },
+        {
+            "id": "resources-1",
+            "type": "Resources",
+            "attributes": [
+                {
+                    "name": "releaseStatus",
+                    "time": "2025-01-30T08:21:00Z",
+                    "value": "in the process of being released"
+                },
+                {
+                    "name": "onScene",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "onSceneOf"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "EvacuationLifted",
+            "time": "2025-01-30T07:00:00Z",
+            "attributes": [
+                {
+                    "name": "final",
+                    "value": "true"
+                },
+                {
+                    "name": "roadsOpen",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "evac-1",
+                    "qualifier": "order"
+                },
+                {
+                    "objectId": "org-1",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "affected"
+                },
+                {
+                    "objectId": "roads-1",
+                    "qualifier": "affected"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "StatusUpdate",
+            "time": "2025-01-30T08:21:00Z",
+            "attributes": [
+                {
+                    "name": "containmentPercent",
+                    "value": "100"
+                },
+                {
+                    "name": "noActivityObserved",
+                    "value": "true"
+                },
+                {
+                    "name": "noActivityTimeframe",
+                    "value": "yesterday and overnight"
+                },
+                {
+                    "name": "plannedActivities",
+                    "value": "Crews will spend the day patrolling the fire area, collecting hose left on the fire line, and completing all fire suppression repair needs"
+                },
+                {
+                    "name": "resourceReleaseStatus",
+                    "value": "in the process of being released"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "crews-1",
+                    "qualifier": "involved"
+                },
+                {
+                    "objectId": "resources-1",
+                    "qualifier": "involved"
+                }
+            ]
+        }
+    ]
+}

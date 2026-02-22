@@ -1,0 +1,225 @@
+{
+    "objectTypes": [
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "float"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Quotation",
+            "attributes": []
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": []
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Invoice Receipt Created",
+            "attributes": []
+        },
+        {
+            "name": "Purchase Order Created",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt:1118",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "time": "2023-10-09T10:40:00Z",
+                    "value": "65100.0"
+                },
+                {
+                    "name": "status",
+                    "time": "2023-10-09T10:40:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:1116",
+                    "qualifier": "relatedTo"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt:1116",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "purchase_order[934]",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "status",
+                    "time": "2023-10-09T18:00:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation[546]",
+                    "qualifier": "linkedTo"
+                },
+                {
+                    "objectId": "Purchasing Group 001",
+                    "qualifier": "associatedWith"
+                }
+            ]
+        },
+        {
+            "id": "quotation[546]",
+            "type": "Quotation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Purchasing Group 001",
+                    "qualifier": "associatedWith"
+                }
+            ]
+        },
+        {
+            "id": "Purchasing Group 001",
+            "type": "PurchasingGroup",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "invoice receipt:1116",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "time": "2023-10-09T20:31:00Z",
+                    "value": "121000.0"
+                },
+                {
+                    "name": "status",
+                    "time": "2023-10-09T20:31:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:1112",
+                    "qualifier": "relatedTo"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt:1112",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Finance/Account Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Procurement Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Invoice Receipt Created",
+            "time": "2023-10-09T10:40:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:1118",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "Finance/Account Department",
+                    "qualifier": "creator"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Purchase Order Created",
+            "time": "2023-10-09T18:00:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchase_order[934]",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "Procurement Department",
+                    "qualifier": "creator"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "Invoice Receipt Created",
+            "time": "2023-10-09T20:31:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:1116",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "Finance/Account Department",
+                    "qualifier": "creator"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,119 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "createdBy",
+                    "type": "string"
+                },
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Quotation",
+            "attributes": []
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": [
+                {
+                    "name": "identifier",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "PurchaseOrderCreated",
+            "attributes": [
+                {
+                    "name": "createdBy",
+                    "type": "string"
+                },
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:1237",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "createdBy",
+                    "time": "2024-03-19T23:27:00Z",
+                    "value": "Procurement Department"
+                },
+                {
+                    "name": "lifecycle",
+                    "time": "2024-03-19T23:27:00Z",
+                    "value": "completed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:715",
+                    "qualifier": "linked"
+                },
+                {
+                    "objectId": "purchasing_group:003",
+                    "qualifier": "associatedWithPurchasingGroup"
+                }
+            ]
+        },
+        {
+            "id": "quotation:715",
+            "type": "Quotation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchasing_group:003",
+                    "qualifier": "associatedWithPurchasingGroup"
+                }
+            ]
+        },
+        {
+            "id": "purchasing_group:003",
+            "type": "PurchasingGroup",
+            "attributes": [
+                {
+                    "name": "identifier",
+                    "time": "2024-03-19T23:27:00Z",
+                    "value": "003"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "PurchaseOrderCreated",
+            "time": "2024-03-19T23:27:00Z",
+            "attributes": [
+                {
+                    "name": "createdBy",
+                    "value": "Procurement Department"
+                },
+                {
+                    "name": "lifecycle",
+                    "value": "completed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:1237",
+                    "qualifier": "created"
+                }
+            ]
+        }
+    ]
+}

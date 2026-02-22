@@ -1,0 +1,142 @@
+{
+    "objectTypes": [
+        {
+            "name": "PersonWithDisability",
+            "attributes": []
+        },
+        {
+            "name": "ElderlyPerson",
+            "attributes": []
+        },
+        {
+            "name": "Stage",
+            "attributes": []
+        },
+        {
+            "name": "ProceduralStep",
+            "attributes": []
+        },
+        {
+            "name": "Communication",
+            "attributes": []
+        },
+        {
+            "name": "Environment",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "MakeAccommodationOrAdjustment",
+            "attributes": []
+        },
+        {
+            "name": "EnsureUnderstanding",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "person_disability_1",
+            "type": "PersonWithDisability",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "env1",
+                    "qualifier": "interacts-with"
+                }
+            ]
+        },
+        {
+            "id": "person_elderly_1",
+            "type": "ElderlyPerson",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "env1",
+                    "qualifier": "interacts-with"
+                }
+            ]
+        },
+        {
+            "id": "stage1",
+            "type": "Stage",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "step1",
+            "type": "ProceduralStep",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "stage1",
+                    "qualifier": "part-of"
+                }
+            ]
+        },
+        {
+            "id": "comm1",
+            "type": "Communication",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "step1",
+                    "qualifier": "included-in"
+                }
+            ]
+        },
+        {
+            "id": "env1",
+            "type": "Environment",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "MakeAccommodationOrAdjustment",
+            "time": "2025-01-01T09:00:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "person_disability_1",
+                    "qualifier": "affected"
+                },
+                {
+                    "objectId": "stage1",
+                    "qualifier": "at-stage"
+                },
+                {
+                    "objectId": "step1",
+                    "qualifier": "at-step"
+                },
+                {
+                    "objectId": "comm1",
+                    "qualifier": "includes-communication"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "EnsureUnderstanding",
+            "time": "2025-01-01T10:00:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "person_disability_1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "person_elderly_1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "step1",
+                    "qualifier": "in-step"
+                }
+            ]
+        }
+    ]
+}

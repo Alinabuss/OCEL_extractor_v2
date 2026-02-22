@@ -1,0 +1,119 @@
+{
+    "objectTypes": [
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": [
+                {
+                    "name": "applicationId",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Vacancy",
+            "attributes": [
+                {
+                    "name": "vacancyId",
+                    "type": "string"
+                },
+                {
+                    "name": "title",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Submit Application",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "Detlef Weber",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Detlef Weber"
+                },
+                {
+                    "name": "role",
+                    "value": "applicant"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Application[770316]",
+            "type": "Application",
+            "attributes": [
+                {
+                    "name": "applicationId",
+                    "value": "770316"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Detlef Weber",
+                    "qualifier": "submittedBy"
+                },
+                {
+                    "objectId": "Vacancy[550026]",
+                    "qualifier": "appliesTo"
+                }
+            ]
+        },
+        {
+            "id": "Vacancy[550026]",
+            "type": "Vacancy",
+            "attributes": [
+                {
+                    "name": "vacancyId",
+                    "value": "550026"
+                },
+                {
+                    "name": "title",
+                    "value": "Programmer"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Submit Application",
+            "time": "2019-06-25T07:48:21Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Application[770316]",
+                    "qualifier": "application"
+                },
+                {
+                    "objectId": "Detlef Weber",
+                    "qualifier": "submitter"
+                },
+                {
+                    "objectId": "Vacancy[550026]",
+                    "qualifier": "vacancy"
+                }
+            ]
+        }
+    ]
+}

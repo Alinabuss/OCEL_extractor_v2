@@ -1,0 +1,185 @@
+{
+    "objectTypes": [
+        {
+            "name": "Case",
+            "attributes": [
+                {
+                    "name": "year",
+                    "type": "string"
+                },
+                {
+                    "name": "paragraphs",
+                    "type": "string"
+                },
+                {
+                    "name": "finding",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "CaseGroup",
+            "attributes": [
+                {
+                    "name": "jurisdiction",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "JudgmentIssued",
+            "attributes": [
+                {
+                    "name": "paragraphs",
+                    "type": "string"
+                },
+                {
+                    "name": "finding",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "French_cases",
+            "type": "CaseGroup",
+            "attributes": [
+                {
+                    "name": "jurisdiction",
+                    "time": "",
+                    "value": "France"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Vaudelle_v_France_2001",
+            "type": "Case",
+            "attributes": [
+                {
+                    "name": "year",
+                    "time": "2001-01-01T00:00:00Z",
+                    "value": "2001"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "French_cases",
+                    "qualifier": "reference-judgment-for"
+                }
+            ]
+        },
+        {
+            "id": "Labergere_v_France_2006",
+            "type": "Case",
+            "attributes": [
+                {
+                    "name": "year",
+                    "time": "2006-01-01T00:00:00Z",
+                    "value": "2006"
+                },
+                {
+                    "name": "paragraphs",
+                    "time": "2006-01-01T00:00:00Z",
+                    "value": "21-22"
+                },
+                {
+                    "name": "finding",
+                    "time": "2006-01-01T00:00:00Z",
+                    "value": "practical impossibility of appealing in the context of compulsory hospitalization"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "French_cases",
+                    "qualifier": "reference-judgment-for"
+                },
+                {
+                    "objectId": "G_v_France_2012",
+                    "qualifier": "compared-with"
+                }
+            ]
+        },
+        {
+            "id": "G_v_France_2012",
+            "type": "Case",
+            "attributes": [
+                {
+                    "name": "year",
+                    "time": "2012-01-01T00:00:00Z",
+                    "value": "2012"
+                },
+                {
+                    "name": "paragraphs",
+                    "time": "2012-01-01T00:00:00Z",
+                    "value": "54-57"
+                },
+                {
+                    "name": "finding",
+                    "time": "2012-01-01T00:00:00Z",
+                    "value": "non-violation of 6 (precautions taken for the preparation of the appearance before the assize court, examination of the capacity to defend oneself and to appear)"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "JudgmentIssued",
+            "time": "2001-01-01T00:00:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Vaudelle_v_France_2001",
+                    "qualifier": "issuedFor"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "JudgmentIssued",
+            "time": "2006-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "paragraphs",
+                    "value": "21-22"
+                },
+                {
+                    "name": "finding",
+                    "value": "practical impossibility of appealing in the context of compulsory hospitalization"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Labergere_v_France_2006",
+                    "qualifier": "issuedFor"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "JudgmentIssued",
+            "time": "2012-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "paragraphs",
+                    "value": "54-57"
+                },
+                {
+                    "name": "finding",
+                    "value": "non-violation of 6 (precautions taken for the preparation of the appearance before the assize court, examination of the capacity to defend oneself and to appear)"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "G_v_France_2012",
+                    "qualifier": "issuedFor"
+                }
+            ]
+        }
+    ]
+}

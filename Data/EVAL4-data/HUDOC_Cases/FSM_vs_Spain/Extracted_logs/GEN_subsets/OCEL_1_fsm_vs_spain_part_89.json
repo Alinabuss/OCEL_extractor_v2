@@ -1,0 +1,188 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Hearing",
+            "attributes": [
+                {
+                    "name": "period",
+                    "type": "string"
+                },
+                {
+                    "name": "lawyer_did_not_argue_difficulties",
+                    "type": "boolean"
+                },
+                {
+                    "name": "lawyer_did_not_request_procedural_adjustments",
+                    "type": "boolean"
+                },
+                {
+                    "name": "procedural_adjustment_examples",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Evidence",
+            "attributes": [
+                {
+                    "name": "isNew",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "Proceedings",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "SubmitNewEvidence",
+            "attributes": []
+        },
+        {
+            "name": "RequestDiscontinuation",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "applicant_1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "applicant"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "lawyer_1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "lawyer"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "represents"
+                }
+            ]
+        },
+        {
+            "id": "proceedings_1",
+            "type": "Proceedings",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "concerns"
+                }
+            ]
+        },
+        {
+            "id": "hearing_2019_01",
+            "type": "Hearing",
+            "attributes": [
+                {
+                    "name": "period",
+                    "value": "2019-01"
+                },
+                {
+                    "name": "lawyer_did_not_argue_difficulties",
+                    "value": "true"
+                },
+                {
+                    "name": "lawyer_did_not_request_procedural_adjustments",
+                    "value": "true"
+                },
+                {
+                    "name": "procedural_adjustment_examples",
+                    "value": "participation via videolink; presence of the guardian at the hearing"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "proceedings_1",
+                    "qualifier": "partOf"
+                }
+            ]
+        },
+        {
+            "id": "evidence_1",
+            "type": "Evidence",
+            "attributes": [
+                {
+                    "name": "isNew",
+                    "value": "true"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "SubmitNewEvidence",
+            "time": "2019-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "summary",
+                    "value": "lawyer submitted new evidence at the beginning of the hearing"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "lawyer_1",
+                    "qualifier": "performedBy"
+                },
+                {
+                    "objectId": "evidence_1",
+                    "qualifier": "submittedObject"
+                },
+                {
+                    "objectId": "hearing_2019_01",
+                    "qualifier": "occurredAt"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "RequestDiscontinuation",
+            "time": "2019-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "summary",
+                    "value": "lawyer requested discontinuation of the proceedings at the beginning of the hearing"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "lawyer_1",
+                    "qualifier": "performedBy"
+                },
+                {
+                    "objectId": "proceedings_1",
+                    "qualifier": "target"
+                },
+                {
+                    "objectId": "hearing_2019_01",
+                    "qualifier": "occurredAt"
+                }
+            ]
+        }
+    ]
+}

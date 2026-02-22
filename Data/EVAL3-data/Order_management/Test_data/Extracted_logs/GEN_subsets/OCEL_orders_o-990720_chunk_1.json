@@ -1,0 +1,130 @@
+{
+    "objectTypes": [
+        {
+            "name": "Order",
+            "attributes": [
+                {
+                    "name": "total",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "catalog_price",
+                    "type": "float"
+                },
+                {
+                    "name": "order_price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "PaymentReminderSent",
+            "attributes": [
+                {
+                    "name": "total",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o-990720",
+            "type": "Order",
+            "attributes": [
+                {
+                    "name": "total",
+                    "value": "756.98"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "i-882905",
+                    "qualifier": "includes"
+                },
+                {
+                    "objectId": "i-882906",
+                    "qualifier": "includes"
+                }
+            ]
+        },
+        {
+            "id": "i-882905",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "iPad"
+                },
+                {
+                    "name": "catalog_price",
+                    "value": "495.00"
+                },
+                {
+                    "name": "order_price",
+                    "value": "535.59"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-990720",
+                    "qualifier": "included_in"
+                }
+            ]
+        },
+        {
+            "id": "i-882906",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Echo Studio"
+                },
+                {
+                    "name": "catalog_price",
+                    "value": "199.99"
+                },
+                {
+                    "name": "order_price",
+                    "value": "216.39"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-990720",
+                    "qualifier": "included_in"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e-1",
+            "type": "PaymentReminderSent",
+            "time": "2023-09-10T09:07:45Z",
+            "attributes": [
+                {
+                    "name": "total",
+                    "value": "756.98"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-990720",
+                    "qualifier": "for"
+                }
+            ]
+        }
+    ]
+}

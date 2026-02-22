@@ -1,0 +1,309 @@
+{
+    "objectTypes": [
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                },
+                {
+                    "name": "set_price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Reorder",
+            "attributes": []
+        },
+        {
+            "name": "Item Pickup",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "employee-marco-pegoraro",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Marco Pegoraro"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "department-warehousing",
+                    "qualifier": "works_in"
+                }
+            ]
+        },
+        {
+            "id": "department-warehousing",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "product-echo",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Echo"
+                },
+                {
+                    "name": "price",
+                    "value": "99.99"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "product-iphone-x",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "iPhone X"
+                },
+                {
+                    "name": "price",
+                    "value": "699.00"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "product-macbook-pro",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "MacBook Pro"
+                },
+                {
+                    "name": "price",
+                    "value": "2500.00"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "product-echo-plus",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Echo Plus"
+                },
+                {
+                    "name": "price",
+                    "value": "149.99"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "item-i-884888",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "109.76"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-echo",
+                    "qualifier": "associated_with"
+                }
+            ]
+        },
+        {
+            "id": "item-i-885387",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "785.67"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-iphone-x",
+                    "qualifier": "associated_with"
+                }
+            ]
+        },
+        {
+            "id": "item-i-885426",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "set_price",
+                    "value": "2810.00"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-macbook-pro",
+                    "qualifier": "associated_with"
+                }
+            ]
+        },
+        {
+            "id": "item-i-885608",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "785.67"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-iphone-x",
+                    "qualifier": "associated_with"
+                }
+            ]
+        },
+        {
+            "id": "item-i-885684",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "168.57"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-echo-plus",
+                    "qualifier": "associated_with"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Reorder",
+            "time": "2023-11-16T16:15:47Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "employee-marco-pegoraro",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "item-i-884888",
+                    "qualifier": "item"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Item Pickup",
+            "time": "2023-12-07T14:09:24Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "employee-marco-pegoraro",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "item-i-885387",
+                    "qualifier": "item"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "Item Pickup",
+            "time": "2023-12-11T09:39:14Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "employee-marco-pegoraro",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "item-i-885426",
+                    "qualifier": "item"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "Item Pickup",
+            "time": "2023-12-18T15:20:51Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "employee-marco-pegoraro",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "item-i-885608",
+                    "qualifier": "item"
+                }
+            ]
+        },
+        {
+            "id": "e5",
+            "type": "Item Pickup",
+            "time": "2023-12-21T09:29:53Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "employee-marco-pegoraro",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "item-i-885684",
+                    "qualifier": "item"
+                }
+            ]
+        }
+    ]
+}

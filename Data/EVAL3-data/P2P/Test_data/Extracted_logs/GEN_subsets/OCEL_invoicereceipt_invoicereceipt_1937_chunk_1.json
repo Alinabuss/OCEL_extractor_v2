@@ -1,0 +1,102 @@
+{
+    "objectTypes": [
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "InvoiceReceiptCreationCompleted",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt:1937",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "time": "2024-10-22T00:39:00Z",
+                    "value": "154500.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:1936",
+                    "qualifier": "linkedTo"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt:1936",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "time": "",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "finance/account department",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "finance/account department"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "event:1",
+            "type": "InvoiceReceiptCreationCompleted",
+            "time": "2024-10-22T00:39:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:1937",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "goods receipt:1936",
+                    "qualifier": "linked"
+                },
+                {
+                    "objectId": "finance/account department",
+                    "qualifier": "performedBy"
+                }
+            ]
+        }
+    ]
+}

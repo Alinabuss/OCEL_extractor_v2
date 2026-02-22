@@ -1,0 +1,153 @@
+{
+    "objectTypes": [
+        {
+            "name": "Customer",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Order",
+            "attributes": [
+                {
+                    "name": "value",
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "number"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Order Confirmation Processed",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "Baltic Wave Energies Ltd",
+            "type": "Customer",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-04-21T12:33:45Z",
+                    "value": "Baltic Wave Energies Ltd"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o-990038",
+            "type": "Order",
+            "attributes": [
+                {
+                    "name": "value",
+                    "time": "2023-04-21T12:33:45Z",
+                    "value": "823.98"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-880167",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "time": "2023-04-21T12:33:45Z",
+                    "value": "529.00"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-990038",
+                    "qualifier": "includedIn"
+                }
+            ]
+        },
+        {
+            "id": "Echo Studio",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "price",
+                    "time": "2023-04-21T12:33:45Z",
+                    "value": "199.99"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-990038",
+                    "qualifier": "includedIn"
+                }
+            ]
+        },
+        {
+            "id": "Echo Show 5",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "price",
+                    "time": "2023-04-21T12:33:45Z",
+                    "value": "89.99"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-990038",
+                    "qualifier": "includedIn"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e-1",
+            "type": "Order Confirmation Processed",
+            "time": "2023-04-21T12:33:45Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "o-990038",
+                    "qualifier": "order"
+                },
+                {
+                    "objectId": "Baltic Wave Energies Ltd",
+                    "qualifier": "processedBy"
+                },
+                {
+                    "objectId": "i-880167",
+                    "qualifier": "includedItem"
+                },
+                {
+                    "objectId": "Echo Studio",
+                    "qualifier": "includedProduct"
+                },
+                {
+                    "objectId": "Echo Show 5",
+                    "qualifier": "includedProduct"
+                }
+            ]
+        }
+    ]
+}

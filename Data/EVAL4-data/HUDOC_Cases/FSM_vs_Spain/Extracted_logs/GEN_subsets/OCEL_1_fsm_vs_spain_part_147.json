@@ -1,0 +1,344 @@
+{
+    "objectTypes": [
+        {
+            "name": "Court",
+            "attributes": []
+        },
+        {
+            "name": "JudicialAuthority",
+            "attributes": [
+                {
+                    "name": "level",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Applicant",
+            "attributes": []
+        },
+        {
+            "name": "Lawyer",
+            "attributes": []
+        },
+        {
+            "name": "Proceedings",
+            "attributes": [
+                {
+                    "name": "proceeding_type",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ForensicReport",
+            "attributes": [
+                {
+                    "name": "purpose",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "AdditionalReport",
+            "attributes": []
+        },
+        {
+            "name": "LegalProvision",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "EnsuredRepresentation",
+            "attributes": [
+                {
+                    "name": "stage",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "RequestedForensicReports",
+            "attributes": [
+                {
+                    "name": "count",
+                    "type": "integer"
+                },
+                {
+                    "name": "purpose",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ExaminedAdditionalReports",
+            "attributes": []
+        },
+        {
+            "name": "EnsuredRightToRemainSilent",
+            "attributes": [
+                {
+                    "name": "adverse_inferences_not_drawn",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "CourtAssessment",
+            "attributes": [
+                {
+                    "name": "not_persuaded",
+                    "type": "boolean"
+                },
+                {
+                    "name": "reference",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "court1",
+            "type": "Court",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "judauth1",
+            "type": "JudicialAuthority",
+            "attributes": [
+                {
+                    "name": "level",
+                    "value": "national"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "applicant1",
+            "type": "Applicant",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "lawyer1",
+            "type": "Lawyer",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "applicant1",
+                    "qualifier": "represents"
+                }
+            ]
+        },
+        {
+            "id": "proceedings1",
+            "type": "Proceedings",
+            "attributes": [
+                {
+                    "name": "proceeding_type",
+                    "value": "criminal"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant1",
+                    "qualifier": "against"
+                }
+            ]
+        },
+        {
+            "id": "forensic_report_1",
+            "type": "ForensicReport",
+            "attributes": [
+                {
+                    "name": "purpose",
+                    "value": "verify whether the applicant understood the charges and the scope of the criminal proceedings"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "forensic_report_2",
+            "type": "ForensicReport",
+            "attributes": [
+                {
+                    "name": "purpose",
+                    "value": "verify whether the applicant understood the charges and the scope of the criminal proceedings"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "additional_report_1",
+            "type": "AdditionalReport",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "applicant1",
+                    "qualifier": "submitted_by"
+                }
+            ]
+        },
+        {
+            "id": "article6_1_3",
+            "type": "LegalProvision",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "value": "Article 6 1 and 3 of the Convention"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "EnsuredRepresentation",
+            "time": "2020-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "stage",
+                    "value": "every stage"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "judauth1",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "applicant1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "lawyer1",
+                    "qualifier": "representative"
+                },
+                {
+                    "objectId": "proceedings1",
+                    "qualifier": "during"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "RequestedForensicReports",
+            "time": "2020-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "count",
+                    "value": "2"
+                },
+                {
+                    "name": "purpose",
+                    "value": "verify whether the applicant understood the charges and the scope of the criminal proceedings"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "judauth1",
+                    "qualifier": "requester"
+                },
+                {
+                    "objectId": "forensic_report_1",
+                    "qualifier": "requested"
+                },
+                {
+                    "objectId": "forensic_report_2",
+                    "qualifier": "requested"
+                },
+                {
+                    "objectId": "proceedings1",
+                    "qualifier": "regarding"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "ExaminedAdditionalReports",
+            "time": "2020-01-01T00:00:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "judauth1",
+                    "qualifier": "examiner"
+                },
+                {
+                    "objectId": "additional_report_1",
+                    "qualifier": "examined"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "EnsuredRightToRemainSilent",
+            "time": "2020-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "adverse_inferences_not_drawn",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "judauth1",
+                    "qualifier": "ensurer"
+                },
+                {
+                    "objectId": "applicant1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "proceedings1",
+                    "qualifier": "in"
+                }
+            ]
+        },
+        {
+            "id": "e5",
+            "type": "CourtAssessment",
+            "time": "2020-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "not_persuaded",
+                    "value": "true"
+                },
+                {
+                    "name": "reference",
+                    "value": "Article 6 1 and 3 of the Convention"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court1",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "judauth1",
+                    "qualifier": "evaluated_authority"
+                },
+                {
+                    "objectId": "proceedings1",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "applicant1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "article6_1_3",
+                    "qualifier": "legal_reference"
+                }
+            ]
+        }
+    ]
+}

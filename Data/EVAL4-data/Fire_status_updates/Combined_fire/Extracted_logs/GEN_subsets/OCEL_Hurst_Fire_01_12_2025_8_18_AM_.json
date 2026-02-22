@@ -1,0 +1,158 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ResidentGroup",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Fire Update",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Hurst Fire",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-12T08:18:00Z",
+                    "value": "Hurst Fire"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Angeles National Forest",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-12T08:18:00Z",
+                    "value": "Angeles National Forest"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Los Angeles County Fire Department",
+                    "qualifier": "in_unified_command_with"
+                },
+                {
+                    "objectId": "Los Angeles City Fire Department",
+                    "qualifier": "in_unified_command_with"
+                }
+            ]
+        },
+        {
+            "id": "Los Angeles County Fire Department",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-12T08:18:00Z",
+                    "value": "Los Angeles County Fire Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Angeles National Forest",
+                    "qualifier": "in_unified_command_with"
+                }
+            ]
+        },
+        {
+            "id": "Los Angeles City Fire Department",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-12T08:18:00Z",
+                    "value": "Los Angeles City Fire Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Angeles National Forest",
+                    "qualifier": "in_unified_command_with"
+                }
+            ]
+        },
+        {
+            "id": "Residents",
+            "type": "ResidentGroup",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-12T08:18:00Z",
+                    "value": "Residents"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Fire Update",
+            "time": "2025-01-12T08:18:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Firefighting efforts continue to concentrate on building and improving containment lines with a focus on public safety and structure protection. Residents returning home are advised to use extreme caution."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Hurst Fire",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "Residents",
+                    "qualifier": "advised"
+                },
+                {
+                    "objectId": "Angeles National Forest",
+                    "qualifier": "in_unified_command"
+                },
+                {
+                    "objectId": "Los Angeles County Fire Department",
+                    "qualifier": "in_unified_command"
+                },
+                {
+                    "objectId": "Los Angeles City Fire Department",
+                    "qualifier": "in_unified_command"
+                }
+            ]
+        }
+    ]
+}

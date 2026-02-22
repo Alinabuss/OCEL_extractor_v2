@@ -1,0 +1,111 @@
+{
+    "objectTypes": [
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": [
+                {
+                    "name": "number",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Vacancy",
+            "attributes": [
+                {
+                    "name": "title",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Application Submitted",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Applicant[Mary Li]",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Mary Li"
+                }
+            ]
+        },
+        {
+            "id": "Application[770297]",
+            "type": "Application",
+            "attributes": [
+                {
+                    "name": "number",
+                    "value": "770297"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Applicant[Mary Li]",
+                    "qualifier": "submitted_by"
+                },
+                {
+                    "objectId": "Vacancy[550024]",
+                    "qualifier": "for_vacancy"
+                }
+            ]
+        },
+        {
+            "id": "Vacancy[550024]",
+            "type": "Vacancy",
+            "attributes": [
+                {
+                    "name": "title",
+                    "value": "Consultant"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Application Submitted",
+            "time": "2019-06-21T19:55:45Z",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "submitted"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Applicant[Mary Li]",
+                    "qualifier": "applicant"
+                },
+                {
+                    "objectId": "Application[770297]",
+                    "qualifier": "application"
+                },
+                {
+                    "objectId": "Vacancy[550024]",
+                    "qualifier": "vacancy"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,215 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "size",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Wind",
+            "attributes": [
+                {
+                    "name": "strength",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "IncidentCommand",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Structure",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Fire Status Update",
+            "attributes": [
+                {
+                    "name": "area",
+                    "type": "string"
+                },
+                {
+                    "name": "direction",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire-woodley",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Woodley Fire",
+                    "time": "2025-01-08T06:27:00Z"
+                },
+                {
+                    "name": "size",
+                    "value": "approximately 75 acres",
+                    "time": "2025-01-08T06:27:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "location-burbank-boulevard",
+                    "qualifier": "threatens"
+                }
+            ]
+        },
+        {
+            "id": "wind-1",
+            "type": "Wind",
+            "attributes": [
+                {
+                    "name": "strength",
+                    "value": "strong",
+                    "time": "2025-01-08T06:27:00Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "location-burbank-boulevard",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Burbank Boulevard"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "incident-command-1",
+            "type": "IncidentCommand",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Incident Command"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-woodley",
+                    "qualifier": "reportsOn"
+                }
+            ]
+        },
+        {
+            "id": "crews-1",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Crews",
+                    "time": "2025-01-08T06:27:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-woodley",
+                    "qualifier": "workingOn"
+                },
+                {
+                    "objectId": "structures-affected-1",
+                    "qualifier": "protecting"
+                }
+            ]
+        },
+        {
+            "id": "structures-affected-1",
+            "type": "Structure",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "structures in the affected area"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Fire Status Update",
+            "time": "2025-01-08T06:27:00Z",
+            "attributes": [
+                {
+                    "name": "area",
+                    "value": "approximately 75 acres"
+                },
+                {
+                    "name": "direction",
+                    "value": "south"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-woodley",
+                    "qualifier": "incident"
+                },
+                {
+                    "objectId": "wind-1",
+                    "qualifier": "drivenBy"
+                },
+                {
+                    "objectId": "location-burbank-boulevard",
+                    "qualifier": "threatens"
+                },
+                {
+                    "objectId": "incident-command-1",
+                    "qualifier": "reportedBy"
+                },
+                {
+                    "objectId": "crews-1",
+                    "qualifier": "responding"
+                },
+                {
+                    "objectId": "structures-affected-1",
+                    "qualifier": "protected"
+                }
+            ]
+        }
+    ]
+}

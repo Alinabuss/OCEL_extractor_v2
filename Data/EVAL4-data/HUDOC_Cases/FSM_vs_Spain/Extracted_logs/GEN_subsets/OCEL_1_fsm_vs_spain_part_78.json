@@ -1,0 +1,298 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "ageGroup",
+                    "type": "string"
+                },
+                {
+                    "name": "elderly",
+                    "type": "boolean"
+                },
+                {
+                    "name": "disability",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "Party",
+            "attributes": []
+        },
+        {
+            "name": "PublicProsecutor",
+            "attributes": []
+        },
+        {
+            "name": "Court",
+            "attributes": []
+        },
+        {
+            "name": "Case",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "AccommodationsAndAdjustments_Made_At_Request",
+            "attributes": []
+        },
+        {
+            "name": "AccommodationsAndAdjustments_Made_By_Court",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "person_disability_1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "disability",
+                    "time": "",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "case_disability_1",
+                    "qualifier": "in_case"
+                }
+            ]
+        },
+        {
+            "id": "party_1",
+            "type": "Party",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "case_disability_1",
+                    "qualifier": "party_in_case"
+                }
+            ]
+        },
+        {
+            "id": "public_prosecutor_1",
+            "type": "PublicProsecutor",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "case_disability_1",
+                    "qualifier": "prosecutor_in_case"
+                }
+            ]
+        },
+        {
+            "id": "court_1",
+            "type": "Court",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "case_disability_1",
+                    "qualifier": "deciding_court"
+                },
+                {
+                    "objectId": "case_80plus_1",
+                    "qualifier": "deciding_court"
+                }
+            ]
+        },
+        {
+            "id": "case_disability_1",
+            "type": "Case",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "person_disability_1",
+                    "qualifier": "concerns_person"
+                },
+                {
+                    "objectId": "party_1",
+                    "qualifier": "has_party"
+                },
+                {
+                    "objectId": "public_prosecutor_1",
+                    "qualifier": "has_public_prosecutor"
+                },
+                {
+                    "objectId": "court_1",
+                    "qualifier": "has_court"
+                }
+            ]
+        },
+        {
+            "id": "person_elderly_below80_1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "ageGroup",
+                    "time": "",
+                    "value": "below80"
+                },
+                {
+                    "name": "elderly",
+                    "time": "",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "case_elderly_below80_1",
+                    "qualifier": "in_case"
+                }
+            ]
+        },
+        {
+            "id": "case_elderly_below80_1",
+            "type": "Case",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "person_elderly_below80_1",
+                    "qualifier": "concerns_person"
+                }
+            ]
+        },
+        {
+            "id": "person_80plus_1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "ageGroup",
+                    "time": "",
+                    "value": "80_or_older"
+                },
+                {
+                    "name": "elderly",
+                    "time": "",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "case_80plus_1",
+                    "qualifier": "in_case"
+                }
+            ]
+        },
+        {
+            "id": "case_80plus_1",
+            "type": "Case",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "person_80plus_1",
+                    "qualifier": "concerns_person"
+                },
+                {
+                    "objectId": "court_1",
+                    "qualifier": "has_court"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "AccommodationsAndAdjustments_Made_At_Request",
+            "time": "2025-01-01T09:00:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "case_disability_1",
+                    "qualifier": "in_case"
+                },
+                {
+                    "objectId": "person_disability_1",
+                    "qualifier": "affected_person"
+                },
+                {
+                    "objectId": "party_1",
+                    "qualifier": "requested_by"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "AccommodationsAndAdjustments_Made_By_Court",
+            "time": "2025-01-01T09:05:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "case_disability_1",
+                    "qualifier": "in_case"
+                },
+                {
+                    "objectId": "person_disability_1",
+                    "qualifier": "affected_person"
+                },
+                {
+                    "objectId": "court_1",
+                    "qualifier": "initiated_by"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "AccommodationsAndAdjustments_Made_At_Request",
+            "time": "2025-01-02T10:00:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "case_elderly_below80_1",
+                    "qualifier": "in_case"
+                },
+                {
+                    "objectId": "person_elderly_below80_1",
+                    "qualifier": "affected_person"
+                },
+                {
+                    "objectId": "person_elderly_below80_1",
+                    "qualifier": "requested_by"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "AccommodationsAndAdjustments_Made_At_Request",
+            "time": "2025-01-03T11:00:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "case_80plus_1",
+                    "qualifier": "in_case"
+                },
+                {
+                    "objectId": "person_80plus_1",
+                    "qualifier": "affected_person"
+                },
+                {
+                    "objectId": "person_80plus_1",
+                    "qualifier": "requested_by"
+                }
+            ]
+        },
+        {
+            "id": "e5",
+            "type": "AccommodationsAndAdjustments_Made_By_Court",
+            "time": "2025-01-03T11:05:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "case_80plus_1",
+                    "qualifier": "in_case"
+                },
+                {
+                    "objectId": "person_80plus_1",
+                    "qualifier": "affected_person"
+                },
+                {
+                    "objectId": "court_1",
+                    "qualifier": "initiated_by"
+                }
+            ]
+        }
+    ]
+}

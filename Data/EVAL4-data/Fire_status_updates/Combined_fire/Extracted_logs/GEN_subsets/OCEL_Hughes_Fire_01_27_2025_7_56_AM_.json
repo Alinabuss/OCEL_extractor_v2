@@ -1,0 +1,367 @@
+{
+    "objectTypes": [
+        {
+            "name": "Incident",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "containment",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Team",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "activities",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Weather",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "forecast",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Alert",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "expires",
+                    "type": "datetime"
+                }
+            ]
+        },
+        {
+            "name": "Resource",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "purpose",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Website",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "url",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Population",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ReportPublished",
+            "attributes": [
+                {
+                    "name": "headline",
+                    "type": "string"
+                },
+                {
+                    "name": "summary",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o_incident_hughes_fire",
+            "type": "Incident",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Hughes Fire",
+                    "time": "2025-01-27T07:56:00Z"
+                },
+                {
+                    "name": "containment",
+                    "value": "95%",
+                    "time": "2025-01-27T07:56:00Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_crews",
+            "type": "Team",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "crews",
+                    "time": "2025-01-27T07:56:00Z"
+                },
+                {
+                    "name": "activities",
+                    "value": "mop-up; clearing roads; creating water bars; backhauling equipment",
+                    "time": "2025-01-27T07:56:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_incident_hughes_fire",
+                    "qualifier": "assignedTo"
+                }
+            ]
+        },
+        {
+            "id": "o_firefighters",
+            "type": "Team",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "firefighters",
+                    "time": "2025-01-27T07:56:00Z"
+                },
+                {
+                    "name": "status",
+                    "value": "demobilizing",
+                    "time": "2025-01-27T07:56:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_incident_hughes_fire",
+                    "qualifier": "assignedTo"
+                }
+            ]
+        },
+        {
+            "id": "o_resources",
+            "type": "Resource",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "resources",
+                    "time": "2025-01-27T07:56:00Z"
+                },
+                {
+                    "name": "status",
+                    "value": "demobilizing",
+                    "time": "2025-01-27T07:56:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_incident_hughes_fire",
+                    "qualifier": "assignedTo"
+                }
+            ]
+        },
+        {
+            "id": "o_weather_conditions",
+            "type": "Weather",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Rain throughout the day aided fire suppression yesterday; expected to continue into this evening",
+                    "time": "2025-01-27T07:56:00Z"
+                },
+                {
+                    "name": "forecast",
+                    "value": "Warmer and drier air projected Tuesday through Friday",
+                    "time": "2025-01-27T07:56:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_incident_hughes_fire",
+                    "qualifier": "relatedTo"
+                }
+            ]
+        },
+        {
+            "id": "o_flood_watch",
+            "type": "Alert",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Flood Watch",
+                    "time": "2025-01-27T07:56:00Z"
+                },
+                {
+                    "name": "expires",
+                    "value": "2025-01-27T16:00:00Z",
+                    "time": "2025-01-27T07:56:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_weather_conditions",
+                    "qualifier": "relatedTo"
+                },
+                {
+                    "objectId": "o_incident_hughes_fire",
+                    "qualifier": "relatedTo"
+                }
+            ]
+        },
+        {
+            "id": "o_residents",
+            "type": "Population",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "residents",
+                    "time": "2025-01-27T07:56:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_website_dpw",
+                    "qualifier": "directedTo"
+                }
+            ]
+        },
+        {
+            "id": "o_website_dpw",
+            "type": "Website",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Los Angeles County Department of Public Works website",
+                    "time": "2025-01-27T07:56:00Z"
+                },
+                {
+                    "name": "url",
+                    "value": "https://dpw.lacounty.gov/dsg/sandbags/",
+                    "time": "2025-01-27T07:56:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_sandbags",
+                    "qualifier": "infoAbout"
+                }
+            ]
+        },
+        {
+            "id": "o_sandbags",
+            "type": "Resource",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "sandbags",
+                    "time": "2025-01-27T07:56:00Z"
+                },
+                {
+                    "name": "purpose",
+                    "value": "protection against possible debris flow",
+                    "time": "2025-01-27T07:56:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_website_dpw",
+                    "qualifier": "infoAvailableAt"
+                },
+                {
+                    "objectId": "o_residents",
+                    "qualifier": "intendedFor"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "ReportPublished",
+            "time": "2025-01-27T07:56:00Z",
+            "attributes": [
+                {
+                    "name": "headline",
+                    "value": "Hughes Fire update as of 01/27/2025 07:56 AM"
+                },
+                {
+                    "name": "summary",
+                    "value": "Rain throughout the day aided suppression yesterday; crews continued mop-up (clearing roads, creating water bars, backhauling equipment). Containment now at 95%. Rainy conditions expected to continue into this evening; flood watch in effect until 4 p.m. Residents can visit the Los Angeles County Department of Public Works website for sandbags (https://dpw.lacounty.gov/dsg/sandbags/). Warmer and drier air projected Tuesday through Friday. For additional detail: Hughes Fire Information | InciWeb"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_incident_hughes_fire",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "o_crews",
+                    "qualifier": "involved"
+                },
+                {
+                    "objectId": "o_firefighters",
+                    "qualifier": "involved"
+                },
+                {
+                    "objectId": "o_resources",
+                    "qualifier": "involved"
+                },
+                {
+                    "objectId": "o_weather_conditions",
+                    "qualifier": "mentioned"
+                },
+                {
+                    "objectId": "o_flood_watch",
+                    "qualifier": "mentioned"
+                },
+                {
+                    "objectId": "o_residents",
+                    "qualifier": "audience"
+                },
+                {
+                    "objectId": "o_website_dpw",
+                    "qualifier": "infoSource"
+                },
+                {
+                    "objectId": "o_sandbags",
+                    "qualifier": "resourceMentioned"
+                }
+            ]
+        }
+    ]
+}

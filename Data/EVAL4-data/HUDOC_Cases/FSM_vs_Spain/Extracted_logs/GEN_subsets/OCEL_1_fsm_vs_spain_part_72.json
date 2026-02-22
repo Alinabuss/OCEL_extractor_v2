@@ -1,0 +1,176 @@
+{
+    "objectTypes": [
+        {
+            "name": "Judge",
+            "attributes": []
+        },
+        {
+            "name": "Defendant",
+            "attributes": []
+        },
+        {
+            "name": "ForensicExperts",
+            "attributes": []
+        },
+        {
+            "name": "Establishment",
+            "attributes": []
+        },
+        {
+            "name": "Report",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "JudgeNoticesDiminishedMentalCapacity",
+            "attributes": [
+                {
+                    "name": "observedSigns",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "SubmitToForensicExamination",
+            "attributes": [
+                {
+                    "name": "immediacy",
+                    "type": "string"
+                },
+                {
+                    "name": "locationOption",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ExpertsGiveReport",
+            "attributes": [
+                {
+                    "name": "manner",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "judge_1",
+            "type": "Judge",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "defendant_1",
+            "type": "Defendant",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "experts_1",
+            "type": "ForensicExperts",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "estab_prison_1",
+            "type": "Establishment",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "estab_public_1",
+            "type": "Establishment",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "report_1",
+            "type": "Report",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "JudgeNoticesDiminishedMentalCapacity",
+            "time": "2020-01-01T09:00:00Z",
+            "attributes": [
+                {
+                    "name": "observedSigns",
+                    "value": "diminished mental capacity"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "judge_1",
+                    "qualifier": "observer"
+                },
+                {
+                    "objectId": "defendant_1",
+                    "qualifier": "subject"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "SubmitToForensicExamination",
+            "time": "2020-01-01T09:00:01Z",
+            "attributes": [
+                {
+                    "name": "immediacy",
+                    "value": "immediately"
+                },
+                {
+                    "name": "locationOption",
+                    "value": "establishment in which defendant is imprisoned or another public establishment if more convenient or if at liberty"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "judge_1",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "defendant_1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "experts_1",
+                    "qualifier": "examiner"
+                },
+                {
+                    "objectId": "estab_prison_1",
+                    "qualifier": "locationCandidate"
+                },
+                {
+                    "objectId": "estab_public_1",
+                    "qualifier": "locationAlternative"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "ExpertsGiveReport",
+            "time": "2020-01-05T12:00:00Z",
+            "attributes": [
+                {
+                    "name": "manner",
+                    "value": "set forth in Chapter VII of this Title"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "experts_1",
+                    "qualifier": "author"
+                },
+                {
+                    "objectId": "report_1",
+                    "qualifier": "result"
+                }
+            ]
+        }
+    ]
+}

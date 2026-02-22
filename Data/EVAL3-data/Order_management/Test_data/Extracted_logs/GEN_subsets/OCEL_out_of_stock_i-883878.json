@@ -1,0 +1,111 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "fullName",
+                    "type": "string"
+                },
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "decimal"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "decimal"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Item Out of Stock Reported",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "person-1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "fullName",
+                    "value": "Leah Tacke genannt Unterberg"
+                },
+                {
+                    "name": "role",
+                    "value": "Warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-883878",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "141.61"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-1",
+                    "qualifier": "associated-with"
+                }
+            ]
+        },
+        {
+            "id": "product-1",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Kindle Paperwhite"
+                },
+                {
+                    "name": "price",
+                    "value": "129.00"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e-1",
+            "type": "Item Out of Stock Reported",
+            "time": "2023-10-04T09:51:54Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "person-1",
+                    "qualifier": "reported-by"
+                },
+                {
+                    "objectId": "i-883878",
+                    "qualifier": "affected-item"
+                }
+            ]
+        }
+    ]
+}

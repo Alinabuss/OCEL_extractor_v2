@@ -1,0 +1,94 @@
+{
+    "objectTypes": [
+        {
+            "name": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "complete two-way match",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "goods receipt:1826",
+            "type": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:1824",
+                    "qualifier": "matched-against"
+                }
+            ]
+        },
+        {
+            "id": "invoice receipt:1824",
+            "type": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "value": "101600.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:1826",
+                    "qualifier": "matched-with"
+                }
+            ]
+        },
+        {
+            "id": "Finance/Account Department",
+            "type": "department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "complete two-way match",
+            "time": "2024-09-04T12:08:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:1826",
+                    "qualifier": "goods-receipt"
+                },
+                {
+                    "objectId": "invoice receipt:1824",
+                    "qualifier": "invoice-receipt"
+                },
+                {
+                    "objectId": "Finance/Account Department",
+                    "qualifier": "performed-by"
+                }
+            ]
+        }
+    ]
+}

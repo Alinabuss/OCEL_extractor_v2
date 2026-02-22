@@ -1,0 +1,89 @@
+{
+    "objectTypes": [
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "integer"
+                },
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Two-Way Match",
+            "attributes": [
+                {
+                    "name": "performedBy",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "goods receipt:34",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "value": "101"
+                },
+                {
+                    "name": "lifecycle",
+                    "time": "2022-05-06T07:42:00Z",
+                    "value": "completed"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "invoice receipt:39",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "value": "42000.0"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Two-Way Match",
+            "time": "2022-05-06T07:42:00Z",
+            "attributes": [
+                {
+                    "name": "performedBy",
+                    "value": "Finance/Account Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:34",
+                    "qualifier": "for"
+                },
+                {
+                    "objectId": "invoice receipt:39",
+                    "qualifier": "involved"
+                }
+            ]
+        }
+    ]
+}

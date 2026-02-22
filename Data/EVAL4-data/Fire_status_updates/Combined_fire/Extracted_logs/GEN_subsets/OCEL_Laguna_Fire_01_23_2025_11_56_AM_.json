@@ -1,0 +1,108 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Zone",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Report",
+            "attributes": [
+                {
+                    "name": "text",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire-1",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Laguna Fire",
+                    "time": "2025-01-23T11:56:00Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "zone-1",
+            "type": "Zone",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Laguna Zone 1",
+                    "time": "2025-01-23T11:56:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "part-of"
+                }
+            ]
+        },
+        {
+            "id": "zone-2",
+            "type": "Zone",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Laguna Zone 2",
+                    "time": "2025-01-23T11:56:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "part-of"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Report",
+            "time": "2025-01-23T11:56:00Z",
+            "attributes": [
+                {
+                    "name": "text",
+                    "value": "Laguna Fire as of 01/23/2025 at 11:56 AM: Laguna Zone 1; Laguna Zone 2"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "reports-on"
+                },
+                {
+                    "objectId": "zone-1",
+                    "qualifier": "reports-on"
+                },
+                {
+                    "objectId": "zone-2",
+                    "qualifier": "reports-on"
+                }
+            ]
+        }
+    ]
+}

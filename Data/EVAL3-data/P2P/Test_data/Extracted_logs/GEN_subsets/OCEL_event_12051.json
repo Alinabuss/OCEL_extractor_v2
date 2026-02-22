@@ -1,0 +1,130 @@
+{
+    "objectTypes": [
+        {
+            "name": "Goods Receipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "Invoice Receipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "float"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                },
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Goods Receipt Recorded",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "Invoice Receipt Created",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "float"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                },
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "goods receipt:778",
+            "type": "Goods Receipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "time": "",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "invoice receipt:787",
+            "type": "Invoice Receipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "time": "2023-05-12T18:25:00Z",
+                    "value": "9900.0"
+                },
+                {
+                    "name": "status",
+                    "time": "2023-05-12T18:25:00Z",
+                    "value": "complete"
+                },
+                {
+                    "name": "department",
+                    "time": "2023-05-12T18:25:00Z",
+                    "value": "Finance/Account Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:778",
+                    "qualifier": "related"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "evt1",
+            "type": "Invoice Receipt Created",
+            "time": "2023-05-12T18:25:00Z",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "value": "9900.0"
+                },
+                {
+                    "name": "status",
+                    "value": "complete"
+                },
+                {
+                    "name": "department",
+                    "value": "Finance/Account Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:787",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "goods receipt:778",
+                    "qualifier": "related"
+                }
+            ]
+        }
+    ]
+}

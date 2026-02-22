@@ -1,0 +1,309 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "official_name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Resource",
+            "attributes": [
+                {
+                    "name": "mode",
+                    "type": "string"
+                },
+                {
+                    "name": "working_hours",
+                    "type": "string"
+                },
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Group",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Asset",
+            "attributes": [
+                {
+                    "name": "kind",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Weather",
+            "attributes": [
+                {
+                    "name": "phenomenon",
+                    "type": "string"
+                },
+                {
+                    "name": "expected_timeframe",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "SituationReport",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire-1",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "official_name",
+                    "time": "2025-01-25T06:50:00Z",
+                    "value": "Border 2 Fire"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "homes",
+                    "qualifier": "threatens"
+                },
+                {
+                    "objectId": "communities",
+                    "qualifier": "threatens"
+                },
+                {
+                    "objectId": "infrastructure",
+                    "qualifier": "threatens"
+                }
+            ]
+        },
+        {
+            "id": "resources-air",
+            "type": "Resource",
+            "attributes": [
+                {
+                    "name": "mode",
+                    "time": "2025-01-25T06:50:00Z",
+                    "value": "air"
+                },
+                {
+                    "name": "working_hours",
+                    "time": "2025-01-25T06:50:00Z",
+                    "value": "day and night"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "residents",
+                    "qualifier": "ensures-safety-of"
+                },
+                {
+                    "objectId": "property",
+                    "qualifier": "ensures-safety-of"
+                }
+            ]
+        },
+        {
+            "id": "resources-ground",
+            "type": "Resource",
+            "attributes": [
+                {
+                    "name": "mode",
+                    "time": "2025-01-25T06:50:00Z",
+                    "value": "ground"
+                },
+                {
+                    "name": "working_hours",
+                    "time": "2025-01-25T06:50:00Z",
+                    "value": "day and night"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "residents",
+                    "qualifier": "ensures-safety-of"
+                },
+                {
+                    "objectId": "property",
+                    "qualifier": "ensures-safety-of"
+                }
+            ]
+        },
+        {
+            "id": "firefighters",
+            "type": "Resource",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "2025-01-25T06:50:00Z",
+                    "value": "firefighters"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "works-on-containment"
+                }
+            ]
+        },
+        {
+            "id": "residents",
+            "type": "Group",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-25T06:50:00Z",
+                    "value": "residents"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "property",
+            "type": "Asset",
+            "attributes": [
+                {
+                    "name": "kind",
+                    "time": "2025-01-25T06:50:00Z",
+                    "value": "property"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "homes",
+            "type": "Asset",
+            "attributes": [
+                {
+                    "name": "kind",
+                    "time": "2025-01-25T06:50:00Z",
+                    "value": "homes"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "communities",
+            "type": "Asset",
+            "attributes": [
+                {
+                    "name": "kind",
+                    "time": "2025-01-25T06:50:00Z",
+                    "value": "communities"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "infrastructure",
+            "type": "Asset",
+            "attributes": [
+                {
+                    "name": "kind",
+                    "time": "2025-01-25T06:50:00Z",
+                    "value": "infrastructure"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "rain-1",
+            "type": "Weather",
+            "attributes": [
+                {
+                    "name": "phenomenon",
+                    "time": "2025-01-25T06:50:00Z",
+                    "value": "rain"
+                },
+                {
+                    "name": "expected_timeframe",
+                    "time": "2025-01-25T06:50:00Z",
+                    "value": "late tonight through Monday"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "lessens-activity-of"
+                },
+                {
+                    "objectId": "firefighters",
+                    "qualifier": "helps-increase-containment"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "SituationReport",
+            "time": "2025-01-25T06:50:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Fire activity continued overnight, burning in steep terrain with very low humidity and shifting winds. The fire continues to threaten homes, communities, and infrastructure, but air and ground resources are working day and night to ensure the safety of residents and property. Rain is expected over the fire area late tonight through Monday, lessening fire activity and helping firefighters increase containment."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "homes",
+                    "qualifier": "threatened"
+                },
+                {
+                    "objectId": "communities",
+                    "qualifier": "threatened"
+                },
+                {
+                    "objectId": "infrastructure",
+                    "qualifier": "threatened"
+                },
+                {
+                    "objectId": "resources-air",
+                    "qualifier": "mentions"
+                },
+                {
+                    "objectId": "resources-ground",
+                    "qualifier": "mentions"
+                },
+                {
+                    "objectId": "residents",
+                    "qualifier": "affects"
+                },
+                {
+                    "objectId": "property",
+                    "qualifier": "affects"
+                },
+                {
+                    "objectId": "rain-1",
+                    "qualifier": "expected"
+                },
+                {
+                    "objectId": "firefighters",
+                    "qualifier": "mentions"
+                }
+            ]
+        }
+    ]
+}

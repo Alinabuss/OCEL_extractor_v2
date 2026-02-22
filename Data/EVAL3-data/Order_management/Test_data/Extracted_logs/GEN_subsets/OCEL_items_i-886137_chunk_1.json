@@ -1,0 +1,132 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Reorder",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "person-marco-pegoraro",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Marco Pegoraro"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "dept-warehousing",
+                    "qualifier": "works-in"
+                }
+            ]
+        },
+        {
+            "id": "dept-warehousing",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "warehousing department"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "product-iPad",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "iPad"
+                },
+                {
+                    "name": "price",
+                    "value": "495.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "item-i-886137",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "556.38"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-iPad",
+                    "qualifier": "related-to"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e-1",
+            "type": "Reorder",
+            "time": "2024-01-11T14:22:36Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "person-marco-pegoraro",
+                    "qualifier": "performed-by"
+                },
+                {
+                    "objectId": "item-i-886137",
+                    "qualifier": "reordered-item"
+                },
+                {
+                    "objectId": "product-iPad",
+                    "qualifier": "related-product"
+                }
+            ]
+        }
+    ]
+}

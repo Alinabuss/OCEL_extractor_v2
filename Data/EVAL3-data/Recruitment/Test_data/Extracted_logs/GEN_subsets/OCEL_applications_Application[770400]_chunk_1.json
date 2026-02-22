@@ -1,0 +1,237 @@
+{
+    "objectTypes": [
+        {
+            "name": "Application",
+            "attributes": [
+                {
+                    "name": "applicationId",
+                    "type": "string"
+                },
+                {
+                    "name": "createdAt",
+                    "type": "time"
+                }
+            ]
+        },
+        {
+            "name": "Vacancy",
+            "attributes": [
+                {
+                    "name": "vacancyId",
+                    "type": "string"
+                },
+                {
+                    "name": "position",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "fullName",
+                    "type": "string"
+                },
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Application Submitted",
+            "attributes": [
+                {
+                    "name": "note",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application Assigned",
+            "attributes": [
+                {
+                    "name": "note",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Application[770400]",
+            "type": "Application",
+            "attributes": [
+                {
+                    "name": "applicationId",
+                    "time": "2019-07-04T10:27:18Z",
+                    "value": "770400"
+                },
+                {
+                    "name": "createdAt",
+                    "time": "2019-07-04T10:27:18Z",
+                    "value": "2019-07-04T10:27:18Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Vacancy[550065]",
+                    "qualifier": "appliesTo"
+                },
+                {
+                    "objectId": "Person[Toon Smith]",
+                    "qualifier": "submittedBy"
+                }
+            ]
+        },
+        {
+            "id": "Vacancy[550065]",
+            "type": "Vacancy",
+            "attributes": [
+                {
+                    "name": "vacancyId",
+                    "time": "2019-07-04T10:27:18Z",
+                    "value": "550065"
+                },
+                {
+                    "name": "position",
+                    "time": "2019-07-04T10:27:18Z",
+                    "value": "Manager"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Person[Toon Smith]",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "fullName",
+                    "time": "2019-07-04T10:27:18Z",
+                    "value": "Toon Smith"
+                },
+                {
+                    "name": "role",
+                    "time": "2019-07-04T10:27:18Z",
+                    "value": "applicant"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Application[770400]",
+                    "qualifier": "submitted"
+                }
+            ]
+        },
+        {
+            "id": "Person[Jana Hense]",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "fullName",
+                    "time": "2019-07-05T06:48:04Z",
+                    "value": "Jana Hense"
+                },
+                {
+                    "name": "role",
+                    "time": "2019-07-05T06:48:04Z",
+                    "value": "recruiter"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Person[Jana Geisler]",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "fullName",
+                    "time": "2019-07-05T06:48:04Z",
+                    "value": "Jana Geisler"
+                },
+                {
+                    "name": "role",
+                    "time": "2019-07-05T06:48:04Z",
+                    "value": "recruiter"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Person[Simon Geisler]",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "fullName",
+                    "time": "2019-07-05T06:48:04Z",
+                    "value": "Simon Geisler"
+                },
+                {
+                    "name": "role",
+                    "time": "2019-07-05T06:48:04Z",
+                    "value": "recruiter"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Application Submitted",
+            "time": "2019-07-04T10:27:18Z",
+            "attributes": [
+                {
+                    "name": "note",
+                    "value": "Application submitted by Toon Smith for Vacancy[550065] (Manager)"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Application[770400]",
+                    "qualifier": "application"
+                },
+                {
+                    "objectId": "Vacancy[550065]",
+                    "qualifier": "vacancy"
+                },
+                {
+                    "objectId": "Person[Toon Smith]",
+                    "qualifier": "applicant"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Application Assigned",
+            "time": "2019-07-05T06:48:04Z",
+            "attributes": [
+                {
+                    "name": "note",
+                    "value": "Application[770400] assigned to recruiters Jana Hense, Jana Geisler, and Simon Geisler"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Application[770400]",
+                    "qualifier": "application"
+                },
+                {
+                    "objectId": "Person[Jana Hense]",
+                    "qualifier": "recruiter"
+                },
+                {
+                    "objectId": "Person[Jana Geisler]",
+                    "qualifier": "recruiter"
+                },
+                {
+                    "objectId": "Person[Simon Geisler]",
+                    "qualifier": "recruiter"
+                }
+            ]
+        }
+    ]
+}

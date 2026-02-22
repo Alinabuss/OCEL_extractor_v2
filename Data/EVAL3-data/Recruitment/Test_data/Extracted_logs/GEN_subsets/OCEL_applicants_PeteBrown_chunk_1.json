@@ -1,0 +1,108 @@
+{
+    "objectTypes": [
+        {
+            "name": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": [
+                {
+                    "name": "applicationId",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Rejection Sent",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "Recruiter[Jana Meister]",
+            "type": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Jana Meister"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Applicant[Pete Brown]",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Pete Brown"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Application[770198]",
+            "type": "Application",
+            "attributes": [
+                {
+                    "name": "applicationId",
+                    "value": "770198"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Applicant[Pete Brown]",
+                    "qualifier": "owned-by"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "event1",
+            "type": "Rejection Sent",
+            "time": "2019-07-02T08:59:44Z",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "sent"
+                },
+                {
+                    "name": "content",
+                    "value": "rejection"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Recruiter[Jana Meister]",
+                    "qualifier": "sender"
+                },
+                {
+                    "objectId": "Applicant[Pete Brown]",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "Application[770198]",
+                    "qualifier": "concerns"
+                }
+            ]
+        }
+    ]
+}

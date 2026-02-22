@@ -1,0 +1,149 @@
+{
+    "objectTypes": [
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "cognitive_impairment",
+                    "type": "string"
+                },
+                {
+                    "name": "difficulty_understanding_documents",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Lawyer",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                },
+                {
+                    "name": "previous_representative",
+                    "type": "string"
+                },
+                {
+                    "name": "lack_of_cooperation",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Proceedings",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "RequestSuspension",
+            "attributes": [
+                {
+                    "name": "arguments",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "applicant_1",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "cognitive_impairment",
+                    "time": "2018-01-16T00:00:00Z",
+                    "value": "present"
+                },
+                {
+                    "name": "difficulty_understanding_documents",
+                    "time": "2018-01-16T00:00:00Z",
+                    "value": "present"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "lawyer_legal_aid_1",
+            "type": "Lawyer",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "2018-01-16T00:00:00Z",
+                    "value": "legal aid lawyer"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "represents"
+                }
+            ]
+        },
+        {
+            "id": "lawyers_previous_1",
+            "type": "Lawyer",
+            "attributes": [
+                {
+                    "name": "previous_representative",
+                    "time": "2018-01-16T00:00:00Z",
+                    "value": "true"
+                },
+                {
+                    "name": "lack_of_cooperation",
+                    "time": "2018-01-16T00:00:00Z",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "previously_represented"
+                }
+            ]
+        },
+        {
+            "id": "proceedings_1",
+            "type": "Proceedings",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "concerns"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "RequestSuspension",
+            "time": "2018-01-16T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "arguments",
+                    "value": "The applicant could not understand the administrative concepts related to the facts of which he had been accused; the defence had been severely affected by his cognitive impairment, his difficulties in understanding the documents, and the lack of cooperation from the lawyers who had previously represented the applicant."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "lawyer_legal_aid_1",
+                    "qualifier": "requested_by"
+                },
+                {
+                    "objectId": "proceedings_1",
+                    "qualifier": "target"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "concerns"
+                },
+                {
+                    "objectId": "lawyers_previous_1",
+                    "qualifier": "referenced"
+                }
+            ]
+        }
+    ]
+}

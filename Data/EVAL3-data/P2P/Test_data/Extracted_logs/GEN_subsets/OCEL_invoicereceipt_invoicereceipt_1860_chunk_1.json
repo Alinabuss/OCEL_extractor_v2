@@ -1,0 +1,94 @@
+{
+    "objectTypes": [
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "TwoWayMatch",
+            "attributes": [
+                {
+                    "name": "lifecycleConfirmation",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "1860",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "value": "106250.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "1863",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Finance/Account Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "TwoWayMatch",
+            "time": "2024-09-17T12:33:00Z",
+            "attributes": [
+                {
+                    "name": "lifecycleConfirmation",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "1860",
+                    "qualifier": "forInvoiceReceipt"
+                },
+                {
+                    "objectId": "1863",
+                    "qualifier": "involvedGoodsReceipt"
+                },
+                {
+                    "objectId": "Finance/Account Department",
+                    "qualifier": "conductedBy"
+                }
+            ]
+        }
+    ]
+}

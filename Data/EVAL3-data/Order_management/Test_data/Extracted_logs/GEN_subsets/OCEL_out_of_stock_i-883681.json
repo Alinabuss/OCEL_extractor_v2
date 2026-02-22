@@ -1,0 +1,121 @@
+{
+    "objectTypes": [
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "fullName",
+                    "type": "string"
+                },
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "cost",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Item Out of Stock Reported",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "employee-1",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "fullName",
+                    "value": "Leah Tacke genannt Unterberg"
+                },
+                {
+                    "name": "department",
+                    "value": "Warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "product-iPadAir",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "iPad Air"
+                },
+                {
+                    "name": "cost",
+                    "value": 476.0
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-883681",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": 515.03
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-iPadAir",
+                    "qualifier": "associatedWith"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e-1",
+            "type": "Item Out of Stock Reported",
+            "time": "2023-09-22T09:44:06Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "out of stock"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "employee-1",
+                    "qualifier": "reporter"
+                },
+                {
+                    "objectId": "i-883681",
+                    "qualifier": "reportedItem"
+                }
+            ]
+        }
+    ]
+}

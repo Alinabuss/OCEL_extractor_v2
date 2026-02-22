@@ -1,0 +1,155 @@
+{
+    "objectTypes": [
+        {
+            "name": "Customer",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Order",
+            "attributes": []
+        },
+        {
+            "name": "Item",
+            "attributes": []
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Order Confirmed",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "c-Mediterranea Luxury Cruises S.p.A.",
+            "type": "Customer",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-05-02T17:23:34Z",
+                    "value": "Mediterranea Luxury Cruises S.p.A."
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "order-1",
+            "type": "Order",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "c-Mediterranea Luxury Cruises S.p.A.",
+                    "qualifier": "confirmedBy"
+                },
+                {
+                    "objectId": "i-880267",
+                    "qualifier": "includes"
+                },
+                {
+                    "objectId": "i-880268",
+                    "qualifier": "includes"
+                }
+            ]
+        },
+        {
+            "id": "i-880267",
+            "type": "Item",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "product-iPad Air",
+                    "qualifier": "associatedWithProduct"
+                }
+            ]
+        },
+        {
+            "id": "i-880268",
+            "type": "Item",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "product-Fire Stick",
+                    "qualifier": "associatedWithProduct"
+                }
+            ]
+        },
+        {
+            "id": "product-iPad Air",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-05-02T17:23:34Z",
+                    "value": "iPad Air"
+                },
+                {
+                    "name": "price",
+                    "time": "2023-05-02T17:23:34Z",
+                    "value": "476.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "product-Fire Stick",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-05-02T17:23:34Z",
+                    "value": "Fire Stick"
+                },
+                {
+                    "name": "price",
+                    "time": "2023-05-02T17:23:34Z",
+                    "value": "39.99"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e-1",
+            "type": "Order Confirmed",
+            "time": "2023-05-02T17:23:34Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "order-1",
+                    "qualifier": "order"
+                },
+                {
+                    "objectId": "c-Mediterranea Luxury Cruises S.p.A.",
+                    "qualifier": "customer"
+                },
+                {
+                    "objectId": "i-880267",
+                    "qualifier": "includedItem"
+                },
+                {
+                    "objectId": "i-880268",
+                    "qualifier": "includedItem"
+                }
+            ]
+        }
+    ]
+}

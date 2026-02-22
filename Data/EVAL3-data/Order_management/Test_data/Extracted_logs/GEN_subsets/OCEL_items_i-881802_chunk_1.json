@@ -1,0 +1,127 @@
+{
+    "objectTypes": [
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "itemId",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "productId",
+                    "type": "string"
+                },
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Reorder",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "employee-1",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Leah Tacke genannt Unterberg"
+                },
+                {
+                    "name": "department",
+                    "value": "warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "item-i-881802",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "itemId",
+                    "value": "i-881802"
+                },
+                {
+                    "name": "price",
+                    "value": "31.7"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-i-881802",
+                    "qualifier": "associated_with"
+                }
+            ]
+        },
+        {
+            "id": "product-i-881802",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "productId",
+                    "value": "i-881802"
+                },
+                {
+                    "name": "name",
+                    "value": "Echo Dot"
+                },
+                {
+                    "name": "price",
+                    "value": "29.99"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Reorder",
+            "time": "2023-07-13T14:11:17Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "employee-1",
+                    "qualifier": "performed_by"
+                },
+                {
+                    "objectId": "item-i-881802",
+                    "qualifier": "reordered_item"
+                }
+            ]
+        }
+    ]
+}

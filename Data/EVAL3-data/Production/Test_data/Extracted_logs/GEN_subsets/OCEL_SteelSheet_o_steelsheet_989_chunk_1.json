@@ -1,0 +1,152 @@
+{
+    "objectTypes": [
+        {
+            "name": "machine",
+            "attributes": []
+        },
+        {
+            "name": "workstation",
+            "attributes": []
+        },
+        {
+            "name": "steel_coil",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "type": "decimal"
+                }
+            ]
+        },
+        {
+            "name": "steel_sheet",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "type": "decimal"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "splitting",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "type": "decimal"
+                },
+                {
+                    "name": "co2e_kg",
+                    "type": "decimal"
+                },
+                {
+                    "name": "electricity_kwh",
+                    "type": "decimal"
+                },
+                {
+                    "name": "waste_kg",
+                    "type": "decimal"
+                },
+                {
+                    "name": "waste_destination",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o_machine_splitter01",
+            "type": "machine",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "o_workstation_1",
+                    "qualifier": "located_at"
+                }
+            ]
+        },
+        {
+            "id": "o_workstation_1",
+            "type": "workstation",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "o_steelcoil_4",
+            "type": "steel_coil",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "time": "2023-04-03T11:08:54Z",
+                    "value": "31.91076"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_steelsheet_989",
+            "type": "steel_sheet",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "time": "2023-04-03T11:08:54Z",
+                    "value": "0.02119"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_steelcoil_4",
+                    "qualifier": "created_from"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e_1",
+            "type": "splitting",
+            "time": "2023-04-03T11:08:54Z",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "value": "14.24"
+                },
+                {
+                    "name": "co2e_kg",
+                    "value": "0.0148857366"
+                },
+                {
+                    "name": "electricity_kwh",
+                    "value": "0.0217497"
+                },
+                {
+                    "name": "waste_kg",
+                    "value": "0.00042"
+                },
+                {
+                    "name": "waste_destination",
+                    "value": "recycling"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_machine_splitter01",
+                    "qualifier": "performed_by"
+                },
+                {
+                    "objectId": "o_workstation_1",
+                    "qualifier": "located_at"
+                },
+                {
+                    "objectId": "o_steelcoil_4",
+                    "qualifier": "input"
+                },
+                {
+                    "objectId": "o_steelsheet_989",
+                    "qualifier": "output"
+                }
+            ]
+        }
+    ]
+}

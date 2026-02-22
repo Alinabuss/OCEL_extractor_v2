@@ -1,0 +1,80 @@
+{
+    "objectTypes": [
+        {
+            "name": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "credit amount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movement type",
+                    "type": "integer"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Complete Two-Way Match",
+            "attributes": [
+                {
+                    "name": "performed_by",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt:921",
+            "type": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "credit amount",
+                    "value": "88500.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "goods receipt:922",
+            "type": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movement type",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "event:1",
+            "type": "Complete Two-Way Match",
+            "time": "2023-07-19T07:10:00Z",
+            "attributes": [
+                {
+                    "name": "performed_by",
+                    "value": "Finance/Account Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:921",
+                    "qualifier": "involved"
+                },
+                {
+                    "objectId": "goods receipt:922",
+                    "qualifier": "involved"
+                }
+            ]
+        }
+    ]
+}

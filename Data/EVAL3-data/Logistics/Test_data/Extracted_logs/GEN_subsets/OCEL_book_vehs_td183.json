@@ -1,0 +1,125 @@
+{
+    "objectTypes": [
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "departure_time",
+                    "type": "datetime"
+                }
+            ]
+        },
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "type": "double"
+                },
+                {
+                    "name": "amount_unit",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Booking",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                },
+                {
+                    "name": "priority",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "vh40",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "departure_time",
+                    "time": "2023-10-11T06:44:53Z",
+                    "value": "2023-10-13T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td183",
+                    "qualifier": "high-priority-for"
+                }
+            ]
+        },
+        {
+            "id": "vh41",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "departure_time",
+                    "time": "2023-10-11T06:44:53Z",
+                    "value": "2023-10-17T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td183",
+                    "qualifier": "high-priority-for"
+                }
+            ]
+        },
+        {
+            "id": "td183",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "time": "2023-10-11T06:44:53Z",
+                    "value": "5.0"
+                },
+                {
+                    "name": "amount_unit",
+                    "time": "2023-10-11T06:44:53Z",
+                    "value": "containers"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Booking",
+            "time": "2023-10-11T06:44:53Z",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "booked"
+                },
+                {
+                    "name": "priority",
+                    "value": "high"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "vh40",
+                    "qualifier": "booked_vehicle"
+                },
+                {
+                    "objectId": "vh41",
+                    "qualifier": "booked_vehicle"
+                },
+                {
+                    "objectId": "td183",
+                    "qualifier": "for_transport_document"
+                }
+            ]
+        }
+    ]
+}

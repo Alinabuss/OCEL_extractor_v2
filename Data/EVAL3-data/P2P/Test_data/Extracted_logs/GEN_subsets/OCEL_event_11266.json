@@ -1,0 +1,111 @@
+{
+    "objectTypes": [
+        {
+            "name": "purchase_order",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                },
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "quotation",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "purchase_order_created",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:626",
+            "type": "purchase_order",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "time": "2023-04-11T10:41:00Z",
+                    "value": "005"
+                },
+                {
+                    "name": "lifecycle",
+                    "time": "2023-04-11T10:41:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:367",
+                    "qualifier": "related_to"
+                }
+            ]
+        },
+        {
+            "id": "quotation:367",
+            "type": "quotation",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "time": "2023-04-11T10:41:00Z",
+                    "value": "005"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "department:Procurement Department",
+            "type": "department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-04-11T10:41:00Z",
+                    "value": "Procurement Department"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "purchase_order_created",
+            "time": "2023-04-11T10:41:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:626",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "quotation:367",
+                    "qualifier": "related_to"
+                },
+                {
+                    "objectId": "department:Procurement Department",
+                    "qualifier": "handled_by"
+                }
+            ]
+        }
+    ]
+}

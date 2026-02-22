@@ -1,0 +1,164 @@
+{
+    "objectTypes": [
+        {
+            "name": "Accused",
+            "attributes": []
+        },
+        {
+            "name": "GuardianOrCurator",
+            "attributes": []
+        },
+        {
+            "name": "SupportPerson",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "MakeInquiries",
+            "attributes": []
+        },
+        {
+            "name": "RequestImmediatePresence",
+            "attributes": [
+                {
+                    "name": "condition",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "InformProceduralRights",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "EnsurePresenceOfSupportPerson",
+            "attributes": [
+                {
+                    "name": "condition",
+                    "type": "string"
+                },
+                {
+                    "name": "requirements",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "accused_1",
+            "type": "Accused",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "guardian_or_curator_1",
+            "type": "GuardianOrCurator",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "support_person_1",
+            "type": "SupportPerson",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "accused_1",
+                    "qualifier": "support-network-member-of"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "MakeInquiries",
+            "time": "2025-09-11T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Determine whether a guardian or curator has been appointed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "accused_1",
+                    "qualifier": "about"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "RequestImmediatePresence",
+            "time": "2025-09-11T00:01:00Z",
+            "attributes": [
+                {
+                    "name": "condition",
+                    "value": "if a guardian or curator has been appointed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "accused_1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "guardian_or_curator_1",
+                    "qualifier": "requested"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "InformProceduralRights",
+            "time": "2025-09-11T00:02:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Inform that person of the accused person's procedural rights"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "guardian_or_curator_1",
+                    "qualifier": "informed"
+                },
+                {
+                    "objectId": "accused_1",
+                    "qualifier": "whose-rights"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "EnsurePresenceOfSupportPerson",
+            "time": "2025-09-11T00:03:00Z",
+            "attributes": [
+                {
+                    "name": "condition",
+                    "value": "if there is no guardian or curator appointed"
+                },
+                {
+                    "name": "requirements",
+                    "value": "family member or another person from the accused person's support network who is suitable and for whom there is no conflict of interest"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "accused_1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "support_person_1",
+                    "qualifier": "ensured"
+                }
+            ]
+        }
+    ]
+}

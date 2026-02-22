@@ -1,0 +1,108 @@
+{
+    "objectTypes": [
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": []
+        },
+        {
+            "name": "Vacancy",
+            "attributes": [
+                {
+                    "name": "title",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Submit Application",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Applicant[Dave Taylor]",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Dave Taylor"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Application[770389]",
+                    "qualifier": "submitted"
+                }
+            ]
+        },
+        {
+            "id": "Application[770389]",
+            "type": "Application",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Vacancy[550049]",
+                    "qualifier": "for"
+                },
+                {
+                    "objectId": "Applicant[Dave Taylor]",
+                    "qualifier": "submitted-by"
+                }
+            ]
+        },
+        {
+            "id": "Vacancy[550049]",
+            "type": "Vacancy",
+            "attributes": [
+                {
+                    "name": "title",
+                    "value": "Programmer"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Submit Application",
+            "time": "2019-07-03T10:32:28Z",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "submitted"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Applicant[Dave Taylor]",
+                    "qualifier": "applicant"
+                },
+                {
+                    "objectId": "Application[770389]",
+                    "qualifier": "application"
+                },
+                {
+                    "objectId": "Vacancy[550049]",
+                    "qualifier": "vacancy"
+                }
+            ]
+        }
+    ]
+}

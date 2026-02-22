@@ -1,0 +1,247 @@
+{
+    "objectTypes": [
+        {
+            "name": "Law",
+            "attributes": [
+                {
+                    "name": "title",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Procedure",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Mechanism",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PersonGroup",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "RepresentativeRole",
+            "attributes": [
+                {
+                    "name": "roleName",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Right",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "LawInspired",
+            "attributes": [
+                {
+                    "name": "inspiration",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Observation",
+            "attributes": [
+                {
+                    "name": "observation",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "law_1",
+            "type": "Law",
+            "attributes": [
+                {
+                    "name": "title",
+                    "time": "",
+                    "value": "La premi\u00e8re loi"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "proc_civile",
+                    "qualifier": "founded_on"
+                }
+            ]
+        },
+        {
+            "id": "proc_civile",
+            "type": "Procedure",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "proc\u00e9dure civile"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "mec_repr",
+            "type": "Mechanism",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "",
+                    "value": "m\u00e9canismes de repr\u00e9sentation"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person_incapables",
+                    "qualifier": "permits"
+                },
+                {
+                    "objectId": "role_tuteur",
+                    "qualifier": "via_intervention"
+                },
+                {
+                    "objectId": "role_curateur",
+                    "qualifier": "via_assistance"
+                }
+            ]
+        },
+        {
+            "id": "person_incapables",
+            "type": "PersonGroup",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "",
+                    "value": "des incapables, m\u00eame majeurs"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "droits_justice",
+                    "qualifier": "can_assert"
+                }
+            ]
+        },
+        {
+            "id": "role_tuteur",
+            "type": "RepresentativeRole",
+            "attributes": [
+                {
+                    "name": "roleName",
+                    "time": "",
+                    "value": "tuteur"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "role_curateur",
+            "type": "RepresentativeRole",
+            "attributes": [
+                {
+                    "name": "roleName",
+                    "time": "",
+                    "value": "curateur"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "droits_justice",
+            "type": "Right",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "",
+                    "value": "droits en justice"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "LawInspired",
+            "time": "2025-09-11T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "inspiration",
+                    "value": "pr\u00e9occupations purement proc\u00e9durales"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "law_1",
+                    "qualifier": "about"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Observation",
+            "time": "2025-09-11T00:00:01Z",
+            "attributes": [
+                {
+                    "name": "observation",
+                    "value": "en proc\u00e9dure civile plusieurs m\u00e9canismes de repr\u00e9sentation permettent \u00e0 des incapables, m\u00eame majeurs, de faire valoir leurs droits en justice gr\u00e2ce \u00e0 l'intervention d'un tuteur ou \u00e0 l'assistance d'un curateur"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "law_1",
+                    "qualifier": "founded_on"
+                },
+                {
+                    "objectId": "proc_civile",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "mec_repr",
+                    "qualifier": "involves"
+                },
+                {
+                    "objectId": "person_incapables",
+                    "qualifier": "concerns"
+                },
+                {
+                    "objectId": "role_tuteur",
+                    "qualifier": "via_intervention"
+                },
+                {
+                    "objectId": "role_curateur",
+                    "qualifier": "via_assistance"
+                },
+                {
+                    "objectId": "droits_justice",
+                    "qualifier": "concerns"
+                }
+            ]
+        }
+    ]
+}

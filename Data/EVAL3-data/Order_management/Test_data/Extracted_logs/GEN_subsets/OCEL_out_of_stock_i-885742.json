@@ -1,0 +1,121 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "OutOfStockReported",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "person-Marco Pegoraro",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Marco Pegoraro"
+                },
+                {
+                    "name": "department",
+                    "value": "warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-885742",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "146.11"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-Echo Show 8",
+                    "qualifier": "corresponds-to"
+                }
+            ]
+        },
+        {
+            "id": "product-Echo Show 8",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Echo Show 8"
+                },
+                {
+                    "name": "price",
+                    "value": "129.99"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "OutOfStockReported",
+            "time": "2023-12-29T08:48:13Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "out_of_stock"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "i-885742",
+                    "qualifier": "affected-item"
+                },
+                {
+                    "objectId": "person-Marco Pegoraro",
+                    "qualifier": "reported-by"
+                }
+            ]
+        }
+    ]
+}

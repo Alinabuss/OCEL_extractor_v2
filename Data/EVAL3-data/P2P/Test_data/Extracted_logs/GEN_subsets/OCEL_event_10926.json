@@ -1,0 +1,95 @@
+{
+    "objectTypes": [
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "InvoiceReceiptCreationCompleted",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt[711]",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "value": "3200.0",
+                    "time": "2023-03-31T16:06:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt[713]",
+                    "qualifier": "relatedTo"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt[713]",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "department[Finance/Account]",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Finance/Account Department"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "InvoiceReceiptCreationCompleted",
+            "time": "2023-03-31T16:06:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt[711]",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "goods receipt[713]",
+                    "qualifier": "related"
+                },
+                {
+                    "objectId": "department[Finance/Account]",
+                    "qualifier": "performedBy"
+                }
+            ]
+        }
+    ]
+}

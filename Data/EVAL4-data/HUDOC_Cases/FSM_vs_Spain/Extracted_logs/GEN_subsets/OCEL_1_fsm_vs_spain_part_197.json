@@ -1,0 +1,103 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "mental_problems",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Case",
+            "attributes": []
+        },
+        {
+            "name": "Injury",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "CaseDescribed",
+            "attributes": [
+                {
+                    "name": "narrative",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "case_1",
+            "type": "Case",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "person_1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "mental_problems",
+                    "value": "pretty severe"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "case_1",
+                    "qualifier": "defendant"
+                },
+                {
+                    "objectId": "injury_1",
+                    "qualifier": "mental_problems_arising_from"
+                }
+            ]
+        },
+        {
+            "id": "injury_1",
+            "type": "Injury",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "head injuries"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "CaseDescribed",
+            "time": "1970-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "narrative",
+                    "value": "It was a case of a person with pretty severe mental problems (arising from head injuries) who was a defendant."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "case_1",
+                    "qualifier": "case"
+                },
+                {
+                    "objectId": "person_1",
+                    "qualifier": "defendant"
+                },
+                {
+                    "objectId": "injury_1",
+                    "qualifier": "related_injury"
+                }
+            ]
+        }
+    ]
+}

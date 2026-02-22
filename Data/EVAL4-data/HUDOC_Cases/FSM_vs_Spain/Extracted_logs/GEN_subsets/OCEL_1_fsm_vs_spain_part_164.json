@@ -1,0 +1,161 @@
+{
+    "objectTypes": [
+        {
+            "name": "PersonWithDisability",
+            "attributes": [
+                {
+                    "name": "disabilityType",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Expert",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ProvideAssistanceOrSupport",
+            "attributes": [
+                {
+                    "name": "assistanceDescription",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PermitExpertParticipation",
+            "attributes": [
+                {
+                    "name": "purposeDescription",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "person_deaf",
+            "type": "PersonWithDisability",
+            "attributes": [
+                {
+                    "name": "disabilityType",
+                    "time": "",
+                    "value": "deaf"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "person_hearing",
+            "type": "PersonWithDisability",
+            "attributes": [
+                {
+                    "name": "disabilityType",
+                    "time": "",
+                    "value": "hearing disability"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "person_deafblind",
+            "type": "PersonWithDisability",
+            "attributes": [
+                {
+                    "name": "disabilityType",
+                    "time": "",
+                    "value": "deafblind"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "expert_1",
+            "type": "Expert",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "",
+                    "value": "expert performing the necessary accommodation and adjustments"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person_deaf",
+                    "qualifier": "permittedToAssist"
+                },
+                {
+                    "objectId": "person_hearing",
+                    "qualifier": "permittedToAssist"
+                },
+                {
+                    "objectId": "person_deafblind",
+                    "qualifier": "permittedToAssist"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "ProvideAssistanceOrSupport",
+            "time": "2025-01-01T09:00:00Z",
+            "attributes": [
+                {
+                    "name": "assistanceDescription",
+                    "value": "includes interpretation in sign languages legally recognised and support for the verbal communication of deaf people, people with a hearing disability and deafblind people"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person_deaf",
+                    "qualifier": "beneficiary"
+                },
+                {
+                    "objectId": "person_hearing",
+                    "qualifier": "beneficiary"
+                },
+                {
+                    "objectId": "person_deafblind",
+                    "qualifier": "beneficiary"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "PermitExpertParticipation",
+            "time": "2025-01-01T09:05:00Z",
+            "attributes": [
+                {
+                    "name": "purposeDescription",
+                    "value": "to allow a person with a disability to understand and be understood by performing necessary accommodation and adjustments"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "expert_1",
+                    "qualifier": "participant"
+                },
+                {
+                    "objectId": "person_deaf",
+                    "qualifier": "beneficiary"
+                },
+                {
+                    "objectId": "person_hearing",
+                    "qualifier": "beneficiary"
+                },
+                {
+                    "objectId": "person_deafblind",
+                    "qualifier": "beneficiary"
+                }
+            ]
+        }
+    ]
+}

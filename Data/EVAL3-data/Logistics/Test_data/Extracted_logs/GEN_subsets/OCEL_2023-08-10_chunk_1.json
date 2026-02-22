@@ -1,0 +1,103 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containerCount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "priority",
+                    "type": "string"
+                },
+                {
+                    "name": "scheduledDeparture",
+                    "type": "dateTime"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Booking",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "td99",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containerCount",
+                    "value": "5.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "vh23",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "priority",
+                    "value": "high"
+                },
+                {
+                    "name": "scheduledDeparture",
+                    "value": "2023-08-15T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td99",
+                    "qualifier": "linked-to"
+                }
+            ]
+        },
+        {
+            "id": "vh29",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "value": "2023-09-05T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td99",
+                    "qualifier": "linked-to"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Booking",
+            "time": "2023-08-10T08:56:58Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "td99",
+                    "qualifier": "for"
+                },
+                {
+                    "objectId": "vh23",
+                    "qualifier": "booked"
+                },
+                {
+                    "objectId": "vh29",
+                    "qualifier": "booked"
+                }
+            ]
+        }
+    ]
+}

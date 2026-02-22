@@ -1,0 +1,224 @@
+{
+    "objectTypes": [
+        {
+            "name": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "type": "float"
+                },
+                {
+                    "name": "label",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Workstation",
+            "attributes": [
+                {
+                    "name": "label",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Machine",
+            "attributes": [
+                {
+                    "name": "label",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Resource",
+            "attributes": [
+                {
+                    "name": "resourceType",
+                    "type": "string"
+                },
+                {
+                    "name": "amount",
+                    "type": "float"
+                },
+                {
+                    "name": "unit",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "HeatSteelSheet",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "type": "integer"
+                },
+                {
+                    "name": "co2e_kg",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o_steelsheet_1704",
+            "type": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "time": "2023-04-04T08:08:13Z",
+                    "value": "0.02131"
+                },
+                {
+                    "name": "label",
+                    "time": "2023-04-04T08:08:13Z",
+                    "value": "SteelSheet[1704]"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_workstation_1",
+            "type": "Workstation",
+            "attributes": [
+                {
+                    "name": "label",
+                    "time": "2023-04-04T08:08:13Z",
+                    "value": "Workstation[1]"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_machine_oven01",
+                    "qualifier": "equipped_with"
+                }
+            ]
+        },
+        {
+            "id": "o_machine_oven01",
+            "type": "Machine",
+            "attributes": [
+                {
+                    "name": "label",
+                    "time": "2023-04-04T08:08:13Z",
+                    "value": "Machine[oven01]"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_resource_electricity_1",
+            "type": "Resource",
+            "attributes": [
+                {
+                    "name": "resourceType",
+                    "time": "2023-04-04T08:08:13Z",
+                    "value": "electricity"
+                },
+                {
+                    "name": "amount",
+                    "time": "2023-04-04T08:08:13Z",
+                    "value": "0.02"
+                },
+                {
+                    "name": "unit",
+                    "time": "2023-04-04T08:08:13Z",
+                    "value": "kWh"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_resource_gas_1",
+            "type": "Resource",
+            "attributes": [
+                {
+                    "name": "resourceType",
+                    "time": "2023-04-04T08:08:13Z",
+                    "value": "gas"
+                },
+                {
+                    "name": "amount",
+                    "time": "2023-04-04T08:08:13Z",
+                    "value": "0.49392"
+                },
+                {
+                    "name": "unit",
+                    "time": "2023-04-04T08:08:13Z",
+                    "value": "Wh"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_resource_burning_1",
+            "type": "Resource",
+            "attributes": [
+                {
+                    "name": "resourceType",
+                    "time": "2023-04-04T08:08:13Z",
+                    "value": "burning_emission"
+                },
+                {
+                    "name": "amount",
+                    "time": "2023-04-04T08:08:13Z",
+                    "value": "0.49392"
+                },
+                {
+                    "name": "unit",
+                    "time": "2023-04-04T08:08:13Z",
+                    "value": "Wh"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "HeatSteelSheet",
+            "time": "2023-04-04T08:08:13Z",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "value": "900"
+                },
+                {
+                    "name": "co2e_kg",
+                    "value": "0.0138019093344"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_steelsheet_1704",
+                    "qualifier": "heated"
+                },
+                {
+                    "objectId": "o_workstation_1",
+                    "qualifier": "performedAt"
+                },
+                {
+                    "objectId": "o_machine_oven01",
+                    "qualifier": "performedBy"
+                },
+                {
+                    "objectId": "o_resource_electricity_1",
+                    "qualifier": "consumed"
+                },
+                {
+                    "objectId": "o_resource_gas_1",
+                    "qualifier": "consumed"
+                },
+                {
+                    "objectId": "o_resource_burning_1",
+                    "qualifier": "emitted"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,173 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseRequisition",
+            "attributes": [
+                {
+                    "name": "lifecycle_status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Material",
+            "attributes": []
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": []
+        },
+        {
+            "name": "Role",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "PurchaseRequisitionCreated",
+            "attributes": [
+                {
+                    "name": "lifecycle_status",
+                    "type": "string"
+                },
+                {
+                    "name": "net_price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "PurchaseRequisitionApproved",
+            "attributes": [
+                {
+                    "name": "lifecycle_status",
+                    "type": "string"
+                },
+                {
+                    "name": "net_price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_requisition:857:pr_trigger_857",
+            "type": "PurchaseRequisition",
+            "attributes": [
+                {
+                    "name": "lifecycle_status",
+                    "time": "2024-07-29T12:34:00Z",
+                    "value": "complete"
+                },
+                {
+                    "name": "lifecycle_status",
+                    "time": "2024-08-01T10:42:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchasing_group:003",
+                    "qualifier": "linked-to"
+                },
+                {
+                    "objectId": "material:2133",
+                    "qualifier": "includes"
+                }
+            ]
+        },
+        {
+            "id": "material:2133",
+            "type": "Material",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "purchasing_group:003",
+            "type": "PurchasingGroup",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "department:Manufacturing",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "role:Procurement Requisition Manager",
+            "type": "Role",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "PurchaseRequisitionCreated",
+            "time": "2024-07-29T12:34:00Z",
+            "attributes": [
+                {
+                    "name": "lifecycle_status",
+                    "value": "complete"
+                },
+                {
+                    "name": "net_price",
+                    "value": "750.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_requisition:857:pr_trigger_857",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "material:2133",
+                    "qualifier": "included-material"
+                },
+                {
+                    "objectId": "department:Manufacturing",
+                    "qualifier": "creator"
+                },
+                {
+                    "objectId": "purchasing_group:003",
+                    "qualifier": "purchasing_group"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "PurchaseRequisitionApproved",
+            "time": "2024-08-01T10:42:00Z",
+            "attributes": [
+                {
+                    "name": "lifecycle_status",
+                    "value": "complete"
+                },
+                {
+                    "name": "net_price",
+                    "value": "750.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_requisition:857:pr_trigger_857",
+                    "qualifier": "approved"
+                },
+                {
+                    "objectId": "material:2133",
+                    "qualifier": "material"
+                },
+                {
+                    "objectId": "role:Procurement Requisition Manager",
+                    "qualifier": "approver"
+                }
+            ]
+        }
+    ]
+}

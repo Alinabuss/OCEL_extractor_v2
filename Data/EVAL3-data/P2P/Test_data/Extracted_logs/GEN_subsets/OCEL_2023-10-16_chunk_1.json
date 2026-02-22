@@ -1,0 +1,272 @@
+{
+    "objectTypes": [
+        {
+            "name": "Invoice",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PurchaseRequisition",
+            "attributes": []
+        },
+        {
+            "name": "Quotation",
+            "attributes": []
+        },
+        {
+            "name": "PurchaseOrder",
+            "attributes": []
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": []
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Two-way Match Completed",
+            "attributes": [
+                {
+                    "name": "result",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Request for Quotation Completed",
+            "attributes": [
+                {
+                    "name": "lifecycle_status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Purchase Order Created",
+            "attributes": [
+                {
+                    "name": "lifecycle_status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice:1126",
+            "type": "Invoice",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "time": "2023-10-16T07:10:00Z",
+                    "value": "24700.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "goods_receipt:1128",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "time": "2023-10-16T07:10:00Z",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "purchase_requisition:550:pr_trigger_550",
+            "type": "PurchaseRequisition",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchasing_group:004",
+                    "qualifier": "purchasing_group"
+                },
+                {
+                    "objectId": "quotation:552",
+                    "qualifier": "linked"
+                }
+            ]
+        },
+        {
+            "id": "quotation:552",
+            "type": "Quotation",
+            "attributes": [
+                {
+                    "name": "created",
+                    "time": "2023-10-16T13:52:00Z",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchasing_group:004",
+                    "qualifier": "purchasing_group"
+                },
+                {
+                    "objectId": "purchase_requisition:550:pr_trigger_550",
+                    "qualifier": "linked"
+                }
+            ]
+        },
+        {
+            "id": "purchase_order:949",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "created",
+                    "time": "2023-10-16T22:31:00Z",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:552",
+                    "qualifier": "associated_with"
+                },
+                {
+                    "objectId": "purchasing_group:004",
+                    "qualifier": "purchasing_group"
+                }
+            ]
+        },
+        {
+            "id": "purchasing_group:004",
+            "type": "PurchasingGroup",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "department:finance",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "finance department"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "department:Procurement Department",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Procurement Department"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Two-way Match Completed",
+            "time": "2023-10-16T07:10:00Z",
+            "attributes": [
+                {
+                    "name": "result",
+                    "value": "successful"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice:1126",
+                    "qualifier": "involves"
+                },
+                {
+                    "objectId": "goods_receipt:1128",
+                    "qualifier": "involves"
+                },
+                {
+                    "objectId": "department:finance",
+                    "qualifier": "performed_by"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Request for Quotation Completed",
+            "time": "2023-10-16T13:52:00Z",
+            "attributes": [
+                {
+                    "name": "lifecycle_status",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_requisition:550:pr_trigger_550",
+                    "qualifier": "associated_requisition"
+                },
+                {
+                    "objectId": "quotation:552",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "purchasing_group:004",
+                    "qualifier": "purchasing_group"
+                },
+                {
+                    "objectId": "department:Procurement Department",
+                    "qualifier": "performed_by"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "Purchase Order Created",
+            "time": "2023-10-16T22:31:00Z",
+            "attributes": [
+                {
+                    "name": "lifecycle_status",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:949",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "quotation:552",
+                    "qualifier": "associated_quotation"
+                },
+                {
+                    "objectId": "purchasing_group:004",
+                    "qualifier": "purchasing_group"
+                },
+                {
+                    "objectId": "department:Procurement Department",
+                    "qualifier": "performed_by"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,208 @@
+{
+    "objectTypes": [
+        {
+            "name": "Applicant",
+            "attributes": []
+        },
+        {
+            "name": "PublicProsecutor",
+            "attributes": []
+        },
+        {
+            "name": "Judge",
+            "attributes": []
+        },
+        {
+            "name": "ForensicDoctor",
+            "attributes": []
+        },
+        {
+            "name": "MedicalReport",
+            "attributes": []
+        },
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Institute",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ProsecutorRequest",
+            "attributes": [
+                {
+                    "name": "requested_action",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "JudicialExamination",
+            "attributes": []
+        },
+        {
+            "name": "ForensicReExamination",
+            "attributes": [
+                {
+                    "name": "confirmation",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "applicant_1",
+            "type": "Applicant",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "public_prosecutor_1",
+            "type": "PublicProsecutor",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "judge_ciutadella_1",
+            "type": "Judge",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "court_ciutadella_1",
+                    "qualifier": "of"
+                }
+            ]
+        },
+        {
+            "id": "forensic_doctor_baleares_1",
+            "type": "ForensicDoctor",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "institute_baleares_1",
+                    "qualifier": "of"
+                }
+            ]
+        },
+        {
+            "id": "medical_reports_1",
+            "type": "MedicalReport",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "about"
+                }
+            ]
+        },
+        {
+            "id": "forensic_previous_report_1",
+            "type": "MedicalReport",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "forensic_doctor_baleares_1",
+                    "qualifier": "authored-by"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "about"
+                }
+            ]
+        },
+        {
+            "id": "court_ciutadella_1",
+            "type": "Court",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "institute_baleares_1",
+            "type": "Institute",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "ProsecutorRequest",
+            "time": "2016-02-25T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "requested_action",
+                    "value": "partial incapacitation"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "public_prosecutor_1",
+                    "qualifier": "requester"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "affected"
+                },
+                {
+                    "objectId": "medical_reports_1",
+                    "qualifier": "based-on"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "JudicialExamination",
+            "time": "2016-06-09T00:00:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "judge_ciutadella_1",
+                    "qualifier": "examiner"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "examined"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "ForensicReExamination",
+            "time": "2016-06-17T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "confirmation",
+                    "value": "confirmed conclusions of his previous report"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "forensic_doctor_baleares_1",
+                    "qualifier": "examiner"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "re-examined"
+                },
+                {
+                    "objectId": "forensic_previous_report_1",
+                    "qualifier": "confirmed-report"
+                }
+            ]
+        }
+    ]
+}

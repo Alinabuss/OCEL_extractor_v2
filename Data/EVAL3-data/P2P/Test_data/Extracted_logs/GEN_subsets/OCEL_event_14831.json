@@ -1,0 +1,109 @@
+{
+    "objectTypes": [
+        {
+            "name": "RequestForQuotation",
+            "attributes": []
+        },
+        {
+            "name": "PurchaseRequisition",
+            "attributes": [
+                {
+                    "name": "purchasingGroup",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Quotation",
+            "attributes": [
+                {
+                    "name": "purchasingGroup",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "RequestForQuotationCreated",
+            "attributes": [
+                {
+                    "name": "processStatus",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "request for quotation",
+            "type": "RequestForQuotation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchase_requisition:484:pr_trigger_484",
+                    "qualifier": "associated"
+                },
+                {
+                    "objectId": "quotation:482",
+                    "qualifier": "linked"
+                }
+            ]
+        },
+        {
+            "id": "purchase_requisition:484:pr_trigger_484",
+            "type": "PurchaseRequisition",
+            "attributes": [
+                {
+                    "name": "purchasingGroup",
+                    "value": "005"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "quotation:482",
+            "type": "Quotation",
+            "attributes": [
+                {
+                    "name": "purchasingGroup",
+                    "value": "005"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Procurement Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "RequestForQuotationCreated",
+            "time": "2023-08-11T14:44:00Z",
+            "attributes": [
+                {
+                    "name": "processStatus",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "request for quotation",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "Procurement Department",
+                    "qualifier": "creator"
+                }
+            ]
+        }
+    ]
+}

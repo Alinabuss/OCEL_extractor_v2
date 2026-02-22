@@ -1,0 +1,113 @@
+{
+    "objectTypes": [
+        {
+            "name": "FemalePart",
+            "attributes": []
+        },
+        {
+            "name": "Worker",
+            "attributes": []
+        },
+        {
+            "name": "Workstation",
+            "attributes": [
+                {
+                    "name": "electric_consumption_recorded",
+                    "type": "string"
+                },
+                {
+                    "name": "electric_consumption_value",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Check",
+            "attributes": [
+                {
+                    "name": "co2eq_kg",
+                    "type": "float"
+                },
+                {
+                    "name": "compressed_air_m3",
+                    "type": "float"
+                },
+                {
+                    "name": "duration",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "FemalePart[5061]",
+            "type": "FemalePart",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Worker[1]",
+            "type": "Worker",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Workstation[2]",
+                    "qualifier": "at"
+                }
+            ]
+        },
+        {
+            "id": "Workstation[2]",
+            "type": "Workstation",
+            "attributes": [
+                {
+                    "name": "electric_consumption_recorded",
+                    "value": "recorded"
+                },
+                {
+                    "name": "electric_consumption_value",
+                    "value": "not provided"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Check",
+            "time": "2023-04-06T11:41:09Z",
+            "attributes": [
+                {
+                    "name": "co2eq_kg",
+                    "value": "0.00123462"
+                },
+                {
+                    "name": "compressed_air_m3",
+                    "value": "0.019"
+                },
+                {
+                    "name": "duration",
+                    "value": "unspecified"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "FemalePart[5061]",
+                    "qualifier": "checked"
+                },
+                {
+                    "objectId": "Worker[1]",
+                    "qualifier": "performed_by"
+                },
+                {
+                    "objectId": "Workstation[2]",
+                    "qualifier": "performed_at"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,179 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Situation Report",
+            "attributes": [
+                {
+                    "name": "location_description",
+                    "type": "string"
+                },
+                {
+                    "name": "forward_rate_of_spread_status",
+                    "type": "string"
+                },
+                {
+                    "name": "planned_actions",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Repopulation Completed",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o_fire_lilac",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-22T07:17:00Z",
+                    "value": "Lilac Fire"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_loc_old_highway_395",
+                    "qualifier": "located_near"
+                },
+                {
+                    "objectId": "o_loc_lilac_road",
+                    "qualifier": "located_near"
+                }
+            ]
+        },
+        {
+            "id": "o_loc_old_highway_395",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-22T07:17:00Z",
+                    "value": "Old Highway 395"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_loc_lilac_road",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-22T07:17:00Z",
+                    "value": "Lilac Road"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_crew_fire",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-22T07:17:00Z",
+                    "value": "fire crew"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_fire_lilac",
+                    "qualifier": "works_on"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Situation Report",
+            "time": "2025-01-22T07:17:00Z",
+            "attributes": [
+                {
+                    "name": "location_description",
+                    "value": "near Old Highway 395 and Lilac Road"
+                },
+                {
+                    "name": "forward_rate_of_spread_status",
+                    "value": "stopped"
+                },
+                {
+                    "name": "planned_actions",
+                    "value": "Fire crew will continue to build containment lines and extinguish hotspots within the fire's perimeter"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_fire_lilac",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "o_loc_old_highway_395",
+                    "qualifier": "mentions"
+                },
+                {
+                    "objectId": "o_loc_lilac_road",
+                    "qualifier": "mentions"
+                },
+                {
+                    "objectId": "o_crew_fire",
+                    "qualifier": "mentions"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Repopulation Completed",
+            "time": "2025-01-21T20:00:00Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "completed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_fire_lilac",
+                    "qualifier": "about"
+                }
+            ]
+        }
+    ]
+}

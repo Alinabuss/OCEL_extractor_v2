@@ -1,0 +1,129 @@
+{
+    "objectTypes": [
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "initial_listed_price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "current_price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Reorder",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "Mahsa Bafrani",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Mahsa Bafrani"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Warehousing",
+                    "qualifier": "works-in"
+                }
+            ]
+        },
+        {
+            "id": "Warehousing",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "MacBook Air",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "MacBook Air"
+                },
+                {
+                    "name": "initial_listed_price",
+                    "value": "2200.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-881837",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "current_price",
+                    "value": "2325.62",
+                    "time": "2023-07-06T08:33:43Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "MacBook Air",
+                    "qualifier": "corresponds-to"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Reorder",
+            "time": "2023-07-06T08:33:43Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "i-881837",
+                    "qualifier": "reordered"
+                },
+                {
+                    "objectId": "Mahsa Bafrani",
+                    "qualifier": "performed-by"
+                }
+            ]
+        }
+    ]
+}

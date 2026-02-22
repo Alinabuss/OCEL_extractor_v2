@@ -1,0 +1,254 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "spread",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Crew",
+            "attributes": [
+                {
+                    "name": "activity",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Helicopter",
+            "attributes": [
+                {
+                    "name": "activity",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Weather",
+            "attributes": [
+                {
+                    "name": "forecast",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "FireSpreadDecreased",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "FireLineConstructionContinued",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "HelicopterWaterDropsSupport",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "RainExpected",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Border_2_Fire",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-26T09:17:00Z",
+                    "value": "Border 2 Fire"
+                },
+                {
+                    "name": "spread",
+                    "time": "2025-01-26T09:17:00Z",
+                    "value": "decreased"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Hand_Crews",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "activity",
+                    "time": "2025-01-26T09:17:00Z",
+                    "value": "fire line construction (ongoing)"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Border_2_Fire",
+                    "qualifier": "assigned_to"
+                },
+                {
+                    "objectId": "Helicopter_Support",
+                    "qualifier": "supported_by"
+                }
+            ]
+        },
+        {
+            "id": "Helicopter_Support",
+            "type": "Helicopter",
+            "attributes": [
+                {
+                    "name": "activity",
+                    "time": "2025-01-26T09:17:00Z",
+                    "value": "water drops (support)"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Border_2_Fire",
+                    "qualifier": "supporting"
+                }
+            ]
+        },
+        {
+            "id": "Rain",
+            "type": "Weather",
+            "attributes": [
+                {
+                    "name": "forecast",
+                    "time": "2025-01-26T09:17:00Z",
+                    "value": "expected to continue on and off today"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Border_2_Fire",
+                    "qualifier": "affecting"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "FireSpreadDecreased",
+            "time": "2025-01-26T09:17:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Substantial firefighting efforts have decreased fire spread."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Border_2_Fire",
+                    "qualifier": "affected"
+                },
+                {
+                    "objectId": "Hand_Crews",
+                    "qualifier": "involved"
+                },
+                {
+                    "objectId": "Helicopter_Support",
+                    "qualifier": "involved"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "FireLineConstructionContinued",
+            "time": "2025-01-26T09:17:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Hand crews will continue ongoing fire line construction."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Hand_Crews",
+                    "qualifier": "performer"
+                },
+                {
+                    "objectId": "Border_2_Fire",
+                    "qualifier": "target"
+                },
+                {
+                    "objectId": "Helicopter_Support",
+                    "qualifier": "support"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "type": "HelicopterWaterDropsSupport",
+            "time": "2025-01-26T09:17:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Hand crews are being supported by helicopter water drops."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Helicopter_Support",
+                    "qualifier": "performer"
+                },
+                {
+                    "objectId": "Hand_Crews",
+                    "qualifier": "supported"
+                },
+                {
+                    "objectId": "Border_2_Fire",
+                    "qualifier": "target"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "type": "RainExpected",
+            "time": "2025-01-26T09:17:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Rain is expected to continue on and off today which will help mitigate fire activity."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Rain",
+                    "qualifier": "forecast"
+                },
+                {
+                    "objectId": "Border_2_Fire",
+                    "qualifier": "affects"
+                }
+            ]
+        }
+    ]
+}

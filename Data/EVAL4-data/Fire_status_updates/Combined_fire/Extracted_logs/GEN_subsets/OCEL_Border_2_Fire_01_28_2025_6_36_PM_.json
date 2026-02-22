@@ -1,0 +1,371 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "activity",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "WeatherSystem",
+            "attributes": [
+                {
+                    "name": "pressure",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "WeatherCondition",
+            "attributes": [
+                {
+                    "name": "condition",
+                    "type": "string"
+                },
+                {
+                    "name": "extent",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "GroundCrew",
+            "attributes": [
+                {
+                    "name": "planned_actions",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Agency",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "EvacuationMap",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Residents",
+            "attributes": [
+                {
+                    "name": "scope",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "EvacuationOrder",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "WeatherSystemMovement",
+            "attributes": [
+                {
+                    "name": "detail",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "CloudCoverMovement",
+            "attributes": [
+                {
+                    "name": "detail",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "FireObservation",
+            "attributes": [
+                {
+                    "name": "activity",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "FireForecast",
+            "attributes": [
+                {
+                    "name": "spread_anticipated",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "OperationalPlan",
+            "attributes": [
+                {
+                    "name": "planned_actions",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PublicCommunication",
+            "attributes": [
+                {
+                    "name": "message",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire:border2",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-28T18:36:00Z",
+                    "value": "Border 2 Fire"
+                },
+                {
+                    "name": "activity",
+                    "time": "2025-01-28T18:36:00Z",
+                    "value": "Minimal fire activity observed"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "ws:low1",
+            "type": "WeatherSystem",
+            "attributes": [
+                {
+                    "name": "pressure",
+                    "time": "2025-01-28T18:36:00Z",
+                    "value": "low"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "cloud:1",
+            "type": "WeatherCondition",
+            "attributes": [
+                {
+                    "name": "condition",
+                    "time": "2025-01-28T18:36:00Z",
+                    "value": "cloud cover"
+                },
+                {
+                    "name": "extent",
+                    "time": "2025-01-28T18:36:00Z",
+                    "value": "mainly"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire:border2",
+                    "qualifier": "over"
+                }
+            ]
+        },
+        {
+            "id": "crews:ground1",
+            "type": "GroundCrew",
+            "attributes": [
+                {
+                    "name": "planned_actions",
+                    "time": "2025-01-28T18:36:00Z",
+                    "value": "suppression repair, mop up, patrolling existing fire lines"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire:border2",
+                    "qualifier": "working-on"
+                }
+            ]
+        },
+        {
+            "id": "agency:sdcso",
+            "type": "Agency",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-28T18:36:00Z",
+                    "value": "San Diego County Sheriff's Office"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "map:genasys_protect",
+            "type": "EvacuationMap",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-28T18:36:00Z",
+                    "value": "Genasys Protect evacuation map"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "residents:all",
+            "type": "Residents",
+            "attributes": [
+                {
+                    "name": "scope",
+                    "time": "2025-01-28T18:36:00Z",
+                    "value": "all residents"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "evacOrders:1",
+            "type": "EvacuationOrder",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "WeatherSystemMovement",
+            "time": "2025-01-28T18:36:00Z",
+            "attributes": [
+                {
+                    "name": "detail",
+                    "value": "low pressure weather system moving out"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "ws:low1",
+                    "qualifier": "subject"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "CloudCoverMovement",
+            "time": "2025-01-28T18:36:00Z",
+            "attributes": [
+                {
+                    "name": "detail",
+                    "value": "mainly cloud cover moved over the fire area"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "cloud:1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "fire:border2",
+                    "qualifier": "affected"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "FireObservation",
+            "time": "2025-01-28T18:36:00Z",
+            "attributes": [
+                {
+                    "name": "activity",
+                    "value": "Minimal fire activity observed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire:border2",
+                    "qualifier": "subject"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "FireForecast",
+            "time": "2025-01-28T18:36:00Z",
+            "attributes": [
+                {
+                    "name": "spread_anticipated",
+                    "value": "no fire spread anticipated"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire:border2",
+                    "qualifier": "subject"
+                }
+            ]
+        },
+        {
+            "id": "e5",
+            "type": "OperationalPlan",
+            "time": "2025-01-28T18:36:00Z",
+            "attributes": [
+                {
+                    "name": "planned_actions",
+                    "value": "suppression repair, mop up, patrolling existing fire lines"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "crews:ground1",
+                    "qualifier": "agent"
+                },
+                {
+                    "objectId": "fire:border2",
+                    "qualifier": "target"
+                }
+            ]
+        },
+        {
+            "id": "e6",
+            "type": "PublicCommunication",
+            "time": "2025-01-28T18:36:00Z",
+            "attributes": [
+                {
+                    "name": "message",
+                    "value": "For the most current information on evacuation orders, the San Diego County Sheriff's Office encourages all residents to check the Genasys Protect evacuation map."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "agency:sdcso",
+                    "qualifier": "agent"
+                },
+                {
+                    "objectId": "residents:all",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "map:genasys_protect",
+                    "qualifier": "resource"
+                },
+                {
+                    "objectId": "evacOrders:1",
+                    "qualifier": "topic"
+                }
+            ]
+        }
+    ]
+}

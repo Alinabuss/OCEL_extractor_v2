@@ -1,0 +1,109 @@
+{
+    "objectTypes": [
+        {
+            "name": "GoodsReceipt",
+            "attributes": []
+        },
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Two-way Match",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "integer"
+                },
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "goodsReceipt-1863",
+            "type": "GoodsReceipt",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "invoiceReceipt-1860",
+                    "qualifier": "associatedInvoice"
+                }
+            ]
+        },
+        {
+            "id": "invoiceReceipt-1860",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "time": "2024-09-17T12:33:00Z",
+                    "value": "106250.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "dept-Finance-Account",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2024-09-17T12:33:00Z",
+                    "value": "Finance/Account Department"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "evt-1",
+            "type": "Two-way Match",
+            "time": "2024-09-17T12:33:00Z",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "value": "101"
+                },
+                {
+                    "name": "lifecycle",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goodsReceipt-1863",
+                    "qualifier": "goodsReceipt"
+                },
+                {
+                    "objectId": "invoiceReceipt-1860",
+                    "qualifier": "invoiceReceipt"
+                },
+                {
+                    "objectId": "dept-Finance-Account",
+                    "qualifier": "performedBy"
+                }
+            ]
+        }
+    ]
+}

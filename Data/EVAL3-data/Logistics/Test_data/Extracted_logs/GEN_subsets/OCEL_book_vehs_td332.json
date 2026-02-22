@@ -1,0 +1,83 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "designation",
+                    "type": "string"
+                },
+                {
+                    "name": "scheduledDeparture",
+                    "type": "datetime"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "VehiclesBooked",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "td332",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "value": "4.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "vh76",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "designation",
+                    "value": "regular vehicle"
+                },
+                {
+                    "name": "scheduledDeparture",
+                    "value": "2024-02-16T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td332",
+                    "qualifier": "designated_for"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "VehiclesBooked",
+            "time": "2024-02-01T10:00:14Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "td332",
+                    "qualifier": "booked_for"
+                },
+                {
+                    "objectId": "vh76",
+                    "qualifier": "associated_with_booking"
+                }
+            ]
+        }
+    ]
+}

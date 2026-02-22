@@ -1,0 +1,193 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Agency",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ContainmentLine",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ResidentGroup",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "SituationReport",
+            "attributes": [
+                {
+                    "name": "firefighting_focus",
+                    "type": "string"
+                },
+                {
+                    "name": "focus_objectives",
+                    "type": "string"
+                },
+                {
+                    "name": "public_advisory",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire-hurst",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Hurst Fire"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "containment-lines-1",
+            "type": "ContainmentLine",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "containment lines"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-hurst",
+                    "qualifier": "part-of-incident"
+                }
+            ]
+        },
+        {
+            "id": "residents-returning-home",
+            "type": "ResidentGroup",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Residents returning home"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-hurst",
+                    "qualifier": "affected-by"
+                }
+            ]
+        },
+        {
+            "id": "angeles-national-forest",
+            "type": "Agency",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Angeles National Forest"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "los-angeles-county-fire-department",
+                    "qualifier": "unified-command-with"
+                },
+                {
+                    "objectId": "los-angeles-city-fire-department",
+                    "qualifier": "unified-command-with"
+                }
+            ]
+        },
+        {
+            "id": "los-angeles-county-fire-department",
+            "type": "Agency",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Los Angeles County Fire Department"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "los-angeles-city-fire-department",
+            "type": "Agency",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Los Angeles City Fire Department"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "SituationReport",
+            "time": "2025-01-11T13:21:00Z",
+            "attributes": [
+                {
+                    "name": "firefighting_focus",
+                    "value": "building and improving containment lines"
+                },
+                {
+                    "name": "focus_objectives",
+                    "value": "public safety and structure protection"
+                },
+                {
+                    "name": "public_advisory",
+                    "value": "Residents returning home are advised to use extreme caution"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-hurst",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "containment-lines-1",
+                    "qualifier": "focus"
+                },
+                {
+                    "objectId": "residents-returning-home",
+                    "qualifier": "advised"
+                },
+                {
+                    "objectId": "angeles-national-forest",
+                    "qualifier": "mentioned"
+                },
+                {
+                    "objectId": "los-angeles-county-fire-department",
+                    "qualifier": "mentioned"
+                },
+                {
+                    "objectId": "los-angeles-city-fire-department",
+                    "qualifier": "mentioned"
+                }
+            ]
+        }
+    ]
+}

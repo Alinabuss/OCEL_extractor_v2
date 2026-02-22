@@ -1,0 +1,125 @@
+{
+    "objectTypes": [
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Item Out of Stock Reported",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "person-marco-pegoraro",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Marco Pegoraro"
+                },
+                {
+                    "name": "department",
+                    "value": "Warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "product-iphone-x",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "iPhone X"
+                },
+                {
+                    "name": "price",
+                    "value": "699.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "item-i-882631",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "756.32"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-iphone-x",
+                    "qualifier": "associated_with"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Item Out of Stock Reported",
+            "time": "2023-08-15T14:00:48Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "reported that an item went out of stock"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person-marco-pegoraro",
+                    "qualifier": "reporter"
+                },
+                {
+                    "objectId": "item-i-882631",
+                    "qualifier": "item"
+                },
+                {
+                    "objectId": "product-iphone-x",
+                    "qualifier": "related_product"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,148 @@
+{
+    "objectTypes": [
+        {
+            "name": "Incident",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ResidentGroup",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Situation Update",
+            "attributes": [
+                {
+                    "name": "message",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Hurst_Fire",
+            "type": "Incident",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Hurst Fire"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Angeles_National_Forest",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Angeles National Forest"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Los_Angeles_County_Fire_Department",
+                    "qualifier": "unified-command-with"
+                },
+                {
+                    "objectId": "Los_Angeles_City_Fire_Department",
+                    "qualifier": "unified-command-with"
+                }
+            ]
+        },
+        {
+            "id": "Los_Angeles_County_Fire_Department",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Los Angeles County Fire Department"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Los_Angeles_City_Fire_Department",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Los Angeles City Fire Department"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Residents_Returning_Home",
+            "type": "ResidentGroup",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "",
+                    "value": "Residents returning home"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Situation Update",
+            "time": "2025-01-13T08:20:00Z",
+            "attributes": [
+                {
+                    "name": "message",
+                    "value": "Firefighting efforts continue to concentrate on building and improving containment lines with a focus on public safety and structure protection. Residents returning home are advised to use extreme caution. The Angeles National Forest is in unified command with Los Angeles County Fire Department and Los Angeles City Fire Department."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Hurst_Fire",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "Angeles_National_Forest",
+                    "qualifier": "mentioned"
+                },
+                {
+                    "objectId": "Los_Angeles_County_Fire_Department",
+                    "qualifier": "mentioned"
+                },
+                {
+                    "objectId": "Los_Angeles_City_Fire_Department",
+                    "qualifier": "mentioned"
+                },
+                {
+                    "objectId": "Residents_Returning_Home",
+                    "qualifier": "advised"
+                }
+            ]
+        }
+    ]
+}

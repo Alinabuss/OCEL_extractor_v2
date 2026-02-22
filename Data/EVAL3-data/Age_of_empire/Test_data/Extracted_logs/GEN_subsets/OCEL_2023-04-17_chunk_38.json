@@ -1,0 +1,268 @@
+{
+    "objectTypes": [
+        {
+            "name": "Match",
+            "attributes": []
+        },
+        {
+            "name": "Player",
+            "attributes": []
+        },
+        {
+            "name": "Archery Range",
+            "attributes": []
+        },
+        {
+            "name": "Session",
+            "attributes": []
+        },
+        {
+            "name": "Villager",
+            "attributes": []
+        },
+        {
+            "name": "Farm",
+            "attributes": []
+        },
+        {
+            "name": "Siege Workshop",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "CommandExecuted",
+            "attributes": []
+        },
+        {
+            "name": "ConstructionCompleted",
+            "attributes": []
+        },
+        {
+            "name": "Gathering",
+            "attributes": [
+                {
+                    "name": "resource",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ParticipatedInSession",
+            "attributes": []
+        },
+        {
+            "name": "SetGatheringPoint",
+            "attributes": [
+                {
+                    "name": "gathering_point",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "M227028371",
+            "type": "Match",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "P1472826",
+            "type": "Player",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Archery_Range_M227028371_1",
+            "type": "Archery Range",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "M227028371",
+                    "qualifier": "part-of"
+                }
+            ]
+        },
+        {
+            "id": "S227028371_1472826",
+            "type": "Session",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "M227028371",
+                    "qualifier": "part-of"
+                }
+            ]
+        },
+        {
+            "id": "Villager_M227028371_26",
+            "type": "Villager",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Farm_M227028371_19",
+            "type": "Farm",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "S227028371_767395",
+            "type": "Session",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "M227028371",
+                    "qualifier": "part-of"
+                }
+            ]
+        },
+        {
+            "id": "P767395",
+            "type": "Player",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Siege_Workshop_M227028371_1",
+            "type": "Siege Workshop",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "S227028371_767395",
+                    "qualifier": "associated-with"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "CommandExecuted",
+            "time": "2023-04-17T00:55:55Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "P1472826",
+                    "qualifier": "archer"
+                },
+                {
+                    "objectId": "Archery_Range_M227028371_1",
+                    "qualifier": "location"
+                },
+                {
+                    "objectId": "S227028371_1472826",
+                    "qualifier": "session"
+                },
+                {
+                    "objectId": "M227028371",
+                    "qualifier": "match"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "ConstructionCompleted",
+            "time": "2023-04-17T00:55:58Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Villager_M227028371_26",
+                    "qualifier": "builder"
+                },
+                {
+                    "objectId": "Farm_M227028371_19",
+                    "qualifier": "constructed"
+                },
+                {
+                    "objectId": "S227028371_767395",
+                    "qualifier": "session"
+                },
+                {
+                    "objectId": "M227028371",
+                    "qualifier": "match"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "Gathering",
+            "time": "2023-04-17T00:55:58Z",
+            "attributes": [
+                {
+                    "name": "resource",
+                    "value": "food"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Villager_M227028371_26",
+                    "qualifier": "gatherer"
+                },
+                {
+                    "objectId": "Farm_M227028371_19",
+                    "qualifier": "location"
+                },
+                {
+                    "objectId": "S227028371_767395",
+                    "qualifier": "session"
+                },
+                {
+                    "objectId": "M227028371",
+                    "qualifier": "match"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "ParticipatedInSession",
+            "time": "2023-04-17T00:56:01Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "P767395",
+                    "qualifier": "participant"
+                },
+                {
+                    "objectId": "S227028371_767395",
+                    "qualifier": "session"
+                },
+                {
+                    "objectId": "M227028371",
+                    "qualifier": "match"
+                }
+            ]
+        },
+        {
+            "id": "e5",
+            "type": "SetGatheringPoint",
+            "time": "2023-04-17T00:56:01Z",
+            "attributes": [
+                {
+                    "name": "gathering_point",
+                    "value": "none"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "P767395",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "S227028371_767395",
+                    "qualifier": "session"
+                },
+                {
+                    "objectId": "Siege_Workshop_M227028371_1",
+                    "qualifier": "workshop"
+                },
+                {
+                    "objectId": "M227028371",
+                    "qualifier": "match"
+                }
+            ]
+        }
+    ]
+}

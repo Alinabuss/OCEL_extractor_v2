@@ -1,0 +1,216 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Vacancy",
+            "attributes": [
+                {
+                    "name": "position",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Interview",
+            "attributes": [
+                {
+                    "name": "position",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "RejectionSent",
+            "attributes": [
+                {
+                    "name": "noticeType",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ApplicationSubmitted",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "person_stephan_smith",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Stephan Smith"
+                },
+                {
+                    "name": "role",
+                    "value": "applicant"
+                }
+            ]
+        },
+        {
+            "id": "person_bastian_nominacher",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Bastian Nominacher"
+                },
+                {
+                    "name": "role",
+                    "value": "manager"
+                }
+            ]
+        },
+        {
+            "id": "person_dionne_hense",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Dionne Hense"
+                },
+                {
+                    "name": "role",
+                    "value": "recruiter"
+                }
+            ]
+        },
+        {
+            "id": "vacancy_550003",
+            "type": "Vacancy",
+            "attributes": [
+                {
+                    "name": "position",
+                    "value": "Programmer"
+                }
+            ]
+        },
+        {
+            "id": "application_770023",
+            "type": "Application",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "person_stephan_smith",
+                    "qualifier": "applicant"
+                }
+            ]
+        },
+        {
+            "id": "application_770388",
+            "type": "Application",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "person_stephan_smith",
+                    "qualifier": "applicant"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Interview",
+            "time": "2019-07-01T10:20:38Z",
+            "attributes": [
+                {
+                    "name": "position",
+                    "value": "Programmer"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person_stephan_smith",
+                    "qualifier": "applicant"
+                },
+                {
+                    "objectId": "person_bastian_nominacher",
+                    "qualifier": "manager"
+                },
+                {
+                    "objectId": "person_dionne_hense",
+                    "qualifier": "recruiter"
+                },
+                {
+                    "objectId": "vacancy_550003",
+                    "qualifier": "vacancy"
+                },
+                {
+                    "objectId": "application_770023",
+                    "qualifier": "application"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "RejectionSent",
+            "time": "2019-07-02T16:34:31Z",
+            "attributes": [
+                {
+                    "name": "noticeType",
+                    "value": "rejection"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person_dionne_hense",
+                    "qualifier": "recruiter"
+                },
+                {
+                    "objectId": "person_stephan_smith",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "application_770023",
+                    "qualifier": "application"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "ApplicationSubmitted",
+            "time": "2019-07-03T08:54:04Z",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "submitted"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person_stephan_smith",
+                    "qualifier": "applicant"
+                },
+                {
+                    "objectId": "application_770388",
+                    "qualifier": "application"
+                }
+            ]
+        }
+    ]
+}

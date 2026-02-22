@@ -1,0 +1,184 @@
+{
+    "objectTypes": [
+        {
+            "name": "Machine",
+            "attributes": []
+        },
+        {
+            "name": "SteelCoil",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Workstation",
+            "attributes": [
+                {
+                    "name": "number",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "Waste",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "type": "float"
+                },
+                {
+                    "name": "destination",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Processing",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "type": "float"
+                },
+                {
+                    "name": "emissions_co2e_kg",
+                    "type": "float"
+                },
+                {
+                    "name": "electricity_grid_kwh",
+                    "type": "float"
+                },
+                {
+                    "name": "waste_kg",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "splitter01",
+            "type": "Machine",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "steel_coil_4",
+            "type": "SteelCoil",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "time": "2023-04-03T12:55:17Z",
+                    "value": "31.91076"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_steelsheet_1436",
+            "type": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "time": "2023-04-03T12:55:17Z",
+                    "value": "0.02116"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "steel_coil_4",
+                    "qualifier": "derived-from"
+                }
+            ]
+        },
+        {
+            "id": "workstation_1",
+            "type": "Workstation",
+            "attributes": [
+                {
+                    "name": "number",
+                    "time": "2023-04-03T12:55:17Z",
+                    "value": "1"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "steel_waste_1",
+            "type": "Waste",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "time": "2023-04-03T12:55:17Z",
+                    "value": "0.00042"
+                },
+                {
+                    "name": "destination",
+                    "time": "2023-04-03T12:55:17Z",
+                    "value": "recycling"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Processing",
+            "time": "2023-04-03T12:55:17Z",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "value": "14.7049"
+                },
+                {
+                    "name": "emissions_co2e_kg",
+                    "value": "0.0154"
+                },
+                {
+                    "name": "electricity_grid_kwh",
+                    "value": "0.0225"
+                },
+                {
+                    "name": "waste_kg",
+                    "value": "0.00042"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "splitter01",
+                    "qualifier": "machine"
+                },
+                {
+                    "objectId": "steel_coil_4",
+                    "qualifier": "input"
+                },
+                {
+                    "objectId": "o_steelsheet_1436",
+                    "qualifier": "output"
+                },
+                {
+                    "objectId": "workstation_1",
+                    "qualifier": "location"
+                },
+                {
+                    "objectId": "steel_waste_1",
+                    "qualifier": "produced"
+                }
+            ]
+        }
+    ]
+}

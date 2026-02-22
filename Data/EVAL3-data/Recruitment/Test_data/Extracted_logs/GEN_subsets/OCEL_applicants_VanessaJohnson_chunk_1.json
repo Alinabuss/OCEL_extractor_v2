@@ -1,0 +1,158 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": [
+                {
+                    "name": "applicationId",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Rejection Sent",
+            "attributes": [
+                {
+                    "name": "note",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application Submitted",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "Person[Vanessa Johnson]",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2019-07-03T09:21:02Z",
+                    "value": "Vanessa Johnson"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Application[770197]",
+                    "qualifier": "associated-with"
+                },
+                {
+                    "objectId": "Application[770399]",
+                    "qualifier": "associated-with"
+                }
+            ]
+        },
+        {
+            "id": "Person[Ed Kershaw]",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2019-07-03T09:21:02Z",
+                    "value": "Ed Kershaw"
+                },
+                {
+                    "name": "role",
+                    "time": "2019-07-03T09:21:02Z",
+                    "value": "recruiter"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Application[770197]",
+            "type": "Application",
+            "attributes": [
+                {
+                    "name": "applicationId",
+                    "time": "2019-07-03T09:21:02Z",
+                    "value": "Application[770197]"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Person[Vanessa Johnson]",
+                    "qualifier": "applicant"
+                }
+            ]
+        },
+        {
+            "id": "Application[770399]",
+            "type": "Application",
+            "attributes": [
+                {
+                    "name": "applicationId",
+                    "time": "2019-07-04T08:51:29Z",
+                    "value": "Application[770399]"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Person[Vanessa Johnson]",
+                    "qualifier": "applicant"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Rejection Sent",
+            "time": "2019-07-03T09:21:02Z",
+            "attributes": [
+                {
+                    "name": "note",
+                    "value": "rejection notice"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Person[Ed Kershaw]",
+                    "qualifier": "sender"
+                },
+                {
+                    "objectId": "Application[770197]",
+                    "qualifier": "application"
+                },
+                {
+                    "objectId": "Person[Vanessa Johnson]",
+                    "qualifier": "applicant"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "Application Submitted",
+            "time": "2019-07-04T08:51:29Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Person[Vanessa Johnson]",
+                    "qualifier": "submitter"
+                },
+                {
+                    "objectId": "Application[770399]",
+                    "qualifier": "application"
+                }
+            ]
+        }
+    ]
+}

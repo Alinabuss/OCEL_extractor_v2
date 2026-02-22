@@ -1,0 +1,256 @@
+{
+    "objectTypes": [
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "DomesticCourt",
+            "attributes": [
+                {
+                    "name": "conclusions",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "mental_health_condition",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ForensicReport",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Proceedings",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Paragraph",
+            "attributes": [
+                {
+                    "name": "number",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "CourtObservation",
+            "attributes": [
+                {
+                    "name": "text",
+                    "type": "string"
+                },
+                {
+                    "name": "paragraph_number",
+                    "type": "string"
+                },
+                {
+                    "name": "reference_paragraphs",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "court_1",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "The Court"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "domestic_court_1",
+            "type": "DomesticCourt",
+            "attributes": [
+                {
+                    "name": "conclusions",
+                    "time": "",
+                    "value": "concerning the possible discontinuation of the proceedings on account of the applicant's mental health condition"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "proceedings_1",
+                    "qualifier": "concluded_possible_discontinuation"
+                }
+            ]
+        },
+        {
+            "id": "applicant_1",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "mental_health_condition",
+                    "time": "",
+                    "value": "mentioned"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "forensic_reports_various",
+            "type": "ForensicReport",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "",
+                    "value": "various forensic reports analysing the applicant's situation"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "analysed"
+                }
+            ]
+        },
+        {
+            "id": "proceedings_1",
+            "type": "Proceedings",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "",
+                    "value": "the proceedings"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "p13",
+            "type": "Paragraph",
+            "attributes": [
+                {
+                    "name": "number",
+                    "time": "",
+                    "value": "13"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "p16",
+            "type": "Paragraph",
+            "attributes": [
+                {
+                    "name": "number",
+                    "time": "",
+                    "value": "16"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "p20",
+            "type": "Paragraph",
+            "attributes": [
+                {
+                    "name": "number",
+                    "time": "",
+                    "value": "20"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "p25",
+            "type": "Paragraph",
+            "attributes": [
+                {
+                    "name": "number",
+                    "time": "",
+                    "value": "25"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e62",
+            "type": "CourtObservation",
+            "time": "1970-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "text",
+                    "value": "The Court sees no reason to depart from the domestic court's conclusions concerning the possible discontinuation of the proceedings on account of the applicant's mental health condition. It observes in this regard that none of the various forensic reports analysing the applicant's situation found him unfit to stand trial or unable to understand the scope and purpose of the proceedings."
+                },
+                {
+                    "name": "paragraph_number",
+                    "value": "62"
+                },
+                {
+                    "name": "reference_paragraphs",
+                    "value": "13,16,20,25"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court_1",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "domestic_court_1",
+                    "qualifier": "refers_to_conclusions_of"
+                },
+                {
+                    "objectId": "proceedings_1",
+                    "qualifier": "concerns"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "concerns_applicant"
+                },
+                {
+                    "objectId": "forensic_reports_various",
+                    "qualifier": "refers_to_reports"
+                },
+                {
+                    "objectId": "p13",
+                    "qualifier": "references"
+                },
+                {
+                    "objectId": "p16",
+                    "qualifier": "references"
+                },
+                {
+                    "objectId": "p20",
+                    "qualifier": "references"
+                },
+                {
+                    "objectId": "p25",
+                    "qualifier": "references"
+                }
+            ]
+        }
+    ]
+}

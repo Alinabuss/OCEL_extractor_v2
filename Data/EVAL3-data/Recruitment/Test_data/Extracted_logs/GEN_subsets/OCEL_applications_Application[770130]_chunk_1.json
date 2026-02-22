@@ -1,0 +1,170 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": []
+        },
+        {
+            "name": "Vacancy",
+            "attributes": [
+                {
+                    "name": "position",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Interview",
+            "attributes": [
+                {
+                    "name": "position",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "RejectionSent",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "Martin Klenk",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Martin Klenk"
+                },
+                {
+                    "name": "role",
+                    "value": "manager"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Johan Schmidt",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Johan Schmidt"
+                },
+                {
+                    "name": "role",
+                    "value": "applicant"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Vacancy[550009]",
+                    "qualifier": "applies-for"
+                }
+            ]
+        },
+        {
+            "id": "Ed Keane",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Ed Keane"
+                },
+                {
+                    "name": "role",
+                    "value": "recruiter"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Vacancy[550009]",
+            "type": "Vacancy",
+            "attributes": [
+                {
+                    "name": "position",
+                    "value": "Programmer"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Application[770130]",
+            "type": "Application",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Johan Schmidt",
+                    "qualifier": "applied-by"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Interview",
+            "time": "2019-07-02T14:07:30Z",
+            "attributes": [
+                {
+                    "name": "position",
+                    "value": "Programmer"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Martin Klenk",
+                    "qualifier": "interviewer"
+                },
+                {
+                    "objectId": "Johan Schmidt",
+                    "qualifier": "candidate"
+                },
+                {
+                    "objectId": "Ed Keane",
+                    "qualifier": "involved"
+                },
+                {
+                    "objectId": "Application[770130]",
+                    "qualifier": "related-to"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "RejectionSent",
+            "time": "2019-07-04T10:56:20Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Ed Keane",
+                    "qualifier": "sender"
+                },
+                {
+                    "objectId": "Johan Schmidt",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "Application[770130]",
+                    "qualifier": "related-to"
+                }
+            ]
+        }
+    ]
+}

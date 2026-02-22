@@ -1,0 +1,159 @@
+{
+    "objectTypes": [
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Applicant",
+            "attributes": []
+        },
+        {
+            "name": "Evidence",
+            "attributes": [
+                {
+                    "name": "label",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Conclusion",
+            "attributes": [
+                {
+                    "name": "label",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "TriedToSubmit",
+            "attributes": []
+        },
+        {
+            "name": "Examined",
+            "attributes": []
+        },
+        {
+            "name": "Concluded",
+            "attributes": [
+                {
+                    "name": "decision_quality",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o1",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Audiencia Provincial"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o2",
+            "type": "Applicant",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "o3",
+            "type": "Evidence",
+            "attributes": [
+                {
+                    "name": "label",
+                    "value": "additional evidence"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o4",
+                    "qualifier": "does_not_contradict"
+                }
+            ]
+        },
+        {
+            "id": "o4",
+            "type": "Conclusion",
+            "attributes": [
+                {
+                    "name": "label",
+                    "value": "previous conclusion"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "TriedToSubmit",
+            "time": "2020-01-01T09:00:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "o2",
+                    "qualifier": "applicant"
+                },
+                {
+                    "objectId": "o3",
+                    "qualifier": "evidence"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Examined",
+            "time": "2020-01-01T10:00:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "o1",
+                    "qualifier": "examiner"
+                },
+                {
+                    "objectId": "o3",
+                    "qualifier": "evidence"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "Concluded",
+            "time": "2020-01-01T11:00:00Z",
+            "attributes": [
+                {
+                    "name": "decision_quality",
+                    "value": "not arbitrary or unreasonable"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o1",
+                    "qualifier": "decider"
+                },
+                {
+                    "objectId": "o3",
+                    "qualifier": "evidence"
+                },
+                {
+                    "objectId": "o4",
+                    "qualifier": "reference"
+                }
+            ]
+        }
+    ]
+}

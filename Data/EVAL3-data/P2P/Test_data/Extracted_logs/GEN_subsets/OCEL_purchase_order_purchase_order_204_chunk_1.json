@@ -1,0 +1,94 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseOrder",
+            "attributes": []
+        },
+        {
+            "name": "Quotation",
+            "attributes": []
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": []
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "PurchaseOrderCreationCompleted",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:204",
+            "type": "PurchaseOrder",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchasing_group:004",
+                    "qualifier": "associatedWith"
+                },
+                {
+                    "objectId": "quotation:113",
+                    "qualifier": "linkedTo"
+                }
+            ]
+        },
+        {
+            "id": "quotation:113",
+            "type": "Quotation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchasing_group:004",
+                    "qualifier": "belongsTo"
+                }
+            ]
+        },
+        {
+            "id": "purchasing_group:004",
+            "type": "PurchasingGroup",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "department:procurement",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "event:1",
+            "type": "PurchaseOrderCreationCompleted",
+            "time": "2022-07-25T11:26:00Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "successfully completed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:204",
+                    "qualifier": "creationOf"
+                },
+                {
+                    "objectId": "department:procurement",
+                    "qualifier": "completedBy"
+                }
+            ]
+        }
+    ]
+}

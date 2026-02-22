@@ -1,0 +1,207 @@
+{
+    "objectTypes": [
+        {
+            "name": "FireIncident",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Resource",
+            "attributes": [
+                {
+                    "name": "resourceType",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ContainmentLine",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "SituationReport",
+            "attributes": [
+                {
+                    "name": "fireBehavior",
+                    "type": "string"
+                },
+                {
+                    "name": "windCondition",
+                    "type": "string"
+                },
+                {
+                    "name": "shortRangeSpotting",
+                    "type": "string"
+                },
+                {
+                    "name": "fuelsReceptivity",
+                    "type": "string"
+                },
+                {
+                    "name": "humidity",
+                    "type": "string"
+                },
+                {
+                    "name": "rainPossibility",
+                    "type": "string"
+                },
+                {
+                    "name": "operationalNote",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire-1",
+            "type": "FireIncident",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-24T19:58:00Z",
+                    "value": "Border 2 Fire"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "resource-bulldozers-1",
+            "type": "Resource",
+            "attributes": [
+                {
+                    "name": "resourceType",
+                    "time": "2025-01-24T19:58:00Z",
+                    "value": "Bull dozers"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "assigned-to"
+                }
+            ]
+        },
+        {
+            "id": "resource-handcrews-1",
+            "type": "Resource",
+            "attributes": [
+                {
+                    "name": "resourceType",
+                    "time": "2025-01-24T19:58:00Z",
+                    "value": "Hand crews"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "assigned-to"
+                }
+            ]
+        },
+        {
+            "id": "resource-helicopters-1",
+            "type": "Resource",
+            "attributes": [
+                {
+                    "name": "resourceType",
+                    "time": "2025-01-24T19:58:00Z",
+                    "value": "Water dropping helicopters"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "assigned-to"
+                }
+            ]
+        },
+        {
+            "id": "containment-lines-1",
+            "type": "ContainmentLine",
+            "attributes": [
+                {
+                    "name": "status",
+                    "time": "2025-01-24T19:58:00Z",
+                    "value": "being established"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "for"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "SituationReport",
+            "time": "2025-01-24T19:58:00Z",
+            "attributes": [
+                {
+                    "name": "fireBehavior",
+                    "value": "making uphill runs"
+                },
+                {
+                    "name": "windCondition",
+                    "value": "influenced by shifting winds"
+                },
+                {
+                    "name": "shortRangeSpotting",
+                    "value": "continues"
+                },
+                {
+                    "name": "fuelsReceptivity",
+                    "value": "very receptive to ignition"
+                },
+                {
+                    "name": "humidity",
+                    "value": "very low, will continue overnight"
+                },
+                {
+                    "name": "rainPossibility",
+                    "value": "possibility of rain over the fire area from Saturday night into Monday"
+                },
+                {
+                    "name": "operationalNote",
+                    "value": "Bull dozers and hand crews will continue to work overnight establishing containment lines, supported from the air by water dropping helicopters"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "resource-bulldozers-1",
+                    "qualifier": "performer"
+                },
+                {
+                    "objectId": "resource-handcrews-1",
+                    "qualifier": "performer"
+                },
+                {
+                    "objectId": "resource-helicopters-1",
+                    "qualifier": "support"
+                },
+                {
+                    "objectId": "containment-lines-1",
+                    "qualifier": "target"
+                }
+            ]
+        }
+    ]
+}

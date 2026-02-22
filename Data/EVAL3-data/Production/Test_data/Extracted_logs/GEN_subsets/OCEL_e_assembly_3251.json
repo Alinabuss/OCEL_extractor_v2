@@ -1,0 +1,188 @@
+{
+    "objectTypes": [
+        {
+            "name": "FemalePart",
+            "attributes": [
+                {
+                    "name": "mass",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "MalePart",
+            "attributes": [
+                {
+                    "name": "mass",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "SteelPin",
+            "attributes": [
+                {
+                    "name": "mass",
+                    "type": "float"
+                },
+                {
+                    "name": "material",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Hinge",
+            "attributes": [
+                {
+                    "name": "mass",
+                    "type": "float"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Workstation",
+            "attributes": [
+                {
+                    "name": "powerSource",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "AssembleHinge",
+            "attributes": [
+                {
+                    "name": "durationSeconds",
+                    "type": "integer"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "female-1",
+            "type": "FemalePart",
+            "attributes": [
+                {
+                    "name": "mass",
+                    "value": "",
+                    "time": ""
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "male-1",
+            "type": "MalePart",
+            "attributes": [
+                {
+                    "name": "mass",
+                    "value": "",
+                    "time": ""
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "pin-1",
+            "type": "SteelPin",
+            "attributes": [
+                {
+                    "name": "mass",
+                    "value": "0.001",
+                    "time": ""
+                },
+                {
+                    "name": "material",
+                    "value": "steel",
+                    "time": ""
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "hinge-1",
+            "type": "Hinge",
+            "attributes": [
+                {
+                    "name": "mass",
+                    "value": "0.1858",
+                    "time": "2023-04-05T10:53:03Z"
+                },
+                {
+                    "name": "status",
+                    "value": "finished",
+                    "time": "2023-04-05T10:53:03Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "female-1",
+                    "qualifier": "hasComponent"
+                },
+                {
+                    "objectId": "male-1",
+                    "qualifier": "hasComponent"
+                },
+                {
+                    "objectId": "pin-1",
+                    "qualifier": "hasComponent"
+                }
+            ]
+        },
+        {
+            "id": "ws-1",
+            "type": "Workstation",
+            "attributes": [
+                {
+                    "name": "powerSource",
+                    "value": "grid",
+                    "time": ""
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "AssembleHinge",
+            "time": "2023-04-05T10:53:03Z",
+            "attributes": [
+                {
+                    "name": "durationSeconds",
+                    "value": "5"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "female-1",
+                    "qualifier": "input"
+                },
+                {
+                    "objectId": "male-1",
+                    "qualifier": "input"
+                },
+                {
+                    "objectId": "pin-1",
+                    "qualifier": "input"
+                },
+                {
+                    "objectId": "hinge-1",
+                    "qualifier": "output"
+                },
+                {
+                    "objectId": "ws-1",
+                    "qualifier": "performedAt"
+                }
+            ]
+        }
+    ]
+}

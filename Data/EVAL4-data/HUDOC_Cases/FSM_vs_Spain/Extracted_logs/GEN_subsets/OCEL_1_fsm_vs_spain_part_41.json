@@ -1,0 +1,278 @@
+{
+    "objectTypes": [
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Proceeding",
+            "attributes": []
+        },
+        {
+            "name": "LegalArticle",
+            "attributes": [
+                {
+                    "name": "articles",
+                    "type": "string"
+                },
+                {
+                    "name": "act",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "EvidenceRequest",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Hearing",
+            "attributes": []
+        },
+        {
+            "name": "Law",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Determination",
+            "attributes": [
+                {
+                    "name": "conclusion",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "AdmissibilityDecision",
+            "attributes": [
+                {
+                    "name": "decision",
+                    "type": "string"
+                },
+                {
+                    "name": "reason",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "EvidenceProposalStatement",
+            "attributes": [
+                {
+                    "name": "possibility",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "court_audiencia_provincial",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Audiencia Provincial"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "applicant_1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "",
+                    "value": "applicant"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "proceeding_1",
+            "type": "Proceeding",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "against"
+                }
+            ]
+        },
+        {
+            "id": "article_381_384",
+            "type": "LegalArticle",
+            "attributes": [
+                {
+                    "name": "articles",
+                    "time": "",
+                    "value": "381-384"
+                },
+                {
+                    "name": "act",
+                    "time": "",
+                    "value": "Criminal Procedure Act"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "act_criminal_procedure",
+                    "qualifier": "part-of"
+                }
+            ]
+        },
+        {
+            "id": "act_criminal_procedure",
+            "type": "Law",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Criminal Procedure Act"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "evidence_request_1",
+            "type": "EvidenceRequest",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "",
+                    "value": "new evidence requested"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "proceeding_1",
+                    "qualifier": "concerns"
+                }
+            ]
+        },
+        {
+            "id": "hearing_1",
+            "type": "Hearing",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "proceeding_1",
+                    "qualifier": "part-of"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Determination",
+            "time": "2020-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "conclusion",
+                    "value": "Applicant able to understand the scope of the proceedings and to stand trial; discontinuing the proceedings under Articles 381 to 384 was inappropriate"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court_audiencia_provincial",
+                    "qualifier": "decider"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "proceeding_1",
+                    "qualifier": "proceeding"
+                },
+                {
+                    "objectId": "article_381_384",
+                    "qualifier": "legal_basis"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "AdmissibilityDecision",
+            "time": "2020-01-01T00:01:00Z",
+            "attributes": [
+                {
+                    "name": "decision",
+                    "value": "new evidence declared inadmissible"
+                },
+                {
+                    "name": "reason",
+                    "value": "request was made out of time"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court_audiencia_provincial",
+                    "qualifier": "decider"
+                },
+                {
+                    "objectId": "evidence_request_1",
+                    "qualifier": "evidence"
+                },
+                {
+                    "objectId": "proceeding_1",
+                    "qualifier": "proceeding"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "type": "EvidenceProposalStatement",
+            "time": "2020-01-01T00:02:00Z",
+            "attributes": [
+                {
+                    "name": "possibility",
+                    "value": "possible to propose new evidence at the beginning of the hearing"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court_audiencia_provincial",
+                    "qualifier": "statement_by"
+                },
+                {
+                    "objectId": "hearing_1",
+                    "qualifier": "hearing"
+                },
+                {
+                    "objectId": "evidence_request_1",
+                    "qualifier": "concerned"
+                }
+            ]
+        }
+    ]
+}

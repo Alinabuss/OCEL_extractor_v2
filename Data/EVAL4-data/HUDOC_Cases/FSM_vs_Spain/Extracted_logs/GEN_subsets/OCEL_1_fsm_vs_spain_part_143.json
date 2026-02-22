@@ -1,0 +1,158 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": []
+        },
+        {
+            "name": "Court",
+            "attributes": []
+        },
+        {
+            "name": "Hearing",
+            "attributes": [
+                {
+                    "name": "month",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Right",
+            "attributes": []
+        },
+        {
+            "name": "Trial",
+            "attributes": []
+        },
+        {
+            "name": "AdjustmentMeasures",
+            "attributes": [
+                {
+                    "name": "present",
+                    "type": "boolean"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "UseRightToRemainSilent",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "applicant_1",
+            "type": "Person",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "lawyer_1",
+                    "qualifier": "assisted_by"
+                },
+                {
+                    "objectId": "domestic_courts",
+                    "qualifier": "did_not_substantiate_impact"
+                },
+                {
+                    "objectId": "the_court",
+                    "qualifier": "did_not_substantiate_impact"
+                },
+                {
+                    "objectId": "adjustment_measures_absence",
+                    "qualifier": "subject_of_unsustained_claim"
+                },
+                {
+                    "objectId": "trial_1",
+                    "qualifier": "subject_of_unsustained_claim"
+                }
+            ]
+        },
+        {
+            "id": "lawyer_1",
+            "type": "Person",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "chosen_by"
+                }
+            ]
+        },
+        {
+            "id": "the_court",
+            "type": "Court",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "domestic_courts",
+            "type": "Court",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "hearing_2019_01",
+            "type": "Hearing",
+            "attributes": [
+                {
+                    "name": "month",
+                    "time": "",
+                    "value": "2019-01"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "right_remain_silent",
+            "type": "Right",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "trial_1",
+            "type": "Trial",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "adjustment_measures_absence",
+            "type": "AdjustmentMeasures",
+            "attributes": [
+                {
+                    "name": "present",
+                    "time": "",
+                    "value": "false"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "UseRightToRemainSilent",
+            "time": "2019-01-01T00:00:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "lawyer_1",
+                    "qualifier": "assistant"
+                },
+                {
+                    "objectId": "hearing_2019_01",
+                    "qualifier": "occurs_at"
+                },
+                {
+                    "objectId": "right_remain_silent",
+                    "qualifier": "right_used"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,158 @@
+{
+    "objectTypes": [
+        {
+            "name": "SteelSheet",
+            "attributes": []
+        },
+        {
+            "name": "SteelCoil",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Workstation",
+            "attributes": [
+                {
+                    "name": "powered",
+                    "type": "boolean"
+                },
+                {
+                    "name": "location",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Machine",
+            "attributes": []
+        },
+        {
+            "name": "PowerSource",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Split",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "type": "float"
+                },
+                {
+                    "name": "co2_emission_kg",
+                    "type": "float"
+                },
+                {
+                    "name": "electricity_kwh",
+                    "type": "float"
+                },
+                {
+                    "name": "steel_waste_kg",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "SteelSheet[3467]",
+            "type": "SteelSheet",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "SteelCoil[2]",
+                    "qualifier": "produced_from"
+                }
+            ]
+        },
+        {
+            "id": "SteelCoil[2]",
+            "type": "SteelCoil",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "time": "",
+                    "value": "31.91076"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Workstation[1]",
+            "type": "Workstation",
+            "attributes": [
+                {
+                    "name": "powered",
+                    "time": "",
+                    "value": "true"
+                },
+                {
+                    "name": "location",
+                    "time": "",
+                    "value": "designated area"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Machine[splitter01]",
+            "type": "Machine",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Grid",
+            "type": "PowerSource",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Split",
+            "time": "2023-04-05T09:14:36Z",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "value": "14.266"
+                },
+                {
+                    "name": "co2_emission_kg",
+                    "value": "0.014917"
+                },
+                {
+                    "name": "electricity_kwh",
+                    "value": "0.0217954"
+                },
+                {
+                    "name": "steel_waste_kg",
+                    "value": "0.00042"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "SteelSheet[3467]",
+                    "qualifier": "operated_on"
+                },
+                {
+                    "objectId": "Workstation[1]",
+                    "qualifier": "at"
+                },
+                {
+                    "objectId": "Machine[splitter01]",
+                    "qualifier": "utilized"
+                },
+                {
+                    "objectId": "Grid",
+                    "qualifier": "power_from"
+                }
+            ]
+        }
+    ]
+}

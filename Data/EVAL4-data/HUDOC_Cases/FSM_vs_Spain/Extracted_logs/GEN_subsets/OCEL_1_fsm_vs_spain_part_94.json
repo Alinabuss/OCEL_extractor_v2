@@ -1,0 +1,200 @@
+{
+    "objectTypes": [
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Requirement",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "purpose",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ContractingStates",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Courts",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Allegation",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Reiterates",
+            "attributes": [
+                {
+                    "name": "section",
+                    "type": "string"
+                },
+                {
+                    "name": "paragraph",
+                    "type": "string"
+                },
+                {
+                    "name": "text",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o1",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "The Court"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o2",
+            "type": "Requirement",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "requirement of exhaustion of domestic remedies"
+                },
+                {
+                    "name": "purpose",
+                    "time": "",
+                    "value": "to afford the Contracting States the opportunity of preventing or putting right \u2014 usually through the courts \u2014 the violations alleged against them before those allegations are submitted to the Court"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o3",
+                    "qualifier": "affordsOpportunityTo"
+                },
+                {
+                    "objectId": "o4",
+                    "qualifier": "through"
+                }
+            ]
+        },
+        {
+            "id": "o3",
+            "type": "ContractingStates",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Contracting States"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o4",
+            "type": "Courts",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "the courts"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o5",
+            "type": "Allegation",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "",
+                    "value": "the violations alleged against them"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o3",
+                    "qualifier": "allegedAgainst"
+                },
+                {
+                    "objectId": "o1",
+                    "qualifier": "submittedTo"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Reiterates",
+            "time": "1970-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "section",
+                    "value": "2"
+                },
+                {
+                    "name": "paragraph",
+                    "value": "45"
+                },
+                {
+                    "name": "text",
+                    "value": "The Court reiterates that the purpose of the requirement of exhaustion of domestic remedies is to afford the Contracting States the opportunity of preventing or putting right \u2014 usually through the courts \u2014 the violations alleged against them before those allegations are submitted to the Court"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o1",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "o2",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "o3",
+                    "qualifier": "beneficiary"
+                },
+                {
+                    "objectId": "o4",
+                    "qualifier": "through"
+                },
+                {
+                    "objectId": "o5",
+                    "qualifier": "refersTo"
+                }
+            ]
+        }
+    ]
+}

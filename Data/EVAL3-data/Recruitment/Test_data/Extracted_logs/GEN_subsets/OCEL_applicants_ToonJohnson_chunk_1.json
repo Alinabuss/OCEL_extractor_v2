@@ -1,0 +1,125 @@
+{
+    "objectTypes": [
+        {
+            "name": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": [
+                {
+                    "name": "applicationId",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Inform Applicant of Rejection",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                },
+                {
+                    "name": "outcome",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Jana Kershaw",
+            "type": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Jana Kershaw"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Toon Johnson",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Toon Johnson"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Application[770308]",
+            "type": "Application",
+            "attributes": [
+                {
+                    "name": "applicationId",
+                    "value": "770308"
+                },
+                {
+                    "name": "status",
+                    "value": "rejected"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Toon Johnson",
+                    "qualifier": "owned-by"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Inform Applicant of Rejection",
+            "time": "2019-07-02T08:45:17Z",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "informed"
+                },
+                {
+                    "name": "outcome",
+                    "value": "rejection"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Jana Kershaw",
+                    "qualifier": "informer"
+                },
+                {
+                    "objectId": "Toon Johnson",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "Application[770308]",
+                    "qualifier": "application"
+                }
+            ]
+        }
+    ]
+}

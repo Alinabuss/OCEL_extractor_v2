@@ -1,0 +1,111 @@
+{
+    "objectTypes": [
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "fullName",
+                    "type": "string"
+                },
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "label",
+                    "type": "string"
+                },
+                {
+                    "name": "listedPrice",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Reorder",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "emp-1",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "fullName",
+                    "value": "Leah Tacke genannt Unterberg"
+                },
+                {
+                    "name": "department",
+                    "value": "Warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-884207",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "label",
+                    "value": "Fire Stick"
+                },
+                {
+                    "name": "listedPrice",
+                    "value": "43.90"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "prod-1",
+                    "qualifier": "associatedProduct"
+                }
+            ]
+        },
+        {
+            "id": "prod-1",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "39.99"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e-1",
+            "type": "Reorder",
+            "time": "2023-10-18T09:37:12Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "emp-1",
+                    "qualifier": "performedBy"
+                },
+                {
+                    "objectId": "i-884207",
+                    "qualifier": "reorderedItem"
+                }
+            ]
+        }
+    ]
+}

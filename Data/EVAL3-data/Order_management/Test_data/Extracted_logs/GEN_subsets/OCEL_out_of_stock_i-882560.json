@@ -1,0 +1,121 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Report Out of Stock",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "person-leah-tacke-unterberg",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Leah Tacke genannt Unterberg"
+                },
+                {
+                    "name": "department",
+                    "value": "Warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "product-Kindle",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Kindle"
+                },
+                {
+                    "name": "price",
+                    "value": "79.99"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-882560",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "86.55"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-Kindle",
+                    "qualifier": "corresponds-to"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "evt-1",
+            "type": "Report Out of Stock",
+            "time": "2023-08-11T09:45:29Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "out of stock"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person-leah-tacke-unterberg",
+                    "qualifier": "reporter"
+                },
+                {
+                    "objectId": "i-882560",
+                    "qualifier": "affected"
+                }
+            ]
+        }
+    ]
+}

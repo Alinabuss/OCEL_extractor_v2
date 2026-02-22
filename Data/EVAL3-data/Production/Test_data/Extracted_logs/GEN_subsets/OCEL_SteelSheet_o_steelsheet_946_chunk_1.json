@@ -1,0 +1,131 @@
+{
+    "objectTypes": [
+        {
+            "name": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "weight",
+                    "type": "float"
+                },
+                {
+                    "name": "reportedId",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Workstation",
+            "attributes": []
+        },
+        {
+            "name": "Machine",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "heating",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "type": "integer"
+                },
+                {
+                    "name": "co2e_kg",
+                    "type": "float"
+                },
+                {
+                    "name": "energy_grid_kwh",
+                    "type": "float"
+                },
+                {
+                    "name": "gas_input_wh",
+                    "type": "float"
+                },
+                {
+                    "name": "burning_emissions_wh",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o_steelsheet_946",
+            "type": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "weight",
+                    "time": "2023-04-03T10:59:37Z",
+                    "value": "0.02127"
+                },
+                {
+                    "name": "reportedId",
+                    "time": "2023-04-03T10:59:37Z",
+                    "value": "SteelSheet[946]"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Workstation[1]",
+            "type": "Workstation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Machine[oven01]",
+                    "qualifier": "utilizes"
+                }
+            ]
+        },
+        {
+            "id": "Machine[oven01]",
+            "type": "Machine",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "heating",
+            "time": "2023-04-03T10:59:37Z",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "value": "900"
+                },
+                {
+                    "name": "co2e_kg",
+                    "value": "0.0138019093344"
+                },
+                {
+                    "name": "energy_grid_kwh",
+                    "value": "0.02"
+                },
+                {
+                    "name": "gas_input_wh",
+                    "value": "0.49392"
+                },
+                {
+                    "name": "burning_emissions_wh",
+                    "value": "0.49392"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_steelsheet_946",
+                    "qualifier": "heated"
+                },
+                {
+                    "objectId": "Workstation[1]",
+                    "qualifier": "location"
+                },
+                {
+                    "objectId": "Machine[oven01]",
+                    "qualifier": "utilized"
+                }
+            ]
+        }
+    ]
+}

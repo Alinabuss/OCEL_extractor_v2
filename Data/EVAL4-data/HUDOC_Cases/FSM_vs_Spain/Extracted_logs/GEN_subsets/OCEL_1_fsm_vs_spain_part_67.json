@@ -1,0 +1,240 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Appeal",
+            "attributes": [
+                {
+                    "name": "remedyType",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "LegalProvision",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Evidence",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "AmparoAppealLodged",
+            "attributes": [
+                {
+                    "name": "allegation",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "EvidenceRejected",
+            "attributes": [
+                {
+                    "name": "evidenceDescription",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "LawyerComplaint",
+            "attributes": [
+                {
+                    "name": "content",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "applicant-1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "",
+                    "value": "applicant"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "lawyer-1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "",
+                    "value": "lawyer"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant-1",
+                    "qualifier": "represents"
+                }
+            ]
+        },
+        {
+            "id": "court-constitutional-1",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Constitutional Court"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "appeal-1",
+            "type": "Appeal",
+            "attributes": [
+                {
+                    "name": "remedyType",
+                    "time": "",
+                    "value": "amparo"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court-constitutional-1",
+                    "qualifier": "filedTo"
+                }
+            ]
+        },
+        {
+            "id": "article24",
+            "type": "LegalProvision",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "time": "",
+                    "value": "Article 24 of the Spanish Constitution"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "evidence-1",
+            "type": "Evidence",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "",
+                    "value": "additional evidence"
+                },
+                {
+                    "name": "status",
+                    "time": "",
+                    "value": "rejected"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "AmparoAppealLodged",
+            "time": "2020-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "allegation",
+                    "value": "violation of his right to an effective judicial protection under Article 24 of the Spanish Constitution"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "appeal-1",
+                    "qualifier": "appeal"
+                },
+                {
+                    "objectId": "applicant-1",
+                    "qualifier": "applicant"
+                },
+                {
+                    "objectId": "court-constitutional-1",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "article24",
+                    "qualifier": "allegedLegalBasis"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "EvidenceRejected",
+            "time": "2020-01-01T00:00:01Z",
+            "attributes": [
+                {
+                    "name": "evidenceDescription",
+                    "value": "additional evidence"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "evidence-1",
+                    "qualifier": "evidence"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "LawyerComplaint",
+            "time": "2020-01-01T00:00:02Z",
+            "attributes": [
+                {
+                    "name": "content",
+                    "value": "complained about the rejection of additional evidence, reiterating that it had been relevant in deciding whether to discontinue the proceedings and/or apply a mitigating circumstance"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "lawyer-1",
+                    "qualifier": "complainant"
+                },
+                {
+                    "objectId": "evidence-1",
+                    "qualifier": "about"
+                }
+            ]
+        }
+    ]
+}

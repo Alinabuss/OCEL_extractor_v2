@@ -1,0 +1,95 @@
+{
+    "objectTypes": [
+        {
+            "name": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "type": "integer"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Two-way Match Completed",
+            "attributes": [
+                {
+                    "name": "department",
+                    "type": "string"
+                },
+                {
+                    "name": "match_type",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt:1736",
+            "type": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "time": "",
+                    "value": "80000.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:1738",
+                    "qualifier": "in relation to"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt:1738",
+            "type": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "time": "",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Two-way Match Completed",
+            "time": "2024-07-19T07:10:00Z",
+            "attributes": [
+                {
+                    "name": "department",
+                    "value": "Finance/Account Department"
+                },
+                {
+                    "name": "match_type",
+                    "value": "two-way"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:1736",
+                    "qualifier": "involving"
+                },
+                {
+                    "objectId": "goods receipt:1738",
+                    "qualifier": "in relation to"
+                }
+            ]
+        }
+    ]
+}

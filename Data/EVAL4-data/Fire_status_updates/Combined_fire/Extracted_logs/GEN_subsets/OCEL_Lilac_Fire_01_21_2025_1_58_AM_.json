@@ -1,0 +1,134 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "growth",
+                    "type": "string"
+                },
+                {
+                    "name": "rate_of_spread",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Structures",
+            "attributes": [
+                {
+                    "name": "threatened",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "FireStatusReport",
+            "attributes": [
+                {
+                    "name": "report_text",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire-1",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-21T01:58:00Z",
+                    "value": "Lilac Fire"
+                },
+                {
+                    "name": "growth",
+                    "time": "2025-01-21T01:58:00Z",
+                    "value": "growing"
+                },
+                {
+                    "name": "rate_of_spread",
+                    "time": "2025-01-21T01:58:00Z",
+                    "value": "moderate"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "loc-1",
+                    "qualifier": "located_near"
+                },
+                {
+                    "objectId": "structures-1",
+                    "qualifier": "threatens"
+                }
+            ]
+        },
+        {
+            "id": "loc-1",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-21T01:58:00Z",
+                    "value": "near Old Highway 395 and Lilac road"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "structures-1",
+            "type": "Structures",
+            "attributes": [
+                {
+                    "name": "threatened",
+                    "time": "2025-01-21T01:58:00Z",
+                    "value": "true"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "FireStatusReport",
+            "time": "2025-01-21T01:58:00Z",
+            "attributes": [
+                {
+                    "name": "report_text",
+                    "value": "Lilac Fire as of 01/21/2025 at 1:58 AM: The fire is located near Old Highway 395 and Lilac road. The fire is growing with a moderate rate of spread and structures are threatened."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "loc-1",
+                    "qualifier": "location"
+                },
+                {
+                    "objectId": "structures-1",
+                    "qualifier": "threatened"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,294 @@
+{
+    "objectTypes": [
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "PurchaseOrder",
+            "attributes": []
+        },
+        {
+            "name": "Quotation",
+            "attributes": []
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": [
+                {
+                    "name": "label",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Role",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "InvoiceReceiptCreated",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PurchaseOrderApproved",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PurchaseOrderCreated",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt:1074",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "time": "2023-09-21T07:02:00Z",
+                    "value": "39000.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:1079",
+                    "qualifier": "related_to"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt:1079",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "time": "2023-09-21T07:02:00Z",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "purchase_order:883",
+            "type": "PurchaseOrder",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "quotation:522",
+                    "qualifier": "linked_to"
+                },
+                {
+                    "objectId": "purchasing_group:001",
+                    "qualifier": "associated_with"
+                }
+            ]
+        },
+        {
+            "id": "quotation:522",
+            "type": "Quotation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchasing_group:001",
+                    "qualifier": "belongs_to"
+                }
+            ]
+        },
+        {
+            "id": "purchasing_group:001",
+            "type": "PurchasingGroup",
+            "attributes": [
+                {
+                    "name": "label",
+                    "time": "2023-09-21T22:00:00Z",
+                    "value": "001"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "purchase_order:910",
+            "type": "PurchaseOrder",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "quotation:524",
+                    "qualifier": "associated_with"
+                },
+                {
+                    "objectId": "purchasing_group:004",
+                    "qualifier": "part_of"
+                }
+            ]
+        },
+        {
+            "id": "quotation:524",
+            "type": "Quotation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchasing_group:004",
+                    "qualifier": "part_of"
+                }
+            ]
+        },
+        {
+            "id": "purchasing_group:004",
+            "type": "PurchasingGroup",
+            "attributes": [
+                {
+                    "name": "label",
+                    "time": "2023-09-21T23:27:00Z",
+                    "value": "004"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "department:Finance/Account Department",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-09-21T07:02:00Z",
+                    "value": "Finance/Account Department"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "role:Procurement Order Manager",
+            "type": "Role",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-09-21T22:00:00Z",
+                    "value": "Procurement Order Manager"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "department:Procurement Department",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-09-21T23:27:00Z",
+                    "value": "Procurement Department"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "InvoiceReceiptCreated",
+            "time": "2023-09-21T07:02:00Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "successfully completed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:1074",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "department:Finance/Account Department",
+                    "qualifier": "actor"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "PurchaseOrderApproved",
+            "time": "2023-09-21T22:00:00Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "finalized"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:883",
+                    "qualifier": "approved"
+                },
+                {
+                    "objectId": "role:Procurement Order Manager",
+                    "qualifier": "actor"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "PurchaseOrderCreated",
+            "time": "2023-09-21T23:27:00Z",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:910",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "department:Procurement Department",
+                    "qualifier": "actor"
+                }
+            ]
+        }
+    ]
+}

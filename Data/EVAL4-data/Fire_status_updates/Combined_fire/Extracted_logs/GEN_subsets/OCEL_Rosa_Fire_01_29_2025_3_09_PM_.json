@@ -1,0 +1,96 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "incident_name",
+                    "type": "string"
+                },
+                {
+                    "name": "forward_progress",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "FirefighterGroup",
+            "attributes": [
+                {
+                    "name": "location",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Status Update",
+            "attributes": [
+                {
+                    "name": "message",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire-rosa",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "incident_name",
+                    "time": "2025-01-29T15:09:00Z",
+                    "value": "Rosa Fire"
+                },
+                {
+                    "name": "forward_progress",
+                    "time": "2025-01-29T15:09:00Z",
+                    "value": "stopped"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "firefighters-scene",
+            "type": "FirefighterGroup",
+            "attributes": [
+                {
+                    "name": "location",
+                    "time": "2025-01-29T15:09:00Z",
+                    "value": "scene"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-rosa",
+                    "qualifier": "working_on"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Status Update",
+            "time": "2025-01-29T15:09:00Z",
+            "attributes": [
+                {
+                    "name": "message",
+                    "value": "Firefighters at scene working on containment, the forward progress of the fire has been stopped."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-rosa",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "firefighters-scene",
+                    "qualifier": "at_scene"
+                }
+            ]
+        }
+    ]
+}

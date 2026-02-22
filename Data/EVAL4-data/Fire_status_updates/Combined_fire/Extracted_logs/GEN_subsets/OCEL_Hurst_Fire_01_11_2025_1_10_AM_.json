@@ -1,0 +1,162 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ResidentGroup",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "StatusUpdate",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PublicAdvisory",
+            "attributes": [
+                {
+                    "name": "message",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire:Hurst",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-11T01:10:00Z",
+                    "value": "Hurst Fire"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "org:AngelesNationalForest",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-11T01:10:00Z",
+                    "value": "Angeles National Forest"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "org:LosAngelesCountyFireDept",
+                    "qualifier": "unified-command-with"
+                },
+                {
+                    "objectId": "org:LosAngelesCityFireDept",
+                    "qualifier": "unified-command-with"
+                }
+            ]
+        },
+        {
+            "id": "org:LosAngelesCountyFireDept",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-11T01:10:00Z",
+                    "value": "Los Angeles County Fire Department"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "org:LosAngelesCityFireDept",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-11T01:10:00Z",
+                    "value": "Los Angeles City Fire Department"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "group:residents_returning_home",
+            "type": "ResidentGroup",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-11T01:10:00Z",
+                    "value": "Residents returning home"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "StatusUpdate",
+            "time": "2025-01-11T01:10:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Firefighting efforts continue to concentrate on building and improving containment lines with a focus on public safety and structure protection."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire:Hurst",
+                    "qualifier": "incident"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "PublicAdvisory",
+            "time": "2025-01-11T01:10:00Z",
+            "attributes": [
+                {
+                    "name": "message",
+                    "value": "Residents returning home are advised to use extreme caution."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "group:residents_returning_home",
+                    "qualifier": "target"
+                },
+                {
+                    "objectId": "fire:Hurst",
+                    "qualifier": "related-incident"
+                }
+            ]
+        }
+    ]
+}

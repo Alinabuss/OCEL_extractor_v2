@@ -1,0 +1,194 @@
+{
+    "objectTypes": [
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "task_description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Case",
+            "attributes": [
+                {
+                    "name": "particular_circumstances",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Law",
+            "attributes": [
+                {
+                    "name": "jurisdiction",
+                    "type": "string"
+                },
+                {
+                    "name": "relevance",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Proceedings",
+            "attributes": []
+        },
+        {
+            "name": "Applicant",
+            "attributes": []
+        },
+        {
+            "name": "Right",
+            "attributes": [
+                {
+                    "name": "article",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Examine",
+            "attributes": [
+                {
+                    "name": "focus",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "court_1",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "task_description",
+                    "time": "2025-09-11T00:00:00Z",
+                    "value": "limited to examining whether in the particular circumstances of the case, including the relevant domestic law, the proceedings were fair and the applicant's Article 6 rights were respected."
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "case_1",
+            "type": "Case",
+            "attributes": [
+                {
+                    "name": "particular_circumstances",
+                    "time": "2025-09-11T00:00:00Z",
+                    "value": "mentioned"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "law_1",
+                    "qualifier": "includes_law"
+                }
+            ]
+        },
+        {
+            "id": "law_1",
+            "type": "Law",
+            "attributes": [
+                {
+                    "name": "jurisdiction",
+                    "time": "2025-09-11T00:00:00Z",
+                    "value": "domestic"
+                },
+                {
+                    "name": "relevance",
+                    "time": "2025-09-11T00:00:00Z",
+                    "value": "relevant"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "case_1",
+                    "qualifier": "relevant_to_case"
+                }
+            ]
+        },
+        {
+            "id": "proceedings_1",
+            "type": "Proceedings",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "case_1",
+                    "qualifier": "part_of_case"
+                }
+            ]
+        },
+        {
+            "id": "applicant_1",
+            "type": "Applicant",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "case_1",
+                    "qualifier": "applicant_of"
+                }
+            ]
+        },
+        {
+            "id": "right_1",
+            "type": "Right",
+            "attributes": [
+                {
+                    "name": "article",
+                    "time": "2025-09-11T00:00:00Z",
+                    "value": "Article 6"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "belongs_to"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Examine",
+            "time": "2025-09-11T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "focus",
+                    "value": "whether the proceedings were fair and the applicant's Article 6 rights were respected"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court_1",
+                    "qualifier": "performed_by"
+                },
+                {
+                    "objectId": "case_1",
+                    "qualifier": "about_case"
+                },
+                {
+                    "objectId": "law_1",
+                    "qualifier": "considers_law"
+                },
+                {
+                    "objectId": "proceedings_1",
+                    "qualifier": "assesses_proceedings"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "concerns_applicant"
+                },
+                {
+                    "objectId": "right_1",
+                    "qualifier": "assesses_rights"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,110 @@
+{
+    "objectTypes": [
+        {
+            "name": "Worker",
+            "attributes": []
+        },
+        {
+            "name": "MalePart",
+            "attributes": []
+        },
+        {
+            "name": "Workstation",
+            "attributes": []
+        },
+        {
+            "name": "EnergySource",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Check",
+            "attributes": [
+                {
+                    "name": "co2eq_kg",
+                    "type": "float"
+                },
+                {
+                    "name": "compressed_air_m3",
+                    "type": "float"
+                },
+                {
+                    "name": "duration_specified",
+                    "type": "boolean"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Worker[1]",
+            "type": "Worker",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "MalePart[3370]",
+            "type": "MalePart",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Workstation[2]",
+                    "qualifier": "located-at"
+                }
+            ]
+        },
+        {
+            "id": "Workstation[2]",
+            "type": "Workstation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Grid[grid]",
+                    "qualifier": "sourced-from"
+                }
+            ]
+        },
+        {
+            "id": "Grid[grid]",
+            "type": "EnergySource",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Check",
+            "time": "2023-04-05T10:03:19Z",
+            "attributes": [
+                {
+                    "name": "co2eq_kg",
+                    "value": "0.00019494"
+                },
+                {
+                    "name": "compressed_air_m3",
+                    "value": "0.003"
+                },
+                {
+                    "name": "duration_specified",
+                    "value": "false"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Worker[1]",
+                    "qualifier": "performed-by"
+                },
+                {
+                    "objectId": "MalePart[3370]",
+                    "qualifier": "checked-object"
+                },
+                {
+                    "objectId": "Workstation[2]",
+                    "qualifier": "performed-at"
+                }
+            ]
+        }
+    ]
+}

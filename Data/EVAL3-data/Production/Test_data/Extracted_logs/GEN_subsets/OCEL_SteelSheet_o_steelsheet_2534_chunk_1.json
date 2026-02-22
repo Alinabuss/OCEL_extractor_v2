@@ -1,0 +1,147 @@
+{
+    "objectTypes": [
+        {
+            "name": "SteelSheet",
+            "attributes": []
+        },
+        {
+            "name": "SteelCoil",
+            "attributes": [
+                {
+                    "name": "weight_kg",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Machine",
+            "attributes": []
+        },
+        {
+            "name": "Workstation",
+            "attributes": [
+                {
+                    "name": "P_electric-from-grid-de[kWh]",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Split",
+            "attributes": [
+                {
+                    "name": "duration_s",
+                    "type": "float"
+                },
+                {
+                    "name": "co2eq_kg",
+                    "type": "float"
+                },
+                {
+                    "name": "electricity_from_grid_kWh",
+                    "type": "float"
+                },
+                {
+                    "name": "waste_kg",
+                    "type": "float"
+                },
+                {
+                    "name": "waste_destination",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "SteelSheet[2534]",
+            "type": "SteelSheet",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "SteelCoil[3]",
+                    "qualifier": "producedFrom"
+                }
+            ]
+        },
+        {
+            "id": "SteelCoil[3]",
+            "type": "SteelCoil",
+            "attributes": [
+                {
+                    "name": "weight_kg",
+                    "value": "31.91076",
+                    "time": "2023-04-04T11:24:02Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Machine[Splitter01]",
+            "type": "Machine",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Workstation[1]",
+            "type": "Workstation",
+            "attributes": [
+                {
+                    "name": "P_electric-from-grid-de[kWh]",
+                    "value": "",
+                    "time": "2023-04-04T11:24:02Z"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Split",
+            "time": "2023-04-04T11:24:02Z",
+            "attributes": [
+                {
+                    "name": "duration_s",
+                    "value": "13.7172463026"
+                },
+                {
+                    "name": "co2eq_kg",
+                    "value": "0.0143434614"
+                },
+                {
+                    "name": "electricity_from_grid_kWh",
+                    "value": "0.0209569"
+                },
+                {
+                    "name": "waste_kg",
+                    "value": "0.00042"
+                },
+                {
+                    "name": "waste_destination",
+                    "value": "recycling"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "SteelSheet[2534]",
+                    "qualifier": "output"
+                },
+                {
+                    "objectId": "SteelCoil[3]",
+                    "qualifier": "input"
+                },
+                {
+                    "objectId": "Machine[Splitter01]",
+                    "qualifier": "usedMachine"
+                },
+                {
+                    "objectId": "Workstation[1]",
+                    "qualifier": "workstation"
+                }
+            ]
+        }
+    ]
+}

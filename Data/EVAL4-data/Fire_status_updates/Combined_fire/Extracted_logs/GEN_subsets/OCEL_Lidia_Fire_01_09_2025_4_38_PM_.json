@@ -1,0 +1,215 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "location",
+                    "type": "string"
+                },
+                {
+                    "name": "area",
+                    "type": "float"
+                },
+                {
+                    "name": "containment",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Agency",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "address",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Fire Reported",
+            "attributes": [
+                {
+                    "name": "location",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Status Snapshot",
+            "attributes": [
+                {
+                    "name": "area",
+                    "type": "float"
+                },
+                {
+                    "name": "areaUnit",
+                    "type": "string"
+                },
+                {
+                    "name": "containment",
+                    "type": "float"
+                },
+                {
+                    "name": "containmentUnit",
+                    "type": "string"
+                },
+                {
+                    "name": "progress",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire_lidia",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-08T13:08:00Z",
+                    "value": "Lidia Fire"
+                },
+                {
+                    "name": "location",
+                    "time": "2025-01-08T13:08:00Z",
+                    "value": "Soledad Canyon Road, Acton, California"
+                },
+                {
+                    "name": "area",
+                    "time": "2025-01-09T16:38:00Z",
+                    "value": "348"
+                },
+                {
+                    "name": "containment",
+                    "time": "2025-01-09T16:38:00Z",
+                    "value": "60"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "agency_angeles_national_forest",
+            "type": "Agency",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Angeles National Forest"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "agency_los_angeles_county_fire_department",
+                    "qualifier": "unified-command-with"
+                }
+            ]
+        },
+        {
+            "id": "agency_los_angeles_county_fire_department",
+            "type": "Agency",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Los Angeles County Fire Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "agency_angeles_national_forest",
+                    "qualifier": "unified-command-with"
+                }
+            ]
+        },
+        {
+            "id": "loc_soledad_canyon_road_acton_ca",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "address",
+                    "value": "Soledad Canyon Road, Acton, California"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Fire Reported",
+            "time": "2025-01-08T13:08:00Z",
+            "attributes": [
+                {
+                    "name": "location",
+                    "value": "Soledad Canyon Road, Acton, California"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_lidia",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "loc_soledad_canyon_road_acton_ca",
+                    "qualifier": "location"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Status Snapshot",
+            "time": "2025-01-09T16:38:00Z",
+            "attributes": [
+                {
+                    "name": "area",
+                    "value": "348"
+                },
+                {
+                    "name": "areaUnit",
+                    "value": "acres"
+                },
+                {
+                    "name": "containment",
+                    "value": "60"
+                },
+                {
+                    "name": "containmentUnit",
+                    "value": "percent"
+                },
+                {
+                    "name": "progress",
+                    "value": "firefighters making significant progress"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_lidia",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "agency_angeles_national_forest",
+                    "qualifier": "unified-command-member"
+                },
+                {
+                    "objectId": "agency_los_angeles_county_fire_department",
+                    "qualifier": "unified-command-member"
+                }
+            ]
+        }
+    ]
+}

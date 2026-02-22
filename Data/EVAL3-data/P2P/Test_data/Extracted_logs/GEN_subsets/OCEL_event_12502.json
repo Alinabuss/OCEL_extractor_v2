@@ -1,0 +1,95 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasingGroup",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Quotation",
+            "attributes": [
+                {
+                    "name": "purchasingGroup",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Actor",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Approval Completed",
+            "attributes": [
+                {
+                    "name": "approvalLifecycle",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:684",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasingGroup",
+                    "value": "001"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:407",
+                    "qualifier": "associated"
+                }
+            ]
+        },
+        {
+            "id": "quotation:407",
+            "type": "Quotation",
+            "attributes": [
+                {
+                    "name": "purchasingGroup",
+                    "value": "001"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Procurement Order Manager",
+            "type": "Actor",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Approval Completed",
+            "time": "2023-05-26T19:13:00Z",
+            "attributes": [
+                {
+                    "name": "approvalLifecycle",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:684",
+                    "qualifier": "for"
+                },
+                {
+                    "objectId": "Procurement Order Manager",
+                    "qualifier": "performed_by"
+                }
+            ]
+        }
+    ]
+}

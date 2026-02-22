@@ -1,0 +1,273 @@
+{
+    "objectTypes": [
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ForensicReport",
+            "attributes": [
+                {
+                    "name": "available",
+                    "type": "boolean"
+                },
+                {
+                    "name": "conclusion",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "capacityToStandTrial",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Proceeding",
+            "attributes": [
+                {
+                    "name": "category",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Accusation",
+            "attributes": [
+                {
+                    "name": "target",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Hearing",
+            "attributes": [
+                {
+                    "name": "respectiveDatesMentioned",
+                    "type": "boolean"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Noted",
+            "attributes": [
+                {
+                    "name": "point_i",
+                    "type": "string"
+                },
+                {
+                    "name": "point_ii",
+                    "type": "string"
+                },
+                {
+                    "name": "point_iii",
+                    "type": "string"
+                },
+                {
+                    "name": "point_iv",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "audiencia_provincial",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Audiencia Provincial"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "forensic_report_1",
+            "type": "ForensicReport",
+            "attributes": [
+                {
+                    "name": "available",
+                    "time": "",
+                    "value": "true"
+                },
+                {
+                    "name": "conclusion",
+                    "time": "",
+                    "value": "applicant had sufficient capacity to stand trial"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant",
+                    "qualifier": "concerns"
+                }
+            ]
+        },
+        {
+            "id": "applicant",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "capacityToStandTrial",
+                    "time": "",
+                    "value": "sufficient"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "accusation_1",
+            "type": "Accusation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "applicant",
+                    "qualifier": "against"
+                }
+            ]
+        },
+        {
+            "id": "incapacity_proceedings_1",
+            "type": "Proceeding",
+            "attributes": [
+                {
+                    "name": "category",
+                    "time": "",
+                    "value": "incapacity"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "accusation_1",
+                    "qualifier": "initiated_following"
+                },
+                {
+                    "objectId": "applicant",
+                    "qualifier": "concerns"
+                }
+            ]
+        },
+        {
+            "id": "guardian_replacement_proceedings_1",
+            "type": "Proceeding",
+            "attributes": [
+                {
+                    "name": "category",
+                    "time": "",
+                    "value": "replace_guardian"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant",
+                    "qualifier": "concerns_guardian_of"
+                },
+                {
+                    "objectId": "hearings_1",
+                    "qualifier": "brought_shortly_before"
+                }
+            ]
+        },
+        {
+            "id": "hearings_1",
+            "type": "Hearing",
+            "attributes": [
+                {
+                    "name": "respectiveDatesMentioned",
+                    "time": "",
+                    "value": "true"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "mr_t",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Mr T"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Noted",
+            "time": "",
+            "attributes": [
+                {
+                    "name": "point_i",
+                    "value": "according to the forensic reports available, the applicant had sufficient capacity to stand trial"
+                },
+                {
+                    "name": "point_ii",
+                    "value": "the incapacity proceedings (see paragraphs 5 - 11 above) had been initiated following the accusation against him"
+                },
+                {
+                    "name": "point_iii",
+                    "value": "the proceedings for replacing his guardian (see paragraph 11 above) had been brought shortly before the respective dates of the hearings"
+                },
+                {
+                    "name": "point_iv",
+                    "value": "Mr T"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "audiencia_provincial",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "forensic_report_1",
+                    "qualifier": "source"
+                },
+                {
+                    "objectId": "applicant",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "accusation_1",
+                    "qualifier": "mentioned"
+                },
+                {
+                    "objectId": "incapacity_proceedings_1",
+                    "qualifier": "mentioned"
+                },
+                {
+                    "objectId": "guardian_replacement_proceedings_1",
+                    "qualifier": "mentioned"
+                },
+                {
+                    "objectId": "hearings_1",
+                    "qualifier": "mentioned"
+                },
+                {
+                    "objectId": "mr_t",
+                    "qualifier": "mentioned"
+                }
+            ]
+        }
+    ]
+}

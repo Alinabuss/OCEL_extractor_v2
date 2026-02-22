@@ -1,0 +1,210 @@
+{
+    "objectTypes": [
+        {
+            "name": "Defendant",
+            "attributes": [
+                {
+                    "name": "represented",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "ProsecutionWitness",
+            "attributes": []
+        },
+        {
+            "name": "Lawyer",
+            "attributes": []
+        },
+        {
+            "name": "Statement",
+            "attributes": [
+                {
+                    "name": "content",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Fact",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "VersionOfEvents",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ProsecutionWitnessSays",
+            "attributes": []
+        },
+        {
+            "name": "DefendantExplainsVersionToLawyers",
+            "attributes": []
+        },
+        {
+            "name": "DefendantPointsOutDisagreement",
+            "attributes": []
+        },
+        {
+            "name": "DefendantMakesLawyersAwareOfFacts",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "defendant_1",
+            "type": "Defendant",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "witness_1",
+            "type": "ProsecutionWitness",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "lawyers_1",
+            "type": "Lawyer",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "statement_1",
+            "type": "Statement",
+            "attributes": [
+                {
+                    "name": "content",
+                    "time": "",
+                    "value": "what is said by the prosecution witnesses"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "witness_1",
+                    "qualifier": "said-by"
+                }
+            ]
+        },
+        {
+            "id": "version_1",
+            "type": "VersionOfEvents",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "",
+                    "value": "his version of events"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "defendant_1",
+                    "qualifier": "version-of"
+                }
+            ]
+        },
+        {
+            "id": "fact_1",
+            "type": "Fact",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "",
+                    "value": "facts to be put forward in his defence"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "ProsecutionWitnessSays",
+            "time": "2025-09-11T10:00:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "witness_1",
+                    "qualifier": "speaker"
+                },
+                {
+                    "objectId": "statement_1",
+                    "qualifier": "statement"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "DefendantExplainsVersionToLawyers",
+            "time": "2025-09-11T10:05:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "defendant_1",
+                    "qualifier": "explainer"
+                },
+                {
+                    "objectId": "lawyers_1",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "version_1",
+                    "qualifier": "version"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "DefendantPointsOutDisagreement",
+            "time": "2025-09-11T10:06:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "defendant_1",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "lawyers_1",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "statement_1",
+                    "qualifier": "disagrees-with"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "DefendantMakesLawyersAwareOfFacts",
+            "time": "2025-09-11T10:07:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "defendant_1",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "lawyers_1",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "fact_1",
+                    "qualifier": "fact"
+                }
+            ]
+        }
+    ]
+}

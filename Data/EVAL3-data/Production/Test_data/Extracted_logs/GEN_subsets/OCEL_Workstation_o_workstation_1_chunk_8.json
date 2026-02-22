@@ -1,0 +1,424 @@
+{
+    "objectTypes": [
+        {
+            "name": "Workstation",
+            "attributes": []
+        },
+        {
+            "name": "Machine",
+            "attributes": []
+        },
+        {
+            "name": "SteelCoil",
+            "attributes": [
+                {
+                    "name": "mass",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "mass",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "SplitSteelSheet",
+            "attributes": [
+                {
+                    "name": "duration",
+                    "type": "float"
+                },
+                {
+                    "name": "electricity_kwh",
+                    "type": "float"
+                },
+                {
+                    "name": "co2_kg",
+                    "type": "float"
+                },
+                {
+                    "name": "steel_waste_kg",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "HeatingProcess",
+            "attributes": [
+                {
+                    "name": "duration",
+                    "type": "float"
+                },
+                {
+                    "name": "electricity_kwh",
+                    "type": "float"
+                },
+                {
+                    "name": "gas_wh",
+                    "type": "float"
+                },
+                {
+                    "name": "co2_kg",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "ProcessingOperation",
+            "attributes": [
+                {
+                    "name": "duration",
+                    "type": "float"
+                },
+                {
+                    "name": "electricity_kwh",
+                    "type": "float"
+                },
+                {
+                    "name": "co2_kg",
+                    "type": "float"
+                },
+                {
+                    "name": "steel_waste_kg",
+                    "type": "float"
+                },
+                {
+                    "name": "steel_waste_disposition",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o_workstation_1",
+            "type": "Workstation",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Machine[splitter01]",
+            "type": "Machine",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Machine[oven01]",
+            "type": "Machine",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "o_machine_oven01",
+            "type": "Machine",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "splitter01",
+            "type": "Machine",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "SteelCoil[4]",
+            "type": "SteelCoil",
+            "attributes": [
+                {
+                    "name": "mass",
+                    "value": "31.91",
+                    "time": "2023-04-03T10:13:36Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_steelcoil_4",
+            "type": "SteelCoil",
+            "attributes": [
+                {
+                    "name": "mass",
+                    "value": "31.91076",
+                    "time": "2023-04-03T10:16:55Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "SteelSheet[756]",
+            "type": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "mass",
+                    "value": "0.021",
+                    "time": "2023-04-03T10:13:36Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "SteelCoil[4]",
+                    "qualifier": "derivedFrom"
+                }
+            ]
+        },
+        {
+            "id": "SteelSheet[753]",
+            "type": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "mass",
+                    "value": "0.02121",
+                    "time": "2023-04-03T10:13:48Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_steelsheet_758",
+            "type": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "mass",
+                    "value": "0.02122",
+                    "time": "2023-04-03T10:15:00Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_steelsheet_770",
+            "type": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "mass",
+                    "value": "0.02123",
+                    "time": "2023-04-03T10:16:55Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_steelcoil_4",
+                    "qualifier": "derivedFrom"
+                }
+            ]
+        },
+        {
+            "id": "o_steelsheet_778",
+            "type": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "mass",
+                    "value": "0.02123",
+                    "time": "2023-04-03T10:19:46Z"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "SplitSteelSheet",
+            "time": "2023-04-03T10:13:36Z",
+            "attributes": [
+                {
+                    "name": "duration",
+                    "value": "13.91"
+                },
+                {
+                    "name": "electricity_kwh",
+                    "value": "0.021"
+                },
+                {
+                    "name": "co2_kg",
+                    "value": "0.0145"
+                },
+                {
+                    "name": "steel_waste_kg",
+                    "value": "0.00042"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "SteelCoil[4]",
+                    "qualifier": "input"
+                },
+                {
+                    "objectId": "SteelSheet[756]",
+                    "qualifier": "output"
+                },
+                {
+                    "objectId": "Machine[splitter01]",
+                    "qualifier": "machine"
+                },
+                {
+                    "objectId": "o_workstation_1",
+                    "qualifier": "performedAt"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "HeatingProcess",
+            "time": "2023-04-03T10:13:48Z",
+            "attributes": [
+                {
+                    "name": "duration",
+                    "value": "900"
+                },
+                {
+                    "name": "electricity_kwh",
+                    "value": "0.02"
+                },
+                {
+                    "name": "gas_wh",
+                    "value": "0.49392"
+                },
+                {
+                    "name": "co2_kg",
+                    "value": "0.0138019093344"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "SteelSheet[753]",
+                    "qualifier": "input"
+                },
+                {
+                    "objectId": "Machine[oven01]",
+                    "qualifier": "machine"
+                },
+                {
+                    "objectId": "o_workstation_1",
+                    "qualifier": "performedAt"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "type": "HeatingProcess",
+            "time": "2023-04-03T10:15:00Z",
+            "attributes": [
+                {
+                    "name": "duration",
+                    "value": "900"
+                },
+                {
+                    "name": "electricity_kwh",
+                    "value": "0.02"
+                },
+                {
+                    "name": "gas_wh",
+                    "value": "0.49392"
+                },
+                {
+                    "name": "co2_kg",
+                    "value": "0.0138019093344"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_steelsheet_758",
+                    "qualifier": "input"
+                },
+                {
+                    "objectId": "o_machine_oven01",
+                    "qualifier": "machine"
+                },
+                {
+                    "objectId": "o_workstation_1",
+                    "qualifier": "performedAt"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "type": "ProcessingOperation",
+            "time": "2023-04-03T10:16:55Z",
+            "attributes": [
+                {
+                    "name": "duration",
+                    "value": "14.1079"
+                },
+                {
+                    "name": "electricity_kwh",
+                    "value": "0.0215537"
+                },
+                {
+                    "name": "co2_kg",
+                    "value": "0.0147516726"
+                },
+                {
+                    "name": "steel_waste_kg",
+                    "value": "0.00042"
+                },
+                {
+                    "name": "steel_waste_disposition",
+                    "value": "recycling"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_steelcoil_4",
+                    "qualifier": "input"
+                },
+                {
+                    "objectId": "o_steelsheet_770",
+                    "qualifier": "output"
+                },
+                {
+                    "objectId": "splitter01",
+                    "qualifier": "machine"
+                },
+                {
+                    "objectId": "o_workstation_1",
+                    "qualifier": "performedAt"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "type": "HeatingProcess",
+            "time": "2023-04-03T10:19:46Z",
+            "attributes": [
+                {
+                    "name": "duration",
+                    "value": "900"
+                },
+                {
+                    "name": "electricity_kwh",
+                    "value": "0.02"
+                },
+                {
+                    "name": "gas_wh",
+                    "value": "0.49392"
+                },
+                {
+                    "name": "co2_kg",
+                    "value": "0.0138019093344"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_steelsheet_778",
+                    "qualifier": "input"
+                },
+                {
+                    "objectId": "o_machine_oven01",
+                    "qualifier": "machine"
+                },
+                {
+                    "objectId": "o_workstation_1",
+                    "qualifier": "performedAt"
+                }
+            ]
+        }
+    ]
+}

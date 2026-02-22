@@ -1,0 +1,205 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "age",
+                    "type": "integer"
+                },
+                {
+                    "name": "hasDisability",
+                    "type": "boolean"
+                },
+                {
+                    "name": "requestedAccessibleCommunication",
+                    "type": "boolean"
+                },
+                {
+                    "name": "supportsInExerciseOfLegalCapacity",
+                    "type": "boolean"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Communication",
+            "attributes": [
+                {
+                    "name": "mode",
+                    "type": "string"
+                },
+                {
+                    "name": "language",
+                    "type": "string"
+                },
+                {
+                    "name": "means",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "person:pwdis:1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "hasDisability",
+                    "time": "2025-01-01T00:00:00Z",
+                    "value": "true"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "person:age80:1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "age",
+                    "time": "2025-01-01T00:00:00Z",
+                    "value": "80"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "person:elderly_requested:1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "requestedAccessibleCommunication",
+                    "time": "2025-01-01T00:00:00Z",
+                    "value": "true"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "person:supporter:1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "supportsInExerciseOfLegalCapacity",
+                    "time": "2025-01-01T00:00:00Z",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person:pwdis:1",
+                    "qualifier": "supports_in_exercise_of_legal_capacity"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Communication",
+            "time": "2025-01-01T09:00:00Z",
+            "attributes": [
+                {
+                    "name": "mode",
+                    "value": "verbal or in writing"
+                },
+                {
+                    "name": "language",
+                    "value": "clear, simple and accessible"
+                },
+                {
+                    "name": "means",
+                    "value": "easy-read versions"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person:pwdis:1",
+                    "qualifier": "recipient"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Communication",
+            "time": "2025-01-01T09:05:00Z",
+            "attributes": [
+                {
+                    "name": "mode",
+                    "value": "verbal or in writing"
+                },
+                {
+                    "name": "language",
+                    "value": "clear, simple and accessible"
+                },
+                {
+                    "name": "means",
+                    "value": "easy-read versions"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person:age80:1",
+                    "qualifier": "recipient"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "Communication",
+            "time": "2025-01-01T09:10:00Z",
+            "attributes": [
+                {
+                    "name": "mode",
+                    "value": "verbal or in writing"
+                },
+                {
+                    "name": "language",
+                    "value": "clear, simple and accessible"
+                },
+                {
+                    "name": "means",
+                    "value": "easy-read versions"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person:elderly_requested:1",
+                    "qualifier": "recipient"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "Communication",
+            "time": "2025-01-01T09:15:00Z",
+            "attributes": [
+                {
+                    "name": "mode",
+                    "value": "verbal or in writing"
+                },
+                {
+                    "name": "language",
+                    "value": "clear, simple and accessible"
+                },
+                {
+                    "name": "means",
+                    "value": "easy-read versions"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person:supporter:1",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "person:pwdis:1",
+                    "qualifier": "supported_person"
+                }
+            ]
+        }
+    ]
+}

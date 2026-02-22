@@ -1,0 +1,90 @@
+{
+    "objectTypes": [
+        {
+            "name": "purchase_order",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "quotation",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "resource",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "purchase_order_created",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:40",
+            "type": "purchase_order",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "value": "003"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:31",
+                    "qualifier": "associated_with"
+                }
+            ]
+        },
+        {
+            "id": "quotation:31",
+            "type": "quotation",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "value": "003"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:40",
+                    "qualifier": "associated_with"
+                }
+            ]
+        },
+        {
+            "id": "resource:Procurement Department",
+            "type": "resource",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "event:1",
+            "type": "purchase_order_created",
+            "time": "2022-05-03T16:46:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:40",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "resource:Procurement Department",
+                    "qualifier": "resource"
+                }
+            ]
+        }
+    ]
+}

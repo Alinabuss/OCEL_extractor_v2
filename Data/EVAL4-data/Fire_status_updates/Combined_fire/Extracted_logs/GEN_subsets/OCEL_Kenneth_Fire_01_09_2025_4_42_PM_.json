@@ -1,0 +1,416 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                },
+                {
+                    "name": "spread",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "County",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "FirefightingUnit",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Resource",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Weather",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "strength",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Community",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Infrastructure",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Authority",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ResidentGroup",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Terrain",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Situation Report",
+            "attributes": [
+                {
+                    "name": "summary",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire_kenneth",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-09T16:42:00Z",
+                    "value": "Kenneth Fire"
+                },
+                {
+                    "name": "status",
+                    "time": "2025-01-09T16:42:00Z",
+                    "value": "burning"
+                },
+                {
+                    "name": "spread",
+                    "time": "2025-01-09T16:42:00Z",
+                    "value": "rapidly spreading"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "loc_west_hills",
+                    "qualifier": "located_in"
+                }
+            ]
+        },
+        {
+            "id": "loc_west_hills",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-09T16:42:00Z",
+                    "value": "West Hills"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "county_los_angeles",
+                    "qualifier": "part_of"
+                }
+            ]
+        },
+        {
+            "id": "county_los_angeles",
+            "type": "County",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-09T16:42:00Z",
+                    "value": "Los Angeles County"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "county_ventura",
+            "type": "County",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-09T16:42:00Z",
+                    "value": "Ventura County"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "firefighters_los_angeles",
+            "type": "FirefightingUnit",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-09T16:42:00Z",
+                    "value": "Firefighters (Los Angeles County)"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "county_los_angeles",
+                    "qualifier": "from"
+                }
+            ]
+        },
+        {
+            "id": "firefighters_ventura",
+            "type": "FirefightingUnit",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-09T16:42:00Z",
+                    "value": "Firefighters (Ventura County)"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "county_ventura",
+                    "qualifier": "from"
+                }
+            ]
+        },
+        {
+            "id": "res_ground_crews",
+            "type": "Resource",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-09T16:42:00Z",
+                    "value": "ground crews"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "firefighters_los_angeles",
+                    "qualifier": "deployed_by"
+                },
+                {
+                    "objectId": "firefighters_ventura",
+                    "qualifier": "deployed_by"
+                }
+            ]
+        },
+        {
+            "id": "res_aerial_resources",
+            "type": "Resource",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-09T16:42:00Z",
+                    "value": "aerial resources"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "firefighters_los_angeles",
+                    "qualifier": "deployed_by"
+                },
+                {
+                    "objectId": "firefighters_ventura",
+                    "qualifier": "deployed_by"
+                }
+            ]
+        },
+        {
+            "id": "weather_santa_ana",
+            "type": "Weather",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-09T16:42:00Z",
+                    "value": "Santa Ana winds"
+                },
+                {
+                    "name": "strength",
+                    "time": "2025-01-09T16:42:00Z",
+                    "value": "strong"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "nearby_communities",
+            "type": "Community",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-09T16:42:00Z",
+                    "value": "nearby communities"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "infrastructure",
+            "type": "Infrastructure",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-09T16:42:00Z",
+                    "value": "infrastructure"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "local_authorities",
+            "type": "Authority",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-09T16:42:00Z",
+                    "value": "local authorities"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "residents",
+            "type": "ResidentGroup",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-09T16:42:00Z",
+                    "value": "residents"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "terrain_challenging",
+            "type": "Terrain",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-09T16:42:00Z",
+                    "value": "challenging terrain"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Situation Report",
+            "time": "2025-01-09T16:42:00Z",
+            "attributes": [
+                {
+                    "name": "summary",
+                    "value": "The Kenneth Fire is burning in West Hills in Los Angeles County and rapidly spreading. Fanned by strong Santa Ana winds, the fire threatens nearby communities and infrastructure, prompting swift evacuation orders. Firefighters from Los Angeles and Ventura counties are actively engaged in containment efforts, deploying both ground crews and aerial resources. The challenging terrain and persistent winds complicate suppression activities, necessitating heightened vigilance from residents and adherence to directives from local authorities."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_kenneth",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "loc_west_hills",
+                    "qualifier": "location"
+                },
+                {
+                    "objectId": "county_los_angeles",
+                    "qualifier": "location"
+                },
+                {
+                    "objectId": "weather_santa_ana",
+                    "qualifier": "fanned_by"
+                },
+                {
+                    "objectId": "nearby_communities",
+                    "qualifier": "threatened"
+                },
+                {
+                    "objectId": "infrastructure",
+                    "qualifier": "threatened"
+                },
+                {
+                    "objectId": "local_authorities",
+                    "qualifier": "issuer"
+                },
+                {
+                    "objectId": "firefighters_los_angeles",
+                    "qualifier": "engaged"
+                },
+                {
+                    "objectId": "firefighters_ventura",
+                    "qualifier": "engaged"
+                },
+                {
+                    "objectId": "res_ground_crews",
+                    "qualifier": "deployed"
+                },
+                {
+                    "objectId": "res_aerial_resources",
+                    "qualifier": "deployed"
+                },
+                {
+                    "objectId": "terrain_challenging",
+                    "qualifier": "complicates_suppression"
+                },
+                {
+                    "objectId": "residents",
+                    "qualifier": "advised"
+                }
+            ]
+        }
+    ]
+}

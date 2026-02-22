@@ -1,0 +1,158 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "role",
+                    "type": "string"
+                },
+                {
+                    "name": "capacityStatus",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Decision",
+            "attributes": [
+                {
+                    "name": "paragraph",
+                    "type": "string"
+                },
+                {
+                    "name": "referencesParagraph",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PreliminaryProceedings",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Court",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "DecisionMention",
+            "attributes": [
+                {
+                    "name": "quote",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "person:F.S.M.",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Mr. F.S.M."
+                },
+                {
+                    "name": "role",
+                    "time": "",
+                    "value": "applicant"
+                },
+                {
+                    "name": "capacityStatus",
+                    "time": "",
+                    "value": "allegedly diminished capacity"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "decision:para10",
+            "type": "Decision",
+            "attributes": [
+                {
+                    "name": "paragraph",
+                    "time": "",
+                    "value": "10"
+                },
+                {
+                    "name": "referencesParagraph",
+                    "time": "",
+                    "value": "12"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "preliminary_proceedings:several",
+            "type": "PreliminaryProceedings",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "",
+                    "value": "several preliminary proceedings"
+                },
+                {
+                    "name": "status",
+                    "time": "",
+                    "value": "under investigation"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "court:this_court",
+            "type": "Court",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "preliminary_proceedings:several",
+                    "qualifier": "aware_owing_to_distribution_of_criminal_cases"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "DecisionMention",
+            "time": "1970-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "quote",
+                    "value": "Lastly, it should be pointed out that the person with allegedly diminished capacity, Mr. F.S.M., is under investigation in several preliminary proceedings, of which this court is aware owing to the distribution of criminal cases"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "decision:para10",
+                    "qualifier": "source"
+                },
+                {
+                    "objectId": "person:F.S.M.",
+                    "qualifier": "concerns"
+                },
+                {
+                    "objectId": "preliminary_proceedings:several",
+                    "qualifier": "mentions"
+                }
+            ]
+        }
+    ]
+}

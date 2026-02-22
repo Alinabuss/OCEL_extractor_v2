@@ -1,0 +1,106 @@
+{
+    "objectTypes": [
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "type": "number"
+                },
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Finalize Invoice Receipt Creation",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "type": "number"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt:1850",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "time": "2024-09-13T19:39:00Z",
+                    "value": "25800.0"
+                },
+                {
+                    "name": "lifecycle",
+                    "time": "2024-09-13T19:39:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:1847",
+                    "qualifier": "associated_with"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt:1847",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "time": "",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Finance and Account Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Finalize Invoice Receipt Creation",
+            "time": "2024-09-13T19:39:00Z",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "value": "25800.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:1850",
+                    "qualifier": "finalized"
+                },
+                {
+                    "objectId": "Finance and Account Department",
+                    "qualifier": "performed_by"
+                }
+            ]
+        }
+    ]
+}

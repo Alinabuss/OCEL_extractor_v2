@@ -1,0 +1,270 @@
+{
+    "objectTypes": [
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Statement",
+            "attributes": []
+        },
+        {
+            "name": "ExpertReport",
+            "attributes": []
+        },
+        {
+            "name": "Document",
+            "attributes": []
+        },
+        {
+            "name": "Parties",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "CourtNoted",
+            "attributes": [
+                {
+                    "name": "summary",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "audiencia_provincial",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Audiencia Provincial"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "applicant",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "",
+                    "value": "applicant"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "co_accused",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "",
+                    "value": "co-accused"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "treasury_inspector",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "",
+                    "value": "treasury inspector"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "tax_inspector",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "",
+                    "value": "tax inspector"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "witness_colleague",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "",
+                    "value": "witness (colleague of the accused)"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant",
+                    "qualifier": "colleague_of"
+                }
+            ]
+        },
+        {
+            "id": "witness_relative",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "",
+                    "value": "witness (relative of the accused)"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant",
+                    "qualifier": "relative_of"
+                }
+            ]
+        },
+        {
+            "id": "parties",
+            "type": "Parties",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "statement_coaccused",
+            "type": "Statement",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "co_accused",
+                    "qualifier": "made_by"
+                }
+            ]
+        },
+        {
+            "id": "expert_report_treasury",
+            "type": "ExpertReport",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "treasury_inspector",
+                    "qualifier": "authored_by"
+                }
+            ]
+        },
+        {
+            "id": "expert_report_tax",
+            "type": "ExpertReport",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "tax_inspector",
+                    "qualifier": "authored_by"
+                }
+            ]
+        },
+        {
+            "id": "statement_witness_colleague",
+            "type": "Statement",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "witness_colleague",
+                    "qualifier": "made_by"
+                }
+            ]
+        },
+        {
+            "id": "statement_witness_relative",
+            "type": "Statement",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "witness_relative",
+                    "qualifier": "made_by"
+                }
+            ]
+        },
+        {
+            "id": "documents_1",
+            "type": "Document",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "",
+                    "value": "several documents"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "parties",
+                    "qualifier": "not_challenged_by"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "CourtNoted",
+            "time": "",
+            "attributes": [
+                {
+                    "name": "summary",
+                    "value": "The Audiencia Provincial noted that the applicant had made use of his right not to testify and relied on the statement of the co-accused; two expert reports by a treasury inspector and a tax inspector; the statements of several witnesses, including colleagues and relatives of the accused; and several documents not challenged by the parties."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "audiencia_provincial",
+                    "qualifier": "noted_by"
+                },
+                {
+                    "objectId": "applicant",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "statement_coaccused",
+                    "qualifier": "relied_on"
+                },
+                {
+                    "objectId": "expert_report_treasury",
+                    "qualifier": "relied_on"
+                },
+                {
+                    "objectId": "expert_report_tax",
+                    "qualifier": "relied_on"
+                },
+                {
+                    "objectId": "statement_witness_colleague",
+                    "qualifier": "relied_on"
+                },
+                {
+                    "objectId": "statement_witness_relative",
+                    "qualifier": "relied_on"
+                },
+                {
+                    "objectId": "documents_1",
+                    "qualifier": "relied_on"
+                }
+            ]
+        }
+    ]
+}

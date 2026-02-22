@@ -1,0 +1,265 @@
+{
+    "objectTypes": [
+        {
+            "name": "LegalProvision",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "type": "string"
+                },
+                {
+                    "name": "source",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Agent",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Proceeding",
+            "attributes": []
+        },
+        {
+            "name": "Judgment",
+            "attributes": [
+                {
+                    "name": "caseNumber",
+                    "type": "string"
+                },
+                {
+                    "name": "court",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "CourtDecision",
+            "attributes": [
+                {
+                    "name": "caseNumber",
+                    "type": "string"
+                },
+                {
+                    "name": "court",
+                    "type": "string"
+                },
+                {
+                    "name": "holding",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Article_706-113",
+            "type": "LegalProvision",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "value": "Article 706-113"
+                },
+                {
+                    "name": "source",
+                    "value": "French Code of Criminal Procedure"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Proceeding_1",
+                    "qualifier": "requires_informing_of_existence"
+                },
+                {
+                    "objectId": "Agent_Curator",
+                    "qualifier": "requires_informed"
+                },
+                {
+                    "objectId": "Agent_Guardian",
+                    "qualifier": "requires_informed"
+                },
+                {
+                    "objectId": "Agent_Curator",
+                    "qualifier": "requires_notification_of_hearing_date"
+                },
+                {
+                    "objectId": "Agent_Guardian",
+                    "qualifier": "requires_notification_of_hearing_date"
+                }
+            ]
+        },
+        {
+            "id": "Agent_Curator",
+            "type": "Agent",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "curator"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Agent_Guardian",
+            "type": "Agent",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "guardian"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Proceeding_1",
+            "type": "Proceeding",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Article_706-113",
+                    "qualifier": "regulated_by"
+                }
+            ]
+        },
+        {
+            "id": "Judgment_09-83.503",
+            "type": "Judgment",
+            "attributes": [
+                {
+                    "name": "caseNumber",
+                    "value": "09-83.503"
+                },
+                {
+                    "name": "court",
+                    "value": "Crim."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Proceeding_1",
+                    "qualifier": "decides"
+                },
+                {
+                    "objectId": "Article_706-113",
+                    "qualifier": "applies"
+                }
+            ]
+        },
+        {
+            "id": "Judgment_23-81.726",
+            "type": "Judgment",
+            "attributes": [
+                {
+                    "name": "caseNumber",
+                    "value": "23-81.726"
+                },
+                {
+                    "name": "court",
+                    "value": "Crim."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Proceeding_1",
+                    "qualifier": "decides"
+                },
+                {
+                    "objectId": "Article_706-113",
+                    "qualifier": "applies"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "CourtDecision",
+            "time": "2010-04-14T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "caseNumber",
+                    "value": "09-83.503"
+                },
+                {
+                    "name": "court",
+                    "value": "Crim."
+                },
+                {
+                    "name": "holding",
+                    "value": "failure to notify the agent of the hearing date renders the proceeding null and void (as cited)"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Judgment_09-83.503",
+                    "qualifier": "decision"
+                },
+                {
+                    "objectId": "Article_706-113",
+                    "qualifier": "refers_to"
+                },
+                {
+                    "objectId": "Agent_Curator",
+                    "qualifier": "concerned"
+                },
+                {
+                    "objectId": "Agent_Guardian",
+                    "qualifier": "concerned"
+                },
+                {
+                    "objectId": "Proceeding_1",
+                    "qualifier": "concerned_proceeding"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "CourtDecision",
+            "time": "2023-06-06T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "caseNumber",
+                    "value": "23-81.726"
+                },
+                {
+                    "name": "court",
+                    "value": "Crim."
+                },
+                {
+                    "name": "holding",
+                    "value": "a judgment that ignores the obligation to provide information when it has not been effective is subject to cassation (as cited)"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Judgment_23-81.726",
+                    "qualifier": "decision"
+                },
+                {
+                    "objectId": "Article_706-113",
+                    "qualifier": "refers_to"
+                },
+                {
+                    "objectId": "Agent_Curator",
+                    "qualifier": "concerned"
+                },
+                {
+                    "objectId": "Agent_Guardian",
+                    "qualifier": "concerned"
+                },
+                {
+                    "objectId": "Proceeding_1",
+                    "qualifier": "concerned_proceeding"
+                }
+            ]
+        }
+    ]
+}

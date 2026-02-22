@@ -1,0 +1,98 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "type": "float"
+                },
+                {
+                    "name": "unit",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "type": "time"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "VehiclesBooked",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "td249",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "value": "5.0"
+                },
+                {
+                    "name": "unit",
+                    "value": "containers"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "vh54",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "value": "2023-12-01T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td249",
+                    "qualifier": "high-priority-for"
+                }
+            ]
+        },
+        {
+            "id": "vh56",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "value": "2023-12-08T11:00:00Z"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "VehiclesBooked",
+            "time": "2023-11-28T14:59:33Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "vh54",
+                    "qualifier": "booked"
+                },
+                {
+                    "objectId": "vh56",
+                    "qualifier": "booked"
+                },
+                {
+                    "objectId": "td249",
+                    "qualifier": "forTransportDocument"
+                }
+            ]
+        }
+    ]
+}

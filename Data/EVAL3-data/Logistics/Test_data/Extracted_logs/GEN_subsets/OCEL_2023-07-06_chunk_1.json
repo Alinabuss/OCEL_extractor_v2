@@ -1,0 +1,130 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduled_departure",
+                    "type": "timestamp"
+                },
+                {
+                    "name": "priority",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Booking",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "td56",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "time": "2023-07-06T08:16:04Z",
+                    "value": "5.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "td57",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "time": "2023-07-06T11:40:46Z",
+                    "value": "5.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "vh13",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduled_departure",
+                    "time": "2023-07-06T08:16:04Z",
+                    "value": "2023-07-11T11:00:00Z"
+                },
+                {
+                    "name": "priority",
+                    "time": "2023-07-06T08:16:04Z",
+                    "value": "high-priority"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "vh15",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduled_departure",
+                    "time": "2023-07-06T08:16:04Z",
+                    "value": "2023-07-18T11:00:00Z"
+                },
+                {
+                    "name": "priority",
+                    "time": "2023-07-06T11:40:46Z",
+                    "value": "regular"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Booking",
+            "time": "2023-07-06T08:16:04Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "td56",
+                    "qualifier": "transport_document"
+                },
+                {
+                    "objectId": "vh13",
+                    "qualifier": "reserved"
+                },
+                {
+                    "objectId": "vh15",
+                    "qualifier": "reserved"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Booking",
+            "time": "2023-07-06T11:40:46Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "td57",
+                    "qualifier": "transport_document"
+                },
+                {
+                    "objectId": "vh15",
+                    "qualifier": "linked_vehicle"
+                }
+            ]
+        }
+    ]
+}

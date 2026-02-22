@@ -1,0 +1,233 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "State",
+            "attributes": []
+        },
+        {
+            "name": "ConventionArticle",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "LegalSystem",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "LegalProvision",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "CaseLaw",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Accept",
+            "attributes": [
+                {
+                    "name": "statement",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Refer",
+            "attributes": [
+                {
+                    "name": "statement",
+                    "type": "string"
+                },
+                {
+                    "name": "see_paragraphs",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "applicant_1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "applicant"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "states",
+            "type": "State",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "article6",
+            "type": "ConventionArticle",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "value": "Article 6 of the Convention"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "spanish_domestic_system",
+            "type": "LegalSystem",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Spanish domestic system"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "article_383",
+                    "qualifier": "provides_safeguard_through"
+                },
+                {
+                    "objectId": "article_101",
+                    "qualifier": "provides_safeguard_through"
+                },
+                {
+                    "objectId": "supreme_court_case_law",
+                    "qualifier": "related_to"
+                }
+            ]
+        },
+        {
+            "id": "article_383",
+            "type": "LegalProvision",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "value": "Article 383 of the Criminal Procedure Act"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "article_101",
+            "type": "LegalProvision",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "value": "Article 101 of the Criminal Code"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "supreme_court_case_law",
+            "type": "CaseLaw",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "value": "Supreme Court's case law"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "spanish_domestic_system",
+                    "qualifier": "pertains_to"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Accept",
+            "time": "1970-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "statement",
+                    "value": "States had a wide discretion as regards the means to ensure that their legal systems were in compliance with the requirements of Article 6 of the Convention."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "states",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "article6",
+                    "qualifier": "concerning"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Refer",
+            "time": "1970-01-01T00:00:01Z",
+            "attributes": [
+                {
+                    "name": "statement",
+                    "value": "In his view, in the Spanish domestic system, the relevant safeguards in that connection were provided by Article 383 of the Criminal Procedure Act and Article 101 of the Criminal Code and referred to the Supreme Court's case law in that regard."
+                },
+                {
+                    "name": "see_paragraphs",
+                    "value": "36, 37, 32"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "referrer"
+                },
+                {
+                    "objectId": "spanish_domestic_system",
+                    "qualifier": "context"
+                },
+                {
+                    "objectId": "article_383",
+                    "qualifier": "referred"
+                },
+                {
+                    "objectId": "article_101",
+                    "qualifier": "referred"
+                },
+                {
+                    "objectId": "supreme_court_case_law",
+                    "qualifier": "referred_to"
+                }
+            ]
+        }
+    ]
+}

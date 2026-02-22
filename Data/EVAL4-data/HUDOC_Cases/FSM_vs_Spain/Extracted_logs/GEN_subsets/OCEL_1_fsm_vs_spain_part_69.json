@@ -1,0 +1,106 @@
+{
+    "objectTypes": [
+        {
+            "name": "AmparoAppeal",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ConstitutionArticle",
+            "attributes": [
+                {
+                    "name": "number",
+                    "type": "string"
+                },
+                {
+                    "name": "title",
+                    "type": "string"
+                },
+                {
+                    "name": "text",
+                    "type": "string"
+                },
+                {
+                    "name": "source",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Declared Inadmissible",
+            "attributes": [
+                {
+                    "name": "reason",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "appeal-1",
+            "type": "AmparoAppeal",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "inadmissible",
+                    "time": "2021-06-29T00:00:00Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "article-24",
+            "type": "ConstitutionArticle",
+            "attributes": [
+                {
+                    "name": "number",
+                    "value": "24"
+                },
+                {
+                    "name": "title",
+                    "value": "The right to an effective remedy and to a fair trial"
+                },
+                {
+                    "name": "text",
+                    "value": "1. Every person has the right to obtain the effective protection of the judges and the courts in the exercise of his or her legitimate rights and interests, and in no case may he or she go undefended."
+                },
+                {
+                    "name": "source",
+                    "value": "Spanish Constitution"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "appeal-1",
+                    "qualifier": "relevant_to"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Declared Inadmissible",
+            "time": "2021-06-29T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "reason",
+                    "value": "lack of constitutional relevance"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "appeal-1",
+                    "qualifier": "subject"
+                }
+            ]
+        }
+    ]
+}

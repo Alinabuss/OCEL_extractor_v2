@@ -1,0 +1,196 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "fireType",
+                    "type": "string"
+                },
+                {
+                    "name": "forwardProgress",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "AirResources",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "agency",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ForwardProgressStopped",
+            "attributes": [
+                {
+                    "name": "note",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ContainmentWork",
+            "attributes": [
+                {
+                    "name": "note",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "AirResourcesAssigned",
+            "attributes": [
+                {
+                    "name": "note",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Lidia Fire",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-08T20:16:00Z",
+                    "value": "Lidia Fire"
+                },
+                {
+                    "name": "fireType",
+                    "time": "2025-01-08T20:16:00Z",
+                    "value": "brush"
+                },
+                {
+                    "name": "forwardProgress",
+                    "time": "2025-01-08T20:16:00Z",
+                    "value": "stopped"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Firefighters",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-08T20:16:00Z",
+                    "value": "Firefighters"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Lidia Fire",
+                    "qualifier": "responding_to"
+                }
+            ]
+        },
+        {
+            "id": "CAL FIRE air resources",
+            "type": "AirResources",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-08T20:16:00Z",
+                    "value": "CAL FIRE air resources"
+                },
+                {
+                    "name": "agency",
+                    "time": "2025-01-08T20:16:00Z",
+                    "value": "CAL FIRE"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Lidia Fire",
+                    "qualifier": "assigned_to"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "ForwardProgressStopped",
+            "time": "2025-01-08T20:16:00Z",
+            "attributes": [
+                {
+                    "name": "note",
+                    "value": "Forward progress has been stopped on this brush fire."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Lidia Fire",
+                    "qualifier": "affected"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "ContainmentWork",
+            "time": "2025-01-08T20:16:00Z",
+            "attributes": [
+                {
+                    "name": "note",
+                    "value": "Firefighters are working hard to gain additional containment."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Firefighters",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "Lidia Fire",
+                    "qualifier": "target"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "AirResourcesAssigned",
+            "time": "2025-01-08T20:16:00Z",
+            "attributes": [
+                {
+                    "name": "note",
+                    "value": "CAL FIRE air resources are assigned."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "CAL FIRE air resources",
+                    "qualifier": "assigned_resource"
+                },
+                {
+                    "objectId": "Lidia Fire",
+                    "qualifier": "target"
+                }
+            ]
+        }
+    ]
+}

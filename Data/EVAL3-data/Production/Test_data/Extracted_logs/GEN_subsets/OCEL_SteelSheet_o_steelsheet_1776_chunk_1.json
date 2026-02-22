@@ -1,0 +1,167 @@
+{
+    "objectTypes": [
+        {
+            "name": "Machine",
+            "attributes": []
+        },
+        {
+            "name": "Workstation",
+            "attributes": []
+        },
+        {
+            "name": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "weight_kg",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "SteelCoil",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "EnergySource",
+            "attributes": [
+                {
+                    "name": "energy_type",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Split",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "type": "float"
+                },
+                {
+                    "name": "energy_kWh",
+                    "type": "float"
+                },
+                {
+                    "name": "co2_kg",
+                    "type": "float"
+                },
+                {
+                    "name": "recycled_kg",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Splitter01",
+            "type": "Machine",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Workstation 1",
+                    "qualifier": "operating_at"
+                },
+                {
+                    "objectId": "Grid",
+                    "qualifier": "utilizes_energy_from"
+                }
+            ]
+        },
+        {
+            "id": "Workstation 1",
+            "type": "Workstation",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Grid",
+            "type": "EnergySource",
+            "attributes": [
+                {
+                    "name": "energy_type",
+                    "value": "electric"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "SteelSheet 1776",
+            "type": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "weight_kg",
+                    "value": "0.02104",
+                    "time": "2023-04-04T08:24:23Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "SteelCoil 3",
+            "type": "SteelCoil",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "value": "31.91076",
+                    "time": "2023-04-04T08:24:23Z"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Split",
+            "time": "2023-04-04T08:24:23Z",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "value": "13.86"
+                },
+                {
+                    "name": "energy_kWh",
+                    "value": "0.0211797"
+                },
+                {
+                    "name": "co2_kg",
+                    "value": "0.0144958566"
+                },
+                {
+                    "name": "recycled_kg",
+                    "value": "0.00042"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Splitter01",
+                    "qualifier": "performed_by"
+                },
+                {
+                    "objectId": "Workstation 1",
+                    "qualifier": "performed_at"
+                },
+                {
+                    "objectId": "SteelSheet 1776",
+                    "qualifier": "produced"
+                },
+                {
+                    "objectId": "SteelCoil 3",
+                    "qualifier": "involved"
+                },
+                {
+                    "objectId": "Grid",
+                    "qualifier": "energy_from"
+                }
+            ]
+        }
+    ]
+}

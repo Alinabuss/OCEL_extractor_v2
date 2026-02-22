@@ -1,0 +1,126 @@
+{
+    "objectTypes": [
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "listed_price",
+                    "type": "number"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Reorder",
+            "attributes": [
+                {
+                    "name": "note",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Nina Graves",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Nina Graves"
+                },
+                {
+                    "name": "role",
+                    "value": "Warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-885701",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "504.68",
+                    "time": "2023-12-25T11:20:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "iPad mini",
+                    "qualifier": "instance-of"
+                }
+            ]
+        },
+        {
+            "id": "iPad mini",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "iPad mini"
+                },
+                {
+                    "name": "listed_price",
+                    "value": "449.0"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "evt-1",
+            "type": "Reorder",
+            "time": "2023-12-25T11:20:00Z",
+            "attributes": [
+                {
+                    "name": "note",
+                    "value": "This transaction highlights the need to maintain stock levels for the designated product."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Nina Graves",
+                    "qualifier": "performed-by"
+                },
+                {
+                    "objectId": "i-885701",
+                    "qualifier": "reordered-item"
+                },
+                {
+                    "objectId": "iPad mini",
+                    "qualifier": "product"
+                }
+            ]
+        }
+    ]
+}

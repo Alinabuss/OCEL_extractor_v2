@@ -1,0 +1,96 @@
+{
+    "objectTypes": [
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "credited_amount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "TwoWayMatchCompleted",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt:1742",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "credited_amount",
+                    "time": "2024-07-22T07:10:00Z",
+                    "value": "21600.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:1751",
+                    "qualifier": "matchedWith"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt:1751",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "time": "2024-07-22T07:10:00Z",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:1742",
+                    "qualifier": "matchedWith"
+                }
+            ]
+        },
+        {
+            "id": "department:Finance/Account Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "TwoWayMatchCompleted",
+            "time": "2024-07-22T07:10:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:1742",
+                    "qualifier": "involved"
+                },
+                {
+                    "objectId": "goods receipt:1751",
+                    "qualifier": "involved"
+                },
+                {
+                    "objectId": "department:Finance/Account Department",
+                    "qualifier": "facilitator"
+                }
+            ]
+        }
+    ]
+}

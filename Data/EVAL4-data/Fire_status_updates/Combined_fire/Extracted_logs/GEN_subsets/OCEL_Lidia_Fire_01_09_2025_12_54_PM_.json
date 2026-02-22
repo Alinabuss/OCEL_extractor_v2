@@ -1,0 +1,242 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "reported_time",
+                    "type": "string"
+                },
+                {
+                    "name": "area_acres",
+                    "type": "string"
+                },
+                {
+                    "name": "containment_percent",
+                    "type": "string"
+                },
+                {
+                    "name": "progress",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "city",
+                    "type": "string"
+                },
+                {
+                    "name": "state",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "FireReported",
+            "attributes": [
+                {
+                    "name": "approximate",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "StatusUpdate",
+            "attributes": [
+                {
+                    "name": "area_acres",
+                    "type": "string"
+                },
+                {
+                    "name": "containment_percent",
+                    "type": "string"
+                },
+                {
+                    "name": "progress",
+                    "type": "string"
+                },
+                {
+                    "name": "unified_command_established",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Lidia Fire",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-08T13:08:00Z",
+                    "value": "Lidia Fire"
+                },
+                {
+                    "name": "reported_time",
+                    "time": "2025-01-08T13:08:00Z",
+                    "value": "2025-01-08T13:08:00Z"
+                },
+                {
+                    "name": "area_acres",
+                    "time": "2025-01-09T12:54:00Z",
+                    "value": "348"
+                },
+                {
+                    "name": "containment_percent",
+                    "time": "2025-01-09T12:54:00Z",
+                    "value": "60"
+                },
+                {
+                    "name": "progress",
+                    "time": "2025-01-09T12:54:00Z",
+                    "value": "firefighters making significant progress"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Soledad Canyon Road, Acton, California",
+                    "qualifier": "located_at"
+                }
+            ]
+        },
+        {
+            "id": "Angeles National Forest",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-09T12:54:00Z",
+                    "value": "Angeles National Forest"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Los Angeles County Fire Department",
+                    "qualifier": "unified_command_with"
+                }
+            ]
+        },
+        {
+            "id": "Los Angeles County Fire Department",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-09T12:54:00Z",
+                    "value": "Los Angeles County Fire Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Angeles National Forest",
+                    "qualifier": "unified_command_with"
+                }
+            ]
+        },
+        {
+            "id": "Soledad Canyon Road, Acton, California",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-08T13:08:00Z",
+                    "value": "Soledad Canyon Road in Acton, California"
+                },
+                {
+                    "name": "city",
+                    "time": "2025-01-08T13:08:00Z",
+                    "value": "Acton"
+                },
+                {
+                    "name": "state",
+                    "time": "2025-01-08T13:08:00Z",
+                    "value": "California"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "evt-1",
+            "type": "FireReported",
+            "time": "2025-01-08T13:08:00Z",
+            "attributes": [
+                {
+                    "name": "approximate",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Lidia Fire",
+                    "qualifier": "reported"
+                },
+                {
+                    "objectId": "Soledad Canyon Road, Acton, California",
+                    "qualifier": "at_location"
+                }
+            ]
+        },
+        {
+            "id": "evt-2",
+            "type": "StatusUpdate",
+            "time": "2025-01-09T12:54:00Z",
+            "attributes": [
+                {
+                    "name": "area_acres",
+                    "value": "348"
+                },
+                {
+                    "name": "containment_percent",
+                    "value": "60"
+                },
+                {
+                    "name": "progress",
+                    "value": "firefighters making significant progress"
+                },
+                {
+                    "name": "unified_command_established",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Lidia Fire",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "Angeles National Forest",
+                    "qualifier": "unified_command_member"
+                },
+                {
+                    "objectId": "Los Angeles County Fire Department",
+                    "qualifier": "unified_command_member"
+                }
+            ]
+        }
+    ]
+}

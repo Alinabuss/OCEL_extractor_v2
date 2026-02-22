@@ -1,0 +1,170 @@
+{
+    "objectTypes": [
+        {
+            "name": "Incident",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "fire_type",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Area",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Infrastructure",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "category",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Responder",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Firefighters On Scene",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "Border_2_Fire",
+            "type": "Incident",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-23T18:52:00Z",
+                    "value": "Border 2 Fire"
+                },
+                {
+                    "name": "fire_type",
+                    "time": "2025-01-23T18:52:00Z",
+                    "value": "vegetation"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Otay_Mountain_Truck_Trail",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-23T18:52:00Z",
+                    "value": "Otay Mountain Truck Trail"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Otay_Mountain_Wilderness",
+                    "qualifier": "within"
+                }
+            ]
+        },
+        {
+            "id": "Otay_Mountain_Wilderness",
+            "type": "Area",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-23T18:52:00Z",
+                    "value": "Otay Mountain Wilderness"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Otay_Mountain_Repeater_Site",
+            "type": "Infrastructure",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-23T18:52:00Z",
+                    "value": "Otay Mountain Repeater Site"
+                },
+                {
+                    "name": "category",
+                    "time": "2025-01-23T18:52:00Z",
+                    "value": "critical communication infrastructure"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Firefighters",
+            "type": "Responder",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-23T18:52:00Z",
+                    "value": "Firefighters"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Firefighters On Scene",
+            "time": "2025-01-23T18:52:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Border_2_Fire",
+                    "qualifier": "incident"
+                },
+                {
+                    "objectId": "Firefighters",
+                    "qualifier": "on_scene"
+                },
+                {
+                    "objectId": "Otay_Mountain_Truck_Trail",
+                    "qualifier": "near"
+                },
+                {
+                    "objectId": "Otay_Mountain_Wilderness",
+                    "qualifier": "within"
+                },
+                {
+                    "objectId": "Otay_Mountain_Repeater_Site",
+                    "qualifier": "threatened"
+                }
+            ]
+        }
+    ]
+}

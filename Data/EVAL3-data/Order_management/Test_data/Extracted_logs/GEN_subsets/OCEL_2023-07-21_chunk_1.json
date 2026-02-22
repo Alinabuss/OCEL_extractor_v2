@@ -1,0 +1,194 @@
+{
+    "objectTypes": [
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Role",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "retail_price",
+                    "type": "number"
+                },
+                {
+                    "name": "base_price",
+                    "type": "number"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Pick",
+            "attributes": [
+                {
+                    "name": "activity",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o-employee-marco",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Marco Pegoraro"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-role-warehousing",
+                    "qualifier": "hasRole"
+                }
+            ]
+        },
+        {
+            "id": "o-role-warehousing",
+            "type": "Role",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o-item-i-882173",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "105.7"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-product-echo",
+                    "qualifier": "product"
+                }
+            ]
+        },
+        {
+            "id": "o-item-i-882225",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "2642.75"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-product-macbookpro",
+                    "qualifier": "product"
+                }
+            ]
+        },
+        {
+            "id": "o-product-echo",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Echo"
+                },
+                {
+                    "name": "retail_price",
+                    "value": "99.99"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o-product-macbookpro",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "MacBook Pro"
+                },
+                {
+                    "name": "base_price",
+                    "value": "2500.0"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e-1",
+            "type": "Pick",
+            "time": "2023-07-21T10:31:26Z",
+            "attributes": [
+                {
+                    "name": "activity",
+                    "value": "pick"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-employee-marco",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "o-item-i-882173",
+                    "qualifier": "item"
+                }
+            ]
+        },
+        {
+            "id": "e-2",
+            "type": "Pick",
+            "time": "2023-07-21T15:01:48Z",
+            "attributes": [
+                {
+                    "name": "activity",
+                    "value": "pick"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-employee-marco",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "o-item-i-882225",
+                    "qualifier": "item"
+                }
+            ]
+        }
+    ]
+}

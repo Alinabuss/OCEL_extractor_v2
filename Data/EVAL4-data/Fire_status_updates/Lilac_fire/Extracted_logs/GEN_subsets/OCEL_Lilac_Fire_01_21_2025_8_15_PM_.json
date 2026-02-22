@@ -1,0 +1,178 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "forwardRateOfSpread",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Road",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Hotspot",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Situation Report",
+            "attributes": [
+                {
+                    "name": "locationDescription",
+                    "type": "string"
+                },
+                {
+                    "name": "forwardRateOfSpreadStatus",
+                    "type": "string"
+                },
+                {
+                    "name": "plannedActions",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire-1",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-21T20:15:00Z",
+                    "value": "Lilac Fire"
+                },
+                {
+                    "name": "forwardRateOfSpread",
+                    "time": "2025-01-21T20:15:00Z",
+                    "value": "stopped"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "road-old-highway-395",
+                    "qualifier": "located_near"
+                },
+                {
+                    "objectId": "road-lilac-road",
+                    "qualifier": "located_near"
+                }
+            ]
+        },
+        {
+            "id": "road-old-highway-395",
+            "type": "Road",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Old Highway 395"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "road-lilac-road",
+            "type": "Road",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Lilac Road"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "crew-1",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Fire crew"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "working_on"
+                }
+            ]
+        },
+        {
+            "id": "hotspot-1",
+            "type": "Hotspot",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "within"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Situation Report",
+            "time": "2025-01-21T20:15:00Z",
+            "attributes": [
+                {
+                    "name": "locationDescription",
+                    "value": "near Old Highway 395 and Lilac Road"
+                },
+                {
+                    "name": "forwardRateOfSpreadStatus",
+                    "value": "stopped"
+                },
+                {
+                    "name": "plannedActions",
+                    "value": "Fire crew will continue to build containment lines and extinguish hotspots within the fire's perimeter."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "road-old-highway-395",
+                    "qualifier": "located_near"
+                },
+                {
+                    "objectId": "road-lilac-road",
+                    "qualifier": "located_near"
+                },
+                {
+                    "objectId": "crew-1",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "hotspot-1",
+                    "qualifier": "target"
+                }
+            ]
+        }
+    ]
+}

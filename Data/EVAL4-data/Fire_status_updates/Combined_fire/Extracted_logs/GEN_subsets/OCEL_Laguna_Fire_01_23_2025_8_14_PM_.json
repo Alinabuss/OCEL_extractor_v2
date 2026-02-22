@@ -1,0 +1,98 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Zone",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "StatusReport",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire-1",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-23T20:14:00Z",
+                    "value": "Laguna Fire"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "zone-1",
+            "type": "Zone",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-23T20:14:00Z",
+                    "value": "Laguna Zone 1"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "partOf"
+                }
+            ]
+        },
+        {
+            "id": "zone-2",
+            "type": "Zone",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-23T20:14:00Z",
+                    "value": "Laguna Zone 2"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "partOf"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "StatusReport",
+            "time": "2025-01-23T20:14:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "involves"
+                },
+                {
+                    "objectId": "zone-1",
+                    "qualifier": "involves"
+                },
+                {
+                    "objectId": "zone-2",
+                    "qualifier": "involves"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,122 @@
+{
+    "objectTypes": [
+        {
+            "name": "FormedPart",
+            "attributes": []
+        },
+        {
+            "name": "Workstation",
+            "attributes": [
+                {
+                    "name": "electricPowerCharacteristics",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Machine",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Coating Operation",
+            "attributes": [
+                {
+                    "name": "durationSeconds",
+                    "type": "integer"
+                },
+                {
+                    "name": "carbonFootprintKgCO2e",
+                    "type": "float"
+                },
+                {
+                    "name": "electricityConsumptionkWh",
+                    "type": "float"
+                },
+                {
+                    "name": "coatingMaterialUsedKg",
+                    "type": "float"
+                },
+                {
+                    "name": "wasteGeneratedKg",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o_formedpart_1126",
+            "type": "FormedPart",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "o_workstation_1",
+            "type": "Workstation",
+            "attributes": [
+                {
+                    "name": "electricPowerCharacteristics",
+                    "time": "2023-04-03T11:59:25Z",
+                    "value": "indicated but not specified in detail"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_machine_coater03",
+                    "qualifier": "utilizes"
+                }
+            ]
+        },
+        {
+            "id": "o_machine_coater03",
+            "type": "Machine",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e_1",
+            "type": "Coating Operation",
+            "time": "2023-04-03T11:59:25Z",
+            "attributes": [
+                {
+                    "name": "durationSeconds",
+                    "value": "300"
+                },
+                {
+                    "name": "carbonFootprintKgCO2e",
+                    "value": "0.175"
+                },
+                {
+                    "name": "electricityConsumptionkWh",
+                    "value": "0.25"
+                },
+                {
+                    "name": "coatingMaterialUsedKg",
+                    "value": "0.0004"
+                },
+                {
+                    "name": "wasteGeneratedKg",
+                    "value": "0.0001"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_formedpart_1126",
+                    "qualifier": "affected"
+                },
+                {
+                    "objectId": "o_workstation_1",
+                    "qualifier": "executedAt"
+                },
+                {
+                    "objectId": "o_machine_coater03",
+                    "qualifier": "usedMachine"
+                }
+            ]
+        }
+    ]
+}

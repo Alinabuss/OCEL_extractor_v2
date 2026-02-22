@@ -1,0 +1,192 @@
+{
+    "objectTypes": [
+        {
+            "name": "Opinion",
+            "attributes": [
+                {
+                    "name": "intention",
+                    "type": "string"
+                },
+                {
+                    "name": "form",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "LegalSystem",
+            "attributes": [
+                {
+                    "name": "jurisdiction",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Lacuna",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ProceduralAdjustment",
+            "attributes": []
+        },
+        {
+            "name": "CriminalProceeding",
+            "attributes": []
+        },
+        {
+            "name": "Defendant",
+            "attributes": [
+                {
+                    "name": "hasMentalIllness",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "Person",
+            "attributes": []
+        },
+        {
+            "name": "Accusation",
+            "attributes": []
+        },
+        {
+            "name": "DefenceRights",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [],
+    "objects": [
+        {
+            "id": "opinion_1",
+            "type": "Opinion",
+            "attributes": [
+                {
+                    "name": "intention",
+                    "time": "",
+                    "value": "to show that there was, and still are, various lacunae in the Spanish legal system regarding the possibility of making procedural adjustments during criminal proceedings in cases where a defendant has a mental illness and needs assistance from another person, or some other kind of adjustment, in order that the accusations be properly understood, and defence rights properly protected"
+                },
+                {
+                    "name": "form",
+                    "time": "",
+                    "value": "concurring"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "legal_system_spain",
+                    "qualifier": "identifiesLacunaeInLegalSystem"
+                },
+                {
+                    "objectId": "procedural_adjustment_1",
+                    "qualifier": "regardingPossibilityOfMakingProceduralAdjustments"
+                }
+            ]
+        },
+        {
+            "id": "legal_system_spain",
+            "type": "LegalSystem",
+            "attributes": [
+                {
+                    "name": "jurisdiction",
+                    "time": "",
+                    "value": "Spain"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "lacuna_1",
+                    "qualifier": "hasLacuna"
+                }
+            ]
+        },
+        {
+            "id": "lacuna_1",
+            "type": "Lacuna",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "",
+                    "value": "various lacunae mentioned in the opinion"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "legal_system_spain",
+                    "qualifier": "inLegalSystem"
+                }
+            ]
+        },
+        {
+            "id": "procedural_adjustment_1",
+            "type": "ProceduralAdjustment",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "criminal_proceeding_1",
+                    "qualifier": "possibleDuringCriminalProceedings"
+                },
+                {
+                    "objectId": "accusation_1",
+                    "qualifier": "aimsToEnsureProperUnderstandingOfAccusations"
+                },
+                {
+                    "objectId": "defence_rights_1",
+                    "qualifier": "aimsToEnsureProperProtectionOfDefenceRights"
+                }
+            ]
+        },
+        {
+            "id": "criminal_proceeding_1",
+            "type": "CriminalProceeding",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "defendant_1",
+            "type": "Defendant",
+            "attributes": [
+                {
+                    "name": "hasMentalIllness",
+                    "time": "",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person_1",
+                    "qualifier": "needsAssistanceFrom"
+                },
+                {
+                    "objectId": "criminal_proceeding_1",
+                    "qualifier": "inCasesOfCriminalProceedings"
+                }
+            ]
+        },
+        {
+            "id": "person_1",
+            "type": "Person",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "accusation_1",
+            "type": "Accusation",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "defence_rights_1",
+            "type": "DefenceRights",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": []
+}

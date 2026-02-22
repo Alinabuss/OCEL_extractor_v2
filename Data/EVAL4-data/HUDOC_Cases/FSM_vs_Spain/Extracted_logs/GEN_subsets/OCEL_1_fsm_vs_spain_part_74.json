@@ -1,0 +1,190 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "declaredExemptUnderArticle20_1",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "Facility",
+            "attributes": [
+                {
+                    "name": "purpose",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Measure",
+            "attributes": [
+                {
+                    "name": "establishedByArticle96_3",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "LegalArticle",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "CommitToFacility",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ImposeOtherMeasure",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "person-1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "declaredExemptUnderArticle20_1",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "article-20-1",
+                    "qualifier": "declaredExemptUnder"
+                }
+            ]
+        },
+        {
+            "id": "facility-1",
+            "type": "Facility",
+            "attributes": [
+                {
+                    "name": "purpose",
+                    "value": "medical treatment or special education"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "measure-article96_3",
+            "type": "Measure",
+            "attributes": [
+                {
+                    "name": "establishedByArticle96_3",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "article-96-3",
+                    "qualifier": "establishedBy"
+                }
+            ]
+        },
+        {
+            "id": "article-101",
+            "type": "LegalArticle",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "value": "Article 101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "article-20-1",
+            "type": "LegalArticle",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "value": "Article 20(1)"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "article-96-3",
+            "type": "LegalArticle",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "value": "Article 96(3)"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "CommitToFacility",
+            "time": "2020-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Persons declared exempt under Article 20(1) may be committed for medical treatment or special education"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person-1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "facility-1",
+                    "qualifier": "targetFacility"
+                },
+                {
+                    "objectId": "article-101",
+                    "qualifier": "legalBasis"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "ImposeOtherMeasure",
+            "time": "2020-01-01T00:00:01Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Other measures established by Article 96(3) may be imposed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person-1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "measure-article96_3",
+                    "qualifier": "measure"
+                },
+                {
+                    "objectId": "article-101",
+                    "qualifier": "legalBasis"
+                }
+            ]
+        }
+    ]
+}

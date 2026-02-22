@@ -1,0 +1,173 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "FireCrew",
+            "attributes": [
+                {
+                    "name": "designation",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "SituationReport",
+            "attributes": [
+                {
+                    "name": "message",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ForwardRateOfSpreadStopped",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "RepopulationCompleted",
+            "attributes": [
+                {
+                    "name": "note",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire-Lilac",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-22T08:32:00Z",
+                    "value": "Lilac Fire"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "location-OldHighway395_LilacRd",
+                    "qualifier": "located_near"
+                },
+                {
+                    "objectId": "firecrew-1",
+                    "qualifier": "worked_on_by"
+                }
+            ]
+        },
+        {
+            "id": "location-OldHighway395_LilacRd",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-22T08:32:00Z",
+                    "value": "Old Highway 395 and Lilac Road"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "firecrew-1",
+            "type": "FireCrew",
+            "attributes": [
+                {
+                    "name": "designation",
+                    "time": "2025-01-22T08:32:00Z",
+                    "value": "fire crew"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-Lilac",
+                    "qualifier": "works_on"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "SituationReport",
+            "time": "2025-01-22T08:32:00Z",
+            "attributes": [
+                {
+                    "name": "message",
+                    "value": "The fire is located near Old Highway 395 and Lilac Road. The forward rate of spread has been stopped. Fire crew will continue to build containment lines and extinguish hotspots within the fire's perimeter."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-Lilac",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "location-OldHighway395_LilacRd",
+                    "qualifier": "location"
+                },
+                {
+                    "objectId": "firecrew-1",
+                    "qualifier": "mentioned"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "ForwardRateOfSpreadStopped",
+            "time": "2025-01-22T08:32:00Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "stopped"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-Lilac",
+                    "qualifier": "subject"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "RepopulationCompleted",
+            "time": "2025-01-21T20:00:00Z",
+            "attributes": [
+                {
+                    "name": "note",
+                    "value": "Repopulation has been completed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-Lilac",
+                    "qualifier": "subject"
+                }
+            ]
+        }
+    ]
+}

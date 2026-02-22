@@ -1,0 +1,159 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Vacancy",
+            "attributes": [
+                {
+                    "name": "title",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Interview",
+            "attributes": []
+        },
+        {
+            "name": "Rejection Sent",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "Bastian Nominacher",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Bastian Nominacher"
+                },
+                {
+                    "name": "role",
+                    "value": "manager"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Ray Taylor",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Ray Taylor"
+                },
+                {
+                    "name": "role",
+                    "value": "applicant"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Jana Keane",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Jana Keane"
+                },
+                {
+                    "name": "role",
+                    "value": "recruiter"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Vacancy[550002]",
+            "type": "Vacancy",
+            "attributes": [
+                {
+                    "name": "title",
+                    "value": "Consultant"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Application[770047]",
+            "type": "Application",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Vacancy[550002]",
+                    "qualifier": "forVacancy"
+                },
+                {
+                    "objectId": "Ray Taylor",
+                    "qualifier": "submittedBy"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Interview",
+            "time": "2019-07-03T15:40:47Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Bastian Nominacher",
+                    "qualifier": "interviewer"
+                },
+                {
+                    "objectId": "Ray Taylor",
+                    "qualifier": "interviewee"
+                },
+                {
+                    "objectId": "Vacancy[550002]",
+                    "qualifier": "vacancy"
+                },
+                {
+                    "objectId": "Application[770047]",
+                    "qualifier": "application"
+                },
+                {
+                    "objectId": "Jana Keane",
+                    "qualifier": "recruiter"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "Rejection Sent",
+            "time": "2019-07-04T14:25:13Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Jana Keane",
+                    "qualifier": "sender"
+                },
+                {
+                    "objectId": "Application[770047]",
+                    "qualifier": "rejected"
+                }
+            ]
+        }
+    ]
+}

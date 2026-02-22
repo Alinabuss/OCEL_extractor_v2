@@ -1,0 +1,133 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseRequisition",
+            "attributes": [
+                {
+                    "name": "lifecycleStatus",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Material",
+            "attributes": [
+                {
+                    "name": "netPrice",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": [
+                {
+                    "name": "groupId",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Role",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "PurchaseRequisitionApproved",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_requisition:597:pr_trigger_597",
+            "type": "PurchaseRequisition",
+            "attributes": [
+                {
+                    "name": "lifecycleStatus",
+                    "time": "2023-11-24T11:01:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "material:1491",
+                    "qualifier": "associated"
+                },
+                {
+                    "objectId": "purchasing_group:005",
+                    "qualifier": "linked-to"
+                }
+            ]
+        },
+        {
+            "id": "material:1491",
+            "type": "Material",
+            "attributes": [
+                {
+                    "name": "netPrice",
+                    "time": "2023-11-24T11:01:00Z",
+                    "value": "1250.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "purchasing_group:005",
+            "type": "PurchasingGroup",
+            "attributes": [
+                {
+                    "name": "groupId",
+                    "time": "2023-11-24T11:01:00Z",
+                    "value": "005"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "role:procurement_requisition_manager",
+            "type": "Role",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-11-24T11:01:00Z",
+                    "value": "Procurement Requisition Manager"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "PurchaseRequisitionApproved",
+            "time": "2023-11-24T11:01:00Z",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "approved"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_requisition:597:pr_trigger_597",
+                    "qualifier": "approved"
+                },
+                {
+                    "objectId": "role:procurement_requisition_manager",
+                    "qualifier": "performed-by"
+                }
+            ]
+        }
+    ]
+}

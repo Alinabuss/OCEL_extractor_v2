@@ -1,0 +1,193 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "area_acres",
+                    "type": "integer"
+                },
+                {
+                    "name": "containment_percent",
+                    "type": "string"
+                },
+                {
+                    "name": "location",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "FireReported",
+            "attributes": [
+                {
+                    "name": "location",
+                    "type": "string"
+                },
+                {
+                    "name": "reported_note",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "StatusUpdate",
+            "attributes": [
+                {
+                    "name": "area_acres",
+                    "type": "integer"
+                },
+                {
+                    "name": "containment_percent",
+                    "type": "string"
+                },
+                {
+                    "name": "progress_note",
+                    "type": "string"
+                },
+                {
+                    "name": "unified_command_established",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire:LidiaFire",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-08T13:08:00Z",
+                    "value": "Lidia Fire"
+                },
+                {
+                    "name": "location",
+                    "time": "2025-01-08T13:08:00Z",
+                    "value": "Soledad Canyon Road, Acton, California"
+                },
+                {
+                    "name": "area_acres",
+                    "time": "2025-01-09T09:49:00Z",
+                    "value": "348"
+                },
+                {
+                    "name": "containment_percent",
+                    "time": "2025-01-09T09:49:00Z",
+                    "value": "60%"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "org:AngelesNationalForest",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-09T09:49:00Z",
+                    "value": "Angeles National Forest"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "org:LosAngelesCountyFireDepartment",
+                    "qualifier": "unified_command_with"
+                }
+            ]
+        },
+        {
+            "id": "org:LosAngelesCountyFireDepartment",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-09T09:49:00Z",
+                    "value": "Los Angeles County Fire Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "org:AngelesNationalForest",
+                    "qualifier": "unified_command_with"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "FireReported",
+            "time": "2025-01-08T13:08:00Z",
+            "attributes": [
+                {
+                    "name": "location",
+                    "value": "Soledad Canyon Road, Acton, California"
+                },
+                {
+                    "name": "reported_note",
+                    "value": "approximately 1:08 p.m."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire:LidiaFire",
+                    "qualifier": "subject"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "StatusUpdate",
+            "time": "2025-01-09T09:49:00Z",
+            "attributes": [
+                {
+                    "name": "area_acres",
+                    "value": "348"
+                },
+                {
+                    "name": "containment_percent",
+                    "value": "60%"
+                },
+                {
+                    "name": "progress_note",
+                    "value": "firefighters making significant progress"
+                },
+                {
+                    "name": "unified_command_established",
+                    "value": "established"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire:LidiaFire",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "org:AngelesNationalForest",
+                    "qualifier": "established_unified_command"
+                },
+                {
+                    "objectId": "org:LosAngelesCountyFireDepartment",
+                    "qualifier": "established_unified_command"
+                }
+            ]
+        }
+    ]
+}

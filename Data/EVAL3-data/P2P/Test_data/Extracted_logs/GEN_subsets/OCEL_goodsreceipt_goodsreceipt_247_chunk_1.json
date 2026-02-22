@@ -1,0 +1,153 @@
+{
+    "objectTypes": [
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "string"
+                },
+                {
+                    "name": "purchaseOrder",
+                    "type": "string"
+                },
+                {
+                    "name": "purchasingGroup",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Goods Receipt Created",
+            "attributes": []
+        },
+        {
+            "name": "Invoice Receipt Processed",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "goods receipt: 247",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "time": "2022-08-07T05:27:00Z",
+                    "value": "101"
+                },
+                {
+                    "name": "purchaseOrder",
+                    "time": "2022-08-07T05:27:00Z",
+                    "value": "210"
+                },
+                {
+                    "name": "purchasingGroup",
+                    "time": "2022-08-07T05:27:00Z",
+                    "value": "004"
+                },
+                {
+                    "name": "status",
+                    "time": "2022-08-07T05:27:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "invoice receipt: 245",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "time": "2022-08-08T13:54:00Z",
+                    "value": "91,200.00"
+                },
+                {
+                    "name": "status",
+                    "time": "2022-08-08T13:54:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt: 247",
+                    "qualifier": "associated"
+                }
+            ]
+        },
+        {
+            "id": "Warehouse Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Finance/Account Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Goods Receipt Created",
+            "time": "2022-08-07T05:27:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "goods receipt: 247",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "Warehouse Department",
+                    "qualifier": "createdBy"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Invoice Receipt Processed",
+            "time": "2022-08-08T13:54:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt: 245",
+                    "qualifier": "processed"
+                },
+                {
+                    "objectId": "goods receipt: 247",
+                    "qualifier": "associated"
+                },
+                {
+                    "objectId": "Finance/Account Department",
+                    "qualifier": "processedBy"
+                }
+            ]
+        }
+    ]
+}

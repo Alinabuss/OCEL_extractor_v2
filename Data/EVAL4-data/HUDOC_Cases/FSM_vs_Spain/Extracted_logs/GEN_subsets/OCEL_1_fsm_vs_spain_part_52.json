@@ -1,0 +1,123 @@
+{
+    "objectTypes": [
+        {
+            "name": "Applicant",
+            "attributes": []
+        },
+        {
+            "name": "Company",
+            "attributes": [
+                {
+                    "name": "evaded_amount",
+                    "type": "float"
+                },
+                {
+                    "name": "evaded_currency",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "VATDeclarationManipulation",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "awareness",
+                    "type": "string"
+                },
+                {
+                    "name": "aim",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "applicant_1",
+            "type": "Applicant",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "company_1",
+            "type": "Company",
+            "attributes": [
+                {
+                    "name": "evaded_amount",
+                    "value": "2702456.68"
+                },
+                {
+                    "name": "evaded_currency",
+                    "value": "EUR"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "sole_administrator"
+                }
+            ]
+        },
+        {
+            "id": "company_2",
+            "type": "Company",
+            "attributes": [
+                {
+                    "name": "evaded_amount",
+                    "value": "1098881.56"
+                },
+                {
+                    "name": "evaded_currency",
+                    "value": "EUR"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "sole_administrator"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "VATDeclarationManipulation",
+            "time": "2008-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "concealed part of the economic activity in the VAT declarations and unduly included sums to be compensated from previous years"
+                },
+                {
+                    "name": "awareness",
+                    "value": "full awareness and willingness"
+                },
+                {
+                    "name": "aim",
+                    "value": "circumventing tax obligations and the payment of the relevant taxes"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "perpetrator"
+                },
+                {
+                    "objectId": "company_1",
+                    "qualifier": "VAT_declaration_of"
+                },
+                {
+                    "objectId": "company_2",
+                    "qualifier": "VAT_declaration_of"
+                }
+            ]
+        }
+    ]
+}

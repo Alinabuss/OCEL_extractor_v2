@@ -1,0 +1,155 @@
+{
+    "objectTypes": [
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": [
+                {
+                    "name": "applicationNumber",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Rejection Sent",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application Submitted",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Applicant[Pete Neumann]",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Pete Neumann"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Recruiter[Dionne Hense]",
+            "type": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Dionne Hense"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Application[770323]",
+            "type": "Application",
+            "attributes": [
+                {
+                    "name": "applicationNumber",
+                    "value": "770323"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Applicant[Pete Neumann]",
+                    "qualifier": "applicant"
+                }
+            ]
+        },
+        {
+            "id": "Application[770408]",
+            "type": "Application",
+            "attributes": [
+                {
+                    "name": "applicationNumber",
+                    "value": "770408"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Applicant[Pete Neumann]",
+                    "qualifier": "applicant"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Rejection Sent",
+            "time": "2019-07-03T07:10:41Z",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "sent rejection"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Recruiter[Dionne Hense]",
+                    "qualifier": "sender"
+                },
+                {
+                    "objectId": "Applicant[Pete Neumann]",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "Application[770323]",
+                    "qualifier": "application"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Application Submitted",
+            "time": "2019-07-04T21:09:13Z",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "submitted new application"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Applicant[Pete Neumann]",
+                    "qualifier": "submitter"
+                },
+                {
+                    "objectId": "Application[770408]",
+                    "qualifier": "application"
+                }
+            ]
+        }
+    ]
+}

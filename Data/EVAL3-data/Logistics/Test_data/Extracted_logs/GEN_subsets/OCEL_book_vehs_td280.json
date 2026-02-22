@@ -1,0 +1,92 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "type": "datetime"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "TransportDocumentCreated",
+            "attributes": []
+        },
+        {
+            "name": "VehicleBooked",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "td280",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "time": "2023-12-21T13:48:32Z",
+                    "value": "2.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "vh66",
+                    "qualifier": "regularVehicle"
+                }
+            ]
+        },
+        {
+            "id": "vh66",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "value": "2024-01-12T11:00:00Z"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "TransportDocumentCreated",
+            "time": "2023-12-21T13:48:32Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "td280",
+                    "qualifier": "transportDocument"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "VehicleBooked",
+            "time": "2023-12-21T13:48:32Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "vh66",
+                    "qualifier": "vehicle"
+                },
+                {
+                    "objectId": "td280",
+                    "qualifier": "forTransportDocument"
+                }
+            ]
+        }
+    ]
+}

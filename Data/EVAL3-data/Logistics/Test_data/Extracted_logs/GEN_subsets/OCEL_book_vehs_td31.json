@@ -1,0 +1,89 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "type": "decimal"
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "priority",
+                    "type": "string"
+                },
+                {
+                    "name": "departureDate",
+                    "type": "timestamp"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "VehiclesBooked",
+            "attributes": [
+                {
+                    "name": "numberOfVehicles",
+                    "type": "integer"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "td31",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "value": "2.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "vh8",
+                    "qualifier": "associatedVehicle"
+                }
+            ]
+        },
+        {
+            "id": "vh8",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "priority",
+                    "value": "high-priority"
+                },
+                {
+                    "name": "departureDate",
+                    "value": "2023-06-23T11:00:00Z"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "VehiclesBooked",
+            "time": "2023-06-19T05:20:22Z",
+            "attributes": [
+                {
+                    "name": "numberOfVehicles",
+                    "value": "2"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td31",
+                    "qualifier": "for"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,351 @@
+{
+    "objectTypes": [
+        {
+            "name": "System",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "country",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                },
+                {
+                    "name": "impairment",
+                    "type": "string"
+                },
+                {
+                    "name": "capable_of_acting",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Proceedings",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Obligation",
+            "attributes": [
+                {
+                    "name": "type",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Measure",
+            "attributes": [
+                {
+                    "name": "nature",
+                    "type": "string"
+                },
+                {
+                    "name": "subtype",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Paragraph",
+            "attributes": [
+                {
+                    "name": "number",
+                    "type": "integer"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "JudgmentParagraph",
+            "attributes": [
+                {
+                    "name": "paragraph_number",
+                    "type": "integer"
+                },
+                {
+                    "name": "text",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "system:spanish",
+            "type": "System",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Spanish system",
+                    "time": "2020-01-01T00:00:00Z"
+                },
+                {
+                    "name": "country",
+                    "value": "Spain",
+                    "time": "2020-01-01T00:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "measure:positive",
+                    "qualifier": "should_develop"
+                },
+                {
+                    "objectId": "obligation:positive",
+                    "qualifier": "concerns"
+                }
+            ]
+        },
+        {
+            "id": "proceedings:1",
+            "type": "Proceedings",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "the proceedings",
+                    "time": "2020-01-01T00:00:00Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "person:involved",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "involved",
+                    "time": "2020-01-01T00:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "proceedings:1",
+                    "qualifier": "participates_in"
+                }
+            ]
+        },
+        {
+            "id": "person:impaired",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "impairment",
+                    "value": "impairment of mental faculties",
+                    "time": "2020-01-01T00:00:00Z"
+                },
+                {
+                    "name": "capable_of_acting",
+                    "value": "not fully capable",
+                    "time": "2020-01-01T00:00:00Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "obligation:positive",
+            "type": "Obligation",
+            "attributes": [
+                {
+                    "name": "type",
+                    "value": "positive",
+                    "time": "2020-01-01T00:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "measure:positive",
+                    "qualifier": "includes"
+                },
+                {
+                    "objectId": "adjustment:procedural",
+                    "qualifier": "includes"
+                }
+            ]
+        },
+        {
+            "id": "measure:positive",
+            "type": "Measure",
+            "attributes": [
+                {
+                    "name": "nature",
+                    "value": "positive measures required",
+                    "time": "2020-01-01T00:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person:involved",
+                    "qualifier": "enables"
+                },
+                {
+                    "objectId": "proceedings:1",
+                    "qualifier": "enables_participation_in"
+                }
+            ]
+        },
+        {
+            "id": "adjustment:procedural",
+            "type": "Measure",
+            "attributes": [
+                {
+                    "name": "nature",
+                    "value": "procedural adjustments",
+                    "time": "2020-01-01T00:00:00Z"
+                },
+                {
+                    "name": "subtype",
+                    "value": "procedural adjustment",
+                    "time": "2020-01-01T00:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person:impaired",
+                    "qualifier": "for_persons"
+                }
+            ]
+        },
+        {
+            "id": "paragraph:13",
+            "type": "Paragraph",
+            "attributes": [
+                {
+                    "name": "number",
+                    "value": "13",
+                    "time": "2020-01-01T00:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "paragraph:64",
+                    "qualifier": "references"
+                },
+                {
+                    "objectId": "paragraph:59",
+                    "qualifier": "references"
+                },
+                {
+                    "objectId": "paragraph:58",
+                    "qualifier": "references"
+                }
+            ]
+        },
+        {
+            "id": "paragraph:64",
+            "type": "Paragraph",
+            "attributes": [
+                {
+                    "name": "number",
+                    "value": "64",
+                    "time": "2020-01-01T00:00:00Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "paragraph:59",
+            "type": "Paragraph",
+            "attributes": [
+                {
+                    "name": "number",
+                    "value": "59",
+                    "time": "2020-01-01T00:00:00Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "paragraph:58",
+            "type": "Paragraph",
+            "attributes": [
+                {
+                    "name": "number",
+                    "value": "58",
+                    "time": "2020-01-01T00:00:00Z"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "JudgmentParagraph",
+            "time": "2020-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "paragraph_number",
+                    "value": "13"
+                },
+                {
+                    "name": "text",
+                    "value": "The Spanish system must be improved and develop more clearly the positive measures required (see paragraph 64 of the present judgment): to enable the persons involved to participate effectively in the proceedings (see paragraph 59 above). This positive obligation includes, where needed, the provision of procedural adjustments for persons who, due to an impairment of their mental faculties, are not fully capable of acting for themselves (see paragraph 58 above)."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "paragraph:13",
+                    "qualifier": "states"
+                },
+                {
+                    "objectId": "system:spanish",
+                    "qualifier": "addresses"
+                },
+                {
+                    "objectId": "obligation:positive",
+                    "qualifier": "states"
+                },
+                {
+                    "objectId": "measure:positive",
+                    "qualifier": "mentions"
+                },
+                {
+                    "objectId": "adjustment:procedural",
+                    "qualifier": "mentions"
+                },
+                {
+                    "objectId": "person:involved",
+                    "qualifier": "beneficiary"
+                },
+                {
+                    "objectId": "proceedings:1",
+                    "qualifier": "context"
+                },
+                {
+                    "objectId": "person:impaired",
+                    "qualifier": "applies_to"
+                },
+                {
+                    "objectId": "paragraph:64",
+                    "qualifier": "references"
+                },
+                {
+                    "objectId": "paragraph:59",
+                    "qualifier": "references"
+                },
+                {
+                    "objectId": "paragraph:58",
+                    "qualifier": "references"
+                }
+            ]
+        }
+    ]
+}

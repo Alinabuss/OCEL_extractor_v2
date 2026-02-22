@@ -1,0 +1,332 @@
+{
+    "objectTypes": [
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "scope",
+                    "type": "string"
+                },
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Lawyer",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Applicant",
+            "attributes": []
+        },
+        {
+            "name": "Request",
+            "attributes": [
+                {
+                    "name": "requestType",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ForensicReport",
+            "attributes": []
+        },
+        {
+            "name": "Assertion",
+            "attributes": [
+                {
+                    "name": "content",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Submit Request",
+            "attributes": [
+                {
+                    "name": "requestType",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Address Request",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Request Forensic Reports",
+            "attributes": [
+                {
+                    "name": "numberRequested",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "Observe",
+            "attributes": [
+                {
+                    "name": "note",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "the_court",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "The Court"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "domestic_courts",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "scope",
+                    "value": "domestic"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "applicant",
+            "type": "Applicant",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "applicant_lawyers",
+            "type": "Lawyer",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "applicant's lawyers"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant",
+                    "qualifier": "represents"
+                }
+            ]
+        },
+        {
+            "id": "request_discontinue",
+            "type": "Request",
+            "attributes": [
+                {
+                    "name": "requestType",
+                    "value": "have the proceedings discontinued"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "request_accept_reports",
+            "type": "Request",
+            "attributes": [
+                {
+                    "name": "requestType",
+                    "value": "accept further forensic reports"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "forensic_report_1",
+            "type": "ForensicReport",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "forensic_report_2",
+            "type": "ForensicReport",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "assertion_diminished_mental_capacity",
+            "type": "Assertion",
+            "attributes": [
+                {
+                    "name": "content",
+                    "value": "diminished mental capacity"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Submit Request",
+            "time": "2020-01-01T09:00:00Z",
+            "attributes": [
+                {
+                    "name": "requestType",
+                    "value": "have the proceedings discontinued"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant_lawyers",
+                    "qualifier": "submitter"
+                },
+                {
+                    "objectId": "request_discontinue",
+                    "qualifier": "request"
+                },
+                {
+                    "objectId": "applicant",
+                    "qualifier": "on_behalf_of"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Submit Request",
+            "time": "2020-01-01T09:01:00Z",
+            "attributes": [
+                {
+                    "name": "requestType",
+                    "value": "accept further forensic reports"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant_lawyers",
+                    "qualifier": "submitter"
+                },
+                {
+                    "objectId": "request_accept_reports",
+                    "qualifier": "request"
+                },
+                {
+                    "objectId": "applicant",
+                    "qualifier": "on_behalf_of"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "Address Request",
+            "time": "2020-01-10T10:00:00Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "duly addressed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "domestic_courts",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "request_discontinue",
+                    "qualifier": "addressed"
+                },
+                {
+                    "objectId": "request_accept_reports",
+                    "qualifier": "addressed"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "Request Forensic Reports",
+            "time": "2020-01-10T10:01:00Z",
+            "attributes": [
+                {
+                    "name": "numberRequested",
+                    "value": "2"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "domestic_courts",
+                    "qualifier": "requester"
+                },
+                {
+                    "objectId": "forensic_report_1",
+                    "qualifier": "requested"
+                },
+                {
+                    "objectId": "forensic_report_2",
+                    "qualifier": "requested"
+                },
+                {
+                    "objectId": "request_accept_reports",
+                    "qualifier": "related_request"
+                },
+                {
+                    "objectId": "assertion_diminished_mental_capacity",
+                    "qualifier": "paid_full_attention_to"
+                }
+            ]
+        },
+        {
+            "id": "e5",
+            "type": "Observe",
+            "time": "2020-02-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "note",
+                    "value": "The Court observes that the requests were duly addressed by the domestic courts and that the courts requested two additional forensic reports, paying full attention to the assertions of diminished mental capacity"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "the_court",
+                    "qualifier": "observer"
+                },
+                {
+                    "objectId": "domestic_courts",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "request_discontinue",
+                    "qualifier": "mentioned"
+                },
+                {
+                    "objectId": "request_accept_reports",
+                    "qualifier": "mentioned"
+                },
+                {
+                    "objectId": "forensic_report_1",
+                    "qualifier": "mentioned"
+                },
+                {
+                    "objectId": "forensic_report_2",
+                    "qualifier": "mentioned"
+                },
+                {
+                    "objectId": "assertion_diminished_mental_capacity",
+                    "qualifier": "mentioned"
+                }
+            ]
+        }
+    ]
+}

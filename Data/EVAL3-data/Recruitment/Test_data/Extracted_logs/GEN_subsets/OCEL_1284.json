@@ -1,0 +1,134 @@
+{
+    "objectTypes": [
+        {
+            "name": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Vacancy",
+            "attributes": [
+                {
+                    "name": "position",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": []
+        },
+        {
+            "name": "Offer",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Finalize Hiring",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "SimonMeister",
+            "type": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Simon Meister"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "StephanJones",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Stephan Jones"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Vacancy-550001",
+            "type": "Vacancy",
+            "attributes": [
+                {
+                    "name": "position",
+                    "value": "Manager"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Application-770070",
+            "type": "Application",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "StephanJones",
+                    "qualifier": "submitted-by"
+                }
+            ]
+        },
+        {
+            "id": "Offer-990002",
+            "type": "Offer",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "accepted",
+                    "time": "2019-06-24T12:36:29Z"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Finalize Hiring",
+            "time": "2019-06-24T12:36:29Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "SimonMeister",
+                    "qualifier": "recruiter"
+                },
+                {
+                    "objectId": "Vacancy-550001",
+                    "qualifier": "vacancy"
+                },
+                {
+                    "objectId": "Application-770070",
+                    "qualifier": "application"
+                },
+                {
+                    "objectId": "Offer-990002",
+                    "qualifier": "accepted-offer"
+                }
+            ]
+        }
+    ]
+}

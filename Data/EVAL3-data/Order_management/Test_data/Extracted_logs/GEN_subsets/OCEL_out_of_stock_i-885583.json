@@ -1,0 +1,138 @@
+{
+    "objectTypes": [
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "OrganizationalUnit",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "number"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Report Out of Stock",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Benedikt Knopp",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Benedikt Knopp"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Warehousing",
+                    "qualifier": "works_in"
+                }
+            ]
+        },
+        {
+            "id": "Warehousing",
+            "type": "OrganizationalUnit",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Fire Stick 4K",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Fire Stick 4K"
+                },
+                {
+                    "name": "price",
+                    "value": "89.99"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-885583",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "101.15"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Fire Stick 4K",
+                    "qualifier": "corresponds_to"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Report Out of Stock",
+            "time": "2023-12-18T08:40:00Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "out_of_stock"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Benedikt Knopp",
+                    "qualifier": "reporter"
+                },
+                {
+                    "objectId": "i-885583",
+                    "qualifier": "item"
+                }
+            ]
+        }
+    ]
+}

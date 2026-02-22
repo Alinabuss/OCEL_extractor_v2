@@ -1,0 +1,267 @@
+{
+    "objectTypes": [
+        {
+            "name": "Applicant",
+            "attributes": []
+        },
+        {
+            "name": "Lawyer",
+            "attributes": []
+        },
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "DocumentSet",
+            "attributes": [
+                {
+                    "name": "submissionDate",
+                    "type": "datetime"
+                }
+            ]
+        },
+        {
+            "name": "Proceedings",
+            "attributes": [
+                {
+                    "name": "category",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "LegalProvision",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "type": "string"
+                },
+                {
+                    "name": "act",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Hearing",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "RequestAdmitDocuments",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "RequestForensicExamination",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "RequestDiscontinueProceedings",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "applicant_1",
+            "type": "Applicant",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "lawyer_applicant_1",
+            "type": "Lawyer",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "represents"
+                }
+            ]
+        },
+        {
+            "id": "audiencia_provincial",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2019-01-16T00:00:00Z",
+                    "value": "Audiencia Provincial"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "documents_2019-01-08",
+            "type": "DocumentSet",
+            "attributes": [
+                {
+                    "name": "submissionDate",
+                    "time": "2019-01-08T00:00:00Z",
+                    "value": "2019-01-08"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "criminal_proceedings_1",
+            "type": "Proceedings",
+            "attributes": [
+                {
+                    "name": "category",
+                    "time": "2019-01-16T00:00:00Z",
+                    "value": "criminal"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "article_383",
+            "type": "LegalProvision",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "time": "2019-01-16T00:00:00Z",
+                    "value": "Article 383"
+                },
+                {
+                    "name": "act",
+                    "time": "2019-01-16T00:00:00Z",
+                    "value": "Criminal Procedure Act"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Hearing",
+            "time": "2019-01-16T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "The hearing took place (day 1)."
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "e2",
+            "type": "Hearing",
+            "time": "2019-01-17T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "The hearing took place (day 2)."
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "e3",
+            "type": "RequestAdmitDocuments",
+            "time": "2019-01-16T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "The applicant's lawyer asked the Audiencia Provincial to admit into evidence the documents submitted on 8 January 2019."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "lawyer_applicant_1",
+                    "qualifier": "requester"
+                },
+                {
+                    "objectId": "audiencia_provincial",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "documents_2019-01-08",
+                    "qualifier": "documents"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "RequestForensicExamination",
+            "time": "2019-01-16T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "The applicant's lawyer asked the Audiencia Provincial to agree to an additional forensic examination of the applicant."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "lawyer_applicant_1",
+                    "qualifier": "requester"
+                },
+                {
+                    "objectId": "audiencia_provincial",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "subject"
+                }
+            ]
+        },
+        {
+            "id": "e5",
+            "type": "RequestDiscontinueProceedings",
+            "time": "2019-01-16T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "The applicant's lawyer asked the Audiencia Provincial to discontinue the criminal proceedings, in accordance with Article 383 of the Criminal Procedure Act."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "lawyer_applicant_1",
+                    "qualifier": "requester"
+                },
+                {
+                    "objectId": "audiencia_provincial",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "criminal_proceedings_1",
+                    "qualifier": "proceedings"
+                },
+                {
+                    "objectId": "article_383",
+                    "qualifier": "legalBasis"
+                }
+            ]
+        }
+    ]
+}

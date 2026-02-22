@@ -1,0 +1,181 @@
+{
+    "objectTypes": [
+        {
+            "name": "Order",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Customer",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Order Confirmed",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "o-990099",
+            "type": "Order",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "174.98"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "p-kindle",
+                    "qualifier": "contains"
+                },
+                {
+                    "objectId": "p-echo-show-5",
+                    "qualifier": "contains"
+                },
+                {
+                    "objectId": "c-balkan-minerals-d.o.o.",
+                    "qualifier": "customer"
+                }
+            ]
+        },
+        {
+            "id": "p-kindle",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Kindle"
+                },
+                {
+                    "name": "price",
+                    "value": "79.99"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-990099",
+                    "qualifier": "part-of"
+                }
+            ]
+        },
+        {
+            "id": "p-echo-show-5",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Echo Show 5"
+                },
+                {
+                    "name": "price",
+                    "value": "89.99"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-990099",
+                    "qualifier": "part-of"
+                }
+            ]
+        },
+        {
+            "id": "emp-christine-von-dobbert",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Christine von Dobbert"
+                },
+                {
+                    "name": "department",
+                    "value": "sales"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "c-balkan-minerals-d.o.o.",
+            "type": "Customer",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Balkan Minerals d.o.o."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-990099",
+                    "qualifier": "is-customer-for"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e-1",
+            "type": "Order Confirmed",
+            "time": "2023-05-08T06:24:37Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "o-990099",
+                    "qualifier": "order"
+                },
+                {
+                    "objectId": "emp-christine-von-dobbert",
+                    "qualifier": "confirmed-by"
+                },
+                {
+                    "objectId": "p-kindle",
+                    "qualifier": "included"
+                },
+                {
+                    "objectId": "p-echo-show-5",
+                    "qualifier": "included"
+                },
+                {
+                    "objectId": "c-balkan-minerals-d.o.o.",
+                    "qualifier": "customer"
+                }
+            ]
+        }
+    ]
+}

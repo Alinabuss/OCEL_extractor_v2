@@ -1,0 +1,109 @@
+{
+    "objectTypes": [
+        {
+            "name": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": [
+                {
+                    "name": "identifier",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Send Rejection",
+            "attributes": [
+                {
+                    "name": "communicationType",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Recruiter:JanaKeane",
+            "type": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Jana Keane"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Applicant:SoniaSmith",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Sonia Smith"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Application[770124]",
+            "type": "Application",
+            "attributes": [
+                {
+                    "name": "identifier",
+                    "value": "770124"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Applicant:SoniaSmith",
+                    "qualifier": "belongs-to"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Send Rejection",
+            "time": "2019-07-04T06:42:59Z",
+            "attributes": [
+                {
+                    "name": "communicationType",
+                    "value": "rejection"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Recruiter:JanaKeane",
+                    "qualifier": "sender"
+                },
+                {
+                    "objectId": "Applicant:SoniaSmith",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "Application[770124]",
+                    "qualifier": "concerns"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,134 @@
+{
+    "objectTypes": [
+        {
+            "name": "Declaration",
+            "attributes": [
+                {
+                    "name": "declaration_type",
+                    "type": "string"
+                },
+                {
+                    "name": "a_priori_exonerating",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "CriminalCase",
+            "attributes": [
+                {
+                    "name": "indicated",
+                    "type": "boolean"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ResolveImpact",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                },
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "d1",
+            "type": "Declaration",
+            "attributes": [
+                {
+                    "name": "declaration_type",
+                    "value": "partial incapacity"
+                },
+                {
+                    "name": "a_priori_exonerating",
+                    "value": "false"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "p1",
+                    "qualifier": "concerns"
+                },
+                {
+                    "objectId": "c1",
+                    "qualifier": "may_affect"
+                }
+            ]
+        },
+        {
+            "id": "p1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "person concerned"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "c1",
+            "type": "CriminalCase",
+            "attributes": [
+                {
+                    "name": "indicated",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "p1",
+                    "qualifier": "concerns"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "ResolveImpact",
+            "time": "1970-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "pending"
+                },
+                {
+                    "name": "description",
+                    "value": "determine whether this decision may impact the criminal cases; to be decided case-by-case"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "d1",
+                    "qualifier": "about_declaration"
+                },
+                {
+                    "objectId": "p1",
+                    "qualifier": "concerns_person"
+                },
+                {
+                    "objectId": "c1",
+                    "qualifier": "related_case"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,154 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseOrder",
+            "attributes": []
+        },
+        {
+            "name": "Quotation",
+            "attributes": []
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "PurchaseOrderCreated",
+            "attributes": [
+                {
+                    "name": "actor",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PurchaseOrderApprovalFinalized",
+            "attributes": [
+                {
+                    "name": "actor",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:1178",
+            "type": "PurchaseOrder",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "quotation:680",
+                    "qualifier": "quotation"
+                },
+                {
+                    "objectId": "purchasing_group:005",
+                    "qualifier": "purchasing_group"
+                }
+            ]
+        },
+        {
+            "id": "quotation:680",
+            "type": "Quotation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchasing_group:005",
+                    "qualifier": "purchasing_group"
+                }
+            ]
+        },
+        {
+            "id": "purchasing_group:005",
+            "type": "PurchasingGroup",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "purchase_order:1179",
+            "type": "PurchaseOrder",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "quotation:687",
+                    "qualifier": "quotation"
+                },
+                {
+                    "objectId": "purchasing_group:004",
+                    "qualifier": "purchasing_group"
+                }
+            ]
+        },
+        {
+            "id": "quotation:687",
+            "type": "Quotation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchasing_group:004",
+                    "qualifier": "purchasing_group"
+                }
+            ]
+        },
+        {
+            "id": "purchasing_group:004",
+            "type": "PurchasingGroup",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "event:1",
+            "type": "PurchaseOrderCreated",
+            "time": "2024-02-19T09:44:00Z",
+            "attributes": [
+                {
+                    "name": "actor",
+                    "value": "Procurement Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:1178",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "quotation:680",
+                    "qualifier": "relatedQuotation"
+                },
+                {
+                    "objectId": "purchasing_group:005",
+                    "qualifier": "associatedPurchasingGroup"
+                }
+            ]
+        },
+        {
+            "id": "event:2",
+            "type": "PurchaseOrderApprovalFinalized",
+            "time": "2024-02-19T13:24:00Z",
+            "attributes": [
+                {
+                    "name": "actor",
+                    "value": "Procurement Order Manager"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:1179",
+                    "qualifier": "approved"
+                },
+                {
+                    "objectId": "quotation:687",
+                    "qualifier": "relatedQuotation"
+                },
+                {
+                    "objectId": "purchasing_group:004",
+                    "qualifier": "associatedPurchasingGroup"
+                }
+            ]
+        }
+    ]
+}

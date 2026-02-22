@@ -1,0 +1,195 @@
+{
+    "objectTypes": [
+        {
+            "name": "Incident",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Agency",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Contact",
+            "attributes": [
+                {
+                    "name": "phone_number",
+                    "type": "string"
+                },
+                {
+                    "name": "hours",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "WebResource",
+            "attributes": [
+                {
+                    "name": "title",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Incident Update",
+            "attributes": [
+                {
+                    "name": "message",
+                    "type": "string"
+                },
+                {
+                    "name": "last_update_scheduled",
+                    "type": "string"
+                },
+                {
+                    "name": "phones_not_staffed_after",
+                    "type": "string"
+                },
+                {
+                    "name": "contact_phone",
+                    "type": "string"
+                },
+                {
+                    "name": "contact_hours",
+                    "type": "string"
+                },
+                {
+                    "name": "info_resource_title",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "incident_HughesFire",
+            "type": "Incident",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-29T06:21:00Z",
+                    "value": "Hughes Fire"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "agency_AngelesNF",
+            "type": "Agency",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-29T06:21:00Z",
+                    "value": "Angeles National Forest"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "contact_6265741613",
+            "type": "Contact",
+            "attributes": [
+                {
+                    "name": "phone_number",
+                    "time": "2025-01-29T06:21:00Z",
+                    "value": "(626) 574-1613"
+                },
+                {
+                    "name": "hours",
+                    "time": "2025-01-29T06:21:00Z",
+                    "value": "M-F 8:00 a.m. \u2013 4:30 p.m."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "incident_HughesFire",
+                    "qualifier": "contact_for"
+                },
+                {
+                    "objectId": "agency_AngelesNF",
+                    "qualifier": "contact_for"
+                }
+            ]
+        },
+        {
+            "id": "web_InciWeb_HughesFire",
+            "type": "WebResource",
+            "attributes": [
+                {
+                    "name": "title",
+                    "time": "2025-01-29T06:21:00Z",
+                    "value": "Hughes Fire Information | InciWeb"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "incident_HughesFire",
+                    "qualifier": "about"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "evt1",
+            "type": "Incident Update",
+            "time": "2025-01-29T06:21:00Z",
+            "attributes": [
+                {
+                    "name": "message",
+                    "value": "Tuesday, January 28th will be the last incident update for the Hughes Fire, unless significant activity occurs. Phones will no longer be staffed after 5:00 p.m. For information regarding the Hughes Fire or the Angeles National Forest, please call (626) 574-1613 (M-F 8:00 a.m. \u2013 4:30 p.m.) For additional detail visit: Hughes Fire Information | InciWeb"
+                },
+                {
+                    "name": "last_update_scheduled",
+                    "value": "2025-01-28"
+                },
+                {
+                    "name": "phones_not_staffed_after",
+                    "value": "5:00 p.m."
+                },
+                {
+                    "name": "contact_phone",
+                    "value": "(626) 574-1613"
+                },
+                {
+                    "name": "contact_hours",
+                    "value": "M-F 8:00 a.m. \u2013 4:30 p.m."
+                },
+                {
+                    "name": "info_resource_title",
+                    "value": "Hughes Fire Information | InciWeb"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "incident_HughesFire",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "agency_AngelesNF",
+                    "qualifier": "mentions"
+                },
+                {
+                    "objectId": "contact_6265741613",
+                    "qualifier": "contact"
+                },
+                {
+                    "objectId": "web_InciWeb_HughesFire",
+                    "qualifier": "references"
+                }
+            ]
+        }
+    ]
+}

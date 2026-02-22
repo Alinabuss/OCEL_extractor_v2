@@ -1,0 +1,146 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Offer",
+            "attributes": [
+                {
+                    "name": "position",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": []
+        },
+        {
+            "name": "Vacancy",
+            "attributes": [
+                {
+                    "name": "position",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Offer Acceptance Confirmed",
+            "attributes": [
+                {
+                    "name": "result",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "person:Dionne Hense",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Dionne Hense"
+                },
+                {
+                    "name": "role",
+                    "value": "recruiter"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "person:Vanessa Li",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Vanessa Li"
+                },
+                {
+                    "name": "role",
+                    "value": "applicant"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Offer-990005",
+            "type": "Offer",
+            "attributes": [
+                {
+                    "name": "position",
+                    "value": "Manager"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Application-770148",
+                    "qualifier": "relatedTo"
+                },
+                {
+                    "objectId": "Vacancy-550014",
+                    "qualifier": "relatedTo"
+                }
+            ]
+        },
+        {
+            "id": "Application-770148",
+            "type": "Application",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Vacancy-550014",
+            "type": "Vacancy",
+            "attributes": [
+                {
+                    "name": "position",
+                    "value": "Manager"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Offer Acceptance Confirmed",
+            "time": "2019-06-28T18:35:40Z",
+            "attributes": [
+                {
+                    "name": "result",
+                    "value": "hired"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person:Dionne Hense",
+                    "qualifier": "confirmer"
+                },
+                {
+                    "objectId": "person:Vanessa Li",
+                    "qualifier": "acceptedBy"
+                },
+                {
+                    "objectId": "Offer-990005",
+                    "qualifier": "offer"
+                }
+            ]
+        }
+    ]
+}

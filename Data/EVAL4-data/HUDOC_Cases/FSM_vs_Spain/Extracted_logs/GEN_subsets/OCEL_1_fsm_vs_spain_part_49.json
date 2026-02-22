@@ -1,0 +1,169 @@
+{
+    "objectTypes": [
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Offence",
+            "attributes": [
+                {
+                    "name": "classification",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PublicTreasury",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Found Guilty",
+            "attributes": [
+                {
+                    "name": "offenceCount",
+                    "type": "integer"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o_audiencia_provincial",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Audiencia Provincial"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_applicant",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "applicant"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_public_treasury",
+            "type": "PublicTreasury",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Public Treasury"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_offence_1",
+            "type": "Offence",
+            "attributes": [
+                {
+                    "name": "classification",
+                    "value": "criminal offence"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_public_treasury",
+                    "qualifier": "against"
+                }
+            ]
+        },
+        {
+            "id": "o_offence_2",
+            "type": "Offence",
+            "attributes": [
+                {
+                    "name": "classification",
+                    "value": "criminal offence"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_public_treasury",
+                    "qualifier": "against"
+                }
+            ]
+        },
+        {
+            "id": "o_offence_3",
+            "type": "Offence",
+            "attributes": [
+                {
+                    "name": "classification",
+                    "value": "criminal offence"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_public_treasury",
+                    "qualifier": "against"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Found Guilty",
+            "time": "2019-02-11T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "offenceCount",
+                    "value": "3"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_audiencia_provincial",
+                    "qualifier": "performed-by"
+                },
+                {
+                    "objectId": "o_applicant",
+                    "qualifier": "defendant"
+                },
+                {
+                    "objectId": "o_offence_1",
+                    "qualifier": "convicted-of"
+                },
+                {
+                    "objectId": "o_offence_2",
+                    "qualifier": "convicted-of"
+                },
+                {
+                    "objectId": "o_offence_3",
+                    "qualifier": "convicted-of"
+                }
+            ]
+        }
+    ]
+}

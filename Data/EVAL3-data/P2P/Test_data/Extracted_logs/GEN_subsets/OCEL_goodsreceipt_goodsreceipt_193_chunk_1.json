@@ -1,0 +1,166 @@
+{
+    "objectTypes": [
+        {
+            "name": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "type": "float"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "goods receipt noted",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "invoice receipt created",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "invoice receipt recorded as complete",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "goods receipt:193",
+            "type": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "time": "2022-07-23T12:37:00Z",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "invoice receipt:197",
+            "type": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "value": "16150.0"
+                },
+                {
+                    "name": "status",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:193",
+                    "qualifier": "related-to"
+                },
+                {
+                    "objectId": "Finance/Account Department",
+                    "qualifier": "linked-to"
+                }
+            ]
+        },
+        {
+            "id": "Finance/Account Department",
+            "type": "department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Finance/Account Department"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "goods receipt noted",
+            "time": "2022-07-23T12:37:00Z",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:193",
+                    "qualifier": "involves"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "invoice receipt created",
+            "time": "2022-07-23T12:37:00Z",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "value": "16150.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:197",
+                    "qualifier": "creates"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "invoice receipt recorded as complete",
+            "time": "2022-07-23T12:37:00Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:197",
+                    "qualifier": "records"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,129 @@
+{
+    "objectTypes": [
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ItemOutOfStockReported",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                },
+                {
+                    "name": "detail",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "person-christopher-schwanen",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Christopher Schwanen"
+                },
+                {
+                    "name": "department",
+                    "value": "warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "product-iphone-11-pro",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "iPhone 11 Pro"
+                },
+                {
+                    "name": "price",
+                    "value": "1149.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "item-i-881925",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "1214.61"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-iphone-11-pro",
+                    "qualifier": "corresponds_to"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "ItemOutOfStockReported",
+            "time": "2023-07-13T07:42:54Z",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "reported"
+                },
+                {
+                    "name": "detail",
+                    "value": "item went out of stock"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "item-i-881925",
+                    "qualifier": "item"
+                },
+                {
+                    "objectId": "person-christopher-schwanen",
+                    "qualifier": "reporter"
+                }
+            ]
+        }
+    ]
+}

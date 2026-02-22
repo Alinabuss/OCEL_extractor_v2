@@ -1,0 +1,229 @@
+{
+    "objectTypes": [
+        {
+            "name": "Party",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Remedies",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Complaint",
+            "attributes": [
+                {
+                    "name": "content",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Appeal",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Argument",
+            "attributes": [
+                {
+                    "name": "text",
+                    "type": "string"
+                },
+                {
+                    "name": "section",
+                    "type": "string"
+                },
+                {
+                    "name": "subsection",
+                    "type": "string"
+                },
+                {
+                    "name": "subsubsection",
+                    "type": "string"
+                },
+                {
+                    "name": "paragraphNumber",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o1",
+            "type": "Party",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "The Government"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o2",
+            "type": "Party",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "the applicant"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o3",
+            "type": "Application",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "the application"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o4",
+            "type": "Remedies",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "domestic remedies"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o5",
+            "type": "Complaint",
+            "attributes": [
+                {
+                    "name": "content",
+                    "value": "alleged difficulties in preparing his defence as a result of his condition"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o2",
+                    "qualifier": "by"
+                }
+            ]
+        },
+        {
+            "id": "o6",
+            "type": "Appeal",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "amparo-appeal"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o7",
+                    "qualifier": "before"
+                }
+            ]
+        },
+        {
+            "id": "o7",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Constitutional Court"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Argument",
+            "time": "2020-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "text",
+                    "value": "The Government argued that the application should be declared partly inadmissible owing to non-exhaustion of domestic remedies. The applicant's complaints concerning the alleged difficulties in preparing his defence as a result of his condition had not been adequately raised as a separate complaint in the amparo-appeal before the Constitutional Court."
+                },
+                {
+                    "name": "section",
+                    "value": "A. Admissibility"
+                },
+                {
+                    "name": "subsection",
+                    "value": "1. The parties' submissions"
+                },
+                {
+                    "name": "subsubsection",
+                    "value": "(a) The Government"
+                },
+                {
+                    "name": "paragraphNumber",
+                    "value": "43"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o1",
+                    "qualifier": "made_by"
+                },
+                {
+                    "objectId": "o3",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "o4",
+                    "qualifier": "reason"
+                },
+                {
+                    "objectId": "o5",
+                    "qualifier": "refers_to"
+                },
+                {
+                    "objectId": "o6",
+                    "qualifier": "not_raised_in"
+                },
+                {
+                    "objectId": "o7",
+                    "qualifier": "before"
+                }
+            ]
+        }
+    ]
+}

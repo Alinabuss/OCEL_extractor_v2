@@ -1,0 +1,236 @@
+{
+    "objectTypes": [
+        {
+            "name": "Actor",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Remedy",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Complaint",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "LegalRequirement",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ClaimNonExhaustion",
+            "attributes": [
+                {
+                    "name": "claim",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "SatisfyCourt",
+            "attributes": [
+                {
+                    "name": "available_in_theory",
+                    "type": "boolean"
+                },
+                {
+                    "name": "available_in_practice",
+                    "type": "boolean"
+                },
+                {
+                    "name": "accessible",
+                    "type": "boolean"
+                },
+                {
+                    "name": "capable_of_providing_redress",
+                    "type": "boolean"
+                },
+                {
+                    "name": "offers_reasonable_prospects",
+                    "type": "boolean"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o1",
+            "type": "Actor",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2020-01-01T09:00:00Z",
+                    "value": "Government"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o2",
+            "type": "Actor",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2020-01-01T09:00:00Z",
+                    "value": "Court"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o3",
+            "type": "Actor",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2020-01-01T09:00:00Z",
+                    "value": "Applicant"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o4",
+            "type": "LegalRequirement",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2020-01-01T09:00:00Z",
+                    "value": "burden of proof on Government claiming non-exhaustion"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o1",
+                    "qualifier": "on"
+                }
+            ]
+        },
+        {
+            "id": "o5",
+            "type": "Remedy",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2020-01-01T09:00:00Z",
+                    "value": "effective remedy"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o6",
+            "type": "Complaint",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2020-01-01T09:00:00Z",
+                    "value": "applicant's complaints"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o3",
+                    "qualifier": "made_by"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "ClaimNonExhaustion",
+            "time": "2020-01-01T10:00:00Z",
+            "attributes": [
+                {
+                    "name": "claim",
+                    "value": "non-exhaustion"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o1",
+                    "qualifier": "claimant"
+                },
+                {
+                    "objectId": "o2",
+                    "qualifier": "addressee"
+                },
+                {
+                    "objectId": "o4",
+                    "qualifier": "subject_to"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "SatisfyCourt",
+            "time": "2020-01-01T10:05:00Z",
+            "attributes": [
+                {
+                    "name": "available_in_theory",
+                    "value": "true"
+                },
+                {
+                    "name": "available_in_practice",
+                    "value": "true"
+                },
+                {
+                    "name": "accessible",
+                    "value": "true"
+                },
+                {
+                    "name": "capable_of_providing_redress",
+                    "value": "true"
+                },
+                {
+                    "name": "offers_reasonable_prospects",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o1",
+                    "qualifier": "satisfier"
+                },
+                {
+                    "objectId": "o2",
+                    "qualifier": "satisfied"
+                },
+                {
+                    "objectId": "o5",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "o6",
+                    "qualifier": "regarding"
+                },
+                {
+                    "objectId": "o4",
+                    "qualifier": "required_by"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,224 @@
+{
+    "objectTypes": [
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Proceedings",
+            "attributes": [
+                {
+                    "name": "assessment",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Article",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ConsidersProceedingsFair",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "legal_basis",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "DeclaresApplicationAdmissible",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "unanimous",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "HoldsNoViolation",
+            "attributes": [
+                {
+                    "name": "finding",
+                    "type": "string"
+                },
+                {
+                    "name": "legal_provision",
+                    "type": "string"
+                },
+                {
+                    "name": "unanimous",
+                    "type": "boolean"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "court_1",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "the Court"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "app_1",
+            "type": "Application",
+            "attributes": [
+                {
+                    "name": "status",
+                    "time": "",
+                    "value": "admissible"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "proceedings_1",
+            "type": "Proceedings",
+            "attributes": [
+                {
+                    "name": "assessment",
+                    "time": "",
+                    "value": "considered fair for the purposes of Article 6 \u00a7 1 and 3"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "article_6_1_3",
+            "type": "Article",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "time": "",
+                    "value": "Article 6 \u00a7 1 and 3 of the Convention"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "ConsidersProceedingsFair",
+            "time": "",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Having regard to the above considerations, the Court considers that, taken as a whole, the proceedings in issue were fair."
+                },
+                {
+                    "name": "legal_basis",
+                    "value": "Article 6 \u00a7 1 and 3 of the Convention"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court_1",
+                    "qualifier": "decided-by"
+                },
+                {
+                    "objectId": "proceedings_1",
+                    "qualifier": "concerns"
+                },
+                {
+                    "objectId": "article_6_1_3",
+                    "qualifier": "refers-to"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "DeclaresApplicationAdmissible",
+            "time": "",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Declares the application admissible."
+                },
+                {
+                    "name": "unanimous",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court_1",
+                    "qualifier": "decided-by"
+                },
+                {
+                    "objectId": "app_1",
+                    "qualifier": "concerns"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "HoldsNoViolation",
+            "time": "",
+            "attributes": [
+                {
+                    "name": "finding",
+                    "value": "no violation"
+                },
+                {
+                    "name": "legal_provision",
+                    "value": "Article 6 \u00a7 1 and 3 of the Convention"
+                },
+                {
+                    "name": "unanimous",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court_1",
+                    "qualifier": "decided-by"
+                },
+                {
+                    "objectId": "article_6_1_3",
+                    "qualifier": "concerns"
+                },
+                {
+                    "objectId": "proceedings_1",
+                    "qualifier": "concerns"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,91 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "GoodsReceiptCreation",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:420",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "value": "002",
+                    "time": "2022-12-12T06:55:00Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "goods receipt:497",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "value": "101",
+                    "time": "2022-12-12T06:55:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:420",
+                    "qualifier": "linked-to"
+                }
+            ]
+        },
+        {
+            "id": "Warehouse Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "GoodsReceiptCreation",
+            "time": "2022-12-12T06:55:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:497",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "purchase_order:420",
+                    "qualifier": "related"
+                },
+                {
+                    "objectId": "Warehouse Department",
+                    "qualifier": "performed-by"
+                }
+            ]
+        }
+    ]
+}

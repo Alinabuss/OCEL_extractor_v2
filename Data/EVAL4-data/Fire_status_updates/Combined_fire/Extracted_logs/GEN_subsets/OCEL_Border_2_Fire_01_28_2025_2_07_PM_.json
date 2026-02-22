@@ -1,0 +1,220 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Crew",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "terrain",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Agency",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "EvacuationMap",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "SituationReport",
+            "attributes": [
+                {
+                    "name": "summary",
+                    "type": "string"
+                },
+                {
+                    "name": "smoldering",
+                    "type": "string"
+                },
+                {
+                    "name": "humidity",
+                    "type": "string"
+                },
+                {
+                    "name": "fire_potential",
+                    "type": "string"
+                },
+                {
+                    "name": "spread_anticipated",
+                    "type": "string"
+                },
+                {
+                    "name": "ground_activity",
+                    "type": "string"
+                },
+                {
+                    "name": "terrain",
+                    "type": "string"
+                },
+                {
+                    "name": "suppression_repair_priority",
+                    "type": "string"
+                },
+                {
+                    "name": "evacuation_guidance",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire-border-2",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-28T14:07:00Z",
+                    "value": "Border 2 Fire"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "crew-ground-1",
+                    "qualifier": "worked_by"
+                }
+            ]
+        },
+        {
+            "id": "crew-ground-1",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-28T14:07:00Z",
+                    "value": "Ground crews continuing to work focusing on mopping up and patrolling existing fire lines"
+                },
+                {
+                    "name": "terrain",
+                    "time": "2025-01-28T14:07:00Z",
+                    "value": "steep"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-border-2",
+                    "qualifier": "works_on"
+                }
+            ]
+        },
+        {
+            "id": "agency-san-diego-county-sheriffs-office",
+            "type": "Agency",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-28T14:07:00Z",
+                    "value": "San Diego County Sheriff's Office"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "map-genasys-protect",
+                    "qualifier": "encourages"
+                }
+            ]
+        },
+        {
+            "id": "map-genasys-protect",
+            "type": "EvacuationMap",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-28T14:07:00Z",
+                    "value": "Genasys Protect evacuation map"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "SituationReport",
+            "time": "2025-01-28T14:07:00Z",
+            "attributes": [
+                {
+                    "name": "summary",
+                    "value": "Minimal smoldering and fire behavior were observed overnight; high humidity is keeping fire potential low. No fire spread is anticipated. Ground crews will continue to work in steep terrain focusing on mopping up and patrolling existing fire lines. Suppression repair will be a high priority today. For the most current information on evacuation orders, the San Diego County Sheriff's Office encourages all residents to check the Genasys Protect evacuation map."
+                },
+                {
+                    "name": "smoldering",
+                    "value": "minimal"
+                },
+                {
+                    "name": "humidity",
+                    "value": "high"
+                },
+                {
+                    "name": "fire_potential",
+                    "value": "low"
+                },
+                {
+                    "name": "spread_anticipated",
+                    "value": "no"
+                },
+                {
+                    "name": "ground_activity",
+                    "value": "mopping up and patrolling existing fire lines"
+                },
+                {
+                    "name": "terrain",
+                    "value": "steep"
+                },
+                {
+                    "name": "suppression_repair_priority",
+                    "value": "high"
+                },
+                {
+                    "name": "evacuation_guidance",
+                    "value": "Check the Genasys Protect evacuation map for the most current evacuation orders"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-border-2",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "crew-ground-1",
+                    "qualifier": "involves"
+                },
+                {
+                    "objectId": "agency-san-diego-county-sheriffs-office",
+                    "qualifier": "mentions"
+                },
+                {
+                    "objectId": "map-genasys-protect",
+                    "qualifier": "references"
+                }
+            ]
+        }
+    ]
+}

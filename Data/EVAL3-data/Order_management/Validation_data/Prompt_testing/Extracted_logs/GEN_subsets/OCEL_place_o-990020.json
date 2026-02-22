@@ -1,0 +1,179 @@
+{
+    "objectTypes": [
+        {
+            "name": "Customer",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Order",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "OrderPlaced",
+            "attributes": [
+                {
+                    "name": "result",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Pantheon Art Gallery Kft.",
+            "type": "Customer",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-04-11T15:08:33Z",
+                    "value": "Pantheon Art Gallery Kft."
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "iPad Air",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-04-11T15:08:33Z",
+                    "value": "iPad Air"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "iPhone 11",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-04-11T15:08:33Z",
+                    "value": "iPhone 11"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-880092",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "time": "2023-04-11T15:08:33Z",
+                    "value": "799.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "iPhone 11",
+                    "qualifier": "correspondsTo"
+                }
+            ]
+        },
+        {
+            "id": "i-880094",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "time": "2023-04-11T15:08:33Z",
+                    "value": "39.99"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "order-2023-04-11T15:08:33Z",
+            "type": "Order",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Pantheon Art Gallery Kft.",
+                    "qualifier": "placedBy"
+                },
+                {
+                    "objectId": "iPad Air",
+                    "qualifier": "includesProduct"
+                },
+                {
+                    "objectId": "iPhone 11",
+                    "qualifier": "includesProduct"
+                },
+                {
+                    "objectId": "i-880092",
+                    "qualifier": "includesItem"
+                },
+                {
+                    "objectId": "i-880094",
+                    "qualifier": "includesItem"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e-1",
+            "type": "OrderPlaced",
+            "time": "2023-04-11T15:08:33Z",
+            "attributes": [
+                {
+                    "name": "result",
+                    "value": "successful"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "order-2023-04-11T15:08:33Z",
+                    "qualifier": "order"
+                },
+                {
+                    "objectId": "Pantheon Art Gallery Kft.",
+                    "qualifier": "customer"
+                },
+                {
+                    "objectId": "iPad Air",
+                    "qualifier": "product"
+                },
+                {
+                    "objectId": "iPhone 11",
+                    "qualifier": "product"
+                },
+                {
+                    "objectId": "i-880092",
+                    "qualifier": "item"
+                },
+                {
+                    "objectId": "i-880094",
+                    "qualifier": "item"
+                }
+            ]
+        }
+    ]
+}

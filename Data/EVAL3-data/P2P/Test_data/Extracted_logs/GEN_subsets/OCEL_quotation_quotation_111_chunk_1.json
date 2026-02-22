@@ -1,0 +1,118 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseOrder",
+            "attributes": []
+        },
+        {
+            "name": "Quotation",
+            "attributes": []
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": []
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Purchase Order Created",
+            "attributes": [
+                {
+                    "name": "outcome",
+                    "type": "string"
+                },
+                {
+                    "name": "process",
+                    "type": "string"
+                },
+                {
+                    "name": "process_status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:194",
+            "type": "PurchaseOrder",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "quotation:111",
+                    "qualifier": "linkedTo"
+                },
+                {
+                    "objectId": "purchasing_group:004",
+                    "qualifier": "associatedWith"
+                }
+            ]
+        },
+        {
+            "id": "quotation:111",
+            "type": "Quotation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchasing_group:004",
+                    "qualifier": "associatedWith"
+                }
+            ]
+        },
+        {
+            "id": "purchasing_group:004",
+            "type": "PurchasingGroup",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "department:Procurement Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "event:1",
+            "type": "Purchase Order Created",
+            "time": "2022-07-19T09:11:00Z",
+            "attributes": [
+                {
+                    "name": "outcome",
+                    "value": "success"
+                },
+                {
+                    "name": "process",
+                    "value": "procurement"
+                },
+                {
+                    "name": "process_status",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:194",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "quotation:111",
+                    "qualifier": "linkedQuotation"
+                },
+                {
+                    "objectId": "purchasing_group:004",
+                    "qualifier": "associatedWith"
+                },
+                {
+                    "objectId": "department:Procurement Department",
+                    "qualifier": "managedBy"
+                }
+            ]
+        }
+    ]
+}

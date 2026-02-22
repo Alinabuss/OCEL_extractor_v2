@@ -1,0 +1,199 @@
+{
+    "objectTypes": [
+        {
+            "name": "Applicant",
+            "attributes": []
+        },
+        {
+            "name": "Government",
+            "attributes": []
+        },
+        {
+            "name": "Remedy",
+            "attributes": []
+        },
+        {
+            "name": "BurdenOfProof",
+            "attributes": []
+        },
+        {
+            "name": "Requirement",
+            "attributes": []
+        },
+        {
+            "name": "SpecialCircumstances",
+            "attributes": []
+        },
+        {
+            "name": "Circumstances",
+            "attributes": []
+        },
+        {
+            "name": "Case",
+            "attributes": [
+                {
+                    "name": "caseNumber",
+                    "type": "string"
+                },
+                {
+                    "name": "paragraph",
+                    "type": "string"
+                },
+                {
+                    "name": "date",
+                    "type": "time"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "CourtDecision",
+            "attributes": [
+                {
+                    "name": "title",
+                    "type": "string"
+                },
+                {
+                    "name": "caseNumber",
+                    "type": "string"
+                },
+                {
+                    "name": "paragraph",
+                    "type": "string"
+                },
+                {
+                    "name": "note",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "applicant_1",
+            "type": "Applicant",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "government_1",
+            "type": "Government",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "remedy_by_government_1",
+            "type": "Remedy",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "government_1",
+                    "qualifier": "advanced-by"
+                }
+            ]
+        },
+        {
+            "id": "burden_of_proof_1",
+            "type": "BurdenOfProof",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "requirement_1",
+            "type": "Requirement",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "falls-to-establish"
+                }
+            ]
+        },
+        {
+            "id": "special_circumstances_1",
+            "type": "SpecialCircumstances",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "absolves"
+                },
+                {
+                    "objectId": "requirement_1",
+                    "qualifier": "absolves-from"
+                }
+            ]
+        },
+        {
+            "id": "case_1",
+            "type": "Case",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "particular_circumstances_1",
+            "type": "Circumstances",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "case_1",
+                    "qualifier": "of"
+                }
+            ]
+        },
+        {
+            "id": "tiba_36188_09",
+            "type": "Case",
+            "attributes": [
+                {
+                    "name": "caseNumber",
+                    "time": "2016-12-13T00:00:00Z",
+                    "value": "36188/09"
+                },
+                {
+                    "name": "paragraph",
+                    "time": "2016-12-13T00:00:00Z",
+                    "value": "21"
+                },
+                {
+                    "name": "date",
+                    "time": "2016-12-13T00:00:00Z",
+                    "value": "2016-12-13"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "CourtDecision",
+            "time": "2016-12-13T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "title",
+                    "value": "Tiba v. Romania"
+                },
+                {
+                    "name": "caseNumber",
+                    "value": "36188/09"
+                },
+                {
+                    "name": "paragraph",
+                    "value": "21"
+                },
+                {
+                    "name": "note",
+                    "value": "with further references"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "tiba_36188_09",
+                    "qualifier": "decision-of"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,125 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Firefighters",
+            "attributes": []
+        },
+        {
+            "name": "Grass",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "containment",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "burning",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o1",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Rosa Fire"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o3",
+                    "qualifier": "burning_in"
+                }
+            ]
+        },
+        {
+            "id": "o2",
+            "type": "Firefighters",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "o1",
+                    "qualifier": "at_scene"
+                }
+            ]
+        },
+        {
+            "id": "o3",
+            "type": "Grass",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "grass"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "containment",
+            "time": "2025-01-29T15:37:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Firefighters at scene working on containment"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o2",
+                    "qualifier": "working_on_containment"
+                },
+                {
+                    "objectId": "o1",
+                    "qualifier": "containment"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "burning",
+            "time": "2025-01-29T15:37:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "fire is burning in grass"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o1",
+                    "qualifier": "burning"
+                },
+                {
+                    "objectId": "o3",
+                    "qualifier": "in"
+                }
+            ]
+        }
+    ]
+}

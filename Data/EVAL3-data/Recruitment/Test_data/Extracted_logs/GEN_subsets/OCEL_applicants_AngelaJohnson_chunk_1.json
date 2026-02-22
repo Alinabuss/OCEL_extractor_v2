@@ -1,0 +1,173 @@
+{
+    "objectTypes": [
+        {
+            "name": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Vacancy",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "type": "string"
+                },
+                {
+                    "name": "title",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Invite for Interview",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                },
+                {
+                    "name": "purpose",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Recruiter[Ed Meister]",
+            "type": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Ed Meister"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Recruiter[Simon Keane]",
+            "type": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Simon Keane"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Applicant[Angela Johnson]",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Angela Johnson"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Application[770167]",
+                    "qualifier": "hasApplication"
+                }
+            ]
+        },
+        {
+            "id": "Application[770167]",
+            "type": "Application",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "value": "770167"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Vacancy[550009]",
+                    "qualifier": "forVacancy"
+                },
+                {
+                    "objectId": "Applicant[Angela Johnson]",
+                    "qualifier": "applicant"
+                }
+            ]
+        },
+        {
+            "id": "Vacancy[550009]",
+            "type": "Vacancy",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "value": "550009"
+                },
+                {
+                    "name": "title",
+                    "value": "Programmer"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Invite for Interview",
+            "time": "2019-07-01T06:36:03Z",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "invited"
+                },
+                {
+                    "name": "purpose",
+                    "value": "interview"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Recruiter[Ed Meister]",
+                    "qualifier": "recruiter"
+                },
+                {
+                    "objectId": "Recruiter[Simon Keane]",
+                    "qualifier": "recruiter"
+                },
+                {
+                    "objectId": "Applicant[Angela Johnson]",
+                    "qualifier": "invitee"
+                },
+                {
+                    "objectId": "Application[770167]",
+                    "qualifier": "application"
+                },
+                {
+                    "objectId": "Vacancy[550009]",
+                    "qualifier": "vacancy"
+                }
+            ]
+        }
+    ]
+}

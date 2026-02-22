@@ -1,0 +1,83 @@
+{
+    "objectTypes": [
+        {
+            "name": "Quotation",
+            "attributes": [
+                {
+                    "name": "quotationId",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "UploadedFiles",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Content Retrieval Issue",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "advice",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "911",
+            "type": "Quotation",
+            "attributes": [
+                {
+                    "name": "quotationId",
+                    "value": "911"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "uploaded_files_911",
+            "type": "UploadedFiles",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "911",
+                    "qualifier": "associated with"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Content Retrieval Issue",
+            "time": "[insert timestamp]",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "an issue occurred while retrieving content from the uploaded files associated with Quotation ID: 911."
+                },
+                {
+                    "name": "advice",
+                    "value": "Users are advised to attempt re-uploading the files or to verify that the files are in the correct format."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "uploaded_files_911",
+                    "qualifier": "from"
+                },
+                {
+                    "objectId": "911",
+                    "qualifier": "associated with"
+                }
+            ]
+        }
+    ]
+}

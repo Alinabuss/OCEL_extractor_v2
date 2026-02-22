@@ -1,0 +1,115 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "acres",
+                    "type": "integer"
+                },
+                {
+                    "name": "containmentPercent",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "Crew",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Status Update",
+            "attributes": [
+                {
+                    "name": "acres",
+                    "type": "integer"
+                },
+                {
+                    "name": "containmentPercent",
+                    "type": "integer"
+                },
+                {
+                    "name": "note",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire:Lidia",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-11T01:18:00Z",
+                    "value": "Lidia Fire"
+                },
+                {
+                    "name": "acres",
+                    "time": "2025-01-11T01:18:00Z",
+                    "value": "395"
+                },
+                {
+                    "name": "containmentPercent",
+                    "time": "2025-01-11T01:18:00Z",
+                    "value": "98"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "crews:general",
+                    "qualifier": "worked-by"
+                }
+            ]
+        },
+        {
+            "id": "crews:general",
+            "type": "Crew",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "fire:Lidia",
+                    "qualifier": "works-on"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Status Update",
+            "time": "2025-01-11T01:18:00Z",
+            "attributes": [
+                {
+                    "name": "acres",
+                    "value": "395"
+                },
+                {
+                    "name": "containmentPercent",
+                    "value": "98"
+                },
+                {
+                    "name": "note",
+                    "value": "Crews will continue to strengthen containment lines and extensive mop-up is required."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire:Lidia",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "crews:general",
+                    "qualifier": "involved"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,128 @@
+{
+    "objectTypes": [
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "retailPrice",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Reorder",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "employee-1",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Leah Tacke genannt Unterberg"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "department-warehousing",
+                    "qualifier": "works_in"
+                }
+            ]
+        },
+        {
+            "id": "department-warehousing",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "warehousing department"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-883532",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "1243.22"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-iphone-11-pro",
+                    "qualifier": "linked_to"
+                }
+            ]
+        },
+        {
+            "id": "product-iphone-11-pro",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "iPhone 11 Pro"
+                },
+                {
+                    "name": "retailPrice",
+                    "value": "1149.0"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Reorder",
+            "time": "2023-09-21T19:16:29Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "employee-1",
+                    "qualifier": "performed_by"
+                },
+                {
+                    "objectId": "i-883532",
+                    "qualifier": "reordered_item"
+                }
+            ]
+        }
+    ]
+}

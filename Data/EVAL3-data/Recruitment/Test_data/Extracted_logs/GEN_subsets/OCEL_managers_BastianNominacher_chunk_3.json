@@ -1,0 +1,170 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Vacancy",
+            "attributes": [
+                {
+                    "name": "position",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ChangeManagerAssignedToVacancy",
+            "attributes": []
+        },
+        {
+            "name": "Interview",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "Bastian Nominacher",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "manager"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Martin Klenk",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "manager"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Ray Taylor",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "applicant"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Jana Keane",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "recruiter"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Vacancy[550017]",
+            "type": "Vacancy",
+            "attributes": [
+                {
+                    "name": "position",
+                    "value": "Consultant"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Martin Klenk",
+                    "qualifier": "assignedManager"
+                }
+            ]
+        },
+        {
+            "id": "Vacancy[550002]",
+            "type": "Vacancy",
+            "attributes": [
+                {
+                    "name": "position",
+                    "value": "Consultant"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Application[770047]",
+            "type": "Application",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Jana Keane",
+                    "qualifier": "recruiter"
+                },
+                {
+                    "objectId": "Vacancy[550002]",
+                    "qualifier": "forVacancy"
+                },
+                {
+                    "objectId": "Ray Taylor",
+                    "qualifier": "applicant"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "E1",
+            "type": "ChangeManagerAssignedToVacancy",
+            "time": "2019-07-03T13:41:12Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Bastian Nominacher",
+                    "qualifier": "performedBy"
+                },
+                {
+                    "objectId": "Vacancy[550017]",
+                    "qualifier": "affectedVacancy"
+                },
+                {
+                    "objectId": "Martin Klenk",
+                    "qualifier": "newManager"
+                }
+            ]
+        },
+        {
+            "id": "E2",
+            "type": "Interview",
+            "time": "2019-07-03T15:40:47Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Bastian Nominacher",
+                    "qualifier": "performedBy"
+                },
+                {
+                    "objectId": "Ray Taylor",
+                    "qualifier": "interviewee"
+                },
+                {
+                    "objectId": "Application[770047]",
+                    "qualifier": "partOfApplication"
+                }
+            ]
+        }
+    ]
+}

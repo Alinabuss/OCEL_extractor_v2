@@ -1,0 +1,317 @@
+{
+    "objectTypes": [
+        {
+            "name": "Vacancy",
+            "attributes": [
+                {
+                    "name": "title",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": []
+        },
+        {
+            "name": "Offer",
+            "attributes": []
+        },
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "employmentStatus",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Application Assigned",
+            "attributes": []
+        },
+        {
+            "name": "Offer Acceptance Confirmed",
+            "attributes": []
+        },
+        {
+            "name": "Interview Invitation",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "Vacancy[550014]",
+            "type": "Vacancy",
+            "attributes": [
+                {
+                    "name": "title",
+                    "value": "Manager"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Application[770331]",
+            "type": "Application",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Vacancy[550014]",
+                    "qualifier": "assigned-to"
+                }
+            ]
+        },
+        {
+            "id": "Application[770148]",
+            "type": "Application",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Application[770109]",
+            "type": "Application",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Application[770267]",
+            "type": "Application",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Offer[990005]",
+            "type": "Offer",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Application[770148]",
+                    "qualifier": "related-to"
+                },
+                {
+                    "objectId": "Vacancy[550014]",
+                    "qualifier": "pertains-to"
+                }
+            ]
+        },
+        {
+            "id": "Applicant[Vanessa Li]",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Vanessa Li"
+                },
+                {
+                    "name": "employmentStatus",
+                    "time": "2019-06-28T18:35:40Z",
+                    "value": "hired"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Application[770148]",
+                    "qualifier": "related-to"
+                },
+                {
+                    "objectId": "Offer[990005]",
+                    "qualifier": "accepted-offer"
+                }
+            ]
+        },
+        {
+            "id": "Applicant[Sue Lemmens]",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Sue Lemmens"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Application[770109]",
+                    "qualifier": "related-to"
+                }
+            ]
+        },
+        {
+            "id": "Applicant[Chun Lemmens]",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Chun Lemmens"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Application[770267]",
+                    "qualifier": "related-to"
+                }
+            ]
+        },
+        {
+            "id": "Recruiter[Dionne Hense]",
+            "type": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Dionne Hense"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Recruiter[Simon Kershaw]",
+            "type": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Simon Kershaw"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Recruiter[Simon Geisler]",
+            "type": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Simon Geisler"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Recruiter[Ed Kershaw]",
+            "type": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Ed Kershaw"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Application Assigned",
+            "time": "2019-06-28T15:12:05Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Application[770331]",
+                    "qualifier": "application"
+                },
+                {
+                    "objectId": "Vacancy[550014]",
+                    "qualifier": "vacancy"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Offer Acceptance Confirmed",
+            "time": "2019-06-28T18:35:40Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Recruiter[Dionne Hense]",
+                    "qualifier": "confirmedBy"
+                },
+                {
+                    "objectId": "Applicant[Vanessa Li]",
+                    "qualifier": "applicant"
+                },
+                {
+                    "objectId": "Offer[990005]",
+                    "qualifier": "offer"
+                },
+                {
+                    "objectId": "Application[770148]",
+                    "qualifier": "application"
+                },
+                {
+                    "objectId": "Vacancy[550014]",
+                    "qualifier": "vacancy"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "Interview Invitation",
+            "time": "2019-07-02T07:28:17Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Recruiter[Simon Kershaw]",
+                    "qualifier": "recruiter"
+                },
+                {
+                    "objectId": "Recruiter[Simon Geisler]",
+                    "qualifier": "recruiter"
+                },
+                {
+                    "objectId": "Applicant[Sue Lemmens]",
+                    "qualifier": "applicant"
+                },
+                {
+                    "objectId": "Application[770109]",
+                    "qualifier": "application"
+                },
+                {
+                    "objectId": "Vacancy[550014]",
+                    "qualifier": "vacancy"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "Interview Invitation",
+            "time": "2019-07-02T09:55:17Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Recruiter[Ed Kershaw]",
+                    "qualifier": "inviter"
+                },
+                {
+                    "objectId": "Recruiter[Simon Geisler]",
+                    "qualifier": "includedRecruiter"
+                },
+                {
+                    "objectId": "Applicant[Chun Lemmens]",
+                    "qualifier": "applicant"
+                },
+                {
+                    "objectId": "Application[770267]",
+                    "qualifier": "application"
+                },
+                {
+                    "objectId": "Vacancy[550014]",
+                    "qualifier": "vacancy"
+                }
+            ]
+        }
+    ]
+}

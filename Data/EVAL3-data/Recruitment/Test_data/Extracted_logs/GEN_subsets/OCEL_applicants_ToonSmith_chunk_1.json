@@ -1,0 +1,148 @@
+{
+    "objectTypes": [
+        {
+            "name": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": []
+        },
+        {
+            "name": "Vacancy",
+            "attributes": [
+                {
+                    "name": "title",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Send Rejection",
+            "attributes": []
+        },
+        {
+            "name": "Submit Application",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "Recruiter[Simon Meister]",
+            "type": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Simon Meister"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Applicant[Toon Smith]",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Toon Smith"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Application[770172]",
+            "type": "Application",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Applicant[Toon Smith]",
+                    "qualifier": "belongs-to"
+                }
+            ]
+        },
+        {
+            "id": "Application[770400]",
+            "type": "Application",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Applicant[Toon Smith]",
+                    "qualifier": "belongs-to"
+                },
+                {
+                    "objectId": "Vacancy[550065]",
+                    "qualifier": "related-to"
+                }
+            ]
+        },
+        {
+            "id": "Vacancy[550065]",
+            "type": "Vacancy",
+            "attributes": [
+                {
+                    "name": "title",
+                    "value": "Manager"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Send Rejection",
+            "time": "2019-07-02T08:01:55Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Recruiter[Simon Meister]",
+                    "qualifier": "sender"
+                },
+                {
+                    "objectId": "Applicant[Toon Smith]",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "Application[770172]",
+                    "qualifier": "regarding"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Submit Application",
+            "time": "2019-07-04T10:27:18Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Applicant[Toon Smith]",
+                    "qualifier": "submitter"
+                },
+                {
+                    "objectId": "Application[770400]",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "Vacancy[550065]",
+                    "qualifier": "for-vacancy"
+                }
+            ]
+        }
+    ]
+}

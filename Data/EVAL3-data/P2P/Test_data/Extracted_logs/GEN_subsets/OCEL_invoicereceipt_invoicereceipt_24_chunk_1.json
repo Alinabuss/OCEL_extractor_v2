@@ -1,0 +1,92 @@
+{
+    "objectTypes": [
+        {
+            "name": "invoice receipt",
+            "attributes": []
+        },
+        {
+            "name": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Two-Way Match Completed",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                },
+                {
+                    "name": "confirmedCreditAmount",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt:24",
+            "type": "invoice receipt",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "goods receipt:22",
+            "type": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "value": 101
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Finance and Account Department",
+            "type": "department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Two-Way Match Completed",
+            "time": "2022-05-03T08:08:00Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "successful"
+                },
+                {
+                    "name": "confirmedCreditAmount",
+                    "value": 6500.0
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:24",
+                    "qualifier": "for"
+                },
+                {
+                    "objectId": "goods receipt:22",
+                    "qualifier": "involved"
+                },
+                {
+                    "objectId": "Finance and Account Department",
+                    "qualifier": "completedBy"
+                }
+            ]
+        }
+    ]
+}

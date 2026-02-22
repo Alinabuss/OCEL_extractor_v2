@@ -1,0 +1,234 @@
+{
+    "objectTypes": [
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Applicant",
+            "attributes": []
+        },
+        {
+            "name": "Conviction",
+            "attributes": []
+        },
+        {
+            "name": "Evidence",
+            "attributes": [
+                {
+                    "name": "form",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ParagraphReference",
+            "attributes": [
+                {
+                    "name": "numbers",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Offence",
+            "attributes": [
+                {
+                    "name": "category",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Aspect",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "CourtNotes",
+            "attributes": [
+                {
+                    "name": "observation",
+                    "type": "string"
+                },
+                {
+                    "name": "weight_documentary_evidence",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "court-1",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "The Court"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "applicant-1",
+            "type": "Applicant",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "conviction-1",
+            "type": "Conviction",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "applicant-1",
+                    "qualifier": "of"
+                }
+            ]
+        },
+        {
+            "id": "evidence-1",
+            "type": "Evidence",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "conviction-1",
+                    "qualifier": "basis_for"
+                }
+            ]
+        },
+        {
+            "id": "evidence-doc-1",
+            "type": "Evidence",
+            "attributes": [
+                {
+                    "name": "form",
+                    "value": "documentary"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "conviction-1",
+                    "qualifier": "basis_for"
+                },
+                {
+                    "objectId": "para-28-29",
+                    "qualifier": "referenced-in"
+                }
+            ]
+        },
+        {
+            "id": "para-28-29",
+            "type": "ParagraphReference",
+            "attributes": [
+                {
+                    "name": "numbers",
+                    "value": "28-29"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "offence-tax-1",
+            "type": "Offence",
+            "attributes": [
+                {
+                    "name": "category",
+                    "value": "tax-related"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "aspect-financial",
+            "type": "Aspect",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "financial"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "offence-tax-1",
+                    "qualifier": "involved-in"
+                }
+            ]
+        },
+        {
+            "id": "aspect-technical",
+            "type": "Aspect",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "technical"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "offence-tax-1",
+                    "qualifier": "involved-in"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "CourtNotes",
+            "time": "2020-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "observation",
+                    "value": "The Court further notes that the applicant's conviction was based on several pieces of evidence and takes into account the significant weight given to the documentary evidence (see paragraphs 28-29 above), in view of the financial and technical aspects involved in tax-related offences."
+                },
+                {
+                    "name": "weight_documentary_evidence",
+                    "value": "significant"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court-1",
+                    "qualifier": "performed-by"
+                },
+                {
+                    "objectId": "applicant-1",
+                    "qualifier": "concerns"
+                },
+                {
+                    "objectId": "conviction-1",
+                    "qualifier": "refers-to"
+                },
+                {
+                    "objectId": "evidence-1",
+                    "qualifier": "mentions"
+                },
+                {
+                    "objectId": "evidence-doc-1",
+                    "qualifier": "mentions"
+                },
+                {
+                    "objectId": "para-28-29",
+                    "qualifier": "references"
+                },
+                {
+                    "objectId": "offence-tax-1",
+                    "qualifier": "in_view_of"
+                }
+            ]
+        }
+    ]
+}

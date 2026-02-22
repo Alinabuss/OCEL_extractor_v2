@@ -1,0 +1,130 @@
+{
+    "objectTypes": [
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "number"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "number"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Report Out of Stock",
+            "attributes": [
+                {
+                    "name": "stockStatus",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "employee-NinaGraves",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Nina Graves"
+                },
+                {
+                    "name": "department",
+                    "value": "warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-884586",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "109.76"
+                },
+                {
+                    "name": "status",
+                    "time": "2023-11-03T12:12:25Z",
+                    "value": "out of stock"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-Echo",
+                    "qualifier": "corresponds-to"
+                }
+            ]
+        },
+        {
+            "id": "product-Echo",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Echo"
+                },
+                {
+                    "name": "price",
+                    "value": "99.99"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Report Out of Stock",
+            "time": "2023-11-03T12:12:25Z",
+            "attributes": [
+                {
+                    "name": "stockStatus",
+                    "value": "out of stock"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "employee-NinaGraves",
+                    "qualifier": "reported-by"
+                },
+                {
+                    "objectId": "i-884586",
+                    "qualifier": "reported-item"
+                }
+            ]
+        }
+    ]
+}

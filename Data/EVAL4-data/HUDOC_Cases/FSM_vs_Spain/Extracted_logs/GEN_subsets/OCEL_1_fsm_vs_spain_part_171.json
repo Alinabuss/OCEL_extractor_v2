@@ -1,0 +1,242 @@
+{
+    "objectTypes": [
+        {
+            "name": "Applicant",
+            "attributes": []
+        },
+        {
+            "name": "Court",
+            "attributes": []
+        },
+        {
+            "name": "DomesticAuthorities",
+            "attributes": []
+        },
+        {
+            "name": "Document",
+            "attributes": []
+        },
+        {
+            "name": "Request",
+            "attributes": []
+        },
+        {
+            "name": "Proceedings",
+            "attributes": []
+        },
+        {
+            "name": "JudgmentParagraph",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Recognition",
+            "attributes": [
+                {
+                    "name": "quote",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "IssueRaised",
+            "attributes": [
+                {
+                    "name": "issue",
+                    "type": "string"
+                },
+                {
+                    "name": "occurrences",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Allegation",
+            "attributes": [
+                {
+                    "name": "claims",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "DocumentsSubmitted",
+            "attributes": [
+                {
+                    "name": "note",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "applicant_1",
+            "type": "Applicant",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "court",
+            "type": "Court",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "domestic_authorities",
+            "type": "DomesticAuthorities",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "trial_proceedings",
+            "type": "Proceedings",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "request_discontinue",
+            "type": "Request",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "trial_proceedings",
+                    "qualifier": "concerns"
+                }
+            ]
+        },
+        {
+            "id": "documents_various",
+            "type": "Document",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "request_discontinue",
+                    "qualifier": "supports"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "refers_to"
+                }
+            ]
+        },
+        {
+            "id": "judgment_paragraph_46",
+            "type": "JudgmentParagraph",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Recognition",
+            "time": "1970-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "quote",
+                    "value": "The Court further notes that the issue of the applicant's mental health condition was raised before the domestic authorities on several occasions. While it is true that the applicant's allegations were focused on stressing that he could not stand trial and that the proceedings should be discontinued, the various documents submitted in support of that request did refer to a history of several mental health disorders and to the deterioration of his cognitive faculties"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court",
+                    "qualifier": "recogniser"
+                },
+                {
+                    "objectId": "judgment_paragraph_46",
+                    "qualifier": "paragraph"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "domestic_authorities",
+                    "qualifier": "raised_before"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "IssueRaised",
+            "time": "1970-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "issue",
+                    "value": "applicant's mental health condition"
+                },
+                {
+                    "name": "occurrences",
+                    "value": "several occasions"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "domestic_authorities",
+                    "qualifier": "raised_before"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "Allegation",
+            "time": "1970-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "claims",
+                    "value": "could not stand trial; proceedings should be discontinued"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "made_by"
+                },
+                {
+                    "objectId": "request_discontinue",
+                    "qualifier": "asserts"
+                },
+                {
+                    "objectId": "trial_proceedings",
+                    "qualifier": "concerns"
+                },
+                {
+                    "objectId": "domestic_authorities",
+                    "qualifier": "raised_before"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "DocumentsSubmitted",
+            "time": "1970-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "note",
+                    "value": "the various documents submitted in support of that request did refer to a history of several mental health disorders and to the deterioration of his cognitive faculties"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "documents_various",
+                    "qualifier": "submitted"
+                },
+                {
+                    "objectId": "request_discontinue",
+                    "qualifier": "supports"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "refers_to"
+                }
+            ]
+        }
+    ]
+}

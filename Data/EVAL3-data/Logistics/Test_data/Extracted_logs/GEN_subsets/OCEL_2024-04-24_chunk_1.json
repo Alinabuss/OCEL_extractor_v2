@@ -1,0 +1,122 @@
+{
+    "objectTypes": [
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "type": "timestamp"
+                }
+            ]
+        },
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "VehicleBooked",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "vh100",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "value": "2024-05-10T11:00:00Z",
+                    "time": "2024-04-24T06:04:45Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td441",
+                    "qualifier": "bookedFor"
+                }
+            ]
+        },
+        {
+            "id": "vh99",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "value": "2024-05-07T11:00:00Z",
+                    "time": "2024-04-24T06:51:36Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td440",
+                    "qualifier": "bookedFor"
+                }
+            ]
+        },
+        {
+            "id": "td441",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "value": "5.0",
+                    "time": "2024-04-24T06:04:45Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "td440",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "value": "1.0",
+                    "time": "2024-04-24T06:51:36Z"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "VehicleBooked",
+            "time": "2024-04-24T06:04:45Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "vh100",
+                    "qualifier": "bookedVehicle"
+                },
+                {
+                    "objectId": "td441",
+                    "qualifier": "transportDocument"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "VehicleBooked",
+            "time": "2024-04-24T06:51:36Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "vh99",
+                    "qualifier": "bookedVehicle"
+                },
+                {
+                    "objectId": "td440",
+                    "qualifier": "transportDocument"
+                }
+            ]
+        }
+    ]
+}

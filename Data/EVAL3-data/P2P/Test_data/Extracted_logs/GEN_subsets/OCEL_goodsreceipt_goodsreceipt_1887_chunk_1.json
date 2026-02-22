@@ -1,0 +1,92 @@
+{
+    "objectTypes": [
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "TwoWayMatchCompleted",
+            "attributes": [
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "goods receipt:1887",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "value": "101",
+                    "time": "2024-10-03T07:10:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:1892",
+                    "qualifier": "matched-with"
+                }
+            ]
+        },
+        {
+            "id": "invoice receipt:1892",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "value": "28600.0",
+                    "time": "2024-10-03T07:10:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:1887",
+                    "qualifier": "matched-with"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "TwoWayMatchCompleted",
+            "time": "2024-10-03T07:10:00Z",
+            "attributes": [
+                {
+                    "name": "department",
+                    "value": "finance and account department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:1887",
+                    "qualifier": "matched"
+                },
+                {
+                    "objectId": "invoice receipt:1892",
+                    "qualifier": "matched"
+                }
+            ]
+        }
+    ]
+}

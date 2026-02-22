@@ -1,0 +1,98 @@
+{
+    "objectTypes": [
+        {
+            "name": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "credit amount",
+                    "type": "double"
+                }
+            ]
+        },
+        {
+            "name": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movement type",
+                    "type": "integer"
+                },
+                {
+                    "name": "operation status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Invoice Receipt Created",
+            "attributes": [
+                {
+                    "name": "created by",
+                    "type": "string"
+                },
+                {
+                    "name": "credit amount",
+                    "type": "double"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt:503",
+            "type": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "credit amount",
+                    "time": "2022-12-22T00:53:00Z",
+                    "value": "650.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:510",
+                    "qualifier": "linked-to"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt:510",
+            "type": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movement type",
+                    "value": "101"
+                },
+                {
+                    "name": "operation status",
+                    "value": "complete"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Invoice Receipt Created",
+            "time": "2022-12-22T00:53:00Z",
+            "attributes": [
+                {
+                    "name": "created by",
+                    "value": "finance and account department"
+                },
+                {
+                    "name": "credit amount",
+                    "value": "650.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:503",
+                    "qualifier": "created"
+                }
+            ]
+        }
+    ]
+}

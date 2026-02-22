@@ -1,0 +1,91 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "classification",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "VehicleBooked",
+            "attributes": []
+        },
+        {
+            "name": "DepartureScheduled",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "td387",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "value": "1.0 container"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "vh87",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "classification",
+                    "value": "regular vehicle"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td387",
+                    "qualifier": "associated-with"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "VehicleBooked",
+            "time": "2024-03-14T11:08:02Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "vh87",
+                    "qualifier": "booked-vehicle"
+                },
+                {
+                    "objectId": "td387",
+                    "qualifier": "booked-for"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "DepartureScheduled",
+            "time": "2024-03-26T11:00:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "vh87",
+                    "qualifier": "scheduled-to-depart"
+                }
+            ]
+        }
+    ]
+}

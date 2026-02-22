@@ -1,0 +1,246 @@
+{
+    "objectTypes": [
+        {
+            "name": "Case",
+            "attributes": [
+                {
+                    "name": "title",
+                    "type": "string"
+                },
+                {
+                    "name": "year",
+                    "type": "string"
+                },
+                {
+                    "name": "outcome",
+                    "type": "string"
+                },
+                {
+                    "name": "formation",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                },
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "State",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Committee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Decision",
+            "attributes": [
+                {
+                    "name": "type",
+                    "type": "string"
+                },
+                {
+                    "name": "formation",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "FailureToNotify",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "case-Brockhoff_v_France_2023",
+            "type": "Case",
+            "attributes": [
+                {
+                    "name": "title",
+                    "value": "Brockhoff v. France (dec.)"
+                },
+                {
+                    "name": "year",
+                    "value": "2023"
+                },
+                {
+                    "name": "outcome",
+                    "value": "dec."
+                },
+                {
+                    "name": "formation",
+                    "value": "committee"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person-Brockhoff",
+                    "qualifier": "hasParty"
+                },
+                {
+                    "objectId": "state-France",
+                    "qualifier": "hasParty"
+                }
+            ]
+        },
+        {
+            "id": "person-Brockhoff",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Brockhoff"
+                },
+                {
+                    "name": "status",
+                    "value": "protected adult"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "case-Brockhoff_v_France_2023",
+                    "qualifier": "party"
+                }
+            ]
+        },
+        {
+            "id": "state-France",
+            "type": "State",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "France"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "case-Brockhoff_v_France_2023",
+                    "qualifier": "party"
+                }
+            ]
+        },
+        {
+            "id": "committee-1",
+            "type": "Committee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "committee"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "case-Brockhoff_v_France_2023",
+                    "qualifier": "decidingBody"
+                }
+            ]
+        },
+        {
+            "id": "curator-unknown",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "curator"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person-Brockhoff",
+                    "qualifier": "curatorOf"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Decision",
+            "time": "2023-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "type",
+                    "value": "dec."
+                },
+                {
+                    "name": "formation",
+                    "value": "committee"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "case-Brockhoff_v_France_2023",
+                    "qualifier": "onCase"
+                },
+                {
+                    "objectId": "committee-1",
+                    "qualifier": "madeBy"
+                },
+                {
+                    "objectId": "person-Brockhoff",
+                    "qualifier": "party"
+                },
+                {
+                    "objectId": "state-France",
+                    "qualifier": "party"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "FailureToNotify",
+            "time": "2023-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "failure to notify the curator"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "curator-unknown",
+                    "qualifier": "notNotified"
+                },
+                {
+                    "objectId": "person-Brockhoff",
+                    "qualifier": "preventedAppeal"
+                },
+                {
+                    "objectId": "case-Brockhoff_v_France_2023",
+                    "qualifier": "relatedCase"
+                }
+            ]
+        }
+    ]
+}

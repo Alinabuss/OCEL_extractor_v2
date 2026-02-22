@@ -1,0 +1,301 @@
+{
+    "objectTypes": [
+        {
+            "name": "Defendant",
+            "attributes": [
+                {
+                    "name": "mentalState",
+                    "type": "string"
+                },
+                {
+                    "name": "restoredToHealth",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "Offence",
+            "attributes": [
+                {
+                    "name": "committedAt",
+                    "type": "time"
+                }
+            ]
+        },
+        {
+            "name": "SummaryProceedings",
+            "attributes": [
+                {
+                    "name": "concludedAt",
+                    "type": "time"
+                }
+            ]
+        },
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "competent",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "Case",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "CriminalCodeProvision",
+            "attributes": [
+                {
+                    "name": "appliesAsForMentalDisturbance",
+                    "type": "boolean"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "OffenceCommitted",
+            "attributes": []
+        },
+        {
+            "name": "MentalDisturbanceOccurred",
+            "attributes": [
+                {
+                    "name": "relationToOffence",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "SummaryProceedingsConcluded",
+            "attributes": []
+        },
+        {
+            "name": "CourtOrdersCaseDiscontinued",
+            "attributes": [
+                {
+                    "name": "reason",
+                    "type": "string"
+                },
+                {
+                    "name": "untilRestored",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "CriminalCodeProvisionsApplied",
+            "attributes": [
+                {
+                    "name": "appliesAsForMentalDisturbance",
+                    "type": "boolean"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "defendant-1",
+            "type": "Defendant",
+            "attributes": [
+                {
+                    "name": "mentalState",
+                    "time": "2025-01-02T12:00:00Z",
+                    "value": "disturbed"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "offence-1",
+            "type": "Offence",
+            "attributes": [
+                {
+                    "name": "committedAt",
+                    "time": "2025-01-01T10:00:00Z",
+                    "value": "2025-01-01T10:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "defendant-1",
+                    "qualifier": "committedBy"
+                }
+            ]
+        },
+        {
+            "id": "summary-1",
+            "type": "SummaryProceedings",
+            "attributes": [
+                {
+                    "name": "concludedAt",
+                    "time": "2025-01-03T09:00:00Z",
+                    "value": "2025-01-03T09:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "case-1",
+                    "qualifier": "forCase"
+                }
+            ]
+        },
+        {
+            "id": "case-1",
+            "type": "Case",
+            "attributes": [
+                {
+                    "name": "status",
+                    "time": "2025-01-03T09:05:00Z",
+                    "value": "discontinued"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "offence-1",
+                    "qualifier": "concernsOffence"
+                }
+            ]
+        },
+        {
+            "id": "court-1",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "competent",
+                    "time": "2025-01-03T09:05:00Z",
+                    "value": "true"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "crimprov-1",
+            "type": "CriminalCodeProvision",
+            "attributes": [
+                {
+                    "name": "appliesAsForMentalDisturbance",
+                    "time": "2025-01-03T09:06:00Z",
+                    "value": "true"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "OffenceCommitted",
+            "time": "2025-01-01T10:00:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "offence-1",
+                    "qualifier": "offence"
+                },
+                {
+                    "objectId": "defendant-1",
+                    "qualifier": "defendant"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "MentalDisturbanceOccurred",
+            "time": "2025-01-02T12:00:00Z",
+            "attributes": [
+                {
+                    "name": "relationToOffence",
+                    "value": "after"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "defendant-1",
+                    "qualifier": "affected"
+                },
+                {
+                    "objectId": "offence-1",
+                    "qualifier": "after"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "type": "SummaryProceedingsConcluded",
+            "time": "2025-01-03T09:00:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "summary-1",
+                    "qualifier": "summaryProceedings"
+                },
+                {
+                    "objectId": "case-1",
+                    "qualifier": "case"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "type": "CourtOrdersCaseDiscontinued",
+            "time": "2025-01-03T09:05:00Z",
+            "attributes": [
+                {
+                    "name": "reason",
+                    "value": "mental disturbance"
+                },
+                {
+                    "name": "untilRestored",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court-1",
+                    "qualifier": "orderingCourt"
+                },
+                {
+                    "objectId": "case-1",
+                    "qualifier": "case"
+                },
+                {
+                    "objectId": "defendant-1",
+                    "qualifier": "defendant"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "type": "CriminalCodeProvisionsApplied",
+            "time": "2025-01-03T09:06:00Z",
+            "attributes": [
+                {
+                    "name": "appliesAsForMentalDisturbance",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "crimprov-1",
+                    "qualifier": "provision"
+                },
+                {
+                    "objectId": "defendant-1",
+                    "qualifier": "defendant"
+                },
+                {
+                    "objectId": "offence-1",
+                    "qualifier": "relatedOffence"
+                }
+            ]
+        }
+    ]
+}

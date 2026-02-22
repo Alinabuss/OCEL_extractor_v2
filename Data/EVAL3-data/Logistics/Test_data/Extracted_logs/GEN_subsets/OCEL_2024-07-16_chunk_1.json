@@ -1,0 +1,153 @@
+{
+    "objectTypes": [
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "departure_date",
+                    "type": "time"
+                }
+            ]
+        },
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "classification",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Container",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Booking",
+            "attributes": [
+                {
+                    "name": "booked_vehicle_count",
+                    "type": "int"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "td550",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "classification",
+                    "time": "",
+                    "value": "high-priority vehicle"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "container_1",
+                    "qualifier": "associated"
+                },
+                {
+                    "objectId": "container_2",
+                    "qualifier": "associated"
+                },
+                {
+                    "objectId": "container_3",
+                    "qualifier": "associated"
+                },
+                {
+                    "objectId": "container_4",
+                    "qualifier": "associated"
+                }
+            ]
+        },
+        {
+            "id": "vh120",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "departure_date",
+                    "time": "2024-07-19T11:00:00Z",
+                    "value": "2024-07-19T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td550",
+                    "qualifier": "booked_under"
+                }
+            ]
+        },
+        {
+            "id": "vh124",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "departure_date",
+                    "time": "2024-08-02T11:00:00Z",
+                    "value": "2024-08-02T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td550",
+                    "qualifier": "booked_under"
+                }
+            ]
+        },
+        {
+            "id": "container_1",
+            "type": "Container",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "container_2",
+            "type": "Container",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "container_3",
+            "type": "Container",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "container_4",
+            "type": "Container",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Booking",
+            "time": "2024-07-16T15:45:01Z",
+            "attributes": [
+                {
+                    "name": "booked_vehicle_count",
+                    "value": "2"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "vh120",
+                    "qualifier": "bookedVehicle"
+                },
+                {
+                    "objectId": "vh124",
+                    "qualifier": "bookedVehicle"
+                },
+                {
+                    "objectId": "td550",
+                    "qualifier": "transportDocument"
+                }
+            ]
+        }
+    ]
+}

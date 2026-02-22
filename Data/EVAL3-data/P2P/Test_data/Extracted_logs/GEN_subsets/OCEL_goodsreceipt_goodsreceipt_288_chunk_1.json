@@ -1,0 +1,121 @@
+{
+    "objectTypes": [
+        {
+            "name": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "decimal"
+                }
+            ]
+        },
+        {
+            "name": "department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "goods receipt processed",
+            "attributes": []
+        },
+        {
+            "name": "two-way match completed",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "goods receipt:288",
+            "type": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "time": "2022-08-29T15:00:00Z",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:288",
+                    "qualifier": "matched_with"
+                }
+            ]
+        },
+        {
+            "id": "invoice receipt:288",
+            "type": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "time": "2022-08-29T15:00:00Z",
+                    "value": "47700.00"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "finance and account department",
+            "type": "department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "goods receipt processed",
+            "time": "2022-08-29T15:00:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:288",
+                    "qualifier": "processed"
+                },
+                {
+                    "objectId": "invoice receipt:288",
+                    "qualifier": "accompanying_invoice"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "two-way match completed",
+            "time": "2022-08-29T15:00:00Z",
+            "attributes": [
+                {
+                    "name": "lifecycle",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:288",
+                    "qualifier": "matched"
+                },
+                {
+                    "objectId": "invoice receipt:288",
+                    "qualifier": "matched"
+                },
+                {
+                    "objectId": "finance and account department",
+                    "qualifier": "performed_by"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,93 @@
+{
+    "objectTypes": [
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": []
+        },
+        {
+            "name": "Vacancy",
+            "attributes": [
+                {
+                    "name": "position",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Application Submitted",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "Applicant[Dave Taylor]",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Dave Taylor"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Application[770389]",
+            "type": "Application",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Applicant[Dave Taylor]",
+                    "qualifier": "submitted_by"
+                },
+                {
+                    "objectId": "Vacancy[550049]",
+                    "qualifier": "for_vacancy"
+                }
+            ]
+        },
+        {
+            "id": "Vacancy[550049]",
+            "type": "Vacancy",
+            "attributes": [
+                {
+                    "name": "position",
+                    "value": "Programmer"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Application Submitted",
+            "time": "2019-07-03T10:32:28Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Applicant[Dave Taylor]",
+                    "qualifier": "applicant"
+                },
+                {
+                    "objectId": "Application[770389]",
+                    "qualifier": "application"
+                },
+                {
+                    "objectId": "Vacancy[550049]",
+                    "qualifier": "vacancy"
+                }
+            ]
+        }
+    ]
+}

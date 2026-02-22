@@ -1,0 +1,186 @@
+{
+    "objectTypes": [
+        {
+            "name": "Villager",
+            "attributes": [
+                {
+                    "name": "label",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Match",
+            "attributes": [
+                {
+                    "name": "matchId",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Session",
+            "attributes": [
+                {
+                    "name": "label",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Player",
+            "attributes": [
+                {
+                    "name": "playerId",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "TownCenter",
+            "attributes": [
+                {
+                    "name": "label",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "CommandQueueReceived",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Villager_M227028371_114",
+            "type": "Villager",
+            "attributes": [
+                {
+                    "name": "label",
+                    "time": "",
+                    "value": "Villager_M227028371_114"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Town_Center_M227028371_2",
+                    "qualifier": "engaged_at"
+                }
+            ]
+        },
+        {
+            "id": "M227028371",
+            "type": "Match",
+            "attributes": [
+                {
+                    "name": "matchId",
+                    "time": "",
+                    "value": "M227028371"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Town_Center_M227028371_2",
+                    "qualifier": "related_town_center"
+                }
+            ]
+        },
+        {
+            "id": "S227028371_1472826",
+            "type": "Session",
+            "attributes": [
+                {
+                    "name": "label",
+                    "time": "",
+                    "value": "S227028371_1472826"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Player_P1472826",
+                    "qualifier": "involves"
+                },
+                {
+                    "objectId": "M227028371",
+                    "qualifier": "part_of_match"
+                }
+            ]
+        },
+        {
+            "id": "Player_P1472826",
+            "type": "Player",
+            "attributes": [
+                {
+                    "name": "playerId",
+                    "time": "",
+                    "value": "Player_P1472826"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Town_Center_M227028371_2",
+                    "qualifier": "engaged_at"
+                }
+            ]
+        },
+        {
+            "id": "Town_Center_M227028371_2",
+            "type": "TownCenter",
+            "attributes": [
+                {
+                    "name": "label",
+                    "time": "",
+                    "value": "Town_Center_M227028371_2"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "M227028371",
+                    "qualifier": "related_to_match"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "E1",
+            "type": "CommandQueueReceived",
+            "time": "2023-04-17T01:02:45Z",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "received command queue"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Villager_M227028371_114",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "M227028371",
+                    "qualifier": "context"
+                },
+                {
+                    "objectId": "S227028371_1472826",
+                    "qualifier": "session"
+                },
+                {
+                    "objectId": "Player_P1472826",
+                    "qualifier": "player"
+                },
+                {
+                    "objectId": "Town_Center_M227028371_2",
+                    "qualifier": "location"
+                }
+            ]
+        }
+    ]
+}

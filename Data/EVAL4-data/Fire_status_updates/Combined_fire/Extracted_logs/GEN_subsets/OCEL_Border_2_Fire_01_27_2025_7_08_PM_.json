@@ -1,0 +1,342 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                },
+                {
+                    "name": "rain_last_36h",
+                    "type": "string"
+                },
+                {
+                    "name": "humidity",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Equipment",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Agency",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "AgencyGroup",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "EvacuationMap",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "RainfallMeasured",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "type": "string"
+                },
+                {
+                    "name": "period",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ReducedFireActivityObserved",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "cause",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "GroundCrewsActivity",
+            "attributes": [
+                {
+                    "name": "activities",
+                    "type": "string"
+                },
+                {
+                    "name": "locations",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "AdvisoryIssued",
+            "attributes": [
+                {
+                    "name": "message",
+                    "type": "string"
+                },
+                {
+                    "name": "target",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o_fire_border2",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-27T19:08:00Z",
+                    "value": "Border 2 Fire"
+                },
+                {
+                    "name": "rain_last_36h",
+                    "time": "2025-01-27T19:08:00Z",
+                    "value": "nearly an inch"
+                },
+                {
+                    "name": "humidity",
+                    "time": "2025-01-27T19:08:00Z",
+                    "value": "favorable"
+                },
+                {
+                    "name": "status",
+                    "time": "2025-01-27T19:08:00Z",
+                    "value": "significantly reduced fire activity"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_ground_crews",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-27T19:08:00Z",
+                    "value": "Ground crews"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_fire_border2",
+                    "qualifier": "works_on"
+                },
+                {
+                    "objectId": "o_multiple_agencies",
+                    "qualifier": "works_with"
+                }
+            ]
+        },
+        {
+            "id": "o_hose_1",
+            "type": "Equipment",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-27T19:08:00Z",
+                    "value": "hose"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_ground_crews",
+                    "qualifier": "collected_by"
+                }
+            ]
+        },
+        {
+            "id": "o_multiple_agencies",
+            "type": "AgencyGroup",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-27T19:08:00Z",
+                    "value": "multiple agencies"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_sheriff_office",
+            "type": "Agency",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-27T19:08:00Z",
+                    "value": "San Diego County Sheriff's Office"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_genasys_map",
+                    "qualifier": "encourages_to_check"
+                },
+                {
+                    "objectId": "o_fire_border2",
+                    "qualifier": "advises_about"
+                }
+            ]
+        },
+        {
+            "id": "o_genasys_map",
+            "type": "EvacuationMap",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-27T19:08:00Z",
+                    "value": "Genasys Protect evacuation map"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "RainfallMeasured",
+            "time": "2025-01-27T19:08:00Z",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "value": "nearly an inch"
+                },
+                {
+                    "name": "period",
+                    "value": "last 36 hours"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_fire_border2",
+                    "qualifier": "about"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "ReducedFireActivityObserved",
+            "time": "2025-01-27T19:08:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "significantly reduced fire activity"
+                },
+                {
+                    "name": "cause",
+                    "value": "nearly an inch of rain and favorable humidity"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_fire_border2",
+                    "qualifier": "about"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "GroundCrewsActivity",
+            "time": "2025-01-27T19:08:00Z",
+            "attributes": [
+                {
+                    "name": "activities",
+                    "value": "constructing fire lines; mopping up hotspots; patrolling existing lines; collecting hose; working with multiple agencies to prioritize suppression repairs and ensure public safety"
+                },
+                {
+                    "name": "locations",
+                    "value": "remote, steep areas"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_ground_crews",
+                    "qualifier": "performed_by"
+                },
+                {
+                    "objectId": "o_fire_border2",
+                    "qualifier": "acts_on"
+                },
+                {
+                    "objectId": "o_hose_1",
+                    "qualifier": "collected"
+                },
+                {
+                    "objectId": "o_multiple_agencies",
+                    "qualifier": "works_with"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "AdvisoryIssued",
+            "time": "2025-01-27T19:08:00Z",
+            "attributes": [
+                {
+                    "name": "message",
+                    "value": "For the most current information on evacuation orders, the San Diego County Sheriff's Office encourages all residents to check the Genasys Protect evacuation map linked below."
+                },
+                {
+                    "name": "target",
+                    "value": "residents"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_sheriff_office",
+                    "qualifier": "issued_by"
+                },
+                {
+                    "objectId": "o_genasys_map",
+                    "qualifier": "references"
+                },
+                {
+                    "objectId": "o_fire_border2",
+                    "qualifier": "about"
+                }
+            ]
+        }
+    ]
+}

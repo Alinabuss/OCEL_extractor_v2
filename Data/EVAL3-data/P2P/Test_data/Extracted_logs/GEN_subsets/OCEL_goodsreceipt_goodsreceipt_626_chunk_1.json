@@ -1,0 +1,117 @@
+{
+    "objectTypes": [
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "type": "float"
+                },
+                {
+                    "name": "amount_type",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "InvoiceReceiptCreated",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt[628]",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "time": "2023-02-28T20:09:00Z",
+                    "value": "154000.0"
+                },
+                {
+                    "name": "amount_type",
+                    "time": "2023-02-28T20:09:00Z",
+                    "value": "credit"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt[626]",
+                    "qualifier": "related_to"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt[626]",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "time": "",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "department[Finance/Account Department]",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Finance/Account Department"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "InvoiceReceiptCreated",
+            "time": "2023-02-28T20:09:00Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "completed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt[628]",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "department[Finance/Account Department]",
+                    "qualifier": "performed_by"
+                }
+            ]
+        }
+    ]
+}

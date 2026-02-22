@@ -1,0 +1,139 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "fullName",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "OrganizationalUnit",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ReportOutOfStock",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "benedikt-knopp",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "fullName",
+                    "value": "Benedikt Knopp"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "warehousing",
+                    "qualifier": "works-in"
+                }
+            ]
+        },
+        {
+            "id": "warehousing",
+            "type": "OrganizationalUnit",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-883322",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "time": "2023-09-11T09:38:35Z",
+                    "value": "2705.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "macbook-pro",
+                    "qualifier": "identified-as"
+                }
+            ]
+        },
+        {
+            "id": "macbook-pro",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "MacBook Pro"
+                },
+                {
+                    "name": "price",
+                    "value": "2500.0"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "ReportOutOfStock",
+            "time": "2023-09-11T09:38:35Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "out of stock"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "benedikt-knopp",
+                    "qualifier": "reporter"
+                },
+                {
+                    "objectId": "i-883322",
+                    "qualifier": "item"
+                }
+            ]
+        }
+    ]
+}

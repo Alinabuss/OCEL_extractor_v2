@@ -1,0 +1,177 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "RepopulationCompleted",
+            "attributes": [
+                {
+                    "name": "note",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ForwardRateOfSpreadStopped",
+            "attributes": [
+                {
+                    "name": "note",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ContainmentWorkPlanned",
+            "attributes": [
+                {
+                    "name": "note",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire_1",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Lilac Fire"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "loc_1",
+                    "qualifier": "located_at"
+                }
+            ]
+        },
+        {
+            "id": "loc_1",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "",
+                    "value": "near Old Highway 395 and Lilac Road"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "crew_1",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Fire crew"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "assigned_to"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "RepopulationCompleted",
+            "time": "2025-01-21T20:00:00Z",
+            "attributes": [
+                {
+                    "name": "note",
+                    "value": "Repopulation completed as of January 21 at 8 p.m."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "affected"
+                },
+                {
+                    "objectId": "loc_1",
+                    "qualifier": "location"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "ForwardRateOfSpreadStopped",
+            "time": "2025-01-21T20:34:00Z",
+            "attributes": [
+                {
+                    "name": "note",
+                    "value": "Forward rate of spread has been stopped."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "affected"
+                },
+                {
+                    "objectId": "loc_1",
+                    "qualifier": "location"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "type": "ContainmentWorkPlanned",
+            "time": "2025-01-21T20:34:00Z",
+            "attributes": [
+                {
+                    "name": "note",
+                    "value": "Fire crew will continue to build containment lines and extinguish hotspots within the fire's perimeter."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_1",
+                    "qualifier": "affected"
+                },
+                {
+                    "objectId": "crew_1",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "loc_1",
+                    "qualifier": "location"
+                }
+            ]
+        }
+    ]
+}

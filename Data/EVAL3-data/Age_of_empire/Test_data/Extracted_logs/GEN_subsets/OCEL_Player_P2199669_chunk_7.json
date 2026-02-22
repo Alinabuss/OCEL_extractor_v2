@@ -1,0 +1,203 @@
+{
+    "objectTypes": [
+        {
+            "name": "Player",
+            "attributes": []
+        },
+        {
+            "name": "Match",
+            "attributes": []
+        },
+        {
+            "name": "Session",
+            "attributes": []
+        },
+        {
+            "name": "Villager",
+            "attributes": []
+        },
+        {
+            "name": "Town_Center",
+            "attributes": []
+        },
+        {
+            "name": "House",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Create Initial Stone Wall",
+            "attributes": []
+        },
+        {
+            "name": "Queue Villager Command",
+            "attributes": []
+        },
+        {
+            "name": "Start Building House",
+            "attributes": []
+        },
+        {
+            "name": "Set Gather Point",
+            "attributes": [
+                {
+                    "name": "gather_point",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Player[P2199669]",
+            "type": "Player",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Match[M250230427]",
+            "type": "Match",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Session[S250230427_2199669]",
+            "type": "Session",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Player[P2199669]",
+                    "qualifier": "for_player"
+                },
+                {
+                    "objectId": "Match[M250230427]",
+                    "qualifier": "in_match"
+                }
+            ]
+        },
+        {
+            "id": "Town_Center_M250230427_1",
+            "type": "Town_Center",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Match[M250230427]",
+                    "qualifier": "related_to_match"
+                }
+            ]
+        },
+        {
+            "id": "Villager_M250230427_3",
+            "type": "Villager",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "House_M250230427_3",
+            "type": "House",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Match[M250230427]",
+                    "qualifier": "related_to_match"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Create Initial Stone Wall",
+            "time": "2023-07-31T00:10:50Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Player[P2199669]",
+                    "qualifier": "performed_by"
+                },
+                {
+                    "objectId": "Session[S250230427_2199669]",
+                    "qualifier": "in_session"
+                },
+                {
+                    "objectId": "Match[M250230427]",
+                    "qualifier": "in_match"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Queue Villager Command",
+            "time": "2023-07-31T00:10:51Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Session[S250230427_2199669]",
+                    "qualifier": "in_session"
+                },
+                {
+                    "objectId": "Match[M250230427]",
+                    "qualifier": "in_match"
+                },
+                {
+                    "objectId": "Town_Center_M250230427_1",
+                    "qualifier": "linked_to"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "Start Building House",
+            "time": "2023-07-31T00:10:53Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Villager_M250230427_3",
+                    "qualifier": "performed_by"
+                },
+                {
+                    "objectId": "House_M250230427_3",
+                    "qualifier": "target"
+                },
+                {
+                    "objectId": "Session[S250230427_2199669]",
+                    "qualifier": "in_session"
+                },
+                {
+                    "objectId": "Match[M250230427]",
+                    "qualifier": "in_match"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "Set Gather Point",
+            "time": "2023-07-31T00:10:55Z",
+            "attributes": [
+                {
+                    "name": "gather_point",
+                    "value": "none"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Player[P2199669]",
+                    "qualifier": "performed_by"
+                },
+                {
+                    "objectId": "Town_Center_M250230427_1",
+                    "qualifier": "at_town_center"
+                },
+                {
+                    "objectId": "Session[S250230427_2199669]",
+                    "qualifier": "in_session"
+                },
+                {
+                    "objectId": "Match[M250230427]",
+                    "qualifier": "in_match"
+                }
+            ]
+        }
+    ]
+}

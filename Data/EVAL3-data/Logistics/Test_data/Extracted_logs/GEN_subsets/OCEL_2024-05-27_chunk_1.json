@@ -1,0 +1,117 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "totalContainers",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "priority",
+                    "type": "string"
+                },
+                {
+                    "name": "departure",
+                    "type": "datetime"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "TransportDocumentCreated",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "td484",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "totalContainers",
+                    "time": "2024-05-27T05:21:41Z",
+                    "value": "2.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "vh106",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "priority",
+                    "time": "2024-05-27T05:21:41Z",
+                    "value": "high-priority"
+                },
+                {
+                    "name": "departure",
+                    "time": "2024-05-27T05:21:41Z",
+                    "value": "2024-05-31T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td484",
+                    "qualifier": "bookedUnder"
+                }
+            ]
+        },
+        {
+            "id": "vh110",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "departure",
+                    "time": "2024-05-27T05:21:41Z",
+                    "value": "2024-06-14T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td484",
+                    "qualifier": "bookedUnder"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "ev1",
+            "type": "TransportDocumentCreated",
+            "time": "2024-05-27T05:21:41Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "successful"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td484",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "vh106",
+                    "qualifier": "booked"
+                },
+                {
+                    "objectId": "vh110",
+                    "qualifier": "booked"
+                }
+            ]
+        }
+    ]
+}

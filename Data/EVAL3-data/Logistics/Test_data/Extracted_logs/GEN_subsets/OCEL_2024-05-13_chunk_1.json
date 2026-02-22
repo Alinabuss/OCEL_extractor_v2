@@ -1,0 +1,172 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "classification",
+                    "type": "string"
+                },
+                {
+                    "name": "scheduled_departure",
+                    "type": "time"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "TransportDocumentUpdated",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "td466",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "time": "2024-05-13T09:17:07Z",
+                    "value": "4.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "td465",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "time": "2024-05-13T11:45:58Z",
+                    "value": "5.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "vh103",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "classification",
+                    "time": "2024-05-13T09:17:07Z",
+                    "value": "regular"
+                },
+                {
+                    "name": "scheduled_departure",
+                    "time": "2024-05-13T09:17:07Z",
+                    "value": "2024-05-21T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td466",
+                    "qualifier": "assigned_to"
+                }
+            ]
+        },
+        {
+            "id": "vh102",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "classification",
+                    "time": "2024-05-13T11:45:58Z",
+                    "value": "high-priority"
+                },
+                {
+                    "name": "scheduled_departure",
+                    "time": "2024-05-13T11:45:58Z",
+                    "value": "2024-05-17T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td465",
+                    "qualifier": "assigned_to"
+                }
+            ]
+        },
+        {
+            "id": "vh105",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduled_departure",
+                    "time": "2024-05-13T11:45:58Z",
+                    "value": "2024-05-28T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td465",
+                    "qualifier": "assigned_to"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "TransportDocumentUpdated",
+            "time": "2024-05-13T09:17:07Z",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "value": "4.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td466",
+                    "qualifier": "transport_document"
+                },
+                {
+                    "objectId": "vh103",
+                    "qualifier": "regular_vehicle"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "TransportDocumentUpdated",
+            "time": "2024-05-13T11:45:58Z",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "value": "5.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td465",
+                    "qualifier": "transport_document"
+                },
+                {
+                    "objectId": "vh102",
+                    "qualifier": "high_priority_vehicle"
+                },
+                {
+                    "objectId": "vh105",
+                    "qualifier": "vehicle"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,317 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "WeatherPhenomenon",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "period",
+                    "type": "string"
+                },
+                {
+                    "name": "duration",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Fuel",
+            "attributes": [
+                {
+                    "name": "receptivity",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "FireBehavior",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Resource",
+            "attributes": [
+                {
+                    "name": "kind",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "SituationReport",
+            "attributes": [
+                {
+                    "name": "summary",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Border 2 Fire",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-24T23:12:00Z",
+                    "value": "Border 2 Fire"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Shifting winds",
+            "type": "WeatherPhenomenon",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-24T23:12:00Z",
+                    "value": "shifting winds"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Border 2 Fire",
+                    "qualifier": "influences"
+                }
+            ]
+        },
+        {
+            "id": "Uphill runs",
+            "type": "FireBehavior",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-24T23:12:00Z",
+                    "value": "making uphill runs"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Border 2 Fire",
+                    "qualifier": "observed-on"
+                }
+            ]
+        },
+        {
+            "id": "Short-range spotting",
+            "type": "FireBehavior",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-24T23:12:00Z",
+                    "value": "short-range spotting"
+                },
+                {
+                    "name": "status",
+                    "time": "2025-01-24T23:12:00Z",
+                    "value": "continues"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Border 2 Fire",
+                    "qualifier": "observed-on"
+                }
+            ]
+        },
+        {
+            "id": "Fire fuels",
+            "type": "Fuel",
+            "attributes": [
+                {
+                    "name": "receptivity",
+                    "time": "2025-01-24T23:12:00Z",
+                    "value": "very receptive to ignition"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Border 2 Fire",
+                    "qualifier": "part-of"
+                }
+            ]
+        },
+        {
+            "id": "Very low humidity",
+            "type": "WeatherPhenomenon",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-24T23:12:00Z",
+                    "value": "very low humidity"
+                },
+                {
+                    "name": "duration",
+                    "time": "2025-01-24T23:12:00Z",
+                    "value": "will continue overnight"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Border 2 Fire",
+                    "qualifier": "condition-of"
+                }
+            ]
+        },
+        {
+            "id": "Possibility of rain",
+            "type": "WeatherPhenomenon",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-24T23:12:00Z",
+                    "value": "possibility of rain over the fire area"
+                },
+                {
+                    "name": "period",
+                    "time": "2025-01-24T23:12:00Z",
+                    "value": "Saturday night into Monday"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Border 2 Fire",
+                    "qualifier": "forecast-for"
+                }
+            ]
+        },
+        {
+            "id": "Bull dozers",
+            "type": "Resource",
+            "attributes": [
+                {
+                    "name": "kind",
+                    "time": "2025-01-24T23:12:00Z",
+                    "value": "Bull dozers"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Border 2 Fire",
+                    "qualifier": "working-on"
+                }
+            ]
+        },
+        {
+            "id": "Hand crews",
+            "type": "Resource",
+            "attributes": [
+                {
+                    "name": "kind",
+                    "time": "2025-01-24T23:12:00Z",
+                    "value": "hand crews"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Border 2 Fire",
+                    "qualifier": "working-on"
+                }
+            ]
+        },
+        {
+            "id": "Water dropping helicopters",
+            "type": "Resource",
+            "attributes": [
+                {
+                    "name": "kind",
+                    "time": "2025-01-24T23:12:00Z",
+                    "value": "water dropping helicopters"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Border 2 Fire",
+                    "qualifier": "supporting"
+                },
+                {
+                    "objectId": "Bull dozers",
+                    "qualifier": "supports"
+                },
+                {
+                    "objectId": "Hand crews",
+                    "qualifier": "supports"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "SituationReport",
+            "time": "2025-01-24T23:12:00Z",
+            "attributes": [
+                {
+                    "name": "summary",
+                    "value": "The fire is making uphill runs, influenced by shifting winds. Short-range spotting continues and fire fuels are very receptive to ignition. Very low humidity will continue overnight, but there is a possibility of rain over the fire area from Saturday night into Monday. Bull dozers and hand crews will continue to work overnight establishing containment lines, supported from the air by water dropping helicopters."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Border 2 Fire",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "Uphill runs",
+                    "qualifier": "observed"
+                },
+                {
+                    "objectId": "Shifting winds",
+                    "qualifier": "influences"
+                },
+                {
+                    "objectId": "Short-range spotting",
+                    "qualifier": "observed"
+                },
+                {
+                    "objectId": "Fire fuels",
+                    "qualifier": "receptive-to-ignition"
+                },
+                {
+                    "objectId": "Very low humidity",
+                    "qualifier": "condition"
+                },
+                {
+                    "objectId": "Possibility of rain",
+                    "qualifier": "forecast"
+                },
+                {
+                    "objectId": "Bull dozers",
+                    "qualifier": "working"
+                },
+                {
+                    "objectId": "Hand crews",
+                    "qualifier": "working"
+                },
+                {
+                    "objectId": "Water dropping helicopters",
+                    "qualifier": "supporting"
+                }
+            ]
+        }
+    ]
+}

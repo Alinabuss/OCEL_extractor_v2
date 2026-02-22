@@ -1,0 +1,161 @@
+{
+    "objectTypes": [
+        {
+            "name": "SteelCoil",
+            "attributes": [
+                {
+                    "name": "weight_kg",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "weight_kg",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Workstation",
+            "attributes": [
+                {
+                    "name": "power_source",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Machine",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Processing",
+            "attributes": [
+                {
+                    "name": "processing_time_s",
+                    "type": "float"
+                },
+                {
+                    "name": "co2eq_kg",
+                    "type": "float"
+                },
+                {
+                    "name": "steel_waste_kg",
+                    "type": "float"
+                },
+                {
+                    "name": "electricity_kwh",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o_steelcoil_4",
+            "type": "SteelCoil",
+            "attributes": [
+                {
+                    "name": "weight_kg",
+                    "time": "2023-04-03T10:16:55Z",
+                    "value": "31.91076"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_steelsheet_770",
+            "type": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "weight_kg",
+                    "time": "2023-04-03T10:16:55Z",
+                    "value": "0.02123"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_steelcoil_4",
+                    "qualifier": "derived-from"
+                }
+            ]
+        },
+        {
+            "id": "o_workstation_1",
+            "type": "Workstation",
+            "attributes": [
+                {
+                    "name": "power_source",
+                    "time": "2023-04-03T10:16:55Z",
+                    "value": "grid"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "splitter01",
+            "type": "Machine",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-04-03T10:16:55Z",
+                    "value": "splitter01"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Processing",
+            "time": "2023-04-03T10:16:55Z",
+            "attributes": [
+                {
+                    "name": "processing_time_s",
+                    "value": "14.1079030874"
+                },
+                {
+                    "name": "co2eq_kg",
+                    "value": "0.0147516726"
+                },
+                {
+                    "name": "steel_waste_kg",
+                    "value": "0.00042"
+                },
+                {
+                    "name": "electricity_kwh",
+                    "value": "0.0215537"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "splitter01",
+                    "qualifier": "machine"
+                },
+                {
+                    "objectId": "o_steelcoil_4",
+                    "qualifier": "input"
+                },
+                {
+                    "objectId": "o_steelsheet_770",
+                    "qualifier": "output"
+                },
+                {
+                    "objectId": "o_workstation_1",
+                    "qualifier": "workstation"
+                }
+            ]
+        }
+    ]
+}

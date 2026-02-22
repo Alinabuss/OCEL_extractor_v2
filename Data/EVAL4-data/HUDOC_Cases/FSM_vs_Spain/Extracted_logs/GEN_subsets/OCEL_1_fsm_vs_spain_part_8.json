@@ -1,0 +1,157 @@
+{
+    "objectTypes": [
+        {
+            "name": "Applicant",
+            "attributes": []
+        },
+        {
+            "name": "Doctor",
+            "attributes": [
+                {
+                    "name": "affiliation",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Institute",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ForensicReport",
+            "attributes": [
+                {
+                    "name": "issued_on",
+                    "type": "time"
+                },
+                {
+                    "name": "ADHD",
+                    "type": "string"
+                },
+                {
+                    "name": "personality_disorder_features",
+                    "type": "string"
+                },
+                {
+                    "name": "amnestic_disorders",
+                    "type": "string"
+                },
+                {
+                    "name": "psychotic_disorders",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ForensicReportIssued",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "applicant_1",
+            "type": "Applicant",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "doctor_1",
+            "type": "Doctor",
+            "attributes": [
+                {
+                    "name": "affiliation",
+                    "time": "2016-01-13T00:00:00Z",
+                    "value": "Institute of Legal Medicine of the Balearic Islands"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "institute_1",
+                    "qualifier": "affiliated_with"
+                }
+            ]
+        },
+        {
+            "id": "institute_1",
+            "type": "Institute",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2016-01-13T00:00:00Z",
+                    "value": "Institute of Legal Medicine of the Balearic Islands"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "report_1",
+            "type": "ForensicReport",
+            "attributes": [
+                {
+                    "name": "issued_on",
+                    "time": "2016-01-13T00:00:00Z",
+                    "value": "2016-01-13T00:00:00Z"
+                },
+                {
+                    "name": "ADHD",
+                    "time": "2016-01-13T00:00:00Z",
+                    "value": "since childhood"
+                },
+                {
+                    "name": "personality_disorder_features",
+                    "time": "2016-01-13T00:00:00Z",
+                    "value": "schizoid and compulsive"
+                },
+                {
+                    "name": "amnestic_disorders",
+                    "time": "2016-01-13T00:00:00Z",
+                    "value": "for several years"
+                },
+                {
+                    "name": "psychotic_disorders",
+                    "time": "2016-01-13T00:00:00Z",
+                    "value": "with compensatory mechanisms since childhood"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "doctor_1",
+                    "qualifier": "issued_by"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "ForensicReportIssued",
+            "time": "2016-01-13T00:00:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "report_1",
+                    "qualifier": "report"
+                },
+                {
+                    "objectId": "doctor_1",
+                    "qualifier": "issuer"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "examined"
+                }
+            ]
+        }
+    ]
+}

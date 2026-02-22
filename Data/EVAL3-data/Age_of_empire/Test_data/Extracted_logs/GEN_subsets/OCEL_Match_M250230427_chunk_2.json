@@ -1,0 +1,263 @@
+{
+    "objectTypes": [
+        {
+            "name": "Match",
+            "attributes": [
+                {
+                    "name": "matchId",
+                    "type": "string"
+                },
+                {
+                    "name": "createdAt",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Player",
+            "attributes": [
+                {
+                    "name": "playerId",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Session",
+            "attributes": [
+                {
+                    "name": "sessionId",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Unit",
+            "attributes": [
+                {
+                    "name": "unitType",
+                    "type": "string"
+                },
+                {
+                    "name": "createdAt",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "MatchCreated",
+            "attributes": []
+        },
+        {
+            "name": "InitialGateCreated",
+            "attributes": []
+        },
+        {
+            "name": "InitialScoutCavalryCreated",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "M250230427",
+            "type": "Match",
+            "attributes": [
+                {
+                    "name": "matchId",
+                    "value": "M250230427"
+                },
+                {
+                    "name": "createdAt",
+                    "value": "2023-07-31T00:10:50Z",
+                    "time": "2023-07-31T00:10:50Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "S250230427_688587",
+                    "qualifier": "has_session"
+                },
+                {
+                    "objectId": "S250230427_2199669",
+                    "qualifier": "has_session"
+                }
+            ]
+        },
+        {
+            "id": "P688587",
+            "type": "Player",
+            "attributes": [
+                {
+                    "name": "playerId",
+                    "value": "P688587"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "P2199669",
+            "type": "Player",
+            "attributes": [
+                {
+                    "name": "playerId",
+                    "value": "P2199669"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "S250230427_688587",
+            "type": "Session",
+            "attributes": [
+                {
+                    "name": "sessionId",
+                    "value": "S250230427_688587"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "P688587",
+                    "qualifier": "belongs_to"
+                },
+                {
+                    "objectId": "M250230427",
+                    "qualifier": "related_match"
+                }
+            ]
+        },
+        {
+            "id": "S250230427_2199669",
+            "type": "Session",
+            "attributes": [
+                {
+                    "name": "sessionId",
+                    "value": "S250230427_2199669"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "P2199669",
+                    "qualifier": "belongs_to"
+                },
+                {
+                    "objectId": "M250230427",
+                    "qualifier": "related_match"
+                }
+            ]
+        },
+        {
+            "id": "Gate_M250230427_688587",
+            "type": "Unit",
+            "attributes": [
+                {
+                    "name": "unitType",
+                    "value": "initial gate"
+                },
+                {
+                    "name": "createdAt",
+                    "value": "2023-07-31T00:10:50Z",
+                    "time": "2023-07-31T00:10:50Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "M250230427",
+                    "qualifier": "for_match"
+                }
+            ]
+        },
+        {
+            "id": "ScoutCavalry_M250230427_688587",
+            "type": "Unit",
+            "attributes": [
+                {
+                    "name": "unitType",
+                    "value": "initial scout cavalry"
+                },
+                {
+                    "name": "createdAt",
+                    "value": "2023-07-31T00:10:50Z",
+                    "time": "2023-07-31T00:10:50Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "M250230427",
+                    "qualifier": "for_match"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "MatchCreated",
+            "time": "2023-07-31T00:10:50Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "M250230427",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "P688587",
+                    "qualifier": "involved"
+                },
+                {
+                    "objectId": "S250230427_688587",
+                    "qualifier": "associated_session"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "InitialGateCreated",
+            "time": "2023-07-31T00:10:50Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Gate_M250230427_688587",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "P688587",
+                    "qualifier": "participant"
+                },
+                {
+                    "objectId": "M250230427",
+                    "qualifier": "for_match"
+                },
+                {
+                    "objectId": "S250230427_688587",
+                    "qualifier": "session"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "InitialScoutCavalryCreated",
+            "time": "2023-07-31T00:10:50Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "ScoutCavalry_M250230427_688587",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "P688587",
+                    "qualifier": "creator"
+                },
+                {
+                    "objectId": "M250230427",
+                    "qualifier": "for_match"
+                },
+                {
+                    "objectId": "S250230427_688587",
+                    "qualifier": "session"
+                }
+            ]
+        }
+    ]
+}

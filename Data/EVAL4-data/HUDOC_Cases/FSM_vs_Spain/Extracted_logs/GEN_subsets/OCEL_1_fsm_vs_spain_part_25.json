@@ -1,0 +1,235 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Institution",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Judgment",
+            "attributes": [
+                {
+                    "name": "declaration",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Report",
+            "attributes": [
+                {
+                    "name": "subject",
+                    "type": "string"
+                },
+                {
+                    "name": "conclusion",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Inform",
+            "attributes": []
+        },
+        {
+            "name": "SubmitDocuments",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "Applicant",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "applicant"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "She",
+            "type": "Person",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Dr L.",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Dr L."
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "ForensicExpert",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "forensic expert"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "InstituteOfLegalMedicine",
+                    "qualifier": "from"
+                }
+            ]
+        },
+        {
+            "id": "InstituteOfLegalMedicine",
+            "type": "Institution",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Institute of Legal Medicine"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "AudienciaProvincial",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Audiencia Provincial"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Judgment_PartiallyIncapacitated",
+            "type": "Judgment",
+            "attributes": [
+                {
+                    "name": "declaration",
+                    "value": "partially incapacitated"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Applicant",
+                    "qualifier": "declares_partially_incapacitated"
+                }
+            ]
+        },
+        {
+            "id": "Report_ForensicExpert",
+            "type": "Report",
+            "attributes": [
+                {
+                    "name": "subject",
+                    "value": "mental health"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "ForensicExpert",
+                    "qualifier": "prepared_by"
+                }
+            ]
+        },
+        {
+            "id": "Report_DrL",
+            "type": "Report",
+            "attributes": [
+                {
+                    "name": "subject",
+                    "value": "mental health"
+                },
+                {
+                    "name": "conclusion",
+                    "value": "the applicant's capacity to understand the scope of the proceedings was limited"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Dr L.",
+                    "qualifier": "prepared_by"
+                },
+                {
+                    "objectId": "Applicant",
+                    "qualifier": "requested_by"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Inform",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "She",
+                    "qualifier": "informer"
+                },
+                {
+                    "objectId": "AudienciaProvincial",
+                    "qualifier": "informed"
+                },
+                {
+                    "objectId": "Judgment_PartiallyIncapacitated",
+                    "qualifier": "about"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "SubmitDocuments",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "She",
+                    "qualifier": "submitter"
+                },
+                {
+                    "objectId": "AudienciaProvincial",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "Report_ForensicExpert",
+                    "qualifier": "submitted"
+                },
+                {
+                    "objectId": "Report_DrL",
+                    "qualifier": "submitted"
+                }
+            ]
+        }
+    ]
+}

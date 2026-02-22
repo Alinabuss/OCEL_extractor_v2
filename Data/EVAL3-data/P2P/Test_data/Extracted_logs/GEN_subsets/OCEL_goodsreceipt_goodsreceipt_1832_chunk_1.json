@@ -1,0 +1,98 @@
+{
+    "objectTypes": [
+        {
+            "name": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "credit amount",
+                    "type": "float"
+                },
+                {
+                    "name": "movement type",
+                    "type": "integer"
+                },
+                {
+                    "name": "lifecycle status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "goods receipt",
+            "attributes": []
+        },
+        {
+            "name": "department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "invoice receipt creation finalized",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt:1832",
+            "type": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "credit amount",
+                    "value": "147300.0",
+                    "time": "2024-09-09T20:50:00Z"
+                },
+                {
+                    "name": "movement type",
+                    "value": "101",
+                    "time": "2024-09-09T20:50:00Z"
+                },
+                {
+                    "name": "lifecycle status",
+                    "value": "complete",
+                    "time": "2024-09-09T20:50:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:1832",
+                    "qualifier": "related_to"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt:1832",
+            "type": "goods receipt",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Finance/Account Department",
+            "type": "department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "invoice receipt creation finalized",
+            "time": "2024-09-09T20:50:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:1832",
+                    "qualifier": "finalized"
+                },
+                {
+                    "objectId": "goods receipt:1832",
+                    "qualifier": "related"
+                },
+                {
+                    "objectId": "Finance/Account Department",
+                    "qualifier": "performed_by"
+                }
+            ]
+        }
+    ]
+}

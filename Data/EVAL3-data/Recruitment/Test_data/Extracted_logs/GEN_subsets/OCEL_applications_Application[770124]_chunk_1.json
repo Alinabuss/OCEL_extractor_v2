@@ -1,0 +1,141 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": [
+                {
+                    "name": "applicationNumber",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Consultation",
+            "attributes": []
+        },
+        {
+            "name": "Send Rejection",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "Person-JanaKeane",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Jana Keane"
+                },
+                {
+                    "name": "role",
+                    "value": "recruiter"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Person-VaishnaviSashikanth",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Vaishnavi Sashikanth"
+                },
+                {
+                    "name": "role",
+                    "value": "manager"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Person-SoniaSmith",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Sonia Smith"
+                },
+                {
+                    "name": "role",
+                    "value": "applicant"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Application-770124",
+                    "qualifier": "associated_with"
+                }
+            ]
+        },
+        {
+            "id": "Application-770124",
+            "type": "Application",
+            "attributes": [
+                {
+                    "name": "applicationNumber",
+                    "value": "770124"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Consultation",
+            "time": "2019-07-03T12:11:34Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Person-JanaKeane",
+                    "qualifier": "recruiter"
+                },
+                {
+                    "objectId": "Person-VaishnaviSashikanth",
+                    "qualifier": "manager"
+                },
+                {
+                    "objectId": "Application-770124",
+                    "qualifier": "application"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Send Rejection",
+            "time": "2019-07-04T06:42:59Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Person-JanaKeane",
+                    "qualifier": "sender"
+                },
+                {
+                    "objectId": "Person-SoniaSmith",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "Application-770124",
+                    "qualifier": "application"
+                }
+            ]
+        }
+    ]
+}

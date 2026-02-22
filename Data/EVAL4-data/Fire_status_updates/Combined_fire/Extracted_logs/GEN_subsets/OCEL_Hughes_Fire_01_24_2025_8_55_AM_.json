@@ -1,0 +1,365 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Crew",
+            "attributes": []
+        },
+        {
+            "name": "AirSupport",
+            "attributes": []
+        },
+        {
+            "name": "SpotFire",
+            "attributes": [
+                {
+                    "name": "area",
+                    "type": "string"
+                },
+                {
+                    "name": "location",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Warning",
+            "attributes": [
+                {
+                    "name": "type",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                },
+                {
+                    "name": "until",
+                    "type": "timestamp"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Report",
+            "attributes": [
+                {
+                    "name": "source",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "InitialAttack",
+            "attributes": [
+                {
+                    "name": "result",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "AirAndGroundOperations",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "techniques",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "SpotFireResponse",
+            "attributes": [
+                {
+                    "name": "area",
+                    "type": "string"
+                },
+                {
+                    "name": "location",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "OvernightOperations",
+            "attributes": [
+                {
+                    "name": "activities",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "FirefightersStaged",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire:Hughes",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-24T08:55:00Z",
+                    "value": "Hughes Fire"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "crew:various",
+            "type": "Crew",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "loc:Castaic",
+                    "qualifier": "staged_in"
+                },
+                {
+                    "objectId": "loc:SantaClarita",
+                    "qualifier": "staged_in"
+                }
+            ]
+        },
+        {
+            "id": "air:1",
+            "type": "AirSupport",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "spot:west_flank_1",
+            "type": "SpotFire",
+            "attributes": [
+                {
+                    "name": "area",
+                    "time": "2025-01-23T00:00:00Z",
+                    "value": "approximately 100 acres"
+                },
+                {
+                    "name": "location",
+                    "time": "2025-01-23T00:00:00Z",
+                    "value": "west flank"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire:Hughes",
+                    "qualifier": "part_of"
+                }
+            ]
+        },
+        {
+            "id": "loc:Castaic",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-24T08:55:00Z",
+                    "value": "Castaic"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "loc:SantaClarita",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-24T08:55:00Z",
+                    "value": "Santa Clarita"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "warning:redflag_1",
+            "type": "Warning",
+            "attributes": [
+                {
+                    "name": "type",
+                    "time": "2025-01-24T08:55:00Z",
+                    "value": "Red Flag Warning"
+                },
+                {
+                    "name": "status",
+                    "time": "2025-01-24T08:55:00Z",
+                    "value": "in effect"
+                },
+                {
+                    "name": "until",
+                    "time": "2025-01-24T08:55:00Z",
+                    "value": "2025-01-24T10:00:00Z"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "InitialAttack",
+            "time": "2025-01-22T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "result",
+                    "value": "highly successful"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire:Hughes",
+                    "qualifier": "affected"
+                },
+                {
+                    "objectId": "crew:various",
+                    "qualifier": "performed_by"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "AirAndGroundOperations",
+            "time": "2025-01-23T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "continued aggressive air and ground operations"
+                },
+                {
+                    "name": "techniques",
+                    "value": "direct and indirect"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire:Hughes",
+                    "qualifier": "affected"
+                },
+                {
+                    "objectId": "crew:various",
+                    "qualifier": "performed_by"
+                },
+                {
+                    "objectId": "air:1",
+                    "qualifier": "aided_by"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "SpotFireResponse",
+            "time": "2025-01-23T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "area",
+                    "value": "approximately 100 acres"
+                },
+                {
+                    "name": "location",
+                    "value": "west flank"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire:Hughes",
+                    "qualifier": "affected"
+                },
+                {
+                    "objectId": "crew:various",
+                    "qualifier": "responded_by"
+                },
+                {
+                    "objectId": "spot:west_flank_1",
+                    "qualifier": "addresses"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "OvernightOperations",
+            "time": "2025-01-24T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "activities",
+                    "value": "improving fire line; performing tactical patrols; mopping up hot spots"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire:Hughes",
+                    "qualifier": "affected"
+                },
+                {
+                    "objectId": "crew:various",
+                    "qualifier": "performed_by"
+                }
+            ]
+        },
+        {
+            "id": "e5",
+            "type": "FirefightersStaged",
+            "time": "2025-01-24T08:55:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "crew:various",
+                    "qualifier": "staged"
+                },
+                {
+                    "objectId": "loc:Castaic",
+                    "qualifier": "at"
+                },
+                {
+                    "objectId": "loc:SantaClarita",
+                    "qualifier": "at"
+                }
+            ]
+        },
+        {
+            "id": "e6",
+            "type": "Report",
+            "time": "2025-01-24T08:55:00Z",
+            "attributes": [
+                {
+                    "name": "source",
+                    "value": "InciWeb"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire:Hughes",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "warning:redflag_1",
+                    "qualifier": "mentions"
+                }
+            ]
+        }
+    ]
+}

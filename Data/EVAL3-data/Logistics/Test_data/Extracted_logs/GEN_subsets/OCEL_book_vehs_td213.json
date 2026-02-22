@@ -1,0 +1,92 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "type": "datetime"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "VehiclesBooked",
+            "attributes": [
+                {
+                    "name": "numberOfVehicles",
+                    "type": "integer"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "td213",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "value": "2.0",
+                    "time": "2023-11-01T09:43:59Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "vh53",
+                    "qualifier": "associated"
+                }
+            ]
+        },
+        {
+            "id": "vh53",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "value": "2023-11-28T11:00:00Z",
+                    "time": "2023-11-28T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td213",
+                    "qualifier": "regular_for"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "VehiclesBooked",
+            "time": "2023-11-01T09:43:59Z",
+            "attributes": [
+                {
+                    "name": "numberOfVehicles",
+                    "value": "2"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td213",
+                    "qualifier": "transport_document"
+                },
+                {
+                    "objectId": "vh53",
+                    "qualifier": "booked_vehicle"
+                }
+            ]
+        }
+    ]
+}

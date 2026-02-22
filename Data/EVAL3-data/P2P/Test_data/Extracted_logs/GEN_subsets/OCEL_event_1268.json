@@ -1,0 +1,99 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseRequisition",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                },
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Material",
+            "attributes": [
+                {
+                    "name": "net_price",
+                    "type": "double"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "PurchaseRequisitionCreated",
+            "attributes": [
+                {
+                    "name": "resource",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_requisition:59:pr_trigger_59",
+            "type": "PurchaseRequisition",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "value": "001"
+                },
+                {
+                    "name": "lifecycle",
+                    "value": "complete",
+                    "time": "2022-05-20T23:56:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "material:141",
+                    "qualifier": "linked_to"
+                }
+            ]
+        },
+        {
+            "id": "material:141",
+            "type": "Material",
+            "attributes": [
+                {
+                    "name": "net_price",
+                    "value": "250.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_requisition:59:pr_trigger_59",
+                    "qualifier": "designated_as_part_of"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "event:1",
+            "type": "PurchaseRequisitionCreated",
+            "time": "2022-05-20T23:56:00Z",
+            "attributes": [
+                {
+                    "name": "resource",
+                    "value": "Manufacturing Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_requisition:59:pr_trigger_59",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "material:141",
+                    "qualifier": "linked"
+                }
+            ]
+        }
+    ]
+}

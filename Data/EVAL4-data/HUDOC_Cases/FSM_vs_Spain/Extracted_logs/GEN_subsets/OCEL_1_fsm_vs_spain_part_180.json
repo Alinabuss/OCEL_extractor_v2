@@ -1,0 +1,197 @@
+{
+    "objectTypes": [
+        {
+            "name": "Prosecutor",
+            "attributes": [
+                {
+                    "name": "nationality",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "VulnerablePerson",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Lawyer",
+            "attributes": []
+        },
+        {
+            "name": "Obligation",
+            "attributes": [
+                {
+                    "name": "weight",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Trial",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ObligationWeighs",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "GoalStated",
+            "attributes": [
+                {
+                    "name": "goal",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ProvideAssistance",
+            "attributes": [
+                {
+                    "name": "assistance",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "prosecutors:FR",
+            "type": "Prosecutor",
+            "attributes": [
+                {
+                    "name": "nationality",
+                    "time": "2025-01-01T09:00:00Z",
+                    "value": "French"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "person:1",
+            "type": "VulnerablePerson",
+            "attributes": [
+                {
+                    "name": "status",
+                    "time": "2025-01-01T09:05:00Z",
+                    "value": "vulnerable"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "lawyer:1",
+            "type": "Lawyer",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "obligation:1",
+            "type": "Obligation",
+            "attributes": [
+                {
+                    "name": "weight",
+                    "time": "2025-01-01T09:00:00Z",
+                    "value": "very heavy"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "prosecutors:FR",
+                    "qualifier": "weighs_on"
+                }
+            ]
+        },
+        {
+            "id": "trial:1",
+            "type": "Trial",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "person:1",
+                    "qualifier": "of"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "ObligationWeighs",
+            "time": "2025-01-01T09:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "very heavy obligation"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "obligation:1",
+                    "qualifier": "obligation"
+                },
+                {
+                    "objectId": "prosecutors:FR",
+                    "qualifier": "weighs_on"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "GoalStated",
+            "time": "2025-01-01T09:05:00Z",
+            "attributes": [
+                {
+                    "name": "goal",
+                    "value": "not to leave a 'vulnerable' person alone at their trial"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "obligation:1",
+                    "qualifier": "goal_of"
+                },
+                {
+                    "objectId": "person:1",
+                    "qualifier": "target"
+                },
+                {
+                    "objectId": "trial:1",
+                    "qualifier": "context"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "ProvideAssistance",
+            "time": "2025-01-01T09:10:00Z",
+            "attributes": [
+                {
+                    "name": "assistance",
+                    "value": "another type of assistance"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "lawyer:1",
+                    "qualifier": "provider"
+                },
+                {
+                    "objectId": "person:1",
+                    "qualifier": "recipient"
+                }
+            ]
+        }
+    ]
+}

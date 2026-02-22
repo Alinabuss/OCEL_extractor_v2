@@ -1,0 +1,183 @@
+{
+    "objectTypes": [
+        {
+            "name": "Applicant",
+            "attributes": []
+        },
+        {
+            "name": "Lawyer",
+            "attributes": []
+        },
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ForensicReport",
+            "attributes": [
+                {
+                    "name": "date",
+                    "type": "date"
+                },
+                {
+                    "name": "conclusion",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ProvisionalReleaseOrdered",
+            "attributes": [
+                {
+                    "name": "measure",
+                    "type": "string"
+                },
+                {
+                    "name": "obligation",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "RequestToAdmitDocuments",
+            "attributes": [
+                {
+                    "name": "requested_documents",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "applicant-1",
+            "type": "Applicant",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "lawyer-1",
+            "type": "Lawyer",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "applicant-1",
+                    "qualifier": "represents"
+                }
+            ]
+        },
+        {
+            "id": "audiencia-provincial",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Audiencia Provincial"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "district-court",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "court of his judicial district"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "report-2018-10-01",
+            "type": "ForensicReport",
+            "attributes": [
+                {
+                    "name": "date",
+                    "time": "2018-10-01T00:00:00Z",
+                    "value": "2018-10-01"
+                },
+                {
+                    "name": "conclusion",
+                    "time": "2018-10-01T00:00:00Z",
+                    "value": "the applicant had the capacity to understand the consequences of the trial, but that his cognitive deterioration, mainly affecting his memory and orientation, could have an impact on his ability to answer the questions put by the parties and to participate in his defence and could therefore compromise both."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant-1",
+                    "qualifier": "concerns"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "ProvisionalReleaseOrdered",
+            "time": "2018-07-26T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "measure",
+                    "value": "provisional release"
+                },
+                {
+                    "name": "obligation",
+                    "value": "appear either before the Audiencia Provincial or before the court of his judicial district twice a month"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant-1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "audiencia-provincial",
+                    "qualifier": "ordered_by"
+                },
+                {
+                    "objectId": "district-court",
+                    "qualifier": "appearance_place"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "RequestToAdmitDocuments",
+            "time": "2019-01-08T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "requested_documents",
+                    "value": "new documents, including a forensic report dated 2018-10-01"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "lawyer-1",
+                    "qualifier": "requester"
+                },
+                {
+                    "objectId": "audiencia-provincial",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "report-2018-10-01",
+                    "qualifier": "includes_document"
+                },
+                {
+                    "objectId": "applicant-1",
+                    "qualifier": "on_behalf_of"
+                }
+            ]
+        }
+    ]
+}

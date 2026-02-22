@@ -1,0 +1,163 @@
+{
+    "objectTypes": [
+        {
+            "name": "Article",
+            "attributes": [
+                {
+                    "name": "title",
+                    "type": "string"
+                },
+                {
+                    "name": "year",
+                    "type": "int"
+                },
+                {
+                    "name": "volume",
+                    "type": "string"
+                },
+                {
+                    "name": "pages",
+                    "type": "string"
+                },
+                {
+                    "name": "doi",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Journal",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "issn",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Publication",
+            "attributes": [
+                {
+                    "name": "context",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "article_1",
+            "type": "Article",
+            "attributes": [
+                {
+                    "name": "title",
+                    "value": "\ufffdEl enjuiciamiento penal de las personas con problemas de salud mental\ufffd"
+                },
+                {
+                    "name": "year",
+                    "value": "2021"
+                },
+                {
+                    "name": "volume",
+                    "value": "XLI"
+                },
+                {
+                    "name": "pages",
+                    "value": "895-935"
+                },
+                {
+                    "name": "doi",
+                    "value": "https://doi.org/10.15304/epc.41.6718"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "journal_1",
+                    "qualifier": "published_in"
+                },
+                {
+                    "objectId": "person_1",
+                    "qualifier": "authored_by"
+                }
+            ]
+        },
+        {
+            "id": "person_1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Farto Piay, T."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "article_1",
+                    "qualifier": "authorOf"
+                }
+            ]
+        },
+        {
+            "id": "journal_1",
+            "type": "Journal",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Estudios Penales y Criminol\ufffdgicos"
+                },
+                {
+                    "name": "issn",
+                    "value": "1137-7550"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "article_1",
+                    "qualifier": "contains"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Publication",
+            "time": "2021-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "context",
+                    "value": "See also"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "article_1",
+                    "qualifier": "article"
+                },
+                {
+                    "objectId": "person_1",
+                    "qualifier": "author"
+                },
+                {
+                    "objectId": "journal_1",
+                    "qualifier": "journal"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,100 @@
+{
+    "objectTypes": [
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": [
+                {
+                    "name": "position",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Vacancy",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Application Submitted",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "Applicant[Lisa Taylor]",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2019-06-24T23:49:28Z",
+                    "value": "Lisa Taylor"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Application[770314]",
+                    "qualifier": "submitted"
+                }
+            ]
+        },
+        {
+            "id": "Application[770314]",
+            "type": "Application",
+            "attributes": [
+                {
+                    "name": "position",
+                    "time": "2019-06-24T23:49:28Z",
+                    "value": "Manager"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Applicant[Lisa Taylor]",
+                    "qualifier": "submittedBy"
+                },
+                {
+                    "objectId": "Vacancy[550028]",
+                    "qualifier": "associatedWith"
+                }
+            ]
+        },
+        {
+            "id": "Vacancy[550028]",
+            "type": "Vacancy",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Application Submitted",
+            "time": "2019-06-24T23:49:28Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Applicant[Lisa Taylor]",
+                    "qualifier": "applicant"
+                },
+                {
+                    "objectId": "Application[770314]",
+                    "qualifier": "application"
+                },
+                {
+                    "objectId": "Vacancy[550028]",
+                    "qualifier": "vacancy"
+                }
+            ]
+        }
+    ]
+}

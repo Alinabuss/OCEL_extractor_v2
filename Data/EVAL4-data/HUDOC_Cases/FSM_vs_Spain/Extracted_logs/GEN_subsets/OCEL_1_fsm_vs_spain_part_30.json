@@ -1,0 +1,115 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": []
+        },
+        {
+            "name": "Report",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Examination",
+            "attributes": [
+                {
+                    "name": "observed_no_cognitive_or_volitional_disorders",
+                    "type": "boolean"
+                },
+                {
+                    "name": "observed_no_acute_psychiatric_disorder",
+                    "type": "boolean"
+                },
+                {
+                    "name": "observed_no_systemic_delirium",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "ReportConcluded",
+            "attributes": [
+                {
+                    "name": "conclusion",
+                    "type": "string"
+                },
+                {
+                    "name": "referred_capacity_to_stand_trial",
+                    "type": "boolean"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "p1",
+            "type": "Person",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "r1",
+            "type": "Report",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "p1",
+                    "qualifier": "about"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Examination",
+            "time": "",
+            "attributes": [
+                {
+                    "name": "observed_no_cognitive_or_volitional_disorders",
+                    "value": "true"
+                },
+                {
+                    "name": "observed_no_acute_psychiatric_disorder",
+                    "value": "true"
+                },
+                {
+                    "name": "observed_no_systemic_delirium",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "p1",
+                    "qualifier": "subject"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "ReportConcluded",
+            "time": "",
+            "attributes": [
+                {
+                    "name": "conclusion",
+                    "value": "At the moment of the examination he did not exhibit signs of any cognitive or volitional disorders; nor did he show signs of an acute psychiatric disorder or systemic delirium."
+                },
+                {
+                    "name": "referred_capacity_to_stand_trial",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "r1",
+                    "qualifier": "report"
+                },
+                {
+                    "objectId": "p1",
+                    "qualifier": "subject"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,129 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "containment",
+                    "type": "integer"
+                },
+                {
+                    "name": "evacuationOrders",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Incident Update",
+            "attributes": [
+                {
+                    "name": "summary",
+                    "type": "string"
+                },
+                {
+                    "name": "floodWatchStart",
+                    "type": "time"
+                },
+                {
+                    "name": "floodWatchEnd",
+                    "type": "time"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire-hughes-1",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-26T08:43:00Z",
+                    "value": "Hughes Fire"
+                },
+                {
+                    "name": "containment",
+                    "time": "2025-01-26T08:43:00Z",
+                    "value": "92"
+                },
+                {
+                    "name": "evacuationOrders",
+                    "value": "lifted"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "org-nws-1",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "National Weather Service"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "org-lacdpw-1",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Los Angeles County Department of Public Works"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "ev-1",
+            "type": "Incident Update",
+            "time": "2025-01-26T08:43:00Z",
+            "attributes": [
+                {
+                    "name": "summary",
+                    "value": "Yesterday firefighters fortified control lines, extinguished hot spots, and continued mop-up; crews repaired roads, backhauled firehose, and began preparing for rain. Containment at 92% and evacuation orders were lifted the day prior. Strike teams patrolled nearby communities. Firefighters and resources began demobilizing and remain available. Rain and a chance of thunderstorms today and tomorrow should stifle fire activity but could bring localized flash flooding and debris flows and gusty winds. Crews are coordinating with the National Weather Service. Residents seeking sandbags can visit Los Angeles County Department of Public Works. Shifting winds expected Tuesday."
+                },
+                {
+                    "name": "floodWatchStart",
+                    "value": "2025-01-26T16:00:00Z"
+                },
+                {
+                    "name": "floodWatchEnd",
+                    "value": "2025-01-27T16:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-hughes-1",
+                    "qualifier": "incident"
+                },
+                {
+                    "objectId": "org-nws-1",
+                    "qualifier": "coordinatingWith"
+                },
+                {
+                    "objectId": "org-lacdpw-1",
+                    "qualifier": "informationProvider"
+                }
+            ]
+        }
+    ]
+}

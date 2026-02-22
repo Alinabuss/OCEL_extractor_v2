@@ -1,0 +1,147 @@
+{
+    "objectTypes": [
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Report Item Out Of Stock",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o-mahsa-bafrani",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Mahsa Bafrani"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-warehousing",
+                    "qualifier": "works-in"
+                }
+            ]
+        },
+        {
+            "id": "o-warehousing",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o-kindle",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Kindle"
+                },
+                {
+                    "name": "price",
+                    "time": "",
+                    "value": "79.99"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-882320",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "time": "",
+                    "value": "84.56"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-kindle",
+                    "qualifier": "associated-with"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Report Item Out Of Stock",
+            "time": "2023-07-27T08:19:24Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "reported an item out of stock"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-mahsa-bafrani",
+                    "qualifier": "reporter"
+                },
+                {
+                    "objectId": "o-kindle",
+                    "qualifier": "related-product"
+                },
+                {
+                    "objectId": "i-882320",
+                    "qualifier": "related-item"
+                }
+            ]
+        }
+    ]
+}

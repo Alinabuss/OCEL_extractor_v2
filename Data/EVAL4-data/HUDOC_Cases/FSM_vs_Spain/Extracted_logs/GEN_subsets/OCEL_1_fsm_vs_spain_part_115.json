@@ -1,0 +1,404 @@
+{
+    "objectTypes": [
+        {
+            "name": "Article",
+            "attributes": [
+                {
+                    "name": "citation",
+                    "type": "string"
+                },
+                {
+                    "name": "gives_non_exhaustive_list",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Right",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "purpose",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Role",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Case",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "citation",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "FacilitySet",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Activity",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Trial",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Proceedings",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Argument",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "LegalStatement",
+            "attributes": [
+                {
+                    "name": "paragraph",
+                    "type": "string"
+                },
+                {
+                    "name": "text",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Article_6_3_b",
+            "type": "Article",
+            "attributes": [
+                {
+                    "name": "citation",
+                    "value": "Article 6 \ufffd\ufffd3 (b)"
+                },
+                {
+                    "name": "gives_non_exhaustive_list",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "RightsOfDefence",
+                    "qualifier": "givesNonExhaustiveListOf"
+                }
+            ]
+        },
+        {
+            "id": "RightsOfDefence",
+            "type": "Right",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "rights of defence"
+                },
+                {
+                    "name": "purpose",
+                    "value": "to establish equality, as far as possible, between the prosecution and the defence"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Prosecution",
+                    "qualifier": "concerns"
+                },
+                {
+                    "objectId": "Defence",
+                    "qualifier": "concerns"
+                }
+            ]
+        },
+        {
+            "id": "Accused",
+            "type": "Role",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "accused"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "PreparationOfDefence",
+                    "qualifier": "participatesIn"
+                },
+                {
+                    "objectId": "ProceedingsObj",
+                    "qualifier": "subjectOf"
+                }
+            ]
+        },
+        {
+            "id": "Prosecution",
+            "type": "Role",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "prosecution"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Defence",
+            "type": "Role",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "defence"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Mayzit",
+            "type": "Case",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Mayzit"
+                },
+                {
+                    "name": "citation",
+                    "value": "cited above, 79"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Facilities",
+            "type": "FacilitySet",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "the facilities which must be granted to the accused"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Accused",
+                    "qualifier": "grantedTo"
+                },
+                {
+                    "objectId": "PreparationOfDefence",
+                    "qualifier": "assistOrMayAssist"
+                }
+            ]
+        },
+        {
+            "id": "PreparationOfDefence",
+            "type": "Activity",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "preparation of the defence"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "MainTrial",
+            "type": "Trial",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "main trial"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "TrialCourt",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "trial court"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "ProceedingsObj",
+            "type": "Proceedings",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "proceedings"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "DefenceArguments",
+            "type": "Argument",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "relevant defence arguments"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "TrialCourt",
+                    "qualifier": "toBePutBefore"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e55",
+            "type": "LegalStatement",
+            "time": "paragraph 55",
+            "attributes": [
+                {
+                    "name": "paragraph",
+                    "value": "55"
+                },
+                {
+                    "name": "text",
+                    "value": "The 'rights of defence', of which Article 6 \ufffd\ufffd3 (b) gives a non-exhaustive list, have been instituted, above all, to establish equality, as far as possible, between the prosecution and the defence. The facilities which must be granted to the accused are restricted to those which assist or may assist him or her in the preparation of the defence (see Mayzit, cited above, 79)."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "RightsOfDefence",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "Article_6_3_b",
+                    "qualifier": "mentions"
+                },
+                {
+                    "objectId": "Prosecution",
+                    "qualifier": "concerns"
+                },
+                {
+                    "objectId": "Defence",
+                    "qualifier": "concerns"
+                },
+                {
+                    "objectId": "Accused",
+                    "qualifier": "concerns"
+                },
+                {
+                    "objectId": "Facilities",
+                    "qualifier": "mentions"
+                },
+                {
+                    "objectId": "PreparationOfDefence",
+                    "qualifier": "concerns"
+                },
+                {
+                    "objectId": "Mayzit",
+                    "qualifier": "cites"
+                }
+            ]
+        },
+        {
+            "id": "e56",
+            "type": "LegalStatement",
+            "time": "paragraph 56",
+            "attributes": [
+                {
+                    "name": "paragraph",
+                    "value": "56"
+                },
+                {
+                    "name": "text",
+                    "value": "Article 6 \ufffd\ufffd3 (b) implies that the substantive defence activity on behalf of an accused may comprise everything which is 'necessary' to prepare the main trial. The accused must have the opportunity to organise his defence in an appropriate way and without restriction as to the ability to put all relevant defence arguments before the trial court and thus to influence the outcome of the proceedings."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Article_6_3_b",
+                    "qualifier": "mentions"
+                },
+                {
+                    "objectId": "Accused",
+                    "qualifier": "concerns"
+                },
+                {
+                    "objectId": "PreparationOfDefence",
+                    "qualifier": "concerns"
+                },
+                {
+                    "objectId": "MainTrial",
+                    "qualifier": "concerns"
+                },
+                {
+                    "objectId": "TrialCourt",
+                    "qualifier": "concerns"
+                },
+                {
+                    "objectId": "ProceedingsObj",
+                    "qualifier": "concerns"
+                },
+                {
+                    "objectId": "DefenceArguments",
+                    "qualifier": "concerns"
+                },
+                {
+                    "objectId": "Defence",
+                    "qualifier": "concerns"
+                }
+            ]
+        }
+    ]
+}

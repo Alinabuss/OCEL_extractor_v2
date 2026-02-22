@@ -1,0 +1,96 @@
+{
+    "objectTypes": [
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "double"
+                },
+                {
+                    "name": "lifecycleState",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "integer"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "InvoiceReceiptCreated",
+            "attributes": [
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt:245",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "time": "2022-08-08T12:57:00Z",
+                    "value": "91200.00"
+                },
+                {
+                    "name": "lifecycleState",
+                    "time": "2022-08-08T12:57:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:245",
+                    "qualifier": "associated"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt:245",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "time": "2022-08-08T12:57:00Z",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "evt-1",
+            "type": "InvoiceReceiptCreated",
+            "time": "2022-08-08T12:57:00Z",
+            "attributes": [
+                {
+                    "name": "department",
+                    "value": "Finance/Account Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:245",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "goods receipt:245",
+                    "qualifier": "associated"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,203 @@
+{
+    "objectTypes": [
+        {
+            "name": "LegalCode",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Provision",
+            "attributes": [
+                {
+                    "name": "scope",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Act",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Article",
+            "attributes": [
+                {
+                    "name": "identifier",
+                    "type": "string"
+                },
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Amendment",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "RuleInForce",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o_code_civil",
+            "type": "LegalCode",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Code of Civil Procedure"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_provision_adjustments",
+            "type": "Provision",
+            "attributes": [
+                {
+                    "name": "scope",
+                    "time": "2021-01-01T00:00:00Z",
+                    "value": "procedural adjustments for persons with disabilities"
+                },
+                {
+                    "name": "scope",
+                    "time": "2023-01-01T00:00:00Z",
+                    "value": "procedural adjustments for elderly persons"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_code_civil",
+                    "qualifier": "included-in"
+                }
+            ]
+        },
+        {
+            "id": "o_criminal_act",
+            "type": "Act",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Criminal Procedure Act"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_article_4",
+            "type": "Article",
+            "attributes": [
+                {
+                    "name": "identifier",
+                    "time": "",
+                    "value": "Article 4"
+                },
+                {
+                    "name": "description",
+                    "time": "",
+                    "value": "Under Article 4, this Code is applicable to criminal proceedings in the absence of specific provisions in the Criminal Procedure Act"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_code_civil",
+                    "qualifier": "part-of"
+                }
+            ]
+        },
+        {
+            "id": "o_article_7bis",
+            "type": "Article",
+            "attributes": [
+                {
+                    "name": "identifier",
+                    "time": "2024-03-01T00:00:00Z",
+                    "value": "Article 7 bis"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e_2021_amendment",
+            "type": "Amendment",
+            "time": "2021-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "In 2021 the Code of Civil Procedure was amended to include a specific provision regulating procedural adjustments for persons with disabilities."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_code_civil",
+                    "qualifier": "amended"
+                },
+                {
+                    "objectId": "o_provision_adjustments",
+                    "qualifier": "included"
+                }
+            ]
+        },
+        {
+            "id": "e_2023_amendment",
+            "type": "Amendment",
+            "time": "2023-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "This provision was further amended in 2023 to regulate procedural adjustments for elderly persons."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_provision_adjustments",
+                    "qualifier": "amended"
+                }
+            ]
+        },
+        {
+            "id": "e_2024_rule_in_force",
+            "type": "RuleInForce",
+            "time": "2024-03-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "The relevant rule, as in force since March 2024, reads as follows: Article 7 bis."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_article_7bis",
+                    "qualifier": "in-force"
+                }
+            ]
+        }
+    ]
+}

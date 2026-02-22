@@ -1,0 +1,166 @@
+{
+    "objectTypes": [
+        {
+            "name": "Applicant",
+            "attributes": []
+        },
+        {
+            "name": "DefenceStrategy",
+            "attributes": []
+        },
+        {
+            "name": "Result",
+            "attributes": []
+        },
+        {
+            "name": "DomesticCourt",
+            "attributes": []
+        },
+        {
+            "name": "Lawyer",
+            "attributes": []
+        },
+        {
+            "name": "ProceduralAdjustment",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ConsideredAsDefenceStrategy",
+            "attributes": [
+                {
+                    "name": "purpose",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "InterpretedByDomesticCourts",
+            "attributes": [
+                {
+                    "name": "interpretation",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "applicant_1",
+            "type": "Applicant",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "lawyer_1",
+                    "qualifier": "represented-by"
+                }
+            ]
+        },
+        {
+            "id": "lawyer_1",
+            "type": "Lawyer",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "defence_strategy_1",
+            "type": "DefenceStrategy",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "result_1",
+                    "qualifier": "aims-at"
+                }
+            ]
+        },
+        {
+            "id": "result_1",
+            "type": "Result",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "favourable-for"
+                }
+            ]
+        },
+        {
+            "id": "domestic_courts_1",
+            "type": "DomesticCourt",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "procedural_adjustments_1",
+            "type": "ProceduralAdjustment",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "lawyer_1",
+                    "qualifier": "considered-not-necessary-by"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "ConsideredAsDefenceStrategy",
+            "time": "2020-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "purpose",
+                    "value": "achieving the result considered more favourable for the applicant"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "defence_strategy_1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "result_1",
+                    "qualifier": "target"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "beneficiary"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "InterpretedByDomesticCourts",
+            "time": "2020-01-01T00:00:01Z",
+            "attributes": [
+                {
+                    "name": "interpretation",
+                    "value": "acknowledgement that procedural adjustments would not really have assisted the applicant in presenting his defence and were not considered necessary by his own lawyer"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "defence_strategy_1",
+                    "qualifier": "interpreted"
+                },
+                {
+                    "objectId": "domestic_courts_1",
+                    "qualifier": "interpreter"
+                },
+                {
+                    "objectId": "procedural_adjustments_1",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "affected"
+                },
+                {
+                    "objectId": "lawyer_1",
+                    "qualifier": "mentioned"
+                }
+            ]
+        }
+    ]
+}

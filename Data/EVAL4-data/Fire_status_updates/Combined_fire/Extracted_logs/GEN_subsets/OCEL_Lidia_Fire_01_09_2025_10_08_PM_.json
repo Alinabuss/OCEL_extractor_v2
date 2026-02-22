@@ -1,0 +1,211 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "location",
+                    "type": "string"
+                },
+                {
+                    "name": "reported_time",
+                    "type": "time"
+                },
+                {
+                    "name": "area_acres",
+                    "type": "double"
+                },
+                {
+                    "name": "containment_percent",
+                    "type": "double"
+                },
+                {
+                    "name": "note",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Agency",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "FireReported",
+            "attributes": [
+                {
+                    "name": "location",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "UnifiedCommandEstablished",
+            "attributes": []
+        },
+        {
+            "name": "FireStatusReported",
+            "attributes": [
+                {
+                    "name": "area_acres",
+                    "type": "double"
+                },
+                {
+                    "name": "containment_percent",
+                    "type": "double"
+                },
+                {
+                    "name": "note",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire_lidia",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-08T13:08:00Z",
+                    "value": "Lidia Fire"
+                },
+                {
+                    "name": "reported_time",
+                    "time": "2025-01-08T13:08:00Z",
+                    "value": "2025-01-08T13:08:00Z"
+                },
+                {
+                    "name": "location",
+                    "time": "2025-01-08T13:08:00Z",
+                    "value": "Soledad Canyon Road, Acton, California"
+                },
+                {
+                    "name": "area_acres",
+                    "time": "2025-01-09T22:08:00Z",
+                    "value": "348"
+                },
+                {
+                    "name": "containment_percent",
+                    "time": "2025-01-09T22:08:00Z",
+                    "value": "60"
+                },
+                {
+                    "name": "note",
+                    "time": "2025-01-09T22:08:00Z",
+                    "value": "firefighters making significant progress"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "agency_angeles_national_forest",
+            "type": "Agency",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Angeles National Forest"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "agency_los_angeles_county_fire_department",
+                    "qualifier": "unifiedCommandWith"
+                }
+            ]
+        },
+        {
+            "id": "agency_los_angeles_county_fire_department",
+            "type": "Agency",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Los Angeles County Fire Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "agency_angeles_national_forest",
+                    "qualifier": "unifiedCommandWith"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "FireReported",
+            "time": "2025-01-08T13:08:00Z",
+            "attributes": [
+                {
+                    "name": "location",
+                    "value": "Soledad Canyon Road, Acton, California"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_lidia",
+                    "qualifier": "subject"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "UnifiedCommandEstablished",
+            "time": "2025-01-09T22:08:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "agency_angeles_national_forest",
+                    "qualifier": "participant"
+                },
+                {
+                    "objectId": "agency_los_angeles_county_fire_department",
+                    "qualifier": "participant"
+                },
+                {
+                    "objectId": "fire_lidia",
+                    "qualifier": "subject"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "FireStatusReported",
+            "time": "2025-01-09T22:08:00Z",
+            "attributes": [
+                {
+                    "name": "area_acres",
+                    "value": "348"
+                },
+                {
+                    "name": "containment_percent",
+                    "value": "60"
+                },
+                {
+                    "name": "note",
+                    "value": "firefighters making significant progress"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_lidia",
+                    "qualifier": "subject"
+                }
+            ]
+        }
+    ]
+}

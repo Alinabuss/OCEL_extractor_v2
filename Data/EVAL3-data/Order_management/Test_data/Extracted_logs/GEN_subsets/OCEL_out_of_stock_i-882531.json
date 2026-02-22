@@ -1,0 +1,121 @@
+{
+    "objectTypes": [
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "fullName",
+                    "type": "string"
+                },
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "OutOfStockReport",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o-leah-tacke-unterberg",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "fullName",
+                    "value": "Leah Tacke genannt Unterberg"
+                },
+                {
+                    "name": "department",
+                    "value": "Warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-882531",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": 1189.12
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-ipad-pro",
+                    "qualifier": "associatedWith"
+                }
+            ]
+        },
+        {
+            "id": "product-ipad-pro",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "iPad Pro"
+                },
+                {
+                    "name": "price",
+                    "value": 1099.0
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e-1",
+            "type": "OutOfStockReport",
+            "time": "2023-08-08T13:37:23Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "out of stock"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-leah-tacke-unterberg",
+                    "qualifier": "reportedBy"
+                },
+                {
+                    "objectId": "i-882531",
+                    "qualifier": "item"
+                }
+            ]
+        }
+    ]
+}

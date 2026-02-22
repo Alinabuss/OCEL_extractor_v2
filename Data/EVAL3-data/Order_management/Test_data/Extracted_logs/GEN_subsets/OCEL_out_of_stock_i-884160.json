@@ -1,0 +1,121 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "double"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "double"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Out of Stock Recorded",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "person-benedikt-knopp",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Benedikt Knopp"
+                },
+                {
+                    "name": "department",
+                    "value": "warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-884160",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "141.61"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-kindle-paperwhite",
+                    "qualifier": "associated_with"
+                }
+            ]
+        },
+        {
+            "id": "product-kindle-paperwhite",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Kindle Paperwhite"
+                },
+                {
+                    "name": "price",
+                    "value": "129.0"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Out of Stock Recorded",
+            "time": "2023-10-16T09:56:53Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "out of stock"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person-benedikt-knopp",
+                    "qualifier": "recorded_by"
+                },
+                {
+                    "objectId": "i-884160",
+                    "qualifier": "affected"
+                }
+            ]
+        }
+    ]
+}

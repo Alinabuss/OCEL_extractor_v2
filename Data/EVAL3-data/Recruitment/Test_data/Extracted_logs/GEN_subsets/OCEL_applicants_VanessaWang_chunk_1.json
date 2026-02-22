@@ -1,0 +1,103 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": [
+                {
+                    "name": "applicationId",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Rejection Sent",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "Jana Geisler",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Jana Geisler"
+                },
+                {
+                    "name": "role",
+                    "value": "recruiter"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Vanessa Wang",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Vanessa Wang"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Application[770230]",
+            "type": "Application",
+            "attributes": [
+                {
+                    "name": "applicationId",
+                    "value": "770230"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Vanessa Wang",
+                    "qualifier": "belongs-to"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Rejection Sent",
+            "time": "2019-07-04T15:32:37Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "sent a rejection"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Jana Geisler",
+                    "qualifier": "sender"
+                },
+                {
+                    "objectId": "Vanessa Wang",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "Application[770230]",
+                    "qualifier": "concerns"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,89 @@
+{
+    "objectTypes": [
+        {
+            "name": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "integer"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "InvoiceReceipt Created",
+            "attributes": [
+                {
+                    "name": "classification",
+                    "type": "string"
+                },
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt:830",
+            "type": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "time": "2023-05-29T09:40:00Z",
+                    "value": "16500.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "goods receipt:815",
+            "type": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "InvoiceReceipt Created",
+            "time": "2023-05-29T09:40:00Z",
+            "attributes": [
+                {
+                    "name": "classification",
+                    "value": "complete"
+                },
+                {
+                    "name": "department",
+                    "value": "Finance/Account Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt:830",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "goods receipt:815",
+                    "qualifier": "connection"
+                }
+            ]
+        }
+    ]
+}

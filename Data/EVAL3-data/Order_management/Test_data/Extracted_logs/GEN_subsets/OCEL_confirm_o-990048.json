@@ -1,0 +1,163 @@
+{
+    "objectTypes": [
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Customer",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "itemId",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Order Confirmation",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "iPhone 11 Pro",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "iPhone 11 Pro"
+                },
+                {
+                    "name": "price",
+                    "value": "1149.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Fire Stick 4K",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Fire Stick 4K"
+                },
+                {
+                    "name": "price",
+                    "value": "89.99"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-880206",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "itemId",
+                    "value": "i-880206"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Fire Stick 4K",
+                    "qualifier": "corresponds-to"
+                }
+            ]
+        },
+        {
+            "id": "Mediterranea Luxury Cruises S.p.A.",
+            "type": "Customer",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Mediterranea Luxury Cruises S.p.A."
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Christine von Dobbert",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Christine von Dobbert"
+                },
+                {
+                    "name": "role",
+                    "value": "sales role"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Mediterranea Luxury Cruises S.p.A.",
+                    "qualifier": "represents"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Order Confirmation",
+            "time": "2023-04-25T12:34:04Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "iPhone 11 Pro",
+                    "qualifier": "involves"
+                },
+                {
+                    "objectId": "Fire Stick 4K",
+                    "qualifier": "involves"
+                },
+                {
+                    "objectId": "i-880206",
+                    "qualifier": "includes"
+                },
+                {
+                    "objectId": "Mediterranea Luxury Cruises S.p.A.",
+                    "qualifier": "customer"
+                },
+                {
+                    "objectId": "Christine von Dobbert",
+                    "qualifier": "representative"
+                }
+            ]
+        }
+    ]
+}

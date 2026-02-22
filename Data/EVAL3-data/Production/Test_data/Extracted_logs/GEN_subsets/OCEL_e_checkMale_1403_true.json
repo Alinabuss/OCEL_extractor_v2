@@ -1,0 +1,126 @@
+{
+    "objectTypes": [
+        {
+            "name": "Worker",
+            "attributes": []
+        },
+        {
+            "name": "Part",
+            "attributes": [
+                {
+                    "name": "gender",
+                    "type": "string"
+                },
+                {
+                    "name": "processing_state",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Workstation",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Evaluate",
+            "attributes": [
+                {
+                    "name": "co2eq_kg",
+                    "type": "double"
+                },
+                {
+                    "name": "compressed_air_m3",
+                    "type": "double"
+                },
+                {
+                    "name": "duration",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "worker-1",
+            "type": "Worker",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "part-1",
+            "type": "Part",
+            "attributes": [
+                {
+                    "name": "gender",
+                    "time": "2023-04-03T14:41:01Z",
+                    "value": "male"
+                },
+                {
+                    "name": "processing_state",
+                    "time": "2023-04-03T14:41:01Z",
+                    "value": "processing"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "workstation-2",
+                    "qualifier": "located_on"
+                }
+            ]
+        },
+        {
+            "id": "workstation-2",
+            "type": "Workstation",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-04-03T14:41:01Z",
+                    "value": "workstation 2"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Evaluate",
+            "time": "2023-04-03T14:41:01Z",
+            "attributes": [
+                {
+                    "name": "co2eq_kg",
+                    "value": "0.00136458"
+                },
+                {
+                    "name": "compressed_air_m3",
+                    "value": "0.021"
+                },
+                {
+                    "name": "duration",
+                    "value": "unspecified"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "worker-1",
+                    "qualifier": "performer"
+                },
+                {
+                    "objectId": "part-1",
+                    "qualifier": "checked"
+                },
+                {
+                    "objectId": "workstation-2",
+                    "qualifier": "location"
+                }
+            ]
+        }
+    ]
+}

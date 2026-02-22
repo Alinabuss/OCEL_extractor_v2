@@ -1,0 +1,113 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "valuation",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ReportOutOfStock",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "person-nina-graves",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Nina Graves"
+                },
+                {
+                    "name": "department",
+                    "value": "Warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "product-iPad",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "495.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-881164",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "valuation",
+                    "value": "523.26"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-iPad",
+                    "qualifier": "associated"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "ReportOutOfStock",
+            "time": "2023-06-13T18:03:05Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "out_of_stock"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person-nina-graves",
+                    "qualifier": "reporter"
+                },
+                {
+                    "objectId": "i-881164",
+                    "qualifier": "reported_item"
+                }
+            ]
+        }
+    ]
+}

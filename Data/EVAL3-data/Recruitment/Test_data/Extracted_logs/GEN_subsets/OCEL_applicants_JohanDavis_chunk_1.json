@@ -1,0 +1,109 @@
+{
+    "objectTypes": [
+        {
+            "name": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": [
+                {
+                    "name": "applicationId",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Communicated Rejection",
+            "attributes": [
+                {
+                    "name": "decision",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Recruiter:Simon Hense",
+            "type": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Simon Hense"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Applicant:Johan Davis",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Johan Davis"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Application[770331]",
+            "type": "Application",
+            "attributes": [
+                {
+                    "name": "applicationId",
+                    "value": "770331"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Applicant:Johan Davis",
+                    "qualifier": "applied-by"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Communicated Rejection",
+            "time": "2019-07-04T13:33:46Z",
+            "attributes": [
+                {
+                    "name": "decision",
+                    "value": "rejection"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Recruiter:Simon Hense",
+                    "qualifier": "sender"
+                },
+                {
+                    "objectId": "Applicant:Johan Davis",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "Application[770331]",
+                    "qualifier": "application"
+                }
+            ]
+        }
+    ]
+}

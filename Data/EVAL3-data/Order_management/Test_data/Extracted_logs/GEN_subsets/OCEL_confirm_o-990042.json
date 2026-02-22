@@ -1,0 +1,189 @@
+{
+    "objectTypes": [
+        {
+            "name": "Customer",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Order",
+            "attributes": []
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "position",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "OrderConfirmed",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "cust_1",
+            "type": "Customer",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Nordica Systems GmbH"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "order_1",
+            "type": "Order",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "prod_iPad",
+                    "qualifier": "includes"
+                },
+                {
+                    "objectId": "prod_EchoStudio",
+                    "qualifier": "includes"
+                },
+                {
+                    "objectId": "item_1",
+                    "qualifier": "includes"
+                },
+                {
+                    "objectId": "item_2",
+                    "qualifier": "includes"
+                }
+            ]
+        },
+        {
+            "id": "prod_iPad",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "iPad"
+                },
+                {
+                    "name": "price",
+                    "value": "495.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "prod_EchoStudio",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Echo Studio"
+                },
+                {
+                    "name": "price",
+                    "value": "199.99"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "item_1",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "position",
+                    "value": "first"
+                },
+                {
+                    "name": "price",
+                    "value": "79.99"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "order_1",
+                    "qualifier": "part-of"
+                }
+            ]
+        },
+        {
+            "id": "item_2",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "position",
+                    "value": "second"
+                },
+                {
+                    "name": "price",
+                    "value": "699.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "order_1",
+                    "qualifier": "part-of"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "OrderConfirmed",
+            "time": "2023-04-21T15:21:37Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "cust_1",
+                    "qualifier": "customer"
+                },
+                {
+                    "objectId": "order_1",
+                    "qualifier": "order"
+                },
+                {
+                    "objectId": "prod_iPad",
+                    "qualifier": "included"
+                },
+                {
+                    "objectId": "prod_EchoStudio",
+                    "qualifier": "included"
+                },
+                {
+                    "objectId": "item_1",
+                    "qualifier": "included"
+                },
+                {
+                    "objectId": "item_2",
+                    "qualifier": "included"
+                }
+            ]
+        }
+    ]
+}

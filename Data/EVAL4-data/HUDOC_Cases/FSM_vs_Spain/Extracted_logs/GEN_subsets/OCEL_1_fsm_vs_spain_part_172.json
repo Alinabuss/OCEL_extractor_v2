@@ -1,0 +1,207 @@
+{
+    "objectTypes": [
+        {
+            "name": "Element",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "doubt_about_capacity",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Proceedings",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "DomesticLaw",
+            "attributes": [
+                {
+                    "name": "relevant",
+                    "type": "string"
+                },
+                {
+                    "name": "has_express_regulation_for_specific_types_of_procedure",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ElementsDrewAttention",
+            "attributes": [
+                {
+                    "name": "statement",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "NoLegalProvisionsObserved",
+            "attributes": [
+                {
+                    "name": "statement",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "element_1",
+            "type": "Element",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "",
+                    "value": "those elements"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "domestic_court_1",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "",
+                    "value": "domestic courts"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "proceedings_1",
+                    "qualifier": "involved_in"
+                }
+            ]
+        },
+        {
+            "id": "applicant_1",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "doubt_about_capacity",
+                    "time": "",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "proceedings_1",
+                    "qualifier": "participant_in"
+                }
+            ]
+        },
+        {
+            "id": "proceedings_1",
+            "type": "Proceedings",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "",
+                    "value": "the proceedings"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "domestic_law_1",
+            "type": "DomesticLaw",
+            "attributes": [
+                {
+                    "name": "relevant",
+                    "time": "",
+                    "value": "true"
+                },
+                {
+                    "name": "has_express_regulation_for_specific_types_of_procedure",
+                    "time": "",
+                    "value": "false"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "proceedings_1",
+                    "qualifier": "relevant_to"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "ElementsDrewAttention",
+            "time": "at the time of the events",
+            "attributes": [
+                {
+                    "name": "statement",
+                    "value": "In the Court's view, those elements sufficiently drew the attention of the domestic courts to the existence of doubts about the applicant's capacity to effectively participate in the proceedings, in a manner which appears to be consistent with the relevant domestic law."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "element_1",
+                    "qualifier": "trigger"
+                },
+                {
+                    "objectId": "domestic_court_1",
+                    "qualifier": "receiver"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "proceedings_1",
+                    "qualifier": "context"
+                },
+                {
+                    "objectId": "domestic_law_1",
+                    "qualifier": "consistent_with"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "NoLegalProvisionsObserved",
+            "time": "at the time of the events",
+            "attributes": [
+                {
+                    "name": "statement",
+                    "value": "At the time of the events, there were no legal provisions expressly regulating specific types of procedure."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "domestic_law_1",
+                    "qualifier": "about"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,158 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasingGroup",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                },
+                {
+                    "name": "approvalStatus",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Quotation",
+            "attributes": [
+                {
+                    "name": "purchasingGroup",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        },
+        {
+            "name": "Person",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Purchase Order Created",
+            "attributes": []
+        },
+        {
+            "name": "Purchase Order Approval Completed",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "Purchase Order[1577]",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "complete",
+                    "time": "2024-09-26T21:04:00Z"
+                },
+                {
+                    "name": "purchasingGroup",
+                    "value": "002",
+                    "time": "2024-09-26T21:04:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Quotation[916]",
+                    "qualifier": "derivedFrom"
+                }
+            ]
+        },
+        {
+            "id": "Purchase Order[1576]",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasingGroup",
+                    "value": "002"
+                },
+                {
+                    "name": "approvalStatus",
+                    "value": "approved",
+                    "time": "2024-10-01T08:13:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Quotation[916]",
+                    "qualifier": "derivedFrom"
+                }
+            ]
+        },
+        {
+            "id": "Quotation[916]",
+            "type": "Quotation",
+            "attributes": [
+                {
+                    "name": "purchasingGroup",
+                    "value": "002"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Procurement Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Procurement Order Manager",
+            "type": "Person",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "EV1",
+            "type": "Purchase Order Created",
+            "time": "2024-09-26T21:04:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Purchase Order[1577]",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "Quotation[916]",
+                    "qualifier": "relatedQuotation"
+                },
+                {
+                    "objectId": "Procurement Department",
+                    "qualifier": "performedIn"
+                }
+            ]
+        },
+        {
+            "id": "EV2",
+            "type": "Purchase Order Approval Completed",
+            "time": "2024-10-01T08:13:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Purchase Order[1576]",
+                    "qualifier": "approved"
+                },
+                {
+                    "objectId": "Quotation[916]",
+                    "qualifier": "relatedQuotation"
+                },
+                {
+                    "objectId": "Procurement Order Manager",
+                    "qualifier": "performedBy"
+                }
+            ]
+        }
+    ]
+}

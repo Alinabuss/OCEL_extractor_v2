@@ -1,0 +1,110 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "Purchasing Group",
+                    "type": "string"
+                },
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Quotation",
+            "attributes": [
+                {
+                    "name": "Purchasing Group",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "PurchaseOrderCreated",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order[493]",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "Purchasing Group",
+                    "value": "001",
+                    "time": "2023-02-02T11:58:00Z"
+                },
+                {
+                    "name": "lifecycle",
+                    "value": "complete",
+                    "time": "2023-02-02T11:58:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation[291]",
+                    "qualifier": "linked-to"
+                }
+            ]
+        },
+        {
+            "id": "quotation[291]",
+            "type": "Quotation",
+            "attributes": [
+                {
+                    "name": "Purchasing Group",
+                    "value": "001",
+                    "time": "2023-02-02T11:58:00Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "department[Procurement Department]",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Procurement Department"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "PurchaseOrderCreated",
+            "time": "2023-02-02T11:58:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchase_order[493]",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "quotation[291]",
+                    "qualifier": "linked-to"
+                },
+                {
+                    "objectId": "department[Procurement Department]",
+                    "qualifier": "facilitated-by"
+                }
+            ]
+        }
+    ]
+}

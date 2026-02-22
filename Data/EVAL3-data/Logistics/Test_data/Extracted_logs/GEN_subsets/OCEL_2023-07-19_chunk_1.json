@@ -1,0 +1,102 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "type": "float"
+                },
+                {
+                    "name": "amountUnit",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "type": "datetime"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "TransportDocumentCreated",
+            "attributes": []
+        },
+        {
+            "name": "VehiclesBooked",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "td73",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "value": "2.0",
+                    "time": "2023-07-19T00:00:00Z"
+                },
+                {
+                    "name": "amountUnit",
+                    "value": "containers",
+                    "time": "2023-07-19T00:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "vh23",
+                    "qualifier": "regularVehicle"
+                }
+            ]
+        },
+        {
+            "id": "vh23",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "value": "2023-08-15T11:00:00Z",
+                    "time": "2023-07-19T12:01:37Z"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "TransportDocumentCreated",
+            "time": "2023-07-19T00:00:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "td73",
+                    "qualifier": "transportDocument"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "VehiclesBooked",
+            "time": "2023-07-19T12:01:37Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "td73",
+                    "qualifier": "transportDocument"
+                },
+                {
+                    "objectId": "vh23",
+                    "qualifier": "regularVehicle"
+                }
+            ]
+        }
+    ]
+}

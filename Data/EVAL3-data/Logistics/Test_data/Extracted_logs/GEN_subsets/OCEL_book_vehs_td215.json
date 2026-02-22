@@ -1,0 +1,82 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "type": "time"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "VehicleBooked",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "td215",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "time": "2023-11-02T09:55:51Z",
+                    "value": "5.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "vh50",
+                    "qualifier": "bookedVehicle"
+                }
+            ]
+        },
+        {
+            "id": "vh50",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "time": "2023-11-02T09:55:51Z",
+                    "value": "2023-11-17T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td215",
+                    "qualifier": "bookedFor"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "VehicleBooked",
+            "time": "2023-11-02T09:55:51Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "td215",
+                    "qualifier": "transportDocument"
+                },
+                {
+                    "objectId": "vh50",
+                    "qualifier": "vehicle"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,184 @@
+{
+    "objectTypes": [
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "type": "string"
+                },
+                {
+                    "name": "lifecycle_status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PurchaseOrder",
+            "attributes": []
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": []
+        },
+        {
+            "name": "PurchaseRequisition",
+            "attributes": [
+                {
+                    "name": "lifecycle_status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Material",
+            "attributes": [
+                {
+                    "name": "net_price",
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "name": "Resource",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "GoodsReceiptCreated",
+            "attributes": []
+        },
+        {
+            "name": "PurchaseRequisitionApproved",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "goods receipt:1442",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "value": "101",
+                    "time": "2024-03-02T02:29:00Z"
+                },
+                {
+                    "name": "lifecycle_status",
+                    "value": "complete",
+                    "time": "2024-03-02T02:29:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:1195",
+                    "qualifier": "linked"
+                }
+            ]
+        },
+        {
+            "id": "purchase_order:1195",
+            "type": "PurchaseOrder",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "003",
+                    "qualifier": "purchasing_group"
+                }
+            ]
+        },
+        {
+            "id": "003",
+            "type": "PurchasingGroup",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Purchase Requisition[703:pr_trigger_703]",
+            "type": "PurchaseRequisition",
+            "attributes": [
+                {
+                    "name": "lifecycle_status",
+                    "value": "complete",
+                    "time": "2024-03-02T19:08:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Material[1754]",
+                    "qualifier": "linked"
+                },
+                {
+                    "objectId": "003",
+                    "qualifier": "purchasing_group"
+                }
+            ]
+        },
+        {
+            "id": "Material[1754]",
+            "type": "Material",
+            "attributes": [
+                {
+                    "name": "net_price",
+                    "value": 750.0
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Warehouse Department",
+            "type": "Resource",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Procurement Requisition Manager",
+            "type": "Resource",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "GoodsReceiptCreated",
+            "time": "2024-03-02T02:29:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "goods receipt:1442",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "purchase_order:1195",
+                    "qualifier": "linked"
+                },
+                {
+                    "objectId": "Warehouse Department",
+                    "qualifier": "responsible"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "PurchaseRequisitionApproved",
+            "time": "2024-03-02T19:08:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Purchase Requisition[703:pr_trigger_703]",
+                    "qualifier": "approved"
+                },
+                {
+                    "objectId": "Material[1754]",
+                    "qualifier": "linked"
+                },
+                {
+                    "objectId": "Procurement Requisition Manager",
+                    "qualifier": "responsible"
+                }
+            ]
+        }
+    ]
+}

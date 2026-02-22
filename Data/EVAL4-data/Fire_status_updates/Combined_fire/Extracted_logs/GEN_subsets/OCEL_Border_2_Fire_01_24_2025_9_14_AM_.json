@@ -1,0 +1,228 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Unit",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Aircraft",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ResourceOrder",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Situation Report",
+            "attributes": [
+                {
+                    "name": "headline",
+                    "type": "string"
+                },
+                {
+                    "name": "summary",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire_border_2",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-24T09:14:00Z",
+                    "value": "Border 2 Fire"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "loc_otay_lakes_road",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-24T09:14:00Z",
+                    "value": "Otay Lakes Road"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_border_2",
+                    "qualifier": "impacted_by"
+                }
+            ]
+        },
+        {
+            "id": "loc_otay_mountain_wilderness",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-24T09:14:00Z",
+                    "value": "Otay Mountain Wilderness"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "loc_north_west_otay_mountain_wilderness",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-24T09:14:00Z",
+                    "value": "North and West of the Otay Mountain Wilderness"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "loc_otay_mountain_wilderness",
+                    "qualifier": "north_and_west_of"
+                }
+            ]
+        },
+        {
+            "id": "unit_fire_crews",
+            "type": "Unit",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-24T09:14:00Z",
+                    "value": "fire crews"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "aircraft_calfire_firehawk_helicopters",
+            "type": "Aircraft",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-24T09:14:00Z",
+                    "value": "CAL FIRE Fire-Hawk helicopters"
+                },
+                {
+                    "name": "operation",
+                    "time": "2025-01-24T09:14:00Z",
+                    "value": "night flying"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "aircraft_fixed_wing",
+            "type": "Aircraft",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-24T09:14:00Z",
+                    "value": "fixed wing aircraft"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "resource_order_augmentation",
+            "type": "ResourceOrder",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-24T09:14:00Z",
+                    "value": "substantial augmentation of resources ordered"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Situation Report",
+            "time": "2025-01-24T09:14:00Z",
+            "attributes": [
+                {
+                    "name": "headline",
+                    "value": "Border 2 Fire as of 01/24/2025 at 9:14 AM"
+                },
+                {
+                    "name": "summary",
+                    "value": "Fire crews experienced extreme fire behavior last night with long range spotting. The fire has impacted Otay Lakes Road, prompting EVACUATION ORDERS and WARNINGS to the North and West of the Otay Mountain Wilderness. Night flying CAL FIRE Fire-Hawk helicopters provided aerial support over the fire, while fixed wing aircraft have been ordered to be over the fire in the morning hours. A substantial augmentation of resources has been ordered and will report for assignment this morning."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_border_2",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "unit_fire_crews",
+                    "qualifier": "experienced"
+                },
+                {
+                    "objectId": "loc_otay_lakes_road",
+                    "qualifier": "impacted"
+                },
+                {
+                    "objectId": "loc_north_west_otay_mountain_wilderness",
+                    "qualifier": "evacuation_area"
+                },
+                {
+                    "objectId": "loc_otay_mountain_wilderness",
+                    "qualifier": "reference_location"
+                },
+                {
+                    "objectId": "aircraft_calfire_firehawk_helicopters",
+                    "qualifier": "provided_aerial_support"
+                },
+                {
+                    "objectId": "aircraft_fixed_wing",
+                    "qualifier": "ordered_to_deploy_morning"
+                },
+                {
+                    "objectId": "resource_order_augmentation",
+                    "qualifier": "ordered"
+                }
+            ]
+        }
+    ]
+}

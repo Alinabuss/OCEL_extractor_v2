@@ -1,0 +1,91 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "type": "float"
+                },
+                {
+                    "name": "amountUnit",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "type": "time"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "VehicleBooked",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "td256",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "time": "",
+                    "value": "3.0"
+                },
+                {
+                    "name": "amountUnit",
+                    "time": "",
+                    "value": "containers"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "vh59",
+                    "qualifier": "associatedWith"
+                }
+            ]
+        },
+        {
+            "id": "vh59",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "time": "",
+                    "value": "2023-12-19T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td256",
+                    "qualifier": "associatedWith"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "VehicleBooked",
+            "time": "2023-12-05T13:44:43Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "vh59",
+                    "qualifier": "vehicle"
+                },
+                {
+                    "objectId": "td256",
+                    "qualifier": "transportDocument"
+                }
+            ]
+        }
+    ]
+}

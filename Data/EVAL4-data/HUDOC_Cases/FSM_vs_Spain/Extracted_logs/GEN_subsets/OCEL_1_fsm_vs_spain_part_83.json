@@ -1,0 +1,243 @@
+{
+    "objectTypes": [
+        {
+            "name": "Judgment",
+            "attributes": [
+                {
+                    "name": "subject",
+                    "type": "string"
+                },
+                {
+                    "name": "specifiedActs",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "Guardian",
+            "attributes": []
+        },
+        {
+            "name": "Act",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "JudicialAuthorisation",
+            "attributes": []
+        },
+        {
+            "name": "Code",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ConventionArticle",
+            "attributes": [
+                {
+                    "name": "number",
+                    "type": "int"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "JudgmentDoesNotSpecifyActs",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "InterventionDeemedToExtend",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "AllegedViolationArticle6",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "article_number",
+                    "type": "int"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "judgment:incapacitation:1",
+            "type": "Judgment",
+            "attributes": [
+                {
+                    "name": "subject",
+                    "time": "2020-01-01T00:00:00Z",
+                    "value": "incapacitation"
+                },
+                {
+                    "name": "specifiedActs",
+                    "time": "2020-01-01T00:00:00Z",
+                    "value": "false"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "guardian:general:1",
+                    "qualifier": "concerns_intervention_of"
+                }
+            ]
+        },
+        {
+            "id": "guardian:general:1",
+            "type": "Guardian",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "acts:requiring_jud_auth:1",
+            "type": "Act",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2020-01-01T00:00:01Z",
+                    "value": "acts for which guardians require judicial authorisation"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "judicial_authorisation:1",
+                    "qualifier": "require_authorisation"
+                }
+            ]
+        },
+        {
+            "id": "judicial_authorisation:1",
+            "type": "JudicialAuthorisation",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "code:this_code:1",
+            "type": "Code",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2020-01-01T00:00:01Z",
+                    "value": "this Code"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "convention_article:6",
+            "type": "ConventionArticle",
+            "attributes": [
+                {
+                    "name": "number",
+                    "time": "2020-01-01T00:00:02Z",
+                    "value": "6"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "JudgmentDoesNotSpecifyActs",
+            "time": "2020-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Judgment on incapacitation has not specified the acts for which the intervention of the guardian should be necessary."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "judgment:incapacitation:1",
+                    "qualifier": "judgment"
+                },
+                {
+                    "objectId": "guardian:general:1",
+                    "qualifier": "guardian"
+                },
+                {
+                    "objectId": "acts:requiring_jud_auth:1",
+                    "qualifier": "unspecified_acts"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "InterventionDeemedToExtend",
+            "time": "2020-01-01T00:00:01Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Intervention of the guardian shall be deemed to extend to the same acts for which guardians require judicial authorisation, in accordance with this Code."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "guardian:general:1",
+                    "qualifier": "intervention_subject"
+                },
+                {
+                    "objectId": "acts:requiring_jud_auth:1",
+                    "qualifier": "extends_to"
+                },
+                {
+                    "objectId": "judicial_authorisation:1",
+                    "qualifier": "context_authorisation"
+                },
+                {
+                    "objectId": "code:this_code:1",
+                    "qualifier": "in_accordance_with"
+                },
+                {
+                    "objectId": "judgment:incapacitation:1",
+                    "qualifier": "triggering_judgment"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "type": "AllegedViolationArticle6",
+            "time": "2020-01-01T00:00:02Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "ALLEGED VIOLATION OF ARTICLE 6 OF THE CONVENTION"
+                },
+                {
+                    "name": "article_number",
+                    "value": "6"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "convention_article:6",
+                    "qualifier": "article"
+                }
+            ]
+        }
+    ]
+}

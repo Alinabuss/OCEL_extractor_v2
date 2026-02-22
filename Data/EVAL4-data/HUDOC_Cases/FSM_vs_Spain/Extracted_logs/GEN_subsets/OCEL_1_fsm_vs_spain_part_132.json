@@ -1,0 +1,92 @@
+{
+    "objectTypes": [
+        {
+            "name": "Lawyer",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Applicant",
+            "attributes": []
+        },
+        {
+            "name": "Proceedings",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "AskDiscontinuation",
+            "attributes": [
+                {
+                    "name": "requested_specific_procedural_adjustments",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "lawyer_this",
+            "type": "Lawyer",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "lawyer_legal_aid",
+            "type": "Lawyer",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "",
+                    "value": "legal aid"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "previously_represented"
+                }
+            ]
+        },
+        {
+            "id": "applicant_1",
+            "type": "Applicant",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "proceedings_1",
+            "type": "Proceedings",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "AskDiscontinuation",
+            "time": "1970-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "requested_specific_procedural_adjustments",
+                    "value": "no"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "lawyer_this",
+                    "qualifier": "requester"
+                },
+                {
+                    "objectId": "proceedings_1",
+                    "qualifier": "affected"
+                }
+            ]
+        }
+    ]
+}

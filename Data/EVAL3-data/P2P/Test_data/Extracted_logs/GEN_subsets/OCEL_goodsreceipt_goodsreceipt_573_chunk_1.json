@@ -1,0 +1,131 @@
+{
+    "objectTypes": [
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "GoodsReceiptRecorded",
+            "attributes": []
+        },
+        {
+            "name": "TwoWayMatchCompleted",
+            "attributes": [
+                {
+                    "name": "matchType",
+                    "type": "string"
+                },
+                {
+                    "name": "lifecycle",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "GR-573",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "time": "2023-02-06T12:41:00Z",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "IR-581",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "time": "2023-02-06T12:41:00Z",
+                    "value": "49550.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Dept-FinanceAccount",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2023-02-06T12:41:00Z",
+                    "value": "Finance/Account Department"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "GoodsReceiptRecorded",
+            "time": "2023-02-06T12:41:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "GR-573",
+                    "qualifier": "recorded"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "TwoWayMatchCompleted",
+            "time": "2023-02-06T12:41:00Z",
+            "attributes": [
+                {
+                    "name": "matchType",
+                    "value": "two-way"
+                },
+                {
+                    "name": "lifecycle",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "GR-573",
+                    "qualifier": "matched"
+                },
+                {
+                    "objectId": "IR-581",
+                    "qualifier": "matched"
+                },
+                {
+                    "objectId": "Dept-FinanceAccount",
+                    "qualifier": "involved"
+                }
+            ]
+        }
+    ]
+}

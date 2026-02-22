@@ -1,0 +1,272 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "hasDisability",
+                    "type": "boolean"
+                },
+                {
+                    "name": "ageCategory",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Case",
+            "attributes": []
+        },
+        {
+            "name": "Party",
+            "attributes": []
+        },
+        {
+            "name": "PublicProsecutor",
+            "attributes": []
+        },
+        {
+            "name": "Court",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "AccommodationMadeAtRequest",
+            "attributes": []
+        },
+        {
+            "name": "AccommodationMadeByCourtOwnMotion",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "person_disability",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "hasDisability",
+                    "time": "",
+                    "value": "true"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "case_disability",
+            "type": "Case",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "person_disability",
+                    "qualifier": "concerns"
+                },
+                {
+                    "objectId": "party_1",
+                    "qualifier": "has_party"
+                },
+                {
+                    "objectId": "public_prosecutor_1",
+                    "qualifier": "has_public_prosecutor"
+                }
+            ]
+        },
+        {
+            "id": "party_1",
+            "type": "Party",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "case_disability",
+                    "qualifier": "party_of"
+                }
+            ]
+        },
+        {
+            "id": "public_prosecutor_1",
+            "type": "PublicProsecutor",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "case_disability",
+                    "qualifier": "prosecutor_of"
+                }
+            ]
+        },
+        {
+            "id": "court_1",
+            "type": "Court",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "person_below_80",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "ageCategory",
+                    "time": "",
+                    "value": "below 80"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "case_below_80",
+            "type": "Case",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "person_below_80",
+                    "qualifier": "concerns"
+                }
+            ]
+        },
+        {
+            "id": "person_80_plus",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "ageCategory",
+                    "time": "",
+                    "value": "80 or older"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "case_80_plus",
+            "type": "Case",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "person_80_plus",
+                    "qualifier": "concerns"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "AccommodationMadeAtRequest",
+            "time": "2025-01-01T09:00:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "case_disability",
+                    "qualifier": "in_case"
+                },
+                {
+                    "objectId": "person_disability",
+                    "qualifier": "for"
+                },
+                {
+                    "objectId": "party_1",
+                    "qualifier": "requested_by"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "AccommodationMadeAtRequest",
+            "time": "2025-01-01T09:05:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "case_disability",
+                    "qualifier": "in_case"
+                },
+                {
+                    "objectId": "person_disability",
+                    "qualifier": "for"
+                },
+                {
+                    "objectId": "public_prosecutor_1",
+                    "qualifier": "requested_by"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "AccommodationMadeByCourtOwnMotion",
+            "time": "2025-01-01T09:10:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "case_disability",
+                    "qualifier": "in_case"
+                },
+                {
+                    "objectId": "person_disability",
+                    "qualifier": "for"
+                },
+                {
+                    "objectId": "court_1",
+                    "qualifier": "initiated_by"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "AccommodationMadeAtRequest",
+            "time": "2025-01-02T10:00:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "case_below_80",
+                    "qualifier": "in_case"
+                },
+                {
+                    "objectId": "person_below_80",
+                    "qualifier": "for"
+                },
+                {
+                    "objectId": "person_below_80",
+                    "qualifier": "requested_by"
+                }
+            ]
+        },
+        {
+            "id": "e5",
+            "type": "AccommodationMadeAtRequest",
+            "time": "2025-01-03T11:00:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "case_80_plus",
+                    "qualifier": "in_case"
+                },
+                {
+                    "objectId": "person_80_plus",
+                    "qualifier": "for"
+                },
+                {
+                    "objectId": "person_80_plus",
+                    "qualifier": "requested_by"
+                }
+            ]
+        },
+        {
+            "id": "e6",
+            "type": "AccommodationMadeByCourtOwnMotion",
+            "time": "2025-01-03T11:05:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "case_80_plus",
+                    "qualifier": "in_case"
+                },
+                {
+                    "objectId": "person_80_plus",
+                    "qualifier": "for"
+                },
+                {
+                    "objectId": "court_1",
+                    "qualifier": "initiated_by"
+                }
+            ]
+        }
+    ]
+}

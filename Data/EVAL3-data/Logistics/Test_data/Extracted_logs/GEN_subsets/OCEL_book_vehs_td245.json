@@ -1,0 +1,120 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "type": "float"
+                },
+                {
+                    "name": "scheduledDeparture",
+                    "type": "datetime"
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "priority",
+                    "type": "string"
+                },
+                {
+                    "name": "departureDate",
+                    "type": "datetime"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Vehicles Booked",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "td245",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "value": "5.0",
+                    "time": "2023-11-27T13:07:53Z"
+                },
+                {
+                    "name": "scheduledDeparture",
+                    "value": "2023-12-01T11:00:00Z",
+                    "time": "2023-11-27T13:07:53Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "vh54",
+                    "qualifier": "hasReservedVehicle"
+                },
+                {
+                    "objectId": "vh60",
+                    "qualifier": "hasBookedVehicle"
+                }
+            ]
+        },
+        {
+            "id": "vh54",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "priority",
+                    "value": "high",
+                    "time": "2023-11-27T13:07:53Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td245",
+                    "qualifier": "reservedFor"
+                }
+            ]
+        },
+        {
+            "id": "vh60",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "departureDate",
+                    "value": "2023-12-22T11:00:00Z",
+                    "time": "2023-11-27T13:07:53Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td245",
+                    "qualifier": "bookedFor"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Vehicles Booked",
+            "time": "2023-11-27T13:07:53Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "td245",
+                    "qualifier": "transportDocument"
+                },
+                {
+                    "objectId": "vh54",
+                    "qualifier": "reservedVehicle"
+                },
+                {
+                    "objectId": "vh60",
+                    "qualifier": "bookedVehicle"
+                }
+            ]
+        }
+    ]
+}

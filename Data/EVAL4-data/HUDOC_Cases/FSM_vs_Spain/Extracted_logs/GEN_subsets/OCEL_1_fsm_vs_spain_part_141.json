@@ -1,0 +1,131 @@
+{
+    "objectTypes": [
+        {
+            "name": "ForensicReport",
+            "attributes": [
+                {
+                    "name": "date",
+                    "type": "time"
+                }
+            ]
+        },
+        {
+            "name": "Adjustment",
+            "attributes": []
+        },
+        {
+            "name": "Court",
+            "attributes": []
+        },
+        {
+            "name": "Applicant",
+            "attributes": []
+        },
+        {
+            "name": "Lawyers",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ForensicReportIssued",
+            "attributes": [
+                {
+                    "name": "reportDate",
+                    "type": "time"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "report_2018_05_22",
+            "type": "ForensicReport",
+            "attributes": [
+                {
+                    "name": "date",
+                    "time": "2018-05-22T00:00:00Z",
+                    "value": "2018-05-22"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "adjustments_1",
+            "type": "Adjustment",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "report_2018_05_22",
+                    "qualifier": "indicated_in"
+                }
+            ]
+        },
+        {
+            "id": "domestic_courts",
+            "type": "Court",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "adjustments_1",
+                    "qualifier": "did_not_assess"
+                }
+            ]
+        },
+        {
+            "id": "court",
+            "type": "Court",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "considers_should_be_assessed_by"
+                },
+                {
+                    "objectId": "lawyers_1",
+                    "qualifier": "considers_should_be_assessed_by"
+                }
+            ]
+        },
+        {
+            "id": "applicant_1",
+            "type": "Applicant",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "lawyers_1",
+            "type": "Lawyers",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "in_direct_contact_with"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "ForensicReportIssued",
+            "time": "2018-05-22T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "reportDate",
+                    "value": "2018-05-22"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "report_2018_05_22",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "adjustments_1",
+                    "qualifier": "indicates"
+                }
+            ]
+        }
+    ]
+}

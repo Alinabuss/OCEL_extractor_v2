@@ -1,0 +1,168 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ResidentGroup",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "SituationUpdate",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire_hurst",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Hurst Fire"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "org_angeles_national_forest",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Angeles National Forest"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "org_la_county_fire_department",
+                    "qualifier": "unified-command-with"
+                },
+                {
+                    "objectId": "org_los_angeles_fire_department",
+                    "qualifier": "unified-command-with"
+                }
+            ]
+        },
+        {
+            "id": "org_la_county_fire_department",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Los Angeles County Fire Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "org_angeles_national_forest",
+                    "qualifier": "unified-command-with"
+                }
+            ]
+        },
+        {
+            "id": "org_los_angeles_fire_department",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Los Angeles Fire Department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "org_angeles_national_forest",
+                    "qualifier": "unified-command-with"
+                }
+            ]
+        },
+        {
+            "id": "org_ladwp",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Los Angeles Department of Water and Power"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "residents_returning_home",
+            "type": "ResidentGroup",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Residents returning home"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "SituationUpdate",
+            "time": "2025-01-10T19:24:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Firefighting efforts continue to concentrate on building and improving containment lines with a focus on public safety and structure protection. Residents returning home are advised to observe extreme caution and are advised to NOT drink the water until advised by the Los Angeles Department of Water and Power. The Angeles National Forest is in unified command with the Los Angeles County Fire Department and Los Angeles Fire Department."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_hurst",
+                    "qualifier": "affected"
+                },
+                {
+                    "objectId": "residents_returning_home",
+                    "qualifier": "advised"
+                },
+                {
+                    "objectId": "org_ladwp",
+                    "qualifier": "advisory-authority"
+                },
+                {
+                    "objectId": "org_angeles_national_forest",
+                    "qualifier": "in-unified-command"
+                },
+                {
+                    "objectId": "org_la_county_fire_department",
+                    "qualifier": "in-unified-command"
+                },
+                {
+                    "objectId": "org_los_angeles_fire_department",
+                    "qualifier": "in-unified-command"
+                }
+            ]
+        }
+    ]
+}

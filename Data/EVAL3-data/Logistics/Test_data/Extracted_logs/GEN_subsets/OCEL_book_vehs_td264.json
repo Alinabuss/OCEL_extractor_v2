@@ -1,0 +1,115 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "type": "float"
+                },
+                {
+                    "name": "unit",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "departure",
+                    "type": "timestamp"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "TransportDocumentCreated",
+            "attributes": [
+                {
+                    "name": "vehicles_booked_count",
+                    "type": "integer"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "TD[264]",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "amount",
+                    "time": "2023-12-08T15:23:24Z",
+                    "value": "4.0"
+                },
+                {
+                    "name": "unit",
+                    "time": "2023-12-08T15:23:24Z",
+                    "value": "containers"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "VH[57]",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "departure",
+                    "value": "2023-12-12T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "TD[264]",
+                    "qualifier": "booked_for"
+                }
+            ]
+        },
+        {
+            "id": "VH[63]",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "departure",
+                    "value": "2024-01-02T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "TD[264]",
+                    "qualifier": "booked_for"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "TransportDocumentCreated",
+            "time": "2023-12-08T15:23:24Z",
+            "attributes": [
+                {
+                    "name": "vehicles_booked_count",
+                    "value": "2"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "TD[264]",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "VH[57]",
+                    "qualifier": "booked"
+                },
+                {
+                    "objectId": "VH[63]",
+                    "qualifier": "booked"
+                }
+            ]
+        }
+    ]
+}

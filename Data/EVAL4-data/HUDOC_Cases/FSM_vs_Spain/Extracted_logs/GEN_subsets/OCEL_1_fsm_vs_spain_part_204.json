@@ -1,0 +1,215 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "fullName",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Chapter",
+            "attributes": [
+                {
+                    "name": "title",
+                    "type": "string"
+                },
+                {
+                    "name": "pages",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Book",
+            "attributes": [
+                {
+                    "name": "title",
+                    "type": "string"
+                },
+                {
+                    "name": "location",
+                    "type": "string"
+                },
+                {
+                    "name": "year",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Publication",
+            "attributes": [
+                {
+                    "name": "chapterTitle",
+                    "type": "string"
+                },
+                {
+                    "name": "pages",
+                    "type": "string"
+                },
+                {
+                    "name": "bookTitle",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "person-orte",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "fullName",
+                    "time": "2011-01-01T00:00:00Z",
+                    "value": "Ortega Lorente, J.M."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "chapter-164-168",
+                    "qualifier": "author-of"
+                }
+            ]
+        },
+        {
+            "id": "chapter-164-168",
+            "type": "Chapter",
+            "attributes": [
+                {
+                    "name": "title",
+                    "time": "2011-01-01T00:00:00Z",
+                    "value": "El acusado ps\u00edquicamente discapacitado, puede intervenir en juicio con la mera asistencia de letrado, o debe estar asistido, tambi\u00e9n, por su tutor, guardador de hecho o defensor judicial?"
+                },
+                {
+                    "name": "pages",
+                    "time": "2011-01-01T00:00:00Z",
+                    "value": "164-168"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "book-84",
+                    "qualifier": "part-of"
+                }
+            ]
+        },
+        {
+            "id": "book-84",
+            "type": "Book",
+            "attributes": [
+                {
+                    "name": "title",
+                    "time": "2011-01-01T00:00:00Z",
+                    "value": "84 cuestiones sobre la direcci\u00f3n y publicidad del juicio oral"
+                },
+                {
+                    "name": "location",
+                    "time": "2011-01-01T00:00:00Z",
+                    "value": "Madrid"
+                },
+                {
+                    "name": "year",
+                    "time": "2011-01-01T00:00:00Z",
+                    "value": "2011"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "org-cgpj",
+                    "qualifier": "published-by"
+                },
+                {
+                    "objectId": "person-bach",
+                    "qualifier": "has-editor"
+                }
+            ]
+        },
+        {
+            "id": "person-bach",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "fullName",
+                    "time": "2011-01-01T00:00:00Z",
+                    "value": "Bach Fabreg\u00e9, R."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "book-84",
+                    "qualifier": "editor-of"
+                }
+            ]
+        },
+        {
+            "id": "org-cgpj",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2011-01-01T00:00:00Z",
+                    "value": "CGPJ"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Publication",
+            "time": "2011-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "chapterTitle",
+                    "value": "El acusado ps\u00edquicamente discapacitado, puede intervenir en juicio con la mera asistencia de letrado, o debe estar asistido, tambi\u00e9n, por su tutor, guardador de hecho o defensor judicial?"
+                },
+                {
+                    "name": "pages",
+                    "value": "164-168"
+                },
+                {
+                    "name": "bookTitle",
+                    "value": "84 cuestiones sobre la direcci\u00f3n y publicidad del juicio oral"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "chapter-164-168",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "person-orte",
+                    "qualifier": "author"
+                },
+                {
+                    "objectId": "person-bach",
+                    "qualifier": "editor"
+                },
+                {
+                    "objectId": "book-84",
+                    "qualifier": "publication"
+                },
+                {
+                    "objectId": "org-cgpj",
+                    "qualifier": "publisher"
+                }
+            ]
+        }
+    ]
+}

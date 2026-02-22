@@ -1,0 +1,122 @@
+{
+    "objectTypes": [
+        {
+            "name": "Machine",
+            "attributes": []
+        },
+        {
+            "name": "Workstation",
+            "attributes": []
+        },
+        {
+            "name": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "HeatingOperation",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "type": "integer"
+                },
+                {
+                    "name": "emission_co2_kg",
+                    "type": "float"
+                },
+                {
+                    "name": "electric_energy_kwh",
+                    "type": "float"
+                },
+                {
+                    "name": "gas_input_Wh",
+                    "type": "float"
+                },
+                {
+                    "name": "emission_source",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "oven01",
+            "type": "Machine",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "1",
+                    "qualifier": "located_at"
+                }
+            ]
+        },
+        {
+            "id": "1",
+            "type": "Workstation",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "5690",
+            "type": "SteelSheet",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "time": "2023-04-06T12:12:51Z",
+                    "value": "0.02126"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "HeatingOperation",
+            "time": "2023-04-06T12:12:51Z",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "value": "900"
+                },
+                {
+                    "name": "emission_co2_kg",
+                    "value": "0.0138"
+                },
+                {
+                    "name": "electric_energy_kwh",
+                    "value": "0.02"
+                },
+                {
+                    "name": "gas_input_Wh",
+                    "value": "0.49392"
+                },
+                {
+                    "name": "emission_source",
+                    "value": "burning process"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "oven01",
+                    "qualifier": "performed_by"
+                },
+                {
+                    "objectId": "1",
+                    "qualifier": "located_at"
+                },
+                {
+                    "objectId": "5690",
+                    "qualifier": "processed_item"
+                }
+            ]
+        }
+    ]
+}

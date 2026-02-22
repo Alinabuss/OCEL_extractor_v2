@@ -1,0 +1,156 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Road",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "StructureGroup",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "StatusUpdate",
+            "attributes": [
+                {
+                    "name": "location_description",
+                    "type": "string"
+                },
+                {
+                    "name": "growth",
+                    "type": "string"
+                },
+                {
+                    "name": "rate_of_spread",
+                    "type": "string"
+                },
+                {
+                    "name": "structures_threatened",
+                    "type": "boolean"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire-1",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Lilac Fire",
+                    "time": "2025-01-21T02:04:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "road-1",
+                    "qualifier": "near"
+                },
+                {
+                    "objectId": "road-2",
+                    "qualifier": "near"
+                }
+            ]
+        },
+        {
+            "id": "road-1",
+            "type": "Road",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Old Highway 395",
+                    "time": "2025-01-21T02:04:00Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "road-2",
+            "type": "Road",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Lilac road",
+                    "time": "2025-01-21T02:04:00Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "structures-1",
+            "type": "StructureGroup",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "structures",
+                    "time": "2025-01-21T02:04:00Z"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "evt-1",
+            "type": "StatusUpdate",
+            "time": "2025-01-21T02:04:00Z",
+            "attributes": [
+                {
+                    "name": "location_description",
+                    "value": "near Old Highway 395 and Lilac road"
+                },
+                {
+                    "name": "growth",
+                    "value": "growing"
+                },
+                {
+                    "name": "rate_of_spread",
+                    "value": "moderate"
+                },
+                {
+                    "name": "structures_threatened",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "road-1",
+                    "qualifier": "near"
+                },
+                {
+                    "objectId": "road-2",
+                    "qualifier": "near"
+                },
+                {
+                    "objectId": "structures-1",
+                    "qualifier": "threatened"
+                }
+            ]
+        }
+    ]
+}

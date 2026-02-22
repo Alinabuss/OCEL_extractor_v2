@@ -1,0 +1,218 @@
+{
+    "objectTypes": [
+        {
+            "name": "Machine",
+            "attributes": [
+                {
+                    "name": "designation",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Workstation",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Coil",
+            "attributes": [
+                {
+                    "name": "material",
+                    "type": "string"
+                },
+                {
+                    "name": "mass_kg",
+                    "type": "double"
+                }
+            ]
+        },
+        {
+            "name": "Sheet",
+            "attributes": [
+                {
+                    "name": "material",
+                    "type": "string"
+                },
+                {
+                    "name": "mass_kg",
+                    "type": "double"
+                }
+            ]
+        },
+        {
+            "name": "Waste",
+            "attributes": [
+                {
+                    "name": "material",
+                    "type": "string"
+                },
+                {
+                    "name": "mass_kg",
+                    "type": "double"
+                },
+                {
+                    "name": "destination",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "SplitOperation",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "type": "double"
+                },
+                {
+                    "name": "co2_emission_kg",
+                    "type": "double"
+                },
+                {
+                    "name": "electricity_kwh",
+                    "type": "double"
+                },
+                {
+                    "name": "electricity_source",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "splitter01",
+            "type": "Machine",
+            "attributes": [
+                {
+                    "name": "designation",
+                    "value": "splitter01"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "workstation1",
+                    "qualifier": "located_at"
+                }
+            ]
+        },
+        {
+            "id": "workstation1",
+            "type": "Workstation",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "workstation 1"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "coil4",
+            "type": "Coil",
+            "attributes": [
+                {
+                    "name": "material",
+                    "value": "steel"
+                },
+                {
+                    "name": "mass_kg",
+                    "value": "31.91076"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "sheet681",
+                    "qualifier": "split_into"
+                },
+                {
+                    "objectId": "waste1",
+                    "qualifier": "generated"
+                }
+            ]
+        },
+        {
+            "id": "sheet681",
+            "type": "Sheet",
+            "attributes": [
+                {
+                    "name": "material",
+                    "value": "steel"
+                },
+                {
+                    "name": "mass_kg",
+                    "value": "0.02125"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "waste1",
+            "type": "Waste",
+            "attributes": [
+                {
+                    "name": "material",
+                    "value": "steel"
+                },
+                {
+                    "name": "mass_kg",
+                    "value": "0.00042"
+                },
+                {
+                    "name": "destination",
+                    "value": "recycling"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "SplitOperation",
+            "time": "2023-04-03T09:55:48Z",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "value": "13.9907769459"
+                },
+                {
+                    "name": "co2_emission_kg",
+                    "value": "0.014629305"
+                },
+                {
+                    "name": "electricity_kwh",
+                    "value": "0.0213748"
+                },
+                {
+                    "name": "electricity_source",
+                    "value": "grid"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "splitter01",
+                    "qualifier": "machine"
+                },
+                {
+                    "objectId": "coil4",
+                    "qualifier": "input"
+                },
+                {
+                    "objectId": "sheet681",
+                    "qualifier": "output"
+                },
+                {
+                    "objectId": "waste1",
+                    "qualifier": "waste"
+                }
+            ]
+        }
+    ]
+}

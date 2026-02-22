@@ -1,0 +1,167 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "forward_rate_of_spread",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Perimeter",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "IncidentStatus",
+            "attributes": [
+                {
+                    "name": "forward_rate_of_spread",
+                    "type": "string"
+                },
+                {
+                    "name": "planned_actions",
+                    "type": "string"
+                },
+                {
+                    "name": "location_description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire-1",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-21T17:35:00Z",
+                    "value": "Lilac Fire"
+                },
+                {
+                    "name": "forward_rate_of_spread",
+                    "time": "2025-01-21T17:35:00Z",
+                    "value": "stopped"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "loc-1",
+                    "qualifier": "located_near"
+                }
+            ]
+        },
+        {
+            "id": "loc-1",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-21T17:35:00Z",
+                    "value": "Old Highway 395 and Lilac Road"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "crew-1",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-21T17:35:00Z",
+                    "value": "Fire crew"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "perim-1",
+            "type": "Perimeter",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-21T17:35:00Z",
+                    "value": "fire's perimeter"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "of_fire"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "IncidentStatus",
+            "time": "2025-01-21T17:35:00Z",
+            "attributes": [
+                {
+                    "name": "forward_rate_of_spread",
+                    "value": "stopped"
+                },
+                {
+                    "name": "planned_actions",
+                    "value": "Continue to build containment lines and extinguish hotspots within the fire's perimeter"
+                },
+                {
+                    "name": "location_description",
+                    "value": "Near Old Highway 395 and Lilac Road"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "loc-1",
+                    "qualifier": "near"
+                },
+                {
+                    "objectId": "crew-1",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "perim-1",
+                    "qualifier": "within"
+                }
+            ]
+        }
+    ]
+}

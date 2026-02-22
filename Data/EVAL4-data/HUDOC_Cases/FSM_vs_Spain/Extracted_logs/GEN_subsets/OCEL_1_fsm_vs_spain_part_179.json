@@ -1,0 +1,168 @@
+{
+    "objectTypes": [
+        {
+            "name": "Defendant",
+            "attributes": [
+                {
+                    "name": "lacksCapacity",
+                    "type": "boolean"
+                },
+                {
+                    "name": "isProtectedAdult",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "GuardianCurator",
+            "attributes": []
+        },
+        {
+            "name": "Lawyer",
+            "attributes": []
+        },
+        {
+            "name": "PublicProsecutorOffice",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "AccompaniedDuringTrial",
+            "attributes": [
+                {
+                    "name": "jurisdiction",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "CuratorInformed",
+            "attributes": [
+                {
+                    "name": "jurisdiction",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PublicProsecutorMustSummonCurator",
+            "attributes": [
+                {
+                    "name": "jurisdiction",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "defendant_1",
+            "type": "Defendant",
+            "attributes": [
+                {
+                    "name": "lacksCapacity",
+                    "time": "2020-01-01T00:00:00Z",
+                    "value": "true"
+                },
+                {
+                    "name": "isProtectedAdult",
+                    "time": "2020-01-01T00:00:00Z",
+                    "value": "true"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "curator_1",
+            "type": "GuardianCurator",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "lawyer_1",
+            "type": "Lawyer",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "ppo_1",
+            "type": "PublicProsecutorOffice",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "AccompaniedDuringTrial",
+            "time": "2020-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "jurisdiction",
+                    "value": "France"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "defendant_1",
+                    "qualifier": "defendant"
+                },
+                {
+                    "objectId": "curator_1",
+                    "qualifier": "accompanying"
+                },
+                {
+                    "objectId": "lawyer_1",
+                    "qualifier": "accompanying"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "CuratorInformed",
+            "time": "2020-01-01T00:00:01Z",
+            "attributes": [
+                {
+                    "name": "jurisdiction",
+                    "value": "France"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "curator_1",
+                    "qualifier": "informed"
+                },
+                {
+                    "objectId": "defendant_1",
+                    "qualifier": "about"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "PublicProsecutorMustSummonCurator",
+            "time": "2020-01-01T00:00:02Z",
+            "attributes": [
+                {
+                    "name": "jurisdiction",
+                    "value": "France"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "ppo_1",
+                    "qualifier": "responsible"
+                },
+                {
+                    "objectId": "curator_1",
+                    "qualifier": "toBeSummoned"
+                },
+                {
+                    "objectId": "defendant_1",
+                    "qualifier": "subject"
+                }
+            ]
+        }
+    ]
+}

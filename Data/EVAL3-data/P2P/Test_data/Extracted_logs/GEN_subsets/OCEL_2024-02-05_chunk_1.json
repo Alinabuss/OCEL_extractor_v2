@@ -1,0 +1,190 @@
+{
+    "objectTypes": [
+        {
+            "name": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "purchase_order",
+            "attributes": []
+        },
+        {
+            "name": "purchasing group",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Invoice Receipt Created",
+            "attributes": [
+                {
+                    "name": "department",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                },
+                {
+                    "name": "credit_amount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Goods Receipt Completed",
+            "attributes": [
+                {
+                    "name": "department",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                },
+                {
+                    "name": "movement_type",
+                    "type": "integer"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt[1378]",
+            "type": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "credit_amount",
+                    "time": "2024-02-05T13:45:00Z",
+                    "value": "193200.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt[1372]",
+                    "qualifier": "linked"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt[1372]",
+            "type": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "goods receipt[1391]",
+            "type": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "time": "2024-02-05T14:33:00Z",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order[1136]",
+                    "qualifier": "associated"
+                }
+            ]
+        },
+        {
+            "id": "purchase_order[1136]",
+            "type": "purchase_order",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchasing group[004]",
+                    "qualifier": "linked"
+                }
+            ]
+        },
+        {
+            "id": "purchasing group[004]",
+            "type": "purchasing group",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Invoice Receipt Created",
+            "time": "2024-02-05T13:45:00Z",
+            "attributes": [
+                {
+                    "name": "department",
+                    "value": "Finance/Account Department"
+                },
+                {
+                    "name": "status",
+                    "value": "completed"
+                },
+                {
+                    "name": "credit_amount",
+                    "value": "193200.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt[1378]",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "goods receipt[1372]",
+                    "qualifier": "linked"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "Goods Receipt Completed",
+            "time": "2024-02-05T14:33:00Z",
+            "attributes": [
+                {
+                    "name": "department",
+                    "value": "Warehouse Department"
+                },
+                {
+                    "name": "status",
+                    "value": "completed"
+                },
+                {
+                    "name": "movement_type",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt[1391]",
+                    "qualifier": "completed"
+                },
+                {
+                    "objectId": "purchase_order[1136]",
+                    "qualifier": "associated"
+                }
+            ]
+        }
+    ]
+}

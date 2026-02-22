@@ -1,0 +1,363 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "category",
+                    "type": "string"
+                },
+                {
+                    "name": "scheduledDeparture",
+                    "type": "time"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "TransportDocumentProcessed",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "VehicleBooked",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "type": "time"
+                },
+                {
+                    "name": "vehicleCategory",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "td528",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "time": "2024-07-01T05:32:06Z",
+                    "value": "3.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "vh119",
+                    "qualifier": "bookedVehicle"
+                }
+            ]
+        },
+        {
+            "id": "td529",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "time": "2024-07-01T09:08:12Z",
+                    "value": "4.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "vh116",
+                    "qualifier": "bookedVehicle"
+                },
+                {
+                    "objectId": "vh118",
+                    "qualifier": "bookedVehicle"
+                }
+            ]
+        },
+        {
+            "id": "td530",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "time": "2024-07-01T14:11:34Z",
+                    "value": "4.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "vh116",
+                    "qualifier": "bookedVehicle"
+                },
+                {
+                    "objectId": "vh122",
+                    "qualifier": "bookedVehicle"
+                }
+            ]
+        },
+        {
+            "id": "vh119",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "category",
+                    "time": "2024-07-01T05:32:06Z",
+                    "value": "regular"
+                },
+                {
+                    "name": "scheduledDeparture",
+                    "time": "2024-07-01T05:32:06Z",
+                    "value": "2024-07-16T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td528",
+                    "qualifier": "bookedFor"
+                }
+            ]
+        },
+        {
+            "id": "vh116",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "category",
+                    "time": "2024-07-01T09:08:12Z",
+                    "value": "high-priority"
+                },
+                {
+                    "name": "scheduledDeparture",
+                    "time": "2024-07-01T09:08:12Z",
+                    "value": "2024-07-05T11:00:00"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td529",
+                    "qualifier": "bookedFor"
+                },
+                {
+                    "objectId": "td530",
+                    "qualifier": "bookedFor"
+                }
+            ]
+        },
+        {
+            "id": "vh118",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "time": "2024-07-01T09:08:12Z",
+                    "value": "2024-07-12T11:00:00"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td529",
+                    "qualifier": "bookedFor"
+                }
+            ]
+        },
+        {
+            "id": "vh122",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "time": "2024-07-01T14:11:34Z",
+                    "value": "2024-07-26T11:00:00"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td530",
+                    "qualifier": "bookedFor"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "TransportDocumentProcessed",
+            "time": "2024-07-01T05:32:06Z",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "value": "3.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td528",
+                    "qualifier": "transportDocument"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "VehicleBooked",
+            "time": "2024-07-01T05:32:06Z",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "value": "2024-07-16T11:00:00Z"
+                },
+                {
+                    "name": "vehicleCategory",
+                    "value": "regular"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "vh119",
+                    "qualifier": "vehicle"
+                },
+                {
+                    "objectId": "td528",
+                    "qualifier": "transportDocument"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "TransportDocumentProcessed",
+            "time": "2024-07-01T09:08:12Z",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "value": "4.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td529",
+                    "qualifier": "transportDocument"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "VehicleBooked",
+            "time": "2024-07-01T09:08:12Z",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "value": "2024-07-05T11:00:00"
+                },
+                {
+                    "name": "vehicleCategory",
+                    "value": "high-priority"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "vh116",
+                    "qualifier": "vehicle"
+                },
+                {
+                    "objectId": "td529",
+                    "qualifier": "transportDocument"
+                }
+            ]
+        },
+        {
+            "id": "e5",
+            "type": "VehicleBooked",
+            "time": "2024-07-01T09:08:12Z",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "value": "2024-07-12T11:00:00"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "vh118",
+                    "qualifier": "vehicle"
+                },
+                {
+                    "objectId": "td529",
+                    "qualifier": "transportDocument"
+                }
+            ]
+        },
+        {
+            "id": "e6",
+            "type": "TransportDocumentProcessed",
+            "time": "2024-07-01T14:11:34Z",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "value": "4.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td530",
+                    "qualifier": "transportDocument"
+                }
+            ]
+        },
+        {
+            "id": "e7",
+            "type": "VehicleBooked",
+            "time": "2024-07-01T14:11:34Z",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "value": "2024-07-05T11:00:00"
+                },
+                {
+                    "name": "vehicleCategory",
+                    "value": "high-priority"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "vh116",
+                    "qualifier": "vehicle"
+                },
+                {
+                    "objectId": "td530",
+                    "qualifier": "transportDocument"
+                }
+            ]
+        },
+        {
+            "id": "e8",
+            "type": "VehicleBooked",
+            "time": "2024-07-01T14:11:34Z",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "value": "2024-07-26T11:00:00"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "vh122",
+                    "qualifier": "vehicle"
+                },
+                {
+                    "objectId": "td530",
+                    "qualifier": "transportDocument"
+                }
+            ]
+        }
+    ]
+}

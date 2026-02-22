@@ -1,0 +1,537 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Place",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "County",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Weather",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "strength",
+                    "type": "string"
+                },
+                {
+                    "name": "persistence",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "EvacuationOrder",
+            "attributes": [
+                {
+                    "name": "urgency",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Resource",
+            "attributes": [
+                {
+                    "name": "mode",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Community",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Infrastructure",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Terrain",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Residents",
+            "attributes": [
+                {
+                    "name": "vigilance",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "FireStatusReported",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                },
+                {
+                    "name": "spread",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "EvacuationOrdered",
+            "attributes": [
+                {
+                    "name": "reason",
+                    "type": "string"
+                },
+                {
+                    "name": "urgency",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ContainmentEffort",
+            "attributes": [
+                {
+                    "name": "actions",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "SuppressionComplication",
+            "attributes": [
+                {
+                    "name": "factors",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire:Kenneth",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-09T17:35:00Z",
+                    "value": "Kenneth Fire"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "place:WestHills",
+                    "qualifier": "located_at"
+                },
+                {
+                    "objectId": "county:LosAngeles",
+                    "qualifier": "in_county"
+                }
+            ]
+        },
+        {
+            "id": "place:WestHills",
+            "type": "Place",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-09T17:35:00Z",
+                    "value": "West Hills"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "county:LosAngeles",
+                    "qualifier": "part_of"
+                }
+            ]
+        },
+        {
+            "id": "county:LosAngeles",
+            "type": "County",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-09T17:35:00Z",
+                    "value": "Los Angeles County"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "county:Ventura",
+            "type": "County",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-09T17:35:00Z",
+                    "value": "Ventura County"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "weather:SantaAna",
+            "type": "Weather",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-09T17:35:00Z",
+                    "value": "Santa Ana winds"
+                },
+                {
+                    "name": "strength",
+                    "time": "2025-01-09T17:35:00Z",
+                    "value": "strong"
+                },
+                {
+                    "name": "persistence",
+                    "time": "2025-01-09T17:35:00Z",
+                    "value": "persistent"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "order:Evac1",
+            "type": "EvacuationOrder",
+            "attributes": [
+                {
+                    "name": "urgency",
+                    "time": "2025-01-09T17:35:00Z",
+                    "value": "swift"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "community:NearbyCommunities",
+                    "qualifier": "affects"
+                },
+                {
+                    "objectId": "infrastructure:NearbyInfrastructure",
+                    "qualifier": "affects"
+                },
+                {
+                    "objectId": "org:LocalAuthorities",
+                    "qualifier": "issued_by"
+                },
+                {
+                    "objectId": "fire:Kenneth",
+                    "qualifier": "because_of"
+                }
+            ]
+        },
+        {
+            "id": "community:NearbyCommunities",
+            "type": "Community",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-09T17:35:00Z",
+                    "value": "nearby communities"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "infrastructure:NearbyInfrastructure",
+            "type": "Infrastructure",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-09T17:35:00Z",
+                    "value": "nearby infrastructure"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "org:FirefightersLA",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-09T17:35:00Z",
+                    "value": "Firefighters (Los Angeles County)"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "county:LosAngeles",
+                    "qualifier": "based_in"
+                },
+                {
+                    "objectId": "resource:GroundCrews",
+                    "qualifier": "deploys"
+                },
+                {
+                    "objectId": "resource:AerialResources",
+                    "qualifier": "deploys"
+                }
+            ]
+        },
+        {
+            "id": "org:FirefightersVentura",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-09T17:35:00Z",
+                    "value": "Firefighters (Ventura County)"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "county:Ventura",
+                    "qualifier": "based_in"
+                },
+                {
+                    "objectId": "resource:GroundCrews",
+                    "qualifier": "deploys"
+                },
+                {
+                    "objectId": "resource:AerialResources",
+                    "qualifier": "deploys"
+                }
+            ]
+        },
+        {
+            "id": "resource:GroundCrews",
+            "type": "Resource",
+            "attributes": [
+                {
+                    "name": "mode",
+                    "time": "2025-01-09T17:35:00Z",
+                    "value": "ground"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "resource:AerialResources",
+            "type": "Resource",
+            "attributes": [
+                {
+                    "name": "mode",
+                    "time": "2025-01-09T17:35:00Z",
+                    "value": "aerial"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "terrain:Challenging",
+            "type": "Terrain",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-09T17:35:00Z",
+                    "value": "challenging"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "residents:Local",
+            "type": "Residents",
+            "attributes": [
+                {
+                    "name": "vigilance",
+                    "time": "2025-01-09T17:35:00Z",
+                    "value": "heightened"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "org:LocalAuthorities",
+                    "qualifier": "follow_directives_from"
+                }
+            ]
+        },
+        {
+            "id": "org:LocalAuthorities",
+            "type": "Organization",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-09T17:35:00Z",
+                    "value": "Local authorities"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "FireStatusReported",
+            "time": "2025-01-09T17:35:00Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "burning"
+                },
+                {
+                    "name": "spread",
+                    "value": "rapid"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire:Kenneth",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "place:WestHills",
+                    "qualifier": "located_at"
+                },
+                {
+                    "objectId": "weather:SantaAna",
+                    "qualifier": "fanned_by"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "EvacuationOrdered",
+            "time": "2025-01-09T17:35:00Z",
+            "attributes": [
+                {
+                    "name": "reason",
+                    "value": "threat to nearby communities and infrastructure"
+                },
+                {
+                    "name": "urgency",
+                    "value": "swift"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "order:Evac1",
+                    "qualifier": "order"
+                },
+                {
+                    "objectId": "community:NearbyCommunities",
+                    "qualifier": "affected"
+                },
+                {
+                    "objectId": "infrastructure:NearbyInfrastructure",
+                    "qualifier": "affected"
+                },
+                {
+                    "objectId": "fire:Kenneth",
+                    "qualifier": "prompted_by"
+                },
+                {
+                    "objectId": "org:LocalAuthorities",
+                    "qualifier": "issued_by"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "ContainmentEffort",
+            "time": "2025-01-09T17:35:00Z",
+            "attributes": [
+                {
+                    "name": "actions",
+                    "value": "ground crews and aerial resources deployed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "org:FirefightersLA",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "org:FirefightersVentura",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "resource:GroundCrews",
+                    "qualifier": "deployed"
+                },
+                {
+                    "objectId": "resource:AerialResources",
+                    "qualifier": "deployed"
+                },
+                {
+                    "objectId": "fire:Kenneth",
+                    "qualifier": "target"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "SuppressionComplication",
+            "time": "2025-01-09T17:35:00Z",
+            "attributes": [
+                {
+                    "name": "factors",
+                    "value": "challenging terrain and persistent winds complicate suppression"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "terrain:Challenging",
+                    "qualifier": "due_to_terrain"
+                },
+                {
+                    "objectId": "weather:SantaAna",
+                    "qualifier": "due_to_wind"
+                },
+                {
+                    "objectId": "fire:Kenneth",
+                    "qualifier": "affects"
+                }
+            ]
+        }
+    ]
+}

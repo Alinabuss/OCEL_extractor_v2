@@ -1,0 +1,122 @@
+{
+    "objectTypes": [
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "value",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Report Out of Stock",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Nina Graves",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Nina Graves"
+                },
+                {
+                    "name": "department",
+                    "value": "Warehousing"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-882818",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "572.38"
+                },
+                {
+                    "name": "status",
+                    "value": "out of stock",
+                    "time": "2023-08-23T09:59:46Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "iPhone 8",
+                    "qualifier": "associatedProduct"
+                }
+            ]
+        },
+        {
+            "id": "iPhone 8",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "value",
+                    "value": "529.00"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e-1",
+            "type": "Report Out of Stock",
+            "time": "2023-08-23T09:59:46Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "out of stock"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Nina Graves",
+                    "qualifier": "reporter"
+                },
+                {
+                    "objectId": "i-882818",
+                    "qualifier": "reportedItem"
+                }
+            ]
+        }
+    ]
+}

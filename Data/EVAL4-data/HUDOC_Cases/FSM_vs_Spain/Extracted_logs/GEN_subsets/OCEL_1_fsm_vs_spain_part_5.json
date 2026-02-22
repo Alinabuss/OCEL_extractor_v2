@@ -1,0 +1,245 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "birthYear",
+                    "type": "integer"
+                },
+                {
+                    "name": "residence",
+                    "type": "string"
+                },
+                {
+                    "name": "elderly",
+                    "type": "boolean"
+                },
+                {
+                    "name": "cognitiveImpairment",
+                    "type": "boolean"
+                },
+                {
+                    "name": "difficultiesUnderstandingProceedings",
+                    "type": "boolean"
+                },
+                {
+                    "name": "difficultiesPreparingDefence",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "Lawyer",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "profession",
+                    "type": "string"
+                },
+                {
+                    "name": "practisingIn",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Conviction",
+            "attributes": [
+                {
+                    "name": "type",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": []
+        },
+        {
+            "name": "ConventionArticle",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Birth",
+            "attributes": [
+                {
+                    "name": "year",
+                    "type": "integer"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "applicant-1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "birthYear",
+                    "time": "1948-01-01T00:00:00Z",
+                    "value": "1948"
+                },
+                {
+                    "name": "residence",
+                    "time": "",
+                    "value": "Minorca"
+                },
+                {
+                    "name": "elderly",
+                    "time": "",
+                    "value": "true"
+                },
+                {
+                    "name": "cognitiveImpairment",
+                    "time": "",
+                    "value": "true"
+                },
+                {
+                    "name": "difficultiesUnderstandingProceedings",
+                    "time": "",
+                    "value": "true"
+                },
+                {
+                    "name": "difficultiesPreparingDefence",
+                    "time": "",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "lawyer-1",
+                    "qualifier": "represented_by"
+                },
+                {
+                    "objectId": "conviction-1",
+                    "qualifier": "subject_of"
+                },
+                {
+                    "objectId": "application-1",
+                    "qualifier": "subject_of"
+                }
+            ]
+        },
+        {
+            "id": "lawyer-1",
+            "type": "Lawyer",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Mr A. Xumetra Subirana"
+                },
+                {
+                    "name": "profession",
+                    "time": "",
+                    "value": "lawyer"
+                },
+                {
+                    "name": "practisingIn",
+                    "time": "",
+                    "value": "Barcelona"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant-1",
+                    "qualifier": "represents"
+                }
+            ]
+        },
+        {
+            "id": "conviction-1",
+            "type": "Conviction",
+            "attributes": [
+                {
+                    "name": "type",
+                    "time": "",
+                    "value": "criminal"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant-1",
+                    "qualifier": "of"
+                }
+            ]
+        },
+        {
+            "id": "application-1",
+            "type": "Application",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "conviction-1",
+                    "qualifier": "concerns"
+                },
+                {
+                    "objectId": "article6-1",
+                    "qualifier": "raises_issue_under"
+                },
+                {
+                    "objectId": "article6-3",
+                    "qualifier": "raises_issue_under"
+                },
+                {
+                    "objectId": "applicant-1",
+                    "qualifier": "concerns"
+                }
+            ]
+        },
+        {
+            "id": "article6-1",
+            "type": "ConventionArticle",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "time": "",
+                    "value": "Article 6(1)"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "article6-3",
+            "type": "ConventionArticle",
+            "attributes": [
+                {
+                    "name": "reference",
+                    "time": "",
+                    "value": "Article 6(3)"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Birth",
+            "time": "1948-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "year",
+                    "value": "1948"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant-1",
+                    "qualifier": "subject"
+                }
+            ]
+        }
+    ]
+}

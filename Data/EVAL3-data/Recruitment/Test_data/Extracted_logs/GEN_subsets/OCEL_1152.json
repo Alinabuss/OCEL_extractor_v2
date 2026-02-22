@@ -1,0 +1,113 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Vacancy",
+            "attributes": [
+                {
+                    "name": "position",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Application Submitted",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Person[Sue Lopez]",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Sue Lopez"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Application[770290]",
+                    "qualifier": "submitted"
+                }
+            ]
+        },
+        {
+            "id": "Vacancy[550030]",
+            "type": "Vacancy",
+            "attributes": [
+                {
+                    "name": "position",
+                    "value": "Programmer"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Application[770290]",
+                    "qualifier": "hasApplication"
+                }
+            ]
+        },
+        {
+            "id": "Application[770290]",
+            "type": "Application",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Vacancy[550030]",
+                    "qualifier": "forVacancy"
+                },
+                {
+                    "objectId": "Person[Sue Lopez]",
+                    "qualifier": "submittedBy"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Application Submitted",
+            "time": "2019-06-21T09:52:35Z",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "submitted"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Person[Sue Lopez]",
+                    "qualifier": "applicant"
+                },
+                {
+                    "objectId": "Application[770290]",
+                    "qualifier": "application"
+                },
+                {
+                    "objectId": "Vacancy[550030]",
+                    "qualifier": "vacancy"
+                }
+            ]
+        }
+    ]
+}

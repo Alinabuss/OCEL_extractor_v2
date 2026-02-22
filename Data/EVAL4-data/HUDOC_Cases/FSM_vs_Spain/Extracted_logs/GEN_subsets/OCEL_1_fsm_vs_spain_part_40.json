@@ -1,0 +1,194 @@
+{
+    "objectTypes": [
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "HospitalStay",
+            "attributes": [
+                {
+                    "name": "voluntary",
+                    "type": "string"
+                },
+                {
+                    "name": "location",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "LegalProblem",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "CourtNote",
+            "attributes": [
+                {
+                    "name": "content",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Insistence",
+            "attributes": [
+                {
+                    "name": "content",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "court-1",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Audiencia Provincial"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "applicant-1",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "",
+                    "value": "applicant"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "hospitalstay-1",
+                    "qualifier": "admitted-to"
+                },
+                {
+                    "objectId": "legalproblem-1",
+                    "qualifier": "subject-of"
+                }
+            ]
+        },
+        {
+            "id": "hospitalstay-1",
+            "type": "HospitalStay",
+            "attributes": [
+                {
+                    "name": "voluntary",
+                    "time": "",
+                    "value": "voluntary"
+                },
+                {
+                    "name": "location",
+                    "time": "",
+                    "value": "hospital"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant-1",
+                    "qualifier": "patient"
+                }
+            ]
+        },
+        {
+            "id": "legalproblem-1",
+            "type": "LegalProblem",
+            "attributes": [
+                {
+                    "name": "status",
+                    "time": "",
+                    "value": "pending"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant-1",
+                    "qualifier": "related-to"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "CourtNote",
+            "time": "",
+            "attributes": [
+                {
+                    "name": "content",
+                    "value": "Audiencia Provincial noted that the applicant's admission to hospital had been voluntary and that, during his time there, the applicant had insisted on his incapacity and his lack of responsibility with regard to the legal problems that were pending."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "court-1",
+                    "qualifier": "performed-by"
+                },
+                {
+                    "objectId": "hospitalstay-1",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "applicant-1",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "legalproblem-1",
+                    "qualifier": "about"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Insistence",
+            "time": "",
+            "attributes": [
+                {
+                    "name": "content",
+                    "value": "Applicant insisted on his incapacity and his lack of responsibility with regard to the legal problems that were pending."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant-1",
+                    "qualifier": "performed-by"
+                },
+                {
+                    "objectId": "hospitalstay-1",
+                    "qualifier": "during"
+                },
+                {
+                    "objectId": "legalproblem-1",
+                    "qualifier": "about"
+                }
+            ]
+        }
+    ]
+}

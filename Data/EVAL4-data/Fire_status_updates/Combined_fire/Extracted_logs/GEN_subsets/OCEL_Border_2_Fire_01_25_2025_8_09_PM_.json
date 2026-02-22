@@ -1,0 +1,275 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Firefighters",
+            "attributes": [
+                {
+                    "name": "progress",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Dozers",
+            "attributes": []
+        },
+        {
+            "name": "HandCrews",
+            "attributes": []
+        },
+        {
+            "name": "EngineCompanies",
+            "attributes": []
+        },
+        {
+            "name": "Helicopters",
+            "attributes": []
+        },
+        {
+            "name": "HotSpot",
+            "attributes": [
+                {
+                    "name": "location",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Forecast",
+            "attributes": [
+                {
+                    "name": "precipitation",
+                    "type": "string"
+                },
+                {
+                    "name": "timing",
+                    "type": "string"
+                },
+                {
+                    "name": "expectedEffect",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ContainmentLine",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "SituationReport",
+            "attributes": [
+                {
+                    "name": "message",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire-Border2",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-25T20:09:00Z",
+                    "value": "Border 2 Fire"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "firefighters-1",
+            "type": "Firefighters",
+            "attributes": [
+                {
+                    "name": "progress",
+                    "time": "2025-01-25T20:09:00Z",
+                    "value": "made great progress slowing the spread of the fire"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-Border2",
+                    "qualifier": "workingOn"
+                }
+            ]
+        },
+        {
+            "id": "dozers-1",
+            "type": "Dozers",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "fire-Border2",
+                    "qualifier": "workingOn"
+                }
+            ]
+        },
+        {
+            "id": "handcrews-1",
+            "type": "HandCrews",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "fire-Border2",
+                    "qualifier": "workingOn"
+                }
+            ]
+        },
+        {
+            "id": "enginecompanies-1",
+            "type": "EngineCompanies",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "fire-Border2",
+                    "qualifier": "workingOn"
+                }
+            ]
+        },
+        {
+            "id": "helicopters-1",
+            "type": "Helicopters",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "hotspots-1",
+                    "qualifier": "dropsWaterOn"
+                },
+                {
+                    "objectId": "fire-Border2",
+                    "qualifier": "aerialSupport"
+                }
+            ]
+        },
+        {
+            "id": "hotspots-1",
+            "type": "HotSpot",
+            "attributes": [
+                {
+                    "name": "location",
+                    "time": "2025-01-25T20:09:00Z",
+                    "value": "interior of the fire perimeter"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-Border2",
+                    "qualifier": "interiorOfPerimeter"
+                }
+            ]
+        },
+        {
+            "id": "forecast-1",
+            "type": "Forecast",
+            "attributes": [
+                {
+                    "name": "precipitation",
+                    "time": "2025-01-25T20:09:00Z",
+                    "value": "rain"
+                },
+                {
+                    "name": "timing",
+                    "time": "2025-01-25T20:09:00Z",
+                    "value": "near forecast"
+                },
+                {
+                    "name": "expectedEffect",
+                    "time": "2025-01-25T20:09:00Z",
+                    "value": "mitigate fire activity"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-Border2",
+                    "qualifier": "expectedToMitigate"
+                }
+            ]
+        },
+        {
+            "id": "containment-lines-1",
+            "type": "ContainmentLine",
+            "attributes": [
+                {
+                    "name": "status",
+                    "time": "2025-01-25T20:09:00Z",
+                    "value": "being strengthened"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-Border2",
+                    "qualifier": "associatedWith"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "evt-2025-01-25T20:09:00Z",
+            "type": "SituationReport",
+            "time": "2025-01-25T20:09:00Z",
+            "attributes": [
+                {
+                    "name": "message",
+                    "value": "Firefighters have made great progress slowing the spread of the fire. Dozers, hand crews, and engine companies are working on the ground to contain the fire, while helicopters are dropping water on hot spots on the interior of the fire perimeter. Rain in the near forecast should mitigate fire activity, helping fire crews to continue strengthening containment lines."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-Border2",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "firefighters-1",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "dozers-1",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "handcrews-1",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "enginecompanies-1",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "helicopters-1",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "hotspots-1",
+                    "qualifier": "target"
+                },
+                {
+                    "objectId": "forecast-1",
+                    "qualifier": "forecast"
+                },
+                {
+                    "objectId": "containment-lines-1",
+                    "qualifier": "strengtheningTarget"
+                }
+            ]
+        }
+    ]
+}

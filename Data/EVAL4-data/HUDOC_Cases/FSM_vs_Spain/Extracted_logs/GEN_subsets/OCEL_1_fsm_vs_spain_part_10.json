@@ -1,0 +1,85 @@
+{
+    "objectTypes": [
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "incapacity_status",
+                    "type": "string"
+                },
+                {
+                    "name": "incapacity_scope",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Report",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ProposeGuardianship",
+            "attributes": [
+                {
+                    "name": "guardianshipType",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "applicant_1",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "incapacity_status",
+                    "time": "",
+                    "value": "partial"
+                },
+                {
+                    "name": "incapacity_scope",
+                    "time": "",
+                    "value": "tasks or situations with economic or administrative content or requiring organisational or administrative skills"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "report_1",
+            "type": "Report",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "about"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "ProposeGuardianship",
+            "time": "2020-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "guardianshipType",
+                    "value": "partial (curatela)"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "report_1",
+                    "qualifier": "proposedBy"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "for"
+                }
+            ]
+        }
+    ]
+}

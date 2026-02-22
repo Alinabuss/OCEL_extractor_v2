@@ -1,0 +1,155 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Vacancy",
+            "attributes": [
+                {
+                    "name": "title",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Application Submitted",
+            "attributes": []
+        },
+        {
+            "name": "Interview",
+            "attributes": []
+        },
+        {
+            "name": "Rejection Communicated",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "Toon Wang",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "applicant"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Vaishnavi Sashikanth",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "manager"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Dionne Kershaw",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "recruiter"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Vacancy[550001]",
+            "type": "Vacancy",
+            "attributes": [
+                {
+                    "name": "title",
+                    "value": "Manager"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Application[770051]",
+            "type": "Application",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Vaishnavi Sashikanth",
+                    "qualifier": "overseen-by"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Application Submitted",
+            "time": "2019-07-05T00:00:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Toon Wang",
+                    "qualifier": "applicant"
+                },
+                {
+                    "objectId": "Application[770051]",
+                    "qualifier": "application"
+                },
+                {
+                    "objectId": "Vacancy[550001]",
+                    "qualifier": "vacancy"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Interview",
+            "time": "2019-07-05T07:09:24Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Dionne Kershaw",
+                    "qualifier": "interviewer"
+                },
+                {
+                    "objectId": "Toon Wang",
+                    "qualifier": "candidate"
+                },
+                {
+                    "objectId": "Vacancy[550001]",
+                    "qualifier": "vacancy"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "Rejection Communicated",
+            "time": "2019-07-05T07:15:39Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Dionne Kershaw",
+                    "qualifier": "communicator"
+                },
+                {
+                    "objectId": "Application[770051]",
+                    "qualifier": "application"
+                }
+            ]
+        }
+    ]
+}

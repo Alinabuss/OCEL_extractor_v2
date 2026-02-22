@@ -1,0 +1,160 @@
+{
+    "objectTypes": [
+        {
+            "name": "Workstation",
+            "attributes": []
+        },
+        {
+            "name": "Hinge",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "FemalePart",
+            "attributes": []
+        },
+        {
+            "name": "MalePart",
+            "attributes": []
+        },
+        {
+            "name": "SteelPin",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Assembly",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "type": "float"
+                },
+                {
+                    "name": "CO2_emissions",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Workstation[3]",
+            "type": "Workstation",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Hinge[5126]",
+            "type": "Hinge",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "time": "2023-04-06T11:40:17Z",
+                    "value": "0.18621"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "FemalePart[5126]",
+                    "qualifier": "hasInput"
+                },
+                {
+                    "objectId": "MalePart[5196]",
+                    "qualifier": "hasInput"
+                },
+                {
+                    "objectId": "SteelPin[2851]",
+                    "qualifier": "hasInput"
+                }
+            ]
+        },
+        {
+            "id": "FemalePart[5126]",
+            "type": "FemalePart",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Hinge[5126]",
+                    "qualifier": "inputTo"
+                }
+            ]
+        },
+        {
+            "id": "MalePart[5196]",
+            "type": "MalePart",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Hinge[5126]",
+                    "qualifier": "inputTo"
+                }
+            ]
+        },
+        {
+            "id": "SteelPin[2851]",
+            "type": "SteelPin",
+            "attributes": [
+                {
+                    "name": "mass_kg",
+                    "time": "2023-04-06T11:40:17Z",
+                    "value": "0.001"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Hinge[5126]",
+                    "qualifier": "inputTo"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Assembly",
+            "time": "2023-04-06T11:40:17Z",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "value": "5.0"
+                },
+                {
+                    "name": "CO2_emissions",
+                    "value": "unspecified"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Workstation[3]",
+                    "qualifier": "workstation"
+                },
+                {
+                    "objectId": "Hinge[5126]",
+                    "qualifier": "output"
+                },
+                {
+                    "objectId": "FemalePart[5126]",
+                    "qualifier": "input"
+                },
+                {
+                    "objectId": "MalePart[5196]",
+                    "qualifier": "input"
+                },
+                {
+                    "objectId": "SteelPin[2851]",
+                    "qualifier": "input"
+                }
+            ]
+        }
+    ]
+}

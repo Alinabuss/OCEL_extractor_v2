@@ -1,0 +1,101 @@
+{
+    "objectTypes": [
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Two-Way Match",
+            "attributes": [
+                {
+                    "name": "confirmation",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "1721",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "time": "2024-07-11T07:10:00Z",
+                    "value": "213600.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "1723",
+                    "qualifier": "linked-to"
+                }
+            ]
+        },
+        {
+            "id": "1723",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "time": "2024-07-11T07:10:00Z",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Finance/Account Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Two-Way Match",
+            "time": "2024-07-11T07:10:00Z",
+            "attributes": [
+                {
+                    "name": "confirmation",
+                    "value": "process completed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "1721",
+                    "qualifier": "matched-invoice"
+                },
+                {
+                    "objectId": "1723",
+                    "qualifier": "linked-goods-receipt"
+                },
+                {
+                    "objectId": "Finance/Account Department",
+                    "qualifier": "performed-by"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,246 @@
+{
+    "objectTypes": [
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Manager",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Vacancy",
+            "attributes": [
+                {
+                    "name": "title",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": []
+        },
+        {
+            "name": "Offer",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "InvitationExtended",
+            "attributes": []
+        },
+        {
+            "name": "InterviewConducted",
+            "attributes": []
+        },
+        {
+            "name": "JobOfferMade",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "Applicant[Detlef Davis]",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Detlef Davis"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Recruiter[Ed Meister]",
+            "type": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Ed Meister"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Recruiter[Simon Geisler]",
+            "type": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Simon Geisler"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Recruiter[Dionne Kershaw]",
+            "type": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Dionne Kershaw"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Manager[Alexander Rinke]",
+            "type": "Manager",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Alexander Rinke"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Vacancy[550016]",
+            "type": "Vacancy",
+            "attributes": [
+                {
+                    "name": "title",
+                    "value": "Manager"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Application[770173]",
+            "type": "Application",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Vacancy[550016]",
+                    "qualifier": "linked-to-vacancy"
+                },
+                {
+                    "objectId": "Applicant[Detlef Davis]",
+                    "qualifier": "applicant"
+                }
+            ]
+        },
+        {
+            "id": "Offer[990010]",
+            "type": "Offer",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Application[770173]",
+                    "qualifier": "for-application"
+                },
+                {
+                    "objectId": "Applicant[Detlef Davis]",
+                    "qualifier": "recipient"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "InvitationExtended",
+            "time": "2019-07-01T12:37:58Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Recruiter[Ed Meister]",
+                    "qualifier": "inviter"
+                },
+                {
+                    "objectId": "Recruiter[Simon Geisler]",
+                    "qualifier": "inviter"
+                },
+                {
+                    "objectId": "Applicant[Detlef Davis]",
+                    "qualifier": "candidate"
+                },
+                {
+                    "objectId": "Vacancy[550016]",
+                    "qualifier": "vacancy"
+                },
+                {
+                    "objectId": "Application[770173]",
+                    "qualifier": "application"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "InterviewConducted",
+            "time": "2019-07-03T09:53:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Recruiter[Dionne Kershaw]",
+                    "qualifier": "interviewer"
+                },
+                {
+                    "objectId": "Manager[Alexander Rinke]",
+                    "qualifier": "manager"
+                },
+                {
+                    "objectId": "Applicant[Detlef Davis]",
+                    "qualifier": "candidate"
+                },
+                {
+                    "objectId": "Vacancy[550016]",
+                    "qualifier": "vacancy"
+                },
+                {
+                    "objectId": "Application[770173]",
+                    "qualifier": "application"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "JobOfferMade",
+            "time": "2019-07-04T13:36:49Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Recruiter[Dionne Kershaw]",
+                    "qualifier": "offer-maker"
+                },
+                {
+                    "objectId": "Manager[Alexander Rinke]",
+                    "qualifier": "offer-maker"
+                },
+                {
+                    "objectId": "Applicant[Detlef Davis]",
+                    "qualifier": "candidate"
+                },
+                {
+                    "objectId": "Application[770173]",
+                    "qualifier": "application"
+                },
+                {
+                    "objectId": "Offer[990010]",
+                    "qualifier": "offer"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,188 @@
+{
+    "objectTypes": [
+        {
+            "name": "Quotation",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                },
+                {
+                    "name": "lifecycle_status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PurchaseRequisition",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                },
+                {
+                    "name": "lifecycle_status",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "OrganizationalUnit",
+            "attributes": []
+        },
+        {
+            "name": "Role",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Request for Quotation Created",
+            "attributes": []
+        },
+        {
+            "name": "Purchase Order Created",
+            "attributes": []
+        },
+        {
+            "name": "Purchase Order Approval Completed",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "quotation:163",
+            "type": "Quotation",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "value": "004"
+                },
+                {
+                    "name": "lifecycle_status",
+                    "value": "complete"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "purchase_requisition:170:pr_trigger_170",
+            "type": "PurchaseRequisition",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "value": "004"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:163",
+                    "qualifier": "linked-to"
+                }
+            ]
+        },
+        {
+            "id": "purchase order:272",
+            "type": "PurchaseOrder",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "value": "004"
+                },
+                {
+                    "name": "lifecycle_status",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "quotation:163",
+                    "qualifier": "associated-with"
+                }
+            ]
+        },
+        {
+            "id": "Procurement Department",
+            "type": "OrganizationalUnit",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Procurement Order Manager",
+            "type": "Role",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Request for Quotation Created",
+            "time": "2022-08-31T14:06:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchase_requisition:170:pr_trigger_170",
+                    "qualifier": "established"
+                },
+                {
+                    "objectId": "quotation:163",
+                    "qualifier": "linked-to"
+                },
+                {
+                    "objectId": "Procurement Department",
+                    "qualifier": "creator"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "Purchase Order Created",
+            "time": "2022-08-31T19:19:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchase order:272",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "quotation:163",
+                    "qualifier": "associated-with"
+                },
+                {
+                    "objectId": "Procurement Department",
+                    "qualifier": "creator"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "type": "Purchase Order Approval Completed",
+            "time": "2022-09-02T04:23:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchase order:272",
+                    "qualifier": "approved"
+                },
+                {
+                    "objectId": "quotation:163",
+                    "qualifier": "linked-to"
+                },
+                {
+                    "objectId": "Procurement Order Manager",
+                    "qualifier": "approver"
+                }
+            ]
+        }
+    ]
+}

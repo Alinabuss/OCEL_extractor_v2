@@ -1,0 +1,163 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseOrder",
+            "attributes": []
+        },
+        {
+            "name": "Quotation",
+            "attributes": []
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": []
+        },
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Actor",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "PurchaseOrderApprovalCompleted",
+            "attributes": []
+        },
+        {
+            "name": "GoodsReceiptCreated",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:465",
+            "type": "PurchaseOrder",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "quotation:271",
+                    "qualifier": "associated_with"
+                },
+                {
+                    "objectId": "purchasing_group:005",
+                    "qualifier": "part_of"
+                }
+            ]
+        },
+        {
+            "id": "quotation:271",
+            "type": "Quotation",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:465",
+                    "qualifier": "associated_with"
+                },
+                {
+                    "objectId": "purchasing_group:005",
+                    "qualifier": "part_of"
+                }
+            ]
+        },
+        {
+            "id": "purchasing_group:005",
+            "type": "PurchasingGroup",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:465",
+                    "qualifier": "has_member"
+                },
+                {
+                    "objectId": "quotation:271",
+                    "qualifier": "has_member"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt[549]",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movement_type",
+                    "time": "2023-01-16T22:28:00Z",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:465",
+                    "qualifier": "associated_with"
+                }
+            ]
+        },
+        {
+            "id": "Procurement Order Manager",
+            "type": "Actor",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "Warehouse Department",
+            "type": "Actor",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "PurchaseOrderApprovalCompleted",
+            "time": "2023-01-14T06:23:00Z",
+            "attributes": [
+                {
+                    "name": "note",
+                    "value": "Procurement Order Manager completed approval of purchase_order:465"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:465",
+                    "qualifier": "approved"
+                },
+                {
+                    "objectId": "Procurement Order Manager",
+                    "qualifier": "performed_by"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "GoodsReceiptCreated",
+            "time": "2023-01-16T22:28:00Z",
+            "attributes": [
+                {
+                    "name": "note",
+                    "value": "Warehouse Department completed creation of goods receipt[549]"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt[549]",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "Warehouse Department",
+                    "qualifier": "performed_by"
+                },
+                {
+                    "objectId": "purchase_order:465",
+                    "qualifier": "associated_with"
+                }
+            ]
+        }
+    ]
+}

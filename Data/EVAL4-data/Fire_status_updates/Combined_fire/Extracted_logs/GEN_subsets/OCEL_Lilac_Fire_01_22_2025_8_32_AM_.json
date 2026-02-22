@@ -1,0 +1,231 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Perimeter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "LocationReport",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ForwardRateOfSpreadStopped",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ContainmentActivityPlanned",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "RepopulationCompleted",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire-1",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Lilac Fire"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "loc-old-highway-395",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Old Highway 395"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "loc-lilac-road",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Lilac Road"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "crew-fire",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Fire crew"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "perimeter-lilac",
+            "type": "Perimeter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "Lilac Fire perimeter"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "part-of"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "LocationReport",
+            "time": "2025-01-22T08:32:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "The fire is located near Old Highway 395 and Lilac Road."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "loc-old-highway-395",
+                    "qualifier": "near"
+                },
+                {
+                    "objectId": "loc-lilac-road",
+                    "qualifier": "near"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "ForwardRateOfSpreadStopped",
+            "time": "2025-01-22T08:32:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "The forward rate of spread has been stopped."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "subject"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "ContainmentActivityPlanned",
+            "time": "2025-01-22T08:32:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Fire crew will continue to build containment lines and extinguish hotspots within the fire's perimeter."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "crew-fire",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "perimeter-lilac",
+                    "qualifier": "target"
+                },
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "subject"
+                }
+            ]
+        },
+        {
+            "id": "e4",
+            "type": "RepopulationCompleted",
+            "time": "2025-01-21T20:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Repopulation has been completed as of January 21 at 8 p.m."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "subject"
+                }
+            ]
+        }
+    ]
+}

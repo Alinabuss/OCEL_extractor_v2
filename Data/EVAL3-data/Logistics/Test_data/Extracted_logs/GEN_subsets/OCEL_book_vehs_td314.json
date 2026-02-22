@@ -1,0 +1,83 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "total_containers",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "category",
+                    "type": "string"
+                },
+                {
+                    "name": "scheduled_departure",
+                    "type": "timestamp"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "TransportDocumentAssociatedWithVehicle",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "TD[314]",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "total_containers",
+                    "value": "5.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "VH[70]",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "category",
+                    "value": "regular"
+                },
+                {
+                    "name": "scheduled_departure",
+                    "value": "2024-01-26T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "TD[314]",
+                    "qualifier": "booked_for"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "TransportDocumentAssociatedWithVehicle",
+            "time": "2024-01-18T06:16:11Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "TD[314]",
+                    "qualifier": "transport_document"
+                },
+                {
+                    "objectId": "VH[70]",
+                    "qualifier": "vehicle"
+                }
+            ]
+        }
+    ]
+}

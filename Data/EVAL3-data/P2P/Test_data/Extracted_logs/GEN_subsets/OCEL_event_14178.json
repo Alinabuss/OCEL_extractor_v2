@@ -1,0 +1,101 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseRequisition",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Material",
+            "attributes": [
+                {
+                    "name": "net_price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Purchase Requisition Creation Completed",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_requisition:470:pr_trigger_470",
+            "type": "PurchaseRequisition",
+            "attributes": [
+                {
+                    "name": "purchasing_group",
+                    "time": "2023-07-21T09:21:00Z",
+                    "value": "003"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "material:1160",
+                    "qualifier": "assigned-to"
+                }
+            ]
+        },
+        {
+            "id": "material:1160",
+            "type": "Material",
+            "attributes": [
+                {
+                    "name": "net_price",
+                    "time": "2023-07-21T09:21:00Z",
+                    "value": "750.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Manufacturing Department",
+            "type": "Department",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Purchase Requisition Creation Completed",
+            "time": "2023-07-21T09:21:00Z",
+            "attributes": [
+                {
+                    "name": "status",
+                    "value": "completed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_requisition:470:pr_trigger_470",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "material:1160",
+                    "qualifier": "assigned"
+                },
+                {
+                    "objectId": "Manufacturing Department",
+                    "qualifier": "performed-by"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,323 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ForensicReport",
+            "attributes": [
+                {
+                    "name": "reportType",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Adjustment",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Documents",
+            "attributes": [
+                {
+                    "name": "relevance",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Trial",
+            "attributes": [
+                {
+                    "name": "context",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Assistance",
+            "attributes": [
+                {
+                    "name": "should_have_been_received",
+                    "type": "boolean"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "InformationProvided",
+            "attributes": [
+                {
+                    "name": "relevance",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "NonObservance",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "RightBreach",
+            "attributes": [
+                {
+                    "name": "right",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Argument",
+            "attributes": [
+                {
+                    "name": "content",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "person_he",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "2020-01-02T10:00:01Z",
+                    "value": "right_holder"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "assistance_1",
+                    "qualifier": "should_have_received"
+                }
+            ]
+        },
+        {
+            "id": "person_guardian",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "2020-01-01T09:00:00Z",
+                    "value": "guardian"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "person_lawyer",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "2020-01-01T09:00:00Z",
+                    "value": "lawyer"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "report_forensic_1",
+            "type": "ForensicReport",
+            "attributes": [
+                {
+                    "name": "reportType",
+                    "time": "2020-01-02T10:00:00Z",
+                    "value": "forensic"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "adjustment_1",
+            "type": "Adjustment",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2020-01-02T10:00:00Z",
+                    "value": "adjustments indicated in the forensic report"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "report_forensic_1",
+                    "qualifier": "indicated_in"
+                }
+            ]
+        },
+        {
+            "id": "docs_1",
+            "type": "Documents",
+            "attributes": [
+                {
+                    "name": "relevance",
+                    "time": "2020-01-01T09:00:00Z",
+                    "value": "relevant"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "trial_1",
+            "type": "Trial",
+            "attributes": [
+                {
+                    "name": "context",
+                    "time": "2020-01-02T10:00:00Z",
+                    "value": "trial"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "assistance_1",
+            "type": "Assistance",
+            "attributes": [
+                {
+                    "name": "should_have_been_received",
+                    "time": "2020-01-02T10:00:00Z",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "trial_1",
+                    "qualifier": "during"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "InformationProvided",
+            "time": "2020-01-01T09:00:00Z",
+            "attributes": [
+                {
+                    "name": "relevance",
+                    "value": "relevant"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person_guardian",
+                    "qualifier": "provider"
+                },
+                {
+                    "objectId": "person_lawyer",
+                    "qualifier": "recipient"
+                },
+                {
+                    "objectId": "docs_1",
+                    "qualifier": "documents"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "NonObservance",
+            "time": "2020-01-02T10:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "non-observance of the adjustments indicated in the forensic report"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "adjustment_1",
+                    "qualifier": "not_observed"
+                },
+                {
+                    "objectId": "report_forensic_1",
+                    "qualifier": "related_report"
+                },
+                {
+                    "objectId": "person_he",
+                    "qualifier": "affected"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "type": "RightBreach",
+            "time": "2020-01-02T10:00:01Z",
+            "attributes": [
+                {
+                    "name": "right",
+                    "value": "fair_trial"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person_he",
+                    "qualifier": "right_holder"
+                },
+                {
+                    "objectId": "adjustment_1",
+                    "qualifier": "breach_cause"
+                },
+                {
+                    "objectId": "report_forensic_1",
+                    "qualifier": "related_report"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "type": "Argument",
+            "time": "2020-01-03T11:00:00Z",
+            "attributes": [
+                {
+                    "name": "content",
+                    "value": "He argued that the fact that the guardian had provided relevant information and documents to the lawyer was independent from the assistance he should have received during the trial"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "person_he",
+                    "qualifier": "arguer"
+                },
+                {
+                    "objectId": "person_guardian",
+                    "qualifier": "referenced"
+                },
+                {
+                    "objectId": "person_lawyer",
+                    "qualifier": "referenced"
+                },
+                {
+                    "objectId": "docs_1",
+                    "qualifier": "referenced"
+                },
+                {
+                    "objectId": "assistance_1",
+                    "qualifier": "referenced"
+                },
+                {
+                    "objectId": "trial_1",
+                    "qualifier": "referenced"
+                }
+            ]
+        }
+    ]
+}

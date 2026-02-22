@@ -1,0 +1,121 @@
+{
+    "objectTypes": [
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "retailPrice",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "department",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Pick",
+            "attributes": [
+                {
+                    "name": "action",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "product-iPad Air",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "iPad Air"
+                },
+                {
+                    "name": "retailPrice",
+                    "value": "476.00"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-886858",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "561.01"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-iPad Air",
+                    "qualifier": "associatedWith"
+                }
+            ]
+        },
+        {
+            "id": "person-Mahsa Bafrani",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Mahsa Bafrani"
+                },
+                {
+                    "name": "department",
+                    "value": "Warehousing"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e-1",
+            "type": "Pick",
+            "time": "2024-02-22T11:29:39Z",
+            "attributes": [
+                {
+                    "name": "action",
+                    "value": "picked"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "i-886858",
+                    "qualifier": "item"
+                },
+                {
+                    "objectId": "person-Mahsa Bafrani",
+                    "qualifier": "picker"
+                }
+            ]
+        }
+    ]
+}

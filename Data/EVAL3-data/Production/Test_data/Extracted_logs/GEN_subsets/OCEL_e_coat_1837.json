@@ -1,0 +1,139 @@
+{
+    "objectTypes": [
+        {
+            "name": "Machine",
+            "attributes": []
+        },
+        {
+            "name": "Workstation",
+            "attributes": []
+        },
+        {
+            "name": "FormedPart",
+            "attributes": []
+        },
+        {
+            "name": "Material",
+            "attributes": []
+        },
+        {
+            "name": "EnergySource",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Coating",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "type": "integer"
+                },
+                {
+                    "name": "co2eq_kg",
+                    "type": "float"
+                },
+                {
+                    "name": "energy_kwh",
+                    "type": "float"
+                },
+                {
+                    "name": "material_used_kg",
+                    "type": "float"
+                },
+                {
+                    "name": "material_waste_kg",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "coater03",
+            "type": "Machine",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "workstation_1",
+                    "qualifier": "located_at"
+                }
+            ]
+        },
+        {
+            "id": "workstation_1",
+            "type": "Workstation",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "o_formedpart_1837",
+            "type": "FormedPart",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "coating_material",
+            "type": "Material",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "grid",
+            "type": "EnergySource",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "Coating",
+            "time": "2023-04-04T08:56:42Z",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "value": "300"
+                },
+                {
+                    "name": "co2eq_kg",
+                    "value": "0.1751156951"
+                },
+                {
+                    "name": "energy_kwh",
+                    "value": "0.25"
+                },
+                {
+                    "name": "material_used_kg",
+                    "value": "0.0004"
+                },
+                {
+                    "name": "material_waste_kg",
+                    "value": "0.0001"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "coater03",
+                    "qualifier": "machine"
+                },
+                {
+                    "objectId": "o_formedpart_1837",
+                    "qualifier": "coated_part"
+                },
+                {
+                    "objectId": "coating_material",
+                    "qualifier": "material_used"
+                },
+                {
+                    "objectId": "coating_material",
+                    "qualifier": "material_waste"
+                },
+                {
+                    "objectId": "grid",
+                    "qualifier": "energy_source"
+                }
+            ]
+        }
+    ]
+}

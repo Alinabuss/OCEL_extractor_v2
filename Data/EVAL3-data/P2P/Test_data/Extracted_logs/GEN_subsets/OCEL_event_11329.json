@@ -1,0 +1,101 @@
+{
+    "objectTypes": [
+        {
+            "name": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "float"
+                },
+                {
+                    "name": "completeness",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "int"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "invoice receipt created",
+            "attributes": [
+                {
+                    "name": "createdBy",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "invoice receipt[738]",
+            "type": "invoice receipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "time": "2023-04-12T17:24:00Z",
+                    "value": "5800.0"
+                },
+                {
+                    "name": "completeness",
+                    "time": "2023-04-12T17:24:00Z",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "goods receipt[746]",
+                    "qualifier": "related"
+                }
+            ]
+        },
+        {
+            "id": "goods receipt[746]",
+            "type": "goods receipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "time": "",
+                    "value": "101"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt[738]",
+                    "qualifier": "related"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "invoice receipt created",
+            "time": "2023-04-12T17:24:00Z",
+            "attributes": [
+                {
+                    "name": "createdBy",
+                    "value": "finance and account department"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "invoice receipt[738]",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "goods receipt[746]",
+                    "qualifier": "related"
+                }
+            ]
+        }
+    ]
+}

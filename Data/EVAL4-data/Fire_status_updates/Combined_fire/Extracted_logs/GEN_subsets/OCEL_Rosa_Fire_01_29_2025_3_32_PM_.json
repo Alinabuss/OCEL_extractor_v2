@@ -1,0 +1,161 @@
+{
+    "objectTypes": [
+        {
+            "name": "FireIncident",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "state",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ResponderGroup",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Vegetation",
+            "attributes": [
+                {
+                    "name": "type",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ContainmentWork",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "FireBurning",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "RosaFire",
+            "type": "FireIncident",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-29T15:32:00Z",
+                    "value": "Rosa Fire"
+                },
+                {
+                    "name": "state",
+                    "time": "2025-01-29T15:32:00Z",
+                    "value": "burning"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Grass",
+                    "qualifier": "burning_in"
+                },
+                {
+                    "objectId": "Firefighters",
+                    "qualifier": "has_responders"
+                }
+            ]
+        },
+        {
+            "id": "Firefighters",
+            "type": "ResponderGroup",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-29T15:32:00Z",
+                    "value": "Firefighters"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "RosaFire",
+                    "qualifier": "at_scene_of"
+                }
+            ]
+        },
+        {
+            "id": "Grass",
+            "type": "Vegetation",
+            "attributes": [
+                {
+                    "name": "type",
+                    "time": "2025-01-29T15:32:00Z",
+                    "value": "grass"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "RosaFire",
+                    "qualifier": "location_of"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "ContainmentWork",
+            "time": "2025-01-29T15:32:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Firefighters at scene working on containment"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Firefighters",
+                    "qualifier": "responder"
+                },
+                {
+                    "objectId": "RosaFire",
+                    "qualifier": "incident"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "FireBurning",
+            "time": "2025-01-29T15:32:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "fire is burning in grass"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "RosaFire",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "Grass",
+                    "qualifier": "location"
+                }
+            ]
+        }
+    ]
+}

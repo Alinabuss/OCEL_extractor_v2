@@ -1,0 +1,107 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "type": "string"
+                },
+                {
+                    "name": "size_acres",
+                    "type": "integer"
+                },
+                {
+                    "name": "fuel_type",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Status Report",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Rosa Fire",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Rosa Fire"
+                },
+                {
+                    "name": "status",
+                    "time": "2025-01-29T13:42:00Z",
+                    "value": "holding"
+                },
+                {
+                    "name": "size_acres",
+                    "time": "2025-01-29T13:42:00Z",
+                    "value": "10"
+                },
+                {
+                    "name": "fuel_type",
+                    "time": "2025-01-29T13:42:00Z",
+                    "value": "grass"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Firefighters",
+            "type": "Crew",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Firefighters"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Status Report",
+            "time": "2025-01-29T13:42:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Firefighters at scene, the fire is holding at 10 acres in grass."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Rosa Fire",
+                    "qualifier": "incident"
+                },
+                {
+                    "objectId": "Firefighters",
+                    "qualifier": "on_scene"
+                }
+            ]
+        }
+    ]
+}

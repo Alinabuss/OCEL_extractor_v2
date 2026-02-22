@@ -1,0 +1,131 @@
+{
+    "objectTypes": [
+        {
+            "name": "Session",
+            "attributes": [
+                {
+                    "name": "sessionId",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Player",
+            "attributes": [
+                {
+                    "name": "playerId",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Match",
+            "attributes": [
+                {
+                    "name": "matchId",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "GatherFood",
+            "attributes": [
+                {
+                    "name": "resource",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "S227028371_767395",
+            "type": "Session",
+            "attributes": [
+                {
+                    "name": "sessionId",
+                    "value": "S227028371_767395"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "P767395",
+                    "qualifier": "has_player"
+                },
+                {
+                    "objectId": "M227028371",
+                    "qualifier": "includes_match"
+                }
+            ]
+        },
+        {
+            "id": "P767395",
+            "type": "Player",
+            "attributes": [
+                {
+                    "name": "playerId",
+                    "value": "P767395"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "M227028371",
+                    "qualifier": "participates_in"
+                },
+                {
+                    "objectId": "S227028371_767395",
+                    "qualifier": "in_session"
+                }
+            ]
+        },
+        {
+            "id": "M227028371",
+            "type": "Match",
+            "attributes": [
+                {
+                    "name": "matchId",
+                    "value": "M227028371"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "P767395",
+                    "qualifier": "has_participant"
+                },
+                {
+                    "objectId": "S227028371_767395",
+                    "qualifier": "part_of_session"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "E1",
+            "type": "GatherFood",
+            "time": "2023-04-17T00:43:43Z",
+            "attributes": [
+                {
+                    "name": "resource",
+                    "value": "food"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "P767395",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "S227028371_767395",
+                    "qualifier": "session"
+                },
+                {
+                    "objectId": "M227028371",
+                    "qualifier": "match"
+                }
+            ]
+        }
+    ]
+}

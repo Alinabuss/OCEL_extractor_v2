@@ -1,0 +1,162 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "age",
+                    "type": "integer"
+                },
+                {
+                    "name": "has_disability",
+                    "type": "boolean"
+                },
+                {
+                    "name": "is_elderly",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "Proceeding",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "AccommodationProvision",
+            "attributes": [
+                {
+                    "name": "condition",
+                    "type": "string"
+                },
+                {
+                    "name": "text",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ElderlyDefinition",
+            "attributes": [
+                {
+                    "name": "threshold_age",
+                    "type": "integer"
+                },
+                {
+                    "name": "text",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "persons_with_disabilities",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "label",
+                    "time": "",
+                    "value": "persons with disabilities"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "elderly_persons",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "label",
+                    "time": "",
+                    "value": "elderly persons"
+                },
+                {
+                    "name": "age_threshold",
+                    "time": "",
+                    "value": "65"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "proceedings_involving_these_persons",
+            "type": "Proceeding",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "",
+                    "value": "proceedings involving persons with disabilities or elderly persons"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "persons_with_disabilities",
+                    "qualifier": "involves"
+                },
+                {
+                    "objectId": "elderly_persons",
+                    "qualifier": "involves"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "AccommodationProvision",
+            "time": "",
+            "attributes": [
+                {
+                    "name": "text",
+                    "value": "the necessary accommodations and adjustments shall be made to enable them to participate on an equal footing"
+                },
+                {
+                    "name": "condition",
+                    "value": "if they so request or, in any event, if they are 80 years of age or older"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "proceedings_involving_these_persons",
+                    "qualifier": "applies_to"
+                },
+                {
+                    "objectId": "persons_with_disabilities",
+                    "qualifier": "concerns"
+                },
+                {
+                    "objectId": "elderly_persons",
+                    "qualifier": "concerns"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "ElderlyDefinition",
+            "time": "",
+            "attributes": [
+                {
+                    "name": "text",
+                    "value": "persons aged 65 years or older shall be considered as elderly persons"
+                },
+                {
+                    "name": "threshold_age",
+                    "value": "65"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "elderly_persons",
+                    "qualifier": "defines"
+                }
+            ]
+        }
+    ]
+}

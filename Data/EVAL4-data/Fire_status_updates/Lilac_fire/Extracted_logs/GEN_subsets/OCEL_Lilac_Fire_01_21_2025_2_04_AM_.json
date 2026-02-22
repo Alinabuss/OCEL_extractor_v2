@@ -1,0 +1,161 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "rate_of_spread",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Road",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Structure",
+            "attributes": [
+                {
+                    "name": "status",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Fire Status Update",
+            "attributes": [
+                {
+                    "name": "location",
+                    "type": "string"
+                },
+                {
+                    "name": "rate_of_spread",
+                    "type": "string"
+                },
+                {
+                    "name": "structures_threatened",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "LilacFire",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-21T02:04:00Z",
+                    "value": "Lilac Fire"
+                },
+                {
+                    "name": "rate_of_spread",
+                    "time": "2025-01-21T02:04:00Z",
+                    "value": "moderate"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "OldHighway395",
+                    "qualifier": "located_near"
+                },
+                {
+                    "objectId": "LilacRoad",
+                    "qualifier": "located_near"
+                },
+                {
+                    "objectId": "StructuresNearFire",
+                    "qualifier": "threatens"
+                }
+            ]
+        },
+        {
+            "id": "OldHighway395",
+            "type": "Road",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-21T02:04:00Z",
+                    "value": "Old Highway 395"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "LilacRoad",
+            "type": "Road",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-21T02:04:00Z",
+                    "value": "Lilac road"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "StructuresNearFire",
+            "type": "Structure",
+            "attributes": [
+                {
+                    "name": "status",
+                    "time": "2025-01-21T02:04:00Z",
+                    "value": "threatened"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "ev1",
+            "type": "Fire Status Update",
+            "time": "2025-01-21T02:04:00Z",
+            "attributes": [
+                {
+                    "name": "location",
+                    "value": "near Old Highway 395 and Lilac road"
+                },
+                {
+                    "name": "rate_of_spread",
+                    "value": "moderate"
+                },
+                {
+                    "name": "structures_threatened",
+                    "value": "threatened"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "LilacFire",
+                    "qualifier": "reports-on"
+                },
+                {
+                    "objectId": "OldHighway395",
+                    "qualifier": "reports-on"
+                },
+                {
+                    "objectId": "LilacRoad",
+                    "qualifier": "reports-on"
+                },
+                {
+                    "objectId": "StructuresNearFire",
+                    "qualifier": "reports-on"
+                }
+            ]
+        }
+    ]
+}

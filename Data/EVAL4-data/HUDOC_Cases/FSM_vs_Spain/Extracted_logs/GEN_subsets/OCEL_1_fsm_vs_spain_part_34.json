@@ -1,0 +1,289 @@
+{
+    "objectTypes": [
+        {
+            "name": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Hospital",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Order",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Appeal",
+            "attributes": [
+                {
+                    "name": "targetOrder",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Admission",
+            "attributes": [
+                {
+                    "name": "start",
+                    "type": "datetime"
+                },
+                {
+                    "name": "end",
+                    "type": "datetime"
+                },
+                {
+                    "name": "voluntary",
+                    "type": "boolean"
+                },
+                {
+                    "name": "reason",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Appeal Dismissed",
+            "attributes": [
+                {
+                    "name": "decision",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Information Requested",
+            "attributes": [
+                {
+                    "name": "topic",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Hospital Statement",
+            "attributes": [
+                {
+                    "name": "content",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "applicant_1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "applicant"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "representative_1",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "representative"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "represents"
+                }
+            ]
+        },
+        {
+            "id": "AudienciaProvincial",
+            "type": "Court",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Audiencia Provincial"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "hospital_1",
+            "type": "Hospital",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "order_1",
+            "type": "Order",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "pre-trial detention order"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "appeal_1",
+            "type": "Appeal",
+            "attributes": [
+                {
+                    "name": "targetOrder",
+                    "value": "order_1"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "by"
+                },
+                {
+                    "objectId": "order_1",
+                    "qualifier": "against"
+                }
+            ]
+        },
+        {
+            "id": "admission_1",
+            "type": "Admission",
+            "attributes": [
+                {
+                    "name": "start",
+                    "value": "2018-06-01T00:00:00Z"
+                },
+                {
+                    "name": "end",
+                    "value": "2018-06-14T00:00:00Z"
+                },
+                {
+                    "name": "voluntary",
+                    "value": "true"
+                },
+                {
+                    "name": "reason",
+                    "value": "having thoughts of self-harm"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "representative_1",
+                    "qualifier": "reportedBy"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "concerns"
+                },
+                {
+                    "objectId": "hospital_1",
+                    "qualifier": "atHospital"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Appeal Dismissed",
+            "time": "2018-06-14T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "decision",
+                    "value": "dismissed"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "appeal_1",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "AudienciaProvincial",
+                    "qualifier": "performedBy"
+                },
+                {
+                    "objectId": "order_1",
+                    "qualifier": "relatedTo"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "Information Requested",
+            "time": "2018-06-14T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "topic",
+                    "value": "applicant admission to hospital"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "AudienciaProvincial",
+                    "qualifier": "performedBy"
+                },
+                {
+                    "objectId": "hospital_1",
+                    "qualifier": "requestedFrom"
+                },
+                {
+                    "objectId": "admission_1",
+                    "qualifier": "about"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "Hospital Statement",
+            "time": "2018-06-14T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "content",
+                    "value": "the applicant had been voluntarily admitted to hospital between 1 and 14 June 2018 because he had been having thoughts of self-harm"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "hospital_1",
+                    "qualifier": "performedBy"
+                },
+                {
+                    "objectId": "admission_1",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "applicant_1",
+                    "qualifier": "subject"
+                }
+            ]
+        }
+    ]
+}

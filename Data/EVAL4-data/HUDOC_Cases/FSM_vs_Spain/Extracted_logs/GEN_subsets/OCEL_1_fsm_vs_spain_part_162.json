@@ -1,0 +1,234 @@
+{
+    "objectTypes": [
+        {
+            "name": "PersonGroup",
+            "attributes": [
+                {
+                    "name": "category",
+                    "type": "string"
+                },
+                {
+                    "name": "hasRightToUnderstand",
+                    "type": "boolean"
+                }
+            ]
+        },
+        {
+            "name": "AccommodationAdjustment",
+            "attributes": [
+                {
+                    "name": "scope",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ProceduralStep",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Communication",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "InteractionWithEnvironment",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "MakeAccommodationOrAdjustment",
+            "attributes": [
+                {
+                    "name": "necessaryCondition",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "AffirmRightToUnderstand",
+            "attributes": [
+                {
+                    "name": "scope",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "group:persons_with_disabilities",
+            "type": "PersonGroup",
+            "attributes": [
+                {
+                    "name": "category",
+                    "value": "persons with disabilities",
+                    "time": ""
+                },
+                {
+                    "name": "hasRightToUnderstand",
+                    "value": "true",
+                    "time": ""
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "group:elderly_persons",
+            "type": "PersonGroup",
+            "attributes": [
+                {
+                    "name": "category",
+                    "value": "elderly persons",
+                    "time": ""
+                },
+                {
+                    "name": "hasRightToUnderstand",
+                    "value": "true",
+                    "time": ""
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "acc:1",
+            "type": "AccommodationAdjustment",
+            "attributes": [
+                {
+                    "name": "scope",
+                    "value": "communications; understanding; interactions with the environment",
+                    "time": ""
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "step:every_stage",
+                    "qualifier": "appliesTo"
+                },
+                {
+                    "objectId": "comm:communications",
+                    "qualifier": "includes"
+                },
+                {
+                    "objectId": "interaction:environment",
+                    "qualifier": "refersTo"
+                }
+            ]
+        },
+        {
+            "id": "step:every_stage",
+            "type": "ProceduralStep",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "every stage and within each procedural step in which accommodations are necessary",
+                    "time": ""
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "comm:communications",
+            "type": "Communication",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "communications (included as contexts where accommodations may be necessary)",
+                    "time": ""
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "interaction:environment",
+            "type": "InteractionWithEnvironment",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "interactions with the environment (may be referred to by accommodations)",
+                    "time": ""
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "MakeAccommodationOrAdjustment",
+            "time": "2020-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "necessaryCondition",
+                    "value": "in which they are necessary"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "acc:1",
+                    "qualifier": "produces"
+                },
+                {
+                    "objectId": "step:every_stage",
+                    "qualifier": "inStage"
+                },
+                {
+                    "objectId": "comm:communications",
+                    "qualifier": "inContextOf"
+                },
+                {
+                    "objectId": "interaction:environment",
+                    "qualifier": "refersTo"
+                },
+                {
+                    "objectId": "group:persons_with_disabilities",
+                    "qualifier": "beneficiary"
+                },
+                {
+                    "objectId": "group:elderly_persons",
+                    "qualifier": "beneficiary"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "AffirmRightToUnderstand",
+            "time": "2020-01-01T00:00:01Z",
+            "attributes": [
+                {
+                    "name": "scope",
+                    "value": "every step that may be taken"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "group:persons_with_disabilities",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "group:elderly_persons",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "step:every_stage",
+                    "qualifier": "appliesTo"
+                }
+            ]
+        }
+    ]
+}

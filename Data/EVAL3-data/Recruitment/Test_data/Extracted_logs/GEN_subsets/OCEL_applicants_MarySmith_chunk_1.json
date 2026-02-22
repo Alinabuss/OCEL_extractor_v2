@@ -1,0 +1,112 @@
+{
+    "objectTypes": [
+        {
+            "name": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": [
+                {
+                    "name": "applicationNumber",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Send Rejection",
+            "attributes": [
+                {
+                    "name": "outcome",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Jana Kershaw",
+            "type": "Recruiter",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Jana Kershaw",
+                    "time": ""
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Mary Smith",
+            "type": "Applicant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Mary Smith",
+                    "time": ""
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "Application[770258]",
+            "type": "Application",
+            "attributes": [
+                {
+                    "name": "applicationNumber",
+                    "value": "770258",
+                    "time": ""
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Mary Smith",
+                    "qualifier": "belongs-to"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Send Rejection",
+            "time": "2019-07-04T07:28:20Z",
+            "attributes": [
+                {
+                    "name": "outcome",
+                    "value": "rejection"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Jana Kershaw",
+                    "qualifier": "recruiter"
+                },
+                {
+                    "objectId": "Mary Smith",
+                    "qualifier": "applicant"
+                },
+                {
+                    "objectId": "Application[770258]",
+                    "qualifier": "concerns"
+                }
+            ]
+        }
+    ]
+}

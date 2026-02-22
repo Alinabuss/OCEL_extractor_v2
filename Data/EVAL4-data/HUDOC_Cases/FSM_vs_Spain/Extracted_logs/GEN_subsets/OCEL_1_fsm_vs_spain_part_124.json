@@ -1,0 +1,219 @@
+{
+    "objectTypes": [
+        {
+            "name": "Agent",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Proceedings",
+            "attributes": [
+                {
+                    "name": "relation",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Issue",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Condition",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "IssueToBeDetermined",
+            "attributes": [
+                {
+                    "name": "text",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "RaisedMentalHealthIssue",
+            "attributes": [
+                {
+                    "name": "frequency",
+                    "type": "string"
+                },
+                {
+                    "name": "purpose",
+                    "type": "string"
+                },
+                {
+                    "name": "paragraphs",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o_applicant",
+            "type": "Agent",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "2020-01-01T00:00:00Z",
+                    "value": "applicant"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_lawyers",
+            "type": "Agent",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "2020-01-02T00:00:00Z",
+                    "value": "applicant's lawyers"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_applicant",
+                    "qualifier": "represents"
+                }
+            ]
+        },
+        {
+            "id": "o_court",
+            "type": "Agent",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "2020-01-01T00:00:00Z",
+                    "value": "Court"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "o_proceedings",
+            "type": "Proceedings",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "o_applicant",
+                    "qualifier": "in_relation_to"
+                }
+            ]
+        },
+        {
+            "id": "o_issue",
+            "type": "Issue",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2020-01-01T00:00:00Z",
+                    "value": "whether the manner in which the proceedings were conducted in relation to the applicant guaranteed him effective enjoyment of the right to a fair hearing and enabled him to exercise his defence rights and to effectively participate in the proceedings"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_proceedings",
+                    "qualifier": "concerns"
+                }
+            ]
+        },
+        {
+            "id": "o_mental_health_condition",
+            "type": "Condition",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2020-01-02T00:00:00Z",
+                    "value": "the applicant's mental health condition"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e60",
+            "type": "IssueToBeDetermined",
+            "time": "2020-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "text",
+                    "value": "The issue to be determined in the instant case is whether the manner in which the proceedings were conducted in relation to the applicant guaranteed him effective enjoyment of the right to a fair hearing and enabled him to exercise his defence rights and to effectively participate in the proceedings."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_court",
+                    "qualifier": "defined_by"
+                },
+                {
+                    "objectId": "o_issue",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "o_proceedings",
+                    "qualifier": "concerns"
+                },
+                {
+                    "objectId": "o_applicant",
+                    "qualifier": "concerned"
+                }
+            ]
+        },
+        {
+            "id": "e61",
+            "type": "RaisedMentalHealthIssue",
+            "time": "2020-01-02T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "frequency",
+                    "value": "multiple occasions"
+                },
+                {
+                    "name": "purpose",
+                    "value": "request discontinuation of the proceedings on that ground"
+                },
+                {
+                    "name": "paragraphs",
+                    "value": "13, 14, 20-22 and 26"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o_lawyers",
+                    "qualifier": "raised_by"
+                },
+                {
+                    "objectId": "o_mental_health_condition",
+                    "qualifier": "about"
+                },
+                {
+                    "objectId": "o_proceedings",
+                    "qualifier": "concerning"
+                },
+                {
+                    "objectId": "o_applicant",
+                    "qualifier": "about_applicant"
+                }
+            ]
+        }
+    ]
+}

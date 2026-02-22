@@ -1,0 +1,82 @@
+{
+    "objectTypes": [
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "type": "dateTime"
+                }
+            ]
+        },
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "VehicleBooked",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "vh86",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "time": "2024-03-15T07:53:38Z",
+                    "value": "2024-03-22T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td391",
+                    "qualifier": "bookedFor"
+                }
+            ]
+        },
+        {
+            "id": "td391",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "time": "2024-03-15T07:53:38Z",
+                    "value": "2.0"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "vh86",
+                    "qualifier": "associatedWith"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "VehicleBooked",
+            "time": "2024-03-15T07:53:38Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "vh86",
+                    "qualifier": "vehicle"
+                },
+                {
+                    "objectId": "td391",
+                    "qualifier": "transportDocument"
+                }
+            ]
+        }
+    ]
+}

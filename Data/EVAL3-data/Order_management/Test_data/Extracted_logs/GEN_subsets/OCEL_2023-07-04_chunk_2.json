@@ -1,0 +1,140 @@
+{
+    "objectTypes": [
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "value",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Picking",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "employee-DetlefWetzeler",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Detlef Wetzeler"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "department-warehousing",
+                    "qualifier": "works-in"
+                }
+            ]
+        },
+        {
+            "id": "department-warehousing",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "warehousing department"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "i-881706",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "MacBook Air"
+                },
+                {
+                    "name": "price",
+                    "value": 2325.62
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "product-MacBookAir",
+                    "qualifier": "instance-of"
+                }
+            ]
+        },
+        {
+            "id": "product-MacBookAir",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "MacBook Air"
+                },
+                {
+                    "name": "value",
+                    "value": 2200.0
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e-20230704-143515",
+            "type": "Picking",
+            "time": "2023-07-04T14:35:15Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "employee-DetlefWetzeler",
+                    "qualifier": "performed-by"
+                },
+                {
+                    "objectId": "i-881706",
+                    "qualifier": "picked"
+                },
+                {
+                    "objectId": "product-MacBookAir",
+                    "qualifier": "involves-product"
+                }
+            ]
+        }
+    ]
+}

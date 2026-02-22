@@ -1,0 +1,87 @@
+{
+    "objectTypes": [
+        {
+            "name": "PurchaseOrder",
+            "attributes": []
+        },
+        {
+            "name": "Quotation",
+            "attributes": []
+        },
+        {
+            "name": "PurchasingGroup",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "PurchaseOrderApproval",
+            "attributes": [
+                {
+                    "name": "actor",
+                    "type": "string"
+                },
+                {
+                    "name": "processStatus",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "purchase_order:551",
+            "type": "PurchaseOrder",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "quotation:325",
+                    "qualifier": "associatedWith"
+                },
+                {
+                    "objectId": "purchasing_group:002",
+                    "qualifier": "belongsTo"
+                }
+            ]
+        },
+        {
+            "id": "quotation:325",
+            "type": "Quotation",
+            "attributes": [],
+            "relationships": []
+        },
+        {
+            "id": "purchasing_group:002",
+            "type": "PurchasingGroup",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "PurchaseOrderApproval",
+            "time": "2023-03-07T22:43:00Z",
+            "attributes": [
+                {
+                    "name": "actor",
+                    "value": "procurement order manager"
+                },
+                {
+                    "name": "processStatus",
+                    "value": "complete"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "purchase_order:551",
+                    "qualifier": "approved"
+                },
+                {
+                    "objectId": "quotation:325",
+                    "qualifier": "linkedAsBasis"
+                }
+            ]
+        }
+    ]
+}

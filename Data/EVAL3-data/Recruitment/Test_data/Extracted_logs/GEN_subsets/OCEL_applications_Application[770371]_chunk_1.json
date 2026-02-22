@@ -1,0 +1,99 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Application",
+            "attributes": [
+                {
+                    "name": "position",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Vacancy",
+            "attributes": []
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Application Submitted",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "Person[Angela Davis]",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Angela Davis"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Application[770371]",
+                    "qualifier": "submitted"
+                }
+            ]
+        },
+        {
+            "id": "Application[770371]",
+            "type": "Application",
+            "attributes": [
+                {
+                    "name": "position",
+                    "value": "Programmer",
+                    "time": "2019-07-01T15:55:46Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Vacancy[550049]",
+                    "qualifier": "associatedWith"
+                },
+                {
+                    "objectId": "Person[Angela Davis]",
+                    "qualifier": "submittedBy"
+                }
+            ]
+        },
+        {
+            "id": "Vacancy[550049]",
+            "type": "Vacancy",
+            "attributes": [],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "Application Submitted",
+            "time": "2019-07-01T15:55:46Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "Application[770371]",
+                    "qualifier": "application"
+                },
+                {
+                    "objectId": "Person[Angela Davis]",
+                    "qualifier": "submitter"
+                },
+                {
+                    "objectId": "Vacancy[550049]",
+                    "qualifier": "vacancy"
+                }
+            ]
+        }
+    ]
+}

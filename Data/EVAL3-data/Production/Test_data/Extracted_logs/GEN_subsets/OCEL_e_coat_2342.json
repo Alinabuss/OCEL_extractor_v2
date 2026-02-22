@@ -1,0 +1,149 @@
+{
+    "objectTypes": [
+        {
+            "name": "Machine",
+            "attributes": [
+                {
+                    "name": "identifier",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Workstation",
+            "attributes": [
+                {
+                    "name": "number",
+                    "type": "integer"
+                }
+            ]
+        },
+        {
+            "name": "FormedPart",
+            "attributes": [
+                {
+                    "name": "label",
+                    "type": "integer"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Coating",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "type": "integer"
+                },
+                {
+                    "name": "co2_kg",
+                    "type": "number"
+                },
+                {
+                    "name": "electricity_kwh",
+                    "type": "number"
+                },
+                {
+                    "name": "electricity_source",
+                    "type": "string"
+                },
+                {
+                    "name": "coating_applied_kg",
+                    "type": "number"
+                },
+                {
+                    "name": "coating_wasted_kg",
+                    "type": "number"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "Machine[coater03]",
+            "type": "Machine",
+            "attributes": [
+                {
+                    "name": "identifier",
+                    "value": "coater03"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "Workstation[1]",
+                    "qualifier": "located_at"
+                }
+            ]
+        },
+        {
+            "id": "Workstation[1]",
+            "type": "Workstation",
+            "attributes": [
+                {
+                    "name": "number",
+                    "value": "1"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "FormedPart[2342]",
+            "type": "FormedPart",
+            "attributes": [
+                {
+                    "name": "label",
+                    "value": "2342"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "coating-1",
+            "type": "Coating",
+            "time": "2023-04-04T10:56:46Z",
+            "attributes": [
+                {
+                    "name": "duration_seconds",
+                    "value": "300"
+                },
+                {
+                    "name": "co2_kg",
+                    "value": "0.175"
+                },
+                {
+                    "name": "electricity_kwh",
+                    "value": "0.25"
+                },
+                {
+                    "name": "electricity_source",
+                    "value": "grid"
+                },
+                {
+                    "name": "coating_applied_kg",
+                    "value": "0.0004"
+                },
+                {
+                    "name": "coating_wasted_kg",
+                    "value": "0.0001"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "FormedPart[2342]",
+                    "qualifier": "part"
+                },
+                {
+                    "objectId": "Machine[coater03]",
+                    "qualifier": "machine"
+                },
+                {
+                    "objectId": "Workstation[1]",
+                    "qualifier": "location"
+                }
+            ]
+        }
+    ]
+}

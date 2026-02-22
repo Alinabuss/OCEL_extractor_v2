@@ -1,0 +1,160 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "FirefighterTeam",
+            "attributes": [
+                {
+                    "name": "label",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "MopUpHotSpots",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ImproveContainmentLines",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "ContinueMonitoringAndPatrolling",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "planned",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire_kenneth",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-11T13:21:00Z",
+                    "value": "Kenneth Fire"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "firefighters_team_1",
+                    "qualifier": "has_responders"
+                }
+            ]
+        },
+        {
+            "id": "firefighters_team_1",
+            "type": "FirefighterTeam",
+            "attributes": [
+                {
+                    "name": "label",
+                    "time": "2025-01-11T13:21:00Z",
+                    "value": "Firefighters"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_kenneth",
+                    "qualifier": "responding_to"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "MopUpHotSpots",
+            "time": "2025-01-11T13:21:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Firefighters worked throughout the day to mop up hot spots, adding to the overall containment of this fire."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_kenneth",
+                    "qualifier": "affected"
+                },
+                {
+                    "objectId": "firefighters_team_1",
+                    "qualifier": "agent"
+                }
+            ]
+        },
+        {
+            "id": "e2",
+            "type": "ImproveContainmentLines",
+            "time": "2025-01-11T13:21:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Firefighters worked throughout the day to improve containment lines, adding to the overall containment of this fire."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_kenneth",
+                    "qualifier": "affected"
+                },
+                {
+                    "objectId": "firefighters_team_1",
+                    "qualifier": "agent"
+                }
+            ]
+        },
+        {
+            "id": "e3",
+            "type": "ContinueMonitoringAndPatrolling",
+            "time": "2025-01-11T13:21:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Firefighters will continue monitoring and patrolling this evening to ensure the fire remains within its established perimeter."
+                },
+                {
+                    "name": "planned",
+                    "value": "true"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire_kenneth",
+                    "qualifier": "target"
+                },
+                {
+                    "objectId": "firefighters_team_1",
+                    "qualifier": "agent"
+                }
+            ]
+        }
+    ]
+}

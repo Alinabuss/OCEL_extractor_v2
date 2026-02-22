@@ -1,0 +1,179 @@
+{
+    "objectTypes": [
+        {
+            "name": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Company",
+            "attributes": [
+                {
+                    "name": "administration_years",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "CriminalProceedingsBrought",
+            "attributes": [
+                {
+                    "name": "allegation",
+                    "type": "string"
+                },
+                {
+                    "name": "tax_types",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "InvestigatingJudgeAction",
+            "attributes": [
+                {
+                    "name": "note",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "applicant",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "time": "2013-12-01T00:00:00Z",
+                    "value": "applicant"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "company-1",
+                    "qualifier": "administrator-of"
+                },
+                {
+                    "objectId": "company-2",
+                    "qualifier": "administrator-of"
+                }
+            ]
+        },
+        {
+            "id": "company-1",
+            "type": "Company",
+            "attributes": [
+                {
+                    "name": "administration_years",
+                    "value": "2007-2008"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant",
+                    "qualifier": "administered-by"
+                }
+            ]
+        },
+        {
+            "id": "company-2",
+            "type": "Company",
+            "attributes": [
+                {
+                    "name": "administration_years",
+                    "value": "2007-2008"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant",
+                    "qualifier": "administered-by"
+                }
+            ]
+        },
+        {
+            "id": "public-prosecutor",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "public prosecutor"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "barcelona-investigating-judge",
+            "type": "Person",
+            "attributes": [
+                {
+                    "name": "role",
+                    "value": "Barcelona investigating judge"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "CriminalProceedingsBrought",
+            "time": "2013-12-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "allegation",
+                    "value": "alleged involvement in tax fraud"
+                },
+                {
+                    "name": "tax_types",
+                    "value": "VAT; corporate taxes"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "applicant",
+                    "qualifier": "accused"
+                },
+                {
+                    "objectId": "company-1",
+                    "qualifier": "involved"
+                },
+                {
+                    "objectId": "company-2",
+                    "qualifier": "involved"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "InvestigatingJudgeAction",
+            "time": "2016-04-29T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "note",
+                    "value": "After the charges had been presented by the public prosecutor"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "barcelona-investigating-judge",
+                    "qualifier": "actor"
+                },
+                {
+                    "objectId": "applicant",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "public-prosecutor",
+                    "qualifier": "charges-presenter"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,87 @@
+{
+    "objectTypes": [
+        {
+            "name": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "type": "time"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "VehicleBooked",
+            "attributes": [
+                {
+                    "name": "allocationStatus",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "td262",
+            "type": "TransportDocument",
+            "attributes": [
+                {
+                    "name": "containers",
+                    "time": "2023-12-08T13:13:35Z",
+                    "value": "2.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "vh60",
+            "type": "Vehicle",
+            "attributes": [
+                {
+                    "name": "scheduledDeparture",
+                    "time": "2023-12-22T11:00:00Z",
+                    "value": "2023-12-22T11:00:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td262",
+                    "qualifier": "allocatedFor"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "VehicleBooked",
+            "time": "2023-12-08T13:13:35Z",
+            "attributes": [
+                {
+                    "name": "allocationStatus",
+                    "value": "successful"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "td262",
+                    "qualifier": "transportDocument"
+                },
+                {
+                    "objectId": "vh60",
+                    "qualifier": "regularVehicle"
+                }
+            ]
+        }
+    ]
+}

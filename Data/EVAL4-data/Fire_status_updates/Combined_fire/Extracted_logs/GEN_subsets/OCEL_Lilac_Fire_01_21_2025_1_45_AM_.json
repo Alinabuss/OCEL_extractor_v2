@@ -1,0 +1,130 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "size",
+                    "type": "string"
+                },
+                {
+                    "name": "rateOfSpread",
+                    "type": "string"
+                },
+                {
+                    "name": "structuresThreatened",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "FireStatusReport",
+            "attributes": [
+                {
+                    "name": "size",
+                    "type": "string"
+                },
+                {
+                    "name": "rateOfSpread",
+                    "type": "string"
+                },
+                {
+                    "name": "structuresThreatened",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire-1",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-21T01:45:00Z",
+                    "value": "Lilac Fire"
+                },
+                {
+                    "name": "size",
+                    "time": "2025-01-21T01:45:00Z",
+                    "value": "approximately 3 acres"
+                },
+                {
+                    "name": "rateOfSpread",
+                    "time": "2025-01-21T01:45:00Z",
+                    "value": "moderate"
+                },
+                {
+                    "name": "structuresThreatened",
+                    "time": "2025-01-21T01:45:00Z",
+                    "value": "structures threatened"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "loc-1",
+                    "qualifier": "locatedNear"
+                }
+            ]
+        },
+        {
+            "id": "loc-1",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "description",
+                    "time": "2025-01-21T01:45:00Z",
+                    "value": "near Old Highway 395 and Lilac road"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "FireStatusReport",
+            "time": "2025-01-21T01:45:00Z",
+            "attributes": [
+                {
+                    "name": "size",
+                    "value": "approximately 3 acres"
+                },
+                {
+                    "name": "rateOfSpread",
+                    "value": "moderate"
+                },
+                {
+                    "name": "structuresThreatened",
+                    "value": "structures threatened"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "reportsOn"
+                },
+                {
+                    "objectId": "loc-1",
+                    "qualifier": "locatedNear"
+                }
+            ]
+        }
+    ]
+}

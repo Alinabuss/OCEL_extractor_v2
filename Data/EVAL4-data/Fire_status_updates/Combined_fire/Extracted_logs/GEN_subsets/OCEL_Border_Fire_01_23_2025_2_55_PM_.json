@@ -1,0 +1,146 @@
+{
+    "objectTypes": [
+        {
+            "name": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "fuelType",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Responder",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "On Scene",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "fire-1",
+            "type": "Fire",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-23T14:55:00Z",
+                    "value": "Border Fire"
+                },
+                {
+                    "name": "fuelType",
+                    "time": "2025-01-23T14:55:00Z",
+                    "value": "vegetation"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "loc-trail-1",
+                    "qualifier": "near"
+                },
+                {
+                    "objectId": "loc-wilderness-1",
+                    "qualifier": "within"
+                }
+            ]
+        },
+        {
+            "id": "loc-trail-1",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-23T14:55:00Z",
+                    "value": "Otay Mountain Truck Trail"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "loc-wilderness-1",
+                    "qualifier": "within"
+                }
+            ]
+        },
+        {
+            "id": "loc-wilderness-1",
+            "type": "Location",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-23T14:55:00Z",
+                    "value": "Otay Mountain Wilderness"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "responder-firefighters-1",
+            "type": "Responder",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "2025-01-23T14:55:00Z",
+                    "value": "Firefighters"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "On Scene",
+            "time": "2025-01-23T14:55:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "Firefighters are on scene of a vegetation fire located near Otay Mountain Truck Trail within the Otay Mountain Wilderness."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "responder-firefighters-1",
+                    "qualifier": "on-scene"
+                },
+                {
+                    "objectId": "fire-1",
+                    "qualifier": "of"
+                },
+                {
+                    "objectId": "loc-trail-1",
+                    "qualifier": "near"
+                },
+                {
+                    "objectId": "loc-wilderness-1",
+                    "qualifier": "within"
+                }
+            ]
+        }
+    ]
+}

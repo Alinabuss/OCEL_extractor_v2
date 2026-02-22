@@ -1,0 +1,254 @@
+{
+    "objectTypes": [
+        {
+            "name": "FireIncident",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Responder",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Infrastructure",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Structure",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Population",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Authority",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "jurisdiction",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "WeatherConditions",
+            "attributes": [
+                {
+                    "name": "factors",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "SituationReport",
+            "attributes": [
+                {
+                    "name": "summary",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "HurstFire",
+            "type": "FireIncident",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Hurst Fire",
+                    "time": "2025-01-08T04:52:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "homes_structures",
+                    "qualifier": "threatens"
+                },
+                {
+                    "objectId": "critical_infrastructure",
+                    "qualifier": "threatens"
+                },
+                {
+                    "objectId": "weather_conditions_1",
+                    "qualifier": "influencedBy"
+                }
+            ]
+        },
+        {
+            "id": "fire_crews_1",
+            "type": "Responder",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "fire crews",
+                    "time": "2025-01-08T04:52:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "HurstFire",
+                    "qualifier": "respondingTo"
+                }
+            ]
+        },
+        {
+            "id": "critical_infrastructure",
+            "type": "Infrastructure",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "critical infrastructure",
+                    "time": "2025-01-08T04:52:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "HurstFire",
+                    "qualifier": "atRiskFrom"
+                }
+            ]
+        },
+        {
+            "id": "homes_structures",
+            "type": "Structure",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "homes and other structures",
+                    "time": "2025-01-08T04:52:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "HurstFire",
+                    "qualifier": "threatenedBy"
+                }
+            ]
+        },
+        {
+            "id": "residents",
+            "type": "Population",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "residents",
+                    "time": "2025-01-08T04:52:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "local_authorities",
+                    "qualifier": "advisedBy"
+                }
+            ]
+        },
+        {
+            "id": "local_authorities",
+            "type": "Authority",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "local authorities",
+                    "time": "2025-01-08T04:52:00Z"
+                },
+                {
+                    "name": "jurisdiction",
+                    "value": "local",
+                    "time": "2025-01-08T04:52:00Z"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "weather_conditions_1",
+            "type": "WeatherConditions",
+            "attributes": [
+                {
+                    "name": "factors",
+                    "value": "dry fuels; strong winds; low humidity",
+                    "time": "2025-01-08T04:52:00Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "HurstFire",
+                    "qualifier": "contributesTo"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "SituationReport",
+            "time": "2025-01-08T04:52:00Z",
+            "attributes": [
+                {
+                    "name": "summary",
+                    "value": "The Hurst Fire is spreading rapidly under high winds, creating dangerous conditions for nearby communities. Fire crews are working tirelessly to contain the fire and protect critical infrastructure as it threatens homes and other structures. The combination of dry fuels, strong winds, and low humidity is contributing to aggressive fire behavior, making containment efforts extremely challenging. Residents are urged to remain vigilant and follow directives from local authorities as the situation evolves."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "HurstFire",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "weather_conditions_1",
+                    "qualifier": "contributingFactor"
+                },
+                {
+                    "objectId": "fire_crews_1",
+                    "qualifier": "responder"
+                },
+                {
+                    "objectId": "critical_infrastructure",
+                    "qualifier": "protectedAsset"
+                },
+                {
+                    "objectId": "homes_structures",
+                    "qualifier": "threatened"
+                },
+                {
+                    "objectId": "residents",
+                    "qualifier": "audience"
+                },
+                {
+                    "objectId": "local_authorities",
+                    "qualifier": "advisorySource"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,354 @@
+{
+    "objectTypes": [
+        {
+            "name": "Employee",
+            "attributes": [
+                {
+                    "name": "fullName",
+                    "type": "string"
+                },
+                {
+                    "name": "position",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "Picking Item",
+            "attributes": [
+                {
+                    "name": "item_price",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "Reordering Item",
+            "attributes": [
+                {
+                    "name": "item_price",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "o-leah-tacke",
+            "type": "Employee",
+            "attributes": [
+                {
+                    "name": "fullName",
+                    "value": "Leah Tacke genannt Unterberg"
+                },
+                {
+                    "name": "position",
+                    "value": "employee"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-warehousing-dept",
+                    "qualifier": "works_in"
+                }
+            ]
+        },
+        {
+            "id": "o-warehousing-dept",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Warehousing"
+                }
+            ]
+        },
+        {
+            "id": "o-product-echo",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Echo"
+                },
+                {
+                    "name": "price",
+                    "value": "99.99"
+                }
+            ]
+        },
+        {
+            "id": "o-product-echo-plus",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Echo Plus"
+                },
+                {
+                    "name": "price",
+                    "value": "149.99"
+                }
+            ]
+        },
+        {
+            "id": "o-product-fire-stick",
+            "type": "Product",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "Fire Stick"
+                },
+                {
+                    "name": "price",
+                    "value": "39.99"
+                }
+            ]
+        },
+        {
+            "id": "o-item-i-886112",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "112.39",
+                    "time": "2024-01-09T15:24:47Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-product-echo",
+                    "qualifier": "product"
+                }
+            ]
+        },
+        {
+            "id": "o-item-i-886072",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "168.57",
+                    "time": "2024-01-10T12:37:35Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-product-echo-plus",
+                    "qualifier": "product"
+                }
+            ]
+        },
+        {
+            "id": "o-item-i-886311",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "168.57",
+                    "time": "2024-01-19T11:08:15Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-product-echo-plus",
+                    "qualifier": "product"
+                }
+            ]
+        },
+        {
+            "id": "o-item-i-885834",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "112.39",
+                    "time": "2024-01-22T16:57:18Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-product-echo",
+                    "qualifier": "product"
+                }
+            ]
+        },
+        {
+            "id": "o-item-i-886732",
+            "type": "Item",
+            "attributes": [
+                {
+                    "name": "price",
+                    "value": "47.13",
+                    "time": "2024-02-09T09:28:34Z"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-product-fire-stick",
+                    "qualifier": "product"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e-1",
+            "type": "Picking Item",
+            "time": "2024-01-09T15:24:47Z",
+            "attributes": [
+                {
+                    "name": "item_price",
+                    "value": "112.39"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-leah-tacke",
+                    "qualifier": "performed_by"
+                },
+                {
+                    "objectId": "o-item-i-886112",
+                    "qualifier": "affected_item"
+                },
+                {
+                    "objectId": "o-product-echo",
+                    "qualifier": "related_product"
+                }
+            ]
+        },
+        {
+            "id": "e-2",
+            "type": "Reordering Item",
+            "time": "2024-01-10T12:37:35Z",
+            "attributes": [
+                {
+                    "name": "item_price",
+                    "value": "168.57"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-leah-tacke",
+                    "qualifier": "performed_by"
+                },
+                {
+                    "objectId": "o-item-i-886072",
+                    "qualifier": "affected_item"
+                },
+                {
+                    "objectId": "o-product-echo-plus",
+                    "qualifier": "related_product"
+                }
+            ]
+        },
+        {
+            "id": "e-3",
+            "type": "Picking Item",
+            "time": "2024-01-19T11:08:15Z",
+            "attributes": [
+                {
+                    "name": "item_price",
+                    "value": "168.57"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-leah-tacke",
+                    "qualifier": "performed_by"
+                },
+                {
+                    "objectId": "o-item-i-886311",
+                    "qualifier": "affected_item"
+                },
+                {
+                    "objectId": "o-product-echo-plus",
+                    "qualifier": "related_product"
+                }
+            ]
+        },
+        {
+            "id": "e-4",
+            "type": "Picking Item",
+            "time": "2024-01-22T16:57:18Z",
+            "attributes": [
+                {
+                    "name": "item_price",
+                    "value": "112.39"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-leah-tacke",
+                    "qualifier": "performed_by"
+                },
+                {
+                    "objectId": "o-item-i-885834",
+                    "qualifier": "affected_item"
+                },
+                {
+                    "objectId": "o-product-echo",
+                    "qualifier": "related_product"
+                }
+            ]
+        },
+        {
+            "id": "e-5",
+            "type": "Picking Item",
+            "time": "2024-02-09T09:28:34Z",
+            "attributes": [
+                {
+                    "name": "item_price",
+                    "value": "47.13"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "o-leah-tacke",
+                    "qualifier": "performed_by"
+                },
+                {
+                    "objectId": "o-item-i-886732",
+                    "qualifier": "affected_item"
+                },
+                {
+                    "objectId": "o-product-fire-stick",
+                    "qualifier": "related_product"
+                }
+            ]
+        }
+    ]
+}

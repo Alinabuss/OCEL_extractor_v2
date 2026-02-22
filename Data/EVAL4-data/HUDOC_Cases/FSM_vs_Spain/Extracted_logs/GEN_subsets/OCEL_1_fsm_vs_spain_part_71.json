@@ -1,0 +1,204 @@
+{
+    "objectTypes": [
+        {
+            "name": "Law",
+            "attributes": [
+                {
+                    "name": "title",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Article",
+            "attributes": [
+                {
+                    "name": "number",
+                    "type": "string"
+                },
+                {
+                    "name": "text",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Case",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Reason",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Statement",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "ProvisionText",
+            "attributes": [
+                {
+                    "name": "text",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "law:CriminalProcedureAct",
+            "type": "Law",
+            "attributes": [
+                {
+                    "name": "title",
+                    "value": "Criminal Procedure Act"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "article:381",
+            "type": "Article",
+            "attributes": [
+                {
+                    "name": "number",
+                    "value": "381"
+                },
+                {
+                    "name": "text",
+                    "value": "The law shall determine the cases in which, for reasons of family relationship or professional secrecy, it shall not be compulsory to make statements regarding alleged criminal offences."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "law:CriminalProcedureAct",
+                    "qualifier": "part-of"
+                }
+            ]
+        },
+        {
+            "id": "case:exemption_cases",
+            "type": "Case",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "cases in which, for reasons of family relationship or professional secrecy, it shall not be compulsory to make statements regarding alleged criminal offences."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "article:381",
+                    "qualifier": "determined-by"
+                },
+                {
+                    "objectId": "law:CriminalProcedureAct",
+                    "qualifier": "determined-by"
+                }
+            ]
+        },
+        {
+            "id": "reason:family_relationship",
+            "type": "Reason",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "family relationship"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "case:exemption_cases",
+                    "qualifier": "for-reason"
+                }
+            ]
+        },
+        {
+            "id": "reason:professional_secrecy",
+            "type": "Reason",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "professional secrecy"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "case:exemption_cases",
+                    "qualifier": "for-reason"
+                }
+            ]
+        },
+        {
+            "id": "statement:alleged_criminal_offences",
+            "type": "Statement",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "statements regarding alleged criminal offences"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "case:exemption_cases",
+                    "qualifier": "regarding"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "ProvisionText",
+            "time": "2020-01-01T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "text",
+                    "value": "The law shall determine the cases in which, for reasons of family relationship or professional secrecy, it shall not be compulsory to make statements regarding alleged criminal offences."
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "article:381",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "law:CriminalProcedureAct",
+                    "qualifier": "source"
+                },
+                {
+                    "objectId": "case:exemption_cases",
+                    "qualifier": "describes"
+                },
+                {
+                    "objectId": "reason:family_relationship",
+                    "qualifier": "mentions"
+                },
+                {
+                    "objectId": "reason:professional_secrecy",
+                    "qualifier": "mentions"
+                },
+                {
+                    "objectId": "statement:alleged_criminal_offences",
+                    "qualifier": "concerns"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,137 @@
+{
+    "objectTypes": [
+        {
+            "name": "Defendant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Right",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Opportunity",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "Trial",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "UnderstandConsequences",
+            "attributes": [
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "id": "defendant_1",
+            "type": "Defendant",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "defendant"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "right_give_evidence_1",
+            "type": "Right",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "right to give evidence"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "opportunity_speak_1",
+            "type": "Opportunity",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "opportunity to speak"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "trial_1",
+                    "qualifier": "occursAtEndOf"
+                }
+            ]
+        },
+        {
+            "id": "trial_1",
+            "type": "Trial",
+            "attributes": [
+                {
+                    "name": "name",
+                    "time": "",
+                    "value": "trial"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "UnderstandConsequences",
+            "time": "2025-09-11T00:00:00Z",
+            "attributes": [
+                {
+                    "name": "description",
+                    "value": "The defendant has to be able to understand the consequences of exercising the right to give evidence or using the opportunity to speak at the end of the trial"
+                }
+            ],
+            "relationships": [
+                {
+                    "objectId": "defendant_1",
+                    "qualifier": "subject"
+                },
+                {
+                    "objectId": "right_give_evidence_1",
+                    "qualifier": "relatedTo"
+                },
+                {
+                    "objectId": "opportunity_speak_1",
+                    "qualifier": "relatedTo"
+                },
+                {
+                    "objectId": "trial_1",
+                    "qualifier": "context"
+                }
+            ]
+        }
+    ]
+}

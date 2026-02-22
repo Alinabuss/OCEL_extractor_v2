@@ -1,0 +1,95 @@
+{
+    "objectTypes": [
+        {
+            "name": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "eventTypes": [
+        {
+            "name": "InvoiceReceiptCreationCompleted",
+            "attributes": []
+        }
+    ],
+    "objects": [
+        {
+            "id": "inv_1",
+            "type": "InvoiceReceipt",
+            "attributes": [
+                {
+                    "name": "creditAmount",
+                    "time": "2023-03-10T16:49:00Z",
+                    "value": "83700.0"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "gr_1",
+            "type": "GoodsReceipt",
+            "attributes": [
+                {
+                    "name": "movementType",
+                    "value": "101"
+                }
+            ],
+            "relationships": []
+        },
+        {
+            "id": "dept_fin_acct",
+            "type": "Department",
+            "attributes": [
+                {
+                    "name": "name",
+                    "value": "finance and account department"
+                }
+            ],
+            "relationships": []
+        }
+    ],
+    "events": [
+        {
+            "id": "e1",
+            "type": "InvoiceReceiptCreationCompleted",
+            "time": "2023-03-10T16:49:00Z",
+            "attributes": [],
+            "relationships": [
+                {
+                    "objectId": "inv_1",
+                    "qualifier": "created"
+                },
+                {
+                    "objectId": "gr_1",
+                    "qualifier": "associated"
+                },
+                {
+                    "objectId": "dept_fin_acct",
+                    "qualifier": "performed_by"
+                }
+            ]
+        }
+    ]
+}
